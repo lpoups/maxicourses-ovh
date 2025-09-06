@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Logs & dumps
+*.log
+www/maxicoursesapp/api/debug/
+
+# VS Code
+.vscode/
+
+# Autres caches temporaires
+.tmp/

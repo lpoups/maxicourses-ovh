@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Maxicourses — Comparaison rapide</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:24px}
+  h1{font-size:22px;margin:0}
+  .muted{color:#666;font-size:13px;margin-top:4px}
+  textarea,input{font:inherit}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+  table{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
+  th,td{padding:8px;border-top:1px solid #eee;vertical-align:top}
+  th{text-align:left}
+  .btn{border:1px solid #000;background:#000;color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;cursor:pointer}
+  .btn-ghost{border:1px solid #ccc;background:#fff;color:#000;border-radius:6px;padding:6px 10px;font-size:13px;cursor:pointer}
+  .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+  .center{text-align:center}
+  .green{background:#ecfdf5;font-weight:600}
+  .right{text-align:right}
+  .small{font-size:12px;color:#0a6847}
+  .num{width:80px;text-align:right}
+  .price{width:100px;text-align:right}
+  .url{width:100%}
+</style>
+</head>
+<body>
+  <h1>Comparaison live (Import liste)</h1>
+  <div class="muted">Colonne A = autre enseigne (prix manuel si besoin). Colonne B = Monoprix (auto OK via API PHP).</div>
+
+  <div class="row">
+    <div>
+      <label class="muted">Coller la liste (une ligne par produit, optionnel : “2x …” ou “3 …”)</label>
+      <textarea id="importText" rows="6" class="mono" style="width:100%;margin-top:6px;">2x Coca-Cola 1,75L
+Pâtes 500g
+3 Lait demi-écrémé 1L</textarea>
+      <div style="margin-top:8px;display:flex;gap:8px">
+        <button id="btnImport" class="btn">Importer (remplace)</button>
+        <button id="btnAdd" class="btn-ghost">+ Ligne</button>
+        <button id="btnClear" class="btn-ghost">Vider</button>
+      </div>
+    </div>
+    <div class="muted">
+      Exemples acceptés :<br/>
+      <span class="mono">2x Coca-Cola 1,75L</span><br/>
+      <span class="mono">Pâtes 500g</span><br/>
+      <span class="mono">3 Lait demi-écrémé 1L</span>
+    </div>
+  </div>
+
+  <table id="tbl">
+    <thead>
+      <tr>
+        <th>Produit</th>
+        <th class="center">Qté</th>
+        <th>URL A</th>
+        <th>URL B (Monoprix)</th>
+        <th class="center">€/A</th>
+        <th class="center">€/B</th>
+        <th class="center">Économie</th>
+        <th class="center"></th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+      <tr>
+        <td>Total</td><td></td><td></td><td></td>
+        <td class="center" id="totA">0,00 €</td>
+        <td class="center" id="totB">0,00 €</td>
+        <td class="center" id="totEco">0,00 €</td>
+        <td class="center" id="winner">—</td>
+      </tr>
+    </tfoot>
+  </table>
+
+<script>
+const API = '/maxicoursesapp/api/scrape2.php';
+const KEY = 'mc_items_v1';
+const fmtEUR = n => (n||0).toLocaleString('fr-FR',{style:'currency',currency:'EUR'});
+
+let rows = load();
+render();
+
+document.getElementById('btnImport').onclick = () => {
+  const txt = document.getElementById('importText').value;
+  rows = parseLines(txt);
+  save(); render();
+};
+document.getElementById('btnAdd').onclick = () => { addRow(); save(); render(); };
+document.getElementById('btnClear').onclick = () => { rows = []; save(); render(); };
+
+function load(){
+  try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch { return []; }
+}
+function save(){
+  localStorage.setItem(KEY, JSON.stringify(rows));
+}
+
+function parseLines(txt){
+  const now = Date.now();
+  return txt.split(/\r?\n/).map(s=>s.trim()).filter(Boolean).slice(0,100).map((l,i)=>{
+    let qty = 1, name = l;
+    const m = l.match(/^\s*(\d+(?:[.,]\d+)?)\s*(?:x|×)?\s*(.+)$/i);
+    if (m){ qty = parseFloat(m[1].replace(',','.')); name = m[2].trim(); }
+    if (!Number.isFinite(qty) || qty<=0) qty = 1;
+    return { id:String(now+i), name, qty, urlA:'', urlB:'', priceA:null, priceB:null };
+  });
+}
+
+function addRow(){ rows.push({id:String(Date.now()), name:'Produit '+(rows.length+1), qty:1, urlA:'', urlB:'', priceA:null, priceB:null}); }
+
+function setField(id, key, val){
+  rows = rows.map(r => r.id===id ? {...r, [key]:val} : r);
+}
+
+async function readPrice(id, which){
+  const r = rows.find(x=>x.id===id); if(!r) return;
+  const url = which==='A' ? r.urlA : r.urlB;
+  if(!url) return;
+  try{
+    const res = await fetch(`${API}?url=${encodeURIComponent(url)}`);
+    const data = await res.json();
+    if(!data.ok) throw new Error(data.error||'échec');
+    if (r.name.startsWith('Produit ')) r.name = data.title || r.name;
+    r[which==='A'?'priceA':'priceB'] = Number(data.price);
+  }catch(e){
+    alert(`Erreur lecture prix (${which}) : ${e.message||e}`);
+  }
+  save(); render();
+}
+
+function render(){
+  const tbody = document.querySelector('#tbl tbody');
+  tbody.innerHTML = '';
+
+  let totA=0, totB=0, eco=0;
+
+  for(const r of rows){
+    const tr = document.createElement('tr');
+
+    // Produit
+    const tdName = document.createElement('td');
+    const inpName = Object.assign(document.createElement('input'), {value:r.name});
+    inpName.oninput = e => { setField(r.id,'name', e.target.value); save(); };
+    tdName.appendChild(inpName);
+    tr.appendChild(tdName);
+
+    // Qté
+    const tdQty = document.createElement('td'); tdQty.className='center';
+    const inpQty = Object.assign(document.createElement('input'), {type:'number', value:r.qty, min:'0', className:'num'});
+    inpQty.oninput = e => { setField(r.id,'qty', parseFloat(e.target.value)||0); save(); computeTotals(); };
+    tdQty.appendChild(inpQty);
+    tr.appendChild(tdQty);
+
+    // URL A
+    const tdUrlA = document.createElement('td');
+    const inA = Object.assign(document.createElement('input'), {value:r.urlA, placeholder:'URL produit enseigne A', className:'url'});
+    inA.oninput = e => { setField(r.id,'urlA', e.target.value); save(); };
+    const bA = Object.assign(document.createElement('button'), {innerText:'Lire prix', className:'btn-ghost'});
+    bA.onclick = ()=> readPrice(r.id,'A');
+    tdUrlA.append(inA, bA); tr.appendChild(tdUrlA);
+
+    // URL B (Monoprix)
+    const tdUrlB = document.createElement('td');
+    const inB = Object.assign(document.createElement('input'), {value:r.urlB, placeholder:'https://courses.monoprix.fr/...', className:'url'});
+    inB.oninput = e => { setField(r.id,'urlB', e.target.value); save(); };
+    const bB = Object.assign(document.createElement('button'), {innerText:'Lire prix', className:'btn-ghost'});
+    bB.onclick = ()=> readPrice(r.id,'B');
+    tdUrlB.append(inB, bB); tr.appendChild(tdUrlB);
+
+    // Prix A
+    const tdPA = document.createElement('td'); tdPA.className='center';
+    const showPA = document.createElement('div'); showPA.innerText = r.priceA!=null ? Number(r.priceA).toFixed(2) : '-';
+    const editPA = Object.assign(document.createElement('input'), {placeholder:'saisir €', className:'price'});
+    editPA.onblur = e => { const n = parseFloat(String(e.target.value).replace(',','.')); if(Number.isFinite(n)) { setField(r.id,'priceA', n); save(); render(); } };
+    tdPA.append(showPA, editPA);
+    tr.appendChild(tdPA);
+
+    // Prix B
+    const tdPB = document.createElement('td'); tdPB.className='center';
+    const showPB = document.createElement('div'); showPB.innerText = r.priceB!=null ? Number(r.priceB).toFixed(2) : '-';
+    const editPB = Object.assign(document.createElement('input'), {placeholder:'saisir €', className:'price'});
+    editPB.onblur = e => { const n = parseFloat(String(e.target.value).replace(',','.')); if(Number.isFinite(n)) { setField(r.id,'priceB', n); save(); render(); } };
+    tdPB.append(showPB, editPB);
+    tr.appendChild(tdPB);
+
+    // Économie + surlignage moins cher
+    const tdEco = document.createElement('td'); tdEco.className='center';
+    let econ = 0;
+    if (r.priceA!=null && r.priceB!=null){
+      econ = Math.abs(r.priceA - r.priceB) * (r.qty||0);
+      if (r.priceA < r.priceB) tdPA.classList.add('green');
+      if (r.priceB < r.priceA) tdPB.classList.add('green');
+      const tag = document.createElement('div'); tag.className='small';
+      tag.innerText = r.priceA<r.priceB ? 'moins cher: A' : (r.priceB<r.priceA ? 'moins cher: B' : '');
+      tdEco.appendChild(tag);
+    }
+    tdEco.appendChild(document.createTextNode(econ ? fmtEUR(econ) : '-'));
+    tr.appendChild(tdEco);
+
+    // Suppr
+    const tdDel = document.createElement('td'); tdDel.className='center';
+    const bDel = Object.assign(document.createElement('button'), {innerText:'Suppr', className:'btn-ghost'});
+    bDel.onclick = ()=> { rows = rows.filter(x=>x.id!==r.id); save(); render(); };
+    tdDel.appendChild(bDel); tr.appendChild(tdDel);
+
+    // totaux
+    totA += (r.priceA||0) * (r.qty||0);
+    totB += (r.priceB||0) * (r.qty||0);
+
+    tbody.appendChild(tr);
+  }
+
+  const winner = totA===totB ? 'Égalité' : (totA<totB ? 'Colonne A' : 'Colonne B');
+  document.getElementById('totA').innerText = fmtEUR(totA);
+  document.getElementById('totB').innerText = fmtEUR(totB);
+  document.getElementById('totEco').innerText = fmtEUR(Math.abs(totA-totB));
+  document.getElementById('winner').innerText = winner;
+}
+</script>
+</body>
+</html>

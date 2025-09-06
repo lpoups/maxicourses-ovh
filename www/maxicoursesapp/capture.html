@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Capture maxicourses</title>
+<script>
+(function(){
+  const KEY='mc_items_v1';
+  function load(){ try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch{return[]} }
+  function save(rows){ localStorage.setItem(KEY, JSON.stringify(rows)) }
+
+  const q=new URLSearchParams(location.search);
+  const side=(q.get('side')||'A').toUpperCase(); // 'A' ou 'B'
+  const name=q.get('name')||'Produit';
+  const url=q.get('url')||'';
+  const price=parseFloat((q.get('price')||'').replace(',','.'));
+  const rows=load();
+  const id=String(Date.now());
+  const row={
+    id, name, qty:1,
+    urlA: side==='A'? url : '',
+    urlB: side==='B'? url : '',
+    priceA: side==='A' && Number.isFinite(price)? price : null,
+    priceB: side==='B' && Number.isFinite(price)? price : null
+  };
+  rows.push(row); save(rows);
+    location.replace('/maxicoursesapp/compare-multi.html?v=15');
+})();
+</script>

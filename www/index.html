@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maxicourses</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicons/favicon.svg">
+  <link rel="icon" href="assets/favicons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/favicons/site.webmanifest">
+  <meta name="theme-color" content="#0B2A5B">
+  <style>
+:root{--primary:#0B2A5B;--accent:#18C2B5;--muted:#5c6b7a;--maxw:1140px}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#121212;background:#fff;scroll-behavior:smooth}
+.header{position:sticky;top:0;z-index:30;background:linear-gradient(180deg,#072046 0%,#0B2A5B 70%);box-shadow:0 6px 18px rgba(0,0,0,.14)}
+.header-inner{max-width:var(--maxw);margin:0 auto;display:flex;gap:20px;align-items:center;padding:12px 20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;font-weight:700;letter-spacing:.4px}
+.brand img{height:30px}
+nav{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:#E8F1FF;text-decoration:none;padding:8px 4px;border-bottom:2px solid transparent}
+nav a:hover,nav a.active{border-bottom-color:var(--accent);color:#fff}
+.hero{max-width:var(--maxw);margin:0 auto;padding:14px 20px}
+.hero-card{border-radius:22px;overflow:hidden;box-shadow:0 24px 64px rgba(7,32,70,.25);background:transparent;display:flex;justify-content:center}
+.hero-card img{display:block;margin:0 auto}
+/* --- Hero slider (défilement écrans iPhone) --- */
+.hero-card{position:relative}
+.hero-slider{position:relative;width:100%}
+.hero-slider .slides{display:flex;will-change:transform;transition:transform .5s ease}
+.hero-slider .slide{min-width:100%;display:flex;justify-content:center;padding:12px 0}
+.iphone-screen{
+  max-height:520px;width:auto;border-radius:24px;
+  box-shadow:0 18px 50px rgba(7,32,70,.25)
+}
+@media(max-width:900px){ .iphone-screen{max-height:360px} }
+.hero-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:42px;height:42px;border-radius:50%;border:none;cursor:pointer;
+  background:rgba(255,255,255,.92);color:var(--primary);
+  box-shadow:0 10px 24px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;
+  font-size:22px;line-height:1
+}
+.hero-nav:hover{filter:brightness(1.05)}
+.hero-nav.prev{left:8px}
+.hero-nav.next{right:8px}
+.hero-dots{
+  position:absolute;left:0;right:0;bottom:10px;display:flex;gap:6px;justify-content:center;pointer-events:auto
+}
+.hero-dot{width:8px;height:8px;border-radius:50%;border:1px solid rgba(0,0,0,.1);background:rgba(255,255,255,.6);cursor:pointer}
+.hero-dot.active{background:var(--accent)}
+main section{max-width:var(--maxw);margin:0 auto;padding:36px 20px}
+h2{color:var(--primary);font-size:30px;letter-spacing:-.2px;margin:0 0 14px 0}
+p{line-height:1.55;color:#2a3442}
+.row{display:grid;grid-template-columns: minmax(0,1fr) 160px; gap:18px; align-items:flex-start; margin:14px 0}
+.row.only-media{grid-template-columns: 1fr}
+.row > :only-child{ grid-column: 1 / -1; }
+.col-text p{margin:0}
+.col-media{display:flex;flex-direction:column;gap:10px;align-items:center}
+.col-media img{width:100%;height:auto;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
+@media(max-width:900px){.row{grid-template-columns:1fr}}
+footer{border-top:1px solid #ecf1f7;margin-top:24px}
+.footer-inner{max-width:var(--maxw);margin:0 auto;padding:20px;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.email a{color: var(--primary); text-decoration:none; border-bottom:1px dashed var(--accent)}
+
+/* --- Icône lecture + modal vidéo --- */
+.video-icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:74px; height:74px; border-radius:999px; border:none;
+  background:#fff; box-shadow:0 10px 24px rgba(0,0,0,.18);
+  cursor:pointer; text-decoration:none;
+}
+.video-icon svg{ width:30px; height:30px; fill:#0B2A5B; margin-left:2px }
+
+.modal{ position:fixed; inset:0; background:rgba(0,0,0,.7); display:none;
+  align-items:center; justify-content:center; padding:20px; z-index:1000; }
+.modal.open{ display:flex; }
+.modal-dialog{
+  width:min(92vw, 1140px);
+  aspect-ratio:16/9;                 /* 1920x1080 -> responsive */
+  background:#000; border-radius:12px; overflow:hidden; position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+.modal video{ width:100%; height:100%; object-fit:contain; background:#000; }
+.modal-close{
+  position:absolute; top:8px; right:8px; width:40px; height:40px;
+  border-radius:999px; border:none; background:rgba(255,255,255,.9);
+  cursor:pointer; font-size:24px; line-height:40px;
+}
+
+  /* ————— Design refresh (palette Maxicourses) ————— */
+  body{
+    background:#fff;
+  }
+  /* Titres de section avec soulignement accent */
+  h2{
+    color:var(--primary);
+    font-size:32px;
+    letter-spacing:-.2px;
+    margin:0 0 14px 0;
+    position:relative;
+  }
+  h2::after{
+    content:"";
+    display:block;
+    width:56px;height:3px;border-radius:2px;
+    background:var(--accent);
+    margin-top:10px;
+  }
+  /* Meilleure lisibilité et ancrage propre sous header sticky */
+  section[id]{ scroll-margin-top: 88px; }
+
+  /* CTA vidéo inline : icône + libellé sur une ligne */
+  .video-cta{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+  .video-label{font-weight:600;color:var(--primary)}
+  .video-cta:hover .video-label{color:var(--accent);text-decoration:underline}
+  .video-icon{transition:transform .2s ease, box-shadow .2s ease}
+  .video-cta:hover .video-icon{transform:translateY(-1px); box-shadow:0 14px 28px rgba(0,0,0,.22)}
+  /* --- Status list (fait / en cours / à faire / etc.) --- */
+  .status-list{list-style:none;margin:8px 0;padding:0;display:grid;gap:8px}
+  .status-item{display:flex;align-items:flex-start;gap:10px}
+  .status-item img{width:22px;height:22px;margin-top:2px;flex:0 0 22px}
+  .status-label{line-height:1.45;color:#2a3442}
+  .status-done .status-label{color:#1b5e20}
+  .status-progress .status-label{color:var(--primary)}
+  .status-todo .status-label{color:#5c6b7a}
+  .status-blocked .status-label{color:#b71c1c}
+
+  /* --- Section cards for a more visual layout --- */
+  section.section-card{
+    background:#fff;
+    border:1px solid #ecf1f7;
+    border-radius:20px;
+    padding:28px 20px;
+    margin-bottom:20px;
+    box-shadow:0 10px 24px rgba(7,32,70,.06);
+  }
+
+  /* KPI cards */
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:10px}
+  .kpi{background:linear-gradient(180deg,#f7fbff,#f2faf9);border:1px solid #e5eff6;border-radius:16px;padding:16px;box-shadow:0 8px 18px rgba(0,0,0,.04)}
+  .kpi-value{font-size:28px;font-weight:800;color:var(--primary);line-height:1}
+  .kpi-label{font-size:13px;color:#5c6b7a;margin-top:6px}
+
+  /* Steps (3 lists) */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:8px}
+  .step{background:#fff;border:1px solid #e9eef5;border-radius:14px;padding:14px;display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:flex-start;box-shadow:0 8px 18px rgba(0,0,0,.04)}
+  .step-badge{width:40px;height:40px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+  .step h3{margin:2px 0 6px 0;font-size:16px;color:var(--primary)}
+  .step p{margin:0;color:#2a3442;font-size:14px}
+
+  /* CTA banner */
+  .cta-banner{max-width:var(--maxw);margin:24px auto;padding:22px 20px;border-radius:18px;background:linear-gradient(135deg,#072046 0%,#0B2A5B 70%);color:#fff;display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between;box-shadow:0 20px 60px rgba(7,32,70,.25)}
+  .cta-banner h3{margin:0;font-size:20px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:#18C2B5;color:#072046;text-decoration:none;font-weight:700}
+  .btn:hover{filter:brightness(1.05)}
+
+  /* Punchlines dynamiques (barre sous le hero) */
+  .punchline-bar{
+    max-width:var(--maxw);
+    margin:6px auto 16px;
+    padding:10px 16px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#0B2A5B 0%, #18C2B5 100%);
+    color:#fff;
+    text-align:center;
+    box-shadow:0 10px 24px rgba(7,32,70,.18)
+  }
+  .punchline-rotator{display:inline-block;font-weight:800;letter-spacing:.2px;opacity:0;transform:translateY(4px);transition:opacity .35s ease,transform .35s ease}
+  .punchline-show{opacity:1;transform:none}
+
+  /* Savings ticker (économies en temps réel) */
+  .savings-ticker{
+    max-width:var(--maxw);
+    margin:4px auto 20px;
+    padding:12px 18px;
+    border-radius:16px;
+    background:linear-gradient(135deg,#eaf6ff 0%, #e9fff8 100%);
+    color:#072046;
+    display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;
+    box-shadow:0 10px 28px rgba(7,32,70,.10), inset 0 0 0 2px rgba(24,194,181,.25)
+  }
+  .savings-ticker small{color:#0B2A5B;font-weight:600}
+  .savings-value{
+    font-weight:900;font-size:28px;letter-spacing:.2px;
+    background:#fff;padding:4px 10px;border-radius:10px;
+    box-shadow:inset 0 0 0 2px rgba(11,42,91,.06)
+  }
+
+  .savings-extrap{
+    max-width:var(--maxw);
+    margin:-8px auto 22px;
+    text-align:center;
+    color:#5c6b7a;
+    font-size:13px
+  }
+  .savings-extrap b{color:#072046}
+
+  .live-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    background:#fff;border:1px solid #cfe9f2;border-radius:999px;
+    padding:4px 8px;font-weight:800;color:#072046
+  }
+  .live-badge .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:#18C2B5;box-shadow:0 0 0 0 rgba(24,194,181,.6);
+    animation:pulse 1.6s ease-out infinite
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(24,194,181,.6)}
+    70%{box-shadow:0 0 0 10px rgba(24,194,181,0)}
+    100%{box-shadow:0 0 0 0 rgba(24,194,181,0)}
+  }
+
+  /* Micro-interactions (hover lift) */
+  .kpi,.step,.col-media img{transition:transform .18s ease, box-shadow .18s ease}
+  .kpi:hover,.step:hover,.col-media img:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.08)}
+
+  /* Reveal on scroll */
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity .5s ease, transform .5s ease}
+  .reveal.visible{opacity:1;transform:none}
+  </style>
+  <style>
+    /* Logos enseignes (icônes petites images) */
+    .logos{display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center}
+    .logos img{height:28px;width:auto;display:block;object-fit:contain}
+    @media (min-width:680px){.logos img{height:32px}}
+    @media (max-width:480px){.logos img{height:24px}}
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="#top"><img src="assets/logo_blanc_maxicourses.png" alt="Maxicourses"></a>
+    <nav><a href='#intro'>Introduction</a><a href='#projet'>Projet</a><a href='#marche'>Analyse et stratégie</a><a href='#chiffres'>Les chiffres</a><a href='#contact'>Contact</a></nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-card">
+      <div class="hero-slider" role="region" aria-label="Présentation Maxicourses">
+        <button class="hero-nav prev" aria-label="Précédent">‹</button>
+        <div class="slides">
+          <div class="slide">
+            <img class="iphone-screen" src="assets/splash_screen.png" alt="Écran d’accueil Maxicourses sur iPhone">
+          </div>
+          <div class="slide">
+            <img class="iphone-screen" src="assets/image7.png" alt="Comparaison des prix sur iPhone">
+          </div>
+          <div class="slide">
+            <img class="iphone-screen" src="assets/image9.png" alt="Liste optimisée prix au kilo">
+          </div>
+          <div class="slide">
+            <img class="iphone-screen" src="assets/image12.png" alt="Gestion des listes sur iPhone">
+          </div>
+          <div class="slide">
+            <img class="iphone-screen" src="assets/image14.png" alt="Géolocalisation et meilleurs trajets">
+          </div>
+        </div>
+        <button class="hero-nav next" aria-label="Suivant">›</button>
+        <!-- Les pastilles (dots) sont ajoutées dynamiquement en JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Punchlines dynamiques -->
+  <div class="punchline-bar" aria-live="polite">
+    <span id="punchline" class="punchline-rotator punchline-show">Payez moins, vivez mieux — jusqu’à 26 % d’économies.</span>
+  </div>
+
+  <!-- Ticker économies -->
+  <div class="savings-ticker" aria-live="polite" title="Économies en temps réel">
+    <span class="live-badge"><span class="dot" aria-hidden="true"></span>LIVE</span>
+    <small>Depuis le 20&nbsp;août&nbsp;2025 — Économies réalisées par nos 500 bêta‑testeurs&nbsp;!</small>
+    <span class="savings-value" id="savings-amount">0,00&nbsp;€</span>
+  </div>
+  <div class="savings-extrap" aria-live="polite">
+    Extrapolé à <b>300 000</b> utilisateurs&nbsp;: <b id="savings-extrap">0,00&nbsp;€</b>
+  </div>
+
+  <!-- CTA vidéo (icône + texte sur la même ligne) -->
+  <div style="max-width:var(--maxw);margin:0 auto;padding:0 20px 24px; text-align:center;">
+    <a href="#" class="video-cta" id="open-video" aria-label="Lire la vidéo de présentation">
+      <span class="video-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+      <span class="video-label">Lancer la vidéo de présentation de MAXICOURSES!</span>
+    </a>
+  </div>
+
+<section id='intro' class="section-card">
+<div class='row'><div class='col-text'><p><h2>Introduction - Résumé</h2></p></div></div>
+<div class='row'><div class='col-text'><p>Maxicourses a été imaginé en 2012 et son développement a débuté à Londres la même année et fin 2014 il y à un « Proof of concept parfaitement utilisable », le projet était trop en avance sur son temps autant en terme d’utilisateur de smartphones que de couverture réseau des différents opérateurs téléphonique ne permettant pas aux réseaux d’être accessible à l’intérieur de tout les supermarchés, aussi nous avons mis en veille le développement de l’application et Laurent Poupet est parti vers d’autre aventures tel que celle de FPV4EVER ensuite DRONEVOLT en tant que fondateur (DroneVolt est cotée sur EURONEXT).</p></div></div>
+<div class='row reveal'>
+  <div class='col-text'>
+    <div class="kpis" aria-label="Indicateurs clés">
+      <div class="kpi"><div class="kpi-value" data-target="26" data-suffix="%">0%</div><div class="kpi-label">d’économies moyennes</div></div>
+      <div class="kpi"><div class="kpi-value" data-target="48" data-suffix=" M">0</div><div class="kpi-label">smartphones en France (2022)</div></div>
+      <div class="kpi"><div class="kpi-value" data-target="300" data-suffix=" k">0</div><div class="kpi-label">cible utilisateurs</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id='projet' class="section-card"><h2>Projet – Vue globale</h2><div class='row'><div class='col-text'><p>Nous pensons maintenant qu’il est temps de relancer l’application aux vues des contextes économiques, sociaux et techniques actuel.</p></div></div>
+<div class='row'><div class='col-text'><p>Maxicourses a pour vocation de simplifier la gestion des courses et de permettre de faire des économies conséquentes en comparant en temps réel les prix et les différentes promotions des enseignes de la grande distribution proche de chez vous.</p></div><div class='col-media'><img src='assets/image7.png' alt='Illustration'></div></div>
+<div class='row'><div class='col-text'><p>En tenant compte de la consommation d'essence de leur véhicule et des lieux fréquentés (école, travail, etc.). En effet quel est l’intérêt de payer un produit 10 centimes moins cher, si l'essence consommée pour se rendre dans ce magasin coute 50 centimes sans compter le temps gaspillé pour si rendre. Nous sommes également en mesure d’indiquer s’il est intéressant de prendre tel ou tel carte de fidélité.</p></div></div>
+<div class='row'><div class='col-text'><p>Aussi notre démarche est d'une part de proposer des prix réellement comparés en tenant également compte des cartes de fidélité de chaque magasins et de proposer des choix de consommation différents Ainsi nous proposons plusieurs listes de courses qui seront affinées et optimisés au cours des futurs choix d'achats des utilisateurs.</p></div></div>
+<div class='row reveal'>
+  <div class='col-text'>
+    <div class="steps" aria-label="Fonctionnement des listes">
+      <div class="step">
+        <div class="step-badge">1</div>
+        <div><h3>Liste moins chère</h3><p>Le magasin unique le plus économique selon vos habitudes et trajets.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-badge">2</div>
+        <div><h3>Optimisation multi‑magasins</h3><p>Répartition intelligente des achats pour maximiser les économies.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-badge">3</div>
+        <div><h3>Prix/kg &amp; prix/L</h3><p>Choix malins sur formats et lots pour foyers de +4 personnes.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='row'><div class='col-text'><p>Une première liste qui indique le magasin ou les produits sont les moins chers parmi la liste de ses magasins habituels et proches de chez lui, de l’école des enfants, de son lieu de travail ou sur les chemins habituellement empruntés.</p></div><div class='col-media'><img src='assets/image8.png' alt='Illustration'></div></div>
+<div class='row'><div class='col-text'><p>Une deuxième liste qui indique, si, il est prêt à faire ses courses dans plusieurs magasins, comment repartir ses achats pour faire des économies encore plus importantes.</p></div></div>
+<div class='row'><div class='col-text'><p>Exemple:</p></div></div>
+<div class='row'><div class='col-text'><p>Leclerc de Chambly : Le jambon, le lait, les pâtes, le sucre, etc.</p></div></div>
+<div class='row'><div class='col-text'><p>Carrefour de Lamorlaye : Les produits ménagers, la lessive, les aliments pour animaux, etc.</p></div></div>
+<div class='row'><div class='col-text'><p>Intermarché de Gouvieux : Le café, le dentifrice, les sodas, etc.</p></div></div>
+<div class='row'><div class='col-text'><p>Toujours proche de chez lui et/ou dans la liste des magasins indiqués dans les préférences de son profil.</p></div></div>
+<div class='row'><div class='col-text'><p>De cette façon il est possible de se rendre compte de l’intérêt de regrouper ses achats dans différentes enseignes ou non, mais quoiqu’il en soit l’application indiquera toujours la façon la moins onéreuse.</p></div></div>
+<div class='row'><div class='col-text'><p>Une troisième liste avec les prix les moins chers en tenant compte du prix au kilo et du prix au litre (idéal pour un foyer de plus de 4 personnes).</p></div><div class='col-media'><img src='assets/image9.png' alt='Illustration'></div></div>
+<div class='row'><div class='col-text'><p>Exemple: S’il est indiqué dans la liste « 4 tranches de jambon Herta » il est possible que notre algorithme propose le pack de 8 tranches de jambon d'une autre marque car elle sera en promo dans un des magasins précisé dans le profil utilisateur, ou un pack de 4 bouteilles de soda de 1,5 litre car le pack de 6 bouteilles est plus cher au litre que le pack de 4 (cela arrive plus souvent qu'on ne le pense !).</p></div></div>
+<div class='row'><div class='col-text'><p>A l'aide de ces propositions de listes, libre à chacun de les mixer et ensuite d’appliquer son choix. L'application Maxicourses donne en temps réel le montant total des économies! Il est tout à fait possible de faire son choix parmi les 3 listes et d'adapter ses course mais en parfaite connaissance de cause.</p></div></div>
+<div class='row'><div class='col-text'><p>Cette liste est accessible en temps réel à partir de son Smartphone (IPhone, Android et autre Windows phone), ce qui permettra de vérifier le prix de chaque produits en temps réels dans les magasins en cas de doute ou d’erreur d’étiquetage.</p></div></div>
+<div class='row'><div class='col-text'><p>Maxicourses est bien plus qu’un comparateur prix, c’est également un outil d'aide à la décision en réalisant un tri adapté à chaque utilisateur!</p></div></div>
+<div class='row'>
+  <div class='col-text'>
+    <p><strong>Nature du projet</strong></p>
+    <p>L’idée qui nous a incités à lancer ce projet vient du constat de l’impossibilité pour un consommateur normal de faire le tri entre les différentes promotions et prix fluctuants que font l’ensemble des supermarchés et grandes surface (par courrier, pub télé, internet, email, etc…). Les prix fluctuent chaque semaines, d’une enseigne à l’autre et souvent pour une même enseigne du jour au lendemain en cas de fin de promos (le moins cher jour J peut être le plus cher jour J+1).</p>
+  </div>
+  <div class='col-media'><img src='assets/image10.png' alt='Illustration'></div>
+</div>
+<div class='row'><div class='col-text'><p>Dans cette situation économique contractée et inflationniste faire ses courses est devenu un casse tête quotidien pour la personne responsable des courses au sein d’un foyer pour essayer de ne pas se « faire avoir » lorsque l’on va faire ses courses. La conjoncture de crise est également un facteur accélérateur car tout le monde cherche à optimiser ses dépenses.</p></div><div class='col-media'><img src='assets/image11.png' alt='Illustration'></div></div>
+<div class='row'><div class='col-text'><p>De la est né l'idée de la création d’un site web et d’une application Smartphone permettant la comparaison de prix en temps réel grâce à l’utilisation de la fonction appareil photo des Smartphones que l'on peut transformer en scanner de codes barres pour aider les consommateurs à acheter des produits le moins cher possible quand ils font leurs courses au supermarché ou qu’ils préparent leur liste de courses à la maison.</p></div></div>
+<div class='row'><div class='col-text'><p>L’aspect proximité était aussi un élément fondateur de notre projet car même si tout utilisateur est prêt à faire des économies sur ses courses, il est également important de tenir compte des frais connexes notamment en prenant en compte les coups très élevés et très fluctuant de l’essence.</p></div></div>
+<div class='row'><div class='col-text'><p>Maxicourses est donc une application cross plateformes (smartphone et Web) permettant de créer sa ou ses listes de courses, de comparer les prix dans les différents super/hypermarchés ou le consommateur à l’habitude de se rendre et qui optimise les recommandations selon l’importance attachés par l’utilisateur aux différents critères (prix, nombre de magasins pour faire l’ensemble des courses, prix, temps total, distance, fréquentation des magasins, facilite de parkings, prix de l’essence….)</p></div><div class='col-media'><img src='assets/image12.png' alt='Illustration'></div></div>
+<div class='row'><div class='col-text'><p>Les bases de données actuellement exploitées sont :</p></div></div>
+<div class='row'>
+  <div class='col-text'>
+    <div class="logos" aria-label="Enseignes prises en charge">
+      <img src="assets/logos/leclerc.svg" alt="E.Leclerc">
+      <img src="assets/logos/intermarche.svg" alt="Intermarché">
+      <img src="assets/logos/carrefour.svg" alt="Carrefour">
+      <img src="assets/logos/auchan.svg" alt="Auchan">
+      <img src="assets/logos/grand-frais.svg" alt="Grand Frais">
+      <img src="assets/logos/proxi.svg" alt="Proxi">
+      <img src="assets/logos/lidl.svg" alt="Lidl">
+      <img src="assets/logos/action.svg" alt="Action">
+      <img src="assets/logos/spar.svg" alt="Spar">
+      <img src="assets/logos/casino.svg" alt="Casino">
+      <img src="assets/logos/monoprix.svg" alt="Monoprix">
+      <img src="assets/logos/cora.svg" alt="Cora">
+      <img src="assets/logos/netto.svg" alt="Netto">
+      <img src="assets/logos/leader-price.svg" alt="Leader Price">
+      <img src="assets/logos/aldi.svg" alt="Aldi">
+      <img src="assets/logos/u.svg" alt="Système U">
+    </div>
+    <p style="margin-top:8px;color:#5c6b7a">Liste évolutive…</p>
+  </div>
+</div>
+<div class='row'><div class='col-text'><p>Ainsi le consommateur sait immédiatement s’il est préférable d’aller faire ses courses dans tel ou tel supermarché selon ses propres critères de choix et ses arbitrages (temps vs cout total).</p></div></div>
+<div class='row'><div class='col-text'><p>Après avoir effectué plusieurs essais comparatifs de prix auprès de plusieurs enseignes, nous arrivons à réaliser jusqu’à 26% d’économie sur un caddie moyen de 200 euros soit 52 euros d’économie/semaine en conjuguant caddy/essence pour un couple avec 1 enfant (en moyenne 2704 euros/an).</p></div></div>
+<div class='row'><div class='col-text'><p>Les atouts, les freins</p></div></div>
+<div class='row'><div class='col-text'><p>Les atouts:</p></div></div>
+<div class='row'><div class='col-text'><p>Le marché des Smartphones est leur utilisation du Scan de codes barres est en plein essor.</p></div></div>
+<div class='row'><div class='col-text'><p>L’avantage de Maxicourses par rapport aux autres comparateurs est la gestion en temps réel des prix et de la géolocalisation de ceux-ci (internet et enseignes physique) ainsi que la gestion des réductions liées aux cartes de fidélité.</p></div></div>
+<div class='row'><div class='col-text'><p>Ce qui nous rend confiant quant à la réussite de notre projet, est la très grande habitude que nous avons concernant la gestion de très grande bases de données (Création de la société OXADO en 2005: gestion de la publicité contextuelle pour la société Yahoo dans 43 pays plus de 2 milliards d’affichage de publicités/mois pour prêt de 240 000 annonceurs).</p></div></div>
+<div class='row'><div class='col-text'><p>Historique du projet</p></div></div>
+<div class='row'><div class='col-text'><p>Les grandes étapes de la création du projet Maxicourses sont :</p></div></div>
+<div class='row'>
+  <div class='col-text'>
+    <ul class="status-list" aria-label="Statut des étapes du projet">
+      <li class="status-item status-progress">
+        <img src="assets/icons/status/en-cours.svg" alt="En cours">
+        <span class="status-label">Création de la société OpenCenterAI.</span>
+      </li>
+      <li class="status-item status-done">
+        <img src="assets/icons/status/fait.svg" alt="Fait">
+        <span class="status-label">Constitution des bases de données de produits et de codes barres.</span>
+      </li>
+      <li class="status-item status-done">
+        <img src="assets/icons/status/fait.svg" alt="Fait">
+        <span class="status-label">Création d’une arborescence intelligente des catégories des produits.</span>
+      </li>
+      <li class="status-item status-done">
+        <img src="assets/icons/status/fait.svg" alt="Fait">
+        <span class="status-label">Etude de l’ergonomie de l’application Smartphone.</span>
+      </li>
+      <li class="status-item status-done">
+        <img src="assets/icons/status/fait.svg" alt="Fait">
+        <span class="status-label">Développement de l’application IOS pour IPhone (notamment la gestion du scanner de codes barre).</span>
+      </li>
+      <li class="status-item status-progress">
+        <img src="assets/icons/status/en-cours.svg" alt="En cours">
+        <span class="status-label">Développement de la partie Web de l’application Maxicourses permettant une gestion plus aisée de ses listes de courses, etc.</span>
+      </li>
+      <li class="status-item status-todo">
+        <img src="assets/icons/status/a-faire.svg" alt="À faire">
+        <span class="status-label">Soumission de l’application IOS à l’Apple Store.</span>
+      </li>
+      <li class="status-item status-progress">
+        <img src="assets/icons/status/en-cours.svg" alt="En cours">
+        <span class="status-label">Création des bannières de publicités IOS.</span>
+      </li>
+      <li class="status-item status-progress">
+        <img src="assets/icons/status/en-cours.svg" alt="En cours">
+        <span class="status-label">Création des bannières de publicités Google (Adwords et Adsense).</span>
+      </li>
+      <li class="status-item status-progress">
+        <img src="assets/icons/status/en-cours.svg" alt="En cours">
+        <span class="status-label">Prise de contact en cours : Reportage dans les émissions de télé (journaux France3, TF1, etc.).</span>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class='row'><div class='col-text'><p>Les freins:</p></div></div></section>
+
+<section id='marche' class="section-card"><h2>Analyse du marché et stratégie</h2><div class='row'><div class='col-text'><p>Réticences des distributeurs a se laisser comparer en temps réel, néanmoins le contexte économique actuel et futur ainsi que les associations de consommateurs et consommateurs vont rendre possible de dépasser très facilement cet obstacle.</p></div></div>
+<div class='row'><div class='col-text'><p>Les objectifs</p></div></div>
+<div class='row'><div class='col-text'><p>Les objectifs d’ici fin 2026 sont de 3 000 000 utilisateurs Maxicourses soit 0,5% des familles possédant un Smartphone, mi 2026, 1 000 000 utilisateurs possédant un Smartphone et fin 2027, 6 million d’utilisateur soit 7% des consommateurs possédant un Smartphone.</p></div></div>
+<div class='row'><div class='col-text'><p>Les évolutions prévues sont :</p></div></div>
+<div class='row'><div class='col-text'><p>MaxiBrico scan et comparateur de prix en temps réel de produits de bricolage.</p></div></div>
+<div class='row'><div class='col-text'><p>Scanjouets pour les enseignes de jouets.</p></div></div>
+<div class='row'><div class='col-text'><p>MaxiGarages pour les centres Auto (idem Vroomly mais uniquement pour les révisions, freinage et pneus).</p></div></div>
+<div class='row'><div class='col-text'><p>Evolution vers les pays Européens selon accès aux bases de données et législations d’accès à celles-ci.</p></div></div>
+<div class='row'><div class='col-text'><p>3. Analyse du marché (national) et stratégie</p></div></div>
+<div class='row'><div class='col-text'><p>Les clients : Maxicourses a une orientation BtoC</p></div></div>
+<div class='row'><div class='col-text'><p>Le marché: Le marché de Maxicourses est clairement celui du Smartphone (grâce à la possibilité d’utiliser le capteur photo en douchette de codes barre) et l'utilisation de service web en backoffice (gestion de budget).</p></div></div>
+<div class='row'><div class='col-text'><p>Caractéristiques de la demande</p></div></div>
+<div class='row'><div class='col-text'><p>31,4% des possesseurs de téléphones mobiles français – soit près de 14 millions d’utilisateurs - étaient équipés de Smartphone à fin mars 2011. Ils n’étaient que 19,7% un an plus tôt, soit une croissance de 60% [source Médiamétrie] Il y avait 48 millions de possesseurs de smartphone fin 2022 équipé de scan/photo.</p></div></div>
+<div class='row'><div class='col-text'><p>L’audience des principaux sites et applications mobiles est désormais nettement supérieur à celle de l’Internet fixe.</p></div></div>
+<div class='row'><div class='col-text'><p>Caractéristiques de l’offre</p></div></div>
+<div class='row'><div class='col-text'><p>Partons d’un simple constat : en 2023, il y avait plus d’Internautes mobiles que d’Internautes fixes dans le monde. Les supports mobiles, smart phones en tête, sont un moyen simple et puissant de maintenir l’utilisateur connecté avec le contenu web. Mais plus que cela, les technologies mobiles ont l’avantage d’être un média de masse, personnel et efficace. Leur généralisation représente donc un enjeu social, économique et culturel énorme pour les créateurs de contenu.</p></div></div>
+<div class='row'><div class='col-text'><p>Le circuit de distribution de l’application Maxicourses utilise l’AppStore d’Apple et Android Market.</p></div></div>
+<div class='row'><div class='col-text'><p>Les concurrents</p></div></div>
+<div class='row'><div class='col-text'><p>- SHOPMIUM</p></div></div>
+<div class='row'><div class='col-text'><p>8 millions d’utilisateurs principalement axé sur les promotions.</p></div></div>
+<div class='row'><div class='col-text'><p>- TOUS ANTI INFLATION</p></div></div>
+<div class='row'><div class='col-text'><p>Très médiatisée, mais application très basique voir inutile car elle de dispose pas de toutes les bases de données distributeurs (il manque les 2/3 de distributeurs).</p></div></div>
+<div class='row'><div class='col-text'><p>Les autres concurrents sont essentiellement des enseignes de la grande distribution, ce qui élimine la possibilité de l’objectivité de leur comparateur de prix et donc l’intérêt pour l’utilisateur.</p></div></div>
+<div class='row'><div class='col-text'><p>Stratégie</p></div></div>
+<div class='row'><div class='col-text'><p>Voici notre stratégie face aux différents éléments de notre principal concurrent.</p></div></div>
+<div class='row'><div class='col-text'><p>Gratuité de l'app pendant un temps à définir afin que l'utilisateur (future client) ait le temps de l’essayer et de réaliser le montant des économies réalisées. Nous expliquerons aux utilisateurs que le fait de payer pour l’utilisation de l’application leur garantie l’intégrité commerciale de celle-ci. Ensuite la demande de paiement se fera sous la forme « In-app purchase » avec un prix à définir entre 0,79 et 0,99€ttc / mois ou 5 euros / 6 mois etc.. En cas de refus de paiement par l'utilisateur, nous afficherons des publicités et l'app sera tronquée de certaines fonctionnalités à définir (limitation des promos, non gestion des cartes de fidélités, géolocalisation limité en distance, etc..).</p></div><div class='col-media'><img src='assets/image13.png' alt='Illustration'></div></div>
+<div class='row'><div class='col-text'><p>Nous aurons également la possibilité de revenus connexes grâce à de la publicité ciblée grâce à la collecte des informations utilisateurs (âge, géolocalisation, nombres d’enfants, habitudes d’achats, montant de dépenses, etc…)</p></div></div>
+<div class='row'><div class='col-text'><p>Le but de Maxicourses est de proposer une solution en temps réel à l’utilisateur lorsqu’il souhaite faire ses courses : Lorsque qu’il a créé sa liste de course via Scan ou via barre de recherche il appui simplement sur un bouton pour savoir dans quel(s) supermarché (s) il doit se rendre pour faire ses courses et payer le moins cher possible avec ou sans prise en compte du facteur essence.</p></div><div class='col-media'><img src='assets/image14.png' alt='Illustration'></div></div>
+<div class='row'><div class='col-text'><p>Les Prix sont actualisés en temps réel en tenant compte des promotions de l’enseigne et également des promos liées aux différentes cartes de fidélité.</p></div></div>
+<div class='row'><div class='col-text'><p>Parfaite gestion de la géo localisation liée d’une part à la position GPS de l’utilisateur mais également lié à ses préférences de magasins : lieu et trajet de travail, école et trajet, lieu habituel d’achats, credit d’achats via enregistrement de coupon et carte de fidélité, etc.</p></div></div></section>
+
+<section id='chiffres' class="section-card"><h2>Les chiffres</h2><div class='row'><div class='col-text'><p>Besoins en financements</p></div></div>
+<div class='row'><div class='col-text'><p>Le financement est actuellement réalisé par Laurent Poupet Investments à hauteur de 25K€, j’estime les besoins en financement à hauteur de 50K€ supplémentaire pour début Septembre 2025 afin d’arriver à l’application fonctionnelle validée « PROOF OF CONCEPT ». Pour ensuite arrive à une levée de fonds de 2M€ fin 2025 et consolider le positionnement de l’application et son business model.</p></div></div>
+<div class='row'><div class='col-text'><p>Je pense qu’il est raisonnable de prévoir un investissement de 20K€ de publicité sur les réseaux sociaux (FB, Instagram, Tiktok).</p></div></div>
+<div class='row'><div class='col-text'><p>Il est important également de prévoir dès le lancement un plan de publicité télé (CNEW, BFM, LCI) afin de générer immédiatement un flux important d’utilisateurs et d’influenceurs ainsi que les autres médias TF1, FRANCE 2, etc… via des interview journaux.</p></div></div>
+<div class='row'><div class='col-text'><p>4. Les chiffres</p></div></div>
+<div class='row'><div class='col-text'><p>Le concept de l’application est d’arriver le plus rapidement possible à 300K users et ensuite d’étudier le business model le plus rentable (achats intégrés, publicités distributeurs ou fabricants, abonnements, coupons réductions distributeurs ou fabricants (Darty, Boulanger, mobilier, immobilier, Vinted, LBC, Netflix, Amazon, Free, Box, etc…).</p></div><div class='col-media'><img src='assets/image15.png' alt='Illustration'></div></div>
+<div class='row'><div class='col-text'><p>Dirigeant Laurent Poupet : 51% capital - Salaire 3500€/mois net</p></div></div>
+<div class='row'><div class='col-text'><p>Developpeur principal : 10% capital - Salaire 2000€/mois net</p></div></div>
+<div class='row'><div class='col-text'><p>Abonnement GPT pro et Gemini Pro 400€HT/mois</p></div></div>
+<div class='row'><div class='col-text'><p>Loyer co-working (Regus 2 postes): 3500€/mois voir possibilité de collocation les 6 premiers mois.</p></div></div>
+<div class='row'><div class='col-text'><p>Informatique : 500€/mois</p></div></div>
+
+<div class='row'><div class='col-text'><p>Il faut compter 3 mois pour arriver au « PROOF OF CONCEPT UTILISABLE » de l’application, soit environ 40K€ pour ensuite passer à l’étape suivante d’une levée de fond plus conséquente et encore 6 mois pour arriver à la version commerciale finale (estimée 08/2026).</p></div></div>
+<div class='row'><div class='col-text'><p>Notre app détecte automatiquement les incohérences de prix, la shrinkflation et la volatilité étonnante des tarifs d’un jour à l’autre 🛒.</p></div></div>
+<div class='row'><div class='col-text'><p>⚡ Alors que 67 % des Français constatent la shrinkflation et que 79 % se sentent trompés par ces pratiques, nous apportons transparence et efficacité.</p></div></div>
+<div class='row'><div class='col-text'><p>Notre IA compare, anticipe et met en avant les meilleures opportunités pour aider chaque consommateur à économiser du temps et de l’argent.</p></div></div>
+<div class='row'><div class='col-text'><p>💡 Plus qu’une appli, Maxicourses est un allié intelligent qui redonne confiance dans un contexte où les prix alimentaires varient parfois de +30 à 40 % en 24h.</p></div></div>
+<div class='row'><div class='col-text'><p>🤝 Nous cherchons aujourd’hui des investisseurs stratégiques pour accélérer notre croissance et transformer durablement l’expérience d’achat alimentaire.</p></div></div>
+
+</section>
+
+  <div class="cta-banner reveal">
+    <h3>Envie d’accélérer Maxicourses ?</h3>
+    <a class="btn" href="#contact" aria-label="Contacter Maxicourses">Parler d’investissement →</a>
+  </div>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="email"><a href="mailto:laurent@maxicourses.fr">laurent@maxicourses.fr</a></p>
+    <div class='row'><div class='col-text'><p>👉 Contactez-moi pour rejoindre l’aventure. +33 6 80 35 77 56</p></div></div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© Maxicourses</div>
+    <div>Document confidentiel - Copyright OpenCenterAI</div>
+  </div>
+</footer>
+
+<!-- Modal vidéo (popup cachée) -->
+<div class="modal" id="video-modal" aria-hidden="true" role="dialog" aria-label="Vidéo Maxicourses">
+  <div class="modal-dialog">
+    <button class="modal-close" id="close-video" aria-label="Fermer">×</button>
+    <video id="video-el" controls preload="metadata" playsinline>
+      <source src="assets/Court_Video_2025-08-25_10_54_04.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la vidéo HTML5.
+    </video>
+  </div>
+</div>
+
+<script>
+const links=[...document.querySelectorAll('nav a')];
+const sections=links.map(a=>document.querySelector(a.getAttribute('href')));
+const obs=new IntersectionObserver((ents)=>{
+  ents.forEach(e=>{
+    const i=sections.indexOf(e.target);
+    if(i>-1 && e.isIntersecting){
+      links.forEach(l=>l.classList.remove('active'));
+      links[i].classList.add('active');
+    }
+  });
+},{threshold:0.33});
+sections.forEach(s=>s && obs.observe(s));
+
+/* Ouvrir/fermer la popup vidéo */
+(function(){
+  const modal = document.getElementById('video-modal');
+  const openBtn = document.getElementById('open-video');
+  const closeBtn = document.getElementById('close-video');
+  const video = document.getElementById('video-el');
+
+  function openModal(e){
+    e.preventDefault();
+    modal.classList.add('open');
+    try{ video.currentTime = 0; video.play(); }catch(_){}
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    try{ video.pause(); }catch(_){}
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+})();
+
+(function(){
+  /* Hero slider (auto, dots, swipe) */
+  const slider = document.querySelector('.hero-slider');
+  if(!slider) return;
+  const track = slider.querySelector('.slides');
+  const slides = Array.from(slider.querySelectorAll('.slide'));
+  const prevBtn = slider.querySelector('.hero-nav.prev');
+  const nextBtn = slider.querySelector('.hero-nav.next');
+
+  let index = 0;
+  const delay = 3500;
+  let timer = null;
+
+  // Dots
+  const dots = document.createElement('div');
+  dots.className = 'hero-dots';
+  slides.forEach((_,i)=>{
+    const b = document.createElement('button');
+    b.className = 'hero-dot';
+    b.setAttribute('aria-label','Aller au slide '+(i+1));
+    b.addEventListener('click', ()=>goTo(i,true));
+    dots.appendChild(b);
+  });
+  slider.appendChild(dots);
+
+  function update(){
+    track.style.transform = 'translateX(-'+(index*100)+'%)';
+    Array.from(dots.children).forEach((d,i)=>d.classList.toggle('active', i===index));
+  }
+  function goTo(i, user=false){
+    index = (i + slides.length) % slides.length;
+    update();
+    if(user) restart();
+  }
+  function next(){ goTo(index+1); }
+  function restart(){ clearInterval(timer); timer = setInterval(next, delay); }
+
+  prevBtn.addEventListener('click', ()=>goTo(index-1,true));
+  nextBtn.addEventListener('click', ()=>goTo(index+1,true));
+
+  // Pause au survol
+  slider.addEventListener('mouseenter', ()=>clearInterval(timer));
+  slider.addEventListener('mouseleave', restart);
+
+  // Swipe (pointer events)
+  let startX=0, dx=0, down=false, pid=null;
+  track.addEventListener('pointerdown', (e)=>{ down=true; startX=e.clientX; pid=e.pointerId; track.setPointerCapture(pid); track.style.transition='none'; });
+  track.addEventListener('pointermove', (e)=>{ if(!down) return; dx=e.clientX-startX; track.style.transform='translateX(calc(-'+(index*100)+'% + '+dx+'px))'; });
+  function endSwipe(){
+    if(!down) return;
+    down=false; track.style.transition='';
+    if(Math.abs(dx)>60){ goTo(index + (dx<0?1:-1), true); } else { update(); }
+    dx=0; pid=null;
+  }
+  track.addEventListener('pointerup', endSwipe);
+  track.addEventListener('pointercancel', endSwipe);
+  track.addEventListener('pointerleave', endSwipe);
+
+  update(); restart();
+})();
+
+/* Reveal on scroll for rows */
+(function(){
+  const els = document.querySelectorAll('.row');
+  els.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
+  }, {threshold: 0.12});
+  els.forEach(el => io.observe(el));
+})();
+/* Punchlines rotator */
+(function(){
+  const el = document.getElementById('punchline');
+  if(!el) return;
+  const lines = [
+    "Payez moins, vivez mieux — jusqu’à 26 % d’économies.",
+    "Comparez en temps réel, décidez en 1 clic.",
+    "Stop à la shrinkflation : Maxicourses veille pour vous.",
+    "Votre liste, le meilleur prix, le meilleur trajet.",
+    "Prix/kilo & prix/litre : des choix vraiment malins."
+  ];
+  let i = 0;
+  function show(){
+    el.classList.remove('punchline-show');
+    // petite temporisation pour lancer la transition
+    setTimeout(()=>{
+      el.textContent = lines[i];
+      el.classList.add('punchline-show');
+      i = (i+1) % lines.length;
+    }, 120);
+  }
+  setInterval(show, 2800);
+})();
+
+/* Savings ticker counter — jour 09:00–20:00 = incréments 3–40 € (40€ rare, ~20€ fréquent), nuit = 2,5% ; base 20/08/2025 ; scale ÷10 ; jamais ,00 */
+(function(){
+  const el = document.getElementById('savings-amount');
+  const exEl = document.getElementById('savings-extrap');
+  if(!el) return;
+
+  // Paramètres
+  const START = new Date(2025, 7, 20, 0, 0, 0); // 20 août 2025 00:00 (mois indexé à 0)
+  const RATE_PER_MIN_ACTIVE = 20;               // pour le cumul historique (jour)
+  const NIGHT_MULT = 0.025;                     // nuit = 2,5% du jour
+  const RATE_PER_MIN_NIGHT  = RATE_PER_MIN_ACTIVE * NIGHT_MULT;
+  const SCALE = 0.1;                            // ÷10 car on ne fait pas des courses tous les jours
+
+  function isActive(d){ const h = d.getHours(); return h >= 9 && h < 20; }
+  function floorToMinute(d){ const t = new Date(d); t.setSeconds(0,0); return t; }
+
+  // Cumul historique depuis START (en centimes), puis mise à l'échelle ÷10
+  function sumFromToCents(from, to){
+    let cents = 0;
+    let t = floorToMinute(from);
+    const end = floorToMinute(to);
+    while (t < end){
+      const eur = isActive(t) ? RATE_PER_MIN_ACTIVE : RATE_PER_MIN_NIGHT;
+      cents += Math.round(eur * 100);
+      t.setMinutes(t.getMinutes() + 1);
+    }
+    return cents;
+  }
+
+  let totalCents = Math.floor(sumFromToCents(START, new Date()) * SCALE);
+  if (totalCents % 100 === 0){ totalCents += Math.floor(Math.random()*99) + 1; } // éviter ,00
+
+  // Persistance: ne pas repartir de zéro au refresh
+  (function(){
+    try{
+      const KEY = 'mc_savings_total_cents';
+      const saved = parseInt(localStorage.getItem(KEY), 10);
+      if (!Number.isNaN(saved) && saved > totalCents){
+        totalCents = saved;
+      }
+    }catch(_){}
+  })();
+
+  function fmt(cents){ return (cents/100).toLocaleString('fr-FR', {style:'currency', currency:'EUR'}); }
+  function render(){
+    el.textContent = fmt(totalCents);
+    if (exEl){
+      const exCentsRaw = Math.round(totalCents * 600); // 300k / 500 = ×600
+      const exCents = (exCentsRaw % 100 === 0) ? (exCentsRaw + 1) : exCentsRaw; // éviter ,00 sur l'extrapolation
+      exEl.textContent = fmt(exCents);
+    }
+    try{
+      localStorage.setItem('mc_savings_total_cents', String(totalCents));
+      localStorage.setItem('mc_savings_updated_at', String(Date.now()));
+    }catch(_){}
+  }
+  render();
+
+  // Distribution triangulaire pour favoriser ~20 € et rendre 40 € plus rare
+  function randomTriangular(min, max, mode){
+    const u = Math.random();
+    const c = (mode - min) / (max - min);
+    if (u < c){
+      return min + Math.sqrt(u * (max - min) * (mode - min));
+    } else {
+      return max - Math.sqrt((1 - u) * (max - min) * (max - mode));
+    }
+  }
+
+  // Tick aléatoire en continu (1–6 s) — jour: 3–40 €, nuit: 2,5% de ce tirage
+  function scheduleNext(){
+    const minDelay = 1000, maxDelay = 6000;
+    const delay = Math.floor(Math.random() * (maxDelay - minDelay + 1)) + minDelay;
+
+    setTimeout(()=>{
+      const now = new Date();
+      const baseIncEuro = randomTriangular(3, 40, 20); // 20€ plus probable, 40€ plus rare
+      const incEuro = isActive(now) ? baseIncEuro : baseIncEuro * NIGHT_MULT;
+
+      let incCents = Math.max(1, Math.round(incEuro * 100)); // min 1 ct
+      let newTotal = totalCents + incCents;
+      if (newTotal % 100 === 0) newTotal += 1;              // jamais ,00
+
+      totalCents = newTotal;
+      render();
+      scheduleNext();
+    }, delay);
+  }
+
+  scheduleNext();
+})();
+
+/* KPI count-up on reveal */
+(function(){
+  const items = document.querySelectorAll('.kpi-value[data-target]');
+  if(!items.length) return;
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        animate(e.target);
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.6});
+  items.forEach(el=>io.observe(el));
+
+  function animate(el){
+    const target = parseFloat(el.getAttribute('data-target')) || 0;
+    const suffix = el.getAttribute('data-suffix') || '';
+    const start = performance.now();
+    const dur = 1000;
+    function frame(t){
+      const p = Math.min(1,(t-start)/dur);
+      const eased = 1 - Math.pow(1-p, 3); // easeOutCubic
+      const val = Math.round(target * eased);
+      el.textContent = val.toLocaleString('fr-FR') + suffix;
+      if(p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+})();
+
+/* Register Service Worker for PWA (moved inside script) */
+(function(){
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        .then(function(reg){ console.log('SW registered', reg.scope); })
+        .catch(function(err){ console.warn('SW registration failed', err); });
+    });
+  }
+})();
+</script>
+</body>
+</html>
