@@ -1,0 +1,52 @@
+# BEGIN Maxicourses
+
+Options -Indexes
+AddDefaultCharset UTF-8
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 0) Laisser passer le challenge Let's Encrypt
+  RewriteRule ^\.well-known/acme-challenge/ - [L]
+
+  # 1) Rediriger HTTP -> HTTPS (prend en compte proxy)
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # 2) Ne pas réécrire l’API (mais elle sera aussi redirigée en HTTPS par la règle 1)
+  RewriteRule ^maxicoursesapp/api/ - [L]
+
+  # 3) Laisser passer fichiers/dossiers physiques
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 4) (optionnel) Fallback SPA si besoin
+  #RewriteRule ^maxicourses-web/(.*)$ /maxicourses-web/index.html [L]
+</IfModule>
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/json application/javascript application/xml image/svg+xml
+</IfModule>
+
+# Cache statique léger
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+</IfModule>
+
+# Sécurité basique
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+</IfModule>
+
+# END Maxicourses

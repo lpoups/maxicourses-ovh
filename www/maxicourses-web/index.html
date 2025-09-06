@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maxicourses — Comparateur</title>
+  <style>
+    :root{
+      --bg:#f6f8fb; --ink:#0f1720; --muted:#5a6a7f;
+      --card:#ffffff; --line:#d8e0ea; --accent:#0e73ff;
+      --ok:#11895b; --bad:#b32222; --best:#eaf7ef; --warn:#fff5e6;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    header{
+      display:flex;align-items:center;gap:14px;padding:10px 16px;
+      background:#0f1720; color:#fff; border-bottom:1px solid #0a1421;
+    }
+    header .logo{height:34px;width:auto;display:block}
+    header h1{margin:0;font-size:18px;font-weight:800;letter-spacing:.2px}
+    header .build{margin-left:auto;opacity:.7;font-size:12px}
+    main{max-width:1080px;margin:18px auto 48px;padding:0 16px}
+    .controls{display:grid;grid-template-columns:auto 1fr auto auto;gap:10px;align-items:center}
+    .btn{appearance:none;border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+    .btn:hover{border-color:#b7c6d9}
+    .controls .worker{min-width:280px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+    .controls .worker::placeholder{color:#9aa8ba}
+    textarea{grid-column:1/-1;width:100%;min-height:100px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);resize:vertical}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:16px}
+    .card h3{margin:0;padding:12px 14px;border-bottom:1px solid var(--line);font-size:16px}
+    table{width:100%;border-collapse:collapse}
+    thead th{font-size:12px;color:var(--muted);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+    tbody td{padding:12px;border-bottom:1px solid var(--line);vertical-align:middle}
+    .price{font-variant-numeric:tabular-nums;font-weight:800}
+    .store{font-weight:700}
+    tr.best{background:var(--best)}
+    .muted{color:var(--muted);font-size:12px}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    details summary{cursor:pointer;list-style:none}
+    details summary::-webkit-details-marker{display:none}
+    .summary{display:flex;align-items:center;gap:10px}
+    .summary .title{flex:1}
+    .summary .total{font-weight:800}
+    .ecart.pos{color:#b35d00}
+    .ecart.zero{color:var(--ok)}
+    .logoCell img{height:22px;width:auto;display:block}
+    .grid-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .composer{margin-top:12px;padding:12px;border:1px dashed var(--line);border-radius:12px;background:#fff}
+    .composer h3{margin:0 0 8px 0;font-size:14px}
+    .store-grid{display:grid;grid-template-columns:140px 1fr;gap:8px 10px;align-items:center}
+    .store-grid label{display:flex;align-items:center;gap:8px;font-weight:700}
+    .store-grid img{height:18px;width:auto}
+    .store-grid input{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:10px}
+    .compose-actions{display:flex;gap:8px;margin-top:10px}
+    @media (max-width:900px){ .grid-two{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo_blanc_maxicourses.png" alt="Maxicourses" class="logo">
+    <h1>Comparateur de Courses</h1>
+    <div class="build">Build cart-v3</div>
+  </header>
+
+  <main>
+    <div class="controls">
+      <button id="btnRun" class="btn" type="button">Comparer</button>
+      <div class="muted">Collez 1 URL produit par ligne (ex : Leclerc). Si vide : démo Coca 1,75 L.</div>
+      <div id="last" class="muted" style="text-align:right"></div>
+      <input id="inpWorker" class="worker" type="url" inputmode="url" value="https://3adec95bc543.ngrok-free.app" placeholder="⚙️ Worker: https://xxxxx.ngrok-free.app" title="URL du worker (ngrok / proxy HTTP)" />
+      <textarea id="inpList" placeholder="https://... (Leclerc)\nhttps://... (Carrefour)\n…"></textarea>
+    </div>
+
+
+    <div class="composer" id="composer">
+      <h3>Assistant d’URLs par enseigne</h3>
+      <div class="store-grid">
+        <label for="u_leclerc"><img src="logos/leclerc.png" alt="Leclerc"> Leclerc</label>
+        <input id="u_leclerc" type="url" placeholder="https://... leclerc" />
+
+        <label for="u_carrefour"><img src="logos/carrefour.png" alt="Carrefour"> Carrefour</label>
+        <input id="u_carrefour" type="url" placeholder="https://... carrefour" />
+
+        <label for="u_intermarche"><img src="logos/intermarche.png" alt="Intermarché"> Intermarché</label>
+        <input id="u_intermarche" type="url" placeholder="https://... intermarche" />
+
+        <label for="u_auchan"><img src="logos/auchan.png" alt="Auchan"> Auchan</label>
+        <input id="u_auchan" type="url" placeholder="https://... auchan" />
+
+        <label for="u_monoprix"><img src="logos/monoprix.png" alt="Monoprix"> Monoprix</label>
+        <input id="u_monoprix" type="url" placeholder="https://... monoprix" />
+      </div>
+      <div class="compose-actions">
+        <button class="btn" type="button" id="btnCompose">Ajouter au comparateur</button>
+        <button class="btn" type="button" id="btnClearFields">Vider les champs</button>
+      </div>
+      <div class="muted" style="margin-top:6px">Astuce : collez d’abord l’URL produit <b>Leclerc</b>, puis ajoutez les équivalents. Le bouton remplit la zone de comparaison ci‑dessus.</div>
+    </div>
+
+    <div class="card">
+      <h3>Panier — Synthèse par enseigne</h3>
+      <div class="grid-two" style="padding:12px 14px 0">
+        <div class="muted">Enseignes: Leclerc, Carrefour, Intermarché, Auchan, Monoprix</div>
+        <div class="muted" style="text-align:right">Les meilleures offres sont surlignées.</div>
+      </div>
+      <div>
+        <table id="tblSynth">
+          <thead>
+            <tr>
+              <th>Logo</th>
+              <th>Enseigne</th>
+              <th>Produits</th>
+              <th>Total</th>
+              <th>Unité</th>
+              <th>Écart</th>
+              <th>Détails</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Détails par enseigne</h3>
+      <div id="enseigneDetails" style="padding: 8px 14px 14px"></div>
+    </div>
+
+    <div class="card">
+      <h3>Synthèse €/unité</h3>
+      <div id="unitsBody" style="padding: 12px 14px"></div>
+    </div>
+
+    <div class="card">
+      <h3>Réponse brute (debug)</h3>
+      <div style="padding: 8px 14px 14px">
+        <pre id="raw" class="muted" style="white-space:pre-wrap;word-break:break-word"></pre>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // ==== Config ====
+    const API = '/maxicoursesapp/api/compare_api.php';
+    const LS_WORKER = 'maxi.worker.url';
+    const STORES = ['Leclerc','Carrefour','Intermarché','Auchan','Monoprix'];
+    const STORE_KEY = ['leclerc','carrefour','intermarche','auchan','monoprix'];
+    const BASE_WEB = '/maxicourses-web';
+    const LOGOS = {
+      leclerc: BASE_WEB + '/logos/leclerc.png',
+      carrefour: BASE_WEB + '/logos/carrefour.png',
+      intermarche: BASE_WEB + '/logos/intermarche.png',
+      auchan: BASE_WEB + '/logos/auchan.png',
+      monoprix: BASE_WEB + '/logos/monoprix.png',
+    };
+
+    // ==== DOM utils ====
+    const $ = (s,ctx=document)=>ctx.querySelector(s);
+
+
+    // ==== Helpers ====
+    function euro(v){ try{ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(v); }catch{ return v+' €'; } }
+    function num2(v){ try{ return new Intl.NumberFormat('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(v); }catch{ return String(v); } }
+    function litersFrom(text){
+      const s=(text||'').toLowerCase();
+      let m=s.match(/(\d+(?:[.,]\d+)?)\s*(?:l|litre|litres)\b/); if(m) return parseFloat(m[1].replace(',','.'));
+      if(/175\s*cl/.test(s)) return 1.75; if(/1\s*,?\s*75\s*l/.test(s)) return 1.75; return null;
+    }
+function dosesFrom(text){
+  const s = (text || '').toLowerCase();
+  // Prefer explicit counts like "19 capsules", "19 doses", "19 lavages"
+  const reList = [
+    /(?:^|[^0-9a-z])(\d{1,3})\s*(?:capsules?|dosettes?|pods?|doses?|lavages?)(?![a-z])/i,
+    /[x×]\s*(\d{1,3})\b/i,                 // patterns like "x19" or "× 19"
+  ];
+  for (const re of reList){
+    const m = s.match(re);
+    if (m){
+      const v = parseInt(m[1], 10);
+      if (Number.isFinite(v) && v > 1) return v; // ignore bogus "1" from "3en1"
+    }
+  }
+  return null;
+}
+
+function nearly(a,b,eps=0.02){ return typeof a==='number' && typeof b==='number' ? Math.abs(a-b) <= eps : false; }
+
+function computeConsensusPack(agg){
+  const seenKg = [], seenL = [], seenD = [];
+  for (const k of STORE_KEY){
+    const s = agg[k]; if(!s || !Array.isArray(s.products)) continue;
+    for (const p of s.products){
+      const u = p.unit || {}; const t = (p.title||'') + ' ' + (p.url||'');
+      const d = (u.doses != null ? Number(u.doses) : dosesFrom(t));
+      if (Number.isFinite(d) && d > 1) seenD.push(d);
+      if (u.kg != null && u.kg > 0) seenKg.push(Number(u.kg));
+      if (u.liters != null && u.liters > 0) seenL.push(Number(u.liters));
+    }
+  }
+  const mode = (arr)=>{
+    if (!arr.length) return null;
+    const m = new Map();
+    for(const v of arr){ m.set(v, (m.get(v)||0)+1); }
+    let best = null, cnt = -1; for(const [v,c] of m){ if(c>cnt){cnt=c; best=v;} }
+    return best;
+  };
+  return { kg: seenKg[0] ?? null, liters: seenL[0] ?? null, doses: mode(seenD) };
+}
+
+    // Try to find the first relevant Intermarché product URL by scraping search pages via the worker
+    async function findIntermarcheBestUrl(query){
+      try{
+        const inp = document.getElementById('inpWorker');
+        const w = (inp && inp.value) ? inp.value.trim() : getWorker();
+        if(!w) return null;
+        const q = (query||'').trim().replace(/\s+/g,' ');
+        const encoded = encodeURIComponent(q);
+        const candidates = [
+          `https://www.intermarche.com/recherche?terme=${encoded}`,
+          `https://www.intermarche.com/courses/recherche?q=${encoded}`,
+          `https://www.intermarche.com/recherche?q=${encoded}`
+        ];
+        let best = null; let bestScore = -1;
+        for(const url of candidates){
+          const u = `${w}/fetch?url=${encodeURIComponent(url)}&referer=${encodeURIComponent('https://www.intermarche.com/')}&attach=1&nopuzzle=1&_=${Date.now()}`;
+          const res = await fetch(u, {headers:{'Accept':'application/json'}, cache:'no-store', credentials:'omit'});
+          const data = await res.json().catch(()=>null);
+          if(!data || !data.html) continue;
+          const norm = String(data.html).replace(/[\u00A0\u202F\u2009]/g, ' ');
+          const doc = new DOMParser().parseFromString(norm, 'text/html');
+          const links = Array.from(doc.querySelectorAll('a[href]'));
+          for(const a of links){
+            const href = a.getAttribute('href') || '';
+            const txt = (a.textContent||'').toLowerCase();
+            // heuristics: product links often contain /p/ or /produit
+            if(!/(\/p\/|produit|produits|catalogue|courses)/i.test(href)) continue;
+            const abs = href.startsWith('http') ? href : (new URL(href, 'https://www.intermarche.com')).href;
+            // score by presence of tokens
+            let s = 0;
+            const tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
+            for(const t of tokens){ if(txt.includes(t) || abs.toLowerCase().includes(t)) s += 1; }
+            if(/\b19\b/.test(txt)) s += 2; // capsules count
+            if(/capsules?|pods?|dosettes?|doses?/i.test(txt)) s += 1;
+            if(s > bestScore){ bestScore = s; best = abs; }
+          }
+          if(best) break; // stop at first search page that yields a decent link
+        }
+        return best;
+      }catch(_){ return null; }
+    }
+    // Enrich unit info from Carrefour product page (fetch €/kg, €/L, doses, €/dose, etc.)
+    async function enrichCarrefourUnitFor(url, price){
+      try{
+        // Read worker URL from the visible field first, fallback to localStorage
+        const inp = document.getElementById('inpWorker');
+        const w = (inp && inp.value) ? inp.value.trim() : getWorker();
+        if(!w) return null;
+
+        // Fetch via worker with Chrome attached (HTML after JS), bypassing puzzle
+        const q = `${w}/fetch?url=${encodeURIComponent(url)}&referer=${encodeURIComponent('https://www.carrefour.fr/')}&attach=1&nopuzzle=1&_=${Date.now()}`;
+        const res = await fetch(q, {headers:{'Accept':'application/json'}, cache:'no-store', credentials:'omit'});
+        const data = await res.json();
+        if(!data || !data.html) return null;
+
+        // Normalize unicode spaces (NBSP, NNBSP, thin space) and build a text-only version
+        const norm = String(data.html).replace(/[\u00A0\u202F\u2009]/g, ' ');
+        let text = '';
+        try{
+          const doc = new DOMParser().parseFromString(norm, 'text/html');
+          text = (doc.body && doc.body.textContent) ? doc.body.textContent : norm;
+        }catch(_){
+          text = norm;
+        }
+        text = text
+          .replace(/&nbsp;|&#160;/gi, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+
+        // Helpers
+        const toNum = (s)=> {
+          const v = parseFloat(String(s).replace(',', '.'));
+          return Number.isFinite(v) ? v : null;
+        };
+        const inRange = (v, lo, hi)=> v!=null && v>=lo && v<=hi;
+
+        // ---- Extract raw quantities: kg / g / L / mL / doses ----
+        let kgVal = null, litersVal = null, doses = null;
+
+        // Weight (prefer kg, else g -> kg)
+        const mk = text.match(/(\d+(?:[.,]\d+)?)\s*(?:kg|kilogrammes?)/i);
+        const mg = text.match(/(\d+(?:[.,]\d+)?)\s*(?:g|grammes?)/i);
+        if (mk){ kgVal = toNum(mk[1]); }
+        else if (mg){ const g = toNum(mg[1]); if (g!=null) kgVal = g/1000; }
+
+        // Volume (prefer L, else mL -> L)
+        const ml = text.match(/(\d+(?:[.,]\d+)?)\s*(?:ml|millilitres?)/i);
+        const l  = text.match(/(\d+(?:[.,]\d+)?)\s*(?:l|litres?)/i);
+        if (l){ litersVal = toNum(l[1]); }
+        else if (ml){ const mls = toNum(ml[1]); if (mls!=null) litersVal = mls/1000; }
+
+        // Doses / capsules / lavages
+        const md = text.match(/(?:la\s*bo[iî]te\s*de\s*)?(\d{1,3})\s*(?:capsules?|lavages?|doses?|pods?)/i);
+        if (md) doses = parseInt(md[1], 10);
+
+        // ---- Extract €/kg and €/L (robust: direct patterns, then JSON hints, then compute) ----
+        let perkg = null, perliter = null;
+
+        // We'll search both the textContent and the raw HTML (to capture entities like &euro;,&frasl;)
+        const htmlNoTags = norm.replace(/<[^>]+>/g, ' ');
+        const blobs = [text, norm, htmlNoTags];
+
+        const kgRegs = [
+          /(\d+(?:[.,]\d{1,2})?)\s*(?:€|&euro;|eur|euro|euros)\s*(?:&nbsp;|\s|[\u00A0\u202F\u2009])*(?:\/|&#47;|&frasl;)\s*[kK]\s*[gG]\b/,
+          /(?:^|\s)(\d+(?:[.,]\d{1,2})?)\s*(?:€|&euro;)\s*(?:\/|&#47;|&frasl;)\s*kg\b/i,
+          /"pricePerKg"\s*:\s*"?(\d+(?:[.,]\d{1,2}))"?/i,
+          /"pricePerKilo[^"]*"\s*:\s*"?(\d+(?:[.,]\d{1,2}))"?/i,
+          /"unitPrice"\s*:\s*"?(\d+(?:[.,]\d{1,2}))"?\s*,\s*"unitOfMeasure"\s*:\s*"(?:KG|KILOGRAM)"/i,
+          /"pricePerUnitFormatted"\s*:\s*"(\d+(?:[.,]\d{1,2})).{0,20}kg"/i
+        ];
+        const lRegs = [
+          /(\d+(?:[.,]\d{1,2})?)\s*(?:€|&euro;|eur|euro|euros)\s*(?:&nbsp;|\s|[\u00A0\u202F\u2009])*(?:\/|&#47;|&frasl;)\s*[lL]\b/,
+          /(?:^|\s)(\d+(?:[.,]\d{1,2})?)\s*(?:€|&euro;)\s*(?:\/|&#47;|&frasl;)\s*l\b/i,
+          /"unitPrice"\s*:\s*"?(\d+(?:[.,]\d{1,2}))"?\s*,\s*"unitOfMeasure"\s*:\s*"(?:L|LITRE)"/i,
+          /"pricePerUnitFormatted"\s*:\s*"(\d+(?:[.,]\d{1,2})).{0,20}l"/i
+        ];
+
+        function grabFirst(blobsArr, regs){
+          for(const hay of blobsArr){
+            for(const re of regs){
+              const m = hay.match(re);
+              if(m){ const v = toNum(m[1]); if(inRange(v, 0.01, 999)) return v; }
+            }
+          }
+          return null;
+        }
+
+        perkg = grabFirst(blobs, kgRegs);
+        perliter = grabFirst(blobs, lRegs);
+
+        // Compute from main price if still missing and quantity is known
+        if (perkg == null && kgVal != null && price != null){
+          const v = Number(price) / kgVal;
+          if (inRange(v, 0.2, 999)) perkg = v;
+        }
+        if (perliter == null && litersVal != null && price != null){
+          const v = Number(price) / litersVal;
+          if (inRange(v, 0.05, 200)) perliter = v;
+        }
+
+        // €/dose if we have price + doses
+        let perDose = null;
+        if(price != null && doses != null) perDose = Number(price) / Number(doses);
+
+        // If at least one field was found/computed, return it
+        if(perkg != null || perliter != null || perDose != null || doses != null || kgVal != null || litersVal != null){
+          return {
+            per_kg: perkg,
+            kg: kgVal,
+            per_liter: perliter,
+            liters: litersVal,
+            per_dose: perDose,
+            doses
+          };
+        }
+        return null;
+      }catch(_){ return null; }
+    }
+    // Enrich unit info from Intermarché product page (€/kg, €/L, doses, €/dose, etc.)
+    async function enrichIntermarcheUnitFor(url, price){
+      try{
+        const inp = document.getElementById('inpWorker');
+        const w = (inp && inp.value) ? inp.value.trim() : getWorker();
+        if(!w) return null;
+
+        // Intermarché referer
+        const q = `${w}/fetch?url=${encodeURIComponent(url)}&referer=${encodeURIComponent('https://www.intermarche.com/')}&attach=1&nopuzzle=1&_=${Date.now()}`;
+        const res = await fetch(q, {headers:{'Accept':'application/json'}, cache:'no-store', credentials:'omit'});
+        const data = await res.json();
+        if(!data || !data.html) return null;
+
+        const norm = String(data.html).replace(/[\u00A0\u202F\u2009]/g, ' ');
+        let text = '';
+        try{
+          const doc = new DOMParser().parseFromString(norm, 'text/html');
+          text = (doc.body && doc.body.textContent) ? doc.body.textContent : norm;
+        }catch(_){
+          text = norm;
+        }
+        text = text.replace(/&nbsp;|&#160;/gi, ' ').replace(/\s+/g, ' ').trim();
+
+        const toNum = (s)=>{ const v = parseFloat(String(s).replace(',', '.')); return Number.isFinite(v) ? v : null; };
+        const inRange = (v, lo, hi)=> v!=null && v>=lo && v<=hi;
+
+        // Quantities
+        let kgVal = null, litersVal = null, doses = null;
+        let priceMain = null;
+
+        const mk = text.match(/(\d+(?:[.,]\d+)?)\s*(?:kg|kilogrammes?)/i);
+        const mg = text.match(/(\d+(?:[.,]\d+)?)\s*(?:g|grammes?)/i);
+        if (mk){ kgVal = toNum(mk[1]); }
+        else if (mg){ const g = toNum(mg[1]); if (g!=null) kgVal = g/1000; }
+
+        const ml = text.match(/(\d+(?:[.,]\d+)?)\s*(?:ml|millilitres?)/i);
+        const l  = text.match(/(\d+(?:[.,]\d+)?)\s*(?:l|litres?)/i);
+        if (l){ litersVal = toNum(l[1]); }
+        else if (ml){ const mls = toNum(ml[1]); if (mls!=null) litersVal = mls/1000; }
+
+        const md = text.match(/(?:la\s*bo[iî]te\s*de\s*)?(\d{1,3})\s*(?:capsules?|lavages?|doses?|dosettes?|pods?)/i);
+        if (md) doses = parseInt(md[1], 10);
+
+        // €/kg and €/L
+        let perkg = null, perliter = null;
+        const htmlNoTags = norm.replace(/<[^>]+>/g, ' ');
+        const blobs = [text, norm, htmlNoTags];
+
+        const kgRegs = [
+          /(\d+(?:[.,]\d{1,2})?)\s*(?:€|&euro;|eur|euro|euros)\s*(?:&nbsp;|\s|[\u00A0\u202F\u2009])*(?:\/|&#47;|&frasl;)\s*[kK]\s*[gG]\b/,
+          /(?:^|\s)(\d+(?:[.,]\d{1,2})?)\s*(?:€|&euro;)\s*(?:\/|&#47;|&frasl;)\s*kg\b/i,
+          /"pricePerKg"\s*:\s*"?(\d+(?:[.,]\d{1,2}))"?/i,
+          /"unitPrice"\s*:\s*"?(\d+(?:[.,]\d{1,2}))"?\s*,\s*"unitOfMeasure"\s*:\s*"(?:KG|KILOGRAM)"/i,
+          /"pricePerUnitFormatted"\s*:\s*"(\d+(?:[.,]\d{1,2})).{0,20}kg"/i
+        ];
+        const lRegs = [
+          /(\d+(?:[.,]\d{1,2})?)\s*(?:€|&euro;|eur|euro|euros)\s*(?:&nbsp;|\s|[\u00A0\u202F\u2009])*(?:\/|&#47;|&frasl;)\s*[lL]\b/,
+          /(?:^|\s)(\d+(?:[.,]\d{1,2})?)\s*(?:€|&euro;)\s*(?:\/|&#47;|&frasl;)\s*l\b/i,
+          /"unitPrice"\s*:\s*"?(\d+(?:[.,]\d{1,2}))"?\s*,\s*"unitOfMeasure"\s*:\s*"(?:L|LITRE)"/i,
+          /"pricePerUnitFormatted"\s*:\s*"(\d+(?:[.,]\d{1,2})).{0,20}l"/i
+        ];
+
+        function grabFirst(blobsArr, regs){
+          for(const hay of blobsArr){
+            for(const re of regs){
+              const m = hay.match(re);
+              if(m){ const v = toNum(m[1]); if(inRange(v, 0.01, 999)) return v; }
+            }
+          }
+          return null;
+        }
+
+        perkg   = grabFirst(blobs, kgRegs);
+        perliter= grabFirst(blobs, lRegs);
+
+        if (perkg == null && kgVal != null && price != null){
+          const v = Number(price) / kgVal;
+          if (inRange(v, 0.2, 999)) perkg = v;
+        }
+        if (perliter == null && litersVal != null && price != null){
+          const v = Number(price) / litersVal;
+          if (inRange(v, 0.05, 200)) perliter = v;
+        }
+
+        // Try to extract the main product price (not a unit price)
+        // 1) textual pattern: number + € not followed by /kg or /l
+        const priceRe = /(\d{1,3}(?:[.,]\d{2}))\s*(?:€|&euro;)(?!\s*[\/]\s*(?:kg|l)\b)/i;
+        const mPriceTxt = text.match(priceRe) || norm.match(priceRe);
+        if(mPriceTxt){
+          const v = toNum(mPriceTxt[1]);
+          if(inRange(v, 0.2, 500)) priceMain = v;
+        }
+        // 2) JSON hints (schema/dataLayer)
+        if(priceMain == null){
+          const mJson = norm.match(/"price"\s*:\s*"?(\d+(?:[.,]\d{2}))"?/i);
+          if(mJson){
+            const v = toNum(mJson[1]);
+            if(inRange(v, 0.2, 500)) priceMain = v;
+          }
+        }
+
+        let perDose = null;
+        if(price != null && doses != null) perDose = Number(price) / Number(doses);
+
+        if(perkg != null || perliter != null || perDose != null || doses != null || kgVal != null || litersVal != null || priceMain != null){
+          return {
+            per_kg: perkg,
+            kg: kgVal,
+            per_liter: perliter,
+            liters: litersVal,
+            per_dose: perDose,
+            doses,
+            price: priceMain
+          };
+        }
+        return null;
+      }catch(_){ return null; }
+    }
+
+    function hostToKey(u){
+      try{ const h=new URL(u).hostname.toLowerCase();
+        if(h.includes('leclerc')) return 'leclerc';
+        if(h.includes('carrefour')) return 'carrefour';
+        if(h.includes('intermarche')) return 'intermarche';
+        if(h.includes('auchan')) return 'auchan';
+        if(h.includes('monoprix')) return 'monoprix';
+      }catch{}
+      return null;
+    }
+    function keyToName(k){ const i = STORE_KEY.indexOf(k); return i>=0? STORES[i] : (k||''); }
+    function setLast(url){ const el=$('#last'); if(el) el.innerHTML = url ? 'Dernier appel : <a href="'+url+'" target="_blank" rel="noopener">'+url+'</a>' : ''; }
+    function getWorker(){ try{ return localStorage.getItem(LS_WORKER) || ''; }catch(_){ return ''; } }
+    function setWorker(v){ try{ v=v.trim(); if(v) localStorage.setItem(LS_WORKER,v); else localStorage.removeItem(LS_WORKER); }catch(_){ } }
+
+    // ==== API ====
+    async function callAPI(params){
+      let q = params || '';
+      // Prefer the LIVE value currently typed in the Worker field; fallback to localStorage
+      const inp = document.getElementById('inpWorker');
+      const live = (inp && inp.value) ? inp.value.trim() : '';
+      const w = live || getWorker();
+      if (w) { q += (q ? '&' : '') + 'worker=' + encodeURIComponent(w); }
+      const url = API + '?' + q + '&_=' + Date.now();
+      setLast(url);
+      const res = await fetch(url,{headers:{'Accept':'application/json'},cache:'no-store',credentials:'omit'});
+      const txt = await res.text();
+      $('#raw').textContent = txt;
+      try{ return JSON.parse(txt); }catch(e){
+        // Tolérant: essayer d'extraire le premier bloc JSON
+        const s = txt.indexOf('{'), e2 = txt.lastIndexOf('}');
+        if(s!==-1 && e2>s){ try{ return JSON.parse(txt.slice(s,e2+1)); }catch(_){} }
+        throw new Error('Réponse non‑JSON');
+      }
+    }
+
+    // ==== Build input ====
+    function parseInput(){
+      const raw = ($('#inpList').value || '').trim();
+      if(!raw) return [{ type:'preset', value:'coca175' }];
+      const lines = raw.split(/\n+/).map(x=>x.trim()).filter(Boolean);
+      return lines.map(l=>{
+        if(/^https?:\/\//i.test(l)) return { type:'url', value:l };
+        if(l.toLowerCase()==='coca175') return { type:'preset', value:'coca175' };
+        return { type:'search', value:l };
+      });
+    }
+
+    // ==== Aggregation ====
+    function normalizeUnitsAcrossStores(agg){
+      const cons = computeConsensusPack(agg);
+      for (const k of STORE_KEY){
+        const s = agg[k]; if(!s || !Array.isArray(s.products)) continue;
+        for (const p of s.products){
+          if (!p.unit) p.unit = {};
+          const u = p.unit; const price = (typeof p.price==='number') ? Number(p.price) : null;
+
+          // Prefer consensus doses when local value is missing/bogus (<=1)
+          if ((u.doses == null || Number(u.doses) <= 1) && cons.doses){ u.doses = cons.doses; }
+          // Recompute €/dose when we have price+doses and current per_dose is missing or equals price
+          if (price != null && u.doses != null && Number(u.doses) > 1 && (u.per_dose == null || nearly(u.per_dose, price))){
+            u.per_dose = price / Number(u.doses);
+          }
+
+          // Carry kg / liters from consensus when missing, then compute unit prices
+          if (u.kg == null && cons.kg != null) u.kg = cons.kg;
+          if (u.liters == null && cons.liters != null) u.liters = cons.liters;
+
+          if (price != null && (u.per_kg == null) && u.kg != null && u.kg > 0){ u.per_kg = price / Number(u.kg); }
+          if (price != null && (u.per_liter == null) && u.liters != null && u.liters > 0){ u.per_liter = price / Number(u.liters); }
+        }
+      }
+    }
+
+    async function compareList(){
+      const items = parseInput();
+      // init per-store buckets
+      const agg = {};
+      for(const k of STORE_KEY){ agg[k] = { name:keyToName(k), logo:LOGOS[k], total:0, products:[] }; }
+
+      // Regrouper les entrées par type
+      const urls = [];
+      const presets = [];
+      const searches = [];
+      for (const it of items){
+        if (it.type === 'url') urls.push(it.value);
+        else if (it.type === 'preset') presets.push(it.value);
+        else searches.push(it.value);
+      }
+
+      // Helper pour traiter une réponse et remplir l'agrégat
+      function consume(payload){
+        const rows = Array.isArray(payload?.results)? payload.results : [];
+        for(const r of rows){
+          const k = hostToKey(r.url||''); if(!k) continue;
+
+          // Unitaires: utiliser d'abord r.unit depuis l'API (tous les formats), sinon fallback calculé
+          let unit_value = null; let unit_label = null; let unit_qty = null; let unit_qty_label = null;
+
+          // Conserver l'objet complet d'unités quand dispo
+          const unit = {
+            per_liter: (r.unit && r.unit.per_liter != null) ? Number(r.unit.per_liter) : null,
+            liters:    (r.unit && r.unit.liters     != null) ? Number(r.unit.liters)     : null,
+            per_kg:    (r.unit && r.unit.per_kg     != null) ? Number(r.unit.per_kg)     : null,
+            kg:        (r.unit && r.unit.kg         != null) ? Number(r.unit.kg)         : null,
+            per_dose:  (r.unit && r.unit.per_dose   != null) ? Number(r.unit.per_dose)   : null,
+            doses:     (r.unit && r.unit.doses      != null) ? Number(r.unit.doses)      : null,
+          };
+
+          // --- Fallbacks to enrich unit info when backend didn't provide it ---
+          // 1) If doses missing, try to parse from title or URL (e.g., "la boite de 19 capsules")
+          if (unit.doses == null) {
+            const d = dosesFrom((r.title || '') + ' ' + (r.url || ''));
+            if (d != null) unit.doses = d;
+          }
+          // 2) €/dose — simple rule: price / doses (whenever both are known)
+          if (r.price != null) {
+            const d = Number(unit.doses);
+            if (Number.isFinite(d) && d > 1) {
+              unit.per_dose = Number(r.price) / d;
+            }
+          }
+          // Sanitize: if API sent doses=1 or per_dose ~= price, drop them so we'll recompute later
+          if (unit.doses != null && Number(unit.doses) <= 1) unit.doses = null;
+          if (unit.per_dose != null && r.price != null && nearly(unit.per_dose, Number(r.price))) unit.per_dose = null;
+
+          // Choisir une unité "primaire" pour l'affichage court (préférence: L > kg > dose)
+          if (unit.per_liter != null && unit.liters != null) {
+            unit_value = unit.per_liter; unit_label = '€/L'; unit_qty = unit.liters; unit_qty_label = 'L';
+          } else if (unit.per_kg != null && unit.kg != null) {
+            unit_value = unit.per_kg; unit_label = '€/kg'; unit_qty = unit.kg; unit_qty_label = 'kg';
+          } else if (unit.per_dose != null && unit.doses != null) {
+            unit_value = unit.per_dose; unit_label = '€/dose'; unit_qty = unit.doses; unit_qty_label = 'doses';
+          }
+
+          // Fallback heuristique si aucune unité fournie mais prix connu
+          if (unit_value == null && r.price != null) {
+            const L = litersFrom((r.title||'') + ' ' + (r.url||''));
+            if (L) { unit_value = r.price / L; unit_label = '€/L'; unit_qty = L; unit_qty_label = 'L'; }
+          }
+
+          agg[k].products.push({
+            title: r.title || '',
+            url: r.url || '#',
+            price: r.price != null ? r.price : null,
+            unit_value,
+            unit_label,
+            unit_qty,
+            unit_qty_label,
+            unit, // <-- conserve TOUTES les formes (€/kg, €/L, €/dose)
+          });
+          if(r.price!=null) agg[k].total += r.price;
+        }
+      }
+
+      // === Mode automatique: une URL Leclerc unique -> chercher l'équivalent Carrefour ===
+      // Si l'utilisateur colle uniquement 1 URL (Leclerc), on appelle l'API "find_equivalents"
+      // pour récupérer la meilleure fiche produit Carrefour correspondante et on l'injecte
+      // dans l'agrégat comme si on avait reçu un payload .results classique.
+      if (items.length === 1 && items[0].type === 'url' && hostToKey(items[0].value) === 'leclerc') {
+        try {
+          const seedUrl = items[0].value;
+          const data = await callAPI('action=find_equivalents&stores=carrefour,intermarche&seed=' + encodeURIComponent(seedUrl));
+
+          const payload = { results: [] };
+
+          // Injecte la fiche Leclerc (seed)
+          if (data && data.seed) {
+            payload.results.push({
+              url: data.seed.url || seedUrl,
+              title: data.seed.title || 'Produit',
+              price: (typeof data.seed.price === 'number') ? Number(data.seed.price) : null,
+              unit: (data.seed.unit && typeof data.seed.unit === 'object') ? data.seed.unit : null
+            });
+          }
+
+          // Injecte la meilleure correspondance Carrefour (enrich €/kg/dose si besoin)
+          if (data && Array.isArray(data.matches)) {
+            const m = data.matches.find(x => x && x.store === 'carrefour');
+            if (m && m.best && m.best.url) {
+              const bestUrl = m.best.url;
+              const bestPrice = (typeof m.best.price === 'number') ? Number(m.best.price) : null;
+              let bestUnit = (m.best.unit && typeof m.best.unit === 'object') ? m.best.unit : null;
+
+              // Enrich unit info directly from the Carrefour product page (€/kg, doses, €/dose)
+              try{
+                const u = await enrichCarrefourUnitFor(bestUrl, bestPrice);
+                if(u){ bestUnit = Object.assign({}, bestUnit || {}, u); }
+              }catch(_){}
+
+              // --- Fallback: if Carrefour page didn't reveal €/kg or €/dose,
+              // derive from the seed when it's the same pack (typically same doses)
+              try {
+                const seedKg = (data && data.seed && data.seed.unit && data.seed.unit.kg != null)
+                  ? Number(data.seed.unit.kg) : null;
+                const seedDoses = (data && data.seed && data.seed.unit && data.seed.unit.doses != null)
+                  ? Number(data.seed.unit.doses) : null;
+
+                // Ensure object
+                bestUnit = bestUnit || {};
+
+                // €/kg: compute from seed kg + Carrefour price
+                if ((bestUnit.per_kg == null || !Number.isFinite(bestUnit.per_kg))
+                    && seedKg != null && bestPrice != null) {
+                  bestUnit.per_kg = Number(bestPrice) / Number(seedKg);
+                  if (bestUnit.kg == null) bestUnit.kg = seedKg;
+                }
+
+                // €/dose: compute from seed doses + Carrefour price
+                if ((bestUnit.per_dose == null || !Number.isFinite(bestUnit.per_dose))
+                    && seedDoses != null && bestPrice != null) {
+                  bestUnit.per_dose = Number(bestPrice) / Number(seedDoses);
+                  if (bestUnit.doses == null) bestUnit.doses = seedDoses;
+                }
+              } catch(_) {}
+
+              payload.results.push({
+                url: bestUrl,
+                title: m.best.title || 'Produit',
+                price: bestPrice,
+                unit: bestUnit
+              });
+            }
+          }
+
+          // Inject Intermarché best match
+          if (data && Array.isArray(data.matches)) {
+            const im = data.matches.find(x => x && x.store === 'intermarche');
+            if (im && im.best && im.best.url) {
+              const imUrl = im.best.url;
+              const imPrice = (typeof im.best.price === 'number') ? Number(im.best.price) : null;
+              let imUnit = (im.best.unit && typeof im.best.unit === 'object') ? im.best.unit : null;
+
+              // Try to enrich directly from the Intermarché product page
+              try{
+                const u2 = await enrichIntermarcheUnitFor(imUrl, imPrice);
+                if(u2){ imUnit = Object.assign({}, imUnit || {}, u2); }
+              }catch(_){}
+
+              // Fallback: derive €/kg and €/dose from Leclerc seed if same pack size
+              try{
+                const seedKg2 = (data && data.seed && data.seed.unit && data.seed.unit.kg != null)
+                  ? Number(data.seed.unit.kg) : null;
+                const seedDoses2 = (data && data.seed && data.seed.unit && data.seed.unit.doses != null)
+                  ? Number(data.seed.unit.doses) : null;
+
+                imUnit = imUnit || {};
+
+                if ((imUnit.per_kg == null || !Number.isFinite(imUnit.per_kg))
+                    && seedKg2 != null && imPrice != null) {
+                  imUnit.per_kg = Number(imPrice) / Number(seedKg2);
+                  if (imUnit.kg == null) imUnit.kg = seedKg2;
+                }
+
+                if ((imUnit.per_dose == null || !Number.isFinite(imUnit.per_dose))
+                    && seedDoses2 != null && imPrice != null) {
+                  imUnit.per_dose = Number(imPrice) / Number(seedDoses2);
+                  if (imUnit.doses == null) imUnit.doses = seedDoses2;
+                }
+              }catch(_){}
+
+              payload.results.push({
+                url: imUrl,
+                title: im.best.title || 'Produit',
+                price: imPrice,
+                unit: imUnit
+              });
+            }
+          }
+          else if (data && data.query){
+            try{
+              const altUrl = await findIntermarcheBestUrl(data.query);
+              if(altUrl){
+                let imPrice2 = null; let imUnit2 = null;
+                const u3 = await enrichIntermarcheUnitFor(altUrl, null).catch(()=>null);
+                if(u3){ imUnit2 = u3; if(typeof u3.price === 'number') imPrice2 = u3.price; }
+                payload.results.push({ url: altUrl, title: 'Intermarché (détecté)', price: imPrice2, unit: imUnit2 });
+              }
+            }catch(_){ /* ignore */ }
+          }
+
+          // Consomme comme un résultat normal et rends les vues
+          consume(payload);
+          normalizeUnitsAcrossStores(agg);
+          renderSynthesis(agg);
+          renderDetails(agg);
+          renderUnitSummary(agg);
+          return; // on arrête ici pour ne pas déclencher les autres branches
+        } catch (e) {
+          console.warn('find_equivalents failed', e);
+          // si ça échoue, on retombera sur le flux standard plus bas
+        }
+      }
+      // 1) Traiter les URLs en un seul appel avec url[]=...&url[]=...
+      if (urls.length){
+        const q = urls.map(u => 'url[]=' + encodeURIComponent(u)).join('&');
+        try { consume(await callAPI(q)); } catch(e){ console.warn('URL batch failed', e); }
+      }
+
+      // 2) Traiter chaque preset séparément
+      for (const p of presets){
+        try { consume(await callAPI('preset=' + encodeURIComponent(p))); } catch(e){ console.warn('preset failed', p, e); }
+      }
+
+      // 3) Traiter les recherches libres si le backend les supporte (q=)
+      for (const s of searches){
+        try { consume(await callAPI('q=' + encodeURIComponent(s))); } catch(e){ console.warn('search failed', s, e); }
+      }
+
+      // Normalize/complete unit metrics across stores (fixes bad doses=1, missing €/kg, etc.)
+      normalizeUnitsAcrossStores(agg);
+      renderSynthesis(agg);
+      renderDetails(agg);
+      renderUnitSummary(agg);
+    }
+
+    // ==== Render synthesis ====
+    function renderSynthesis(agg){
+      const tbody = $('#tblSynth tbody'); tbody.innerHTML='';
+      // Ne garder que les enseignes qui ont au moins un produit
+      const stores = STORE_KEY.map(k=>agg[k]).filter(x=>x && x.products && x.products.length > 0);
+      // Tri par total croissant
+      stores.sort((a,b)=>(a.total)-(b.total));
+      // Minimum uniquement parmi les enseignes avec produits
+      const min = stores.length ? stores[0].total : null;
+
+      for(const s of stores){
+        const tr = document.createElement('tr');
+        if(min!=null && s.total===min) tr.classList.add('best');
+
+        const tdLogo = document.createElement('td'); tdLogo.className='logoCell';
+        const img = document.createElement('img');
+        img.src = s.logo; img.alt = s.name;
+        img.onerror = function(){ this.replaceWith(document.createTextNode('—')); };
+        tdLogo.appendChild(img);
+        tr.appendChild(tdLogo);
+
+        const tdName = document.createElement('td'); tdName.className='store'; tdName.textContent = s.name; tr.appendChild(tdName);
+
+        const tdCount = document.createElement('td'); tdCount.textContent = s.products.length; tr.appendChild(tdCount);
+
+        const tdTot = document.createElement('td'); tdTot.className='price'; tdTot.textContent = euro(s.total); tr.appendChild(tdTot);
+
+        // Unité (affichage court) — si un seul produit pour l'enseigne, afficher ses €/kg, €/L ou €/dose
+        const tdUnit = document.createElement('td');
+        let unitText = '—';
+        if (s.products.length === 1) {
+          const p = s.products[0];
+          // Derive missing unit metrics from known quantity (safety net)
+          if (p && p.unit && p.price != null){
+            if ((p.unit.per_dose == null) && p.unit.doses != null && p.unit.doses > 1){
+              p.unit.per_dose = Number(p.price) / Number(p.unit.doses);
+            }
+            if ((p.unit.per_kg == null) && p.unit.kg != null && p.unit.kg > 0){
+              p.unit.per_kg = Number(p.price) / Number(p.unit.kg);
+            }
+            if ((p.unit.per_liter == null) && p.unit.liters != null && p.unit.liters > 0){
+              p.unit.per_liter = Number(p.price) / Number(p.unit.liters);
+            }
+          }
+          if (p.unit && typeof p.unit === 'object') {
+            const parts = [];
+            if (p.unit.per_kg != null) {
+              parts.push(`${num2(p.unit.per_kg)} €/kg`);
+            }
+            if (p.unit.per_liter != null) {
+              parts.push(`${num2(p.unit.per_liter)} €/L`);
+            }
+            if (p.unit.per_dose != null) {
+              parts.push(`${num2(p.unit.per_dose)} €/dose`);
+            }
+            if (parts.length) {
+              unitText = parts.join(' • ');
+            }
+          }
+          // Fallback ancien format
+          if (unitText === '—' && p.unit_value != null && p.unit_label) {
+            unitText = `${num2(p.unit_value)} ${p.unit_label}`;
+          }
+        }
+        tdUnit.textContent = unitText;
+        tr.appendChild(tdUnit);
+
+        const tdDiff = document.createElement('td');
+        if(min!=null){ 
+          const d = s.total - min; 
+          tdDiff.textContent = d===0 ? 'meilleur prix' : '+'+num2(d)+' €';
+          tdDiff.className = 'ecart ' + (d===0?'zero':'pos');
+        } else tdDiff.textContent = '—';
+        tr.appendChild(tdDiff);
+
+        const tdLink = document.createElement('td');
+        tdLink.innerHTML = `<a href="#details-${s.name.toLowerCase()}" onclick="openDetails('${s.name.toLowerCase()}')">voir les produits</a>`;
+        tr.appendChild(tdLink);
+
+        tbody.appendChild(tr);
+      }
+    }
+
+    // ==== Render details accordion ====
+    function renderDetails(agg){
+      const wrap = $('#enseigneDetails'); wrap.innerHTML='';
+      // Conserver uniquement les enseignes avec des produits
+      const stores = STORE_KEY.map(k=>agg[k]).filter(x=>x && x.products && x.products.length > 0);
+      // Garder le même ordre que synthèse triée par total
+      stores.sort((a,b)=>(a.total)-(b.total));
+
+      for(const s of stores){
+        const det = document.createElement('details'); det.id = `details-${s.name.toLowerCase()}`;
+        const sum = document.createElement('summary');
+        sum.innerHTML = `
+          <div class="summary">
+            <img src="${s.logo}" alt="${s.name}" style="height:18px" onerror="this.style.display='none'">
+            <div class="title"><strong>${s.name}</strong></div>
+            <div class="total">${euro(s.total)}</div>
+          </div>
+        `;
+        det.appendChild(sum);
+
+        const tbl = document.createElement('table'); tbl.style.marginTop='8px';
+        tbl.innerHTML = `
+          <thead>
+            <tr>
+              <th style="width:60%">Produit</th>
+              <th>Prix</th>
+              <th>Unité</th>
+              <th>Lien</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        `;
+        const tb = tbl.querySelector('tbody');
+          for(const p of s.products){
+            const tr = document.createElement('tr');
+            const tdT = document.createElement('td'); tdT.textContent = p.title || ''; tr.appendChild(tdT);
+            const tdP = document.createElement('td'); tdP.className='price'; tdP.textContent = (p.price!=null)?euro(p.price):'—'; tr.appendChild(tdP);
+            const tdU = document.createElement('td');
+            // Derive missing unit metrics from known quantity (safety net)
+            if (p && p.unit && p.price != null){
+              if ((p.unit.per_dose == null) && p.unit.doses != null && p.unit.doses > 1){
+                p.unit.per_dose = Number(p.price) / Number(p.unit.doses);
+              }
+              if ((p.unit.per_kg == null) && p.unit.kg != null && p.unit.kg > 0){
+                p.unit.per_kg = Number(p.price) / Number(p.unit.kg);
+              }
+              if ((p.unit.per_liter == null) && p.unit.liters != null && p.unit.liters > 0){
+                p.unit.per_liter = Number(p.price) / Number(p.unit.liters);
+              }
+            }
+            let unitParts = [];
+            if (p.unit && typeof p.unit === 'object') {
+              if (p.unit.per_kg != null) {
+                let s = `${num2(p.unit.per_kg)} €/kg`;
+                if (p.unit.kg != null) s += ` · ${num2(p.unit.kg)} kg`;
+                unitParts.push(s);
+              }
+              if (p.unit.per_liter != null) {
+                let s = `${num2(p.unit.per_liter)} €/L`;
+                if (p.unit.liters != null) s += ` · ${num2(p.unit.liters)} L`;
+                unitParts.push(s);
+              }
+              if (p.unit.per_dose != null) {
+                let s = `${num2(p.unit.per_dose)} €/dose`;
+                if (p.unit.doses != null) s += ` · ${p.unit.doses} doses`;
+                unitParts.push(s);
+              }
+            }
+            // Fallback: ancien format unique
+            if (!unitParts.length && p.unit_value != null) {
+              const main = num2(p.unit_value) + ' ' + (p.unit_label || '€/unité');
+              const qty = (p.unit_qty != null && p.unit_qty_label) ? (' · ' + (p.unit_qty_label === 'doses' ? String(p.unit_qty) : num2(p.unit_qty)) + ' ' + p.unit_qty_label) : '';
+              unitParts.push(main + qty);
+            }
+            tdU.textContent = unitParts.length ? unitParts.join(' • ') : '—';
+            tr.appendChild(tdU);
+            const tdL = document.createElement('td'); tdL.innerHTML = `<a href="${p.url}" target="_blank" rel="noopener">ouvrir</a>`; tr.appendChild(tdL);
+            tb.appendChild(tr);
+          }
+        det.appendChild(tbl);
+        wrap.appendChild(det);
+      }
+    }
+
+    // ==== Render unit summary ====
+    function renderUnitSummary(agg){
+      const best = { '€/L': null, '€/kg': null, '€/dose': null };
+
+      // Cherche le meilleur prix unitaire et conserve aussi la quantité (L, kg, doses)
+      for (const k of STORE_KEY){
+        const s = agg[k]; if(!s) continue;
+        for (const p of s.products){
+          const u = p.unit || {};
+          if (u.per_liter != null){
+            const v = Number(u.per_liter);
+            const cur = best['€/L'];
+            if (!cur || v < cur.val){
+              best['€/L'] = { val:v, url:p.url, store:s.name, qty:(u.liters!=null? Number(u.liters) : null), qlab:'L' };
+            }
+          }
+          if (u.per_kg != null){
+            const v = Number(u.per_kg);
+            const cur = best['€/kg'];
+            if (!cur || v < cur.val){
+              best['€/kg'] = { val:v, url:p.url, store:s.name, qty:(u.kg!=null? Number(u.kg) : null), qlab:'kg' };
+            }
+          }
+          if (u.per_dose != null && (u.doses == null || Number(u.doses) > 1)){
+            const v = Number(u.per_dose);
+            const cur = best['€/dose'];
+            if (!cur || v < cur.val){
+              best['€/dose'] = { val:v, url:p.url, store:s.name, qty:(u.doses!=null? Number(u.doses) : null), qlab:'doses' };
+            }
+          }
+        }
+      }
+
+      const wrap = document.getElementById('unitsBody'); if(!wrap) return;
+      const rows = [];
+      for (const lab of ['€/L','€/kg','€/dose']){
+        const b = best[lab];
+        if (b){
+          const val = num2(b.val);
+          const extra = (b.qty != null) ? ` · ${b.qlab === 'doses' ? b.qty : num2(b.qty)} ${b.qlab}` : '';
+          rows.push(
+            `<div style="margin:4px 0">Meilleur <b>${lab}</b> : <b>${val}</b>${extra} chez <a href="${b.url}" target="_blank" rel="noopener">${b.store}</a></div>`
+          );
+        }
+      }
+      wrap.innerHTML = rows.length ? rows.join('') : '<span class="muted">Aucun prix unitaire exploitable pour ce lot de produits.</span>';
+    }
+
+    // helper pour ouvrir un details
+    window.openDetails = function(id){
+      const el = document.getElementById('details-' + id);
+      if(el && !el.open){ el.open = true; }
+      el?.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    // ==== Actions ====
+    function composeFromFields(){
+      const ids = ['u_leclerc','u_carrefour','u_intermarche','u_auchan','u_monoprix'];
+      const lines = [];
+      for(const id of ids){
+        const v = (document.getElementById(id)?.value || '').trim();
+        if(v) lines.push(v);
+      }
+      if(!lines.length) return;
+      const ta = document.getElementById('inpList');
+      const cur = (ta.value||'').trim();
+      ta.value = (cur? (cur+'\n') : '') + lines.join('\n');
+    }
+    (function initWorkerField(){
+      const el = document.getElementById('inpWorker');
+      if(!el) return;
+      const cur = getWorker();
+      if(cur) el.value = cur;
+      const persist = ()=>{ setWorker(el.value); };
+      el.addEventListener('change', persist);
+      el.addEventListener('input', persist); // <-- enregistre à chaque frappe
+    })();
+    document.getElementById('btnCompose').addEventListener('click', composeFromFields);
+    document.getElementById('btnClearFields').addEventListener('click', ()=>{
+      for(const id of ['u_leclerc','u_carrefour','u_intermarche','u_auchan','u_monoprix']){
+        const el = document.getElementById(id); if(el) el.value='';
+      }
+    });
+    document.getElementById('btnRun').addEventListener('click', ()=>{ compareList().catch(e=>{ alert(e.message||e); }); });
+  </script>
+</body>
+</html>
