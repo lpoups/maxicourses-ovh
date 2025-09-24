@@ -53,30 +53,29 @@
     .product-card {
       background: #fff;
       border-radius: 16px;
-      padding: 16px;
+      padding: 14px;
       box-shadow: 0 10px 24px rgba(15,23,42,0.12);
       display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      align-items: flex-start;
-    }
-    .product-card--compact {
-      padding: 14px;
       gap: 16px;
-    }
-    .product-media {
-      flex: 0 0 130px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      flex-wrap: wrap;
       align-items: center;
     }
+    .product-card--compact {
+      padding: 12px;
+      gap: 14px;
+    }
+    .product-media {
+      flex: 0 0 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .product-card--compact .product-media {
-      flex-basis: 120px;
+      flex-basis: 64px;
     }
     .product-thumb {
-      width: 130px;
-      height: 130px;
+      width: 72px;
+      height: 72px;
       border-radius: 14px;
       background: #f3f5f9;
       display: flex;
@@ -85,8 +84,8 @@
       overflow: hidden;
     }
     .product-card--compact .product-thumb {
-      width: 115px;
-      height: 115px;
+      width: 64px;
+      height: 64px;
     }
     .product-thumb img {
       width: 100%;
@@ -99,29 +98,65 @@
       padding: 12px;
       text-align: center;
     }
-    .product-nutri {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.75rem;
-      color: #334155;
-    }
-    .product-nutri img {
-      height: 30px;
-    }
-    .product-card--compact .product-nutri img {
-      height: 28px;
-    }
     .product-body {
-      flex: 1;
-      min-width: 240px;
+      flex: 1 1 260px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 16px;
+    }
+    .product-info {
+      flex: 1 1 260px;
+      min-width: 200px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 4px;
+      align-items: flex-start;
     }
-    .product-card--compact .product-body {
-      min-width: 220px;
-      gap: 10px;
+    .product-summary {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.7rem;
+    }
+    .product-summary span {
+      background: #eef2ff;
+      color: #4338ca;
+      padding: 1px 8px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+    }
+    .product-meta-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex: 0 0 auto;
+      margin-left: auto;
+    }
+    .product-preview-link {
+      font-size: 0.68rem;
+      color: #2563eb;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid rgba(37,99,235,0.3);
+      border-radius: 999px;
+      padding: 2px 6px;
+    }
+    .product-preview-link:hover {
+      background: rgba(37,99,235,0.08);
+    }
+    .product-nutri {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-nutri img {
+      height: 28px;
+    }
+    .product-card--compact .product-nutri img {
+      height: 24px;
     }
     .product-brand {
       font-size: 0.78rem;
@@ -137,27 +172,22 @@
     .product-card--compact .product-title {
       font-size: 1.05rem;
     }
-    .product-summary {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .product-summary span {
-      background: #eef2ff;
-      color: #4338ca;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 0.72rem;
-    }
     .product-details {
-      display: flex;
-      gap: 24px;
+      display: inline-flex;
       flex-wrap: wrap;
+      gap: 6px 14px;
       margin: 0;
+      align-self: center;
+      justify-content: center;
+    }
+    .product-details div {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
     .product-details dt {
-      margin: 0 0 4px;
-      font-size: 0.75rem;
+      margin: 0;
+      font-size: 0.68rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -165,7 +195,7 @@
     }
     .product-details dd {
       margin: 0;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: #0f172a;
     }
     .product-map {
@@ -278,18 +308,18 @@
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 10px 24px rgba(15,23,42,0.08);
-      font-size: 0.9rem;
-      margin-bottom: 20px;
+      font-size: 0.82rem;
+      margin-bottom: 18px;
     }
     thead {
       background: #e2e8f0;
       text-transform: uppercase;
-      font-size: 0.78rem;
+      font-size: 0.7rem;
       letter-spacing: 0.04em;
       color: #475569;
     }
     th, td {
-      padding: 10px 14px;
+      padding: 8px 12px;
       border-bottom: 1px solid #e2e8f0;
       vertical-align: top;
     }
@@ -321,6 +351,7 @@
     .price {
       font-variant-numeric: tabular-nums;
       font-weight: 600;
+      font-size: 0.9rem;
     }
     .meta-cell {
       font-size: 0.8rem;
@@ -346,14 +377,20 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      margin-left: 8px;
-      padding: 2px 8px;
+      margin-left: 6px;
+      padding: 2px 7px;
       border-radius: 999px;
-      background: rgba(6,95,70,0.14);
-      color: #065f46;
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       font-weight: 700;
       text-transform: uppercase;
+    }
+    .price-badge--best {
+      background: rgba(6,95,70,0.14);
+      color: #065f46;
+    }
+    .price-badge--worst {
+      background: rgba(220,38,38,0.12);
+      color: #b91c1c;
     }
     .best-price-banner {
       margin: 0 0 14px;
@@ -397,11 +434,11 @@
     #primary-section.product-block {
       margin-top: 0;
     }
-    .image-preview {
-      margin: 18px 0 32px;
-    }
     .best-offer td {
       background: #f0fdf4;
+    }
+    .worst-offer td {
+      background: #fef2f2;
     }
     .empty-state {
       font-size: 0.95rem;
@@ -415,15 +452,10 @@
       <img src="../assets/logo_blanc_maxicourses.png" alt="MaxiCourses" />
       <h1>Liste de course</h1>
     </div>
-    <div class="meta" id="run-meta">Chargement…</div>
+    <div class="meta" id="copyright">Copyright : OpenCenterAI 2025 - 2026 - LP</div>
   </header>
 
   <section class="descriptor product-block" id="primary-section" hidden></section>
-
-  <div class="image-preview" id="primary-image-preview" hidden>
-    <img id="primary-image-preview-img" alt="Dernière image" />
-    <div class="meta">Image terrain (pipeline)</div>
-  </div>
 
   <template id="product-card-template">
     <div class="product-card">
@@ -431,25 +463,30 @@
         <div class="product-thumb">
           <div class="product-thumb__placeholder">Image indisponible</div>
         </div>
-        <div class="product-nutri" data-role="nutri"></div>
       </div>
       <div class="product-body">
-        <div class="product-brand" data-role="brand" hidden></div>
-        <h3 class="product-title" data-role="title"></h3>
-        <div class="product-summary">
-          <span class="product-summary__quantity" data-role="quantity" hidden></span>
-          <span class="product-summary__category" data-role="category" hidden></span>
+        <div class="product-info">
+          <div class="product-summary">
+            <span class="product-summary__quantity" data-role="quantity" hidden></span>
+            <span class="product-summary__category" data-role="category" hidden></span>
+          </div>
+          <div class="product-details product-details--inline">
+            <div>
+              <dt>EAN</dt>
+              <dd data-role="ean">—</dd>
+            </div>
+            <div>
+              <dt>Source</dt>
+              <dd data-role="source">—</dd>
+            </div>
+          </div>
+          <div class="product-brand" data-role="brand" hidden></div>
+          <h3 class="product-title" data-role="title"></h3>
         </div>
-        <dl class="product-details">
-          <div>
-            <dt>EAN</dt>
-            <dd data-role="ean">—</dd>
-          </div>
-          <div>
-            <dt>Source</dt>
-            <dd data-role="source">—</dd>
-          </div>
-        </dl>
+        <div class="product-meta-actions">
+          <a class="product-preview-link" data-role="preview" target="_blank" rel="noopener" hidden>Voir image</a>
+          <div class="product-nutri" data-role="nutri"></div>
+        </div>
       </div>
       <div class="product-map product-map--static" data-role="map" hidden>
         <div class="product-map__canvas" data-role="map-canvas"></div>
@@ -585,6 +622,8 @@
         root.classList.add('product-card--compact');
       }
 
+      const datasetData = options.dataset || null;
+
       let titleEl = root.querySelector('[data-role="title"]');
       if (options.headingLevel && options.headingLevel !== 3) {
         const headingTag = `h${options.headingLevel}`;
@@ -621,6 +660,10 @@
         catEl.hidden = true;
       }
 
+      const previewLink = root.querySelector('[data-role="preview"]');
+      const summaryEl = root.querySelector('.product-summary');
+      const metaActions = root.querySelector('.product-meta-actions');
+
       const eanEl = root.querySelector('[data-role="ean"]');
       eanEl.textContent = descriptor.ean || '—';
 
@@ -642,6 +685,21 @@
         thumbEl.appendChild(placeholder);
       }
 
+      if (previewLink) {
+        let previewUrl = options.previewUrl || null;
+        if (!previewUrl && datasetData) {
+          previewUrl = datasetData.image_path
+            || datasetData.reference?.image
+            || (datasetData.adapters || []).reduce((acc, adapter) => acc || adapter?.payload?.image_path || adapter?.payload?.image || null, null);
+        }
+        if (previewUrl) {
+          previewLink.href = toAbsolute(previewUrl);
+          previewLink.hidden = false;
+        } else {
+          previewLink.hidden = true;
+        }
+      }
+
       const nutriEl = root.querySelector('[data-role="nutri"]');
       nutriEl.innerHTML = '';
       const nutriGrade = descriptor.nutriscore_grade;
@@ -649,15 +707,22 @@
         ? toAbsolute(descriptor.nutriscore_image)
         : FALLBACK_NUTRI_IMAGES[(nutriGrade || '').toLowerCase()];
       if (nutriImg) {
-        const label = document.createElement('span');
-        label.textContent = 'Nutri-score :';
         const img = document.createElement('img');
         img.src = nutriImg;
         img.alt = nutriGrade ? `Nutri-score ${nutriGrade.toUpperCase()}` : 'Nutri-score';
-        nutriEl.appendChild(label);
         nutriEl.appendChild(img);
       } else if (nutriGrade) {
-        nutriEl.textContent = `Nutri-score : ${nutriGrade.toUpperCase()}`;
+        nutriEl.textContent = nutriGrade.toUpperCase();
+      }
+
+      const hasSummary = !qtyEl.hidden || !catEl.hidden;
+      const hasNutri = nutriEl.childNodes.length > 0;
+      const hasPreview = previewLink && !previewLink.hidden;
+      if (summaryEl) {
+        summaryEl.style.display = hasSummary ? 'inline-flex' : 'none';
+      }
+      if (metaActions) {
+        metaActions.style.display = (hasNutri || hasPreview) ? 'inline-flex' : 'none';
       }
 
       const mapEl = root.querySelector('[data-role="map"]');
@@ -687,6 +752,8 @@
       descriptor,
       rows = [],
       best,
+      worst,
+      datasetData = null,
       cardOptions = {}
     }) {
       if (!target || !descriptor) return { card: null };
@@ -700,7 +767,7 @@
         target.appendChild(headingEl);
       }
 
-      const card = createProductCard(descriptor, cardOptions);
+      const card = createProductCard(descriptor, { ...cardOptions, dataset: datasetData });
       if (card) {
         target.appendChild(card.element);
       }
@@ -713,6 +780,7 @@
       }
 
       if (rows.length) {
+        const worstValue = worst?.value;
         const table = document.createElement('table');
         table.innerHTML = `
           <thead>
@@ -729,7 +797,7 @@
           </thead>
           <tbody></tbody>
         `;
-        renderTable(table.querySelector('tbody'), rows, best?.value);
+        renderTable(table.querySelector('tbody'), rows, best?.value, worstValue);
         target.appendChild(table);
       } else {
         const empty = document.createElement('div');
@@ -743,38 +811,27 @@
 
     function renderPrimary(dataset, summary, manualDescriptors) {
       const section = document.getElementById('primary-section');
-      const metaEl = document.getElementById('run-meta');
-      const previewEl = document.getElementById('primary-image-preview');
-      const previewImg = document.getElementById('primary-image-preview-img');
 
       const summaryBlock = summary?.[PRIMARY_DATASET.ean] || null;
       const rows = buildRows(PRIMARY_DATASET.ean, dataset.data, summaryBlock);
 
       const descriptor = resolveDescriptor(PRIMARY_DATASET.ean, dataset.data, manualDescriptors);
       const best = pickBestPrice(rows);
+      const worst = pickWorstPrice(rows);
+      const previewUrl = dataset?.data?.image_path
+        ? dataset.data.image_path.replace(/^.*www\//, '../')
+        : null;
 
+      const datasetData = dataset?.data || null;
       const { card } = renderProductBlock(section, {
         heading: null,
         descriptor,
         rows,
         best,
-        cardOptions: { compact: true, headingLevel: 2 }
+        worst,
+        datasetData,
+        cardOptions: { compact: true, headingLevel: 2, previewUrl }
       });
-
-      if (previewEl && previewImg) {
-        if (dataset?.data?.image_path) {
-          const relative = dataset.data.image_path.replace(/^.*www\//, '../');
-          previewImg.src = relative;
-          previewEl.hidden = false;
-        } else {
-          previewEl.hidden = true;
-        }
-      }
-
-      const lastUpdate = computeLastUpdate(rows);
-      metaEl.textContent = lastUpdate
-        ? `EAN ${PRIMARY_DATASET.ean} · relevé le ${formatDateTime(lastUpdate)}`
-        : `EAN ${PRIMARY_DATASET.ean}`;
 
       if (card && card.map) {
         renderMapMarkers(rows);
@@ -789,17 +846,24 @@
 
       const descriptor = resolveDescriptor(config.ean, dataset.data, manualDescriptors);
       const best = pickBestPrice(rows);
+      const worst = pickWorstPrice(rows);
+      const previewUrl = dataset?.data?.image_path
+        ? dataset.data.image_path.replace(/^.*www\//, '../')
+        : null;
 
       const section = document.createElement('section');
       section.className = 'product-block';
       section.id = `comparison-${config.ean}`;
 
+      const datasetData = dataset?.data || null;
       renderProductBlock(section, {
         heading: null,
         descriptor,
         rows,
         best,
-        cardOptions: { compact: true }
+        worst,
+        datasetData,
+        cardOptions: { compact: true, previewUrl }
       });
 
       container.appendChild(section);
@@ -1038,7 +1102,7 @@
       return lines.filter(Boolean).map((line) => escapeHtml(line)).join('<br />');
     }
 
-    function renderTable(tbody, rows, bestValue) {
+    function renderTable(tbody, rows, bestValue, worstValue) {
       tbody.innerHTML = '';
       rows.forEach((row) => {
         const payload = row.payload || {};
@@ -1052,11 +1116,11 @@
         const suffix = suffixLabel(row.adapterName);
         const displayName = DISPLAY_NAMES[row.adapterName] || row.adapterName;
         const isBest = Number.isFinite(bestValue) && Number.isFinite(row.priceValue) && Math.abs(row.priceValue - bestValue) < 0.001;
+        const isWorst = Number.isFinite(worstValue) && Number.isFinite(row.priceValue) && Math.abs(row.priceValue - worstValue) < 0.001 && (!Number.isFinite(bestValue) || Math.abs(worstValue - bestValue) > 0.001);
 
         const tr = document.createElement('tr');
-        if (isBest) {
-          tr.className = 'best-offer';
-        }
+        if (isBest) tr.classList.add('best-offer');
+        if (isWorst) tr.classList.add('worst-offer');
 
         const nameCell = document.createElement('td');
         if (logoSrc) {
@@ -1077,7 +1141,13 @@
         const priceCell = document.createElement('td');
         priceCell.className = 'price';
         if (priceText) {
-          priceCell.innerHTML = `${escapeHtml(priceText)}${isBest ? '<span class="price-badge">TOP PRIX</span>' : ''}`;
+          let badge = '';
+          if (isBest) {
+            badge = '<span class="price-badge price-badge--best">TOP PRIX</span>';
+          } else if (isWorst) {
+            badge = '<span class="price-badge price-badge--worst">PLUS CHER</span>';
+          }
+          priceCell.innerHTML = `${escapeHtml(priceText)}${badge}`;
         } else {
           priceCell.textContent = '—';
         }
@@ -1169,6 +1239,23 @@
         value: best.priceValue,
         priceLabel: formatPrice(payload.price) || `${best.priceValue.toFixed(2)} €`,
         store: payload.store || DISPLAY_NAMES[best.adapterName] || best.adapterName
+      };
+    }
+
+    function pickWorstPrice(rows) {
+      const priced = rows.filter((row) => Number.isFinite(row.priceValue));
+      if (!priced.length) return null;
+      let worst = priced[0];
+      for (const row of priced.slice(1)) {
+        if (row.priceValue > worst.priceValue) {
+          worst = row;
+        }
+      }
+      const payload = worst.payload || {};
+      return {
+        value: worst.priceValue,
+        priceLabel: formatPrice(payload.price) || `${worst.priceValue.toFixed(2)} €`,
+        store: payload.store || DISPLAY_NAMES[worst.adapterName] || worst.adapterName
       };
     }
 

@@ -112,3 +112,5 @@
 - **Suivi / prochaines étapes** :
   1. Ajouter un nouveau produit = générer les JSON `results/test-<EAN>` + compléter `manual_descriptors.json`, puis déclarer l’EAN dans `EXTRA_DATASETS`.
   2. Après chaque collecte, vérifier visuellement `index2.html` (serveur local) et documenter tout écart dans le handover.
+- **Complément** : inscrire sur chaque page une ligne de copyright `Copyright : OpenCenterAI 2025 - 2026 - LP` (impératif).
+- **Complément** : mis à jour `manual_descriptors.json` pour que l’EAN 5411188118961 pointe sur le pictogramme Nutri-Score récupéré chez Carrefour (`./assets/alpro-nutriscore.png`).
