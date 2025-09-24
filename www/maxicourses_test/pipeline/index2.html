@@ -53,29 +53,40 @@
     .product-card {
       background: #fff;
       border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 12px 28px rgba(15,23,42,0.12);
+      padding: 16px;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.12);
       display: flex;
-      gap: 32px;
+      gap: 18px;
       flex-wrap: wrap;
-      align-items: stretch;
+      align-items: flex-start;
+    }
+    .product-card--compact {
+      padding: 14px;
+      gap: 16px;
     }
     .product-media {
-      flex: 0 0 180px;
+      flex: 0 0 130px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
       align-items: center;
     }
+    .product-card--compact .product-media {
+      flex-basis: 120px;
+    }
     .product-thumb {
-      width: 180px;
-      height: 180px;
-      border-radius: 18px;
+      width: 130px;
+      height: 130px;
+      border-radius: 14px;
       background: #f3f5f9;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+    }
+    .product-card--compact .product-thumb {
+      width: 115px;
+      height: 115px;
     }
     .product-thumb img {
       width: 100%;
@@ -91,30 +102,40 @@
     .product-nutri {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
+      gap: 5px;
+      font-size: 0.75rem;
       color: #334155;
     }
     .product-nutri img {
-      height: 40px;
+      height: 30px;
+    }
+    .product-card--compact .product-nutri img {
+      height: 28px;
     }
     .product-body {
       flex: 1;
-      min-width: 260px;
+      min-width: 240px;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
+    .product-card--compact .product-body {
+      min-width: 220px;
+      gap: 10px;
+    }
     .product-brand {
-      font-size: 0.95rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #64748b;
     }
     .product-title {
       margin: 0;
-      font-size: 1.65rem;
+      font-size: 1.25rem;
       color: #0f172a;
+    }
+    .product-card--compact .product-title {
+      font-size: 1.05rem;
     }
     .product-summary {
       display: flex;
@@ -124,9 +145,9 @@
     .product-summary span {
       background: #eef2ff;
       color: #4338ca;
-      padding: 4px 10px;
+      padding: 2px 8px;
       border-radius: 999px;
-      font-size: 0.85rem;
+      font-size: 0.72rem;
     }
     .product-details {
       display: flex;
@@ -144,16 +165,20 @@
     }
     .product-details dd {
       margin: 0;
-      font-size: 0.95rem;
+      font-size: 0.82rem;
       color: #0f172a;
     }
     .product-map {
-      flex: 0 0 260px;
-      height: 220px;
-      border-radius: 18px;
-      box-shadow: 0 10px 24px rgba(15,23,42,0.14);
+      flex: 0 0 220px;
+      height: 180px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.12);
       overflow: hidden;
       position: relative;
+    }
+    .product-card--compact .product-map {
+      flex-basis: 200px;
+      height: 165px;
     }
     .product-map__canvas {
       position: absolute;
@@ -361,30 +386,19 @@
     .link:hover {
       text-decoration: underline;
     }
-    .comparison-block {
-      margin-top: 36px;
+    .product-block {
+      margin-top: 32px;
     }
-    .comparison-block h2 {
-      margin: 0 0 16px;
-      font-size: 1.35rem;
+    .product-block h2 {
+      margin: 0 0 14px;
+      font-size: 1.25rem;
       color: #0f172a;
     }
-    .comparison-product-card {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      background: #fff;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 8px 20px rgba(15,23,42,0.08);
-      margin-bottom: 18px;
+    #primary-section.product-block {
+      margin-top: 0;
     }
-    .comparison-product-card .product-thumb {
-      width: 150px;
-      height: 150px;
-    }
-    .comparison-product-card .product-body {
-      gap: 10px;
+    .image-preview {
+      margin: 18px 0 32px;
     }
     .best-offer td {
       background: #f0fdf4;
@@ -404,42 +418,45 @@
     <div class="meta" id="run-meta">Chargement…</div>
   </header>
 
-  <section class="descriptor" id="primary-section" hidden>
+  <section class="descriptor product-block" id="primary-section" hidden></section>
+
+  <div class="image-preview" id="primary-image-preview" hidden>
+    <img id="primary-image-preview-img" alt="Dernière image" />
+    <div class="meta">Image terrain (pipeline)</div>
+  </div>
+
+  <template id="product-card-template">
     <div class="product-card">
       <div class="product-media">
-        <div class="product-thumb" id="primary-thumb">
+        <div class="product-thumb">
           <div class="product-thumb__placeholder">Image indisponible</div>
         </div>
-        <div class="product-nutri" id="primary-nutri"></div>
+        <div class="product-nutri" data-role="nutri"></div>
       </div>
       <div class="product-body">
-        <div class="product-brand" id="primary-brand" hidden></div>
-        <h2 class="product-title" id="primary-title"></h2>
+        <div class="product-brand" data-role="brand" hidden></div>
+        <h3 class="product-title" data-role="title"></h3>
         <div class="product-summary">
-          <span id="primary-quantity" hidden></span>
-          <span id="primary-category" hidden></span>
+          <span class="product-summary__quantity" data-role="quantity" hidden></span>
+          <span class="product-summary__category" data-role="category" hidden></span>
         </div>
         <dl class="product-details">
           <div>
             <dt>EAN</dt>
-            <dd id="primary-ean">—</dd>
+            <dd data-role="ean">—</dd>
           </div>
           <div>
             <dt>Source</dt>
-            <dd id="primary-source">—</dd>
+            <dd data-role="source">—</dd>
           </div>
         </dl>
       </div>
-      <div class="product-map product-map--static" id="primary-map" hidden>
-        <div class="product-map__canvas" id="primary-map-canvas"></div>
-        <div class="product-map__label">Bordeaux Métropole</div>
+      <div class="product-map product-map--static" data-role="map" hidden>
+        <div class="product-map__canvas" data-role="map-canvas"></div>
+        <div class="product-map__label" data-role="map-label">Bordeaux Métropole</div>
       </div>
     </div>
-    <div class="image-preview" id="primary-image-preview" hidden>
-      <img id="primary-image-preview-img" alt="Dernière image" />
-      <div class="meta">Image terrain (pipeline)</div>
-    </div>
-  </section>
+  </template>
 
   <div class="map-modal" id="map-modal" hidden>
     <div class="map-modal__backdrop" data-close-map></div>
@@ -451,26 +468,6 @@
       </div>
     </div>
   </div>
-
-  <div id="primary-best" hidden></div>
-
-  <table id="primary-table" hidden>
-    <thead>
-      <tr>
-        <th>Enseigne</th>
-        <th>Produit</th>
-        <th>Statut</th>
-        <th>Prix pack</th>
-        <th>Prix / unité</th>
-        <th>Magasin / Note</th>
-        <th>Maj</th>
-        <th>Liens</th>
-      </tr>
-    </thead>
-    <tbody id="primary-tbody"></tbody>
-  </table>
-
-  <div class="notes" id="primary-notes" hidden></div>
 
   <div id="comparisons"></div>
 
@@ -532,7 +529,6 @@
       chronodrive: { lat: 44.8589595, lon: -0.6768561, label: 'Chronodrive · Bordeaux Magudas' }
     };
 
-    const FALLBACK_PRODUCT_IMAGE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAAXNSR0IArs4c6QAAIABJREFUeJztXXd8HNW5PTNbVCzJFQPGBYwpppneCb1X0wmh41AMJg4QSh4dTEzvvXcINfQeekvA4EAwxjbGgKtsq0tbZt4fZz7d2dXs7MiSJT297/x+g/Du7C0z99z7tftdyx2ylguFQhEE1+7uFigUPRlKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFOwHTUsh5Ria40AAAAASUVORK5CYII=';
     const FALLBACK_NUTRI_IMAGES = {
       a: '../assets/nutriscore/nutriscore-a.svg',
       b: '../assets/nutriscore/nutriscore-b.svg',
@@ -581,29 +577,198 @@
       return `${url}${sep}_=${Date.now()}`;
     }
 
+    function createProductCard(descriptor, options = {}) {
+      const template = document.getElementById('product-card-template');
+      if (!template) return null;
+      const root = template.content.firstElementChild.cloneNode(true);
+      if (options.compact) {
+        root.classList.add('product-card--compact');
+      }
+
+      let titleEl = root.querySelector('[data-role="title"]');
+      if (options.headingLevel && options.headingLevel !== 3) {
+        const headingTag = `h${options.headingLevel}`;
+        const replacement = document.createElement(headingTag);
+        replacement.className = titleEl.className;
+        replacement.dataset.role = 'title';
+        titleEl.replaceWith(replacement);
+        titleEl = replacement;
+      }
+
+      const brandEl = root.querySelector('[data-role="brand"]');
+      if (descriptor.brand) {
+        brandEl.textContent = descriptor.brand;
+        brandEl.hidden = false;
+      } else {
+        brandEl.hidden = true;
+      }
+
+      titleEl.textContent = descriptor.title || descriptor.name || 'Produit';
+
+      const qtyEl = root.querySelector('[data-role="quantity"]');
+      if (descriptor.quantity) {
+        qtyEl.textContent = descriptor.quantity;
+        qtyEl.hidden = false;
+      } else {
+        qtyEl.hidden = true;
+      }
+
+      const catEl = root.querySelector('[data-role="category"]');
+      if (descriptor.categories) {
+        catEl.textContent = extractCategory(descriptor.categories);
+        catEl.hidden = false;
+      } else {
+        catEl.hidden = true;
+      }
+
+      const eanEl = root.querySelector('[data-role="ean"]');
+      eanEl.textContent = descriptor.ean || '—';
+
+      const sourceEl = root.querySelector('[data-role="source"]');
+      sourceEl.textContent = descriptor.source || '—';
+
+      const thumbEl = root.querySelector('.product-thumb');
+      thumbEl.innerHTML = '';
+      const imageSrc = descriptor.image ? toAbsolute(descriptor.image) : '';
+      if (imageSrc) {
+        const img = document.createElement('img');
+        img.src = imageSrc;
+        img.alt = descriptor.title || descriptor.name || '';
+        thumbEl.appendChild(img);
+      } else {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'product-thumb__placeholder';
+        placeholder.textContent = 'Image indisponible';
+        thumbEl.appendChild(placeholder);
+      }
+
+      const nutriEl = root.querySelector('[data-role="nutri"]');
+      nutriEl.innerHTML = '';
+      const nutriGrade = descriptor.nutriscore_grade;
+      const nutriImg = descriptor.nutriscore_image
+        ? toAbsolute(descriptor.nutriscore_image)
+        : FALLBACK_NUTRI_IMAGES[(nutriGrade || '').toLowerCase()];
+      if (nutriImg) {
+        const label = document.createElement('span');
+        label.textContent = 'Nutri-score :';
+        const img = document.createElement('img');
+        img.src = nutriImg;
+        img.alt = nutriGrade ? `Nutri-score ${nutriGrade.toUpperCase()}` : 'Nutri-score';
+        nutriEl.appendChild(label);
+        nutriEl.appendChild(img);
+      } else if (nutriGrade) {
+        nutriEl.textContent = `Nutri-score : ${nutriGrade.toUpperCase()}`;
+      }
+
+      const mapEl = root.querySelector('[data-role="map"]');
+      const mapCanvas = root.querySelector('[data-role="map-canvas"]');
+      const mapLabel = root.querySelector('[data-role="map-label"]');
+      let mapRefs = null;
+      if (options.map) {
+        const labelText = options.map.label || descriptor.map_label || '';
+        if (labelText) {
+          mapLabel.textContent = labelText;
+        }
+        mapEl.hidden = false;
+        if (options.map.idPrefix) {
+          mapEl.id = `${options.map.idPrefix}-map`;
+          mapCanvas.id = `${options.map.idPrefix}-map-canvas`;
+        }
+        mapRefs = { container: mapEl, canvas: mapCanvas, label: mapLabel };
+      } else {
+        mapEl.remove();
+      }
+
+      return { element: root, map: mapRefs };
+    }
+
+    function renderProductBlock(target, {
+      heading,
+      descriptor,
+      rows = [],
+      best,
+      cardOptions = {}
+    }) {
+      if (!target || !descriptor) return { card: null };
+      target.innerHTML = '';
+      target.hidden = false;
+      target.classList.add('product-block');
+
+      if (heading) {
+        const headingEl = document.createElement('h2');
+        headingEl.textContent = heading;
+        target.appendChild(headingEl);
+      }
+
+      const card = createProductCard(descriptor, cardOptions);
+      if (card) {
+        target.appendChild(card.element);
+      }
+
+      if (best) {
+        const banner = document.createElement('div');
+        banner.className = 'best-price-banner';
+        banner.textContent = `Top prix relevé : ${best.priceLabel}${best.store ? ` · ${best.store}` : ''}`;
+        target.appendChild(banner);
+      }
+
+      if (rows.length) {
+        const table = document.createElement('table');
+        table.innerHTML = `
+          <thead>
+            <tr>
+              <th>Enseigne</th>
+              <th>Produit</th>
+              <th>Statut</th>
+              <th>Prix pack</th>
+              <th>Prix / unité</th>
+              <th>Magasin / Note</th>
+              <th>Maj</th>
+              <th>Liens</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        `;
+        renderTable(table.querySelector('tbody'), rows, best?.value);
+        target.appendChild(table);
+      } else {
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.textContent = 'Aucune donnée collectée pour le moment.';
+        target.appendChild(empty);
+      }
+
+      return { card };
+    }
+
     function renderPrimary(dataset, summary, manualDescriptors) {
       const section = document.getElementById('primary-section');
-      const table = document.getElementById('primary-table');
-      const tbody = document.getElementById('primary-tbody');
-      const notesEl = document.getElementById('primary-notes');
-      const bestEl = document.getElementById('primary-best');
       const metaEl = document.getElementById('run-meta');
+      const previewEl = document.getElementById('primary-image-preview');
+      const previewImg = document.getElementById('primary-image-preview-img');
 
       const summaryBlock = summary?.[PRIMARY_DATASET.ean] || null;
       const rows = buildRows(PRIMARY_DATASET.ean, dataset.data, summaryBlock);
 
       const descriptor = resolveDescriptor(PRIMARY_DATASET.ean, dataset.data, manualDescriptors);
-      populateDescriptor(descriptor, rows, dataset.data);
+      const best = pickBestPrice(rows);
 
-      if (!rows.length) {
-        metaEl.textContent = `EAN ${PRIMARY_DATASET.ean}`;
-        document.getElementById('primary-map').hidden = true;
-        document.getElementById('primary-image-preview').hidden = true;
-        section.hidden = false;
-        table.hidden = true;
-        notesEl.hidden = true;
-        bestEl.hidden = true;
-        return;
+      const { card } = renderProductBlock(section, {
+        heading: null,
+        descriptor,
+        rows,
+        best,
+        cardOptions: { compact: true, headingLevel: 2 }
+      });
+
+      if (previewEl && previewImg) {
+        if (dataset?.data?.image_path) {
+          const relative = dataset.data.image_path.replace(/^.*www\//, '../');
+          previewImg.src = relative;
+          previewEl.hidden = false;
+        } else {
+          previewEl.hidden = true;
+        }
       }
 
       const lastUpdate = computeLastUpdate(rows);
@@ -611,89 +776,31 @@
         ? `EAN ${PRIMARY_DATASET.ean} · relevé le ${formatDateTime(lastUpdate)}`
         : `EAN ${PRIMARY_DATASET.ean}`;
 
-      const best = pickBestPrice(rows);
-      renderTable(tbody, rows, best?.value);
-
-      if (best) {
-        bestEl.hidden = false;
-        bestEl.className = 'best-price-banner';
-        bestEl.textContent = `Top prix relevé : ${best.priceLabel}${best.store ? ` · ${best.store}` : ''}`;
-      } else {
-        bestEl.hidden = true;
+      if (card && card.map) {
+        renderMapMarkers(rows);
+        setupMapModal();
       }
-
-      const notes = collectNotes(dataset.data, descriptor);
-      if (notes) {
-        notesEl.hidden = false;
-        notesEl.textContent = notes;
-      } else {
-        notesEl.hidden = true;
-      }
-
-      section.hidden = false;
-      table.hidden = false;
-
-      renderMapMarkers(rows);
-      setupMapModal();
     }
 
     function renderComparisonSection(config, dataset, summary, manualDescriptors) {
       const container = document.getElementById('comparisons');
       const summaryBlock = summary?.[config.ean] || null;
       const rows = buildRows(config.ean, dataset.data, summaryBlock);
-      if (!rows.length) {
-        return;
-      }
 
       const descriptor = resolveDescriptor(config.ean, dataset.data, manualDescriptors);
+      const best = pickBestPrice(rows);
 
       const section = document.createElement('section');
-      section.className = 'comparison-block';
+      section.className = 'product-block';
       section.id = `comparison-${config.ean}`;
 
-      const headingEl = document.createElement('h2');
-      headingEl.textContent = config.heading || `Comparatif EAN ${config.ean}`;
-      section.appendChild(headingEl);
-
-      const card = document.createElement('div');
-      card.className = 'comparison-product-card';
-      card.innerHTML = buildProductCardHtml(descriptor);
-      section.appendChild(card);
-
-      const best = pickBestPrice(rows);
-      if (best) {
-        const banner = document.createElement('div');
-        banner.className = 'best-price-banner';
-        banner.textContent = `Top prix relevé : ${best.priceLabel}${best.store ? ` · ${best.store}` : ''}`;
-        section.appendChild(banner);
-      }
-
-      const table = document.createElement('table');
-      table.innerHTML = `
-        <thead>
-          <tr>
-            <th>Enseigne</th>
-            <th>Produit</th>
-            <th>Statut</th>
-            <th>Prix pack</th>
-            <th>Prix / unité</th>
-            <th>Magasin / Note</th>
-            <th>Maj</th>
-            <th>Liens</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      `;
-      renderTable(table.querySelector('tbody'), rows, best?.value);
-      section.appendChild(table);
-
-      const notes = collectNotes(dataset.data, descriptor);
-      if (notes) {
-        const notesEl = document.createElement('div');
-        notesEl.className = 'notes';
-        notesEl.textContent = notes;
-        section.appendChild(notesEl);
-      }
+      renderProductBlock(section, {
+        heading: null,
+        descriptor,
+        rows,
+        best,
+        cardOptions: { compact: true }
+      });
 
       container.appendChild(section);
     }
@@ -796,6 +903,7 @@
     const markerGroups = {};
     let latestRows = [];
     let mapModalSetup = false;
+    let mapModalHandlers = null;
 
     const ensureLeaflet = () => typeof L !== 'undefined';
 
@@ -874,41 +982,52 @@
       addMarkersToMap('primary-map-canvas', rows, 0.85, false);
       addMarkersToMap('store-map-modal-canvas', rows, 1.1, true);
       const hasLocations = rows.some((row) => STORE_LOCATIONS[row.adapterName]);
-      document.getElementById('primary-map').hidden = !hasLocations;
+      const mapContainer = document.getElementById('primary-map');
+      if (mapContainer) {
+        mapContainer.hidden = !hasLocations;
+      }
     }
 
     function setupMapModal() {
-      if (mapModalSetup) return;
-      const mapEl = document.getElementById('primary-map');
       const modal = document.getElementById('map-modal');
-      if (!mapEl || !modal) return;
-      const closeElements = modal.querySelectorAll('[data-close-map]');
+      const mapEl = document.getElementById('primary-map');
+      if (!modal || !mapEl) return;
 
-      const closeModal = () => {
-        modal.hidden = true;
-        document.body.classList.remove('modal-open');
-      };
+      if (!mapModalSetup) {
+        const closeElements = modal.querySelectorAll('[data-close-map]');
 
-      const openModal = () => {
-        modal.hidden = false;
-        document.body.classList.add('modal-open');
-        renderMapMarkers(latestRows);
-        setTimeout(() => {
-          const modalMap = mapInstances['store-map-modal-canvas'];
-          if (modalMap) {
-            modalMap.invalidateSize();
+        const closeModal = () => {
+          modal.hidden = true;
+          document.body.classList.remove('modal-open');
+        };
+
+        const openModal = () => {
+          modal.hidden = false;
+          document.body.classList.add('modal-open');
+          renderMapMarkers(latestRows);
+          setTimeout(() => {
+            const modalMap = mapInstances['store-map-modal-canvas'];
+            if (modalMap) {
+              modalMap.invalidateSize();
+            }
+          }, 200);
+        };
+
+        closeElements.forEach((el) => el.addEventListener('click', closeModal));
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && !modal.hidden) {
+            closeModal();
           }
-        }, 200);
-      };
+        });
 
-      mapEl.addEventListener('click', openModal);
-      closeElements.forEach((el) => el.addEventListener('click', closeModal));
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && !modal.hidden) {
-          closeModal();
-        }
-      });
-      mapModalSetup = true;
+        mapModalHandlers = { openModal, closeModal };
+        mapModalSetup = true;
+      }
+
+      if (mapModalHandlers && mapEl.dataset.modalBound !== '1') {
+        mapEl.addEventListener('click', mapModalHandlers.openModal);
+        mapEl.dataset.modalBound = '1';
+      }
     }
 
     function formatLocationTooltip(location) {
@@ -1004,111 +1123,6 @@
       });
     }
 
-    function populateDescriptor(descriptor, rows, dataset) {
-      const section = document.getElementById('primary-section');
-      if (!descriptor) {
-        section.hidden = true;
-        return;
-      }
-
-      document.getElementById('primary-title').textContent = descriptor.title || descriptor.name || 'Produit';
-      document.getElementById('primary-ean').textContent = descriptor.ean || PRIMARY_DATASET.ean;
-      document.getElementById('primary-source').textContent = descriptor.source || '—';
-
-      const brandEl = document.getElementById('primary-brand');
-      if (descriptor.brand) {
-        brandEl.textContent = descriptor.brand;
-        brandEl.hidden = false;
-      } else {
-        brandEl.hidden = true;
-      }
-
-      const qtyEl = document.getElementById('primary-quantity');
-      if (descriptor.quantity) {
-        qtyEl.textContent = descriptor.quantity;
-        qtyEl.hidden = false;
-      } else {
-        qtyEl.hidden = true;
-      }
-
-      const catEl = document.getElementById('primary-category');
-      if (descriptor.categories) {
-        catEl.textContent = extractCategory(descriptor.categories);
-        catEl.hidden = false;
-      } else {
-        catEl.hidden = true;
-      }
-
-      const thumbEl = document.getElementById('primary-thumb');
-      thumbEl.innerHTML = '';
-      const imageSrc = toAbsolute(descriptor.image);
-      if (imageSrc) {
-        const img = document.createElement('img');
-        img.src = imageSrc;
-        img.alt = descriptor.title || descriptor.name || '';
-        thumbEl.appendChild(img);
-      } else {
-        const placeholder = document.createElement('div');
-        placeholder.className = 'product-thumb__placeholder';
-        placeholder.textContent = 'Image indisponible';
-        thumbEl.appendChild(placeholder);
-      }
-
-      const nutriEl = document.getElementById('primary-nutri');
-      nutriEl.innerHTML = '';
-      const nutriGrade = descriptor.nutriscore_grade;
-      const nutriImg = descriptor.nutriscore_image ? toAbsolute(descriptor.nutriscore_image) : FALLBACK_NUTRI_IMAGES[(nutriGrade || '').toLowerCase()];
-      if (nutriImg) {
-        const label = document.createElement('span');
-        label.textContent = 'Nutri-score :';
-        const img = document.createElement('img');
-        img.src = nutriImg;
-        img.alt = nutriGrade ? `Nutri-score ${nutriGrade.toUpperCase()}` : 'Nutri-score';
-        nutriEl.appendChild(label);
-        nutriEl.appendChild(img);
-      } else if (nutriGrade) {
-        nutriEl.textContent = `Nutri-score : ${nutriGrade.toUpperCase()}`;
-      }
-
-      const previewEl = document.getElementById('primary-image-preview');
-      const previewImg = document.getElementById('primary-image-preview-img');
-      if (dataset?.image_path) {
-        const relative = dataset.image_path.replace(/^.*www\//, '../');
-        previewImg.src = relative;
-        previewEl.hidden = false;
-      } else {
-        previewEl.hidden = true;
-      }
-    }
-
-    function buildProductCardHtml(descriptor) {
-      const imageSrc = toAbsolute(descriptor?.image) || FALLBACK_PRODUCT_IMAGE;
-      const nutriGrade = descriptor?.nutriscore_grade || '';
-      const nutriImg = descriptor?.nutriscore_image ? toAbsolute(descriptor.nutriscore_image) : FALLBACK_NUTRI_IMAGES[(nutriGrade || '').toLowerCase()];
-      const quantity = descriptor?.quantity ? `<span>${escapeHtml(descriptor.quantity)}</span>` : '';
-      const category = descriptor?.categories ? `<span>${escapeHtml(extractCategory(descriptor.categories))}</span>` : '';
-      const brand = descriptor?.brand ? `<div class="product-brand">${escapeHtml(descriptor.brand)}</div>` : '';
-      const nutriBlock = nutriImg
-        ? `<div class="product-nutri"><span>Nutri-score :</span><img src="${nutriImg}" alt="Nutri-score" /></div>`
-        : (nutriGrade ? `<div class="product-nutri">Nutri-score : ${escapeHtml(nutriGrade.toUpperCase())}</div>` : '<div class="product-nutri"></div>');
-
-      return `
-        <div class="product-media">
-          <div class="product-thumb"><img src="${imageSrc}" alt="${escapeHtml(descriptor?.title || descriptor?.name || '')}" /></div>
-          ${nutriBlock}
-        </div>
-        <div class="product-body">
-          ${brand}
-          <h3 class="product-title">${escapeHtml(descriptor?.title || descriptor?.name || '')}</h3>
-          <div class="product-summary">${quantity}${category}</div>
-          <dl class="product-details">
-            <div><dt>EAN</dt><dd>${escapeHtml(descriptor?.ean || '')}</dd></div>
-            <div><dt>Source</dt><dd>${escapeHtml(descriptor?.source || '—')}</dd></div>
-          </dl>
-        </div>
-      `;
-    }
-
     function resolveDescriptor(ean, data, manualDescriptors) {
       const manual = manualDescriptors?.[ean];
       if (manual) {
@@ -1129,17 +1143,6 @@
       }
       const descriptor = data?.reference || {};
       return { ...descriptor, ean };
-    }
-
-    function collectNotes(data, descriptor) {
-      const notes = [];
-      if (Array.isArray(data?.notes)) {
-        notes.push(...data.notes);
-      }
-      if (descriptor?.note) {
-        notes.push(descriptor.note);
-      }
-      return notes.join('\n').trim();
     }
 
     function computeLastUpdate(rows) {
