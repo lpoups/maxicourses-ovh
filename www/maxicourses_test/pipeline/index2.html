@@ -498,75 +498,7 @@
     const SUMMARY_URL = '../results/summary.json';
     const MANUAL_DESCRIPTORS_URL = '../manual_descriptors.json';
 
-    const MANUAL_COMPARISON = {
-      '3124480200433': [
-        {
-          adapter: 'carrefour_city_manual',
-          status: 'OK',
-          payload: {
-            price: '2,55',
-            unit_price: '1,70 € / L',
-            store: 'Carrefour City · Bordeaux Balguerie',
-            url: 'https://www.carrefour.fr/p/soda-a-l-orange-et-sa-pulpe-orangina-3124480200433',
-            note: 'EAN 3124480200433 — 1,5 L',
-            product_name: 'Orangina 1,5 L'
-          },
-          updated_at: '2025-09-19T10:41:19'
-        },
-        {
-          adapter: 'leclerc_drive_manual',
-          status: 'OK',
-          payload: {
-            price: '1,93',
-            unit_price: '1,29 € / L',
-            store: 'E.Leclerc Drive · Relais Bordeaux Fondaudège',
-            url: 'https://fd6-courses.leclercdrive.fr/magasin-013315-013315-Relais-Bordeaux---Fondaudege/fiche-produits-240425-Soda-a-lorange-Orangina.aspx',
-            note: 'EAN 3124480200433 — 1,5 L',
-            product_name: 'Orangina 1,5 L'
-          },
-          updated_at: '2025-09-19T13:20:34'
-        },
-        {
-          adapter: 'intermarche_manual',
-          status: 'OK',
-          payload: {
-            price: '2,17',
-            unit_price: '1,45 € / L',
-            store: 'Intermarché · Talence 33 (Drive)',
-            url: "https://www.intermarche.com/produit/soda-a-l'orange/3124480200433",
-            note: 'EAN 3124480200433 — 1,5 L',
-            product_name: 'Orangina 1,5 L'
-          },
-          updated_at: '2025-09-19T13:20:34'
-        },
-        {
-          adapter: 'auchan_manual',
-          status: 'OK',
-          payload: {
-            price: '1,92',
-            unit_price: '1,28 € / L',
-            store: 'Auchan Drive Talence-Gallieni',
-            url: 'https://www.auchan.fr/recherche?text=3124480200433',
-            note: 'EAN 3124480200433 — 1,5 L',
-            product_name: 'Orangina 1,5 L'
-          },
-          updated_at: '2025-09-19T12:54:45'
-        },
-        {
-          adapter: 'chronodrive_manual',
-          status: 'OK',
-          payload: {
-            price: '2,29',
-            unit_price: '1,53 € / L',
-            store: 'Chronodrive Le Haillan',
-            url: 'https://www.chronodrive.com/orangina--boisson-gazeuse-a-la-pulpe-dorange-P571775',
-            note: 'EAN 3124480200433 — 1,5 L',
-            product_name: 'Orangina 1,5 L'
-          },
-          updated_at: '2025-09-19T11:48:25'
-        }
-      ]
-    };
+    const MANUAL_COMPARISON = {};
 
     const LOGO_BASE = new URL('../assets/logos/', window.location.href).href;
     const LOGOS = {
