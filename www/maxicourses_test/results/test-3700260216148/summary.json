@@ -1,0 +1,76 @@
+{
+  "3700260216148": {
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "7,55",
+        "store": null,
+        "url": "https://www.auchan.fr/ultima-croquettes-au-saumon-pour-chat-sterilise/pr-C1187263",
+        "note": "Auchan (CDP) 24/09/2025",
+        "unit_price": "5,03 € / kg",
+        "quantity": "1,75 kg",
+        "title": "Croquettes au saumon pour chat stérilisé",
+        "matched_ean": "3700260216148"
+      },
+      "updated_at": "2025-09-24T17:35:33.515032Z",
+      "duration_seconds": 5.0,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "url": null,
+        "note": "Pas de fiche 1,5 kg (EAN 3700260216148) dans le drive testé",
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null
+      },
+      "updated_at": "2025-09-24T17:36:03.515032Z",
+      "duration_seconds": 0,
+      "error": null,
+      "store_query": "Bruges"
+    },
+    "intermarche": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "6,91",
+        "title": "Croquettes pour chat stérilisé adulte saumon",
+        "url": "https://www.intermarche.com/produit/croquettes-pour-chat-sterilise-adulte-saumon/3700260216148",
+        "note": "Collecte 2025-09-25T09:58:17Z",
+        "matched_ean": "3700260216148",
+        "unit_price": "4,61 € / kg",
+        "quantity": "1,5 kg",
+        "store": "Intermarché · Bordeaux Talence (drive)"
+      },
+      "updated_at": "2025-09-25T09:58:17Z",
+      "duration_seconds": 15.0,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Pas de fiche trouvée (magasin Le Haillan)",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "store": "Chronodrive Le Haillan"
+      },
+      "updated_at": null,
+      "duration_seconds": 0,
+      "error": null,
+      "store_query": "Le Haillan"
+    }
+  }
+}

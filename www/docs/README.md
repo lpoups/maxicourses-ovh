@@ -9,8 +9,10 @@ Ce répertoire regroupe les fichiers persistants à relire par chaque nouvel ass
 - `SESSION_TEMPLATE.md` : gabarit pour prise de notes (à copier-coller dans `HANDOVER_DAILY.md`).
 - `PROMPT_BOOTSTRAP.md` : éléments à injecter dans le prompt initial du prochain GPT.
 - `PARCOURS_HUMAIN.md` : procédure détaillée pour enregistrer/rejouer un parcours humain anti-bot.
+- `LECLERC_HUMAN_METHOD.md` : workflow spécifique pour Leclerc Drive (Bruges) en mode CDP humain.
 - `maxicourses_test/pipeline/index2.html` : page de démonstration (copie du layout historique) branchée sur les résultats JSON.
 - `maxicourses_test/manual_descriptors.json` : attributs produit statiques utilisés pour alimenter l’en-tête (titre, Nutri-score, image locale).
+- `maxicourses_test/fetch_leclerc_drive_price.py` : simple wrapper qui appelle `manual_leclerc_cdp.py` (méthode humaine unique supportée).
 
 ## Bonnes pratiques
 - **Versionner** chaque évolution documentaire (pas d’édition locale hors Git).

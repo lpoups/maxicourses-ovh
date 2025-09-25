@@ -526,6 +526,11 @@
         ean: '5411188118961',
         heading: 'Comparatif (Dessert végétal soja nature ALPRO)',
         resultUrl: '../results/test-5411188118961/latest.json'
+      },
+      {
+        ean: '3700260216148',
+        heading: 'Comparatif (Croquettes chat stérilisé saumon Ultima)',
+        resultUrl: '../results/test-3700260216148/latest.json'
       }
     ];
 
@@ -691,6 +696,9 @@
           previewUrl = datasetData.image_path
             || datasetData.reference?.image
             || (datasetData.adapters || []).reduce((acc, adapter) => acc || adapter?.payload?.image_path || adapter?.payload?.image || null, null);
+        }
+        if (!previewUrl && descriptor.image) {
+          previewUrl = descriptor.image;
         }
         if (previewUrl) {
           previewLink.href = toAbsolute(previewUrl);

@@ -114,3 +114,52 @@
   2. Après chaque collecte, vérifier visuellement `index2.html` (serveur local) et documenter tout écart dans le handover.
 - **Complément** : inscrire sur chaque page une ligne de copyright `Copyright : OpenCenterAI 2025 - 2026 - LP` (impératif).
 - **Complément** : mis à jour `manual_descriptors.json` pour que l’EAN 5411188118961 pointe sur le pictogramme Nutri-Score récupéré chez Carrefour (`./assets/alpro-nutriscore.png`).
+
+## 2025-09-24 (soir) - GPT (Codex CLI)
+- **Objectif** : stabiliser la collecte Leclerc Drive (Bruges) sur l’EAN 5000112611861 en mimant un humain.
+- **Actions réalisées** :
+  - Écrit le script `maxicourses_test/manual_leclerc_cdp.py` (connexion CDP, saisie lente, ouverture PDP, extraction prix).
+  - Documenté la méthode dans `docs/LECLERC_HUMAN_METHOD.md` et renforcé `docs/PROMPT_BOOTSTRAP.md` (ton strictement pro demandé par Laurent).
+  - Mise à jour des fichiers `maxicourses_test/results/test-5000112611861/latest.json` et `summary.json` ainsi que `maxicourses_test/results/summary.json` avec le prix Leclerc 2,38 € (1,36 € / L) récupéré via Chrome 9222.
+  - Ajout debug `results/debug/leclerc/` (captures HTML) pour inspection future.
+- **Données/artefacts ajoutés** :
+  - `maxicourses_test/manual_leclerc_cdp.py`
+  - `docs/LECLERC_HUMAN_METHOD.md`
+  - JSONs résultats Leclerc rafraîchis (5000112611861).
+- **Blocages / alertes** :
+  - Ne jamais relancer la collecte Leclerc sans Chrome 9222 + script humain (Datadome bloque sinon).
+  - Respecter les délais (5 s accueil, 12 s résultats, 7 s PDP) et accepter les cookies OneTrust.
+- **Suivi / prochaines étapes** :
+  1. Intégrer cette logique directement dans `fetch_leclerc_drive_price.py` quand le temps le permet (reuse du helper ou portage complet).
+  2. Enregistrer une nouvelle trace si Leclerc modifie l’UI (et mettre à jour doc / script).
+
+## 2025-09-24 (nuit) - GPT (Codex CLI)
+- **Objectif** : supprimer les anciennes méthodes Leclerc instables et ne garder que le flux humain.
+- **Actions réalisées** :
+  - Remplacé `fetch_leclerc_drive_price.py` par un wrapper minimal qui délègue à `manual_leclerc_cdp.run_manual_leclerc`.
+  - Refactorisé `manual_leclerc_cdp.py` pour exposer la fonction réutilisable et documenté le comportement.
+  - Mis à jour `docs/LECLERC_HUMAN_METHOD.md` et `docs/README.md` pour pointer uniquement vers cette méthode.
+- **Données/artefacts ajoutés** :
+  - Nouvelle version `manual_leclerc_cdp.py` (fonction + CLI).
+  - Wrapper `fetch_leclerc_drive_price.py` simplifié.
+- **Blocages / alertes** :
+  - Toute collecte Leclerc doit passer par ce helper CDP (aucune autre méthode conservée).
+- **Suivi / prochaines étapes** :
+  1. Si besoin d’automatiser davantage, étendre `manual_leclerc_cdp.py` (ajout captures, logs) plutôt que recréer un fetch parallèle.
+
+## 2025-09-24 (nuit tard) - GPT (Codex CLI)
+- **Objectif** : référencer l’EAN 3700260216148 (Ultima chat stérilisé saumon) et obtenir le prix Leclerc via seed Auchan.
+- **Actions réalisées** :
+  - Collecté le prix Auchan (`7,55 €`) avec `fetch_auchan_price.py` (Chrome 9222).
+  - Rejoué la recherche Leclerc avec le descriptif Auchan : `11,31 €` (Drive Bruges).
+  - Créé `maxicourses_test/results/test-3700260216148/{latest,summary}.json` et mis à jour `results/summary.json`.
+  - Enrichi `manual_descriptors.json` (entrée Ultima / 3 kg) pour affichage pipeline.
+- **Données/artefacts ajoutés** :
+  - `maxicourses_test/results/test-3700260216148/latest.json`
+  - `maxicourses_test/results/test-3700260216148/summary.json`
+  - Capture debug : `maxicourses_test/debug-search-3700260216148.png`
+- **Blocages / alertes** :
+  - Aucun seed Carrefour disponible pour cet EAN (traces renvoient Ricoré) ; seed = Auchan.
+- **Suivi / prochaines étapes** :
+  1. Vérifier l’affichage `pipeline/index2.html` après avoir ajouté l’EAN à `EXTRA_DATASETS`.
+  2. Documenter la source Auchan si d’autres enseignes doivent servir de seed.
