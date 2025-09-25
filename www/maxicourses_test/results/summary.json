@@ -170,23 +170,113 @@
     }
   },
   "5000112611861": {
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,38",
+        "title": "Boisson gazeuse aux extraits végétaux goût original",
+        "url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-original/pr-C1211988",
+        "note": "Collecte 2025-09-25T11:25:38Z",
+        "unit_price": "1,36 € / L",
+        "quantity": "1,75 L",
+        "matched_ean": "5000112611861",
+        "store": "Auchan Drive Talence-Gallieni"
+      },
+      "updated_at": "2025-09-25T11:25:38Z",
+      "duration_seconds": 0,
+      "error": null,
+      "store_query": null
+    },
     "leclerc": {
       "status": "OK",
       "payload": {
         "status": "OK",
         "price": "2,38",
-        "store": "E.Leclerc Drive · Bruges",
+        "title": "Soda Coca-Cola Original Bouteille - 1,75L",
         "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
-        "note": "Trace 2025-09-24 (CDP humain)",
+        "note": "Collecte 2025-09-25T11:25:38Z",
         "unit_price": "1,36 € / L",
+        "quantity": "1,75 L",
+        "matched_ean": "5000112611861",
+        "store": "E.Leclerc Drive · Bruges"
+      },
+      "updated_at": "2025-09-25T11:25:38Z",
+      "duration_seconds": 0,
+      "error": null,
+      "store_query": "Bruges"
+    },
+    "intermarche": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,41",
+        "title": "Soda au cola goût original",
+        "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5000112611861",
+        "note": "Collecte 2025-09-25T11:25:38Z",
+        "matched_ean": "5000112611861",
+        "unit_price": "1,38 € / L",
+        "quantity": "1,75 L",
+        "store": "Intermarché · Talence 33 (Drive)"
+      },
+      "updated_at": "2025-09-25T11:25:38Z",
+      "duration_seconds": 0,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Pas de fiche trouvée (magasin Le Haillan)",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "store": "Chronodrive Le Haillan"
+      },
+      "updated_at": "2025-09-25T11:25:38Z",
+      "duration_seconds": 0,
+      "error": null,
+      "store_query": "Le Haillan"
+    },
+    "carrefour_city": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,79",
+        "store": "Carrefour City · Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+        "note": "Collecte 2025-09-25T11:37:03Z",
+        "unit_price": "1,59 € / L",
         "quantity": "1,75 L",
         "title": "Soda au Cola Goût Original COCA-COLA",
         "matched_ean": "5000112611861"
       },
-      "updated_at": "2025-09-24T16:26:35Z",
+      "updated_at": "2025-09-25T11:37:03Z",
       "duration_seconds": 0,
       "error": null,
-      "store_query": "Bruges"
+      "store_query": "Bordeaux Balguerie"
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,45",
+        "store": "Carrefour Market · Bordeaux Fondaudège",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+        "note": "Collecte 2025-09-25T11:37:03Z",
+        "unit_price": "1,40 € / L",
+        "quantity": "1,75 L",
+        "title": "Soda au Cola Goût Original COCA-COLA",
+        "matched_ean": "5000112611861"
+      },
+      "updated_at": "2025-09-25T11:37:03Z",
+      "duration_seconds": 0,
+      "error": null,
+      "store_query": "Fondaudège Bordeaux"
     }
   },
   "3700260216148": {
