@@ -163,3 +163,15 @@
 - **Suivi / prochaines étapes** :
   1. Vérifier l’affichage `pipeline/index2.html` après avoir ajouté l’EAN à `EXTRA_DATASETS`.
   2. Documenter la source Auchan si d’autres enseignes doivent servir de seed.
+
+## 2025-09-25 - GPT (Codex CLI)
+- **Objectif** : formaliser un guide unique pour les prochains GPT (collecte par enseigne).
+- **Actions réalisées** :
+  - Créé `docs/PRICE_COLLECTION_GUIDE.md` (scripts, commandes, traces, règles globales).
+  - Mis à jour `docs/PROMPT_BOOTSTRAP.md` et `docs/README.md` pour pointer vers ce guide.
+  - Normalisé les images produits (visuels locaux + lien « Voir image » systématique dans `index2.html`).
+- **Blocages / alertes** :
+  - Chronodrive Le Haillan ne renvoie pas l’EAN 3700260216148 (`NO_RESULTS`).
+- **Suivi / prochaines étapes** :
+  1. Remplacer les assets provisoires (ex. Ultima) par des photos locales haute résolution si disponibles.
+  2. Ajouter toute nouvelle enseigne (ou nouvelle trace) dans le guide et le handover dès création.

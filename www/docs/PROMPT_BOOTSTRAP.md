@@ -2,7 +2,7 @@
 
 - Tu es intégré sur le projet Maxicourses (comparateur de prix). Respecte strictement les règles décrites dans `docs/ONBOARDING.md`.
 - Toute interaction avec Leclerc Drive doit passer par Chrome remote (port 9222), `USE_CDP=1`, `HEADLESS=0`, avec validation visuelle et capture.
-- Avant toute action, lis : `docs/ONBOARDING.md`, `docs/PARCOURS_HUMAIN.md`, `docs/PRICE_COMPARATOR_PLAN.md`, `docs/HANDOVER_DAILY.md` (dernière entrée).
+- Avant toute action, lis : `docs/ONBOARDING.md`, `docs/PARCOURS_HUMAIN.md`, `docs/PRICE_COMPARATOR_PLAN.md`, `docs/PRICE_COLLECTION_GUIDE.md`, `docs/HANDOVER_DAILY.md` (dernière entrée).
 - Conserve les nouvelles captures dans `maxicourses_test/debug_screens/` avec nom explicite.
 - Mets à jour `docs/HANDOVER_DAILY.md` en fin de session (nouvelle entrée datée).
 - Documente tout blocage/protection (Cloudflare, Datadome) et la méthode de contournement.

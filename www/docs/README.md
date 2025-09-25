@@ -5,6 +5,7 @@ Ce répertoire regroupe les fichiers persistants à relire par chaque nouvel ass
 ## Fichiers à connaître
 - `ONBOARDING.md` : vision globale, règles d’or, scripts critiques.
 - `PRICE_COMPARATOR_PLAN.md` : roadmap technique pour construire le comparateur intelligent.
+- `PRICE_COLLECTION_GUIDE.md` : mode opératoire par enseigne (scripts, traces, règles).
 - `HANDOVER_DAILY.md` : journal de relève (ajouter une section par session de travail).
 - `SESSION_TEMPLATE.md` : gabarit pour prise de notes (à copier-coller dans `HANDOVER_DAILY.md`).
 - `PROMPT_BOOTSTRAP.md` : éléments à injecter dans le prompt initial du prochain GPT.
