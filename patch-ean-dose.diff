@@ -1,0 +1,65 @@
+*** www/maxicoursesapp/api/compare_api.php.orig
+--- www/maxicoursesapp/api/compare_api.php
+***************
+*** 0 ****
+--- 1,9999999 ----
++ *** EAN-dose override in EARLY EXIT (direct product) ***
++ 
++ // RECHERCHER CE BLOC PUIS INSÉRER LE SNIPPET APRÈS :
++ //   // EAN for direct product
++ //   $rowEan = first_not_empty(
++ //       extract_ean_from_url($directProduct),
++ //       ($htmlBest !== '' ? extract_ean_from_html($htmlBest) : null)
++ //   );
++ //   if (!empty($feat['ean']) && $rowEan && $feat['ean'] === $rowEan) {
++ //       $scoreBoost += 50; // strong confidence when EAN matches
++ //   }
++ 
++ // —— À INSÉRER JUSTE APRÈS ——
++ // Force dose from seed when EAN matches (prevents "38 lavages" noise)
++ if (!empty($feat['ean']) && $rowEan && $feat['ean'] === $rowEan && !empty($feat['doses']) && (int)$feat['doses'] >= 5) {
++     if (!is_array($rowUnit)) $rowUnit = [];
++     $rowUnit['doses'] = (int)$feat['doses'];
++     if (is_numeric($rowPrice)) {
++         $rowUnit['per_dose'] = ((float)$rowPrice) / (int)$rowUnit['doses'];
++     }
++ }
++ 
++ 
++ *** EAN-dose override in candidate loop ***
++ 
++ // RECHERCHER CE BLOC PUIS INSÉRER LE SNIPPET AVANT L’APPEND $cands[] :
++ //   $candEan = first_not_empty(
++ //       extract_ean_from_url($u),
++ //       ($htmlP !== '' ? extract_ean_from_html($htmlP) : null)
++ //   );
++ //   if (!empty($feat['ean'])) {
++ //       if ($candEan && $feat['ean'] === $candEan) {
++ //           $finalScore += 120; // very strong signal for exact product
++ //       } elseif ($candEan && $feat['ean'] !== $candEan) {
++ //           $finalScore -= 20; // penalize clearly different EAN
++ //       }
++ //   }
++ 
++ // —— À INSÉRER ICI, AVANT $cands[] = [ … ] ——
++ // Force dose from seed when EAN matches (prevents pack-size confusion)
++ if (!empty($feat['ean']) && $candEan && $feat['ean'] === $candEan && !empty($feat['doses']) && (int)$feat['doses'] >= 5) {
++     if (!is_array($rowUnit)) $rowUnit = [];
++     $rowUnit['doses'] = (int)$feat['doses'];
++     if (is_numeric($rowPrice)) {
++         $rowUnit['per_dose'] = ((float)$rowPrice) / (int)$rowUnit['doses'];
++     }
++ }
++ 
++ 
++ *** Selection fallback when no candidate reaches threshold ***
++ 
++ // RECHERCHER LE COMMENTAIRE :
++ //   // fallback #1: prefer a candidate matching the seed variant (e.g., "original") if known
++ // ET APRÈS CE BLOC, INSÉRER :
++ 
++ // fallback #2: if still no best and we have candidates, pick the top scored candidate
++ if ($best === null && !empty($cands)) {
++     $best = $cands[0];
++ }
++ 

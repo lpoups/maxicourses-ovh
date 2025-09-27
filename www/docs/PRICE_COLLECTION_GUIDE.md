@@ -1,8 +1,7 @@
 # Guide de collecte prix par enseigne
 
-## Règles globales (impératifs)
 - Chrome remote lancé via `maxicourses_test/start_chrome_debug.sh` (profil `.chrome-debug`), puis toutes les commandes Playwright avec `USE_CDP=1`.
-- Toujours obtenir un **descriptif seed** avant Leclerc : Carrefour en priorité ; si l’EAN est absent, basculer sur Auchan.
+- **Recherche EAN brut obligatoire** : pour tout nouveau produit, taper directement le code EAN (sans texte) sur les enseignes seed qui l’acceptent – Carrefour City/Market → Auchan → Chronodrive. Dès qu’un descriptif fiable est obtenu, l’enregistrer dans `manual_descriptors.json` et l’utiliser pour les enseignes ne supportant pas la recherche EAN (Leclerc, Intermarché, etc.).
 - Chaque sortie JSON doit inclure `price`, `unit_price` (€/kg ou €/L), `quantity`, `store`, `note` (horodatage UTC), `url`, `matched_ean`.
 - Conserver les captures dans `maxicourses_test/debug_screens/` ou `maxicourses_test/debug/` et référencer la trace dans `docs/HANDOVER_DAILY.md`.
 - Chaque produit possède un visuel local dans `maxicourses_test/pipeline/assets/` déclaré via `manual_descriptors.json` ; le comparateur (`pipeline/index2.html`) affiche ensuite un lien « Voir image ».
@@ -23,24 +22,25 @@
 - **Résultats** : JSON par EAN dans `maxicourses_test/results/test-<EAN>/`, agrégat global `maxicourses_test/results/summary.json`.
 
 ## Carrefour (City / Market)
-- **Script** : `maxicourses_test/fetch_carrefour_price.py` (Playwright CDP).
-- **Magasins** :
-  - Rejouer les traces `traces/carrefour-switch-back-20250923.jsonl` (City) & `traces/carrefour-store-switch-20250923.jsonl` (Market) via `python3 replay_leclerc_navigation.py`.
-  - Variables : `STORE_QUERY`, `CARREFOUR_STATE_VARIANT` (`carrefour_city` ou `carrefour_market`).
+- **Scripts** :
+  - City : `maxicourses_test/fetch_carrefour_price_city.py`
+  - Market : `maxicourses_test/fetch_carrefour_price_market.py`
+- **Préparation** : chaque wrapper rejoue automatiquement la trace correspondante (`carrefour-switch-back-20250923.jsonl` pour City, `carrefour-store-switch-20250923.jsonl` pour Market) avant d’appeler `fetch_carrefour_price.py`.
 - **Commandes types** :
   ```bash
-  USE_CDP=1 HEADLESS=0 QUERY="<libellé>" STORE_QUERY="Bordeaux Balguerie" \
-    CARREFOUR_STATE_VARIANT=carrefour_city python3 fetch_carrefour_price.py
+  cd maxicourses_test
+  USE_CDP=1 HEADLESS=0 python3 fetch_carrefour_price_city.py --ean <ean> --query "<libellé>"
+  USE_CDP=1 HEADLESS=0 python3 fetch_carrefour_price_market.py --ean <ean> --query "<libellé>"
   ```
-- **Sorties** : `price`, `unit_price`, `store`, et capture visuelle si nécessaire.
+- **Sorties** : le JSON indique explicitement le magasin (`store`). Si le libellé retourné n’est pas celui attendu, rejouer la trace puis relancer le script.
 
 ## Auchan
 - **Script** : `maxicourses_test/fetch_auchan_price.py` (CDP + seed humain `traces/auchan-20240922-clean.jsonl`).
 - **Commandes** :
   ```bash
-  USE_CDP=1 HEADLESS=0 EAN=<ean> QUERY="<libellé>" python3 fetch_auchan_price.py
+  USE_CDP=1 HEADLESS=0 EAN=<ean> QUERY="<libellé seed ou EAN>" python3 fetch_auchan_price.py
   ```
-- Sert de seed alternatif lorsque Carrefour n’a pas l’EAN.
+- Sert de seed alternatif lorsque Carrefour n’a pas l’EAN ; taper d’abord l’EAN brut, puis réutiliser le descriptif trouvé pour les autres enseignes.
 
 ## Intermarché
 - **Script** : `maxicourses_test/fetch_intermarche_price.py` (CDP, accepter cookies via script).
@@ -51,13 +51,19 @@
 - **Notes** : attendre que le prix apparaisse (commutateur rafraîchissement automatique). Sauvegarder `store` (ex. « Intermarché · Bordeaux Talence (drive) »).
 
 ## Chronodrive
-- **Script** : `maxicourses_test/fetch_chronodrive_price.py` (CDP).
-- **Magasin** : `STORE_URL="https://www.chronodrive.com/magasin/le-haillan-422"`.
-- **Commandes** :
+- **Script** : `maxicourses_test/fetch_chronodrive_price.py` (CDP obligatoire).
+- **Préparation** : lancer `./start_chrome_debug.sh` (profil `.chrome-debug`). `ensure_store_selected` se charge d’appliquer le drive à partir de `STORE_URL`/`state/chronodrive.json` ; aucun clic manuel n’est requis si l’état est valide.
+- **Commande type** :
   ```bash
-  USE_CDP=1 HEADLESS=0 STORE_URL=... QUERY="<libellé>" EAN=<ean> python3 fetch_chronodrive_price.py
+  cd maxicourses_test
+  USE_CDP=1 HEADLESS=0 \
+    STORE_URL="https://www.chronodrive.com/magasin/le-haillan-422" \
+    QUERY="<libellé seed>" EAN=<ean> \
+    python3 fetch_chronodrive_price.py
   ```
-- Si aucun produit ne correspond, enregistrer `NO_RESULTS` avec magasin et requête utilisée.
+  - `HEADLESS=0` recommandé lors des validations initiales pour vérifier la bannière magasin ; ensuite `HEADLESS=1` possible.
+  - Le script extrait automatiquement prix TTC, prix unitaire et quantité depuis la fiche associée au drive.
+- Si malgré le seed aucune fiche ne correspond, retourner `NO_RESULTS` avec le magasin utilisé et ajouter la trace dans `docs/HANDOVER_DAILY.md`.
 
 ## Gestion des résultats & comparateur
 - Chaque EAN dispose de `results/test-<EAN>/latest.json` et `summary.json`. L’agrégat global `results/summary.json` alimente `pipeline/index2.html`.
@@ -78,7 +84,7 @@
 ## Traces & captures utiles
 - `traces/auchan-20240922-clean.jsonl` – navigation Auchan seed.
 - `traces/leclerc-20250924-*.jsonl` – sélection drive Bruges.
-- `traces/carrefour-switch-*.jsonl` – bascule City ↔ Market.
+- `traces/carrefour-switch-back-20250923.jsonl` puis `traces/carrefour-store-switch-20250923.jsonl` – séquence obligatoire avant toute collecte Carrefour (City puis Market).
 - Captures debug dans `maxicourses_test/debug/` (HTML) et `maxicourses_test/debug_screens/` (PNG).
 
 ## Rappels finaux

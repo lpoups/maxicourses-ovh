@@ -47,6 +47,72 @@
       font-size: 0.9rem;
       color: #475569;
     }
+    .ean-search {
+      flex: 1 1 260px;
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: 0 10px 20px rgba(15,23,42,0.12);
+    }
+    .ean-search label {
+      font-size: 0.8rem;
+      color: #475569;
+      font-weight: 600;
+    }
+    .ean-search__controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .ean-search__input {
+      flex: 1 1 auto;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: #f8fafc;
+      font-size: 0.9rem;
+      transition: border-color 120ms ease, box-shadow 120ms ease;
+    }
+    .ean-search__input:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 2px rgba(37,99,235,0.18);
+      background: #fff;
+    }
+    .ean-search__button {
+      flex: 0 0 auto;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: none;
+      background: #2563eb;
+      color: #fff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 120ms ease, box-shadow 120ms ease;
+    }
+    .ean-search__button:hover:not([disabled]) {
+      background: #1d4ed8;
+      box-shadow: 0 6px 16px rgba(37,99,235,0.28);
+    }
+    .ean-search__button[disabled] {
+      opacity: 0.7;
+      cursor: wait;
+    }
+    .ean-search__status {
+      font-size: 0.78rem;
+      color: #475569;
+      min-height: 1.1em;
+    }
+    .ean-search__status[data-status="error"] {
+      color: #b91c1c;
+    }
+    .ean-search__status[data-status="success"] {
+      color: #15803d;
+    }
     .descriptor {
       margin-bottom: 24px;
     }
@@ -134,6 +200,33 @@
       gap: 6px;
       flex: 0 0 auto;
       margin-left: auto;
+    }
+    .product-action-button {
+      font-size: 0.68rem;
+      color: #1d4ed8;
+      background: rgba(37,99,235,0.08);
+      border: 1px solid rgba(37,99,235,0.35);
+      border-radius: 999px;
+      padding: 3px 10px;
+      cursor: pointer;
+      transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+    }
+    .product-action-button:hover:enabled {
+      background: rgba(37,99,235,0.18);
+    }
+    .product-action-button[disabled] {
+      opacity: 0.6;
+      cursor: wait;
+    }
+    .product-action-button--error {
+      color: #dc2626;
+      border-color: rgba(220,38,38,0.55);
+      background: rgba(248, 113, 113, 0.18);
+    }
+    .product-action-button--success {
+      color: #15803d;
+      border-color: rgba(34,197,94,0.55);
+      background: rgba(34,197,94,0.16);
     }
     .product-preview-link {
       font-size: 0.68rem;
@@ -452,6 +545,14 @@
       <img src="../assets/logo_blanc_maxicourses.png" alt="MaxiCourses" />
       <h1>Liste de course</h1>
     </div>
+    <form id="ean-search-form" class="ean-search" novalidate>
+      <label for="ean-search-input">Collecte multi-enseignes</label>
+      <div class="ean-search__controls">
+        <input id="ean-search-input" name="ean" class="ean-search__input" type="text" inputmode="numeric" pattern="\d{8,14}" placeholder="Saisir un EAN…" required />
+        <button type="submit" class="ean-search__button">Collecter</button>
+      </div>
+      <p class="ean-search__status" data-role="search-status"></p>
+    </form>
     <div class="meta" id="copyright">Copyright : OpenCenterAI 2025 - 2026 - LP</div>
   </header>
 
@@ -528,6 +629,11 @@
         resultUrl: '../results/test-5411188118961/latest.json'
       },
       {
+        ean: '5411188103387',
+        heading: 'Comparatif (Dessert végétal soja vanille ALPRO)',
+        resultUrl: '../results/test-5411188103387/latest.json'
+      },
+      {
         ean: '3700260216148',
         heading: 'Comparatif (Croquettes chat stérilisé saumon Ultima)',
         resultUrl: '../results/test-3700260216148/latest.json'
@@ -538,6 +644,11 @@
     const MANUAL_DESCRIPTORS_URL = '../manual_descriptors.json';
 
     const MANUAL_COMPARISON = {};
+
+    const REFRESH_ENDPOINT = window.MAXICOURSES_REFRESH_ENDPOINT || 'http://127.0.0.1:5001/api/collect';
+    let cachedSummary = {};
+    let cachedManualDescriptors = {};
+    const datasetCache = new Map();
 
     const LOGO_BASE = new URL('../assets/logos/', window.location.href).href;
     const LOGOS = {
@@ -562,6 +673,129 @@
       chronodrive: 'Chronodrive'
     };
 
+    function ensureDatasetConfig(ean) {
+      if (!ean) {
+        return null;
+      }
+      if (ean === PRIMARY_DATASET.ean) {
+        return PRIMARY_DATASET;
+      }
+      let config = EXTRA_DATASETS.find((entry) => entry.ean === ean);
+      if (!config) {
+        const descriptor = cachedManualDescriptors?.[ean] || {};
+        const label = descriptor.name || descriptor.title || `EAN ${ean}`;
+        config = {
+          ean,
+          heading: `Comparatif (${label})`,
+          resultUrl: `../results/test-${ean}/latest.json`
+        };
+        EXTRA_DATASETS.push(config);
+      }
+      return config;
+    }
+
+    function resetSearchStatus(statusEl) {
+      if (!statusEl) return;
+      statusEl.textContent = '';
+      statusEl.dataset.status = '';
+    }
+
+    function setupEanSearch() {
+      const form = document.getElementById('ean-search-form');
+      if (!form) return;
+
+      const input = form.querySelector('#ean-search-input');
+      const button = form.querySelector('.ean-search__button');
+      const statusEl = form.querySelector('[data-role="search-status"]');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!input || !button) return;
+
+        let ean = (input.value || '').replace(/\D+/g, '').trim();
+        input.value = ean;
+        resetSearchStatus(statusEl);
+
+        if (!ean || ean.length < 8 || ean.length > 14) {
+          if (statusEl) {
+            statusEl.textContent = 'EAN invalide (8 à 14 chiffres).';
+            statusEl.dataset.status = 'error';
+          }
+          input.focus();
+          return;
+        }
+
+        button.disabled = true;
+        if (statusEl) {
+          statusEl.textContent = 'Collecte en cours…';
+          statusEl.dataset.status = '';
+        }
+
+        try {
+          const response = await fetch(REFRESH_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ean })
+          });
+          if (!response.ok) {
+            let details = '';
+            try {
+              const body = await response.json();
+              details = body?.message || body?.error || '';
+            } catch (err) {
+              // ignore parsing errors
+            }
+            throw new Error(details || `HTTP ${response.status}`);
+          }
+
+          await reloadSummary();
+          const config = ensureDatasetConfig(ean);
+          if (config) {
+            const waitResult = await waitForDatasetAvailability(ean, config, {
+              timeoutMs: 420000,
+              intervalMs: 4000,
+              onProgress: ({ elapsedMs }) => {
+                if (statusEl) {
+                  const seconds = Math.round(elapsedMs / 1000);
+                  statusEl.textContent = `Collecte en cours… (${seconds}s)`;
+                  statusEl.dataset.status = '';
+                }
+              }
+            });
+            if (!waitResult) {
+              throw new Error('Collecte en cours. Veuillez patienter quelques instants puis rafraîchir.');
+            }
+            await reloadSummary();
+            await reloadDataset(ean, config, { retry: true, attempts: 3, delayMs: 1000 });
+          }
+          if (statusEl) {
+            statusEl.textContent = 'Collecte terminée.';
+            statusEl.dataset.status = 'success';
+          }
+        } catch (error) {
+          console.error('Collecte EAN échouée', error);
+          if (statusEl) {
+            const message = String(error?.message || '').toLowerCase();
+            if (message.includes('failed to fetch') || message.includes('network')) {
+              statusEl.textContent = 'Serveur de collecte indisponible. Lancez "USE_CDP=1 python3 server.py" dans maxicourses_test, puis réessayez.';
+            } else {
+              statusEl.textContent = error?.message || 'Erreur pendant la collecte.';
+            }
+            statusEl.dataset.status = 'error';
+          }
+        } finally {
+          button.disabled = false;
+          setTimeout(() => {
+            resetSearchStatus(statusEl);
+          }, 4000);
+        }
+      });
+    }
+
+    function delay(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
     const STORE_LOCATIONS = {
       carrefour_city: { lat: 44.8573603, lon: -0.568063, label: 'Carrefour City · Bordeaux Balguerie' },
       carrefour_market: { lat: 44.8488597, lon: -0.5839625, label: 'Carrefour Market · Fondaudège' },
@@ -585,6 +819,16 @@
         fetchJson(withCacheBuster(SUMMARY_URL))
       ]);
 
+      cachedManualDescriptors = manualDescriptors || {};
+      cachedSummary = summary || {};
+
+      const summaryEans = Object.keys(cachedSummary || {});
+      for (const ean of summaryEans) {
+        if (ean && ean !== PRIMARY_DATASET.ean) {
+          ensureDatasetConfig(ean);
+        }
+      }
+
       const primaryData = await fetchDataset(PRIMARY_DATASET);
       renderPrimary(primaryData, summary, manualDescriptors);
 
@@ -592,13 +836,41 @@
         const dataset = await fetchDataset(config);
         renderComparisonSection(config, dataset, summary, manualDescriptors);
       }
+
+      setupEanSearch();
     });
 
-    async function fetchDataset(config) {
+    async function fetchDataset(config, options = {}) {
       if (!config.resultUrl) {
         return { data: null };
       }
-      const data = await fetchJson(withCacheBuster(config.resultUrl));
+      const retry = Boolean(options.retry);
+      const attempts = Number.isInteger(options.attempts) ? options.attempts : 5;
+      const wait = Number.isInteger(options.delayMs) ? options.delayMs : 1500;
+
+      if (config?.ean && datasetCache.has(config.ean)) {
+        const cachedValue = datasetCache.get(config.ean);
+        datasetCache.delete(config.ean);
+        if (cachedValue) {
+          return { data: cachedValue };
+        }
+      }
+
+      let data = null;
+      if (retry) {
+        for (let attempt = 0; attempt < attempts; attempt += 1) {
+          data = await fetchJson(withCacheBuster(config.resultUrl));
+          if (data) break;
+          if (attempt < attempts - 1) {
+            await delay(wait);
+          }
+        }
+      } else {
+        data = await fetchJson(withCacheBuster(config.resultUrl));
+      }
+      if (config?.ean && data) {
+        datasetCache.set(config.ean, data);
+      }
       return { data };
     }
 
@@ -612,6 +884,36 @@
         console.warn('fetchJson failed', url, err);
         return null;
       }
+    }
+
+    async function fetchDatasetOnce(config) {
+      if (!config?.resultUrl) return null;
+      return fetchJson(withCacheBuster(config.resultUrl));
+    }
+
+    async function waitForDatasetAvailability(ean, config, options = {}) {
+      const timeoutMs = Number.isInteger(options.timeoutMs) ? options.timeoutMs : 420000;
+      const intervalMs = Number.isInteger(options.intervalMs) ? options.intervalMs : 4000;
+      const onProgress = typeof options.onProgress === 'function' ? options.onProgress : null;
+      const startedAt = Date.now();
+      let attempt = 0;
+
+      while (Date.now() - startedAt < timeoutMs) {
+        attempt += 1;
+        const data = await fetchDatasetOnce(config);
+        if (data && data.adapters) {
+          if (config?.ean) {
+            datasetCache.set(config.ean, data);
+          }
+          return data;
+        }
+        if (onProgress) {
+          onProgress({ attempt, elapsedMs: Date.now() - startedAt, ean });
+        }
+        await delay(intervalMs);
+      }
+
+      return null;
     }
 
     function withCacheBuster(url) {
@@ -628,6 +930,11 @@
       }
 
       const datasetData = options.dataset || null;
+      const datasetConfig = options.datasetConfig || null;
+      const ean = options.ean || descriptor.ean || null;
+      if (ean) {
+        root.dataset.ean = ean;
+      }
 
       let titleEl = root.querySelector('[data-role="title"]');
       if (options.headingLevel && options.headingLevel !== 3) {
@@ -668,6 +975,7 @@
       const previewLink = root.querySelector('[data-role="preview"]');
       const summaryEl = root.querySelector('.product-summary');
       const metaActions = root.querySelector('.product-meta-actions');
+      let refreshButton = null;
 
       const eanEl = root.querySelector('[data-role="ean"]');
       eanEl.textContent = descriptor.ean || '—';
@@ -708,6 +1016,17 @@
         }
       }
 
+      if (metaActions && ean) {
+        refreshButton = document.createElement('button');
+        refreshButton.type = 'button';
+        refreshButton.className = 'product-action-button';
+        refreshButton.textContent = 'Relancer la collecte';
+        refreshButton.addEventListener('click', () => {
+          handleRefreshClick({ ean, datasetConfig, button: refreshButton });
+        });
+        metaActions.appendChild(refreshButton);
+      }
+
       const nutriEl = root.querySelector('[data-role="nutri"]');
       nutriEl.innerHTML = '';
       const nutriGrade = descriptor.nutriscore_grade;
@@ -726,11 +1045,12 @@
       const hasSummary = !qtyEl.hidden || !catEl.hidden;
       const hasNutri = nutriEl.childNodes.length > 0;
       const hasPreview = previewLink && !previewLink.hidden;
+      const hasRefresh = !!refreshButton;
       if (summaryEl) {
         summaryEl.style.display = hasSummary ? 'inline-flex' : 'none';
       }
       if (metaActions) {
-        metaActions.style.display = (hasNutri || hasPreview) ? 'inline-flex' : 'none';
+        metaActions.style.display = (hasNutri || hasPreview || hasRefresh) ? 'inline-flex' : 'none';
       }
 
       const mapEl = root.querySelector('[data-role="map"]');
@@ -775,7 +1095,11 @@
         target.appendChild(headingEl);
       }
 
-      const card = createProductCard(descriptor, { ...cardOptions, dataset: datasetData });
+      const cardOptionsWithContext = { ...(cardOptions || {}), dataset: datasetData };
+      if (!cardOptionsWithContext.ean && descriptor.ean) {
+        cardOptionsWithContext.ean = descriptor.ean;
+      }
+      const card = createProductCard(descriptor, cardOptionsWithContext);
       if (card) {
         target.appendChild(card.element);
       }
@@ -838,7 +1162,7 @@
         best,
         worst,
         datasetData,
-        cardOptions: { compact: true, headingLevel: 2, previewUrl }
+        cardOptions: { compact: true, headingLevel: 2, previewUrl, ean: PRIMARY_DATASET.ean, datasetConfig: PRIMARY_DATASET }
       });
 
       if (card && card.map) {
@@ -849,6 +1173,13 @@
 
     function renderComparisonSection(config, dataset, summary, manualDescriptors) {
       const container = document.getElementById('comparisons');
+      let section = document.getElementById(`comparison-${config.ean}`);
+      if (!section) {
+        section = document.createElement('section');
+        section.className = 'product-block';
+        section.id = `comparison-${config.ean}`;
+        container.appendChild(section);
+      }
       const summaryBlock = summary?.[config.ean] || null;
       const rows = buildRows(config.ean, dataset.data, summaryBlock);
 
@@ -859,10 +1190,6 @@
         ? dataset.data.image_path.replace(/^.*www\//, '../')
         : null;
 
-      const section = document.createElement('section');
-      section.className = 'product-block';
-      section.id = `comparison-${config.ean}`;
-
       const datasetData = dataset?.data || null;
       renderProductBlock(section, {
         heading: null,
@@ -871,10 +1198,86 @@
         best,
         worst,
         datasetData,
-        cardOptions: { compact: true, previewUrl }
+        cardOptions: { compact: true, previewUrl, ean: config.ean, datasetConfig: config }
       });
+    }
 
-      container.appendChild(section);
+    function resolveDatasetContext(ean) {
+      if (!ean) {
+        return { config: null, type: null };
+      }
+      if (ean === PRIMARY_DATASET.ean) {
+        return { config: PRIMARY_DATASET, type: 'primary' };
+      }
+      const extra = EXTRA_DATASETS.find((entry) => entry.ean === ean);
+      if (extra) {
+        return { config: extra, type: 'extra' };
+      }
+      return { config: null, type: null };
+    }
+
+    async function reloadSummary() {
+      const summary = await fetchJson(withCacheBuster(SUMMARY_URL));
+      cachedSummary = summary || {};
+      return cachedSummary;
+    }
+
+    async function reloadDataset(ean, configOverride, fetchOptions = {}) {
+      const context = resolveDatasetContext(ean);
+      const config = configOverride || context.config;
+      if (!config || !config.ean) {
+        console.warn('Aucun dataset config pour', ean);
+        return null;
+      }
+      const dataset = await fetchDataset(config, fetchOptions);
+      if (config.ean === PRIMARY_DATASET.ean) {
+        renderPrimary(dataset, cachedSummary, cachedManualDescriptors);
+      } else {
+        renderComparisonSection(config, dataset, cachedSummary, cachedManualDescriptors);
+      }
+      return dataset;
+    }
+
+    async function handleRefreshClick({ ean, datasetConfig, button }) {
+      if (!ean || !button) {
+        return;
+      }
+      const originalLabel = button.textContent;
+      button.disabled = true;
+      button.classList.remove('product-action-button--error', 'product-action-button--success');
+      button.textContent = 'Collecte en cours…';
+
+      try {
+        const response = await fetch(REFRESH_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ean }),
+        });
+        if (!response.ok) {
+          let details = '';
+          try {
+            const body = await response.json();
+            details = body?.message || body?.error || '';
+          } catch (err) {
+            // ignore parsing errors
+          }
+          throw new Error(details || `HTTP ${response.status}`);
+        }
+        await reloadSummary();
+        await reloadDataset(ean, datasetConfig || null);
+        button.classList.add('product-action-button--success');
+        button.textContent = 'Mis à jour';
+      } catch (error) {
+        console.error('Relance collecte échouée', error);
+        button.classList.add('product-action-button--error');
+        button.textContent = 'Erreur collecte';
+      } finally {
+        setTimeout(() => {
+          button.classList.remove('product-action-button--error', 'product-action-button--success');
+          button.textContent = originalLabel;
+          button.disabled = false;
+        }, 1800);
+      }
     }
 
     function buildRows(ean, data, summaryBlock) {

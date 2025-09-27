@@ -6,6 +6,9 @@
   then extracts price/unit/URL from the PDP.
 - Exposes :func:`run_manual_leclerc` for reuse inside other scripts.
 
+Mandate: the enforced workflow is documented in
+``collection_mandate.METHODS['leclerc_drive']``.
+
 CLI usage example::
 
     USE_CDP=1 CDP_URL=http://127.0.0.1:9222 \\

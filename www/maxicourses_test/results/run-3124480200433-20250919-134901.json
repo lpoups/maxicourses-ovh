@@ -1,0 +1,56 @@
+{
+  "ean": "3124480200433",
+  "image_path": null,
+  "started_at": "2025-09-19T13:48:31.030088",
+  "finished_at": "2025-09-19T13:49:01.656888",
+  "duration_seconds": 30.6268,
+  "reference": {
+    "title": "Soda à l'Orange et sa Pulpe ORANGINA",
+    "description": "Boissons gazeuses aux fruits",
+    "source": "carrefour",
+    "brand": "Orangina",
+    "quantity": "Bouteille 1,5 L",
+    "categories": "Boissons gazeuses aux fruits",
+    "image": "./assets/orangina-15l.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": 11,
+    "nutriscore_image": "./assets/nutriscore-e.svg"
+  },
+  "notes": [
+    "Human debug captures dans maxicourses_test/results/debug/run-3124480200433-20250919-134831"
+  ],
+  "adapters": [
+    {
+      "adapter": "chronodrive",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null
+      },
+      "started_at": "2025-09-19T13:48:31.030793",
+      "finished_at": "2025-09-19T13:49:01.656543",
+      "duration_seconds": 30.62575,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3124480200433",
+        "QUERY": "Orangina Soda à l'Orange et sa Pulpe ORANGINA Bouteille 1,5 L",
+        "STORE_URL": "https://www.chronodrive.com",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "maxicourses_test/results/debug/run-3124480200433-20250919-134831/01-chronodrive"
+      }
+    }
+  ]
+}

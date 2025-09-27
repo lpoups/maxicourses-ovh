@@ -1,0 +1,142 @@
+{
+  "5000112611878": {
+    "carrefour_city": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1.99",
+        "store": "Bordeaux City",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-zero-sucres-coca-cola-5000112611878",
+        "note": null,
+        "unit_price": null,
+        "quantity": "1,75 L",
+        "title": "Soda au Cola Zéro Sucres COCA-COLA",
+        "matched_ean": "5000112611878"
+      },
+      "updated_at": "2025-09-18T15:36:52.093987",
+      "duration_seconds": 19.39438,
+      "error": null,
+      "store_query": "Bordeaux City"
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1.99",
+        "store": "Bordeaux Market",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-zero-sucres-coca-cola-5000112611878",
+        "note": null,
+        "unit_price": null,
+        "quantity": "1,75 L",
+        "title": "Soda au Cola Zéro Sucres COCA-COLA",
+        "matched_ean": "5000112611878"
+      },
+      "updated_at": "2025-09-18T15:36:52.093987",
+      "duration_seconds": 18.075688,
+      "error": null,
+      "store_query": "Bordeaux Market"
+    },
+    "leclerc": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1.66",
+        "title": null,
+        "url": "https://fd6-courses.leclercdrive.fr/magasin-013315-013315-relais-bordeaux---fondaudege/fiche-produits-123422-Soda-Coca-Cola.aspx",
+        "note": "https://fd6-courses.leclercdrive.fr/magasin-013315-013315-relais-bordeaux---fondaudege.aspx"
+      },
+      "updated_at": "2025-09-18T15:36:52.093987",
+      "duration_seconds": 11.517095,
+      "error": null,
+      "store_query": null
+    }
+  },
+  "8711000705032": {
+    "leclerc": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null
+      },
+      "updated_at": "2025-09-18T15:49:39.633626",
+      "duration_seconds": 7.491343,
+      "error": null,
+      "store_query": null
+    }
+  },
+  "3124480200433": {
+    "carrefour_city": {
+      "status": "CF_BLOCK",
+      "payload": {
+        "status": "CF_BLOCK",
+        "price": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=3124480200433",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null
+      },
+      "updated_at": "2025-09-19T10:41:19.724414",
+      "duration_seconds": 5.538603,
+      "error": null,
+      "store_query": "Bordeaux City"
+    },
+    "leclerc": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1.93",
+        "title": null,
+        "url": "https://fd6-courses.leclercdrive.fr/magasin-013315-013315-relais-bordeaux---fondaudege/fiche-produits-240425-Soda-a-lorange-Orangina.aspx",
+        "note": "https://fd6-courses.leclercdrive.fr/magasin-013315-013315-relais-bordeaux---fondaudege.aspx",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": "3124480200433"
+      },
+      "updated_at": "2025-09-19T11:02:21.784921",
+      "duration_seconds": 35.691438,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null
+      },
+      "updated_at": "2025-09-19T13:49:01.656888",
+      "duration_seconds": 30.62575,
+      "error": null,
+      "store_query": null
+    }
+  },
+  "5000112611861": {
+    "carrefour_city": {
+      "status": "CF_BLOCK",
+      "payload": {
+        "status": "CF_BLOCK",
+        "price": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=5000112611861",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null
+      },
+      "updated_at": "2025-09-19T16:41:15.458513",
+      "duration_seconds": 4.995752,
+      "error": null,
+      "store_query": "Bordeaux City"
+    }
+  }
+}

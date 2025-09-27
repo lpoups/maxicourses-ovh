@@ -1,0 +1,91 @@
+{
+  "ean": "5000112611878",
+  "image_path": null,
+  "started_at": "2025-09-18T15:03:02.791054",
+  "finished_at": "2025-09-18T15:03:43.555610",
+  "duration_seconds": 40.764556,
+  "reference": {
+    "title": "PET 1.75L COCA COLA® ZÈRO",
+    "description": "Beverages and beverages preparations,Beverages,Carbonated drinks,Artificially sweetened beverages,Sodas,Diet beverages,Colas,Diet sodas,Diet cola soft drink",
+    "source": "openfoodfacts"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611878-20250918-150302"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1.99",
+        "store": "Bordeaux City",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-zero-sucres-coca-cola-5000112611878",
+        "note": null,
+        "unit_price": null,
+        "quantity": "1,75 L",
+        "title": "Soda au Cola Zéro Sucres COCA-COLA",
+        "matched_ean": "5000112611878"
+      },
+      "started_at": "2025-09-18T15:03:02.791692",
+      "finished_at": "2025-09-18T15:03:23.034122",
+      "duration_seconds": 20.24243,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py",
+      "command": [
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/bin/python",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "Coca-Cola® PET 1.75L COCA COLA® ZÈRO 1,75 L e",
+        "STORE_QUERY": "Bordeaux City",
+        "HOME_URL": "https://www.carrefour.fr/courses",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/lib/python3.9/site-packages/playwright_stealth/stealth.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611878-20250918-150302/01-carrefour_city"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1.99",
+        "store": "Bordeaux Market",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-zero-sucres-coca-cola-5000112611878",
+        "note": null,
+        "unit_price": null,
+        "quantity": "1,75 L",
+        "title": "Soda au Cola Zéro Sucres COCA-COLA",
+        "matched_ean": "5000112611878"
+      },
+      "started_at": "2025-09-18T15:03:23.035167",
+      "finished_at": "2025-09-18T15:03:43.555211",
+      "duration_seconds": 20.520044,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py",
+      "command": [
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/bin/python",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "Coca-Cola® PET 1.75L COCA COLA® ZÈRO 1,75 L e",
+        "STORE_QUERY": "Bordeaux Market",
+        "HOME_URL": "https://www.carrefour.fr/courses",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/lib/python3.9/site-packages/playwright_stealth/stealth.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611878-20250918-150302/02-carrefour_market"
+      }
+    }
+  ]
+}

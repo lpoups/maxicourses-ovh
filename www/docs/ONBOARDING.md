@@ -6,8 +6,13 @@
 - Capitaliser l'historique (décisions, obstacles, artefacts) afin que tout nouvel assistant reprenne le travail sans perte d'information.
 
 ## Règles Incontournables
-1. **Leclerc Drive** : toute interaction passe par Chrome remote (port 9222) + validation visuelle. `USE_CDP=1`, `HEADLESS=0`. Aucun scraping headless ni requête directe.
-2. **Carrefour** : privilégier Chrome remote pour contourner Cloudflare. Toujours sauvegarder au besoin les captures (`HUMAN_DEBUG_DIR`).
+1. **Collecte seed systématique** : commencer chaque produit par une recherche **100 % EAN brut** (sans texte additionnel) sur les enseignes qui l’acceptent :
+   - Carrefour City/Market d’abord (via les wrappers CDP)
+   - puis Auchan,
+   - puis Chronodrive.
+   Dès qu’on récupère un descriptif fiable (titre, quantité), l’enregistrer dans `manual_descriptors.json` et l’utiliser comme requête pour les enseignes qui ne prennent pas l’EAN (Leclerc, Intermarché, etc.).
+2. **Leclerc Drive** : toute interaction passe par Chrome remote (port 9222) + validation visuelle. `USE_CDP=1`, `HEADLESS=0`. Aucun scraping headless ni requête directe.
+3. **Carrefour** : privilégier Chrome remote pour contourner Cloudflare. Toujours sauvegarder au besoin les captures (`HUMAN_DEBUG_DIR`).
 3. **Preuve humaine** : conserver les captures dans `maxicourses_test/debug_screens/` ou via les scripts existants. Nommer les fichiers explicitement (`leclerc_ketchup_search_only.png`, etc.).
 4. **Ne jamais écraser** les modifications utilisateur existantes. Toute évolution passe par de nouveaux fichiers ou des ajouts contrôlés.
 5. **Validation commits** : toujours demander l’accord explicite de l’utilisateur avant tout `git commit` (ou action équivalente).

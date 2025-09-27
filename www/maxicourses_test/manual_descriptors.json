@@ -35,6 +35,18 @@
     "description": "Dessert végétal au soja et amande, format familial 4 x 125 g.",
     "note": "Collecte Carrefour City & Market (traces carrefour-switch-back-20250923.jsonl / carrefour-store-switch-20250923.jsonl)."
   },
+  "5411188103387": {
+    "brand": "Alpro",
+    "name": "Dessert végétal soja vanille ALPRO",
+    "quantity": "4 x 125 g (500 g)",
+    "categories": "Desserts végétaux",
+    "image": "./assets/alpro-dessert.png",
+    "nutriscore_grade": "a",
+    "nutriscore_image": "./assets/nutriscore-a.svg",
+    "source": "carrefour",
+    "description": "Dessert végétal au soja goût vanille, lot de 4 x 125 g.",
+    "note": "Référence Carrefour City/Market (traces carrefour-switch-back-20250923.jsonl / carrefour-store-switch-20250923.jsonl)."
+  },
   "3700260216148": {
     "brand": "Ultima",
     "name": "Croquettes chat stérilisé saumon Ultima",
@@ -46,5 +58,17 @@
     "source": "auchan",
     "description": "Croquettes pour chat stérilisé, saveur saumon (EAN 3700260216148).",
     "note": "Descriptif seed récupéré via Auchan Drive (trace 24/09/2025)."
+  },
+  "3092718637033": {
+    "ean": "3092718637033",
+    "brand": "Teisseire",
+    "name": "Sirop de menthe verte TEISSEIRE",
+    "quantity": "Bouteille 60 cl",
+    "categories": "Sirops",
+    "image": "./assets/teisseire-menthe-verte-60cl.png",
+    "seed_query": "Teisseire Sirop de menthe verte 60 cl",
+    "source": "auchan",
+    "description": "Sirop de menthe verte Teisseire 60 cl, utilisé comme descriptif seed pour les enseignes sans recherche EAN.",
+    "note": "Descriptif mis à jour le 2025-09-27 suite à la clarification du flux seed."
   }
 }

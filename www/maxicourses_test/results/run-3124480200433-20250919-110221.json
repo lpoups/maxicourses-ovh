@@ -1,0 +1,54 @@
+{
+  "ean": "3124480200433",
+  "image_path": null,
+  "started_at": "2025-09-19T11:01:46.092899",
+  "finished_at": "2025-09-19T11:02:21.784921",
+  "duration_seconds": 35.692022,
+  "reference": {
+    "title": "Soda à l'Orange et sa Pulpe ORANGINA",
+    "description": "Boissons gazeuses aux fruits",
+    "source": "carrefour",
+    "brand": "Orangina",
+    "quantity": "Bouteille 1,5 L",
+    "categories": "Boissons gazeuses aux fruits",
+    "image": "../assets/products/orangina-15l.png",
+    "nutriscore_grade": "e",
+    "nutriscore_score": 11,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg"
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1.93",
+        "title": null,
+        "url": "https://fd6-courses.leclercdrive.fr/magasin-013315-013315-relais-bordeaux---fondaudege/fiche-produits-240425-Soda-a-lorange-Orangina.aspx",
+        "note": "https://fd6-courses.leclercdrive.fr/magasin-013315-013315-relais-bordeaux---fondaudege.aspx",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": "3124480200433"
+      },
+      "started_at": "2025-09-19T11:01:46.093145",
+      "finished_at": "2025-09-19T11:02:21.784583",
+      "duration_seconds": 35.691438,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/bin/python",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3124480200433",
+        "QUERY": "Orangina Soda à l'Orange et sa Pulpe ORANGINA Bouteille 1,5 L",
+        "STORE_URL": "https://fd6-courses.leclercdrive.fr/magasin-013315-013315-relais-bordeaux---fondaudege.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/lib/python3.9/site-packages/playwright_stealth/stealth.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources",
+      "metadata": {}
+    }
+  ]
+}

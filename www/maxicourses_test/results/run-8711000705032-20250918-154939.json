@@ -1,0 +1,48 @@
+{
+  "ean": "8711000705032",
+  "image_path": null,
+  "started_at": "2025-09-18T15:49:32.141683",
+  "finished_at": "2025-09-18T15:49:39.633626",
+  "duration_seconds": 7.491943,
+  "reference": {
+    "title": "Forza intensity 9",
+    "description": "Cafe",
+    "source": "openfoodfacts"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-8711000705032-20250918-154932"
+  ],
+  "adapters": [
+    {
+      "adapter": "leclerc",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null
+      },
+      "started_at": "2025-09-18T15:49:32.142008",
+      "finished_at": "2025-09-18T15:49:39.633351",
+      "duration_seconds": 7.491343,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/bin/python",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705032",
+        "QUERY": "L'Or Forza intensity 9",
+        "STORE_URL": "https://fd6-courses.leclercdrive.fr/magasin-013315-013315-relais-bordeaux---fondaudege.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/lib/python3.9/site-packages/playwright_stealth/stealth.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-8711000705032-20250918-154932/01-leclerc"
+      }
+    }
+  ]
+}

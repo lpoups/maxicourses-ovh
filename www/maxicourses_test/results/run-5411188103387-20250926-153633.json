@@ -1,0 +1,52 @@
+{
+  "ean": "5411188103387",
+  "image_path": null,
+  "started_at": "2025-09-26T15:35:25.629815",
+  "finished_at": "2025-09-26T15:36:33.123950",
+  "duration_seconds": 67.494135,
+  "reference": {
+    "title": "Dessert végétal soja vanille ALPRO",
+    "description": "Dessert végétal au soja goût vanille, lot de 4 x 125 g.",
+    "source": "carrefour",
+    "brand": "Alpro",
+    "quantity": "4 x 125 g (500 g)",
+    "categories": "Desserts végétaux",
+    "image": "./assets/alpro-dessert.png",
+    "nutriscore_grade": "a",
+    "nutriscore_score": null,
+    "nutriscore_image": "./assets/nutriscore-a.svg"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5411188103387-20250926-153525"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "Rejeu démarré depuis https://www.carrefour.fr/courses\nRejeu terminé.",
+        "last_line": ""
+      },
+      "started_at": "2025-09-26T15:35:25.630643",
+      "finished_at": "2025-09-26T15:36:33.123524",
+      "duration_seconds": 67.492881,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5411188103387",
+        "QUERY": "Alpro Dessert végétal soja vanille ALPRO 4 x 125 g (500 g)",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 696, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 530, in run\n    resp = await page.goto(search_url, wait_until=\"domcontentloaded\")\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 8805, in goto\n    await self._impl_obj.goto(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_page.py\", line 524, in goto\n    return await self._main_frame.goto(**locals_to_params(locals()))\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_frame.py\", line 145, in goto\n    await self._channel.send(\"goto\", locals_to_params(locals()))\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TargetClosedError: Page.goto: Target page, context or browser has been closed",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5411188103387-20250926-153525/01-carrefour_city"
+      }
+    }
+  ]
+}

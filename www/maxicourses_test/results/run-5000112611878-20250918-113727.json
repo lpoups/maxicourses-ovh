@@ -1,0 +1,45 @@
+{
+  "ean": "5000112611878",
+  "image_path": null,
+  "started_at": "2025-09-18T11:37:05.138511",
+  "finished_at": "2025-09-18T11:37:27.370399",
+  "duration_seconds": 22.231888,
+  "reference": {
+    "title": "PET 1.75L COCA COLA® ZÈRO",
+    "description": "Beverages and beverages preparations,Beverages,Carbonated drinks,Artificially sweetened beverages,Sodas,Diet beverages,Colas,Diet sodas,Diet cola soft drink",
+    "source": "openfoodfacts"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611878-20250918-113705"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "{\"status\": \"OK\", \"price\": \"1  ,90  €\", \"store\": null, \"url\": \n\"https://www.carrefour.fr/p/soda-au-cola-zero-sucres-coca-cola-5000112611878\", \"note\":\nnull, \"unit_price\": null, \"quantity\": \"1,75 L\", \"title\": \"Soda au Cola Zéro Sucres \nCOCA-COLA\", \"matched_ean\": \"5000112611878\"}"
+      },
+      "started_at": "2025-09-18T11:37:05.139177",
+      "finished_at": "2025-09-18T11:37:27.369950",
+      "duration_seconds": 22.230773,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py",
+      "command": [
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/bin/python",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "Coca-Cola® PET 1.75L COCA COLA® ZÈRO 1,75 L e",
+        "STORE_QUERY": "Bordeaux City",
+        "HOME_URL": "https://www.carrefour.fr/courses",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": "JSONDecodeError: Invalid control character at: line 3 column 84 (char 232)",
+      "stderr": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/lib/python3.9/site-packages/playwright_stealth/stealth.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611878-20250918-113705/01-carrefour"
+      }
+    }
+  ]
+}

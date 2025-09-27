@@ -1,0 +1,87 @@
+{
+  "5411188103387": {
+    "carrefour_city": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,57",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-vanille-alpro-5411188103387",
+        "note": null,
+        "unit_price": null,
+        "quantity": "500 G",
+        "title": "Dessert végétal soja vanille ALPRO",
+        "matched_ean": "5411188103387"
+      },
+      "updated_at": "2025-09-26T16:26:30.237765",
+      "duration_seconds": 126.24214,
+      "error": null
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,25",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-vanille-alpro-5411188103387",
+        "note": null,
+        "unit_price": null,
+        "quantity": "500 G",
+        "title": "Dessert végétal soja vanille ALPRO",
+        "matched_ean": "5411188103387"
+      },
+      "updated_at": "2025-09-26T16:28:32.753989",
+      "duration_seconds": 122.515568,
+      "error": null
+    },
+    "leclerc": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Dessert végétal soja alpro Vanille - 500g",
+        "price": "1,79",
+        "unit_price": "3,58 € / kg",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
+        "matched_ean": "5411188103387"
+      },
+      "updated_at": "2025-09-26T12:07:46.316342",
+      "duration_seconds": 39.560924,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "ERROR",
+      "payload": {},
+      "updated_at": "2025-09-26T12:07:46.316342",
+      "duration_seconds": 53.71175,
+      "error": "EMPTY_STDOUT",
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,92",
+        "title": "Dessert végétal soja vanille,",
+        "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-vanille/5411188103387",
+        "note": null,
+        "matched_ean": "5411188103387"
+      },
+      "updated_at": "2025-09-26T17:18:26.138783",
+      "duration_seconds": 14.808503,
+      "error": null
+    },
+    "chronodrive": {
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "{\"status\": \"OK\", \"price\": \"2,05\", \"title\": \"Dessert végétal soja et vanille \nALPRO 500 g\", \"url\": \n\"https://www.chronodrive.com/alpro--dessert-vegetal-soja-et-vanille-P364875\", \n\"note\": \"Chronodrive Le Haillan\", \"unit_price\": \"4,10 € / KG\", \"quantity\": \"500 \nG\", \"store\": \"Chronodrive Le Haillan\", \"matched_ean\": \"5411188103387\"}",
+        "last_line": "{\"status\": \"OK\", \"price\": \"2,05\", \"title\": \"Dessert végétal soja et vanille \nALPRO 500 g\", \"url\": \n\"https://www.chronodrive.com/alpro--dessert-vegetal-soja-et-vanille-P364875\", \n\"note\": \"Chronodrive Le Haillan\", \"unit_price\": \"4,10 € / KG\", \"quantity\": \"500 \nG\", \"store\": \"Chronodrive Le Haillan\", \"matched_ean\": \"5411188103387\"}"
+      },
+      "updated_at": "2025-09-26T12:07:46.316342",
+      "duration_seconds": 12.353221,
+      "error": "JSONDecodeError: Invalid control character at: line 1 column 77 (char 76)",
+      "store_query": null
+    }
+  }
+}

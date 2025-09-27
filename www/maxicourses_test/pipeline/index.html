@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MaxiCourses – Résultats Pipeline</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 24px;
+      line-height: 1.5;
+      background: #f6f7fb;
+      color: #111;
+    }
+    header {
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin: 0 0 8px;
+    }
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand img {
+      height: 52px;
+      width: auto;
+      border-radius: 12px;
+      background: linear-gradient(180deg,#071F54 0%,#0B2F78 100%);
+      padding: 6px 10px;
+      box-shadow: 0 6px 18px rgba(7,31,84,0.28);
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .descriptor {
+      background: none;
+      border-radius: 12px;
+      padding: 0;
+      margin-bottom: 24px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 18px rgba(15,23,42,0.08);
+      display: flex;
+      gap: 24px;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+    .product-media {
+      flex: 0 0 160px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+    .product-thumb {
+      width: 160px;
+      height: 160px;
+      border-radius: 16px;
+      background: #f3f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .product-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .product-thumb__placeholder {
+      color: #8891aa;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 12px;
+    }
+    .product-nutri {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .product-nutri img {
+      height: 40px;
+    }
+    .product-body {
+      flex: 1;
+      min-width: 240px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .product-map {
+      flex: 0 0 240px;
+      height: 200px;
+      border-radius: 18px;
+      position: relative;
+      box-shadow: 0 8px 18px rgba(15,23,42,0.08);
+      margin-left: auto;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    .product-map__canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .product-map:hover { transform: translateY(-1px); }
+    .product-map__label {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      font-size: 11px;
+      color: #475569;
+      background: rgba(255,255,255,0.92);
+      padding: 4px 8px;
+      border-radius: 999px;
+      box-shadow: 0 2px 6px rgba(15,23,42,0.12);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .map-logo-icon {
+      background: none;
+      border: none;
+    }
+    .map-marker-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(15,23,42,0.12);
+      box-shadow: 0 8px 18px rgba(15,23,42,0.16);
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .map-marker-logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .map-marker-logo--fallback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1f2937;
+    }
+    .product-map--static .leaflet-container,
+    .product-map--static .leaflet-pane,
+    .product-map--static .leaflet-control-container {
+      pointer-events: none !important;
+    }
+    .product-map--static .leaflet-control-container {
+      display: none;
+    }
+    .product-map--modal {
+      width: 560px;
+      height: 360px;
+      margin: 0;
+    }
+    .product-map__label--modal {
+      font-size: 13px;
+      padding: 6px 12px;
+    }
+    .map-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(4px);
+    }
+    .map-modal[hidden] { display: none; }
+    .map-modal__backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15,23,42,0.45);
+    }
+    .map-modal__content {
+      position: relative;
+      background: transparent;
+      padding: 0;
+      border-radius: 20px;
+      box-shadow: 0 24px 60px rgba(15,23,42,0.35);
+      overflow: hidden;
+      z-index: 1001;
+    }
+    .map-modal__close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.9);
+      color: #1f2937;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(15,23,42,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .map-modal__close:hover { background: #fff; }
+    body.modal-open { overflow: hidden; }
+    .product-brand {
+      font-size: 0.95rem;
+      color: #667085;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .product-title {
+      font-size: 1.6rem;
+      margin: 0;
+      color: #101828;
+    }
+    .product-summary {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .product-summary span {
+      background: #eef2ff;
+      color: #4338ca;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+    .product-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 0;
+    }
+    .product-details div {
+      min-width: 140px;
+    }
+    .product-details dt {
+      margin: 0 0 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: #667085;
+      text-transform: uppercase;
+    }
+    .product-details dd {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #101828;
+    }
+    .product-details code {
+      background: rgba(17,24,39,0.08);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      font-size: 0.88rem;
+    }
+    th, td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #eee;
+      line-height: 1.25;
+      vertical-align: top;
+    }
+    th {
+      background: #f0f2f8;
+      text-align: left;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #445;
+    }
+    td.product-cell {
+      font-size: 0.74rem;
+      color: #4a5568;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 220px;
+    }
+    td:first-child {
+      white-space: nowrap;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .status-ok {
+      color: #0a8a49;
+      font-weight: 600;
+    }
+    .status-error {
+      color: #c23a2b;
+      font-weight: 600;
+    }
+    .status-warn {
+      color: #d89614;
+      font-weight: 600;
+    }
+    .price {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+    code {
+      background: rgba(0,0,0,0.06);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+    .meta-cell {
+      font-size: 0.78rem;
+      color: #64748b;
+      white-space: nowrap;
+    }
+    .link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #0366d6;
+      text-decoration: none;
+    }
+    .link:hover {
+      text-decoration: underline;
+    }
+    .notes {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .error-box {
+      margin-top: 12px;
+      padding: 12px;
+      background: #fff3f0;
+      border: 1px solid #f0c1b8;
+      color: #752b1b;
+      border-radius: 8px;
+      font-size: 0.85rem;
+    }
+    .image-preview {
+      margin-top: 12px;
+      text-align: center;
+    }
+    .image-preview img {
+      max-width: 220px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand">
+      <img src="../assets/logo_blanc_maxicourses.png" alt="MaxiCourses" />
+      <h1>Liste de course</h1>
+    </div>
+    <div class="meta" id="run-meta">Chargement…</div>
+  </header>
+
+  <section class="descriptor" id="descriptor" hidden>
+    <div class="product-card">
+      <div class="product-media">
+        <div class="product-thumb" id="product-thumb"></div>
+        <div class="product-nutri" id="product-nutri"></div>
+      </div>
+      <div class="product-body">
+        <div class="product-brand" id="descriptor-brand" hidden></div>
+        <h2 class="product-title" id="descriptor-title"></h2>
+        <div class="product-summary">
+          <span id="descriptor-qty"></span>
+          <span id="descriptor-cats"></span>
+        </div>
+        <dl class="product-details">
+          <div><dt>EAN</dt><dd id="descriptor-ean"></dd></div>
+          <div><dt>Source</dt><dd id="descriptor-source"></dd></div>
+        </dl>
+      </div>
+      <div class="product-map product-map--static" id="store-map">
+        <div id="store-map-canvas" class="product-map__canvas"></div>
+        <div class="product-map__label">Bordeaux Métropole</div>
+      </div>
+    </div>
+    <div class="image-preview" id="image-preview" hidden>
+      <img id="image-preview-img" alt="Dernière image" />
+      <div class="meta">Image terrain (pipeline)</div>
+    </div>
+  </section>
+
+  <div class="map-modal" id="map-modal" hidden>
+    <div class="map-modal__backdrop" data-close-map></div>
+    <div class="map-modal__content">
+      <button class="map-modal__close" type="button" data-close-map aria-label="Fermer la carte">×</button>
+      <div class="product-map product-map--modal" id="store-map-modal">
+        <div id="store-map-modal-canvas" class="product-map__canvas"></div>
+        <div class="product-map__label product-map__label--modal">Bordeaux Métropole</div>
+      </div>
+    </div>
+  </div>
+
+  <table id="table" hidden>
+    <thead>
+      <tr>
+        <th>Enseigne</th>
+        <th>Produit</th>
+        <th>Statut</th>
+        <th>Prix pack</th>
+        <th>Prix / unité</th>
+        <th>Magasin / Note</th>
+        <th>Maj</th>
+        <th>Liens</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+  <div class="notes" id="notes"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    const RESULT_URL = '../results/latest.json?_=' + Date.now();
+    const SUMMARY_URL = '../results/summary.json?_=' + Date.now();
+    const MANUAL_COMPARISON = [
+      {
+        adapter: 'carrefour_city_manual',
+        status: 'OK',
+        payload: {
+          price: '2,55',
+          unit_price: '1,70 € / L',
+          store: 'Carrefour City · Bordeaux Balguerie',
+          url: 'https://www.carrefour.fr/p/soda-a-l-orange-et-sa-pulpe-orangina-3124480200433',
+          note: 'EAN 3124480200433 — 1,5 L',
+          product_name: 'Orangina 1,5 L'
+        },
+        updated_at: '2025-09-19T10:41:19'
+      },
+      {
+        adapter: 'leclerc_drive_manual',
+        status: 'OK',
+        payload: {
+          price: '1,93',
+          unit_price: '1,29 € / L',
+          store: 'E.Leclerc Drive · Relais Bordeaux Fondaudège',
+          url: 'https://fd6-courses.leclercdrive.fr/magasin-013315-013315-Relais-Bordeaux---Fondaudege/fiche-produits-240425-Soda-a-lorange-Orangina.aspx',
+          note: 'EAN 3124480200433 — 1,5 L',
+          product_name: 'Orangina 1,5 L'
+        },
+        updated_at: '2025-09-19T13:20:34'
+      },
+      {
+        adapter: 'intermarche_manual',
+        status: 'OK',
+        payload: {
+          price: '2,17',
+          unit_price: '1,45 € / L',
+          store: 'Intermarché · Talence 33 (Drive)',
+          url: "https://www.intermarche.com/produit/soda-a-l'orange/3124480200433",
+          note: 'EAN 3124480200433 — 1,5 L',
+          product_name: 'Orangina 1,5 L'
+        },
+        updated_at: '2025-09-19T13:20:34'
+      },
+      {
+        adapter: 'auchan_manual',
+        status: 'OK',
+        payload: {
+          price: '1,92',
+          unit_price: '1,28 € / L',
+          store: 'Auchan Drive Talence-Gallieni',
+          url: 'https://www.auchan.fr/recherche?text=3124480200433',
+          note: 'EAN 3124480200433 — 1,5 L',
+          product_name: 'Orangina 1,5 L'
+        },
+        updated_at: '2025-09-19T12:54:45'
+      },
+      {
+        adapter: 'chronodrive_manual',
+        status: 'OK',
+        payload: {
+          price: '2,29',
+          unit_price: '1,53 € / L',
+          store: 'Chronodrive Le Haillan',
+          url: 'https://www.chronodrive.com/orangina--boisson-gazeuse-a-la-pulpe-dorange-P571775',
+          note: 'EAN 3124480200433 — 1,5 L',
+          product_name: 'Orangina 1,5 L'
+        },
+        updated_at: '2025-09-19T11:48:25'
+      }
+    ];
+
+    const MANUAL_FALLBACKS = MANUAL_COMPARISON.reduce((acc, entry) => {
+      const base = entry.adapter.replace(/_manual$/, '');
+      acc[base] = entry;
+      return acc;
+    }, {});
+
+    const LOGO_BASE = new URL('../assets/logos/', window.location.href).href;
+    const STORE_LOCATIONS = {
+      carrefour_city: {
+        lat: 44.8573603,
+        lon: -0.568063,
+        label: 'Carrefour City · Bordeaux Balguerie',
+        address: '82 Cours Balguerie Stuttenberg, 33300 Bordeaux',
+        city: 'Bordeaux'
+      },
+      carrefour_market: {
+        lat: 44.8488597,
+        lon: -0.5839625,
+        label: 'Carrefour Market · Fondaudège',
+        address: '130 Rue Fondaudège, 33000 Bordeaux',
+        city: 'Bordeaux'
+      },
+      leclerc_drive: {
+        lat: 44.8461492,
+        lon: -0.5792079,
+        label: 'E.Leclerc Relais · Bordeaux Fondaudège',
+        address: '27 Rue Fondaudège, 33000 Bordeaux',
+        city: 'Bordeaux'
+      },
+      intermarche: {
+        lat: 44.8066547,
+        lon: -0.5750164,
+        label: 'Intermarché · Talence Toulouse',
+        address: '235 Route de Toulouse, 33400 Talence',
+        city: 'Talence'
+      },
+      auchan: {
+        lat: 44.806195,
+        lon: -0.5910973,
+        label: 'Auchan Supermarché · Talence',
+        address: 'Cours de la Libération, 33400 Talence',
+        city: 'Talence'
+      },
+      chronodrive: {
+        lat: 44.8589595,
+        lon: -0.6768561,
+        label: 'Chronodrive · Bordeaux Magudas',
+        address: 'Avenue de Magudas, 33700 Mérignac',
+        city: 'Mérignac'
+      }
+    };
+    const FALLBACK_PRODUCT_IMAGE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAAXNSR0IArs4c6QAAIABJREFUeJztXXd8HNW5PTNbVCzJFQPGBYwpppneCb1X0wmh41AMJg4QSh4dTEzvvXcINfQeekvA4EAwxjbGgKtsq0tbZt4fZz7d2dXs7MiSJT297/x+g/Du7C0z99z7tftdyx2ylguFQhEE1+7uFigUPRlKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFIgRKEIUiBEoQhSIEShCFOwHTUsh5Ria40AAAAASUVORK5CYII=';
+    const FALLBACK_NUTRI_IMAGES = {
+      e: 'data:image/svg+xml;base64,PGh0bWw+DQo8aGVhZD48dGl0bGU+NDA0IE5vdCBGb3VuZDwvdGl0bGU+PC9oZWFkPg0KPGJvZHkgc3R5bGU9Im1hcmdpbjowOyBiYWNrZ3JvdW5kOiNmZmY7IGNvbG9yOiMwMDA7IGZvbnQtZmFtaWx5OiAnRHVtbnlCTE8nLCBzYW5zLXNlcmlmOyI+DQo8ZGl2IHN0eWxlPSJ3aWR0aDo2NDBweDsgaGVpZ2h0OjMyMHB4OyBib3JkZXI6NHB4IHNvbGlkICNFOUVFRTk7IGJvcmRlci1yYWRpdXM6MTZweDsgcGFkZGluZzo1MHB4IDIwcHg7IGJveC1zaGFkb3c6MCA4cHggMjVweCByZ2JhKDAsMCwwLDAuMDIpOyI+PGRpdiBzdHlsZT0iZm9udC1zaXplOjQwcHg7IGZvbnQtd2VpZ2h0OjcwMDsgY29sb3I6Izc3NzsgbWFyZ2luLWJvdHRvbToyMHB4OyI+QXBwdWkgdHJvIHBsdXM/PzwvZGl2PjxwIHN0eWxlPSBvcGFjaXR5OjAuNzsgZm9udC1zaXplOjI0cHg7IG1hcmdpbjowOyI+Qm91bWnnuWVyIHBsZWluIGRlIGxpdmFpc29uIHJldHJvdXZlw6kgc3VyIHBsYWNlLiBVdGlsaXNleiB1biBwcm9kdWl0IGRlIG1laWxsZXVyZSBxdWFsaXPhIGF1IGbDqXNpbmRlIGRlIGxhIHZlcsOob8OpPC9wPjwvZGl2PjwvYm9keT48L2h0bWw+'
+    };
+    const NUTRISCORE_BASE = 'https://static.openfoodfacts.org/images/attributes/nutriscore-';
+    const NUTRISCORE_IMAGES = {
+      a: `${NUTRISCORE_BASE}a.svg`,
+      b: `${NUTRISCORE_BASE}b.svg`,
+      c: `${NUTRISCORE_BASE}c.svg`,
+      d: `${NUTRISCORE_BASE}d.svg`,
+      e: `${NUTRISCORE_BASE}e.svg`,
+    };
+
+    const toAbsolute = (path) => {
+      if (!path) return null;
+      if (typeof path === 'string' && path.startsWith('data:')) return path;
+      try {
+        return new URL(path, window.location.href).href;
+      } catch (err) {
+        return path;
+      }
+    };
+
+    const escapeHtml = (value) => {
+      if (value == null) return '';
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    };
+
+    function pickNutriscoreImage(grade) {
+      if (!grade) return null;
+      const key = String(grade).trim().toLowerCase();
+      return toAbsolute(NUTRISCORE_IMAGES[key] || `${NUTRISCORE_BASE}${key}.svg`);
+    }
+
+    const cleanProductName = (value, fallback) => {
+      const cleaned = (value || '').replace(/\s+/g, ' ').trim();
+      if (!cleaned && fallback) return fallback;
+      if (cleaned && cleaned.length > 60 && fallback) return fallback;
+      return cleaned || fallback || '—';
+    };
+
+    const formatDateTime = (iso) => {
+      if (!iso) return '—';
+      const date = new Date(iso);
+      if (Number.isNaN(date.getTime())) return iso;
+      return date.toLocaleString('fr-FR', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+    };
+
+    const MAP_CENTER = [44.8468, -0.583];
+    const mapInstances = {};
+    const markerGroups = {};
+    let latestRows = [];
+    let mapModalSetup = false;
+
+    const ensureLeaflet = () => typeof L !== 'undefined';
+
+    const ensureMap = (canvasId, interactive) => {
+      if (!ensureLeaflet()) return null;
+      let map = mapInstances[canvasId];
+      if (!map) {
+        map = L.map(canvasId, {
+          center: MAP_CENTER,
+          zoom: interactive ? 12 : 11,
+          zoomControl: interactive
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+        if (!interactive) {
+          map.dragging.disable();
+          map.touchZoom.disable();
+          map.scrollWheelZoom.disable();
+          map.doubleClickZoom.disable();
+          map.boxZoom.disable();
+          map.keyboard.disable();
+          if (map.zoomControl) {
+            map.zoomControl.remove();
+          }
+        }
+        markerGroups[canvasId] = L.layerGroup().addTo(map);
+        mapInstances[canvasId] = map;
+      } else {
+        markerGroups[canvasId].clearLayers();
+        map.setView(MAP_CENTER, interactive ? 12 : 11);
+      }
+      return map;
+    };
+
+    const findLogoKey = (row) => {
+      if (!row) return null;
+      if (LOGOS[row.adapterName]) return row.adapterName;
+      if (row.rawAdapters) {
+        for (const name of row.rawAdapters) {
+          if (LOGOS[name]) return name;
+        }
+      }
+      return null;
+    };
+
+    const createLogoIcon = (displayName, logoSrc, scale) => {
+      const baseWidth = scale >= 1 ? 94 : 68;
+      const baseHeight = scale >= 1 ? 50 : 36;
+      const width = Math.round(baseWidth);
+      const height = Math.round(baseHeight);
+      const paddingY = Math.round(height * 0.18);
+      const paddingX = Math.round(width * 0.18);
+      const safeName = escapeHtml(displayName || '');
+      const wrapperStyle = [
+        `width:${width}px`,
+        `height:${height}px`,
+        `padding:${paddingY}px ${paddingX}px`,
+        `border-radius:${Math.round(height / 1.4)}px`
+      ].join(';');
+      let innerHtml;
+      if (logoSrc) {
+        innerHtml = `<img src="${logoSrc}" alt="${safeName}" />`;
+      } else {
+        const fallbackChar = escapeHtml(((displayName || '?').trim().charAt(0) || '•').toUpperCase());
+        innerHtml = `<span class="map-marker-logo--fallback">${fallbackChar}</span>`;
+      }
+      const html = `<div class="map-marker-logo" style="${wrapperStyle}">${innerHtml}</div>`;
+      return L.divIcon({
+        className: 'map-logo-icon',
+        html,
+        iconSize: [width, height],
+        iconAnchor: [width / 2, height / 2],
+        popupAnchor: [0, -height * 0.6]
+      });
+    };
+
+    const formatLocationTooltip = (location) => {
+      const lines = [location.label];
+      if (location.address) {
+        lines.push(location.address);
+      }
+      return lines
+        .filter(Boolean)
+        .map((line) => escapeHtml(line))
+        .join('<br />');
+    };
+
+    const addMarkersToMap = (canvasId, rows, scale, interactive) => {
+      const map = ensureMap(canvasId, interactive);
+      if (!map) return;
+      const group = markerGroups[canvasId];
+      group.clearLayers();
+      const bounds = [];
+
+      for (const row of rows) {
+        const location = STORE_LOCATIONS[row.adapterName];
+        if (!location) continue;
+        const logoKey = findLogoKey(row);
+        const logoFile = logoKey ? LOGOS[logoKey] : null;
+        const displayName = DISPLAY_NAMES[row.adapterName] || DISPLAY_NAMES[logoKey] || row.adapterName;
+        const logoSrc = logoFile ? `${LOGO_BASE}${logoFile}` : null;
+        const icon = createLogoIcon(displayName, logoSrc, scale);
+        const marker = L.marker([location.lat, location.lon], { icon });
+        if (interactive) {
+          const popupHtml = formatLocationTooltip(location) || escapeHtml(displayName);
+          marker.bindPopup(popupHtml, { closeButton: false, offset: [0, -12 * scale] });
+          marker.bindTooltip(location.label || displayName, { direction: 'top', offset: [0, -6] });
+        }
+        group.addLayer(marker);
+        bounds.push([location.lat, location.lon]);
+      }
+
+      if (bounds.length) {
+        map.fitBounds(bounds, { padding: [28, 28] });
+        if (!interactive) {
+          map.once('moveend', () => {
+            if (map.getZoom() > 13) {
+              map.setZoom(13);
+            }
+          });
+        } else {
+          setTimeout(() => map.invalidateSize(), 160);
+        }
+      }
+    };
+
+    const renderMapMarkers = (rows) => {
+      latestRows = rows;
+      addMarkersToMap('store-map-canvas', rows, 0.85, false);
+      addMarkersToMap('store-map-modal-canvas', rows, 1.1, true);
+    };
+
+    const setupMapModal = () => {
+      if (mapModalSetup) return;
+      const mapEl = document.getElementById('store-map');
+      const modal = document.getElementById('map-modal');
+      if (!mapEl || !modal) return;
+      const closeElements = modal.querySelectorAll('[data-close-map]');
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.body.classList.remove('modal-open');
+      };
+
+      const openModal = () => {
+        modal.hidden = false;
+        document.body.classList.add('modal-open');
+        renderMapMarkers(latestRows);
+        setTimeout(() => {
+          const modalMapInstance = mapInstances['store-map-modal-canvas'];
+          if (modalMapInstance) {
+            modalMapInstance.invalidateSize();
+          }
+        }, 180);
+      };
+
+      mapEl.addEventListener('click', openModal);
+      closeElements.forEach((el) => el.addEventListener('click', closeModal));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !modal.hidden) {
+          closeModal();
+        }
+      });
+      mapModalSetup = true;
+    };
+
+    function formatCategory(raw) {
+      if (!raw) return '';
+      const parts = String(raw).split(',').map((p) => p.trim()).filter(Boolean);
+      if (!parts.length) return raw;
+      return parts[parts.length - 1];
+    }
+    const LOGOS = {
+      carrefour: 'carrefour.png',
+      carrefour_city: 'carrefour.png',
+      carrefour_market: 'carrefour.png',
+      carrefour_city_manual: 'carrefour.png',
+      carrefour_market_manual: 'carrefour.png',
+      leclerc: 'leclerc.png',
+      leclerc_drive: 'leclerc.png',
+      leclerc_drive_manual: 'leclerc.png',
+      intermarche: 'intermarche.png',
+      intermarche_manual: 'intermarche.png',
+      auchan: 'auchan.png',
+      auchan_manual: 'auchan.png',
+      chronodrive: 'chronodrive.png',
+      chronodrive_manual: 'chronodrive.png'
+    };
+
+    const DISPLAY_NAMES = {
+      carrefour: 'Carrefour',
+      carrefour_city: 'Carrefour City',
+      carrefour_market: 'Carrefour Market',
+      carrefour_city_manual: 'Carrefour City',
+      carrefour_market_manual: 'Carrefour Market',
+      leclerc: 'E.Leclerc',
+      leclerc_drive: 'E.Leclerc Drive',
+      leclerc_drive_manual: 'E.Leclerc Drive',
+      intermarche: 'Intermarché',
+      intermarche_manual: 'Intermarché',
+      auchan: 'Auchan',
+      auchan_manual: 'Auchan Drive',
+      chronodrive: 'Chronodrive',
+      chronodrive_manual: 'Chronodrive'
+    };
+
+    function statusClass(status) {
+      const s = (status || '').toUpperCase();
+      if (s === 'OK') return 'status-ok';
+      if (!s) return 'status-warn';
+      return 'status-error';
+    }
+
+    function formatUnitPrice(payload) {
+      if (!payload) return '';
+      const unit = payload.unit_price || payload.price_unit || payload.price_per_unit;
+      if (!unit) return '';
+      return Array.isArray(unit) ? unit.join(' / ') : String(unit);
+    }
+
+    async function load() {
+      const runMetaEl = document.getElementById('run-meta');
+      let data = null;
+      let fetchError = null;
+
+      try {
+        const res = await fetch(RESULT_URL);
+        if (res.ok) {
+          data = await res.json();
+        } else {
+          fetchError = new Error(`HTTP ${res.status}`);
+        }
+      } catch (err) {
+        fetchError = err;
+      }
+
+      let summary = null;
+      try {
+        const summaryRes = await fetch(SUMMARY_URL);
+        if (summaryRes.ok) {
+          summary = await summaryRes.json();
+        }
+      } catch (err) {
+        summary = null;
+      }
+
+      if (!data) {
+        const manual = MANUAL_COMPARISON.find(Boolean) || null;
+        const manualNote = manual?.payload?.note || '';
+        const noteMatch = manualNote.match(/\b\d{8,14}\b/);
+        const fallbackEan = manual?.payload?.ean || (noteMatch ? noteMatch[0] : '—');
+        data = {
+          ean: fallbackEan,
+          started_at: new Date().toISOString(),
+          reference: {},
+          adapters: [],
+          notes: []
+        };
+      }
+
+      data.reference = data.reference || {};
+      data.adapters = Array.isArray(data.adapters) ? data.adapters : [];
+      data.notes = Array.isArray(data.notes) ? data.notes : [];
+
+      if (fetchError) {
+        const reason = fetchError?.message ? ` (${fetchError.message})` : '';
+        runMetaEl.textContent = `Mode manuel — résultats non chargés${reason}`;
+      } else {
+        const started = data.started_at ? new Date(data.started_at) : new Date();
+        runMetaEl.textContent = `EAN ${data.ean} · relevé le ${started.toLocaleString()}`;
+      }
+
+      const descriptor = data.reference || {};
+      const descriptorEl = document.getElementById('descriptor');
+      const brandEl = document.getElementById('descriptor-brand');
+      const thumbEl = document.getElementById('product-thumb');
+      const nutriEl = document.getElementById('product-nutri');
+      const qtyEl = document.getElementById('descriptor-qty');
+      const catEl = document.getElementById('descriptor-cats');
+      const sourceEl = document.getElementById('descriptor-source');
+      const titleEl = document.getElementById('descriptor-title');
+
+      const descriptorTitle = descriptor.title || descriptor.name || [descriptor.brand, descriptor.description].filter(Boolean).join(' ');
+      titleEl.textContent = descriptorTitle || 'Produit non identifié';
+      document.getElementById('descriptor-ean').textContent = data.ean;
+
+      const brand = descriptor.brand;
+      if (brand) {
+        brandEl.textContent = brand;
+        brandEl.hidden = false;
+      } else {
+        brandEl.hidden = true;
+      }
+
+      const quantity = descriptor.quantity || descriptor.reference_quantity;
+      if (quantity) {
+        qtyEl.textContent = `Quantité : ${quantity}`;
+        qtyEl.hidden = false;
+      } else {
+        qtyEl.textContent = '';
+        qtyEl.hidden = true;
+      }
+
+      const category = formatCategory(descriptor.categories || descriptor.description);
+      if (category) {
+        catEl.textContent = `Catégorie : ${category}`;
+        catEl.hidden = false;
+      } else {
+        catEl.textContent = '';
+        catEl.hidden = true;
+      }
+
+      const source = descriptor.source || data.reference_source;
+      sourceEl.textContent = source || '—';
+
+      const productImage = toAbsolute(descriptor.image || descriptor.reference_image) || FALLBACK_PRODUCT_IMAGE;
+      thumbEl.innerHTML = '';
+      if (productImage) {
+        const img = document.createElement('img');
+        img.src = productImage;
+        img.onerror = () => { img.src = FALLBACK_PRODUCT_IMAGE; };
+        img.alt = descriptorTitle || '';
+        thumbEl.appendChild(img);
+      } else {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'product-thumb__placeholder';
+        placeholder.textContent = 'Image indisponible';
+        thumbEl.appendChild(placeholder);
+      }
+
+      const nutriGrade = descriptor.nutriscore_grade || descriptor.reference_nutriscore_grade;
+      const customNutriImageRaw = descriptor.nutriscore_image || descriptor.reference_nutriscore_image;
+      const customNutriImage = toAbsolute(customNutriImageRaw) || FALLBACK_NUTRI_IMAGES[(nutriGrade || '').toLowerCase()] || null;
+      nutriEl.innerHTML = '';
+      const nutriImgUrl = customNutriImage || (nutriGrade ? pickNutriscoreImage(nutriGrade) : null);
+      if (nutriGrade || nutriImgUrl) {
+        const nutriWrapper = document.createDocumentFragment();
+        const labelEl = document.createElement('span');
+        labelEl.textContent = 'Nutri-score :';
+        nutriWrapper.appendChild(labelEl);
+        if (nutriImgUrl) {
+          const img = document.createElement('img');
+          img.src = nutriImgUrl;
+          img.onerror = () => {
+            const fallback = FALLBACK_NUTRI_IMAGES[(nutriGrade || '').toLowerCase()];
+            if (fallback) {
+              img.src = fallback;
+            }
+          };
+          const altGrade = nutriGrade ? `Nutri-Score ${String(nutriGrade).toUpperCase()}` : 'Nutri-Score';
+          img.alt = altGrade;
+          nutriWrapper.appendChild(img);
+        } else if (nutriGrade) {
+          const gradeEl = document.createElement('span');
+          gradeEl.textContent = ` ${String(nutriGrade).toUpperCase()}`;
+          nutriWrapper.appendChild(gradeEl);
+        }
+        nutriEl.appendChild(nutriWrapper);
+      } else {
+        nutriEl.textContent = 'Nutri-score : —';
+      }
+
+      descriptorEl.hidden = false;
+
+      if (data.image_path) {
+        const imgEl = document.getElementById('image-preview-img');
+        imgEl.src = data.image_path.replace(/^.*www\//, '../');
+        document.getElementById('image-preview').hidden = false;
+      }
+
+      const tbody = document.getElementById('tbody');
+      tbody.innerHTML = '';
+
+      const appendRow = (row) => {
+        const baseName = row.adapterName;
+        const payload = row.payload || {};
+        const rawAdapters = row.rawAdapters ? Array.from(row.rawAdapters) : [];
+        const logoKey = LOGOS[baseName] ? baseName : rawAdapters.find((name) => LOGOS[name]);
+        const logoFile = logoKey ? LOGOS[logoKey] : null;
+        const logoSrc = logoFile ? `${LOGO_BASE}${logoFile}` : '';
+        const displayName = DISPLAY_NAMES[baseName] || DISPLAY_NAMES[logoKey] || baseName;
+        const rawProductName = cleanProductName(payload.product_name || payload.title, descriptorTitle || '—');
+        const safeProductName = escapeHtml(rawProductName);
+        const normalizedStatusLabel = (row.statusLabel || ((row.status || '').toUpperCase() === 'OK' ? 'DISPO' : 'NON DISPO')).toUpperCase();
+        const label = normalizedStatusLabel === 'DISPO' ? 'dispo' : (normalizedStatusLabel === 'NON DISPO' ? 'non dispo' : '—');
+        const labelClass = normalizedStatusLabel === 'DISPO' ? 'status-ok' : (normalizedStatusLabel === 'NON DISPO' ? 'status-error' : 'status-warn');
+        const nameBlock = document.createElement('div');
+        if (logoSrc) {
+          nameBlock.innerHTML = `<div style="display:flex;align-items:center;gap:8px"><img src="${logoSrc}" alt="${displayName}" style="height:24px;width:auto"/><span>${displayName}</span></div>`;
+        } else {
+          nameBlock.textContent = displayName;
+        }
+
+        const updatedLabel = formatDateTime(row.updatedAt);
+        const safeUpdated = escapeHtml(updatedLabel);
+        const safeStore = escapeHtml(payload.store || payload.note || '—');
+        const linkHtml = payload.url ? `<a class="link" href="${payload.url}" target="_blank" rel="noopener">Ouvrir</a>` : '';
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td></td>
+          <td class="product-cell" title="${safeProductName}">${safeProductName}</td>
+          <td class="${labelClass}">${label}</td>
+          <td class="price">${payload.price ? payload.price + ' €' : '—'}</td>
+          <td>${formatUnitPrice(payload) || '—'}</td>
+          <td>${safeStore}</td>
+          <td class="meta-cell" title="${safeUpdated}">${safeUpdated}</td>
+          <td>${linkHtml}</td>
+        `;
+        tr.cells[0].appendChild(nameBlock);
+
+        if (row.errorMessage && !row.manualFallbackUsed) {
+          const err = document.createElement('div');
+          err.className = 'error-box';
+          err.textContent = row.errorMessage;
+          tr.lastElementChild.appendChild(err);
+        }
+        tbody.appendChild(tr);
+      };
+
+      const summaryAdapters = summary && summary[data.ean] ? summary[data.ean] : null;
+      const adaptersList = summaryAdapters ? Object.keys(summaryAdapters) : [];
+      const latestAdapters = (data.adapters || []).map(a => a.adapter);
+      const unionAdapters = Array.from(new Set([...latestAdapters, ...adaptersList]));
+
+      const adapterMap = {};
+      for (const adapter of (data.adapters || [])) {
+        adapterMap[adapter.adapter] = adapter;
+      }
+
+      const rowsMap = new Map();
+
+      for (const adapterName of unionAdapters) {
+        if (adapterName === 'leclerc') {
+          continue;
+        }
+        const base = adapterName.replace(/_manual$/, '');
+        const adapter = adapterMap[adapterName] || { status: 'N/A', payload: {} };
+        const summaryEntry = summaryAdapters ? summaryAdapters[adapterName] : null;
+        const displayStatus = summaryEntry ? summaryEntry.status : adapter.status;
+        const displayPayload = summaryEntry ? summaryEntry.payload || {} : (adapter.payload || {});
+        const updatedAt = summaryEntry ? summaryEntry.updated_at : adapter.finished_at;
+        const errorMessage = summaryEntry && summaryEntry.error ? summaryEntry.error : adapter.error;
+        const statusLabel = (displayStatus || '').toUpperCase() === 'OK' ? 'DISPO' : 'NON DISPO';
+       const row = rowsMap.get(base) || {
+         adapterName: base,
+         payload: {},
+         status: displayStatus,
+         statusLabel,
+          updatedAt,
+          errorMessage,
+          manualFallbackUsed: false,
+          isManualOnly: false,
+          rawAdapters: new Set(),
+        };
+        row.payload = displayPayload;
+        row.status = displayStatus;
+        row.statusLabel = statusLabel;
+        row.updatedAt = updatedAt || row.updatedAt;
+        row.errorMessage = errorMessage;
+        row.rawAdapters.add(adapterName);
+        rowsMap.set(base, row);
+      }
+
+      const nowIso = new Date().toISOString();
+      Object.entries(MANUAL_FALLBACKS).forEach(([base, entry]) => {
+        const status = entry.status;
+        const statusLabel = (status || '').toUpperCase() === 'OK' ? 'DISPO' : 'NON DISPO';
+        const manualUpdated = entry.updated_at || nowIso;
+        const row = rowsMap.get(base);
+        if (!row) {
+          const manualRow = {
+            adapterName: base,
+            payload: entry.payload || {},
+            status,
+            statusLabel,
+            updatedAt: manualUpdated,
+            errorMessage: null,
+            manualFallbackUsed: true,
+            isManualOnly: true,
+            rawAdapters: new Set([entry.adapter]),
+          };
+          rowsMap.set(base, manualRow);
+          return;
+        }
+        const hasPrice = row.payload && row.payload.price;
+        if (!hasPrice && entry.payload) {
+          row.payload = { ...entry.payload };
+          row.status = status;
+          row.statusLabel = statusLabel;
+          row.manualFallbackUsed = true;
+        }
+        if (!row.updatedAt || row.manualFallbackUsed) {
+          row.updatedAt = manualUpdated;
+        }
+      });
+
+      const rows = Array.from(rowsMap.values());
+
+      const parsePrice = (value) => {
+        if (!value) return Number.POSITIVE_INFINITY;
+        const normalized = String(value).replace(/[^0-9,\.]/g, '').replace(',', '.');
+        const num = parseFloat(normalized);
+        return Number.isFinite(num) ? num : Number.POSITIVE_INFINITY;
+      };
+
+      rows.sort((a, b) => parsePrice(a.payload?.price) - parsePrice(b.payload?.price));
+
+      renderMapMarkers(rows);
+      setupMapModal();
+
+      rows.forEach(appendRow);
+
+      document.getElementById('table').hidden = false;
+
+      const notes = (data.notes || []).join('\n');
+      if (notes) {
+        const notesEl = document.getElementById('notes');
+        notesEl.textContent = notes;
+      }
+    }
+
+    load().catch((err) => {
+      document.getElementById('run-meta').textContent = 'Erreur: ' + err.message;
+    });
+  </script>
+</body>
+</html>

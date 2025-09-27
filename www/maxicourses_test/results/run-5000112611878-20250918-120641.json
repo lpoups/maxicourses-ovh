@@ -1,0 +1,199 @@
+{
+  "ean": "5000112611878",
+  "image_path": null,
+  "started_at": "2025-09-18T12:04:36.656091",
+  "finished_at": "2025-09-18T12:06:41.377053",
+  "duration_seconds": 124.720962,
+  "reference": {
+    "title": "PET 1.75L COCA COLA® ZÈRO",
+    "description": "Beverages and beverages preparations,Beverages,Carbonated drinks,Artificially sweetened beverages,Sodas,Diet beverages,Colas,Diet sodas,Diet cola soft drink",
+    "source": "openfoodfacts"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611878-20250918-120436"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "{\"status\": \"OK\", \"price\": \"1  ,90  €\", \"store\": null, \"url\": \n\"https://www.carrefour.fr/p/soda-au-cola-zero-sucres-coca-cola-5000112611878\", \"note\":\nnull, \"unit_price\": null, \"quantity\": \"1,75 L\", \"title\": \"Soda au Cola Zéro Sucres \nCOCA-COLA\", \"matched_ean\": \"5000112611878\"}"
+      },
+      "started_at": "2025-09-18T12:04:36.656836",
+      "finished_at": "2025-09-18T12:04:58.375579",
+      "duration_seconds": 21.718743,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py",
+      "command": [
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/bin/python",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "Coca-Cola® PET 1.75L COCA COLA® ZÈRO 1,75 L e",
+        "STORE_QUERY": "Bordeaux City",
+        "HOME_URL": "https://www.carrefour.fr/courses",
+        "CARREFOUR_STATE_VARIANT": "carrefour",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": "JSONDecodeError: Invalid control character at: line 3 column 84 (char 232)",
+      "stderr": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/lib/python3.9/site-packages/playwright_stealth/stealth.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611878-20250918-120436/01-carrefour_city"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "{\"status\": \"OK\", \"price\": \"1  ,90  €\", \"store\": null, \"url\": \n\"https://www.carrefour.fr/p/soda-au-cola-zero-sucres-coca-cola-5000112611878\", \"note\":\nnull, \"unit_price\": null, \"quantity\": \"1,75 L\", \"title\": \"Soda au Cola Zéro Sucres \nCOCA-COLA\", \"matched_ean\": \"5000112611878\"}"
+      },
+      "started_at": "2025-09-18T12:04:58.376246",
+      "finished_at": "2025-09-18T12:05:15.938342",
+      "duration_seconds": 17.562096,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py",
+      "command": [
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/bin/python",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "Coca-Cola® PET 1.75L COCA COLA® ZÈRO 1,75 L e",
+        "STORE_QUERY": "Bordeaux Market",
+        "HOME_URL": "https://www.carrefour.fr/courses",
+        "CARREFOUR_STATE_VARIANT": "carrefour",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": "JSONDecodeError: Invalid control character at: line 3 column 84 (char 232)",
+      "stderr": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/lib/python3.9/site-packages/playwright_stealth/stealth.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611878-20250918-120436/02-carrefour_market"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null
+      },
+      "started_at": "2025-09-18T12:05:15.940029",
+      "finished_at": "2025-09-18T12:05:22.168777",
+      "duration_seconds": 6.228748,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/bin/python",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "Coca-Cola® PET 1.75L COCA COLA® ZÈRO 1,75 L e",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/lib/python3.9/site-packages/playwright_stealth/stealth.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611878-20250918-120436/03-leclerc"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null
+      },
+      "started_at": "2025-09-18T12:05:22.169294",
+      "finished_at": "2025-09-18T12:05:32.214345",
+      "duration_seconds": 10.045051,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/bin/python",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "Coca-Cola® PET 1.75L COCA COLA® ZÈRO 1,75 L e",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/lib/python3.9/site-packages/playwright_stealth/stealth.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611878-20250918-120436/04-intermarche"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": "https://www.auchan.fr/recherche?q=Coca-Cola® PET 1.75L COCA COLA® ZÈRO 1,75 L e",
+        "note": null
+      },
+      "started_at": "2025-09-18T12:05:32.215096",
+      "finished_at": "2025-09-18T12:06:14.571586",
+      "duration_seconds": 42.35649,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/bin/python",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "Coca-Cola® PET 1.75L COCA COLA® ZÈRO 1,75 L e",
+        "HOME_URL": "https://www.auchan.fr",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/lib/python3.9/site-packages/playwright_stealth/stealth.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611878-20250918-120436/05-auchan"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null
+      },
+      "started_at": "2025-09-18T12:06:14.572376",
+      "finished_at": "2025-09-18T12:06:41.376683",
+      "duration_seconds": 26.804307,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/bin/python",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "Coca-Cola® PET 1.75L COCA COLA® ZÈRO 1,75 L e",
+        "STORE_URL": "https://www.chronodrive.com",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/lib/python3.9/site-packages/playwright_stealth/stealth.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611878-20250918-120436/06-chronodrive"
+      }
+    }
+  ]
+}

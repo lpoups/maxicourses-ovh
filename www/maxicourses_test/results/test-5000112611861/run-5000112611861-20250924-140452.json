@@ -1,0 +1,51 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-09-24T14:04:36.456438",
+  "finished_at": "2025-09-24T14:04:52.383395",
+  "duration_seconds": 15.926957,
+  "reference": {
+    "title": "Coca-Cola Original 1,75 L",
+    "description": "Sodas",
+    "source": "carrefour",
+    "brand": "Coca-Cola",
+    "quantity": "Bouteille 1,75 L",
+    "categories": "Sodas",
+    "image": "./assets/coca-cola-175l.png",
+    "nutriscore_grade": "e",
+    "nutriscore_score": 12,
+    "nutriscore_image": "./assets/nutriscore-e.svg"
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null
+      },
+      "started_at": "2025-09-24T14:04:36.456651",
+      "finished_at": "2025-09-24T14:04:52.383075",
+      "duration_seconds": 15.926424,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "Coca-Cola Coca-Cola Original 1,75 L Bouteille 1,75 L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {}
+    }
+  ]
+}

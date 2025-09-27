@@ -175,3 +175,35 @@
 - **Suivi / prochaines étapes** :
   1. Remplacer les assets provisoires (ex. Ultima) par des photos locales haute résolution si disponibles.
   2. Ajouter toute nouvelle enseigne (ou nouvelle trace) dans le guide et le handover dès création.
+
+## 2025-09-25 - GPT (Codex CLI)
+- **Objectif** : corriger le fetcher Chronodrive et récupérer le prix Coca-Cola (EAN 5000112611861).
+- **Actions réalisées** :
+  - Refactorisé `maxicourses_test/fetch_chronodrive_price.py` : navigation directe via `/search/<terme>`, acceptation cookies Didomi, matching intelligent des vignettes, extraction JSON-LD (prix, gtin13, quantité) et calcul unitaire.
+  - Ajouté `accept_cookies`/`extract_store_label` et enrichi le résultat (`matched_ean`, formatage quantité/unit_price).
+  - Rejoué la collecte via Chrome CDP (drive Le Haillan affiché à l’écran) et mis à jour `results/test-5000112611861/{latest,summary}.json` + `results/summary.json` : Chronodrive confirme 2,45 € (1,40 € / L) horodaté 2025-09-25T12:53Z.
+- **Données/artefacts ajoutés** :
+  - `fetch_chronodrive_price.py` nouvelle version (CDP-friendly, seed via search URL).
+  - Chronodrive payload rafraîchi dans les `results/` (EAN 5000112611861).
+- **Blocages / alertes** :
+  - En sandbox headless la page masque encore les prix tant que le magasin n’est pas fixé. Utiliser `USE_CDP=1` + store Le Haillan pour les runs réels.
+- **Suivi / prochaines étapes** :
+  1. Rejouer la collecte via Chrome 9222 pour capturer un screenshot PDP Chronodrive (ajouter dans `poc_runs/...` si nécessaire).
+  2. Étendre la logique de sélection à d’autres EAN (test 3700260216148 lorsque nouvelle trace disponible).
+
+## 2025-09-25 (suite) - GPT (Codex CLI)
+- **Objectif** : automatiser la rafraîchissement multi-enseignes pour ALPRO (EAN 5411188118961).
+- **Actions réalisées** :
+  - Ajusté `fetch_auchan_price.py` et `fetch_intermarche_price.py` pour fiabiliser quantité/unité et format des prix (fallback manual_descriptors).
+  - Normalisé la sortie Carrefour (`price` en format FR) et documenté la sélection Chronodrive 100% scriptée (`ensure_store_selected`).
+  - Relancé les fetchers CDP (Carrefour City/Market, Leclerc, Auchan, Intermarché, Chronodrive) et mis à jour `results/test-5411188118961/{latest,summary}.json` + `results/summary.json`.
+  - Préparé un nouveau produit démo (EAN 5411188103387 – Dessert soja vanille ALPRO) avec JSONs, manuel_descriptors et entrée `EXTRA_DATASETS` pour `pipeline/index2.html`.
+  - Gravé dans `docs/PROMPT_BOOTSTRAP.md` + `docs/PRICE_COLLECTION_GUIDE.md` l’obligation de rejouer les traces City/Market avant chaque collecte Carrefour (séquence `carrefour-switch-back` puis `carrefour-store-switch`).
+- **Données/artefacts ajoutés** :
+  - Nouvelles entrées JSON pour chaque enseigne (prix 2025-09-25T14:25Z, unit_price/quantité cohérents).
+  - Scripts modifiés : `fetch_auchan_price.py`, `fetch_intermarche_price.py`, `fetch_carrefour_price.py`, `fetch_chronodrive_price.py` (doc).
+- **Blocages / alertes** :
+  - Carrefour ne retourne pas toujours le prix au kg sur la page PDP ; prévoir un post-traitement si ce champ devient obligatoire.
+- **Suivi / prochaines étapes** :
+  1. Capturer des screenshots PDP (Intermarché/Chronodrive) pour preuve visuelle stockée dans `poc_runs/ean_5411188118961/`.
+  2. Factoriser la récupération du Nutri-score/quantité dans un utilitaire commun pour éviter les heuristiques par script.

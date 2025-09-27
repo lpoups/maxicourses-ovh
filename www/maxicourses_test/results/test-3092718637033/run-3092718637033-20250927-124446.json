@@ -1,0 +1,235 @@
+{
+  "ean": "3092718637033",
+  "image_path": null,
+  "started_at": "2025-09-27T12:41:35.427117",
+  "finished_at": "2025-09-27T12:44:46.231269",
+  "duration_seconds": 190.804152,
+  "reference": {
+    "title": "Sirop de menthe verte TEISSEIRE",
+    "description": "Sirop de menthe verte Teisseire 60 cl, utilisé comme descriptif seed pour les enseignes sans recherche EAN.",
+    "source": "auchan",
+    "brand": "Teisseire",
+    "quantity": "Bouteille 60 cl",
+    "categories": "Sirops",
+    "image": null,
+    "nutriscore_grade": null,
+    "nutriscore_score": null,
+    "nutriscore_image": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20250927-124135"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Monin Sirup Cocktail Set Noix De Coco, Fleur De Sureau, Menthe Mojito, Fruit De La Passion, Fraise 250 Ml Sirop  Pour Des MONIN Caractéristiques Informations complémentaires Voir les options  d'achat Caractéristiques Description Monin Sirup Cocktail Set. Type de produit:  Sirop pour desserts, Saveur: Noix de coco, Fleur de sureau, Menthe mojito, Fruit de la passion, Fraise, Volume: 250 ml Nom légal Monin Sirup Cocktail Set Noix De Coco, Fleur De Sureau, Menthe Mojito, Fruit De La Passion, Fraise 250 Ml Sirop  Pour Des Informations complémentaires Contacts & mentions Marque MONIN Trouver  un magasin Obtenir de l'aide Télécharger l'application Consulter la FAQ En ce  moment Promotions Le Mois Carrefour Nintendo Switch 2 Chèque différé Foire aux  vins Call of Duty : Black Ops 7 EA Sports FC 26 iPhone Air Légendes Pokémon Z-A  GTA 6 PlayStation 5 Number Cake Gourde Air Up iPhone 17 Nos services Carrefour  Drive",
+        "url": "https://www.carrefour.fr/p/monin-sirup-cocktail-set-noix-de-coco-fleur-de-surea u-menthe-mojito-fruit-de-la-passion-fraise-250-m-3052910048242?s=2145",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-09-27T12:41:35.428012",
+      "finished_at": "2025-09-27T12:42:26.898663",
+      "duration_seconds": 51.470651,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Teisseire Sirop de menthe verte 60 cl",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20250927-124135/01-carrefour_city"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/monin-sirup-cocktail-set-noix-de-coco-fleur-de-surea u-menthe-mojito-fruit-de-la-passion-fraise-250-m-3052910048242?s=2145",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-09-27T12:42:26.899387",
+      "finished_at": "2025-09-27T12:43:33.361627",
+      "duration_seconds": 66.46224,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Teisseire Sirop de menthe verte 60 cl",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20250927-124135/02-carrefour_market"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Sirop Teisseire  Menthe verte - 60cl",
+        "price": "2,39",
+        "unit_price": "3,98 € / l",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206163-Sirop-Teisseire-.aspx",
+        "matched_ean": "3092718637033"
+      },
+      "started_at": "2025-09-27T12:43:33.362584",
+      "finished_at": "2025-09-27T12:44:10.080603",
+      "duration_seconds": 36.718019,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Teisseire Sirop de menthe verte 60 cl",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20250927-124135/03-leclerc"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,49",
+        "title": "Sirop menthe verte",
+        "url": "https://www.intermarche.com/produit/sirop-menthe-verte/3092718637033",
+        "note": null,
+        "matched_ean": "3092718637033"
+      },
+      "started_at": "2025-09-27T12:44:10.081104",
+      "finished_at": "2025-09-27T12:44:22.064879",
+      "duration_seconds": 11.983775,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Teisseire Sirop de menthe verte 60 cl",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20250927-124135/04-intermarche"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,96",
+        "title": "Sirop de menthe",
+        "url": "https://www.auchan.fr/teisseire-sirop-de-menthe/pr-C1628583",
+        "note": "Auchan  (CDP)",
+        "unit_price": "4,93 € / L",
+        "quantity": "Bouteille 60 cl",
+        "matched_ean": "3092718637033",
+        "image": "https://cdn.auchan.fr/media/S01000000040189PRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "started_at": "2025-09-27T12:44:22.065649",
+      "finished_at": "2025-09-27T12:44:35.947662",
+      "duration_seconds": 13.882013,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Teisseire Sirop de menthe verte 60 cl",
+        "HOME_URL": "https://www.auchan.fr",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche 'Teisseire Sirop de menthe verte 60 cl'\n[auchan] résultats trouvés: 5\n[auchan] ouverture https://www.auchan.fr/teisseire-sirop-de-menthe/pr-C1628583",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20250927-124135/05-auchan"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,79",
+        "title": "Sirop de menthe verte TEISSEIRE 60  cl",
+        "url": "https://www.chronodrive.com/teisseire--sirop-de-menthe-verte-P519369",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "4,65 € / L",
+        "quantity": "60 CL",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3092718637033"
+      },
+      "started_at": "2025-09-27T12:44:35.948189",
+      "finished_at": "2025-09-27T12:44:46.230940",
+      "duration_seconds": 10.282751,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Teisseire Sirop de menthe verte 60 cl",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20250927-124135/06-chronodrive"
+      }
+    }
+  ]
+}

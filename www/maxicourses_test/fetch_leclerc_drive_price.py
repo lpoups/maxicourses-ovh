@@ -4,6 +4,9 @@
 This fetcher delegates the whole navigation to ``manual_leclerc_cdp.run_manual_leclerc``
 so that only the human-like method is maintained. It keeps the same CLI contract as
 other fetch scripts (prints a JSON dict with status/price/etc.).
+
+Mandate reminder: the canonical instructions live in
+``collection_mandate.METHODS['leclerc_drive']`` and must not be bypassed.
 """
 from __future__ import annotations
 
@@ -12,7 +15,10 @@ import json
 import os
 import sys
 
+from collection_mandate import get_method
 from manual_leclerc_cdp import run_manual_leclerc
+
+MANDATE = get_method("leclerc_drive")
 
 
 def env(name: str, default: str = "") -> str:

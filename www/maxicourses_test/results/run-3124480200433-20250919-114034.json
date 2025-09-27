@@ -1,0 +1,52 @@
+{
+  "ean": "3124480200433",
+  "image_path": null,
+  "started_at": "2025-09-19T11:40:28.489936",
+  "finished_at": "2025-09-19T11:40:34.293660",
+  "duration_seconds": 5.803724,
+  "reference": {
+    "title": "Soda à l'Orange et sa Pulpe ORANGINA",
+    "description": "Boissons gazeuses aux fruits",
+    "source": "carrefour",
+    "brand": "Orangina",
+    "quantity": "Bouteille 1,5 L",
+    "categories": "Boissons gazeuses aux fruits",
+    "image": "https://static.openfoodfacts.org/images/products/312/448/020/0433/front_fr.204.400.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": 11,
+    "nutriscore_image": "https://static.openfoodfacts.org/images/attributes/nutriscore-e.svg"
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2.29",
+        "title": " Boisson gazeuse à la pulpe d'orange\n              ORANGINA\n             \n              1.5 L\n            ",
+        "url": "https://www.chronodrive.com/orangina--boisson-gazeuse-a-la-pulpe-dorange-P571775",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "1.53"
+      },
+      "started_at": "2025-09-19T11:40:28.490080",
+      "finished_at": "2025-09-19T11:40:34.293266",
+      "duration_seconds": 5.803186,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/bin/python",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3124480200433",
+        "QUERY": "Orangina Soda à l'Orange et sa Pulpe ORANGINA Bouteille 1,5 L",
+        "STORE_URL": "https://www.chronodrive.com",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/.venv/lib/python3.9/site-packages/playwright_stealth/stealth.py:6: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n  import pkg_resources",
+      "metadata": {}
+    }
+  ]
+}

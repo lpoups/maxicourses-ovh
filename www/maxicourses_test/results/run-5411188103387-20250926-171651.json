@@ -1,0 +1,158 @@
+{
+  "ean": "5411188103387",
+  "image_path": null,
+  "started_at": "2025-09-26T17:15:03.182115",
+  "finished_at": "2025-09-26T17:16:51.877755",
+  "duration_seconds": 108.69564,
+  "reference": {
+    "title": "Dessert végétal soja vanille ALPRO",
+    "description": "Dessert végétal au soja goût vanille, lot de 4 x 125 g.",
+    "source": "carrefour",
+    "brand": "Alpro",
+    "quantity": "4 x 125 g (500 g)",
+    "categories": "Desserts végétaux",
+    "image": "./assets/alpro-dessert.png",
+    "nutriscore_grade": "a",
+    "nutriscore_score": null,
+    "nutriscore_image": "./assets/nutriscore-a.svg"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5411188103387-20250926-171503"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,30",
+        "title": "Dessert végétal nature au soja &  vanille",
+        "url": "https://www.auchan.fr/alpro-dessert-vegetal-nature-au-soja-vanille/pr-C1170061",
+        "note": "Auchan (CDP)",
+        "unit_price": "4,60 € / KG",
+        "quantity": "4 x 125 g  (500 g)",
+        "matched_ean": "5411188103387"
+      },
+      "started_at": "2025-09-26T17:15:03.182855",
+      "finished_at": "2025-09-26T17:15:41.333866",
+      "duration_seconds": 38.151011,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5411188103387",
+        "QUERY": "Alpro Dessert végétal soja vanille ALPRO 4 x 125 g (500 g)",
+        "HOME_URL": "https://www.auchan.fr",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche 'Alpro Dessert végétal soja vanille ALPRO 4 x 125 g (500 g)'\n[auchan] résultats trouvés: 13\n[auchan] ouverture https://www.auchan.fr/sac-cabas-tissu-recycle-coloris-aleatoire/pr-C1587414\n[auchan] ouverture https://www.auchan.fr/cristaline-eau-de-source-plate/pr-C1222322\n[auchan] ouverture https://www.auchan.fr/brousse-fils-dattes-medjool/pr-C1763491\n[auchan] ouverture https://www.auchan.fr/barilla-sauce-tomate-au-basilic-en-bocal/pr-C1240936\n[auchan] recherche '5411188103387'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/alpro-dessert-vegetal-nature-au-soja-vanille/pr-C1170061",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5411188103387-20250926-171503/01-auchan"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,92",
+        "title": "Dessert végétal soja vanille,",
+        "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-vanille/5411188103387",
+        "note": null,
+        "matched_ean": "5411188103387"
+      },
+      "started_at": "2025-09-26T17:15:41.334652",
+      "finished_at": "2025-09-26T17:18:26.138783",
+      "duration_seconds": 15.952713,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5411188103387",
+        "QUERY": "Alpro Dessert végétal soja vanille ALPRO 4 x 125 g (500 g)",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5411188103387-20250926-171503/02-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Dessert végétal soja alpro Vanille - 500g",
+        "price": "1,79",
+        "unit_price": "3,58 € / kg",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
+        "matched_ean": "5411188103387"
+      },
+      "started_at": "2025-09-26T17:15:57.288052",
+      "finished_at": "2025-09-26T17:16:39.750277",
+      "duration_seconds": 42.462225,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5411188103387",
+        "QUERY": "Alpro Dessert végétal soja vanille ALPRO 4 x 125 g (500 g)",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5411188103387-20250926-171503/03-leclerc"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,05",
+        "title": "Dessert végétal soja et vanille  ALPRO 500 g",
+        "url": "https://www.chronodrive.com/alpro--dessert-vegetal-soja-et-vanille-P364875",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "4,10 € / KG",
+        "quantity": "500  G",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "5411188103387"
+      },
+      "started_at": "2025-09-26T17:16:39.751242",
+      "finished_at": "2025-09-26T17:16:51.877385",
+      "duration_seconds": 12.126143,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5411188103387",
+        "QUERY": "Alpro Dessert végétal soja vanille ALPRO 4 x 125 g (500 g)",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5411188103387-20250926-171503/04-chronodrive"
+      }
+    }
+  ]
+}

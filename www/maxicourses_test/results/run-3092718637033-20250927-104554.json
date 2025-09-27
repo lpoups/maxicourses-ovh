@@ -1,0 +1,218 @@
+{
+  "ean": "3092718637033",
+  "image_path": null,
+  "started_at": "2025-09-27T10:41:08.484552",
+  "finished_at": "2025-09-27T10:45:54.701343",
+  "duration_seconds": 286.216791,
+  "reference": {
+    "title": "Produit 3092718637033",
+    "description": "Entrée générée automatiquement lors d'une collecte.",
+    "source": "auto",
+    "brand": "",
+    "quantity": "",
+    "categories": "",
+    "image": null,
+    "nutriscore_grade": null,
+    "nutriscore_score": null,
+    "nutriscore_image": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-3092718637033-20250927-104108"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null
+      },
+      "started_at": "2025-09-27T10:41:08.485492",
+      "finished_at": "2025-09-27T10:43:22.498855",
+      "duration_seconds": 134.013363,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Produit 3092718637033",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-3092718637033-20250927-104108/01-carrefour_city"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "ERROR",
+      "payload": {},
+      "started_at": "2025-09-27T10:43:22.499610",
+      "finished_at": "2025-09-27T10:44:10.994525",
+      "duration_seconds": 48.494915,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Produit 3092718637033",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py\", line 109, in <module>\n    sys.exit(run(sys.argv[1:]))\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py\", line 83, in run\n    subprocess.run(\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 528, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/Applications/Xcode.app/Contents/Developer/usr/bin/python3', 'replay_leclerc_navigation.py', '/Users/laurentpoupet/Sites/maxicourses-ovh/www/traces/carrefour-store-switch-20250923.jsonl']' returned non-zero exit status 1.",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-3092718637033-20250927-104108/02-carrefour_market"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,96",
+        "title": "Sirop de menthe",
+        "url": "https://www.auchan.fr/teisseire-sirop-de-menthe/pr-C1628583",
+        "note": "Auchan  (CDP)",
+        "unit_price": "4,93 € / L",
+        "quantity": "5 L",
+        "matched_ean": "3092718637033"
+      },
+      "started_at": "2025-09-27T10:44:10.995353",
+      "finished_at": "2025-09-27T10:44:51.974801",
+      "duration_seconds": 40.979448,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Produit 3092718637033",
+        "HOME_URL": "https://www.auchan.fr",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche 'Produit 3092718637033'\n[auchan] résultats trouvés: 16\n[auchan] ouverture https://www.auchan.fr/le-guerandais-sel-moulu-de-guerande-100-naturel-produit-en-bretagne-igp/pr-C1241102\n[auchan] ouverture https://www.auchan.fr/le-guerandais-gros-sel-de-guerande-100-naturel-sans-additif-produit-en-bretagne-igp/pr-C1232965\n[auchan] ouverture https://www.auchan.fr/henaff-pate-de-porc-bio-produit-en-bretagne/pr-C1238477\n[auchan] ouverture https://www.auchan.fr/mouettes-d-arvor-thon-blanc-germon-au-naturel-au-citron-bio-produit-en-bretagne/pr-C1226162\n[auchan] ouverture https://www.auchan.fr/ker-cadelac-quatre-quarts-pur-beurre-produit-en-bretagne/pr-C1243962\n[auchan] ouverture https://www.auchan.fr/taft-cire-wax-effet-mat-force-5/pr-C1245872\n[auchan] recherche '3092718637033'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/teisseire-sirop-de-menthe/pr-C1628583",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-3092718637033-20250927-104108/03-auchan"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,79",
+        "title": "Sirop de menthe verte TEISSEIRE 60  cl",
+        "url": "https://www.chronodrive.com/teisseire--sirop-de-menthe-verte-P519369",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "4,65 € / L",
+        "quantity": "60 CL",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3092718637033"
+      },
+      "started_at": "2025-09-27T10:44:51.975395",
+      "finished_at": "2025-09-27T10:45:02.370309",
+      "duration_seconds": 10.394914,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Produit 3092718637033",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-3092718637033-20250927-104108/04-chronodrive"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Dessert végétal soja alpro Vanille - 500g",
+        "price": "1,80",
+        "unit_price": "3,60 € / kg",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
+        "matched_ean": "3092718637033"
+      },
+      "started_at": "2025-09-27T10:45:02.370995",
+      "finished_at": "2025-09-27T10:45:36.954786",
+      "duration_seconds": 34.583791,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Produit 3092718637033",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-3092718637033-20250927-104108/05-leclerc"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null
+      },
+      "started_at": "2025-09-27T10:45:36.955409",
+      "finished_at": "2025-09-27T10:45:54.700970",
+      "duration_seconds": 17.745561,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Produit 3092718637033",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-3092718637033-20250927-104108/06-intermarche"
+      }
+    }
+  ]
+}
