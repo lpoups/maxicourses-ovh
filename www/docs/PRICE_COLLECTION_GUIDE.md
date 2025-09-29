@@ -91,3 +91,9 @@
 - Toujours consigner un résumé de session dans `docs/HANDOVER_DAILY.md` (format `## YYYY-MM-DD - GPT`).
 - Attacher les preuves (commandes, captures, JSON) aux entrées correspondantes.
 - Aucun prix ne doit être saisi manuellement : tout provient des scripts Playwright/CDP.
+
+## Enrichissement Open Food Facts
+- Source autorisée : https://fr.openfoodfacts.org (version française).
+- Utiliser l’EAN pour récupérer Nutri-score, Eco-score/Green-score, labels (bio, vegan, niveau de transformation) et descriptions détaillées.
+- Ne jamais remplacer les visuels : les images restent issues des enseignes comparées (Carrefour, Auchan, etc.).
+- Documenter dans les résultats JSON l’origine des données (`source":"openfoodfacts"`) quand elles sont utilisées.

@@ -1,0 +1,1794 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MaxiCourses – Liste de course</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 24px;
+      background: #f6f7fb;
+      color: #111;
+      line-height: 1.5;
+    }
+    header {
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin: 0 0 8px;
+    }
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand img {
+      height: 52px;
+      width: auto;
+      border-radius: 12px;
+      background: linear-gradient(180deg,#071F54 0%,#0B2F78 100%);
+      padding: 6px 10px;
+      box-shadow: 0 6px 18px rgba(7,31,84,0.28);
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    .ean-search {
+      flex: 1 1 260px;
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: 0 10px 20px rgba(15,23,42,0.12);
+    }
+    .ean-search label {
+      font-size: 0.8rem;
+      color: #475569;
+      font-weight: 600;
+    }
+    .ean-search__controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .ean-search__input {
+      flex: 1 1 auto;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: #f8fafc;
+      font-size: 0.9rem;
+      transition: border-color 120ms ease, box-shadow 120ms ease;
+    }
+    .ean-search__input:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 2px rgba(37,99,235,0.18);
+      background: #fff;
+    }
+    .ean-search__button {
+      flex: 0 0 auto;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: none;
+      background: #2563eb;
+      color: #fff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 120ms ease, box-shadow 120ms ease;
+    }
+    .ean-search__button:hover:not([disabled]) {
+      background: #1d4ed8;
+      box-shadow: 0 6px 16px rgba(37,99,235,0.28);
+    }
+    .ean-search__button[disabled] {
+      opacity: 0.7;
+      cursor: wait;
+    }
+    .ean-search__status {
+      font-size: 0.78rem;
+      color: #475569;
+      min-height: 1.1em;
+    }
+    .ean-search__status[data-status="error"] {
+      color: #b91c1c;
+    }
+    .ean-search__status[data-status="success"] {
+      color: #15803d;
+    }
+    .descriptor {
+      margin-bottom: 24px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.12);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .product-card--compact {
+      padding: 12px;
+      gap: 14px;
+    }
+    .product-media {
+      flex: 0 0 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-card--compact .product-media {
+      flex-basis: 64px;
+    }
+    .product-thumb {
+      width: 72px;
+      height: 72px;
+      border-radius: 14px;
+      background: #f3f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .product-card--compact .product-thumb {
+      width: 64px;
+      height: 64px;
+    }
+    .product-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .product-thumb__placeholder {
+      font-size: 0.85rem;
+      color: #8891aa;
+      padding: 12px;
+      text-align: center;
+    }
+    .product-body {
+      flex: 1 1 260px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 16px;
+    }
+    .product-info {
+      flex: 1 1 260px;
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-start;
+    }
+    .product-summary {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.7rem;
+    }
+    .product-summary span {
+      background: #eef2ff;
+      color: #4338ca;
+      padding: 1px 8px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+    }
+    .product-meta-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex: 0 0 auto;
+      margin-left: auto;
+    }
+    .product-action-button {
+      font-size: 0.68rem;
+      color: #1d4ed8;
+      background: rgba(37,99,235,0.08);
+      border: 1px solid rgba(37,99,235,0.35);
+      border-radius: 999px;
+      padding: 3px 10px;
+      cursor: pointer;
+      transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+    }
+    .product-action-button:hover:enabled {
+      background: rgba(37,99,235,0.18);
+    }
+    .product-action-button[disabled] {
+      opacity: 0.6;
+      cursor: wait;
+    }
+    .product-action-button--error {
+      color: #dc2626;
+      border-color: rgba(220,38,38,0.55);
+      background: rgba(248, 113, 113, 0.18);
+    }
+    .product-action-button--success {
+      color: #15803d;
+      border-color: rgba(34,197,94,0.55);
+      background: rgba(34,197,94,0.16);
+    }
+    .product-preview-link {
+      font-size: 0.68rem;
+      color: #2563eb;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid rgba(37,99,235,0.3);
+      border-radius: 999px;
+      padding: 2px 6px;
+    }
+    .product-preview-link:hover {
+      background: rgba(37,99,235,0.08);
+    }
+    .product-nutri {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-nutri img {
+      height: 28px;
+    }
+    .product-card--compact .product-nutri img {
+      height: 24px;
+    }
+    .product-brand {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+    }
+    .product-title {
+      margin: 0;
+      font-size: 1.25rem;
+      color: #0f172a;
+    }
+    .product-card--compact .product-title {
+      font-size: 1.05rem;
+    }
+    .product-details {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      margin: 0;
+      align-self: center;
+      justify-content: center;
+    }
+    .product-details div {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .product-details dt {
+      margin: 0;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #94a3b8;
+    }
+    .product-details dd {
+      margin: 0;
+      font-size: 0.78rem;
+      color: #0f172a;
+    }
+    .product-map {
+      flex: 0 0 220px;
+      height: 180px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.12);
+      overflow: hidden;
+      position: relative;
+    }
+    .product-card--compact .product-map {
+      flex-basis: 200px;
+      height: 165px;
+    }
+    .product-map__canvas {
+      position: absolute;
+      inset: 0;
+    }
+    .product-map__label {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      font-size: 11px;
+      color: #475569;
+      background: rgba(255,255,255,0.9);
+      padding: 4px 10px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.18);
+    }
+    .product-map--static .leaflet-container,
+    .product-map--static .leaflet-pane,
+    .product-map--static .leaflet-control-container {
+      pointer-events: none !important;
+    }
+    .product-map--static .leaflet-control-container {
+      display: none;
+    }
+    .product-map--modal {
+      width: 560px;
+      height: 360px;
+      margin: 0;
+    }
+    .product-map__label--modal {
+      font-size: 13px;
+      padding: 6px 12px;
+    }
+    .map-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(4px);
+    }
+    .map-modal[hidden] {
+      display: none;
+    }
+    .map-modal__backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15,23,42,0.45);
+    }
+    .map-modal__content {
+      position: relative;
+      background: transparent;
+      padding: 0;
+      border-radius: 20px;
+      box-shadow: 0 24px 60px rgba(15,23,42,0.35);
+      overflow: hidden;
+      z-index: 1001;
+    }
+    .map-modal__close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.9);
+      color: #1f2937;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(15,23,42,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .map-modal__close:hover {
+      background: #fff;
+    }
+    body.modal-open {
+      overflow: hidden;
+    }
+    #primary-map,
+    #map-modal {
+      display: none !important;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+      font-size: 0.82rem;
+      margin-bottom: 18px;
+    }
+    thead {
+      background: #e2e8f0;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      color: #475569;
+    }
+    th, td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+    td:first-child, th:first-child {
+      white-space: nowrap;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .product-cell {
+      max-width: 240px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #4a5568;
+    }
+    .status-ok {
+      color: #047857;
+      font-weight: 600;
+    }
+    .status-error {
+      color: #b91c1c;
+      font-weight: 600;
+    }
+    .status-warn {
+      color: #b45309;
+      font-weight: 600;
+    }
+    .price {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .meta-cell {
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+    .table-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .table-logo img {
+      height: 24px;
+      width: auto;
+      display: block;
+    }
+    .table-logo__label {
+      font-size: 0.7rem;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .price-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 6px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .price-badge--best {
+      background: rgba(6,95,70,0.14);
+      color: #065f46;
+    }
+    .price-badge--worst {
+      background: rgba(220,38,38,0.12);
+      color: #b91c1c;
+    }
+    .best-price-banner {
+      margin: 0 0 14px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(16,185,129,0.18), rgba(16,185,129,0.06));
+      color: #065f46;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .best-price-banner::before {
+      content: '★';
+    }
+    .notes {
+      font-size: 0.9rem;
+      color: #475569;
+      white-space: pre-line;
+      margin-bottom: 32px;
+    }
+    .notes[hidden] {
+      display: none;
+    }
+    .link {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    .link:hover {
+      text-decoration: underline;
+    }
+    .product-block {
+      margin-top: 32px;
+    }
+    .product-block h2 {
+      margin: 0 0 14px;
+      font-size: 1.25rem;
+      color: #0f172a;
+    }
+    #primary-section.product-block {
+      margin-top: 0;
+    }
+    .best-offer td {
+      background: #f0fdf4;
+    }
+    .worst-offer td {
+      background: #fef2f2;
+    }
+    .empty-state {
+      font-size: 0.95rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand">
+      <img src="../assets/logo_blanc_maxicourses.png" alt="MaxiCourses" />
+      <h1>Liste de course</h1>
+    </div>
+    <form id="ean-search-form" class="ean-search" novalidate>
+      <label for="ean-search-input">Collecte multi-enseignes</label>
+      <div class="ean-search__controls">
+        <input id="ean-search-input" name="ean" class="ean-search__input" type="text" inputmode="numeric" pattern="\d{8,14}" placeholder="Saisir un EAN…" required />
+        <button type="submit" class="ean-search__button">Collecter</button>
+      </div>
+      <p class="ean-search__status" data-role="search-status"></p>
+    </form>
+    <div class="meta" id="copyright">Copyright : OpenCenterAI 2025 - 2026 - LP</div>
+  </header>
+
+  <section class="descriptor product-block" id="primary-section" hidden></section>
+
+  <template id="product-card-template">
+    <div class="product-card">
+      <div class="product-media">
+        <div class="product-thumb">
+          <div class="product-thumb__placeholder">Image indisponible</div>
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-info">
+          <div class="product-summary">
+            <span class="product-summary__quantity" data-role="quantity" hidden></span>
+            <span class="product-summary__category" data-role="category" hidden></span>
+          </div>
+          <div class="product-details product-details--inline">
+            <div>
+              <dt>EAN</dt>
+              <dd data-role="ean">—</dd>
+            </div>
+            <div>
+              <dt>Source</dt>
+              <dd data-role="source">—</dd>
+            </div>
+          </div>
+          <div class="product-brand" data-role="brand" hidden></div>
+          <h3 class="product-title" data-role="title"></h3>
+        </div>
+        <div class="product-meta-actions">
+          <a class="product-preview-link" data-role="preview" target="_blank" rel="noopener" hidden>Voir image</a>
+          <div class="product-nutri" data-role="nutri"></div>
+        </div>
+      </div>
+      <div class="product-map product-map--static" data-role="map" hidden>
+        <div class="product-map__canvas" data-role="map-canvas"></div>
+        <div class="product-map__label" data-role="map-label">Bordeaux Métropole</div>
+      </div>
+    </div>
+  </template>
+
+  <div class="map-modal" id="map-modal" hidden>
+    <div class="map-modal__backdrop" data-close-map></div>
+    <div class="map-modal__content">
+      <button class="map-modal__close" type="button" data-close-map aria-label="Fermer la carte">×</button>
+      <div class="product-map product-map--modal" id="store-map-modal">
+        <div id="store-map-modal-canvas" class="product-map__canvas"></div>
+        <div class="product-map__label product-map__label--modal">Bordeaux Métropole</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="comparisons"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    const PRIMARY_DATASET = {
+      ean: '3124480200433',
+      heading: 'Liste de course',
+      resultUrl: null
+    };
+
+    const EXTRA_DATASETS = [
+      {
+        ean: '5000112611861',
+        heading: 'Comparatif (Test Coca-Cola 1,75 L)',
+        resultUrl: '../results/test-5000112611861/latest.json'
+      },
+      {
+        ean: '5411188118961',
+        heading: 'Comparatif (Dessert végétal soja nature ALPRO)',
+        resultUrl: '../results/test-5411188118961/latest.json'
+      },
+      {
+        ean: '5411188103387',
+        heading: 'Comparatif (Dessert végétal soja vanille ALPRO)',
+        resultUrl: '../results/test-5411188103387/latest.json'
+      },
+      {
+        ean: '3700260216148',
+        heading: 'Comparatif (Croquettes chat stérilisé saumon Ultima)',
+        resultUrl: '../results/test-3700260216148/latest.json'
+      }
+    ];
+
+    const SUMMARY_URL = '../results/summary.json';
+    const MANUAL_DESCRIPTORS_URL = '../manual_descriptors.json';
+
+    const MANUAL_COMPARISON = {};
+
+    const REFRESH_ENDPOINT = window.MAXICOURSES_REFRESH_ENDPOINT || 'http://127.0.0.1:5001/api/collect';
+    let cachedSummary = {};
+    let cachedManualDescriptors = {};
+    const datasetCache = new Map();
+
+    const LOGO_BASE = new URL('../assets/logos/', window.location.href).href;
+    const LOGOS = {
+      carrefour: 'carrefour.png',
+      carrefour_city: 'carrefour.png',
+      carrefour_market: 'carrefour.png',
+      leclerc: 'leclerc.png',
+      leclerc_drive: 'leclerc.png',
+      intermarche: 'intermarche.png',
+      auchan: 'auchan.png',
+      chronodrive: 'chronodrive.png'
+    };
+
+    const DISPLAY_NAMES = {
+      carrefour: 'Carrefour',
+      carrefour_city: 'Carrefour City',
+      carrefour_market: 'Carrefour Market',
+      leclerc: 'E.Leclerc Drive',
+      leclerc_drive: 'E.Leclerc Drive',
+      intermarche: 'Intermarché',
+      auchan: 'Auchan',
+      chronodrive: 'Chronodrive'
+    };
+
+    function ensureDatasetConfig(ean) {
+      if (!ean) {
+        return null;
+      }
+      if (ean === PRIMARY_DATASET.ean) {
+        return PRIMARY_DATASET;
+      }
+      let config = EXTRA_DATASETS.find((entry) => entry.ean === ean);
+      if (!config) {
+        const descriptor = cachedManualDescriptors?.[ean] || {};
+        const label = descriptor.name || descriptor.title || `EAN ${ean}`;
+        config = {
+          ean,
+          heading: `Comparatif (${label})`,
+          resultUrl: `../results/test-${ean}/latest.json`
+        };
+        EXTRA_DATASETS.push(config);
+      }
+      return config;
+    }
+
+    function resetSearchStatus(statusEl) {
+      if (!statusEl) return;
+      statusEl.textContent = '';
+      statusEl.dataset.status = '';
+    }
+
+    function setupEanSearch() {
+      const form = document.getElementById('ean-search-form');
+      if (!form) return;
+
+      const input = form.querySelector('#ean-search-input');
+      const button = form.querySelector('.ean-search__button');
+      const statusEl = form.querySelector('[data-role="search-status"]');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!input || !button) return;
+
+        let ean = (input.value || '').replace(/\D+/g, '').trim();
+        input.value = ean;
+        resetSearchStatus(statusEl);
+
+        if (!ean || ean.length < 8 || ean.length > 14) {
+          if (statusEl) {
+            statusEl.textContent = 'EAN invalide (8 à 14 chiffres).';
+            statusEl.dataset.status = 'error';
+          }
+          input.focus();
+          return;
+        }
+
+        button.disabled = true;
+        if (statusEl) {
+          statusEl.textContent = 'Collecte en cours…';
+          statusEl.dataset.status = '';
+        }
+
+        try {
+          const response = await fetch(REFRESH_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ean })
+          });
+          if (!response.ok) {
+            let details = '';
+            try {
+              const body = await response.json();
+              details = body?.message || body?.error || '';
+            } catch (err) {
+              // ignore parsing errors
+            }
+            throw new Error(details || `HTTP ${response.status}`);
+          }
+
+          await reloadSummary();
+          const config = ensureDatasetConfig(ean);
+          if (config) {
+            const waitResult = await waitForDatasetAvailability(ean, config, {
+              timeoutMs: 420000,
+              intervalMs: 4000,
+              onProgress: ({ elapsedMs }) => {
+                if (statusEl) {
+                  const seconds = Math.round(elapsedMs / 1000);
+                  statusEl.textContent = `Collecte en cours… (${seconds}s)`;
+                  statusEl.dataset.status = '';
+                }
+              }
+            });
+            if (!waitResult) {
+              throw new Error('Collecte en cours. Veuillez patienter quelques instants puis rafraîchir.');
+            }
+            await reloadSummary();
+            await reloadDataset(ean, config, { retry: true, attempts: 3, delayMs: 1000 });
+          }
+          if (statusEl) {
+            statusEl.textContent = 'Collecte terminée.';
+            statusEl.dataset.status = 'success';
+          }
+        } catch (error) {
+          console.error('Collecte EAN échouée', error);
+          if (statusEl) {
+            const message = String(error?.message || '').toLowerCase();
+            if (message.includes('failed to fetch') || message.includes('network')) {
+              statusEl.textContent = 'Serveur de collecte indisponible. Lancez "USE_CDP=1 python3 server.py" dans maxicourses_test, puis réessayez.';
+            } else {
+              statusEl.textContent = error?.message || 'Erreur pendant la collecte.';
+            }
+            statusEl.dataset.status = 'error';
+          }
+        } finally {
+          button.disabled = false;
+          setTimeout(() => {
+            resetSearchStatus(statusEl);
+          }, 4000);
+        }
+      });
+    }
+
+    function delay(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    const STORE_LOCATIONS = {
+      carrefour_city: { lat: 44.8573603, lon: -0.568063, label: 'Carrefour City · Bordeaux Balguerie' },
+      carrefour_market: { lat: 44.8488597, lon: -0.5839625, label: 'Carrefour Market · Fondaudège' },
+      leclerc_drive: { lat: 44.8461492, lon: -0.5792079, label: 'E.Leclerc Relais · Bordeaux Fondaudège' },
+      intermarche: { lat: 44.8066547, lon: -0.5750164, label: 'Intermarché · Talence Toulouse' },
+      auchan: { lat: 44.806195, lon: -0.5910973, label: 'Auchan Supermarché · Talence' },
+      chronodrive: { lat: 44.8589595, lon: -0.6768561, label: 'Chronodrive · Bordeaux Magudas' }
+    };
+
+    const FALLBACK_NUTRI_IMAGES = {
+      a: '../assets/nutriscore/nutriscore-a.svg',
+      b: '../assets/nutriscore/nutriscore-b.svg',
+      c: '../assets/nutriscore/nutriscore-c.svg',
+      d: '../assets/nutriscore/nutriscore-d.svg',
+      e: '../assets/nutriscore/nutriscore-e.svg'
+    };
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const [manualDescriptors, summary] = await Promise.all([
+        fetchJson(MANUAL_DESCRIPTORS_URL),
+        fetchJson(withCacheBuster(SUMMARY_URL))
+      ]);
+
+      cachedManualDescriptors = manualDescriptors || {};
+      cachedSummary = summary || {};
+
+      const summaryEans = Object.keys(cachedSummary || {});
+      for (const ean of summaryEans) {
+        if (ean && ean !== PRIMARY_DATASET.ean) {
+          ensureDatasetConfig(ean);
+        }
+      }
+
+      const primaryData = await fetchDataset(PRIMARY_DATASET);
+      renderPrimary(primaryData, summary, manualDescriptors);
+
+      for (const config of EXTRA_DATASETS) {
+        const dataset = await fetchDataset(config);
+        renderComparisonSection(config, dataset, summary, manualDescriptors);
+      }
+
+      setupEanSearch();
+    });
+
+    async function fetchDataset(config, options = {}) {
+      if (!config.resultUrl) {
+        return { data: null };
+      }
+      const retry = Boolean(options.retry);
+      const attempts = Number.isInteger(options.attempts) ? options.attempts : 5;
+      const wait = Number.isInteger(options.delayMs) ? options.delayMs : 1500;
+
+      if (config?.ean && datasetCache.has(config.ean)) {
+        const cachedValue = datasetCache.get(config.ean);
+        datasetCache.delete(config.ean);
+        if (cachedValue) {
+          return { data: cachedValue };
+        }
+      }
+
+      let data = null;
+      if (retry) {
+        for (let attempt = 0; attempt < attempts; attempt += 1) {
+          data = await fetchJson(withCacheBuster(config.resultUrl));
+          if (data) break;
+          if (attempt < attempts - 1) {
+            await delay(wait);
+          }
+        }
+      } else {
+        data = await fetchJson(withCacheBuster(config.resultUrl));
+      }
+      if (config?.ean && data) {
+        datasetCache.set(config.ean, data);
+      }
+      return { data };
+    }
+
+    async function fetchJson(url) {
+      if (!url) return null;
+      try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) return null;
+        return await res.json();
+      } catch (err) {
+        console.warn('fetchJson failed', url, err);
+        return null;
+      }
+    }
+
+    async function fetchDatasetOnce(config) {
+      if (!config?.resultUrl) return null;
+      return fetchJson(withCacheBuster(config.resultUrl));
+    }
+
+    async function waitForDatasetAvailability(ean, config, options = {}) {
+      const timeoutMs = Number.isInteger(options.timeoutMs) ? options.timeoutMs : 420000;
+      const intervalMs = Number.isInteger(options.intervalMs) ? options.intervalMs : 4000;
+      const onProgress = typeof options.onProgress === 'function' ? options.onProgress : null;
+      const startedAt = Date.now();
+      let attempt = 0;
+
+      while (Date.now() - startedAt < timeoutMs) {
+        attempt += 1;
+        const data = await fetchDatasetOnce(config);
+        if (data && data.adapters) {
+          if (config?.ean) {
+            datasetCache.set(config.ean, data);
+          }
+          return data;
+        }
+        if (onProgress) {
+          onProgress({ attempt, elapsedMs: Date.now() - startedAt, ean });
+        }
+        await delay(intervalMs);
+      }
+
+      return null;
+    }
+
+    function withCacheBuster(url) {
+      const sep = url.includes('?') ? '&' : '?';
+      return `${url}${sep}_=${Date.now()}`;
+    }
+
+    function createProductCard(descriptor, options = {}) {
+      const template = document.getElementById('product-card-template');
+      if (!template) return null;
+      const root = template.content.firstElementChild.cloneNode(true);
+      if (options.compact) {
+        root.classList.add('product-card--compact');
+      }
+
+      const datasetData = options.dataset || null;
+      const datasetConfig = options.datasetConfig || null;
+      const ean = options.ean || descriptor.ean || null;
+      if (ean) {
+        root.dataset.ean = ean;
+      }
+
+      let titleEl = root.querySelector('[data-role="title"]');
+      if (options.headingLevel && options.headingLevel !== 3) {
+        const headingTag = `h${options.headingLevel}`;
+        const replacement = document.createElement(headingTag);
+        replacement.className = titleEl.className;
+        replacement.dataset.role = 'title';
+        titleEl.replaceWith(replacement);
+        titleEl = replacement;
+      }
+
+      const brandEl = root.querySelector('[data-role="brand"]');
+      if (descriptor.brand) {
+        brandEl.textContent = descriptor.brand;
+        brandEl.hidden = false;
+      } else {
+        brandEl.hidden = true;
+      }
+
+      titleEl.textContent = descriptor.title || descriptor.name || 'Produit';
+
+      const qtyEl = root.querySelector('[data-role="quantity"]');
+      if (descriptor.quantity) {
+        qtyEl.textContent = descriptor.quantity;
+        qtyEl.hidden = false;
+      } else {
+        qtyEl.hidden = true;
+      }
+
+      const catEl = root.querySelector('[data-role="category"]');
+      if (descriptor.categories) {
+        catEl.textContent = extractCategory(descriptor.categories);
+        catEl.hidden = false;
+      } else {
+        catEl.hidden = true;
+      }
+
+      const previewLink = root.querySelector('[data-role="preview"]');
+      const summaryEl = root.querySelector('.product-summary');
+      const metaActions = root.querySelector('.product-meta-actions');
+      let refreshButton = null;
+
+      const eanEl = root.querySelector('[data-role="ean"]');
+      eanEl.textContent = descriptor.ean || '—';
+
+      const sourceEl = root.querySelector('[data-role="source"]');
+      sourceEl.textContent = descriptor.source || '—';
+
+      const thumbEl = root.querySelector('.product-thumb');
+      thumbEl.innerHTML = '';
+      const imageSrc = descriptor.image ? toAbsolute(descriptor.image) : '';
+      if (imageSrc) {
+        const img = document.createElement('img');
+        img.src = imageSrc;
+        img.alt = descriptor.title || descriptor.name || '';
+        thumbEl.appendChild(img);
+      } else {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'product-thumb__placeholder';
+        placeholder.textContent = 'Image indisponible';
+        thumbEl.appendChild(placeholder);
+      }
+
+      if (previewLink) {
+        let previewUrl = options.previewUrl || null;
+        if (!previewUrl && datasetData) {
+          previewUrl = datasetData.image_path
+            || datasetData.reference?.image
+            || (datasetData.adapters || []).reduce((acc, adapter) => acc || adapter?.payload?.image_path || adapter?.payload?.image || null, null);
+        }
+        if (!previewUrl && descriptor.image) {
+          previewUrl = descriptor.image;
+        }
+        if (previewUrl) {
+          previewLink.href = toAbsolute(previewUrl);
+          previewLink.hidden = false;
+        } else {
+          previewLink.hidden = true;
+        }
+      }
+
+      if (metaActions && ean) {
+        refreshButton = document.createElement('button');
+        refreshButton.type = 'button';
+        refreshButton.className = 'product-action-button';
+        refreshButton.textContent = 'Relancer la collecte';
+        refreshButton.addEventListener('click', () => {
+          handleRefreshClick({ ean, datasetConfig, button: refreshButton });
+        });
+        metaActions.appendChild(refreshButton);
+      }
+
+      const nutriEl = root.querySelector('[data-role="nutri"]');
+      nutriEl.innerHTML = '';
+      const nutriGrade = descriptor.nutriscore_grade;
+      const nutriImg = descriptor.nutriscore_image
+        ? toAbsolute(descriptor.nutriscore_image)
+        : FALLBACK_NUTRI_IMAGES[(nutriGrade || '').toLowerCase()];
+      if (nutriImg) {
+        const img = document.createElement('img');
+        img.src = nutriImg;
+        img.alt = nutriGrade ? `Nutri-score ${nutriGrade.toUpperCase()}` : 'Nutri-score';
+        nutriEl.appendChild(img);
+      } else if (nutriGrade) {
+        nutriEl.textContent = nutriGrade.toUpperCase();
+      }
+
+      const hasSummary = !qtyEl.hidden || !catEl.hidden;
+      const hasNutri = nutriEl.childNodes.length > 0;
+      const hasPreview = previewLink && !previewLink.hidden;
+      const hasRefresh = !!refreshButton;
+      if (summaryEl) {
+        summaryEl.style.display = hasSummary ? 'inline-flex' : 'none';
+      }
+      if (metaActions) {
+        metaActions.style.display = (hasNutri || hasPreview || hasRefresh) ? 'inline-flex' : 'none';
+      }
+
+      const mapEl = root.querySelector('[data-role="map"]');
+      const mapCanvas = root.querySelector('[data-role="map-canvas"]');
+      const mapLabel = root.querySelector('[data-role="map-label"]');
+      let mapRefs = null;
+      if (options.map) {
+        const labelText = options.map.label || descriptor.map_label || '';
+        if (labelText) {
+          mapLabel.textContent = labelText;
+        }
+        mapEl.hidden = false;
+        if (options.map.idPrefix) {
+          mapEl.id = `${options.map.idPrefix}-map`;
+          mapCanvas.id = `${options.map.idPrefix}-map-canvas`;
+        }
+        mapRefs = { container: mapEl, canvas: mapCanvas, label: mapLabel };
+      } else {
+        mapEl.remove();
+      }
+
+      return { element: root, map: mapRefs };
+    }
+
+    function renderProductBlock(target, {
+      heading,
+      descriptor,
+      rows = [],
+      best,
+      worst,
+      datasetData = null,
+      cardOptions = {}
+    }) {
+      if (!target || !descriptor) return { card: null };
+      target.innerHTML = '';
+      target.hidden = false;
+      target.classList.add('product-block');
+
+      if (heading) {
+        const headingEl = document.createElement('h2');
+        headingEl.textContent = heading;
+        target.appendChild(headingEl);
+      }
+
+      const cardOptionsWithContext = { ...(cardOptions || {}), dataset: datasetData };
+      if (!cardOptionsWithContext.ean && descriptor.ean) {
+        cardOptionsWithContext.ean = descriptor.ean;
+      }
+      const card = createProductCard(descriptor, cardOptionsWithContext);
+      if (card) {
+        target.appendChild(card.element);
+      }
+
+      if (best) {
+        const banner = document.createElement('div');
+        banner.className = 'best-price-banner';
+        banner.textContent = `Top prix relevé : ${best.priceLabel}${best.store ? ` · ${best.store}` : ''}`;
+        target.appendChild(banner);
+      }
+
+      if (rows.length) {
+        const worstValue = worst?.value;
+        const table = document.createElement('table');
+        table.innerHTML = `
+          <thead>
+            <tr>
+              <th>Enseigne</th>
+              <th>Produit</th>
+              <th>Statut</th>
+              <th>Prix pack</th>
+              <th>Prix / unité</th>
+              <th>Magasin / Note</th>
+              <th>Maj</th>
+              <th>Liens</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        `;
+        renderTable(table.querySelector('tbody'), rows, best?.value, worstValue);
+        target.appendChild(table);
+      } else {
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.textContent = 'Aucune donnée collectée pour le moment.';
+        target.appendChild(empty);
+      }
+
+      return { card };
+    }
+
+    function renderPrimary(dataset, summary, manualDescriptors) {
+      const section = document.getElementById('primary-section');
+
+      const summaryBlock = summary?.[PRIMARY_DATASET.ean] || null;
+      const rows = buildRows(PRIMARY_DATASET.ean, dataset.data, summaryBlock);
+
+      const descriptor = resolveDescriptor(PRIMARY_DATASET.ean, dataset.data, manualDescriptors);
+      const best = pickBestPrice(rows);
+      const worst = pickWorstPrice(rows);
+      const previewUrl = dataset?.data?.image_path
+        ? dataset.data.image_path.replace(/^.*www\//, '../')
+        : null;
+
+      const datasetData = dataset?.data || null;
+      const { card } = renderProductBlock(section, {
+        heading: null,
+        descriptor,
+        rows,
+        best,
+        worst,
+        datasetData,
+        cardOptions: { compact: true, headingLevel: 2, previewUrl, ean: PRIMARY_DATASET.ean, datasetConfig: PRIMARY_DATASET }
+      });
+
+      if (card && card.map) {
+        renderMapMarkers(rows);
+        setupMapModal();
+      }
+    }
+
+    function renderComparisonSection(config, dataset, summary, manualDescriptors) {
+      const container = document.getElementById('comparisons');
+      let section = document.getElementById(`comparison-${config.ean}`);
+      if (!section) {
+        section = document.createElement('section');
+        section.className = 'product-block';
+        section.id = `comparison-${config.ean}`;
+        container.appendChild(section);
+      }
+      const summaryBlock = summary?.[config.ean] || null;
+      const rows = buildRows(config.ean, dataset.data, summaryBlock);
+
+      const descriptor = resolveDescriptor(config.ean, dataset.data, manualDescriptors);
+      const best = pickBestPrice(rows);
+      const worst = pickWorstPrice(rows);
+      const previewUrl = dataset?.data?.image_path
+        ? dataset.data.image_path.replace(/^.*www\//, '../')
+        : null;
+
+      const datasetData = dataset?.data || null;
+      renderProductBlock(section, {
+        heading: null,
+        descriptor,
+        rows,
+        best,
+        worst,
+        datasetData,
+        cardOptions: { compact: true, previewUrl, ean: config.ean, datasetConfig: config }
+      });
+    }
+
+    function resolveDatasetContext(ean) {
+      if (!ean) {
+        return { config: null, type: null };
+      }
+      if (ean === PRIMARY_DATASET.ean) {
+        return { config: PRIMARY_DATASET, type: 'primary' };
+      }
+      const extra = EXTRA_DATASETS.find((entry) => entry.ean === ean);
+      if (extra) {
+        return { config: extra, type: 'extra' };
+      }
+      return { config: null, type: null };
+    }
+
+    async function reloadSummary() {
+      const summary = await fetchJson(withCacheBuster(SUMMARY_URL));
+      cachedSummary = summary || {};
+      return cachedSummary;
+    }
+
+    async function reloadDataset(ean, configOverride, fetchOptions = {}) {
+      const context = resolveDatasetContext(ean);
+      const config = configOverride || context.config;
+      if (!config || !config.ean) {
+        console.warn('Aucun dataset config pour', ean);
+        return null;
+      }
+      const dataset = await fetchDataset(config, fetchOptions);
+      if (config.ean === PRIMARY_DATASET.ean) {
+        renderPrimary(dataset, cachedSummary, cachedManualDescriptors);
+      } else {
+        renderComparisonSection(config, dataset, cachedSummary, cachedManualDescriptors);
+      }
+      return dataset;
+    }
+
+    async function handleRefreshClick({ ean, datasetConfig, button }) {
+      if (!ean || !button) {
+        return;
+      }
+      const originalLabel = button.textContent;
+      button.disabled = true;
+      button.classList.remove('product-action-button--error', 'product-action-button--success');
+      button.textContent = 'Collecte en cours…';
+
+      try {
+        const response = await fetch(REFRESH_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ean }),
+        });
+        if (!response.ok) {
+          let details = '';
+          try {
+            const body = await response.json();
+            details = body?.message || body?.error || '';
+          } catch (err) {
+            // ignore parsing errors
+          }
+          throw new Error(details || `HTTP ${response.status}`);
+        }
+        await reloadSummary();
+        await reloadDataset(ean, datasetConfig || null);
+        button.classList.add('product-action-button--success');
+        button.textContent = 'Mis à jour';
+      } catch (error) {
+        console.error('Relance collecte échouée', error);
+        button.classList.add('product-action-button--error');
+        button.textContent = 'Erreur collecte';
+      } finally {
+        setTimeout(() => {
+          button.classList.remove('product-action-button--error', 'product-action-button--success');
+          button.textContent = originalLabel;
+          button.disabled = false;
+        }, 1800);
+      }
+    }
+
+    function buildRows(ean, data, summaryBlock) {
+      const map = new Map();
+      if (summaryBlock) {
+        Object.entries(summaryBlock).forEach(([adapter, entry]) => {
+          upsertRow(map, adapter, {
+            payload: entry.payload || {},
+            status: entry.status,
+            updatedAt: entry.updated_at,
+            error: entry.error,
+            storeQuery: entry.store_query
+          });
+        });
+      }
+      (data?.adapters || []).forEach((adapterEntry) => {
+        upsertRow(map, adapterEntry.adapter, {
+          payload: adapterEntry.payload || {},
+          status: adapterEntry.status,
+          updatedAt: adapterEntry.finished_at,
+          error: adapterEntry.error,
+          storeQuery: adapterEntry.store_query
+        });
+      });
+
+      applyManualFallbacks(map, ean);
+
+      return Array.from(map.values())
+        .map(finalizeRow)
+        .sort((a, b) => {
+          if (a.priceValue === b.priceValue) {
+            return (a.displayName || '').localeCompare(b.displayName || '');
+          }
+          return a.priceValue - b.priceValue;
+        });
+    }
+
+    function upsertRow(map, adapterName, entry) {
+      const base = normalizeAdapterName(adapterName);
+      let row = map.get(base);
+      if (!row) {
+        row = {
+          adapterName: base,
+          rawAdapters: new Set(),
+          payload: {},
+          status: '',
+          updatedAt: null,
+          error: null,
+          storeQuery: null
+        };
+      }
+      row.rawAdapters.add(adapterName);
+      row.status = entry.status || row.status;
+      row.updatedAt = entry.updatedAt || row.updatedAt;
+      row.error = entry.error || row.error;
+      row.storeQuery = entry.storeQuery || row.storeQuery;
+      row.payload = mergePayloads(row.payload, entry.payload || {});
+      map.set(base, row);
+    }
+
+    function finalizeRow(row) {
+      const payload = row.payload || {};
+      return {
+        adapterName: row.adapterName,
+        payload,
+        status: row.status,
+        updatedAt: row.updatedAt,
+        error: row.error,
+        storeQuery: row.storeQuery,
+        priceValue: parsePriceValue(payload.price),
+        displayName: DISPLAY_NAMES[row.adapterName] || row.adapterName,
+        rawAdapters: Array.from(row.rawAdapters || [])
+      };
+    }
+
+    function applyManualFallbacks(map, ean) {
+      const entries = MANUAL_COMPARISON[ean];
+      if (!entries || !entries.length) return;
+      entries.forEach((entry) => {
+        const base = normalizeAdapterName(entry.adapter);
+        const existing = map.get(base);
+        const hasPrice = existing && existing.payload && existing.payload.price;
+        if (existing && hasPrice) {
+          return;
+        }
+        upsertRow(map, entry.adapter, {
+          payload: entry.payload || {},
+          status: entry.status,
+          updatedAt: entry.updated_at,
+          error: entry.error || null,
+          storeQuery: entry.store_query || null
+        });
+      });
+    }
+
+    const MAP_CENTER = [44.8468, -0.583];
+    const mapInstances = {};
+    const markerGroups = {};
+    let latestRows = [];
+    let mapModalSetup = false;
+    let mapModalHandlers = null;
+
+    const ensureLeaflet = () => typeof L !== 'undefined';
+
+    function ensureMap(canvasId, interactive) {
+      if (!ensureLeaflet()) return null;
+      let map = mapInstances[canvasId];
+      if (!map) {
+        map = L.map(canvasId, {
+          center: MAP_CENTER,
+          zoom: interactive ? 12 : 11,
+          zoomControl: interactive
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+        if (!interactive) {
+          map.dragging.disable();
+          map.touchZoom.disable();
+          map.scrollWheelZoom.disable();
+          map.doubleClickZoom.disable();
+          map.boxZoom.disable();
+          map.keyboard.disable();
+          if (map.zoomControl) {
+            map.zoomControl.remove();
+          }
+        }
+        markerGroups[canvasId] = L.layerGroup().addTo(map);
+        mapInstances[canvasId] = map;
+      } else {
+        markerGroups[canvasId].clearLayers();
+        map.setView(MAP_CENTER, interactive ? 12 : 11);
+      }
+      return map;
+    }
+
+    function addMarkersToMap(canvasId, rows, scale, interactive) {
+      const map = ensureMap(canvasId, interactive);
+      if (!map) return;
+      const group = markerGroups[canvasId];
+      group.clearLayers();
+      const bounds = [];
+
+      rows.forEach((row) => {
+        const location = STORE_LOCATIONS[row.adapterName];
+        if (!location) return;
+        const logoSrc = logoFor(row.adapterName, row.rawAdapters || []);
+        const displayName = row.displayName || DISPLAY_NAMES[row.adapterName] || row.adapterName;
+        const icon = createMarkerIcon(displayName, logoSrc);
+        const marker = L.marker([location.lat, location.lon], { icon });
+        if (interactive) {
+          const tooltip = location.label || displayName;
+          marker.bindTooltip(tooltip, { direction: 'top', offset: [0, -6] });
+          marker.bindPopup(formatLocationTooltip(location) || displayName, { closeButton: false, offset: [0, -12 * scale] });
+        }
+        group.addLayer(marker);
+        bounds.push([location.lat, location.lon]);
+      });
+
+      if (bounds.length) {
+        map.fitBounds(bounds, { padding: [28, 28] });
+        if (!interactive) {
+          map.once('moveend', () => {
+            if (map.getZoom() > 13) {
+              map.setZoom(13);
+            }
+          });
+        } else {
+          setTimeout(() => map.invalidateSize(), 160);
+        }
+      }
+    }
+
+    function renderMapMarkers(rows) {
+      latestRows = rows;
+      addMarkersToMap('primary-map-canvas', rows, 0.85, false);
+      addMarkersToMap('store-map-modal-canvas', rows, 1.1, true);
+      const hasLocations = rows.some((row) => STORE_LOCATIONS[row.adapterName]);
+      const mapContainer = document.getElementById('primary-map');
+      if (mapContainer) {
+        mapContainer.hidden = !hasLocations;
+      }
+    }
+
+    function setupMapModal() {
+      const modal = document.getElementById('map-modal');
+      const mapEl = document.getElementById('primary-map');
+      if (!modal || !mapEl) return;
+
+      if (!mapModalSetup) {
+        const closeElements = modal.querySelectorAll('[data-close-map]');
+
+        const closeModal = () => {
+          modal.hidden = true;
+          document.body.classList.remove('modal-open');
+        };
+
+        const openModal = () => {
+          modal.hidden = false;
+          document.body.classList.add('modal-open');
+          renderMapMarkers(latestRows);
+          setTimeout(() => {
+            const modalMap = mapInstances['store-map-modal-canvas'];
+            if (modalMap) {
+              modalMap.invalidateSize();
+            }
+          }, 200);
+        };
+
+        closeElements.forEach((el) => el.addEventListener('click', closeModal));
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && !modal.hidden) {
+            closeModal();
+          }
+        });
+
+        mapModalHandlers = { openModal, closeModal };
+        mapModalSetup = true;
+      }
+
+      if (mapModalHandlers && mapEl.dataset.modalBound !== '1') {
+        mapEl.addEventListener('click', mapModalHandlers.openModal);
+        mapEl.dataset.modalBound = '1';
+      }
+    }
+
+    function formatLocationTooltip(location) {
+      const lines = [location.label];
+      if (location.address) {
+        lines.push(location.address);
+      }
+      return lines.filter(Boolean).map((line) => escapeHtml(line)).join('<br />');
+    }
+
+    function renderTable(tbody, rows, bestValue, worstValue) {
+      tbody.innerHTML = '';
+      rows.forEach((row) => {
+        const payload = row.payload || {};
+        const priceText = formatPrice(payload.price);
+        const unitPrice = payload.unit_price || payload.price_unit || payload.price_per_unit || '';
+        const store = payload.store || payload.note || row.storeQuery || '';
+        const productName = cleanProductName(payload.product_name || payload.title || '');
+        const updatedLabel = row.updatedAt ? formatDateTime(row.updatedAt) : '—';
+        const { label: statusLabel, className: statusClass } = formatStatus(row.status);
+        const logoSrc = logoFor(row.adapterName, row.rawAdapters);
+        const suffix = suffixLabel(row.adapterName);
+        const displayName = DISPLAY_NAMES[row.adapterName] || row.adapterName;
+        const isBest = Number.isFinite(bestValue) && Number.isFinite(row.priceValue) && Math.abs(row.priceValue - bestValue) < 0.001;
+        const isWorst = Number.isFinite(worstValue) && Number.isFinite(row.priceValue) && Math.abs(row.priceValue - worstValue) < 0.001 && (!Number.isFinite(bestValue) || Math.abs(worstValue - bestValue) > 0.001);
+
+        const tr = document.createElement('tr');
+        if (isBest) tr.classList.add('best-offer');
+        if (isWorst) tr.classList.add('worst-offer');
+
+        const nameCell = document.createElement('td');
+        if (logoSrc) {
+          nameCell.innerHTML = `<div class="table-logo"><img src="${logoSrc}" alt="${escapeHtml(displayName)}" />${suffix ? `<span class="table-logo__label">${escapeHtml(suffix)}</span>` : ''}</div>`;
+        } else {
+          nameCell.textContent = displayName;
+        }
+
+        const productCell = document.createElement('td');
+        productCell.className = 'product-cell';
+        productCell.title = productName;
+        productCell.textContent = productName || '—';
+
+        const statusCell = document.createElement('td');
+        statusCell.className = statusClass;
+        statusCell.textContent = statusLabel;
+
+        const priceCell = document.createElement('td');
+        priceCell.className = 'price';
+        if (priceText) {
+          let badge = '';
+          if (isBest) {
+            badge = '<span class="price-badge price-badge--best">TOP PRIX</span>';
+          } else if (isWorst) {
+            badge = '<span class="price-badge price-badge--worst">PLUS CHER</span>';
+          }
+          priceCell.innerHTML = `${escapeHtml(priceText)}${badge}`;
+        } else {
+          priceCell.textContent = '—';
+        }
+
+        const unitCell = document.createElement('td');
+        unitCell.textContent = unitPrice || '—';
+
+        const storeCell = document.createElement('td');
+        storeCell.textContent = store || '—';
+
+        const updatedCell = document.createElement('td');
+        updatedCell.className = 'meta-cell';
+        updatedCell.textContent = updatedLabel;
+
+        const linkCell = document.createElement('td');
+        if (payload.url) {
+          const link = document.createElement('a');
+          link.className = 'link';
+          link.href = payload.url;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.textContent = 'Ouvrir';
+          linkCell.appendChild(link);
+        }
+
+        tr.appendChild(nameCell);
+        tr.appendChild(productCell);
+        tr.appendChild(statusCell);
+        tr.appendChild(priceCell);
+        tr.appendChild(unitCell);
+        tr.appendChild(storeCell);
+        tr.appendChild(updatedCell);
+        tr.appendChild(linkCell);
+
+        if (row.error && !row.priceValue) {
+          const err = document.createElement('div');
+          err.className = 'notes';
+          err.textContent = row.error;
+          linkCell.appendChild(err);
+        }
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function resolveDescriptor(ean, data, manualDescriptors) {
+      const manual = manualDescriptors?.[ean];
+      if (manual) {
+        return {
+          ean,
+          title: manual.name,
+          name: manual.name,
+          brand: manual.brand,
+          quantity: manual.quantity,
+          categories: manual.categories,
+          image: manual.image,
+          nutriscore_grade: manual.nutriscore_grade,
+          nutriscore_image: manual.nutriscore_image,
+          source: manual.source,
+          description: manual.description,
+          note: manual.note || ''
+        };
+      }
+      const descriptor = data?.reference || {};
+      return { ...descriptor, ean };
+    }
+
+    function computeLastUpdate(rows) {
+      let max = null;
+      rows.forEach((row) => {
+        if (row.updatedAt && (!max || new Date(row.updatedAt) > new Date(max))) {
+          max = row.updatedAt;
+        }
+      });
+      return max;
+    }
+
+    function pickBestPrice(rows) {
+      const priced = rows.filter((row) => Number.isFinite(row.priceValue));
+      if (!priced.length) return null;
+      let best = priced[0];
+      for (const row of priced.slice(1)) {
+        if (row.priceValue < best.priceValue) {
+          best = row;
+        }
+      }
+      const payload = best.payload || {};
+      return {
+        value: best.priceValue,
+        priceLabel: formatPrice(payload.price) || `${best.priceValue.toFixed(2)} €`,
+        store: payload.store || DISPLAY_NAMES[best.adapterName] || best.adapterName
+      };
+    }
+
+    function pickWorstPrice(rows) {
+      const priced = rows.filter((row) => Number.isFinite(row.priceValue));
+      if (!priced.length) return null;
+      let worst = priced[0];
+      for (const row of priced.slice(1)) {
+        if (row.priceValue > worst.priceValue) {
+          worst = row;
+        }
+      }
+      const payload = worst.payload || {};
+      return {
+        value: worst.priceValue,
+        priceLabel: formatPrice(payload.price) || `${worst.priceValue.toFixed(2)} €`,
+        store: payload.store || DISPLAY_NAMES[worst.adapterName] || worst.adapterName
+      };
+    }
+
+    function createMarkerIcon(displayName, logoSrc) {
+      const width = 88;
+      const height = 48;
+      const paddingY = 10;
+      const paddingX = 12;
+      const safeName = escapeHtml(displayName || '');
+      let innerHtml;
+      if (logoSrc) {
+        innerHtml = `<img src="${logoSrc}" alt="${safeName}" style="width:100%;height:100%;object-fit:contain;"/>`;
+      } else {
+        const fallback = safeName.charAt(0) || '•';
+        innerHtml = `<span style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:1.1rem;font-weight:600;color:#1f2937;">${fallback}</span>`;
+      }
+      const wrapperStyle = `width:${width}px;height:${height}px;padding:${paddingY}px ${paddingX}px;border-radius:${Math.round(height)}px;background:rgba(255,255,255,0.95);border:1px solid rgba(15,23,42,0.12);box-shadow:0 12px 28px rgba(15,23,42,0.22);box-sizing:border-box;`;
+      return L.divIcon({
+        className: 'map-logo-icon',
+        html: `<div style="${wrapperStyle}">${innerHtml}</div>`,
+        iconSize: [width, height],
+        iconAnchor: [width / 2, height / 2]
+      });
+    }
+
+    function mergePayloads(current, incoming) {
+      const result = { ...current };
+      Object.entries(incoming || {}).forEach(([key, value]) => {
+        if (value === null || value === undefined || value === '') return;
+        result[key] = value;
+      });
+      return result;
+    }
+
+    function parsePriceValue(value) {
+      if (value === null || value === undefined || value === '') return Number.POSITIVE_INFINITY;
+      const normalized = String(value).replace(/[^0-9,\.]/g, '').replace(',', '.');
+      const num = parseFloat(normalized);
+      return Number.isFinite(num) ? num : Number.POSITIVE_INFINITY;
+    }
+
+    function formatPrice(value) {
+      if (!value) return '';
+      const trimmed = String(value).trim();
+      if (!trimmed) return '';
+      return trimmed.includes('€') ? trimmed : `${trimmed} €`;
+    }
+
+    function formatDateTime(iso) {
+      if (!iso) return '—';
+      const date = new Date(iso);
+      if (Number.isNaN(date.getTime())) return iso;
+      return date.toLocaleString('fr-FR');
+    }
+
+    function formatStatus(status) {
+      const upper = (status || '').toUpperCase();
+      if (upper === 'OK') return { label: 'dispo', className: 'status-ok' };
+      if (upper === 'NON DISPONIBLE' || upper === 'INDISPONIBLE' || upper === 'NO_RESULTS') {
+        return { label: 'non dispo', className: 'status-error' };
+      }
+      if (!upper) return { label: 'inconnu', className: 'status-warn' };
+      return { label: upper.replace(/_/g, ' ').toLowerCase(), className: 'status-warn' };
+    }
+
+    function normalizeAdapterName(name) {
+      return (name || '').replace(/_manual$/, '');
+    }
+
+    function logoFor(adapterName, rawAdapters = []) {
+      const key = normalizeAdapterName(adapterName);
+      if (LOGOS[key]) return `${LOGO_BASE}${LOGOS[key]}`;
+      for (const candidate of rawAdapters) {
+        const normalized = normalizeAdapterName(candidate);
+        if (LOGOS[normalized]) {
+          return `${LOGO_BASE}${LOGOS[normalized]}`;
+        }
+      }
+      return null;
+    }
+
+    function suffixLabel(adapterName) {
+      const key = normalizeAdapterName(adapterName).toLowerCase();
+      if (!key.startsWith('carrefour')) return '';
+      if (key.includes('market')) return 'Market';
+      if (key.includes('city')) return 'City';
+      if (key.includes('express')) return 'Express';
+      if (key.includes('contact')) return 'Contact';
+      if (key.includes('montagne')) return 'Montagne';
+      return '';
+    }
+
+    function cleanProductName(value) {
+      if (!value) return '';
+      return String(value).replace(/\s+/g, ' ').trim();
+    }
+
+    function toAbsolute(path) {
+      if (!path) return '';
+      if (String(path).startsWith('data:')) return path;
+      try {
+        return new URL(path, window.location.href).href;
+      } catch (err) {
+        return path;
+      }
+    }
+
+    function escapeHtml(value) {
+      if (value == null) return '';
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function extractCategory(raw) {
+      if (!raw) return '';
+      const parts = String(raw).split(',').map((part) => part.trim()).filter(Boolean);
+      return parts.length ? parts[parts.length - 1] : raw;
+    }
+  </script>
+</body>
+</html>

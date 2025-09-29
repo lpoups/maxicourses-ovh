@@ -207,3 +207,157 @@
 - **Suivi / prochaines étapes** :
   1. Capturer des screenshots PDP (Intermarché/Chronodrive) pour preuve visuelle stockée dans `poc_runs/ean_5411188118961/`.
   2. Factoriser la récupération du Nutri-score/quantité dans un utilitaire commun pour éviter les heuristiques par script.
+
+## 2025-09-28 - GPT (Codex CLI)
+- **Objectif** : vérifier que toutes les consignes impératives figurent dans la documentation et consigner la session.
+- **Actions réalisées** :
+  - Relu `docs/PROMPT_BOOTSTRAP.md`, `docs/ONBOARDING.md`, `docs/PARCOURS_HUMAIN.md`, la dernière entrée de `docs/HANDOVER_DAILY.md`, `docs/PRICE_COLLECTION_GUIDE.md`, `docs/LECLERC_HUMAN_METHOD.md`, `docs/PRICE_COMPARATOR_PLAN.md`, `docs/README.md` et `docs/SESSION_TEMPLATE.md`.
+  - Confirmé que les consignes clés (Chrome 9222 + USE_CDP, ordre seed Carrefour City→Market→Auchan→Chronodrive, interdiction « produit <EAN> », sorties JSON complètes avec image locale, mise à jour handover) sont présentes et cohérentes entre les documents.
+  - Ajouté la section « Mise à jour 2025-09-28 » dans `docs/QUICKSTART_NEXT_GPT.md` pour tracer la relecture et rappeler les consignes.
+- **Données/artefacts ajoutés** :
+  - `docs/QUICKSTART_NEXT_GPT.md`: section « Mise à jour 2025-09-28 ».
+  - `docs/HANDOVER_DAILY.md`: entrée du 2025-09-28.
+- **Blocages / alertes** :
+  - RAS.
+- **Suivi / prochaines étapes** :
+  1. Poursuivre les collectes EAN en respectant l’ordre seed et la méthode CDP.
+  2. Mettre à jour la documentation si de nouvelles consignes sont introduites par Laurent.
+
+## 2025-09-28 (soir) - GPT (Codex CLI)
+- **Objectif** : Confirmer la bonne couverture documentaire des consignes impératives et consigner la session.
+- **Actions réalisées** :
+  - Relu l'ensemble des documents obligatoires pour vérifier que Chrome 9222 + USE_CDP, l'ordre seed Carrefour City→Market→Auchan→Chronodrive, l'interdiction des requêtes « produit <EAN> », les sorties JSON complètes avec image locale et la mise à jour du handover sont tous rappelés.
+  - Ajouté la section « Mise à jour 2025-09-28 (Codex CLI) » à `docs/QUICKSTART_NEXT_GPT.md` pour tracer la relecture (RAS).
+  - Préparé cette entrée de handover en suivant `docs/SESSION_TEMPLATE.md`.
+- **Données/artefacts ajoutés** :
+  - docs/QUICKSTART_NEXT_GPT.md#L1
+- **Blocages / alertes** :
+  - Aucun.
+- **Suivi / prochaines étapes** :
+  1. Poursuivre les collectes en respectant la séquence seed et l'usage CDP.
+  2. Mettre à jour la documentation si de nouvelles consignes surgissent.
+
+## 2025-09-28 (refonte V2) - GPT (Codex CLI)
+- **Objectif** : Lancer la documentation de la refonte front V2 et sécuriser les consignes pour les prochains GPT.
+- **Actions réalisées** :
+  - Créé `docs/REFONTE_FRONT_V2.md` avec le plan détaillé (inventaire, nouveau front, pipeline, logs/tests).
+  - Mis à jour `docs/QUICKSTART_NEXT_GPT.md` : lecture obligatoire du plan V2 + rappel de journaliser chaque run.
+  - Préparé cette entrée de handover pour tracer le démarrage.
+- **Données/artefacts ajoutés** :
+  - docs/REFONTE_FRONT_V2.md
+  - docs/QUICKSTART_NEXT_GPT.md
+- **Blocages / alertes** :
+  - Aucun.
+- **Suivi / prochaines étapes** :
+  1. Cloner l’UI actuelle dans `maxicourses_front_v2/` et conserver les composants sains.
+  2. Mettre en place la collecte de logs/tests ciblés avant corrections.
+
+## 2025-09-28 (sauvegarde GitHub) - GPT (Codex CLI)
+- **Objectif** : Vérifier la configuration GitHub et documenter la procédure de sauvegarde avant la refonte V2.
+- **Actions réalisées** :
+  - Contrôlé `git status -sb` et `git remote -v` (origin = https://github.com/lpoups/maxicourses-ovh.git).
+  - Créé `docs/GIT_SAUVEGARDE.md` avec la checklist complète (status, remote, pull, push).
+  - Ajouté les rappels dans `docs/QUICKSTART_NEXT_GPT.md` et `docs/REFONTE_FRONT_V2.md`.
+- **Données/artefacts ajoutés** :
+  - docs/GIT_SAUVEGARDE.md
+  - docs/QUICKSTART_NEXT_GPT.md
+  - docs/REFONTE_FRONT_V2.md
+- **Blocages / alertes** :
+  - Plusieurs fichiers cache Chrome listés par `git status`; à ignorer au moment des commits.
+- **Suivi / prochaines étapes** :
+  1. Lancer la duplication de l’UI dans `maxicourses_front_v2/` (après checklist Git).
+  2. Mettre en place l’arborescence de logs/tests conformément au plan V2.
+
+## 2025-09-28 (journal prompts) - GPT (Codex CLI)
+- **Objectif** : Instaurer un suivi horodaté des échanges utilisateur/assistant.
+- **Actions réalisées** :
+  - Créé `docs/PROMPT_LOG.md` et rétro-consigné l’ensemble des messages de la session (UTC).
+  - Mis à jour `docs/QUICKSTART_NEXT_GPT.md` pour rendre ce journal obligatoire à la lecture et à la mise à jour.
+- **Données/artefacts ajoutés** :
+  - docs/PROMPT_LOG.md
+  - docs/QUICKSTART_NEXT_GPT.md
+- **Blocages / alertes** :
+  - Aucun.
+- **Suivi / prochaines étapes** :
+  1. Continuer d’appendre chaque nouvel échange dans `docs/PROMPT_LOG.md`.
+  2. Poursuivre les travaux de refonte V2 selon le plan établi.
+
+## 2025-09-29 (horodatage FR) - GPT (Codex CLI)
+- **Objectif** : Basculer toutes les sauvegardes et journaux sur l’heure française.
+- **Actions réalisées** :
+  - Ajouté une consigne horaire dans `docs/QUICKSTART_NEXT_GPT.md` (Europe/Paris).
+  - Complété `docs/GIT_SAUVEGARDE.md` avec la règle d’horodatage France.
+  - Mis à jour `docs/REFONTE_FRONT_V2.md` pour refléter cette contrainte.
+  - Journalisé la demande dans `docs/PROMPT_LOG.md` avec heure de Paris.
+- **Données/artefacts ajoutés** :
+  - docs/QUICKSTART_NEXT_GPT.md
+  - docs/GIT_SAUVEGARDE.md
+  - docs/REFONTE_FRONT_V2.md
+  - docs/PROMPT_LOG.md
+- **Blocages / alertes** :
+  - Aucun.
+- **Suivi / prochaines étapes** :
+  1. Poursuivre la mise en place de la V2 (duplication front, logs/tests).
+  2. Appliquer systématiquement l’horodatage Europe/Paris dans les sauvegardes et handovers.
+
+## 2025-09-29 (bug requêtes EAN) - GPT (Codex CLI)
+- **Objectif** : Noter l’anomalie "produit + EAN" dans les seeders.
+- **Actions réalisées** :
+  - Ajouté un item dans `docs/REFONTE_FRONT_V2.md` (corrections itératives) pour supprimer le préfixe "produit" sur les requêtes EAN.
+- **Données/artefacts ajoutés** :
+  - docs/REFONTE_FRONT_V2.md
+  - docs/PROMPT_LOG.md
+- **Blocages / alertes** :
+  - Bug actuel : certains scripts seed tapent "produit <EAN>" au lieu de l’EAN brut (priorité élevée).
+- **Suivi / prochaines étapes** :
+  1. Identifier les scripts concernés et corriger l’injection EAN (Carrefour, Auchan, Chronodrive).
+  2. Revalider la collecte seed après correction.
+
+## 2025-09-29 (Open Food Facts) - GPT (Codex CLI)
+- **Objectif** : Consigner l’autorisation d’utiliser fr.openfoodfacts.org pour enrichir les fiches produit.
+- **Actions réalisées** :
+  - Ajout d’un principe dans `docs/REFONTE_FRONT_V2.md` (Open Food Facts pour métadonnées, visuels conservés).
+  - Mise à jour `docs/PRICE_COLLECTION_GUIDE.md` avec une section dédiée.
+  - Consigne impérative ajoutée dans `docs/QUICKSTART_NEXT_GPT.md` et trace dans `docs/PROMPT_LOG.md`.
+- **Données/artefacts ajoutés** :
+  - docs/REFONTE_FRONT_V2.md
+  - docs/PRICE_COLLECTION_GUIDE.md
+  - docs/QUICKSTART_NEXT_GPT.md
+  - docs/PROMPT_LOG.md
+- **Blocages / alertes** :
+  - Aucun.
+- **Suivi / prochaines étapes** :
+  1. Prévoir l’intégration Open Food Facts lors de la refonte pipeline.
+  2. Conserver les visuels enseignes lors de l’affichage comparatif.
+
+## 2025-09-29 (transparence) - GPT (Codex CLI)
+- **Objectif** : Rappeler l’interdiction de mentir et la nécessité d’annoncer tout blocage.
+- **Actions réalisées** :
+  - Ajout d’un principe de transparence dans `docs/REFONTE_FRONT_V2.md`.
+  - Mise à jour de `docs/QUICKSTART_NEXT_GPT.md` avec une consigne explicite.
+  - Journalisation dans `docs/PROMPT_LOG.md`.
+- **Données/artefacts ajoutés** :
+  - docs/REFONTE_FRONT_V2.md
+  - docs/QUICKSTART_NEXT_GPT.md
+  - docs/PROMPT_LOG.md
+- **Blocages / alertes** :
+  - Aucun.
+- **Suivi / prochaines étapes** :
+  1. Continuer la refonte V2 conformément aux consignes.
+  2. Avertir immédiatement Laurent au moindre incident.
+
+## 2025-09-29T21:39+02:00 (refonte V2 – front & logs) - GPT (Codex CLI)
+- **Objectif** : Démarrer concrètement la V2 en sécurisant l’état Git, en dupliquant l’UI et en initant l’espace de logs/tests.
+- **Actions réalisées** :
+  - `git status -sb` exécuté (branche `main`, nombreuses modifications existantes dont profil `.chrome-debug` et runs Playwright) ; `git fetch origin` OK mais aucun upstream détecté (`git pull --ff-only` impossible car `origin/main` absent).
+  - Création de `maxicourses_front_v2/` avec copie de `maxicourses_test/pipeline/index2.html` ➜ nouveau `index.html` + duplication des assets.
+  - Mise en place de `logs/refonte_v2/` et rédaction de `README.md` décrivant la structure des campagnes (commands.log, stdout/stderr, captures, notes horodatées Europe/Paris).
+- **Données/artefacts ajoutés** :
+  - maxicourses_front_v2/index.html
+  - maxicourses_front_v2/assets/
+  - logs/refonte_v2/ (README + arborescence `runs/`).
+- **Blocages / alertes** :
+  - Aucun upstream Git disponible (`origin/main` inexistant). À traiter avant toute sauvegarde distante (soit créer la branche distante, soit aligner la configuration).
+- **Suivi / prochaines étapes** :
+  1. Concevoir le nouveau formulaire triple recherche dans `maxicourses_front_v2/index.html` et le lier aux endpoints existants/à créer.
+  2. Lancer la campagne de reproduction des bugs (Carrefour City sans résultat, prix identiques, seed « produit <EAN> ») en archivant chaque run dans `logs/refonte_v2/`.
