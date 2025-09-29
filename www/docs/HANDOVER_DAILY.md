@@ -352,12 +352,13 @@
   - `git status -sb` exécuté (branche `main`, nombreuses modifications existantes dont profil `.chrome-debug` et runs Playwright) ; `git fetch origin` OK mais aucun upstream détecté (`git pull --ff-only` impossible car `origin/main` absent).
   - Création de `maxicourses_front_v2/` avec copie de `maxicourses_test/pipeline/index2.html` ➜ nouveau `index.html` + duplication des assets.
   - Mise en place de `logs/refonte_v2/` et rédaction de `README.md` décrivant la structure des campagnes (commands.log, stdout/stderr, captures, notes horodatées Europe/Paris).
+  - Commit local `315874e8a9cdd2623b7ec025c91fe47cdff6a5fa` : ajout du squelette `maxicourses_front_v2`, README de logs et mises à jour documentaires.
 - **Données/artefacts ajoutés** :
   - maxicourses_front_v2/index.html
   - maxicourses_front_v2/assets/
   - logs/refonte_v2/ (README + arborescence `runs/`).
 - **Blocages / alertes** :
-  - Aucun upstream Git disponible (`origin/main` inexistant). À traiter avant toute sauvegarde distante (soit créer la branche distante, soit aligner la configuration).
+  - Aucun upstream Git disponible (`origin/main` inexistant). Tentative `git push origin main` échouée (« could not read Username for https://github.com »). Besoin d’un accès/branche distante pour finaliser la sauvegarde.
 - **Suivi / prochaines étapes** :
   1. Concevoir le nouveau formulaire triple recherche dans `maxicourses_front_v2/index.html` et le lier aux endpoints existants/à créer.
   2. Lancer la campagne de reproduction des bugs (Carrefour City sans résultat, prix identiques, seed « produit <EAN> ») en archivant chaque run dans `logs/refonte_v2/`.
