@@ -358,7 +358,7 @@
   - maxicourses_front_v2/assets/
   - logs/refonte_v2/ (README + arborescence `runs/`).
 - **Blocages / alertes** :
-  - Aucun upstream Git disponible (`origin/main` inexistant). Tentative `git push origin main` échouée (« could not read Username for https://github.com »). Besoin d’un accès/branche distante pour finaliser la sauvegarde.
+  - Aucun upstream Git disponible (`origin/main` inexistant). Tentative `git push origin main` échouée (« could not read Username for https://github.com »). Re-tentative avec PAT `[redacted]` : authentification OK mais rejet du push (fichiers volumineux `www/maxicourses_test/snapshots/snap_*.tar.gz` ≥ 92–184 MB). Besoin de nettoyer/ignorer ces archives ou d’utiliser Git LFS avant nouvelle sauvegarde.
 - **Suivi / prochaines étapes** :
   1. Concevoir le nouveau formulaire triple recherche dans `maxicourses_front_v2/index.html` et le lier aux endpoints existants/à créer.
   2. Lancer la campagne de reproduction des bugs (Carrefour City sans résultat, prix identiques, seed « produit <EAN> ») en archivant chaque run dans `logs/refonte_v2/`.
