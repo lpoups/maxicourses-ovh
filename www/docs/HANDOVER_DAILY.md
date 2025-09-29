@@ -352,13 +352,14 @@
   - Checklist Git (`git status`, `git fetch`) puis duplication de l’UI existante dans `maxicourses_front_v2/index.html` + copie des assets, création de `logs/refonte_v2/README.md` (structure de tests).
   - Nettoyage de l’historique : suppression complète de `www/maxicourses_test/snapshots/` via `git filter-branch` + GC, ajout d’une règle `.gitignore` dédiée.
   - Retrait du profil Chrome (`git rm -r --cached www/maxicourses_test/.chrome-debug`) pour éviter de futurs commits volumineux.
-  - Rebase pour retirer la mention du PAT dans la documentation ; commits principaux : `4d61f08f` (squelette V2), `f373972d` (handover), `d3b3a773` (journal git), `36c7a042` (cache Chrome).
+  - Rebase pour retirer la mention du PAT dans la documentation ; commits principaux : `4d61f08f` (squelette V2), `f373972d` (handover), `d3b3a773` (journal git), `36c7a042` (cache Chrome), `b7cf50cb` (journal prompts redigé).
   - `git push -u origin main` réussi (auth via PAT en variable `GIT_ASKPASS`).
 - **Données/artefacts ajoutés** :
   - maxicourses_front_v2/index.html
   - maxicourses_front_v2/assets/
   - logs/refonte_v2/README.md
   - `.gitignore` enrichi (snapshots + `.chrome-debug`).
+  - docs/PROMPT_LOG.md (journal prompt, PAT anonymisé).
 - **Blocages / alertes** :
   - Aucun (snapshots et profil Chrome purgés, push GitHub validé).
 - **Suivi / prochaines étapes** :
