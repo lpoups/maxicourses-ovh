@@ -478,3 +478,17 @@
 - **Suivi / prochaines étapes** :
   1. Synchroniser les IDs Auchan (6117) dans la documentation (`docs/PRICE_COLLECTION_GUIDE.md`) et mettre à jour la checklist V2.
   2. Enchaîner sur la refonte front V2 (`maxicourses_front_v2/index.html`) une fois les fetchers Leclerc/Intermarché re-validés.
+
+## 2025-09-30T16:18 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : supprimer la sélection magasin redondante côté Carrefour et valider immédiatement la pipeline.
+- **Actions réalisées** :
+  - Simplifié `fetch_carrefour_price.py` pour ignorer `ensure_expected_store` lorsque `CARREFOUR_FRONTAL_STORE` est présent (City = 800041, Market = 1911).
+  - Reboot Chrome (profil vierge), relancé `pipeline/run_pipeline.py --ean 3092718637033 --adapters carrefour_city carrefour_market auchan chronodrive --headed` : City `NO_PRICE`, Market `OK 2,81 €`, Auchan `OK 2,96 €`, Chronodrive `OK 2,85 €` (run archivé `results/test-3092718637033/run-3092718637033-20250930-161801.json`).
+- **Données/artefacts ajoutés** :
+  - maxicourses_test/fetch_carrefour_price.py (logique magasin simplifiée).
+  - maxicourses_test/results/test-3092718637033/run-3092718637033-20250930-161801.json + mises à jour `latest.json` / `summary.json`.
+- **Blocages / alertes** :
+  - Carrefour City reste indisponible sur cet EAN (comportement attendu) ; prévoir un EAN City valide pour preuve positive.
+- **Suivi / prochaines étapes** :
+  1. Poursuivre la documentation des IDs magasins et la stabilisation Intermarché/Leclerc.
+  2. Reprendre la refonte front V2 après validation de l’ensemble des fetchers.

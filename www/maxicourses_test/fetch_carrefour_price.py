@@ -527,7 +527,14 @@ async def run() -> Result:
 
     await human_pause(page, 900, 700)
     await accept_cookies(page)
-    store_name = await ensure_expected_store(page, STORE_QUERY, attempts=3)
+
+    if os.environ.get("CARREFOUR_FRONTAL_STORE") and expected_store:
+        store_name = expected_store
+    else:
+        if os.environ.get("CARREFOUR_FRONTAL_STORE") and expected_store:
+            store_name = expected_store
+        else:
+            store_name = await ensure_expected_store(page, STORE_QUERY, attempts=3)
 
     search_terms = [EAN]
     if QUERY and QUERY != EAN:
@@ -591,7 +598,10 @@ async def run() -> Result:
             except Exception:
                 html = ""
 
-            store_name = await ensure_expected_store(page, STORE_QUERY, attempts=3)
+            if os.environ.get("CARREFOUR_FRONTAL_STORE") and expected_store:
+                store_name = expected_store
+            else:
+                store_name = await ensure_expected_store(page, STORE_QUERY, attempts=3)
 
             if EAN and (EAN in pdp_url or EAN in html):
                 matched_ean = EAN
@@ -606,7 +616,10 @@ async def run() -> Result:
                     continue
 
             # ensure store is set on PDP as well
-            store_name = await ensure_expected_store(page, STORE_QUERY, attempts=3)
+            if os.environ.get("CARREFOUR_FRONTAL_STORE") and expected_store:
+                store_name = expected_store
+            else:
+                store_name = await ensure_expected_store(page, STORE_QUERY, attempts=3)
 
             try:
                 title_text = await page.locator('h1').first.text_content(timeout=6000)
