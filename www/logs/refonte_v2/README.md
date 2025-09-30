@@ -8,3 +8,4 @@ Chaque test (collecte, UI) doit créer un sous-dossier dans `runs/` :
 - `notes.md` : résumé (objectif, résultat, anomalies) horodaté Europe/Paris.
 
 N'oublie pas de référencer le sous-dossier correspondant dans `docs/HANDOVER_DAILY.md`.
+- Audit scripts seed EAN : début 2025-09-29 23:42

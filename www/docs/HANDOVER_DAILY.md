@@ -530,3 +530,28 @@
   - RAS.
 - **Suivi / prochaines étapes** :
   1. Documenter un EAN disponible Carrefour City et valider Leclerc/Intermarché avant la refonte front V2.
+
+## 2025-09-30T17:21 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : vérifier la collecte multi-enseignes sur l’EAN 5000112611861 (Coca-Cola 1,75 L) présent partout.
+- **Actions réalisées** :
+  - Chrome neuf → `pipeline/run_pipeline.py --ean 5000112611861 --adapters carrefour_city carrefour_market auchan chronodrive leclerc intermarche --headed`.
+  - Résultats : City `2,79 €`, Market `2,45 €`, Auchan `2,38 € (1,36 €/L)`, Chronodrive `2,49 € (1,42 €/L)`, Leclerc `2,38 € (1,36 €/L)`, Intermarché `NO_RESULTS`.
+  - Run archivé `results/test-5000112611861/run-5000112611861-20250930-172108.json` ; `latest.json` / `summary.json` mis à jour automatiquement.
+- **Blocages / alertes** :
+  - Intermarché retourne `NO_RESULTS` pour cet EAN : à investiguer (drive Talence non chargé ou produit retiré).
+- **Suivi / prochaines étapes** :
+  1. Vérifier la configuration Intermarché (state, drive) pour rétablir le prix.
+  2. Répliquer ce test avec un autre EAN City si nécessaire, puis poursuivre la refonte V2.
+
+## 2025-09-30T17:28 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : capturer l’état du drive Intermarché afin d’automatiser la sélection magasin.
+- **Actions réalisées** :
+  - Sélection manuelle du drive Intermarché Hyper Cestas dans Chrome 9222, puis sauvegarde `maxicourses_test/state/intermarche.json`.
+  - Extraction `dataLayer` → `store_id_itm = 01047`, services `a_domicile::drive_pieton`, paiement `en_ligne` (dump `/tmp/intermarche_datalayer.json`).
+- **Données/artefacts ajoutés** :
+  - maxicourses_test/state/intermarche.json (drive Hyper Cestas 01047).
+- **Blocages / alertes** :
+  - Intermarché toujours `NO_RESULTS` tant que le fetcher n’injecte pas cette state.
+- **Suivi / prochaines étapes** :
+  1. Adapter `fetch_intermarche_price.py` pour charger `state/intermarche.json` avant la recherche.
+  2. Relancer l’EAN 5000112611861 une fois l’injection en place pour valider la collecte Intermarché.

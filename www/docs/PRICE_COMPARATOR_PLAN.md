@@ -31,3 +31,10 @@ Créer un moteur capable d’agréger automatiquement les prix multi-enseignes (
 - `maxicourses_test/fetch_*_price.py` : logique actuelle pour chaque enseigne.
 - `maxicourses_test/state/` : états Playwright, à réutiliser plutôt que relancer des connexions.
 - `docs/PROMPT_BOOTSTRAP.md` : rappel à intégrer dans les prompts initial.
+
+## ToDo évolution Maxicourses
+- Mettre en place une base de connaissances (LLM interne) consignant erreurs à éviter et bonnes pratiques de collecte pour guider les prochaines itérations.
+- Construire un moteur de recommandations produits équivalents : comparer qualité, valeur nutritive et prix pour proposer des alternatives moins chères à partir des données multi-enseignes.
+- Intégrer la prise en compte des promotions/cartes de fidélité : calculer automatiquement le prix réel selon les remises actives.
+- Automatiser la collecte des catalogues promo (PDF) de chaque enseigne, ingestion sur le serveur OVH et indexation dans la base.
+- Développer un assistant courses personnalisé (objectifs minceur, prise de masse, vegan, etc.) tenant compte du nombre de personnes, de la durée et des habitudes sport/nutrition.

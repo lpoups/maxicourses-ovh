@@ -2,6 +2,13 @@
 
 Ce répertoire regroupe les fichiers persistants à relire par chaque nouvel assistant GPT.
 
+## Vision MaxiCourses
+- Comparateur de prix multi-enseignes (Carrefour City/Market, Leclerc Drive, Auchan, Chronodrive, Intermarché) avec preuves (captures, JSON).
+- Triple mode de recherche : \* EAN brut (seed depuis fr.openfoodfacts.org), \* descriptif libre (marque + type/goût + contenance), \* upload photo (décodage code-barres → EAN).
+- Les visuels de produits restent ceux des enseignes ; OpenFoodFacts sert uniquement au descriptif, Nutri-score, Green/Eco-score et méta-données.
+- Les informations produits (titre, quantity, image locale, scores) sont figées après une seed réussie et ne changent qu’à la prochaine collecte volontaire.
+- Objectif court terme : pipeline de collecte stable pour les démos investisseurs, puis refonte front V2 offrant les trois parcours.
+
 ## Fichiers à connaître
 - `ONBOARDING.md` : vision globale, règles d’or, scripts critiques.
 - `PRICE_COMPARATOR_PLAN.md` : roadmap technique pour construire le comparateur intelligent.

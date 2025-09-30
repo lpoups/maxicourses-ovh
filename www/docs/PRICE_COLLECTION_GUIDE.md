@@ -51,6 +51,7 @@
   USE_CDP=1 HEADLESS=0 EAN=<ean> QUERY="<libellé adopté>" python3 fetch_intermarche_price.py
   ```
 - **Notes** : attendre que le prix apparaisse (commutateur rafraîchissement automatique). Sauvegarder `store` (ex. « Intermarché · Bordeaux Talence (drive) »).
+- **Sélection magasin** : la state `state/intermarche.json` capture actuellement le drive Hyper Cestas (`store_id_itm = 01047`). Mettre à jour ce fichier via Chrome 9222 si un autre point de vente est requis avant relance.
 
 ## Chronodrive
 - **Script** : `maxicourses_test/fetch_chronodrive_price.py` (CDP obligatoire).
