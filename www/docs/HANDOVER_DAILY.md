@@ -503,3 +503,19 @@
   - Aucun nouveau blocage détecté.
 - **Suivi / prochaines étapes** :
   1. Poursuivre la stabilisation Leclerc/Intermarché puis la refonte V2.
+
+## 2025-09-30T16:31 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : éliminer toute navigation humaine résiduelle (Carrefour City/Market) et imposer la recherche EAN sur Chronodrive.
+- **Actions réalisées** :
+  - `fetch_carrefour_price_city.py` / `fetch_carrefour_price_market.py` : désactivation des replays de traces dès qu’un `FRONTAL_STORE` est fourni (plus de bascule magasin simulée).
+  - `fetch_carrefour_price.py` : `ensure_expected_store` court-circuite immédiatement lorsqu’un cookie drive est présent.
+  - `fetch_chronodrive_price.py` : `build_query_terms()` ne pousse plus que l’EAN (fallback descriptif uniquement si aucun EAN).
+  - Chrome vierge → `pipeline/run_pipeline.py --adapters carrefour_city carrefour_market auchan chronodrive` : City `NO_PRICE`, Market `2,81 €`, Auchan `2,96 €`, Chronodrive `2,85 €` (run archivé `results/test-3092718637033/run-3092718637033-20250930-163111.json`).
+- **Données/artefacts ajoutés** :
+  - maxicourses_test/fetch_carrefour_price_city.py, maxicourses_test/fetch_carrefour_price_market.py, maxicourses_test/fetch_carrefour_price.py, maxicourses_test/fetch_chronodrive_price.py.
+  - maxicourses_test/results/test-3092718637033/run-3092718637033-20250930-163111.json + mises à jour `latest.json` / `summary.json`.
+- **Blocages / alertes** :
+  - Toujours aucun prix City pour cet EAN (drive indisponible), comportement normal.
+- **Suivi / prochaines étapes** :
+  1. Poursuivre les validations Intermarché/Leclerc puis attaquer la refonte front V2.
+  2. Identifier un EAN compatible City pour une preuve positive.

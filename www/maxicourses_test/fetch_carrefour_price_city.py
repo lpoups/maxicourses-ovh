@@ -92,7 +92,7 @@ def run(argv: list[str]) -> int:
     env['CARREFOUR_STATE_VARIANT'] = 'carrefour_city'
     env['CARREFOUR_FRONTAL_STORE'] = os.environ.get('CARREFOUR_FRONTAL_STORE', '800041')
 
-    if TRACE_FILES:
+    if TRACE_FILES and not os.environ.get('CARREFOUR_FRONTAL_STORE'):
         replay_traces(env)
 
     initial = run_fetch(env)
@@ -105,7 +105,8 @@ def run(argv: list[str]) -> int:
         return initial.returncode
 
     # Fallback: rejouer la trace puis relancer le fetch en sortie standard.
-    replay_traces(env)
+    if TRACE_FILES and not os.environ.get('CARREFOUR_FRONTAL_STORE'):
+        replay_traces(env)
 
     if initial.stderr:
         print(initial.stderr, file=sys.stderr, end="")

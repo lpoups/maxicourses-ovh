@@ -70,18 +70,14 @@ def _descriptor_seed(ean: str) -> typing.Optional[str]:
 def build_query_terms() -> list[str]:
     terms: list[str] = []
 
-    def add(term: typing.Optional[str]) -> None:
-        if not term:
-            return
-        candidate = term.strip()
-        if not candidate:
-            return
-        if candidate not in terms:
-            terms.append(candidate)
-
-    add(_descriptor_seed(EAN))
-    add(QUERY)
-    add(EAN)
+    if EAN:
+        terms.append(EAN)
+    elif QUERY:
+        terms.append(QUERY)
+    else:
+        descriptor_term = _descriptor_seed(EAN)
+        if descriptor_term:
+            terms.append(descriptor_term)
 
     return terms
 

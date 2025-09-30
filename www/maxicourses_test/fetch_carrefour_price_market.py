@@ -87,7 +87,7 @@ def run(argv: list[str]) -> int:
     env['CARREFOUR_STATE_VARIANT'] = 'carrefour_market'
     env['CARREFOUR_FRONTAL_STORE'] = os.environ.get('CARREFOUR_FRONTAL_STORE', '1911')
 
-    if TRACE_FILES:
+    if TRACE_FILES and not os.environ.get('CARREFOUR_FRONTAL_STORE'):
         replay_traces(env)
 
     initial = run_fetch(env)
@@ -99,7 +99,8 @@ def run(argv: list[str]) -> int:
             print(initial.stderr, file=sys.stderr, end="")
         return initial.returncode
 
-    replay_traces(env)
+    if TRACE_FILES and not os.environ.get('CARREFOUR_FRONTAL_STORE'):
+        replay_traces(env)
 
     if initial.stderr:
         print(initial.stderr, file=sys.stderr, end="")
