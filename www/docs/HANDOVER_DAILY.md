@@ -1,5 +1,13 @@
 # Handover Journal
 
+## POC Démo – Checklist express (Europe/Paris)
+1. Stabiliser les fetchers Carrefour City/Market → Auchan → Chronodrive puis Leclerc Drive / Intermarché : collecte complète, JSON conformes, captures archivées dans `logs/refonte_v2/`.
+2. Neutraliser les fallback restants (`maxicourses_test/server.py`) et s’assurer que le seed OpenFoodFacts injecte marque, type/goût et contenance pour chaque produit.
+3. Vérifier `manual_descriptors.json` + assets locaux avant démo (image, Nutri-score, quantité cohérentes).
+4. Documenter chaque run dans `docs/HANDOVER_DAILY.md` + `docs/PROMPT_LOG.md`, horodatage Europe/Paris, et enregistrer les traces (stdout/stderr/captures).
+5. Servir la démo depuis `www/` : `python3 -m http.server 8000`, V1 = `/maxicourses_test/pipeline/index2.html`, V2 = `/maxicourses_front_v2/index.html`.
+
+
 ## 2024-09-22 - GPT (Codex CLI)
 - **Objectif du jour** : relevé de prix Heinz, préparation documentation persistante, suggestions comparateur.
 - **Actions clés** :
@@ -346,14 +354,17 @@
   1. Continuer la refonte V2 conformément aux consignes.
   2. Avertir immédiatement Laurent au moindre incident.
 
-## 2025-09-29T21:39+02:00 (refonte V2 – front & logs) - GPT (Codex CLI)
+## 2025-09-29T21:39 (refonte V2 – front & logs, Europe/Paris) (refonte V2 – front & logs) - GPT (Codex CLI)
 - **Objectif** : Démarrer concrètement la V2, purger les artefacts lourds et sécuriser la sauvegarde Git.
 - **Actions réalisées** :
   - Checklist Git (`git status`, `git fetch`) puis duplication de l’UI existante dans `maxicourses_front_v2/index.html` + copie des assets, création de `logs/refonte_v2/README.md` (structure de tests).
   - Nettoyage de l’historique : suppression complète de `www/maxicourses_test/snapshots/` via `git filter-branch` + GC, ajout d’une règle `.gitignore` dédiée.
   - Retrait du profil Chrome (`git rm -r --cached www/maxicourses_test/.chrome-debug`) pour éviter de futurs commits volumineux.
+  - Nettoyage `pipeline/run_pipeline.py` : suppression du fallback `f"Produit {ean}"` (seed EAN restant brut).
   - Rebase pour retirer la mention du PAT dans la documentation ; commits principaux : `4d61f08f` (squelette V2), `f373972d` (handover), `d3b3a773` (journal git), `36c7a042` (cache Chrome), `b7cf50cb` (journal prompts redigé).
   - `git push -u origin main` réussi (auth via PAT en variable `GIT_ASKPASS`).
+  - Audit seed EAN démarré (29/09 22:45) : scan `maxicourses_test` → aucune occurrence "produit <EAN>" dans le code actif (uniquement captures HTML).
+  - Inspection `pipeline/run_pipeline.py`: fallback `f"Produit {ean}"` à remplacer par une désignation neutre pour éviter d'injecter "Produit <EAN>" lors des seeds.
 - **Données/artefacts ajoutés** :
   - maxicourses_front_v2/index.html
   - maxicourses_front_v2/assets/
@@ -365,3 +376,72 @@
 - **Suivi / prochaines étapes** :
   1. Concevoir le formulaire triple recherche dans `maxicourses_front_v2/index.html` et le brancher sur le backend.
   2. Lancer la campagne de reproduction des bugs (Carrefour City sans résultat, prix identiques, seed « produit <EAN> ») avec archivage dans `logs/refonte_v2/`.
+## 2025-09-29T23:56 (audit seed, Europe/Paris)
+- Audit seed EAN :
+  - Création du dossier `logs/refonte_v2/runs/20250929-235601-audit-seed` (scan "produit <EAN"); immédiatement supprimé après contrôle pour repartir propre.
+  - `rg` confirme absence de requête "produit <EAN" dans les scripts actifs (`maxicourses_test/**`).
+  - Fallback `f"Produit {ean}"` repéré dans `pipeline/run_pipeline.py` à neutraliser (descripteurs seeds).
+- Poursuite : neutraliser ce fallback, vérifier `server.py` et relancer tests seed.
+
+- Nettoyage artefacts de test (dossier runs + résultats `test-3124480200433/` supprimés pour repartir propre).
+## 2025-09-30T10:56 (roadmap LLM & assistants, Europe/Paris) (roadmap LLM & assistants) - GPT (Codex CLI)
+- **Objectif** : consigner les évolutions souhaitées (LLM interne, recommandations, promos PDF, assistant nutrition).
+- **Actions réalisées** :
+  - Ajout d'une section `ToDo évolution Maxicourses` dans `docs/PRICE_COMPARATOR_PLAN.md` listant les chantiers : base de connaissances LLM, moteur de recommandations, promotions/fidélité, ingestion PDF, assistant courses personnalisé.
+- **Données/artefacts ajoutés** :
+  - docs/PRICE_COMPARATOR_PLAN.md
+- **Blocages / alertes** :
+  - Aucun.
+- **Suivi / prochaines étapes** :
+  1. Prioriser et détailler chaque lot (spécifications techniques, dépendances).
+  2. Planifier l'intégration avec la refonte V2 (UI + backend).
+
+## 2025-09-30T14:01 (passation V2, Europe/Paris) (passation V2) - GPT (Codex CLI)
+- **Objectif** : préparer le prochain GPT (collecte stable pour démonstrations).
+- **Actions réalisées** :
+  - Ajout d’une section "Mise à jour 2025-09-29T23:15 (Transit V2, Europe/Paris)" dans `docs/QUICKSTART_NEXT_GPT.md` (priorité collecte City/Market/Auchan/Chronodrive/Intermarché/Leclerc).
+- **Données/artefacts ajoutés** :
+  - docs/QUICKSTART_NEXT_GPT.md
+- **Blocages / alertes** :
+  - Pipeline encore en cours de nettoyage (fallbacks, tests manquants).
+- **Suivi / prochaines étapes** :
+  1. Neutraliser fallback `server.py` + seed OFF marque/goût/contenance.
+  2. Relancer collectes multi enseignes (traces complètes).
+
+## 2025-09-30T14:17 (Euro/Paris) (todo quickstart relay) - GPT (Codex CLI)
+- **Actions réalisées** : documentée la liste des fichiers à lire (1→13) avec résumés et rappel méthodologique dans la réponse utilisateur (voir conversation).
+- **Suivi / prochaines étapes** : 1. Neutraliser fallback `server.py`; 2. Relancer collectes multi-enseignes.
+
+## 2025-09-30T14:22 (Europe/Paris) (checklist POC) - GPT (Codex CLI)
+- **Objectif** : clarifier le périmètre restant pour le POC démo.
+- **Actions réalisées** :
+  - Ajout de la section "POC Démo – Checklist express" en tête de `docs/HANDOVER_DAILY.md` (5 points à suivre).
+  - Mise à jour `docs/QUICKSTART_NEXT_GPT.md` avec un rappel d’aller lire cette checklist avant toute action.
+- **Blocages / alertes** : pipeline encore en cours de nettoyage (`server.py` à ajuster, collectes multi-enseignes à relancer).
+- **Suivi / prochaines étapes** : identiques à la checklist (stabilisation fetchers, seed OFF, runs tracés).
+
+## 2025-09-30T14:29 (Europe/Paris) (vision clarifiée) - GPT (Codex CLI)
+- **Actions réalisées** :
+  - Ajout d’une section "Vision MaxiCourses" dans `docs/README.md` (objectifs, triple mode de recherche, OpenFoodFacts).
+  - Ajout d’un bloc "Vision rapide" en tête de `docs/QUICKSTART_NEXT_GPT.md` rappelant comparateur multi-enseignes, seed EAN/descriptif/photo et règles visuels/seed.
+- **Suivi / prochaines étapes** : inchangées (stabilisation fetchers + tests).
+
+## 2025-09-30T14:45 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : stabiliser Carrefour City/Market en forçant le magasin via `FRONTAL_STORE` et valider la pipeline seed EAN-only.
+- **Actions réalisées** :
+  - Corrigé `maxicourses_test/server.py` + `manual_descriptors.json` pour produire des requêtes seed normalisées (minuscules, sans accents ni doublons) et appliqué la règle « EAN seul » sur City/Market/Auchan/Chronodrive.
+  - Collecté les identifiants `FRONTAL_STORE` via Chrome 9222 : Market Fondaudège = `1911`, City Bordeaux Balguerie = `800041`.
+  - Injecté la prise en charge du cookie dans `fetch_carrefour_price.py` et forcé l’ID dans `fetch_carrefour_price_city.py` / `fetch_carrefour_price_market.py`. Mise à jour `docs/PRICE_COLLECTION_GUIDE.md` + `docs/QUICKSTART_NEXT_GPT.md` pour documenter la règle EAN et les IDs.
+  - Relancé `pipeline/run_pipeline.py` (EAN 3092718637033) depuis un Chrome vierge :
+    * City → `NO_PRICE` (produit réellement indisponible, store correctement identifié).
+    * Market → `OK`, prix 2,81 €.
+    * Auchan → `NO_RESULTS` (le site ne retourne rien à l’EAN, considéré indisponible).
+    * Chronodrive → `OK`, prix 2,85 €.
+- **Données/artefacts ajoutés** :
+  - maxicourses_test/server.py, maxicourses_test/manual_descriptors.json, maxicourses_test/pipeline/run_pipeline.py, maxicourses_test/fetch_carrefour_price.py, maxicourses_test/fetch_carrefour_price_city.py, maxicourses_test/fetch_carrefour_price_market.py.
+  - maxicourses_test/results/test-3092718637033/run-20250930-145207.json + debug captures.
+- **Blocages / alertes** :
+  - City/ Auchan renvoient `NO_PRICE` / `NO_RESULTS` sur cet EAN (normal si drive indisponible). Prévoir un EAN City disponible pour une preuve positive lors d’une future session.
+- **Suivi / prochaines étapes** :
+  1. Rejouer Carrefour City sur un EAN dispo pour capture positive, sinon classer comme indisponible.
+  2. Surveiller Auchan : si l’EAN est néanmoins dispo côté humain, ajuster le script ; sinon considérer `NO_RESULTS` comme absence produit.

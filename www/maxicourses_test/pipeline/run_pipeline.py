@@ -75,6 +75,13 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
     },
 }
 
+EAN_ONLY_ADAPTERS = {
+    "carrefour_city",
+    "carrefour_market",
+    "auchan",
+    "chronodrive",
+}
+
 DEFAULT_ADAPTER_ORDER = [
     "carrefour_city",
     "carrefour_market",
@@ -154,7 +161,8 @@ def merge_descriptor(base: Optional[Dict[str, Any]], updates: Dict[str, Any]) ->
 def descriptor_from_payload(ean: str, adapter: str, payload: Dict[str, Any]) -> Dict[str, Any]:
     if not payload:
         return {}
-    name = payload.get("title") or payload.get("name") or f"Produit {ean}"
+    raw_title = payload.get("title") or payload.get("name")
+    name = raw_title.strip() if isinstance(raw_title, str) else None
     quantity = payload.get("quantity") or ""
     image = payload.get("image") or payload.get("image_path")
     descriptor = {
@@ -164,12 +172,12 @@ def descriptor_from_payload(ean: str, adapter: str, payload: Dict[str, Any]) -> 
         "categories": "",
         "image": image,
         "source": adapter,
-        "description": payload.get("description") or name,
+        "description": payload.get("description") or name or "",
         "note": payload.get("note") or f"Collecte seed via {adapter}",
     }
     # attempt to guess brand from title if not provided
     brand = payload.get("brand")
-    if not brand and isinstance(name, str):
+    if not brand and isinstance(name, str) and name:
         brand_candidate = name.split()[0]
         descriptor["brand"] = brand_candidate
     else:
@@ -287,7 +295,9 @@ def run_adapter(
         env["CDP_URL"] = os.environ["CDP_URL"]
     if proxy:
         env["PROXY"] = proxy
-    if query:
+    if adapter in EAN_ONLY_ADAPTERS:
+        env["QUERY"] = ean
+    elif query:
         env.setdefault("QUERY", query)
 
     command = [sys.executable, str(script_path)]

@@ -468,6 +468,23 @@ async def run() -> Result:
         user_agent=None,
     )
 
+    frontal_store_id = os.environ.get("CARREFOUR_FRONTAL_STORE")
+    if frontal_store_id:
+        try:
+            await context.add_cookies([
+                {
+                    "name": "FRONTAL_STORE",
+                    "value": frontal_store_id,
+                    "domain": ".carrefour.fr",
+                    "path": "/",
+                    "secure": True,
+                    "httpOnly": True,
+                    "sameSite": "Lax",
+                }
+            ])
+        except Exception:
+            pass
+
     async def acquire_carrefour_tab() -> Optional[Any]:
         for ctx in browser.contexts:
             for pg in ctx.pages:

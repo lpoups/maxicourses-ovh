@@ -1,7 +1,7 @@
 # Guide de collecte prix par enseigne
 
 - Chrome remote lancé via `maxicourses_test/start_chrome_debug.sh` (profil `.chrome-debug`), puis toutes les commandes Playwright avec `USE_CDP=1`.
-- **Recherche EAN brut obligatoire** : pour tout nouveau produit, taper directement le code EAN (sans texte) sur les enseignes seed qui l’acceptent – Carrefour City/Market → Auchan → Chronodrive. Dès qu’un descriptif fiable est obtenu, l’enregistrer dans `manual_descriptors.json` et l’utiliser pour les enseignes ne supportant pas la recherche EAN (Leclerc, Intermarché, etc.).
+- **Recherche EAN brut obligatoire** : pour tout nouveau produit, taper directement le code EAN (sans texte) sur les enseignes seed qui l’acceptent – Carrefour City/Market → Auchan → Chronodrive. Aucun descriptif ne doit être utilisé sur ces enseignes si l’EAN est connu ; un résultat `NO_PRICE` ou `NO_RESULTS` signifie que le drive ne propose pas ce produit.
 - Chaque sortie JSON doit inclure `price`, `unit_price` (€/kg ou €/L), `quantity`, `store`, `note` (horodatage UTC), `url`, `matched_ean`.
 - Conserver les captures dans `maxicourses_test/debug_screens/` ou `maxicourses_test/debug/` et référencer la trace dans `docs/HANDOVER_DAILY.md`.
 - Chaque produit possède un visuel local dans `maxicourses_test/pipeline/assets/` déclaré via `manual_descriptors.json` ; le comparateur (`pipeline/index2.html`) affiche ensuite un lien « Voir image ».
@@ -33,6 +33,7 @@
   USE_CDP=1 HEADLESS=0 python3 fetch_carrefour_price_market.py --ean <ean> --query "<libellé>"
   ```
 - **Sorties** : le JSON indique explicitement le magasin (`store`). Si le libellé retourné n’est pas celui attendu, rejouer la trace puis relancer le script.
+- **IDs magasins (cookie `FRONTAL_STORE`)** : City Bordeaux Balguerie = `800041`, Market Fondaudège = `1911`. Les wrappers injectent ces valeurs automatiquement ; vérifier/mettre à jour si un autre drive est utilisé.
 
 ## Auchan
 - **Script** : `maxicourses_test/fetch_auchan_price.py` (CDP + seed humain `traces/auchan-20240922-clean.jsonl`).

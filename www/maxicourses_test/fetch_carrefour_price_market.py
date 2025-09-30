@@ -85,6 +85,7 @@ def run(argv: list[str]) -> int:
     env['HEADLESS'] = args.headless
     env['STORE_QUERY'] = MANDATE.store_hint
     env['CARREFOUR_STATE_VARIANT'] = 'carrefour_market'
+    env['CARREFOUR_FRONTAL_STORE'] = os.environ.get('CARREFOUR_FRONTAL_STORE', '1911')
 
     if TRACE_FILES:
         replay_traces(env)
