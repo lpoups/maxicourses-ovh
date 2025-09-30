@@ -43,6 +43,26 @@ except Exception:
     MANUAL_DESCRIPTOR = {}
 
 
+def load_storage_state(path: typing.Optional[Path]) -> typing.Optional[dict]:
+    if not path:
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+    except Exception:
+        return None
+
+
+async def apply_storage_state(context, page, state: typing.Optional[dict]) -> None:
+    if not state:
+        return
+    cookies = state.get("cookies") if isinstance(state, dict) else None
+    if cookies:
+        try:
+            await context.add_cookies(cookies)
+        except Exception:
+            pass
+
+
 def _descriptor_seed(ean: str) -> typing.Optional[str]:
     """Compose the human search phrase stored in the manual descriptors table."""
     if not ean:
@@ -296,11 +316,17 @@ async def perform_search(page, term: str) -> bool:
 
 
 async def run() -> Result:
-    storage_state = state_path_for('intermarche')
+    storage_state_path = state_path_for('intermarche')
     p, browser, context, page = await make_context(
-        headless=HEADLESS, proxy=PROXY, storage_state_path=storage_state,
+        headless=HEADLESS,
+        proxy=PROXY,
+        storage_state_path=storage_state_path if os.environ.get('USE_CDP') != '1' else None,
         user_agent=DEFAULT_UA,
     )
+
+    state_data = load_storage_state(Path(storage_state_path) if storage_state_path else None)
+    if state_data:
+        await apply_storage_state(context, page, state_data)
 
     try:
         await context.set_extra_http_headers(DEFAULT_HEADERS)

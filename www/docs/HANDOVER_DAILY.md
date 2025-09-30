@@ -555,3 +555,16 @@
 - **Suivi / prochaines étapes** :
   1. Adapter `fetch_intermarche_price.py` pour charger `state/intermarche.json` avant la recherche.
   2. Relancer l’EAN 5000112611861 une fois l’injection en place pour valider la collecte Intermarché.
+
+## 2025-09-30T17:37 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : revalider toutes les enseignes sur l’EAN 5000112611861 après tentative d’injection automatique (Auchan + Intermarché).
+- **Actions réalisées** :
+  - Chrome vierge → `pipeline/run_pipeline.py --ean 5000112611861 --adapters carrefour_city carrefour_market auchan chronodrive leclerc intermarche --headed`.
+  - Résultats : City `2,79 €`, Market `2,45 €`, Auchan `2,38 € (1,36 €/L)`, Chronodrive `2,49 € (1,42 €/L)`, Leclerc `ERROR: EMPTY_STDOUT` (timeout `manual_leclerc_cdp.py`), Intermarché `NO_RESULTS` (state Hyper Cestas 01047 non appliquée en CDP).
+  - Run archivé `results/test-5000112611861/run-5000112611861-20250930-173704.json` ; `latest.json` / `summary.json` actualisés.
+- **Blocages / alertes** :
+  - Leclerc : script manuel en timeout (réseau ou latence > 30 s) → relancer après vérification.
+  - Intermarché : malgré la state, aucune PDP trouvée; il faut injecter explicitement les cookies avant la recherche.
+- **Suivi / prochaines étapes** :
+  1. Modifier `fetch_intermarche_price.py` pour imposer `state/intermarche.json` (cookies) avant `perform_search`.
+  2. Rejouer le run complet une fois Intermarché réglé et en monitorant le script Leclerc.
