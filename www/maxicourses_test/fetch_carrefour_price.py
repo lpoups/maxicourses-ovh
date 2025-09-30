@@ -355,6 +355,8 @@ async def read_current_store(page) -> Optional[str]:
 
 
 async def ensure_expected_store(page, target: Optional[str], attempts: int = 3) -> Optional[str]:
+    if os.environ.get("CARREFOUR_FRONTAL_STORE") and target:
+        return clean_spaces(target)
     expected = clean_spaces(target)
     if not expected:
         current = await read_current_store(page)

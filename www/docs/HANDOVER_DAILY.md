@@ -492,3 +492,14 @@
 - **Suivi / prochaines étapes** :
   1. Poursuivre la documentation des IDs magasins et la stabilisation Intermarché/Leclerc.
   2. Reprendre la refonte front V2 après validation de l’ensemble des fetchers.
+
+## 2025-09-30T16:24 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : vérifier que la suppression d’`ensure_expected_store` n’introduit aucun effet de bord.
+- **Actions réalisées** :
+  - Redémarré Chrome (profil vierge), relancé la pipeline (`--adapters carrefour_city carrefour_market auchan chronodrive`). Résultats identiques : City `NO_PRICE`, Market `2,81 €`, Auchan `2,96 €`, Chronodrive `2,85 €` (run archivé `results/test-3092718637033/run-3092718637033-20250930-162448.json`).
+- **Données/artefacts ajoutés** :
+  - maxicourses_test/results/test-3092718637033/run-3092718637033-20250930-162448.json + rafraîchissement `latest.json` / `summary.json`.
+- **Blocages / alertes** :
+  - Aucun nouveau blocage détecté.
+- **Suivi / prochaines étapes** :
+  1. Poursuivre la stabilisation Leclerc/Intermarché puis la refonte V2.
