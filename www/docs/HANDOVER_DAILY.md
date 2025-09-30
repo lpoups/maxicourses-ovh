@@ -459,3 +459,22 @@
 - **Suivi / prochaines étapes** :
   1. Intégrer automatiquement le drive Talence (6117) dans `fetch_auchan_price.py` / `make_context` pour Playwright/CDP.
   2. Relancer l’EAN 3092718637033 une fois le drive injecté pour valider la collecte Auchan.
+
+## 2025-09-30T16:05 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : valider la collecte multi-enseignes après injection automatique du drive Auchan Talence.
+- **Actions réalisées** :
+  - Modifié `fetch_auchan_price.py` pour charger `state/auchan.json` (cookies + local/session storage) même en mode CDP, avec fallback sur l’EAN brut.
+  - Relancé `pipeline/run_pipeline.py` (EAN 3092718637033) depuis un Chrome totalement neuf :
+    * Carrefour City → `NO_PRICE` (produit absent, store correctement identifié).
+    * Carrefour Market → `OK`, 2,81 €.
+    * Auchan → `OK`, 2,96 € (4,93 € / L) avec PDP `pr-C1628583`.
+    * Chronodrive → `OK`, 2,85 € (4,75 € / L).
+  - Stocké le run dans `results/test-3092718637033/run-3092718637033-20250930-160223.json`.
+- **Données/artefacts ajoutés** :
+  - maxicourses_test/fetch_auchan_price.py mis à jour.
+  - maxicourses_test/results/test-3092718637033/run-3092718637033-20250930-160223.json.
+- **Blocages / alertes** :
+  - Carrefour City reste indisponible pour cet EAN (comportement attendu) ; choisir un EAN City valide pour une preuve positive lors d’une prochaine session.
+- **Suivi / prochaines étapes** :
+  1. Synchroniser les IDs Auchan (6117) dans la documentation (`docs/PRICE_COLLECTION_GUIDE.md`) et mettre à jour la checklist V2.
+  2. Enchaîner sur la refonte front V2 (`maxicourses_front_v2/index.html`) une fois les fetchers Leclerc/Intermarché re-validés.

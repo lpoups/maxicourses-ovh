@@ -37,6 +37,65 @@ except Exception:
     MANUAL_DESCRIPTOR = {}
 
 
+def load_storage_state(path: Path) -> typing.Optional[dict]:
+    if not path or not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+async def apply_storage_state(context, page, state: typing.Optional[dict]) -> None:
+    if not state:
+        return
+    cookies = state.get("cookies") or []
+    if cookies:
+        try:
+            await context.add_cookies(cookies)
+        except Exception:
+            pass
+    origins = state.get("origins") or []
+    for origin in origins:
+        origin_url = origin.get("origin")
+        if not origin_url or not isinstance(origin_url, str):
+            continue
+        local_storage = origin.get("localStorage") or []
+        session_storage = origin.get("sessionStorage") or []
+        if not local_storage and not session_storage:
+            continue
+        try:
+            if origin_url != "about:blank":
+                await page.goto(origin_url, wait_until='domcontentloaded')
+        except Exception:
+            continue
+        for item in local_storage:
+            name = item.get("name")
+            value = item.get("value")
+            if name is None or value is None:
+                continue
+            try:
+                await page.evaluate("(entry) => window.localStorage.setItem(entry.name, entry.value)",
+                                    {"name": name, "value": value})
+            except Exception:
+                continue
+        for item in session_storage:
+            name = item.get("name")
+            value = item.get("value")
+            if name is None or value is None:
+                continue
+            try:
+                await page.evaluate("(entry) => window.sessionStorage.setItem(entry.name, entry.value)",
+                                    {"name": name, "value": value})
+            except Exception:
+                continue
+    # Revenir sur la home après injection
+    try:
+        await page.goto(HOME_URL, wait_until='domcontentloaded')
+    except Exception:
+        pass
+
+
 @dataclass
 class Result:
     status: str
@@ -218,6 +277,10 @@ async def run_via_playwright() -> typing.Optional[Result]:
         user_agent=None,
     )
 
+    state_data = load_storage_state(Path(storage_state)) if storage_state else None
+    if state_data:
+        await apply_storage_state(context, page, state_data)
+
     try:
         try:
             await page.goto(HOME_URL, wait_until='domcontentloaded')
@@ -308,6 +371,9 @@ async def run_http() -> Result:
         headless=HEADLESS, proxy=PROXY, storage_state_path=storage_state,
         user_agent=None,
     )
+    state_data = load_storage_state(Path(storage_state)) if storage_state else None
+    if state_data:
+        await apply_storage_state(context, page, state_data)
     try:
         if AUCHAN_URL:
             try:

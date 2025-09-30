@@ -52,6 +52,7 @@ Avant toute action :
 - Démarrer Chrome via `./start_chrome_debug.sh`, travailler avec `USE_CDP=1`; basculer `HEADLESS=0` uniquement pour les vérifications humaines.
 - Recherche seed : Carrefour City → Carrefour Market → Auchan → Chronodrive. Arrêter si aucune enseigne seed ne retourne le produit.
 - Pour Carrefour City/Market, Auchan et Chronodrive : la requête doit être l’EAN brut. Les wrappers City/Market injectent `FRONTAL_STORE` (`800041` / `1911`) pour verrouiller le drive ; adapter la valeur si un autre magasin est requis.
+- Auchan Talence-Gallieni est préchargé via `state/auchan.json` (`storeReference.id = 6117`). Si vous changez de drive, regénérez ce state (Chrome 9222) avant de relancer.
 - Collecte déclenchable par EAN ou descriptif (front index2.html + serveur) : toujours vérifier que le descriptif résout vers le bon EAN avant d’enchaîner.
 - Enseignes sans recherche EAN (Leclerc, Intermarché, etc.) : utiliser le descriptif seed généré, jamais « produit <EAN> ».
 - Aucune saisie manuelle : scripts seulement. Chaque résultat JSON doit inclure prix TTC, prix unitaire (€/kg ou €/L), quantité, magasin, note horodatée (Europe/Paris), URL, matched_ean.

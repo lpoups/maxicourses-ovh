@@ -42,6 +42,7 @@
   USE_CDP=1 HEADLESS=0 EAN=<ean> QUERY="<libellé seed ou EAN>" python3 fetch_auchan_price.py
   ```
 - Sert de seed alternatif lorsque Carrefour n’a pas l’EAN ; taper d’abord l’EAN brut, puis réutiliser le descriptif trouvé pour les autres enseignes.
+- **Sélection magasin** : le script charge automatiquement l’état Talence-Gallieni (`state/auchan.json` → `storeReference.id = 6117`). Si un autre drive est requis, mettre à jour ce fichier via Chrome 9222 avant de relancer.
 
 ## Intermarché
 - **Script** : `maxicourses_test/fetch_intermarche_price.py` (CDP, accepter cookies via script).
