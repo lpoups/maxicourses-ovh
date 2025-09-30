@@ -519,3 +519,14 @@
 - **Suivi / prochaines étapes** :
   1. Poursuivre les validations Intermarché/Leclerc puis attaquer la refonte front V2.
   2. Identifier un EAN compatible City pour une preuve positive.
+
+## 2025-09-30T16:46 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : rejouer la pipeline sous supervision humaine pour confirmer les correctifs EAN-only.
+- **Actions réalisées** :
+  - Redémarré Chrome (profil vierge) et relancé `pipeline/run_pipeline.py --ean 3092718637033 --adapters carrefour_city carrefour_market auchan chronodrive --headed` : City `NO_PRICE`, Market `2,81 €`, Auchan `2,96 €`, Chronodrive `2,85 €` (run archivé `results/test-3092718637033/run-3092718637033-20250930-164638.json`).
+- **Données/artefacts ajoutés** :
+  - maxicourses_test/results/test-3092718637033/run-3092718637033-20250930-164638.json + rafraîchissement `latest.json` / `summary.json`.
+- **Blocages / alertes** :
+  - RAS.
+- **Suivi / prochaines étapes** :
+  1. Documenter un EAN disponible Carrefour City et valider Leclerc/Intermarché avant la refonte front V2.
