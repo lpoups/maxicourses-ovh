@@ -445,3 +445,17 @@
 - **Suivi / prochaines étapes** :
   1. Rejouer Carrefour City sur un EAN dispo pour capture positive, sinon classer comme indisponible.
   2. Surveiller Auchan : si l’EAN est néanmoins dispo côté humain, ajuster le script ; sinon considérer `NO_RESULTS` comme absence produit.
+
+## 2025-09-30T15:07 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : préparer la stabilisation Auchan en identifiant le drive actif et consigner l’état actualisé.
+- **Actions réalisées** :
+  - Ouvert Chrome 9222 sur Auchan Drive Talence-Gallieni ; capture du `dataLayer` → `storeReference.id = 6117`, `pointOfService.id = 37b5df86-ff8b-11ed-be56-0242ac120002`.
+  - Sauvegardé `maxicourses_test/state/auchan.json` depuis la session courante pour réutiliser cookies + storage lors des prochains fetchers.
+  - Confirmé que l’absence de prix dans le run précédent provenait de l’absence de drive sélectionné (comportement normal : Auchan affiche la fiche sans tarif sans magasin).
+- **Données/artefacts ajoutés** :
+  - maxicourses_test/state/auchan.json (profil Talence-Gallieni).
+- **Blocages / alertes** :
+  - `fetch_auchan_price.py` doit charger l’état `auchan.json` ou injecter le storeId 6117 avant le prochain run ; sinon `NO_RESULTS` persistera.
+- **Suivi / prochaines étapes** :
+  1. Intégrer automatiquement le drive Talence (6117) dans `fetch_auchan_price.py` / `make_context` pour Playwright/CDP.
+  2. Relancer l’EAN 3092718637033 une fois le drive injecté pour valider la collecte Auchan.
