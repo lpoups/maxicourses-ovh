@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>MaxiCourses – Comparateur nouvelle génération</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    color-scheme: light;
+    --color-background: radial-gradient(circle at 20% 20%, #f5f7ff 0%, #eef2ff 45%, #e2e8f0 100%);
+    --color-card: rgba(255, 255, 255, 0.92);
+    --color-border: rgba(148, 163, 184, 0.35);
+    --color-shadow: rgba(15, 23, 42, 0.12);
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-text: #0f172a;
+    --color-muted: #475569;
+    --radius-lg: 26px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--color-background);
+    color: var(--color-text);
+    padding: 32px clamp(16px, 5vw, 64px);
+  }
+  header.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .brand img {
+    width: 72px;
+    height: 72px;
+    border-radius: 22px;
+    padding: 12px;
+    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    box-shadow: 0 24px 55px rgba(15, 23, 42, 0.25);
+  }
+  .brand h1 {
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .brand p {
+    margin: 6px 0 0;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+  }
+  .session-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.12);
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  .controls {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    margin-bottom: 48px;
+  }
+  .card {
+    background: var(--color-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 28px 60px var(--color-shadow);
+    padding: 22px 24px;
+  }
+  .card h2 {
+    margin: 0 0 14px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-dark);
+  }
+  .input-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .input-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .input-row input[type="text"],
+  .input-row input[type="file"] {
+    flex: 1 1 auto;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    padding: 12px 14px;
+    font-size: 0.95rem;
+    transition: border 150ms ease, box-shadow 150ms ease;
+  }
+  .input-row input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+  }
+  button.primary {
+    appearance: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+    box-shadow: 0 18px 38px rgba(37, 99, 235, 0.25);
+  }
+  button.primary:hover:not([disabled]) {
+    transform: translateY(-1px);
+    box-shadow: 0 22px 48px rgba(37, 99, 235, 0.3);
+  }
+  button.primary[disabled] {
+    opacity: 0.65;
+    cursor: wait;
+  }
+  .status {
+    font-size: 0.85rem;
+    min-height: 1.2em;
+    color: var(--color-muted);
+  }
+  .status[data-status="error"] {
+    color: #b91c1c;
+  }
+  .status[data-status="success"] {
+    color: #0f766e;
+  }
+
+  .catalog {
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
+    margin-bottom: 80px;
+  }
+  .category-section {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .category-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .category-title {
+    font-size: clamp(1.35rem, 2vw, 1.6rem);
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .category-count {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+  }
+  .category-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
+  .pulse-highlight {
+    animation: cardPulse 1.2s ease 2;
+  }
+  @keyframes cardPulse {
+    0% { box-shadow: 0 0 0 rgba(37, 99, 235, 0.0); }
+    50% { box-shadow: 0 0 0 14px rgba(37, 99, 235, 0.2); }
+    100% { box-shadow: 0 0 0 rgba(37, 99, 235, 0.0); }
+  }
+
+  .product-card {
+    background: var(--color-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(148, 163, 184, 0.26);
+    box-shadow: 0 32px 60px var(--color-shadow);
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  }
+  .product-head {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 18px;
+    align-items: center;
+  }
+  .product-visual {
+    width: 96px;
+    height: 96px;
+    border-radius: 22px;
+    background: linear-gradient(145deg, rgba(37, 99, 235, 0.1), rgba(14, 116, 144, 0.08));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .product-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .product-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
+  }
+  .product-info .meta {
+    margin-top: 6px;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+  }
+  .product-attributes {
+    margin-top: 12px;
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .product-attribute {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    background: rgba(15, 23, 42, 0.05);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .product-attribute img {
+    height: 26px;
+  }
+
+  .product-summary {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    background: rgba(37, 99, 235, 0.1);
+    min-width: 180px;
+  }
+  .summary-item span.label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-primary-dark);
+    font-weight: 600;
+  }
+  .summary-item strong {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .summary-item small {
+    color: var(--color-muted);
+    font-size: 0.8rem;
+  }
+
+  .product-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .action-left {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  button.toggle-details {
+    appearance: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 10px 16px;
+    background: rgba(15, 23, 42, 0.08);
+    color: var(--color-text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 150ms ease, transform 150ms ease;
+  }
+  button.toggle-details[aria-expanded="true"] {
+    background: rgba(37, 99, 235, 0.16);
+    color: var(--color-primary-dark);
+  }
+  button.toggle-details:hover {
+    transform: translateY(-1px);
+  }
+  button.refresh {
+    appearance: none;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 10px 16px;
+    background: rgba(37, 99, 235, 0.12);
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 150ms ease;
+  }
+  button.refresh:hover {
+    background: rgba(37, 99, 235, 0.2);
+  }
+  button.refresh[disabled] {
+    opacity: 0.6;
+    cursor: wait;
+  }
+  .product-status {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    min-height: 1.2em;
+  }
+
+  .product-details {
+    border-radius: var(--radius-md);
+    background: rgba(15, 23, 42, 0.02);
+    border: 1px dashed rgba(148, 163, 184, 0.4);
+    padding: 16px;
+    display: none;
+  }
+  .product-details[aria-hidden="false"] {
+    display: block;
+  }
+  table.prices {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table.prices th,
+  table.prices td {
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 0.92rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  }
+  table.prices th {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  table.prices tr:last-child td {
+    border-bottom: none;
+  }
+  .table-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .table-logo img {
+    height: 24px;
+    width: auto;
+  }
+  .status-ok {
+    color: #047857;
+    font-weight: 600;
+  }
+  .status-error {
+    color: #b91c1c;
+    font-weight: 600;
+  }
+  .status-warn {
+    color: #b45309;
+    font-weight: 600;
+  }
+  .price {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+  .price-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(37, 99, 235, 0.12);
+    color: var(--color-primary-dark);
+  }
+  .price-badge--best {
+    background: rgba(16, 185, 129, 0.16);
+    color: #047857;
+  }
+  .price-badge--worst {
+    background: rgba(220, 38, 38, 0.16);
+    color: #b91c1c;
+  }
+  .price-badge--alert {
+    background: rgba(249, 115, 22, 0.18);
+    color: #b45309;
+  }
+  .price-badge--alert::before {
+    content: '\26A0';
+    font-size: 0.78rem;
+    margin-right: 4px;
+  }
+  .row-mismatch td {
+    background: rgba(249, 115, 22, 0.08);
+  }
+  .link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .link:hover {
+    text-decoration: underline;
+  }
+  .empty-state {
+    text-align: center;
+    padding: 60px 40px;
+    border-radius: var(--radius-lg);
+    border: 1px dashed rgba(148, 163, 184, 0.4);
+    color: var(--color-muted);
+    background: rgba(255, 255, 255, 0.6);
+  }
+  @media (max-width: 640px) {
+    .product-head {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .product-visual {
+      margin: 0 auto;
+    }
+    .product-info h3 {
+      font-size: 1.1rem;
+    }
+    .summary-item {
+      min-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <img alt="MaxiCourses" src="../assets/logo_blanc_maxicourses.png"/>
+    <div>
+      <h1>MaxiCourses – Comparateur live</h1>
+      <p>Recherche EAN, descriptif libre ou photo de code-barres · Collecte multi-enseignes stabilisée</p>
+    </div>
+  </div>
+  <div class="session-meta">
+    <span class="pill">Pipeline City · Market · Auchan · Chronodrive · Intermarché · Leclerc</span>
+  </div>
+</header>
+
+<section class="controls">
+  <form class="card" id="ean-search-form" novalidate="">
+    <h2>Collecte par EAN</h2>
+    <div class="input-stack">
+      <div class="input-row">
+        <input id="ean-search-input" name="ean" inputmode="numeric" pattern="\d{8,14}" placeholder="Saisissez un EAN (8 à 14 chiffres)" required="" type="text"/>
+        <button class="primary" type="submit">Lancer</button>
+      </div>
+      <p class="status" data-role="search-status"></p>
+    </div>
+  </form>
+
+  <form class="card" id="image-upload-form" novalidate="">
+    <h2>Upload photo code-barres</h2>
+    <div class="input-stack">
+      <div class="input-row">
+        <input id="ean-image-input" name="image" accept="image/*" type="file" required=""/>
+        <button class="primary" type="submit">Analyser</button>
+      </div>
+      <p class="status" data-role="search-status"></p>
+    </div>
+  </form>
+</section>
+
+<main id="product-catalog" class="catalog"></main>
+
+<script>
+  const state = {
+    manualDescriptors: {},
+    summary: {},
+    datasets: new Map(),
+    expandedCards: new Set(),
+  };
+
+  const LOGO_BASE = new URL('../assets/logos/', window.location.href).href;
+  const LOGOS = {
+    carrefour: 'carrefour.png',
+    carrefour_city: 'carrefour.png',
+    carrefour_market: 'carrefour.png',
+    leclerc: 'leclerc.png',
+    leclerc_drive: 'leclerc.png',
+    intermarche: 'intermarche.png',
+    auchan: 'auchan.png',
+    chronodrive: 'chronodrive.png'
+  };
+  const DISPLAY_NAMES = {
+    carrefour: 'Carrefour',
+    carrefour_city: 'Carrefour City',
+    carrefour_market: 'Carrefour Market',
+    leclerc: 'E.Leclerc Drive',
+    leclerc_drive: 'E.Leclerc Drive',
+    intermarche: 'Intermarché',
+    auchan: 'Auchan',
+    chronodrive: 'Chronodrive'
+  };
+  const CATEGORY_RULES = [
+    {
+      label: 'Produits végétaux',
+      keywords: ['vegetal', 'végétal', 'soja', 'vegan', 'amande', 'avoine', 'riz', 'coco', 'lait vegetal', 'boisson vegetale', 'produits vegetaux', 'produit vegetal', 'dessert vegetal', 'yaourt soja', 'bjorg', 'alpro']
+    },
+    {
+      label: 'Boissons',
+      keywords: ['boisson', 'boissons', 'soda', 'cola', 'limonade', 'jus', 'cafe', 'café', 'the', 'thé', 'energie', 'energy', 'tonic', 'boire', 'bebida', 'bebidas']
+    },
+    {
+      label: 'Animalerie',
+      keywords: ['croquette', 'croquettes', 'chat', 'chien', 'animal', 'petfood']
+    },
+    {
+      label: 'Hygiène & soins',
+      keywords: ['cadum', 'douche', 'gel', 'savon', 'hygiene', 'hygiène', 'soin', 'soins', 'peau', 'corps']
+    }
+  ];
+  const REFRESH_ENDPOINT = window.MAXICOURSES_REFRESH_ENDPOINT || 'http://127.0.0.1:5001/api/collect';
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    await loadInitialData();
+    setupEanSearch();
+    setupImageUpload();
+  });
+
+  async function loadInitialData() {
+    const [manualDescriptors, summary] = await Promise.all([
+      fetchJson('../manual_descriptors.json'),
+      fetchJson('../results/summary.json')
+    ]);
+    state.manualDescriptors = manualDescriptors || {};
+    state.summary = summary || {};
+
+    const eans = Object.keys(state.summary || {});
+    if (eans.length) {
+      await loadDatasets(eans);
+    }
+    renderCatalog();
+  }
+
+  async function loadDatasets(eans) {
+    const unique = Array.from(new Set(eans.map((ean) => normalizeEan(ean)).filter(Boolean)));
+    await Promise.all(unique.map(async (ean) => {
+      if (!ean || state.datasets.has(ean)) return;
+      const data = await fetchDataset(ean);
+      if (data) {
+        state.datasets.set(ean, data);
+      }
+    }));
+  }
+
+  function renderCatalog(options = {}) {
+    const catalog = document.getElementById('product-catalog');
+    if (!catalog) return;
+
+    const focusEan = normalizeEan(options.focusEan);
+    if (options.autoExpand && focusEan) {
+      state.expandedCards.add(focusEan);
+    }
+
+    const products = buildProductModels();
+    if (!products.length) {
+      catalog.innerHTML = '<div class="empty-state">Aucun relevé disponible pour le moment. Lancez une collecte via EAN ou upload d’image.</div>';
+      return;
+    }
+
+    const grouped = groupProductsByCategory(products);
+    const sections = createCategorySections(grouped);
+    catalog.innerHTML = '';
+    sections.forEach((section) => catalog.appendChild(section));
+
+    if (focusEan) {
+      focusOnProduct(focusEan);
+    }
+  }
+
+  function buildProductModels() {
+    const eans = new Set(Object.keys(state.summary || {}));
+    Array.from(state.datasets.keys()).forEach((ean) => eans.add(ean));
+    Object.keys(state.manualDescriptors || {}).forEach((ean) => eans.add(ean));
+
+    return Array.from(eans)
+      .map((ean) => normalizeEan(ean))
+      .filter(Boolean)
+      .map((ean) => buildProductModel(ean))
+      .filter(Boolean);
+  }
+
+  function buildProductModel(ean) {
+    const dataset = state.datasets.get(ean) || null;
+    const summaryBlock = state.summary?.[ean] || null;
+    const descriptor = resolveDescriptor(ean, dataset, state.manualDescriptors);
+    if (!descriptor) return null;
+
+    const rows = buildRows(ean, dataset, summaryBlock, state.manualDescriptors);
+    const pricedRows = rows.filter((row) => Number.isFinite(row.priceValue));
+    if (pricedRows.length < 2) {
+      return null;
+    }
+    const hasImage = Boolean(descriptor?.image);
+    if (!hasImage && ean !== '3600551132150') {
+      return null;
+    }
+
+    const category = extractCategoryLabel(descriptor);
+    if (!category) {
+      return null;
+    }
+
+    const best = pickBestPrice(rows);
+    const worst = pickWorstPrice(rows);
+
+    return {
+      ean,
+      descriptor,
+      rows,
+      best,
+      worst,
+      category,
+    };
+  }
+
+  function groupProductsByCategory(products) {
+    const map = new Map();
+    products.forEach((product) => {
+      const key = product.category;
+      if (!key) return;
+      if (!map.has(key)) {
+        map.set(key, []);
+      }
+      map.get(key).push(product);
+    });
+
+    const categories = Array.from(map.keys()).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' }));
+
+    categories.forEach((category) => {
+      const list = map.get(category);
+      list.sort((a, b) => {
+        const nameA = (a.descriptor?.name || a.descriptor?.title || '').toLowerCase();
+        const nameB = (b.descriptor?.name || b.descriptor?.title || '').toLowerCase();
+        return nameA.localeCompare(nameB, 'fr', { sensitivity: 'base' });
+      });
+      map.set(category, list);
+    });
+
+    return categories.map((category) => ({ category, products: map.get(category) }));
+  }
+
+  function createCategorySections(groups) {
+    return groups.map(({ category, products }) => {
+      const section = document.createElement('section');
+      section.className = 'category-section';
+      section.id = `category-${slugify(category)}`;
+
+      const header = document.createElement('div');
+      header.className = 'category-header';
+      const title = document.createElement('h2');
+      title.className = 'category-title';
+      title.textContent = category;
+      const count = document.createElement('span');
+      count.className = 'category-count';
+      count.textContent = `${products.length} produit${products.length > 1 ? 's' : ''}`;
+      header.appendChild(title);
+      header.appendChild(count);
+      section.appendChild(header);
+
+      const grid = document.createElement('div');
+      grid.className = 'category-grid';
+      products.forEach((product) => grid.appendChild(createProductCard(product)));
+      section.appendChild(grid);
+
+      return section;
+    });
+  }
+
+  function createProductCard(product) {
+    const { ean, descriptor, rows, best, worst } = product;
+    const card = document.createElement('article');
+    card.className = 'product-card';
+    card.id = `product-${ean}`;
+    card.dataset.ean = ean;
+
+    card.appendChild(buildProductHeader(descriptor));
+    card.appendChild(buildProductSummary(best, worst));
+
+    const actions = buildProductActions(product);
+    card.appendChild(actions.container);
+
+    const details = buildProductDetails(product, rows);
+    if (state.expandedCards.has(ean)) {
+      details.setAttribute('aria-hidden', 'false');
+      actions.toggle.setAttribute('aria-expanded', 'true');
+      actions.toggle.textContent = 'Masquer les relevés';
+    }
+    card.appendChild(details);
+
+    return card;
+  }
+
+  function buildProductHeader(descriptor) {
+    const head = document.createElement('div');
+    head.className = 'product-head';
+
+    const visual = document.createElement('div');
+    visual.className = 'product-visual';
+    if (descriptor?.image) {
+      const img = document.createElement('img');
+      img.src = resolveAssetPath(descriptor.image);
+      img.alt = descriptor?.name || descriptor?.title || 'Produit';
+      visual.appendChild(img);
+    } else {
+      visual.textContent = '📦';
+      visual.style.fontSize = '2rem';
+    }
+
+    const info = document.createElement('div');
+    info.className = 'product-info';
+    const title = document.createElement('h3');
+    title.textContent = descriptor?.name || descriptor?.title || `EAN ${descriptor?.ean || ''}`;
+    info.appendChild(title);
+
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    const chunks = [descriptor?.brand, descriptor?.quantity, descriptor?.ean && `EAN ${descriptor.ean}`].filter(Boolean);
+    meta.textContent = chunks.join(' · ');
+    info.appendChild(meta);
+
+    const attributes = buildAttributeBadges(descriptor);
+    if (attributes) {
+      info.appendChild(attributes);
+    }
+
+    head.appendChild(visual);
+    head.appendChild(info);
+    return head;
+  }
+
+  function buildAttributeBadges(descriptor) {
+    if (!descriptor) return null;
+    const badges = [];
+
+    if (descriptor.nutriscore_image || descriptor.nutriscore_grade) {
+      badges.push({
+        label: descriptor.nutriscore_grade ? `Nutri ${descriptor.nutriscore_grade.toUpperCase()}` : 'Nutri-score',
+        image: descriptor.nutriscore_image,
+        alt: descriptor.nutriscore_grade ? `Nutri-score ${descriptor.nutriscore_grade.toUpperCase()}` : 'Nutri-score'
+      });
+    }
+    if (descriptor.ecoscore_image || descriptor.ecoscore_grade) {
+      badges.push({
+        label: descriptor.ecoscore_grade ? `Eco ${descriptor.ecoscore_grade.toUpperCase()}` : 'Eco-score',
+        image: descriptor.ecoscore_image,
+        alt: descriptor.ecoscore_grade ? `Eco-score ${descriptor.ecoscore_grade.toUpperCase()}` : 'Eco-score'
+      });
+    }
+    if (descriptor.nova_group) {
+      badges.push({
+        label: `NOVA ${descriptor.nova_group}`,
+        image: null,
+        alt: null
+      });
+    }
+
+    if (!badges.length) return null;
+
+    const container = document.createElement('div');
+    container.className = 'product-attributes';
+
+    badges.forEach((badge) => {
+      const span = document.createElement('span');
+      span.className = 'product-attribute';
+      if (badge.image) {
+        const img = document.createElement('img');
+        img.src = resolveAssetPath(badge.image);
+        img.alt = badge.alt || badge.label;
+        span.appendChild(img);
+      }
+      const text = document.createElement('span');
+      text.textContent = badge.label;
+      span.appendChild(text);
+      container.appendChild(span);
+    });
+
+    return container;
+  }
+
+  function buildProductSummary(best, worst) {
+    const summary = document.createElement('div');
+    summary.className = 'product-summary';
+
+    if (best) {
+      summary.appendChild(createSummaryItem('Top prix', best));
+    }
+    if (worst && (!best || Math.abs(worst.value - best.value) > 0.0005)) {
+      summary.appendChild(createSummaryItem('Plus cher', worst));
+    }
+
+    return summary;
+  }
+
+  function createSummaryItem(label, entry) {
+    const item = document.createElement('div');
+    item.className = 'summary-item';
+
+    const labelEl = document.createElement('span');
+    labelEl.className = 'label';
+    labelEl.textContent = label;
+    item.appendChild(labelEl);
+
+    const price = document.createElement('strong');
+    price.textContent = entry.priceLabel || '—';
+    item.appendChild(price);
+
+    const store = document.createElement('small');
+    store.textContent = entry.store || 'Enseigne inconnue';
+    item.appendChild(store);
+
+    return item;
+  }
+
+  function buildProductActions(product) {
+    const container = document.createElement('div');
+    container.className = 'product-actions';
+
+    const left = document.createElement('div');
+    left.className = 'action-left';
+
+    const toggle = document.createElement('button');
+    toggle.className = 'toggle-details';
+    toggle.type = 'button';
+    toggle.textContent = 'Voir les relevés';
+    toggle.setAttribute('aria-expanded', 'false');
+
+    const productStatus = document.createElement('p');
+    productStatus.className = 'product-status';
+    productStatus.textContent = '';
+
+    const refresh = document.createElement('button');
+    refresh.className = 'refresh';
+    refresh.type = 'button';
+    refresh.textContent = 'Relancer la collecte';
+
+    left.appendChild(toggle);
+    container.appendChild(left);
+    container.appendChild(refresh);
+    container.appendChild(productStatus);
+
+    toggle.addEventListener('click', () => {
+      const details = container.parentElement.querySelector('.product-details');
+      const expanded = details.getAttribute('aria-hidden') === 'false';
+      if (expanded) {
+        details.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = 'Voir les relevés';
+        state.expandedCards.delete(product.ean);
+      } else {
+        details.setAttribute('aria-hidden', 'false');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.textContent = 'Masquer les relevés';
+        state.expandedCards.add(product.ean);
+      }
+    });
+
+    refresh.addEventListener('click', async () => {
+      await handleManualRefresh({
+        ean: product.ean,
+        button: refresh,
+        statusEl: productStatus,
+      });
+    });
+
+    return { container, toggle, productStatus };
+  }
+
+  function buildProductDetails(product, rows) {
+    const details = document.createElement('div');
+    details.className = 'product-details';
+    details.setAttribute('aria-hidden', 'true');
+
+    const table = document.createElement('table');
+    table.className = 'prices';
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>Enseigne</th>
+          <th>Statut</th>
+          <th>Prix pack</th>
+          <th>Prix / unité</th>
+          <th>Magasin / Note</th>
+          <th>Maj</th>
+          <th>Preuve</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    `;
+    renderPriceRows(table.querySelector('tbody'), rows, product.best?.value, product.worst?.value);
+    details.appendChild(table);
+
+    return details;
+  }
+
+  function renderPriceRows(tbody, rows, bestValue, worstValue) {
+    tbody.innerHTML = '';
+    rows.forEach((row) => {
+      const payload = row.payload || {};
+      const tr = document.createElement('tr');
+      if (row.isMismatch) tr.classList.add('row-mismatch');
+
+      const nameCell = document.createElement('td');
+      const logoSrc = logoFor(row.adapterName, row.rawAdapters);
+      const displayName = DISPLAY_NAMES[row.adapterName] || row.adapterName;
+      if (logoSrc) {
+        nameCell.innerHTML = `<div class="table-logo"><img src="${logoSrc}" alt="${escapeHtml(displayName)}" />${escapeHtml(displayName)}</div>`;
+      } else {
+        nameCell.textContent = displayName;
+      }
+      tr.appendChild(nameCell);
+
+      const statusCell = document.createElement('td');
+      const { label: statusLabel, className: statusClass } = formatStatus(row.status);
+      statusCell.className = statusClass;
+      statusCell.textContent = statusLabel;
+      tr.appendChild(statusCell);
+
+      const priceCell = document.createElement('td');
+      priceCell.className = 'price';
+      const priceText = formatPrice(payload.price) || '—';
+      const badges = [];
+      if (row.isMismatch && typeof priceText === 'string' && priceText !== '—') {
+        badges.push('<span class="price-badge price-badge--alert" title="Produit détecté comme différent du seed">Produit différent</span>');
+      }
+      if (Number.isFinite(bestValue) && Number.isFinite(row.priceValue) && Math.abs(row.priceValue - bestValue) < 0.001) {
+        badges.push('<span class="price-badge price-badge--best">Top prix</span>');
+      }
+      if (Number.isFinite(worstValue) && Number.isFinite(row.priceValue) && Math.abs(row.priceValue - worstValue) < 0.001 && (!Number.isFinite(bestValue) || Math.abs(worstValue - bestValue) > 0.001)) {
+        badges.push('<span class="price-badge price-badge--worst">Plus cher</span>');
+      }
+      priceCell.innerHTML = `${escapeHtml(priceText)}${badges.join('')}`;
+      tr.appendChild(priceCell);
+
+      const unitCell = document.createElement('td');
+      unitCell.textContent = payload.unit_price || payload.price_unit || payload.price_per_unit || '—';
+      tr.appendChild(unitCell);
+
+      const storeCell = document.createElement('td');
+      storeCell.textContent = payload.store || payload.note || row.storeQuery || '—';
+      tr.appendChild(storeCell);
+
+      const updatedCell = document.createElement('td');
+      updatedCell.textContent = row.updatedAt ? formatDateTime(row.updatedAt) : '—';
+      tr.appendChild(updatedCell);
+
+      const proofCell = document.createElement('td');
+      if (payload.url) {
+        const link = document.createElement('a');
+        link.className = 'link';
+        link.href = payload.url;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.textContent = 'Ouvrir';
+        proofCell.appendChild(link);
+      } else {
+        proofCell.textContent = '—';
+      }
+      tr.appendChild(proofCell);
+
+      tbody.appendChild(tr);
+    });
+  }
+
+  function focusOnProduct(ean) {
+    const element = document.getElementById(`product-${ean}`);
+    if (!element) return;
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    element.classList.add('pulse-highlight');
+    setTimeout(() => element.classList.remove('pulse-highlight'), 1800);
+  }
+
+  async function handleManualRefresh({ ean, button, statusEl }) {
+    if (!ean) return;
+    button.disabled = true;
+    button.textContent = 'Collecte en cours…';
+    statusEl.textContent = '';
+
+    try {
+      const payload = await sendCollectionRequest({ ean });
+      const resolvedEan = applyCollectionPayload(payload, ean);
+      if (resolvedEan) {
+        await loadDatasets([resolvedEan]);
+        renderCatalog({ focusEan: resolvedEan });
+        statusEl.textContent = `Collecte mise à jour (${new Date().toLocaleTimeString('fr-FR')})`;
+        state.expandedCards.add(resolvedEan);
+      }
+    } catch (error) {
+      console.error('Relance collecte échouée', error);
+      statusEl.textContent = error?.message || 'Erreur pendant la collecte.';
+      statusEl.dataset.status = 'error';
+    } finally {
+      button.disabled = false;
+      button.textContent = 'Relancer la collecte';
+      setTimeout(() => {
+        statusEl.textContent = '';
+        statusEl.dataset.status = '';
+      }, 3500);
+    }
+  }
+
+  function setupEanSearch() {
+    const form = document.getElementById('ean-search-form');
+    if (!form) return;
+    const input = form.querySelector('#ean-search-input');
+    const statusEl = form.querySelector('[data-role="search-status"]');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const raw = input.value || '';
+      const ean = normalizeEan(raw);
+      if (!ean || ean.length < 8 || ean.length > 14) {
+        statusEl.textContent = 'EAN invalide (8 à 14 chiffres).';
+        statusEl.dataset.status = 'error';
+        input.focus();
+        return;
+      }
+      await handleCollectionFromForm({ ean, statusEl, onSuccess: (resolvedEan) => {
+        input.value = '';
+        renderCatalog({ focusEan: resolvedEan, autoExpand: true });
+      }});
+    });
+  }
+
+  function setupImageUpload() {
+    const form = document.getElementById('image-upload-form');
+    if (!form) return;
+    const input = form.querySelector('#ean-image-input');
+    const statusEl = form.querySelector('[data-role="search-status"]');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const file = input.files?.[0];
+      if (!file) {
+        statusEl.textContent = 'Sélectionnez une image de code-barres.';
+        statusEl.dataset.status = 'error';
+        return;
+      }
+      const formData = new FormData();
+      formData.append('image', file);
+      await handleCollectionFromForm({ formData, statusEl, onSuccess: (resolvedEan) => {
+        input.value = '';
+        statusEl.dataset.status = 'success';
+        renderCatalog({ focusEan: resolvedEan, autoExpand: true });
+      }});
+    });
+  }
+
+  async function handleCollectionFromForm({ ean, formData, statusEl, onSuccess }) {
+    try {
+      statusEl.textContent = 'Collecte en cours…';
+      statusEl.dataset.status = '';
+      const body = formData ? formData : JSON.stringify({ ean });
+      const payload = await sendCollectionRequest(body, !!formData);
+      const resolvedEan = applyCollectionPayload(payload, ean);
+      if (!resolvedEan) {
+        throw new Error('Collecte terminée mais aucun EAN détecté.');
+      }
+      await loadDatasets([resolvedEan]);
+      statusEl.textContent = `Collecte terminée (EAN ${resolvedEan}).`;
+      statusEl.dataset.status = 'success';
+      if (typeof onSuccess === 'function') {
+        onSuccess(resolvedEan);
+      }
+    } catch (error) {
+      console.error('Collecte échouée', error);
+      statusEl.textContent = error?.message || 'Erreur pendant la collecte.';
+      statusEl.dataset.status = 'error';
+    } finally {
+      setTimeout(() => {
+        statusEl.textContent = '';
+        statusEl.dataset.status = '';
+      }, 4000);
+    }
+  }
+
+  async function sendCollectionRequest(body, isFormData = false) {
+    const response = await fetch(REFRESH_ENDPOINT, {
+      method: 'POST',
+      headers: isFormData ? undefined : { 'Content-Type': 'application/json' },
+      body,
+    });
+    let payload = null;
+    try {
+      payload = await response.json();
+    } catch (error) {
+      payload = null;
+    }
+    if (!response.ok) {
+      const message = payload?.message || payload?.error || `HTTP ${response.status}`;
+      throw new Error(message);
+    }
+    return payload;
+  }
+
+  function applyCollectionPayload(payload, fallbackEan) {
+    const resolvedEan = normalizeEan(payload?.ean || fallbackEan);
+    if (!resolvedEan) return null;
+
+    if (payload?.descriptor && typeof payload.descriptor === 'object') {
+      state.manualDescriptors = { ...state.manualDescriptors, [resolvedEan]: payload.descriptor };
+    }
+    if (payload?.summary && typeof payload.summary === 'object') {
+      state.summary = { ...state.summary, [resolvedEan]: payload.summary };
+    }
+    if (payload?.latest && typeof payload.latest === 'object') {
+      state.datasets.set(resolvedEan, payload.latest);
+    }
+    return resolvedEan;
+  }
+
+  function extractCategoryLabel(descriptor) {
+    const searchSource = [
+      descriptor?.category,
+      descriptor?.categories,
+      descriptor?.name,
+      descriptor?.title,
+      descriptor?.description
+    ].filter(Boolean).join(' ');
+    const normalizedSearch = normalizeForSearch(searchSource);
+    if (normalizedSearch) {
+      for (const rule of CATEGORY_RULES) {
+        if (rule.keywords.some((keyword) => normalizedSearch.includes(keyword))) {
+          return rule.label;
+        }
+      }
+    }
+
+    const source = descriptor?.category || descriptor?.categories;
+    if (!source) return null;
+    const parts = String(source)
+      .split(',')
+      .map((part) => part.trim())
+      .filter(Boolean);
+    if (!parts.length) return null;
+
+    const candidates = [];
+    parts.forEach((part, index) => {
+      const normalized = normalizeCategoryPart(part);
+      if (!normalized.value) return;
+      candidates.push({ ...normalized, order: index });
+    });
+
+    if (!candidates.length) return null;
+
+    candidates.sort((a, b) => {
+      if (a.priority !== b.priority) {
+        return a.priority - b.priority;
+      }
+      return b.order - a.order;
+    });
+
+    return candidates[0].value;
+  }
+
+  function normalizeCategoryPart(part) {
+    const fallback = { value: null, priority: Number.POSITIVE_INFINITY };
+    if (!part) return fallback;
+
+    let raw = String(part).trim();
+    if (!raw) return fallback;
+
+    let prefix = '';
+    const colonIndex = raw.indexOf(':');
+    if (colonIndex !== -1) {
+      prefix = raw.slice(0, colonIndex).toLowerCase();
+      raw = raw.slice(colonIndex + 1);
+    }
+
+    let core = raw
+      .replace(/[_]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    if (!core || core.length < 3) {
+      return fallback;
+    }
+    if (!/[A-Za-z\u00C0-\u017F]/.test(core)) {
+      return fallback;
+    }
+
+    const normalizedValue = capitalize(core.toLowerCase());
+    const priority = prefix === 'fr' ? 0 : prefix ? 2 : 1;
+    return { value: normalizedValue, priority };
+  }
+
+  function buildRows(ean, dataset, summaryBlock, manualDescriptors) {
+    const map = new Map();
+    if (summaryBlock) {
+      Object.entries(summaryBlock).forEach(([adapter, entry]) => {
+        upsertRow(map, adapter, {
+          payload: entry.payload || {},
+          status: entry.status,
+          updatedAt: entry.updated_at,
+          error: entry.error,
+          storeQuery: entry.store_query
+        });
+      });
+    }
+    (dataset?.adapters || []).forEach((adapterEntry) => {
+      upsertRow(map, adapterEntry.adapter, {
+        payload: adapterEntry.payload || {},
+        status: adapterEntry.status,
+        updatedAt: adapterEntry.finished_at,
+        error: adapterEntry.error,
+        storeQuery: adapterEntry.store_query
+      });
+    });
+
+    applyManualFallbacks(map, ean);
+
+    const manualDescriptor = manualDescriptors?.[ean] || null;
+    const manualQuantity = manualDescriptor?.quantity || '';
+
+    return Array.from(map.values())
+      .map((row) => finalizeRow(row, manualQuantity, manualDescriptor, ean))
+      .sort((a, b) => {
+        if (a.priceValue === b.priceValue) {
+          return (a.displayName || '').localeCompare(b.displayName || '');
+        }
+        return a.priceValue - b.priceValue;
+      });
+  }
+
+  function upsertRow(map, adapterName, entry) {
+    const base = normalizeAdapterName(adapterName);
+    let row = map.get(base);
+    if (!row) {
+      row = {
+        adapterName: base,
+        rawAdapters: new Set(),
+        payload: {},
+        status: '',
+        updatedAt: null,
+        error: null,
+        storeQuery: null
+      };
+    }
+    row.rawAdapters.add(adapterName);
+    row.status = entry.status || row.status;
+    row.updatedAt = entry.updatedAt || row.updatedAt;
+    row.error = entry.error || row.error;
+    row.storeQuery = entry.storeQuery || row.storeQuery;
+    row.payload = mergePayloads(row.payload, entry.payload || {});
+    map.set(base, row);
+  }
+
+  function finalizeRow(row, manualQuantity, manualDescriptor, expectedEan) {
+    const payload = row.payload ? { ...row.payload } : {};
+    const quantityText = payload.quantity || manualQuantity || '';
+    const priceValue = parsePriceValue(payload.price);
+    const hasPrice = Number.isFinite(priceValue);
+    const expectedEanValue = normalizeEan(expectedEan);
+    const matchedEanValue = normalizeEan(payload.matched_ean);
+    const productTitle = (payload.title || '').toLowerCase();
+    const manualBrand = (manualDescriptor?.brand || '').toLowerCase();
+    const descriptorTokens = extractDescriptorTokens(manualDescriptor);
+    const tokensWithoutBrand = descriptorTokens.filter((token) => token !== manualBrand);
+
+    let isMismatch = false;
+    if (expectedEanValue) {
+      if (matchedEanValue && matchedEanValue !== expectedEanValue) {
+        isMismatch = true;
+      } else if (!matchedEanValue && hasPrice) {
+        const brandFound = manualBrand ? productTitle.includes(manualBrand) : true;
+        const tokenFound = tokensWithoutBrand.length
+          ? tokensWithoutBrand.some((token) => productTitle.includes(token))
+          : true;
+        if (!brandFound || !tokenFound) {
+          isMismatch = true;
+        }
+      }
+    }
+
+    return {
+      adapterName: row.adapterName,
+      payload,
+      status: row.status,
+      updatedAt: row.updatedAt,
+      error: row.error,
+      storeQuery: row.storeQuery,
+      priceValue,
+      displayName: DISPLAY_NAMES[row.adapterName] || row.adapterName,
+      rawAdapters: Array.from(row.rawAdapters || []),
+      quantityText,
+      isMismatch,
+    };
+  }
+
+  function applyManualFallbacks(map, ean) {
+    const entries = []; // placeholder for future manual overrides
+    entries.forEach((entry) => {
+      const base = normalizeAdapterName(entry.adapter);
+      const existing = map.get(base);
+      const hasPrice = existing && existing.payload && existing.payload.price;
+      if (existing && hasPrice) {
+        return;
+      }
+      upsertRow(map, entry.adapter, {
+        payload: entry.payload || {},
+        status: entry.status,
+        updatedAt: entry.updated_at,
+        error: entry.error || null,
+        storeQuery: entry.store_query || null
+      });
+    });
+  }
+
+  function pickBestPrice(rows) {
+    const priced = rows.filter((row) => Number.isFinite(row.priceValue));
+    if (!priced.length) return null;
+    let best = priced[0];
+    for (const row of priced.slice(1)) {
+      if (row.priceValue < best.priceValue) {
+        best = row;
+      }
+    }
+    const payload = best.payload || {};
+    return {
+      value: best.priceValue,
+      priceLabel: formatPrice(payload.price) || `${best.priceValue.toFixed(2)} €`,
+      store: payload.store || DISPLAY_NAMES[best.adapterName] || best.adapterName,
+    };
+  }
+
+  function pickWorstPrice(rows) {
+    const priced = rows.filter((row) => Number.isFinite(row.priceValue));
+    if (priced.length < 2) return null;
+    let worst = priced[0];
+    for (const row of priced.slice(1)) {
+      if (row.priceValue > worst.priceValue) {
+        worst = row;
+      }
+    }
+    const payload = worst.payload || {};
+    return {
+      value: worst.priceValue,
+      priceLabel: formatPrice(payload.price) || `${worst.priceValue.toFixed(2)} €`,
+      store: payload.store || DISPLAY_NAMES[worst.adapterName] || worst.adapterName,
+    };
+  }
+
+  async function fetchDataset(ean) {
+    const url = withCacheBuster(`../results/test-${ean}/latest.json`);
+    return fetchJson(url);
+  }
+
+  async function fetchJson(url) {
+    if (!url) return null;
+    try {
+      const response = await fetch(url, { cache: 'no-store' });
+      if (!response.ok) return null;
+      return await response.json();
+    } catch (error) {
+      console.warn('fetchJson failed', url, error);
+      return null;
+    }
+  }
+
+  function withCacheBuster(url) {
+    if (!url) return url;
+    const separator = url.includes('?') ? '&' : '?';
+    return `${url}${separator}_=${Date.now()}`;
+  }
+
+  function normalizeEan(value) {
+    return (value == null ? '' : String(value)).replace(/[^0-9]/g, '');
+  }
+
+  function normalizeAdapterName(adapterName) {
+    if (!adapterName) return '';
+    return adapterName.toLowerCase().replace(/[^a-z0-9_]+/g, '_');
+  }
+
+  function mergePayloads(base, extra) {
+    return { ...base, ...extra };
+  }
+
+  function parsePriceValue(value) {
+    if (value == null) return Number.NaN;
+    const normalized = String(value)
+      .replace(/\s+/g, '')
+      .replace(',', '.')
+      .replace(/[^0-9.\-]/g, '');
+    const parsed = Number.parseFloat(normalized);
+    return Number.isFinite(parsed) ? parsed : Number.NaN;
+  }
+
+  function formatPrice(value) {
+    if (value == null || value === '') return null;
+    const number = parsePriceValue(value);
+    if (!Number.isFinite(number)) {
+      return String(value);
+    }
+    return `${number.toFixed(2)} €`;
+  }
+
+  function formatDateTime(value) {
+    if (!value) return '';
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return value;
+    return date.toLocaleString('fr-FR', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  }
+
+  function formatStatus(status) {
+    const upper = (status || '').toUpperCase();
+    if (upper === 'OK') return { label: 'dispo', className: 'status-ok' };
+    if (['NON DISPONIBLE', 'INDISPONIBLE', 'NO_RESULTS', 'NO_PRICE', 'NO_MATCH'].includes(upper)) {
+      return { label: 'non dispo', className: 'status-error' };
+    }
+    if (!upper) return { label: 'inconnu', className: 'status-warn' };
+    return { label: upper.toLowerCase(), className: 'status-warn' };
+  }
+
+  function logoFor(adapterName, rawAdapters) {
+    const logo = LOGOS[adapterName];
+    if (logo) return `${LOGO_BASE}${logo}`;
+    if (rawAdapters && rawAdapters.length === 1) {
+      const altLogo = LOGOS[rawAdapters[0]];
+      if (altLogo) return `${LOGO_BASE}${altLogo}`;
+    }
+    return null;
+  }
+
+  function escapeHtml(value) {
+    if (value == null) return '';
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function normalizeForSearch(value) {
+    if (!value) return '';
+    return String(value)
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9\s]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function extractDescriptorTokens(descriptor) {
+    if (!descriptor) return [];
+    const combined = [descriptor.name, descriptor.title, descriptor.description]
+      .filter(Boolean)
+      .join(' ')
+      .toLowerCase();
+    if (!combined) return [];
+    const generic = new Set(['dessert', 'desserts', 'vegetal', 'vegetaux', 'vegan', 'soja', 'produit', 'produits', 'fermente', 'fermentes', 'yaourt', 'yaourts', 'boisson', 'boissons', 'lait', 'laitier', 'laitiers', 'g', 'kg', 'ml', 'l']);
+    const tokens = combined
+      .split(/[^a-z0-9]+/)
+      .map((token) => token.trim())
+      .filter((token) => token && token.length >= 4 && !generic.has(token));
+    return Array.from(new Set(tokens));
+  }
+
+  function resolveDescriptor(ean, dataset, manualDescriptors) {
+    const manual = manualDescriptors?.[ean];
+    if (manual) {
+      return {
+        ean,
+        name: manual.name,
+        title: manual.title || manual.name,
+        brand: manual.brand,
+        quantity: manual.quantity,
+        categories: manual.categories,
+        category: manual.category,
+        image: manual.image,
+        nutriscore_grade: manual.nutriscore_grade,
+        nutriscore_image: manual.nutriscore_image,
+        ecoscore_grade: manual.ecoscore_grade,
+        ecoscore_image: manual.ecoscore_image,
+        nova_group: manual.nova_group,
+        description: manual.description,
+      };
+    }
+    const descriptor = dataset?.reference || {};
+    if (!descriptor) return { ean };
+    return { ...descriptor, ean };
+  }
+
+  function resolveAssetPath(path) {
+    if (!path) return path;
+    try {
+      const url = new URL(path, window.location.href);
+      return url.href;
+    } catch (error) {
+      return path;
+    }
+  }
+
+  function slugify(value) {
+    return String(value || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '') || 'section';
+  }
+
+  function capitalize(value) {
+    if (!value) return value;
+    return value.replace(/^(\p{L})(.*)$/u, (_, first, rest) => first.toUpperCase() + rest);
+  }
+</script>
+</body>
+</html>

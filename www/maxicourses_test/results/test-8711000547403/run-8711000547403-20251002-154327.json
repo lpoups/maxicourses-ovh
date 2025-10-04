@@ -1,0 +1,235 @@
+{
+  "ean": "8711000547403",
+  "image_path": null,
+  "started_at": "2025-10-02T15:41:31.721253",
+  "finished_at": "2025-10-02T15:43:27.670261",
+  "duration_seconds": 115.949008,
+  "reference": {
+    "title": "Capsules de café supremo N°10 L'OR  Espresso 30 capsules",
+    "description": "Capsules de café supremo N°10 L'OR  Espresso 30 capsules",
+    "source": "chronodrive",
+    "brand": "Capsules",
+    "quantity": "30 capsules",
+    "categories": "Cafés en dosettes compatible Nespresso",
+    "image": "https://cdn.auchan.fr/media/S01000000040J7CPRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "f",
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8711000547403/debug/run-8711000547403-20251002-154131"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-10-02T15:41:31.721832",
+      "finished_at": "2025-10-02T15:41:47.742622",
+      "duration_seconds": 16.02079,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "8711000547403",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {}
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,55",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-espresso-supremo-intensite-10-compatib les-nespresso-l-or-8711000547403",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": "Café Capsules Espresso Supremo Intensité 10 Compatibles  Nespresso L'OR",
+        "matched_ean": "8711000547403",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-10-02T15:41:47.743094",
+      "finished_at": "2025-10-02T15:42:06.982530",
+      "duration_seconds": 19.239436,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "8711000547403",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {}
+    },
+    {
+      "adapter": "leclerc",
+      "status": "NO_MATCH",
+      "payload": {
+        "status": "NO_MATCH",
+        "title": "Jus Pamplemousse Joker Matin Framboise - 900ml",
+        "price": null,
+        "unit_price": null,
+        "quantity": "30 capsules",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-267412-Jus-Pamplemousse-Joker-Matin.aspx",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-02T15:43:09Z · E.Leclerc Drive · Bruges"
+      },
+      "started_at": "2025-10-02T15:42:32.555087",
+      "finished_at": "2025-10-02T15:43:09.580098",
+      "duration_seconds": 37.025011,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "Capsules café supremo N 10",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8711000547403/debug/run-8711000547403-20251002-154131/03-leclerc"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,92",
+        "title": "Capsules de café compatibles  Nespresso Supremo Intensité 10",
+        "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-supr emo-intensite-10/8711000547403",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "8711000547403",
+        "unit_price": "63,59 € / KG",
+        "quantity": "30  capsules",
+        "store": "Super Talence"
+      },
+      "started_at": "2025-10-02T15:43:09.581019",
+      "finished_at": "2025-10-02T15:43:27.651154",
+      "duration_seconds": 18.070135,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "Capsules café supremo N 10 L'OR Espresso 30 capsules",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8711000547403/debug/run-8711000547403-20251002-154131/04-intermarche"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "10,25",
+        "title": "Capsules de café Supremo intensité  10 compatibles Nespresso",
+        "url": "https://www.auchan.fr/l-or-espresso-capsules-de-cafe-supremo-intensite-10-compa tibles-nespresso/pr-C1777908",
+        "note": "Auchan (CDP)",
+        "unit_price": "65,71 € /  KG",
+        "quantity": "30 capsules",
+        "matched_ean": "8711000547403",
+        "image": "https://cdn.auchan.fr/media/S01000000040J7CPRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "started_at": "2025-10-02T15:42:06.984819",
+      "finished_at": "2025-10-02T15:42:19.450923",
+      "duration_seconds": 12.466104,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "8711000547403",
+        "HOME_URL": "https://www.auchan.fr",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche '8711000547403'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/l-or-espresso-capsules-de-cafe-supremo-intensite-10-compatibles-nespresso/pr-C1777908",
+      "metadata": {}
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,89",
+        "title": "Capsules de café supremo N°10 L'OR  Espresso 30 capsules",
+        "url": "https://www.chronodrive.com/lor--espresso---capsules-de-cafe-supremo-n10-P54070 8",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "Prix au kg ou au litre :  63,40 € / KG",
+        "quantity": "30 capsules",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "8711000547403"
+      },
+      "started_at": "2025-10-02T15:42:19.452540",
+      "finished_at": "2025-10-02T15:42:32.552790",
+      "duration_seconds": 13.10025,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "8711000547403",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {}
+    }
+  ]
+}

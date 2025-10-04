@@ -1,0 +1,177 @@
+{
+  "ean": "3502110008329",
+  "image_path": null,
+  "started_at": "2025-10-02T20:52:37.778228",
+  "finished_at": "2025-10-02T20:52:40.230466",
+  "duration_seconds": 2.452238,
+  "reference": {
+    "title": "Boisson gazeuse aux extraits  végétaux PEPSI 1.5 L",
+    "description": "Boisson gazeuse aux extraits  végétaux PEPSI 1.5 L",
+    "source": "chronodrive",
+    "brand": "Pepsi",
+    "quantity": "1.5 L",
+    "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté",
+    "image": "../pipeline/assets/3502110008329.jpg",
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-d.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251002-205237"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "ERROR",
+      "payload": {},
+      "started_at": "2025-10-02T20:52:37.779858",
+      "finished_at": "2025-10-02T20:52:38.604913",
+      "duration_seconds": 0.825055,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "3502110008329",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 802, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 468, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 22, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 802, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 468, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 22, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251002-205237/01-carrefour_city"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "ERROR",
+      "payload": {},
+      "started_at": "2025-10-02T20:52:38.605373",
+      "finished_at": "2025-10-02T20:52:39.187289",
+      "duration_seconds": 0.581916,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "3502110008329",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 802, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 468, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 22, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 802, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 468, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 22, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251002-205237/02-carrefour_market"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "ERROR",
+      "payload": {},
+      "started_at": "2025-10-02T20:52:39.187697",
+      "finished_at": "2025-10-02T20:52:39.410389",
+      "duration_seconds": 0.222692,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "Soda au Cola PEPSI 1,5 L",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py\", line 49, in <module>\n    payload = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py\", line 31, in run\n    result = await run_manual_leclerc(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/manual_leclerc_cdp.py\", line 196, in run_manual_leclerc\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251002-205237/03-leclerc"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "ERROR",
+      "payload": {},
+      "started_at": "2025-10-02T20:52:39.410763",
+      "finished_at": "2025-10-02T20:52:39.685626",
+      "duration_seconds": 0.274863,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "Pepsi Boisson gazeuse extraits végétaux 1.5 L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py\", line 927, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py\", line 544, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 22, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251002-205237/04-intermarche"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "ERROR",
+      "payload": {},
+      "started_at": "2025-10-02T20:52:39.685991",
+      "finished_at": "2025-10-02T20:52:39.958710",
+      "duration_seconds": 0.272719,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "3502110008329",
+        "HOME_URL": "https://www.auchan.fr",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py\", line 461, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py\", line 453, in run\n    result = await run_via_playwright()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py\", line 273, in run_via_playwright\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 22, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251002-205237/05-auchan"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "ERROR",
+      "payload": {},
+      "started_at": "2025-10-02T20:52:39.959075",
+      "finished_at": "2025-10-02T20:52:40.229580",
+      "duration_seconds": 0.270505,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "3502110008329",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py\", line 467, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py\", line 287, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 22, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222",
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251002-205237/06-chronodrive"
+      }
+    }
+  ]
+}

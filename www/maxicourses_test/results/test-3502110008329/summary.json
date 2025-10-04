@@ -1,0 +1,118 @@
+{
+  "3502110008329": {
+    "carrefour_city": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-03T09:51:13.146663",
+      "duration_seconds": 16.015662,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,03",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329",
+        "note": null,
+        "unit_price": "1,35 € / L",
+        "quantity": "1,5 L",
+        "title": "Soda au Cola PEPSI",
+        "matched_ean": "3502110008329",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-03T09:51:13.146663",
+      "duration_seconds": 20.758891,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Soda au cola Pepsi La bouteille de 1.5L",
+        "price": "1,17",
+        "unit_price": "0,78 € / l",
+        "quantity": "1.5 L",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx",
+        "matched_ean": "3502110008329",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-03T09:50:45Z · E.Leclerc Drive · Bruges"
+      },
+      "updated_at": "2025-10-03T09:51:13.146663",
+      "duration_seconds": 33.544774,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null
+      },
+      "updated_at": "2025-10-03T09:51:13.146663",
+      "duration_seconds": 3.606566,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,49",
+        "title": "Boisson gazeuse cola aux extraits  végétaux",
+        "url": "https://www.auchan.fr/pepsi-boisson-gazeuse-cola-aux-extraits-vegetaux/pr-C1209 689",
+        "note": "Auchan (CDP)",
+        "unit_price": "0,99 € / L",
+        "quantity": "1.5 L",
+        "matched_ean": "3502110008329",
+        "image": "https://cdn.auchan.fr/media/A0220160721000527152PRIMARY_2048x2048/B2CD/?format= rw&amp;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "updated_at": "2025-10-03T09:51:13.146663",
+      "duration_seconds": 13.060059,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,39",
+        "title": "Boisson gazeuse aux extraits  végétaux PEPSI 1.5 L",
+        "url": "https://www.chronodrive.com/pepsi--boisson-gazeuse-aux-extraits-vegetaux-P16714 ",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "Prix au kg ou au litre :  0,93 € / L",
+        "quantity": "1.5 L",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3502110008329"
+      },
+      "updated_at": "2025-10-03T09:51:13.146663",
+      "duration_seconds": 11.188798,
+      "error": null,
+      "store_query": null
+    }
+  }
+}

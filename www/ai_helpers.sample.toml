@@ -1,0 +1,13 @@
+# Exemple de configuration pour les appels IA.
+# Copier ce fichier en `ai_helpers.toml` et renseigner les clés adéquates.
+
+[openai]
+api_key = "sk-..."
+model_profile = "gpt-4.1"
+model_queries = "gpt-4.1-mini"
+model_validation = "gpt-4.1-mini"
+model_equivalent = "gpt-4.1-mini"
+
+# Variables d'environnement conseillées :
+#   export OPENAI_API_KEY="..."
+#   export USE_AI_ASSIST=true

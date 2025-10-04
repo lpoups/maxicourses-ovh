@@ -69,15 +69,32 @@ def _descriptor_seed(ean: str) -> typing.Optional[str]:
 
 def build_query_terms() -> list[str]:
     terms: list[str] = []
+    seen: set[str] = set()
 
-    if EAN:
-        terms.append(EAN)
-    elif QUERY:
-        terms.append(QUERY)
-    else:
-        descriptor_term = _descriptor_seed(EAN)
-        if descriptor_term:
-            terms.append(descriptor_term)
+    def add(term: typing.Optional[str]) -> None:
+        if not term:
+            return
+        cleaned = " ".join(term.strip().split())
+        if not cleaned:
+            return
+        key = cleaned.lower()
+        if key in seen:
+            return
+        seen.add(key)
+        terms.append(cleaned)
+
+    descriptor_entry = MANUAL_DESCRIPTOR.get(EAN) if EAN else None
+
+    add(EAN if EAN else None)
+    add(QUERY)
+    add(_descriptor_seed(EAN))
+
+    if isinstance(descriptor_entry, dict):
+        extras = descriptor_entry.get('alternate_queries')
+        if isinstance(extras, (list, tuple)):
+            for extra in extras:
+                if isinstance(extra, str):
+                    add(extra)
 
     return terms
 
@@ -175,76 +192,68 @@ async def extract_price_from_page(page) -> tuple[
         title = await page.locator('h1').first.text_content(timeout=6000)
         if title:
             title = re.sub(r'\s+', ' ', title).strip()
-            if not quantity:
-                m_title = re.search(r'(\d+[\.,]?\d*)\s*(L|KG|G|ML|CL)', title, re.IGNORECASE)
-                if m_title:
-                    qty_val = m_title.group(1).replace('.', ',')
-                    quantity = f"{qty_val} {m_title.group(2).upper()}"
     except Exception:
-        pass
+        title = None
+
+    def normalize_text(value: typing.Optional[str]) -> typing.Optional[str]:
+        if not value:
+            return None
+        return re.sub(r'\s+', ' ', value).strip()
 
     try:
-        scripts = page.locator("script[type='application/ld+json']")
-        for i in range(await scripts.count()):
-            raw = await scripts.nth(i).text_content()
-            if not raw:
-                continue
-            try:
-                data = json.loads(raw)
-            except Exception:
-                continue
-            items = data if isinstance(data, list) else [data]
-            for it in items:
-                if isinstance(it, dict) and it.get("@type") in ("Product",):
-                    if not title and it.get("name"):
-                        title = it.get("name")
-                    offers = it.get("offers")
-                    if isinstance(offers, dict):
-                        p = offers.get("price")
-                        if p:
-                            price = p
-                    elif isinstance(offers, list):
-                        for of in offers:
-                            if isinstance(of, dict) and of.get("price"):
-                                price = of.get("price")
-                                break
-                    quantity = quantity or it.get("size") or it.get("weight")
-                    gtin = it.get("gtin13") or it.get("gtin") or it.get("gtin14")
-                    if gtin:
-                        matched_ean = str(gtin).strip()
+        price_text = await page.locator('.product-actions-value').first.text_content(timeout=4000)
+        price_text = normalize_text(price_text)
+        if price_text:
+            price_text = price_text.replace('€', '').replace(',', '.').strip()
+            price_value = float(price_text)
+            price = f"{price_value:.2f}".replace('.', ',')
+    except Exception:
+        price = None
+
+    try:
+        unit_text = await page.locator('.info-price').first.text_content(timeout=4000)
+        unit_price = normalize_text(unit_text)
+    except Exception:
+        unit_price = None
+
+    for selector in ['.card-metadata', '.info .label + b', '.info b']:
+        try:
+            node = page.locator(selector).first
+            if await node.count():
+                candidate = normalize_text(await node.text_content())
+                if candidate and any(ch.isdigit() for ch in candidate):
+                    quantity = candidate
+                    break
+        except Exception:
+            continue
+
+    try:
+        html = await page.content()
+        if html:
+            if not matched_ean and EAN and EAN in html:
+                matched_ean = EAN
+            if not price:
+                m_price = re.search(r'"price"\s*:\s*"([0-9.,]+)"', html)
+                if m_price:
+                    price_val = m_price.group(1).replace(',', '.').strip()
+                    try:
+                        price = f"{float(price_val):.2f}".replace('.', ',')
+                    except Exception:
+                        price = price_val.replace('.', ',')
+            if not unit_price:
+                m_unit = re.search(r'([0-9.,]+\s*€\s*/\s*(?:l|kg|g|cl|ml))', html, re.IGNORECASE)
+                if m_unit:
+                    unit_price = m_unit.group(1).replace('\xa0', ' ')
+            if not quantity:
+                m_qty = re.search(r'(\d+[\.,]?\d*)\s*(L|KG|G|ML|CL)', html, re.IGNORECASE)
+                if m_qty:
+                    qty_val = m_qty.group(1).replace('.', ',')
+                    quantity = f"{qty_val} {m_qty.group(2).upper()}"
     except Exception:
         pass
 
-    html = None
-    if not price or not unit_price or not quantity or not matched_ean:
-        try:
-            html = await page.content()
-        except Exception:
-            html = None
-
-    if html:
-        if not price:
-            m_price = re.search(r'"price"\s*:\s*"([0-9.,]+)"', html)
-            if m_price:
-                price = m_price.group(1)
-        if not unit_price:
-            m_unit = re.search(r'([0-9.,]+\s*€\s*/\s*(?:l|kg|g|cl|ml))', html, re.IGNORECASE)
-            if m_unit:
-                unit_price = m_unit.group(1).replace('\xa0', ' ').replace(' /', ' / ')
-        if not quantity:
-            m_qty = re.search(r'(\d+[\.,]?\d*)\s*(L|KG|G|ML|CL)', html, re.IGNORECASE)
-            if m_qty:
-                qty_val = m_qty.group(1).replace('.', ',')
-                quantity = f"{qty_val} {m_qty.group(2).upper()}"
-        if not matched_ean and EAN and EAN in html:
-            matched_ean = EAN
-
     if price:
-        price = str(price).replace(',', '.')
-        try:
-            price = f"{float(price):.2f}".replace('.', ',')
-        except Exception:
-            price = price.replace('.', ',')
+        price = price.replace('.', ',')
 
     if unit_price:
         unit_price = (unit_price
@@ -266,8 +275,7 @@ async def extract_price_from_page(page) -> tuple[
                 if value > 0:
                     unit = 'L' if m_qty.group(2).upper() == 'L' else 'KG'
                     per_unit = float(price.replace(',', '.')) / value
-                    per_unit_str = f"{per_unit:.2f}".replace('.', ',')
-                    unit_price = f"{per_unit_str} € / {unit}"
+                    unit_price = f"{per_unit:.2f}".replace('.', ',') + f" € / {unit}"
             except Exception:
                 pass
 
@@ -317,6 +325,20 @@ async def run() -> Result:
         await browser.close(); await p.stop()
         return Result(status='NO_QUERY')
 
+    descriptor_tokens: list[str] = []
+    descriptor_entry = MANUAL_DESCRIPTOR.get(EAN) if EAN else None
+    if isinstance(descriptor_entry, dict):
+        for key in ("brand", "name", "description", "quantity"):
+            raw = descriptor_entry.get(key)
+            if isinstance(raw, str):
+                descriptor_tokens.extend(re.split(r"[^a-z0-9]+", raw.lower()))
+        extras = descriptor_entry.get('alternate_queries')
+        if isinstance(extras, (list, tuple)):
+            for extra in extras:
+                if isinstance(extra, str):
+                    descriptor_tokens.extend(re.split(r"[^a-z0-9]+", extra.lower()))
+    descriptor_tokens = sorted(set(tok for tok in descriptor_tokens if len(tok) >= 3))
+
     # Visit a store to set location if provided
     await ensure_store_selected(page)
 
@@ -334,6 +356,10 @@ async def run() -> Result:
         await accept_cookies(page)
         await page.wait_for_timeout(800)
 
+        is_ean_term = EAN and term.strip().replace(' ', '') == EAN.replace(' ', '')
+        if not is_ean_term:
+            await page.wait_for_timeout(20_000)
+
         try:
             await page.wait_for_selector('article.product-card', timeout=12000)
         except PlaywrightTimeout:
@@ -348,18 +374,36 @@ async def run() -> Result:
         best_idx = None
         best_score = -1
 
+        descriptor_tokens_lower = descriptor_tokens
+        GENERIC_TOKENS = {
+            'gel', 'douche', 'creme', 'cream', 'surgras', 'lait', 'peau', 'peaux',
+            'format', 'flacon', 'bouteille', 'lot', 'pack', 'ml', 'kg', 'l', 'cadum', 'bio'
+        }
+        required_tokens = [tok for tok in descriptor_tokens_lower if len(tok) >= 5 and tok not in GENERIC_TOKENS]
+
         for idx in range(count):
             card = cards.nth(idx)
             link = card.locator('a.card-extra-link').first
             href = (await link.get_attribute('href')) or ''
-            try:
-                card_title = await card.locator('.card-title').first.inner_text(timeout=1000)
-            except Exception:
+            card_title = ''
+            for selector in ['.card-label-name', '.card-label', 'h2', '.card-title']:
+                try:
+                    node = card.locator(selector).first
+                    if await node.count():
+                        card_title = await node.inner_text(timeout=1000)
+                        if card_title:
+                            break
+                except Exception:
+                    continue
+            if not card_title:
                 try:
                     card_title = await link.inner_text()
                 except Exception:
                     card_title = ''
             haystack = f"{href} {card_title}".lower()
+
+            if required_tokens and not any(tok in haystack for tok in required_tokens):
+                continue
 
             score = 0
             if EAN and EAN in haystack:
@@ -367,8 +411,12 @@ async def run() -> Result:
             for tok in term_tokens:
                 if tok in haystack:
                     score += 1
+            descriptor_hits = sum(1 for tok in descriptor_tokens_lower if tok in haystack)
+            descriptor_misses = sum(1 for tok in required_tokens if tok not in haystack)
+            score += descriptor_hits * 4
+            score -= descriptor_misses * 8
 
-            if score > best_score:
+            if best_idx is None or score > best_score:
                 best_score = score
                 best_idx = idx
 

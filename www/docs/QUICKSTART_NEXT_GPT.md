@@ -58,6 +58,7 @@ Avant toute action :
 - Aucune saisie manuelle : scripts seulement. Chaque résultat JSON doit inclure prix TTC, prix unitaire (€/kg ou €/L), quantité, magasin, note horodatée (Europe/Paris), URL, matched_ean.
 - Image locale obligatoire dans `maxicourses_test/pipeline/assets/`, référencée dans `manual_descriptors.json`, afin que « Voir image » fonctionne dans `pipeline/index2.html`.
 - Priorité immédiate : stabiliser les fetchers Carrefour City/Market, Auchan, Chronodrive, Intermarché et Leclerc Drive pour les démonstrations (collecte complète + traces archivées).
+- Toute collecte seed doit produire un descriptif complet : marque en premier, titre descriptif, quantité, Nutri-score (badge local) et visuel enseigne téléchargé dans `maxicourses_test/pipeline/assets/`.
 - Documenter chaque session dans `docs/HANDOVER_DAILY.md` avec preuves (captures, commandes). Utiliser `docs/SESSION_TEMPLATE.md`.
 - Ne pas toucher aux scripts stables (Leclerc, Intermarché, Carrefour, Chronodrive) sans nouvelle trace validée par Laurent.
 - Avant de relancer la pipeline ou l’API, fermer les onglets Carrefour encore ouverts ou redémarrer Chrome 9222.
@@ -132,3 +133,109 @@ Avant toute action :
   - Mettre à jour `docs/HANDOVER_DAILY.md`, `docs/PROMPT_LOG.md` et `docs/PRICE_COMPARATOR_PLAN.md` au fil de l’eau.
 
 - **À signaler** : le dossier `maxicourses_test/results/test-3124480200433/` peut être supprimé s’il n’est plus utile.
+
+## Mise à jour 2025-10-01T17:09 (Europe/Paris) – GPT (Codex CLI)
+- Intermarché : le fetcher s’appuie dorénavant sur la recherche native (`input` « Lait, oeuf, pain… »), analyse les cartes produits de la page et clique la PDP en scorant les liens (`href` contenant l’EAN prioritaire). Ne plus rajouter de paramètres `trier=` dans les URLs manuelles.
+- En cas de changement de magasin, regénérer `state/intermarche.json` via Chrome 9222 avant de relancer; la collecte Super Talence est validée (`5000112611861`, `5411188118961`).
+
+## Mise à jour 2025-10-01T17:41 (Europe/Paris) – GPT (Codex CLI)
+- Chronodrive : fallback systématique sur les requêtes descriptives (`seed_query` + `alternate_queries` dans `manual_descriptors.json`) lorsque l’EAN ne renvoie rien ; scoring renforcé pour privilégier les cartes correspondant aux tokens différenciants (ex. « amande »).
+- Leclerc Drive : la collecte valide désormais un match sans GTIN si le titre recoupe les mots-clés du descriptif ; s’assurer que `manual_descriptors.json` contient marque + type + contenance pour tous les nouveaux produits.
+
+## Mise à jour 2025-10-01T19:25 (Europe/Paris) – GPT (Codex CLI)
+- Règle d’or pour le descriptif : interroger d’abord l’API OpenFoodFacts (`/api/v2/product/<EAN>.json`), puis – uniquement si nécessaire – fallback Auchan → Carrefour → Chronodrive pour compléter marque/nom/quantité.
+- Les fiches produits affichent désormais Eco-score (A–E) et NOVA (1–4) aux côtés du Nutri-score ; toute nouvelle entrée `manual_descriptors.json` doit renseigner ces champs dès que disponibles.
+- Le front propose un formulaire « Upload code-barres » qui envoie la photo au backend (`/api/collect` multipart). Ne rien modifier à l’API sans vérifier la compatibilité avec cette nouvelle voie (décodage zxing côté serveur).
+- Nouveau script utilitaire `maxicourses_test/watch_uploads.py` : surveille `uploads/` et déclenche `run_pipeline.py` dès qu’une image est déposée. Lancer via `USE_CDP=1 python3 watch_uploads.py` (pip3 : `pillow`, `zxing-cpp`).
+
+## Mise à jour 2025-10-02T14:34 (Europe/Paris) – GPT (Codex CLI)
+- Collecter systématiquement marque + descriptif + quantité : `seed_query` = `marque + titre + quantité`.
+- Téléchargement auto des visuels enseignes (`maxicourses_test/pipeline/assets/<EAN>.*`).
+- Nutri-score : badge local (`../assets/nutriscore/nutriscore-*.svg`) ou fallback `unknown` si absent.
+- Vérifier après chaque collecte : visuel disponible, badge Nutri-score, descriptif FR (sinon relancer OFF/Auchan).
+
+## Mise à jour 2025-10-02T14:50 (Europe/Paris) – GPT (Codex CLI)
+- Icônes Nutri-score : préférer les fichiers locaux (`../assets/nutriscore/nutriscore-*.svg`) \+ fallback `nutriscore-unknown.svg`, les URLs distantes sont proscrites.
+- `run_pipeline.py` recalcule désormais automatiquement `seed_query` (marque en premier), télécharge l’image enseigne et applique le fallback Nutri-score ; ne jamais modifier `manual_descriptors.json` à la main.
+- Chronodrive : lancer la recherche en EAN pur d'abord ; si `NO_RESULTS`, relancer avec le descriptif seed (attente 20 s avant de lire les cartes).
+
+## Mise à jour 2025-10-02T15:26 (Europe/Paris) – GPT (Codex CLI)
+- Seed obligatoire : `marque + descriptif + quantité` (60 caractères max, tokens uniques) – `run_pipeline.py` recalcule cette valeur automatiquement après chaque seed (aucune édition manuelle). – généré automatiquement par `run_pipeline.py`.
+- Visuel : téléchargement enseigne (`maxicourses_test/pipeline/assets/<EAN>.*`) avant d’ajouter le produit.
+- Nutri-score : utiliser uniquement `../assets/nutriscore/nutriscore-*.svg` (fallback `nutriscore-unknown.svg`).
+- Chronodrive : première recherche en EAN pur > si `NO_RESULTS`, relancer avec `seed_query` (attente 20 s avant de lire les cartes).
+- Après collecte : vérifier image, badge Nutri-score, descriptif FR ; relancer si besoin.
+
+- Pour récupérer le slug Chronodrive du drive actif : `USE_CDP=1 python3 extract_chronodrive_slug.py` (Chrome 9222 ouvert sur le drive).
+- TODO: renforcer `manual_leclerc_cdp.py` (requêtes courtes + scoring EAN/quantité) pour éviter le fallback multi-pack (ex. x50).
+
+## Mise à jour 2025-10-02T20:44 (Europe/Paris) – GPT (Codex CLI)
+- `maxicourses_test/pipeline/index2.html` : bandeau V1 mis à niveau pour les démos investisseurs.
+  * Logo + formulaires alignés à gauche, résumé compact à droite (suppression du CTA inutile).
+  * Bloc « Économie potentielle » recalculé via `computePortfolioDelta` : 7,80 € et badge `−23 %` en rouge (ou vert si hausse).
+  * Résumé simplifié : rappel unique du pipeline multi-enseignes + archivage JSON/captures.
+- Fichiers de backup `index2.html.option1*`, `index2.html.revamp` conservés pour rollback.
+- Option 2 (tableaux) et Option 3 (cartes compactes) encore en attente, ne pas lancer sans feu vert.
+
+## Mise à jour 2025-10-02T20:25 (Europe/Paris) – GPT (Codex CLI)
+- `maxicourses_test/pipeline/index2.html` : bandeau d’intro modernisé → logo + formulaires alignés à gauche, résumé compact à droite, CTA supprimé.
+- Nouveau bloc « Économie potentielle » (calcul via `computePortfolioDelta`) : montant + badge pourcentage (`masthead__delta-percent--loss` rouge si gain, vert sinon), cache automatique si 0 %.
+- Textes du résumé allégés : la ligne « Tarification unitaire… » est supprimée.
+- Sauvegardes conservées (`index2.html.option1*`, `.revamp`) pour rollback ; ne pas écraser ces fichiers sans validation.
+- À garder pour la suite : Option 2 (lisibilité des tableaux) et Option 3 (cartes compactes) encore en attente, demander validation avant de modifier la page.
+## Mise à jour 2025-10-02T20:55 (Europe/Paris) – GPT (Codex CLI)
+- `run_pipeline.py` : `ensure_local_image_asset()` nettoie désormais les URLs (`html.unescape`, suppression des espaces) avant téléchargement ; les images enseignes sont rapatriées même si la source encode `&amp;`.
+- `descriptor_from_payload()` dés-encode les URLs avant de sauvegarder le descriptor (évite de conserver des liens Auchan avec HTML entities dans `manual_descriptors.json`).
+- EAN `3502110008329` : asset local `pipeline/assets/3502110008329.jpg` ajouté et référencé dans `manual_descriptors.json`, `results/test-3502110008329/latest.json`, `results/summary.json`.
+- Conserver les sauvegardes `index2.html.option1*` / `.revamp` ; toute nouvelle collecte doit vérifier que chaque `image_path` pointe bien vers `../pipeline/assets/<EAN>.*` (gestion automatique désormais).
+
+## Mise à jour 2025-10-02T22:04 (Europe/Paris) – GPT (Codex CLI)
+- `run_pipeline.py` : `ensure_local_image_asset()` et `descriptor_from_payload()` dés-encodent désormais toutes les URLs image (`html.unescape`, suppression espaces) avant de stocker/télécharger → chaque collecte rapatrie automatiquement `pipeline/assets/<EAN>.*`.
+- Les résultats (`results/test-<EAN>/latest.json` + `summary.json`) sont mis à jour avec `image_path` local ; plus de lien externe Auchan/Carrefour dans les descriptors.
+- Pepsico 1,5 L (`3502110008329`) sert d’exemple : image locale ajoutée, fichiers alignés.
+- Rappels : garder les sauvegardes `index2.html.option1*`/`.revamp` tant que les options 2/3 ne sont pas validées.
+## Mise à jour 2025-10-02T22:20 (Europe/Paris) – GPT (Codex CLI)
+- `run_pipeline.py` mémorise désormais le premier descriptif validé (Carrefour City/Market en priorité) dans `seed_primary_name/quantity` et s’en sert directement pour `leclerc_query` (libellé mot‑pour‑mot, quantité incluse).
+- `ensure_local_image_asset()` + `descriptor_from_payload()` nettoient toujours les URLs (`html.unescape`, suppression espaces) avant stockage/téléchargement → toutes les collectes créent `pipeline/assets/<EAN>.*` sans intervention manuelle.
+- `manual_descriptors.json` enrichi pour 3502110008329 (Pepsi) avec `seed_primary_*`; les futurs descriptors suivront automatiquement la même structure.
+- Pour récupérer les prix Leclerc/Intermarché, rejouer les fetchers via Chrome 9222 : les nouvelles requêtes utiliseront directement le libellé Carrefour.
+
+## Mise à jour 2025-10-04T11:55 (Europe/Paris) – GPT (Codex CLI)
+**Objectif** : préparer l’intégration d’une IA dans la recherche Leclerc (génération de requêtes + validation) sans casser l’existant.
+
+1. **Phase 0 – Préparation immédiate**
+   - Lire ce plan + dernière entrée `docs/HANDOVER_DAILY.md` avant modif.
+   - Mettre en pause toute collecte Leclerc automatique le temps que la boucle IA soit en place.
+   - Créer `maxicourses_test/ai_helpers.py` avec des stubs pour :
+     `summarize_product_seed(seed_payloads)`, `suggest_search_queries(ai_profile)`,
+     `score_leclerc_candidates(ai_profile, candidates)`, `suggest_equivalent(ai_profile, candidates)` (optionnel).
+   - Fournir un `ai_helpers.sample.toml` décrivant les variables d’environnement attendues (ex. `OPENAI_API_KEY`) — pas de secret dans le dépôt.
+
+2. **Phase 1 – Profil produit IA**
+   - Point d’entrée : juste après les seeds Carrefour/Auchan/Chronodrive.
+   - Appeler `summarize_product_seed` pour obtenir un profil structuré (marque, gamme, type, quantité, attributs critiques, mots-clés).
+   - Stocker `ai_profile`, `ai_keywords`, `ai_profile_generated_at` (Europe/Paris) dans `manual_descriptors.json`.
+
+3. **Phase 2 – Requêtes Leclerc générées par l’IA**
+   - `suggest_search_queries` produit ≤5 requêtes ≤40 caractères.
+   - Injecter ces requêtes dans `descriptor['leclerc_queries']` (conserver `seed_primary_*` en fallback) + log `logs/refonte_v2/runs/<horodatage>/queries_leclerc.json`.
+
+4. **Phase 3 – Collecte Leclerc multi-essais & validation IA**
+   - Dans `run_adapter(... adapter=='leclerc' ...)` :
+     1. lancer la recherche pour chaque requête,
+     2. récupérer toutes les cartes (titre + JSON-LD + prix),
+     3. demander à `score_leclerc_candidates` si chaque carte est `MATCH` / `NO_MATCH` (justification obligatoire),
+     4. n’ouvrir que les cartes `MATCH`; sinon continuer la liste, sinon conclure `NO_RESULTS` (plus de pain de mie par défaut).
+   - Loguer les verdicts IA dans `logs/refonte_v2/runs/<horodatage>/leclerc_verdicts.json`.
+
+5. **Phase 4 – Équivalent (optionnel)**
+   - Si tout échoue, appeler `suggest_equivalent` pour proposer un produit proche (`equivalent: true`, `difference_note`).
+
+6. **Phase 5 – Tests & garde-fous**
+   - Cas tests : café Carte Noire (EAN 8000070075207), croquettes Ultima (3700260216148), produit volontairement absent.
+   - Ajouter des tests unitaires simulant les réponses IA (`tests/test_ai_helpers.py`).
+   - Prévoir un flag `USE_AI_ASSIST=false` → si désactivé ou clé API absente, retomber sur la logique actuelle (warning dans les logs).
+
+7. **Documentation / suivi**
+   - Chaque jalon validé → nouvelle entrée `docs/HANDOVER_DAILY.md` (horodatage Europe/Paris + captures + logs).
+   - Reporter ici les prompts finaux et modèles utilisés (pour audit).

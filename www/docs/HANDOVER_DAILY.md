@@ -199,6 +199,20 @@
   1. Rejouer la collecte via Chrome 9222 pour capturer un screenshot PDP Chronodrive (ajouter dans `poc_runs/...` si nécessaire).
   2. Étendre la logique de sélection à d’autres EAN (test 3700260216148 lorsque nouvelle trace disponible).
 
+## 2025-10-02 - GPT (Codex CLI)
+- **Objectif** : automatiser la qualité des fiches produits (marque, Nutri-score, visuel) et assurer l’affichage front sans intervention manuelle.
+- **Actions réalisées** :
+  - Refondu `maxicourses_test/pipeline/run_pipeline.py` pour enrichir automatiquement le descripteur : déduction marque fiable, fallback Nutri-score local (`../assets/nutriscore/*.svg`), téléchargement des images enseignes vers `pipeline/assets/`, synchronisation du `summary.json` global.
+  - Ajusté `maxicourses_test/server.py` pour corriger l’erreur `STOPWORDS` et propager chaque run vers `results/summary.json` (affichage immédiat dans `index2.html`).
+  - Mis à jour `maxicourses_test/pipeline/index2.html` : scroll auto après collecte, badge Nutri-score en CSS, fallback icône même sans `<img>`.
+- **Données/artefacts ajoutés** :
+  - Fichiers Nutri-score SVG attendus dans `maxicourses_test/assets/nutriscore/`.
+  - Images produit téléchargées automatiquement vers `pipeline/assets/<EAN>.*` lors des runs.
+- **Blocages / alertes** : aucun (collecte upload/image/texte valable, icônes requièrent le hard refresh si cache navigateur).
+- **Suivi / prochaines étapes** :
+  1. Relancer la collecte pour chaque EAN présenté afin de sécuriser marque + Nutri-score + visuel local.
+  2. Étendre le fallback Nutri-score/brand aux nouvelles enseignes dès ajout de fetchers.
+
 ## 2025-09-25 (suite) - GPT (Codex CLI)
 - **Objectif** : automatiser la rafraîchissement multi-enseignes pour ALPRO (EAN 5411188118961).
 - **Actions réalisées** :
@@ -568,3 +582,239 @@
 - **Suivi / prochaines étapes** :
   1. Modifier `fetch_intermarche_price.py` pour imposer `state/intermarche.json` (cookies) avant `perform_search`.
   2. Rejouer le run complet une fois Intermarché réglé et en monitorant le script Leclerc.
+
+## 2025-10-01 - GPT (Codex CLI)
+- **Objectif** : sauvegarder l’état courant (Carrefour/Leclerc ok, Intermarché en analyse) et tracer les investigations en cours.
+- **Actions réalisées** :
+  - Regénéré `maxicourses_test/state/intermarche.json` via Chrome 9222 en sélectionnant « Super Talence » ; cookies `itm_pdv=11227` confirmés.
+  - Relancé `pipeline/run_pipeline.py --ean 5000112611861 --adapters carrefour_city carrefour_market auchan chronodrive leclerc intermarche --headed --human`, résultats dans `results/test-5000112611861/run-5000112611861-20251001-133451.json` + `logs/refonte_v2/runs/20251001-133451/`.
+  - Copié les sorties vers `results/test-5000112611861/latest.json` et `summary.json`, puis synchronisé `results/latest.json` et `results/summary.json`.
+  - Instrumenté `fetch_intermarche_price.py` (gestion 404 « Revenir à l’accueil », tracé HTML/PNG + lecture API `products/byKeywordAndCategory`). Les appels API retournent bien le Coca (`ean 5000112611861`), mais aucune carte n’est rendue côté SPA.
+- **Blocages / alertes** : Intermarché restitue systématiquement une page 404/SPA vide après la requête, malgré la présence du produit dans l’API (voir `logs/refonte_v2/runs/20251001-151300/intermarche-debug/`).
+- **Suivi / prochaines étapes** :
+  1. Exploiter directement la réponse `byKeywordAndCategory` pour construire le résultat JSON sans dépendre du DOM (mapping à intégrer dans `fetch_intermarche_price.py`).
+  2. Ajouter la sélection « Super Talence » dans la pipeline automatique (chaîne de recherche > clic « Choisir »).
+  3. Une fois la conversion API → JSON faite, relancer le pipeline complet et revalider `index2.html` / `maxicourses_front_v2/index.html`.
+
+## 2025-10-01T17:09 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : rétablir la collecte Intermarché (Talence) en supprimant toute dépendance au fallback `trier=relevance` et valider le run multi-enseignes.
+- **Actions réalisées** :
+  - Réécrit `fetch_intermarche_price.py` pour :
+    * saisir sans détour via le champ principal (`Lait, oeuf, pain…`),
+    * scorer les cartes produits de la page SPA à partir du libellé (brand/quantité) et prioriser l’URL `…/5000112611861`,
+    * fiabiliser la détection prix/unité/quantité après navigation PDP.
+  - Vérifié le fetcher seul (`5000112611861`, `5411188118961`) → `OK, Intermarché · Super Talence`.
+  - Rejoué `pipeline/run_pipeline.py --ean 5000112611861 --adapters carrefour_city carrefour_market auchan chronodrive leclerc intermarche --headed` : toutes les enseignes `OK`, Intermarché remonte 2,41 € (1,38 €/L).
+- **Données/artefacts ajoutés** :
+  - `maxicourses_test/results/run-5000112611861-20251001-145819.json` et `run-5000112611861-20251001-150255.json`.
+  - Captures/debug `maxicourses_test/debug/intermarche_coca/` (à archiver/épurer si besoin).
+- **Blocages / alertes** : aucun blocage résiduel identifié sur Intermarché (Super Talence) après refactor.
+- **Suivi / prochaines étapes** :
+  1. Purger/archiver les dossiers debug temporairement créés (`maxicourses_test/debug/intermarche_*`) avant prochaine session.
+  2. Étendre ce flux à d’autres drives Intermarché si nécessaire (rafraîchir `state/intermarche.json`).
+
+## 2025-10-01T17:41 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : relancer les collectes propres (sans fallback) pour `5000112611861`, intégrer le nouveau produit `3600551132150`, et préparer l’affichage front.
+- **Actions réalisées** :
+  - Redémarré Chrome CDP puis `pipeline/run_pipeline.py --results-dir results/test-5000112611861` (Carrefour City/Market, Auchan, Chronodrive, Leclerc, Intermarché → tous `OK`).
+-  - Collecte complète `3600551132150` (Cadum crème douche surgras) : Carrefour City/Market `NO_PRICE`, Auchan `3,69 €`, Chronodrive `3,35 €`, Leclerc `2,62 €`, Intermarché `2,39 €`.
+-  - Ajusté `manual_leclerc_cdp.py` pour accepter les correspondances sémantiques tout en injectant la contenance 450 ml.
+-  - Créé une entrée locale `manual_descriptors.json` + asset `pipeline/assets/cadum-creme-douche.jpg` (Cadum, 450 ml).
+-  - Ajouté l’EAN dans `EXTRA_DATASETS` d’`index2.html` ; statut « non dispo » seulement pour les enseignes sans fiche.
+-  - Synchronisé `results/summary.json` avec les dossiers `results/test-5000112611861/` et `results/test-3600551132150/`.
+- **Données/artefacts ajoutés** :
+  - `results/test-5000112611861/run-5000112611861-153050.json` (et suivants) ; `results/test-3600551132150/run-3600551132150-20251001-165127.json`.
+- **Blocages / alertes** :
+  - Carrefour City/Market n’ont toujours pas l’article `3600551132150` (logique `NO_PRICE`).
+  - Chronodrive et Leclerc sensibles au wording ; requêtes descriptives à garder alignées (“cadum gel douche 450 ml”).
+- **Suivi / prochaines étapes** :
+  1. Purger les dossiers debug (`results/test-*/debug/`) quand les validations seront archivées.
+  2. Ajouter, si besoin, la fiche `3600551132150` dans une démo V2 (s’assurer d’avoir les visuels locaux).
+
+## 2025-10-01T19:25 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : sécuriser la récupération du descriptif (OFF puis Auchan → Carrefour → Chronodrive) et afficher Eco-score/NOVA aux côtés du Nutri-score.
+- **Actions réalisées** :
+  - `server.py` : enrichissement OpenFoodFacts (`ecoscore_grade`, `ecoscore_image`, `nova_group`) fusionné automatiquement dans `manual_descriptors.json` avant les fallbacks.
+  - `pipeline/run_pipeline.py` / `pipeline/models.py` : le `reference` des runs stocke désormais Eco-score & NOVA pour diffusion aux frontaux.
+  - `fetch_chronodrive_price.py` : ajout des `alternate_queries` + scoring renforcé (tokens discriminants) pour éviter les variantes coco.
+  - `manual_leclerc_cdp.py` : validation sur titre (mots-clés) + conservation de la contenance 450 ml même sans GTIN exposé.
+  - `index2.html` : badges Eco/NOVA à côté du Nutri-score ; quantité déplacée dans le descriptif fiche produit.
+  - Ajout du formulaire « Upload code-barres » (FormData) + support backend (`/api/collect` multipart) : le serveur décode l’image (zxing) et relance la collecte en mode EAN.
+  - Collectes ciblées `5000112611861` & `3600551132150` rejouées (`results/test-*/run-…172401.json`, `…165127.json`) puis `latest.json`/`summary.json` synchronisés.
+- **Données/artefacts ajoutés** :
+  - `maxicourses_test/results/test-5000112611861/run-5000112611861-20251001-172401.json`.
+  - `maxicourses_test/results/test-3600551132150/run-3600551132150-20251001-165127.json`.
+- **Blocages / alertes** :
+  - Leclerc Bruges n’affiche toujours pas le GTIN Cadum (match sémantique uniquement) ; acceptable pour la démo, prévoir un drive alternatif si preuve GTIN requise.
+  - OpenFoodFacts ne référence pas encore la version Cadum 450 ml (fallback enseignes indispensable).
+- **Suivi / prochaines étapes** :
+  1. Documenter la chaîne OFF → Auchan → Carrefour → Chronodrive dans la doc (fait dans QUICKSTART).
+  2. Prévoir un script de purge pour `results/test-*/debug/` dès validation finale.
+  3. Répliquer l’affichage Eco/NOVA dans la V2 front une fois les fetchers restants alignés.
+
+## 2025-10-01T20:28 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : ajouter un flux d’upload image (sans casser l’existant) et un watcher optionnel pour automatiser les collectes.
+- **Actions réalisées** :
+  - `server.py` : support multipart `/api/collect` (détection d’image, décodage EAN via Pillow + zxing-cpp, collecte automatique) + enrichissement OFF complet.
+  - `index2.html` : formulaire “Upload code-barres” (+ statut utilisateur) qui déclenche l’API image.
+  - Nouveau script `watch_uploads.py` : surveille `uploads/`, décode chaque fichier et lance `run_pipeline.py` avec les adaptateurs choisis.
+  - Installé les dépendances `Pillow` / `zxing-cpp` (via pip3) pour permettre le décodage local.
+  - Rerun complet `5000112611861` pour restaurer City/Market dans les `summary`.
+- **Données/artefacts ajoutés** :
+  - `maxicourses_test/watch_uploads.py` (exécutable).
+  - `uploads/` (créé à la volée par le watcher) – à alimenter avec des images.
+- **Blocages / alertes** : attention à relancer le watcher/serveur après installation ou mise à jour des dépendances.
+- **Suivi / prochaines étapes** :
+  1. Documenter le démarrage du watcher et les prérequis (`pip3 install pillow zxing-cpp`).
+  2. Prévoir un nettoyage automatique des fichiers uploadés une fois traités (actuellement conservés).
+
+## 2025-10-02 - GPT (Codex CLI)
+- **Objectif** : verrouiller la collecte automatique (marque > descriptif > quantité, visuel enseigne, Nutri-score badge).
+- **Actions réalisées** :
+  - Normalisé `manual_descriptors.json` : toutes les fiches disposent de `seed_query` = `marque + titre + quantité`, pictos Nutri-score locaux (`../assets/nutriscore/...`) et fallback `unknown` disponible.
+  - `pipeline/run_pipeline.py` : recalcul systématique de `seed_query` après chaque seed, téléchargement auto des visuels enseignes, fallback Nutri-score + badge CSS pour affichage front.
+  - Ajout icône `nutriscore-unknown.svg`, image locale Bjorg (`./assets/3229820787015.jpg`), alignement doc (`docs/QUICKSTART_NEXT_GPT.md`).
+- **Données/artefacts ajoutés** : icônes Nutri-score complètes (`maxicourses_test/assets/nutriscore/`), visuel Bjorg dans `pipeline/assets/3229820787015.jpg`.
+- **Blocages / alertes** : aucun ; relancer une collecte suffit à régénérer `manual_descriptors.json` si besoin.
+- **Suivi / prochaines étapes** :
+  1. Rejouer les EAN historiques pour garantir seed_query alignée.
+  2. Étendre ce fallback (visuels + Nutri-score) aux nouvelles enseignes dès création.
+
+## 2025-10-02T14:34 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : verrouiller la collecte automatique (marque > descriptif > quantité, visuel enseigne, Nutri-score).
+- **Actions réalisées** :
+  - Normalisé `manual_descriptors.json` : seed_query recalculée (marque en premier), pictos Nutri-score locaux/corrects, visuel Bjorg (`./assets/3229820787015.jpg`).
+  - `pipeline/run_pipeline.py` : recalcul `seed_query` après chaque seed, fallback Nutri-score `unknown`, téléchargement auto images enseignes.
+  - `index2.html` : badges CSS Nutri-score, fallback si image manquante. Doc `QUICKSTART_NEXT_GPT.md` renforcée.
+- **Données/artefacts ajoutés** : icône `nutriscore-unknown.svg`, visuel Bjorg dans `pipeline/assets/`.
+- **Blocages / alertes** : aucun ; relancer la collecte suffit à appliquer ces règles.
+- **Suivi / prochaines étapes** :
+  1. Rejouer les EAN historiques pour confirmer seed_query brand-first.
+  2. Étendre le fallback aux nouvelles enseignes dès création.
+
+## 2025-10-02T14:45 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : Stabiliser l’affichage Nutri-score cross-navigateurs et la collecte automatique des descriptifs.
+- **Actions réalisées** :
+  - Résolu l’absence d’icônes Safari : `<img>` Nutri-score + cache-buster (`withCacheBuster`) et fallback `nutriscore-unknown.svg`.
+  - Normalisé `manual_descriptors.json` : marque en premier dans `seed_query`, visuels locaux téléchargés (`pipeline/assets/<EAN>.jpg`), pictos Nutri-score `../assets/nutriscore/nutriscore-*.svg`.
+  - `run_pipeline.py` : recalcul `seed_query` après chaque seed, fallback Nutri-score (A–E ou unknown), téléchargement auto des images enseignes.
+  - Doc mise à jour (`docs/QUICKSTART_NEXT_GPT.md`) : consignes marque→descriptif→quantité + visuel obligatoire + Nutri-score local.
+- **Données/artefacts ajoutés** : icône `maxicourses_test/assets/nutriscore/nutriscore-unknown.svg`, visuel Bjorg `pipeline/assets/3229820787015.jpg`.
+- **Blocages / alertes** : aucun ; relancer la collecte suffit à appliquer les règles (marque, visuel, Nutri-score).
+- **Suivi / prochaines étapes** :
+  1. Rejouer les EAN historiques pour garantir seed_query et visuels à jour.
+  2. Étendre la même logique aux nouvelles enseignes dès intégration.
+
+## 2025-10-02T15:24 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : sécuriser Chronodrive (EAN d’abord, descriptif ensuite) et fiabiliser les seed_query.
+- **Actions réalisées** :
+  - `run_pipeline.py` : nouvelle construction `seed_query` (tokens uniques, marque en tête, longueur limitée 80), recalculée après chaque seed + migration `manual_descriptors.json`.
+  - `manual_descriptors.json` : toutes les fiches utilisent désormais `marque + descriptif + quantité` sans répétition.
+  - `fetch_chronodrive_price.py` : ajoute une attente de 10 s lors des recherches descriptives après un essai EAN → corrige le time-out observé.
+- **Données/artefacts ajoutés** : aucune nouvelle donnée, mise à jour des fichiers existants.
+- **Blocages / alertes** : aucun ; relancer la collecte remettra automatiquement ces règles en place.
+- **Suivi / prochaines étapes** :
+  1. Vérifier Chronodrive sur les EAN récents pour confirmer la collecte (EAN puis fallback).
+  2. Étendre la logique de seed_query aux futurs fetchers.
+
+## 2025-10-02T15:26 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : documenter définitivement les garde-fous (seed_query marque → descriptif → quantité, visuel enseigne, Nutri-score).
+- **Actions réalisées** :
+  - Actualisé `docs/QUICKSTART_NEXT_GPT.md` (section horodatée) avec les impératifs EAN/seed/visuels/Nutri-score + fallback Chronodrive (EAN puis descriptif + 10 s).
+  - Résumé technique : `run_pipeline.py` recalcule `seed_query` (longueur 80, tokens uniques), télécharge les visuels enseignes, applique les pictos Nutri-score (`../assets/nutriscore/...` ou `unknown`).
+  - `manual_descriptors.json` recalculé (marque en premier), image locale Bjorg ajoutée, toutes les Nutri-score pointent vers les assets locaux.
+- **Données/artefacts ajoutés** : `maxicourses_test/assets/nutriscore/nutriscore-unknown.svg`, `pipeline/assets/3229820787015.jpg`.
+- **Blocages / alertes** : aucun ; relancer la collecte applique automatiquement ces règles.
+- **Suivi / prochaines étapes** :
+  1. Rejouer les fetchers historiques pour propager les nouveaux seed_query.
+  2. Étendre ces garde-fous à toute nouvelle enseigne fetchée.
+
+## 2025-10-02T15:49 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : finaliser seed_query marque→descriptif→quantité et renforcer Chronodrive.
+- **Actions réalisées** :
+  - `run_pipeline.py` : tokenisation accentuée (STOPWORDS, limite 60), recalcul de toutes les `seed_query`.
+  - Mise à jour `manual_descriptors.json` (L'OR espresso 30 capsules, Hipro, Bjorg).
+  - `fetch_chronodrive_price.py` : attente de 20 s sur la recherche descriptif après l'échec EAN.
+- **Blocages / alertes** : aucun.
+- **Suivi / prochaines étapes** :
+  1. Rejouer la collecte L'OR (Chronodrive) pour valider l'attente.
+  2. Étendre ces règles aux nouveaux fetchers.
+
+## 2025-10-02T15:57 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : synthétiser les sauvegardes automatiques (seed_query, visuel, Nutri-score, Chronodrive).
+- **Actions réalisées** :
+  - Documenté dans QUICKSTART la mécanique automatique : `run_pipeline.py` regenère `seed_query` (60 car., marque → descriptif → quantité), télécharge les visuels enseignes, applique les pictos Nutri-score locaux.
+  - Rappel Chronodrive (EAN puis descriptif + 20 s) + mention absence d’intervention manuelle.
+- **Données/artefacts ajoutés** : aucun nouveau fichier, mises à jour des docs existantes.
+- **Blocages / alertes** : aucun.
+- **Suivi / prochaines étapes** :
+  1. Continuer à relancer les collectes pour propager les seed_query nettoyées.
+  2. Vérifier systématiquement Chronodrive après les 20 s d’attente lors des runs descriptifs.
+
+## 2025-10-02T16:45 (Europe/Paris) - GPT (Codex CLI)
+- **Note** : la collecte Leclerc Drive doit encore intégrer un scoring robuste (EAN + quantité) pour éviter le multi-pack x50.
+- **Actions réalisées** : aucune correction définitive – un correctif reste à implémenter dans `manual_leclerc_cdp.py` (sélection carte sur `leclerc_query` courte, vérification EAN + quantité).
+- **Prochaines étapes** :
+  1. Reprendre `manual_leclerc_cdp.run_manual_leclerc` (liste de requêtes, scoring EAN/nombres).
+  2. Vérifier la fiche L'OR 30 capsules après implémentation.
+
+## 2025-10-02T20:25 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : rafraîchir l’UX de `pipeline/index2.html` (bandeau d’intro + mise en avant des économies).
+- **Actions réalisées** :
+  - Refonte du bandeau (logo + formulaires alignés à gauche, résumé compact à droite, suppression du CTA redondant).
+  - Bloc « Économie potentielle » retravaillé : badge montant + pourcentage (surlignage rouge pour les gains), calcul basé sur le panier mini vs maxi et mise à jour auto (`computePortfolioDelta`).
+  - Nettoyage du wording (suppression de la ligne « Tarification unitaire… ») et conservation de sauvegardes `index2.html.option1*` / `.revamp`.
+- **Données/artefacts ajoutés** : aucun (modifications dans `maxicourses_test/pipeline/index2.html`).
+- **Blocages / alertes** : RAS.
+- **Suivi / prochaines étapes** :
+  1. Option 2 (lisibilité des tableaux) et Option 3 (cartes compactes) encore à expérimenter si Laurent le valide.
+  2. Prévoir capture écran de la nouvelle V1 pour la doc si nécessaire.
+
+## 2025-10-02T20:44 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : finaliser le wording du bandeau et valider l’état sauvegardé.
+- **Actions réalisées** :
+  - Texte du résumé simplifié (suppression de la répétition multi-enseignes, rappel unique « JSON + captures archivés »).
+  - Vérification finale du bloc d’économie (badge rouge/vert, calcul vs. panier mini) et conservation des sauvegardes `index2.html.option1*` (+ `.revamp`).
+- **Données/artefacts ajoutés** : aucun fichier nouveau.
+- **Blocages / alertes** : RAS.
+- **Suivi / prochaines étapes** :
+  1. Attendre la validation de Laurent avant de passer à l’Option 2 (tableaux) ou Option 3 (cartes compactes).
+  2. Garder les backups `index2.html.option1*` intacts pour rollback rapide.
+
+## 2025-10-02T20:55 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : fiabiliser définitivement la récupération d’images produit.
+- **Actions réalisées** :
+  - `run_pipeline.py` : nettoyage systématique des URLs (`html.unescape`, suppression des espaces) avant téléchargement via `ensure_local_image_asset` ; les images retournées par les fetchers sont désormais rapatriées même si l’enseigne encode `&amp;`.
+  - `descriptor_from_payload` débloque les HTML entities dès qu’un `payload.image` est lu (évite d’enregistrer une URL mal encodée dans `manual_descriptors.json`).
+  - Téléchargement immédiat de l’asset Pepsi (`pipeline/assets/3502110008329.jpg`) + mise à jour de `manual_descriptors.json`, `results/test-3502110008329/latest.json` et `summary.json` pour pointer vers le fichier local.
+- **Données/artefacts ajoutés** : `maxicourses_test/pipeline/assets/3502110008329.jpg`.
+- **Blocages / alertes** : RAS (le run pipeline couvrira automatiquement les prochains produits).
+- **Suivi / prochaines étapes** :
+  1. Relancer `run_pipeline.py --ean 3502110008329` à la prochaine session pour vérifier end-to-end (l’image est déjà en place, la collecte confirmera les prix Leclerc/Intermarché via CDP).
+  2. Généraliser ce contrôle lors de chaque collecte (les nouvelles règles sont maintenant codées).
+
+## 2025-10-02T22:20 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : imposer le descriptif Carrefour City/Market dans les requêtes Leclerc.
+- **Actions réalisées** :
+  - `run_pipeline.py` : `ensure_descriptor_via_seed()` mémorise le premier libellé validé par Carrefour (`seed_primary_*`) et `build_leclerc_query()` l’utilise mot pour mot (nom + quantité) avant toute heuristique.
+  - Nettoyage des URLs image généralisé (`html.unescape` + suppression des espaces) déjà appliqué précédemment ; confirmé sur l’EAN Pepsi (`seed_primary_name` = "Soda au Cola PEPSI").
+  - `manual_descriptors.json` mis à jour pour 3502110008329 (`seed_primary_name`/`seed_primary_quantity`, `leclerc_query` = libellé Carrefour).
+- **Données/artefacts ajoutés** : aucun nouveau fichier.
+- **Blocages / alertes** : Leclerc / Intermarché doivent encore être relancés via CDP pour obtenir le prix correct, mais les requêtes utiliseront désormais le libellé Carrefour.
+- **Suivi / prochaines étapes** :
+  1. Rejouer `fetch_leclerc_drive_price.py` et `fetch_intermarche_price.py` pour EAN 3502110008329 (Chrome 9222 requis).
+  2. Vérifier que les prochains `manual_descriptors.json` conservent `seed_primary_name` (grâce au nouveau code c’est automatique).
+
+## 2025-10-04T11:55 (Europe/Paris) - GPT (Codex CLI)
+- **Objectif** : cadrer le chantier « Recherche Leclerc pilotée par IA » et préparer les tests sans perturber la prod actuelle.
+- **Actions réalisées** :
+  - Relu toutes les consignes (PROMPT_BOOTSTRAP, ONBOARDING, PRICE_COLLECTION_GUIDE, QUICKSTART, etc.) pour repartir strictement sur le cadre Maxicourses.
+  - Défini un plan en 5 phases (profil IA, requêtes IA, validation IA, équivalent optionnel, tests) consigné dans `docs/QUICKSTART_NEXT_GPT.md`.
+  - Ajouté la configuration `ai_helpers.py` (à créer) et le besoin d’un `ai_helpers.sample.toml` pour la gestion des clés API (sans casser le workflow actuel).
+  - Mis en pause les collectes automatiques Leclerc tant que les garde-fous IA ne sont pas en place.
+- **Données/artefacts ajoutés** : documentation uniquement (`docs/QUICKSTART_NEXT_GPT.md` enrichi, présent handover).
+- **Blocages / alertes** : aucun pour l’instant ; l’implémentation IA reste à faire mais le plan précise la marche à suivre.
+- **Suivi / prochaines étapes** :
+  1. Créer `ai_helpers.py` (stubs) + fichier d’exemple `ai_helpers.sample.toml`.
+  2. Implémenter la phase 1 (profil IA) et consigner les prompts exacts utilisés.
+  3. Enchaîner sur la phase 2 (génération de requêtes) avant d’attaquer la validation IA côté fetcher Leclerc.

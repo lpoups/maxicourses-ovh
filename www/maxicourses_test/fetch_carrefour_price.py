@@ -711,11 +711,11 @@ async def run() -> Result:
                     val, unit = mqty.groups()
                     quantity_text = clean_spaces(f"{val} {unit.upper()}")
 
+                if price_text:
+                    break
+
             if price_text:
                 break
-
-        if price_text:
-            break
 
         # if we reached here, price not found; go back to results for next term
         try:
@@ -741,6 +741,34 @@ async def run() -> Result:
         if amount:
             unit_text = amount.replace('.', ',') + sep + tail
     quantity_text = clean_spaces(quantity_text)
+
+    if (not unit_text) and quantity_text and price_text:
+        qty_match = re.match(r"([0-9]+[\.,]?[0-9]*)\s*(ml|l|cl|g|kg)", quantity_text, re.IGNORECASE)
+        if qty_match:
+            raw_qty = qty_match.group(1).replace(',', '.').strip()
+            unit = qty_match.group(2).lower()
+            try:
+                qty_value = float(raw_qty)
+                price_value = float(price_text.replace(',', '.'))
+            except ValueError:
+                qty_value = None
+                price_value = None
+            if qty_value and price_value:
+                base_unit = unit
+                if unit == 'g':
+                    qty_value /= 1000.0
+                    base_unit = 'kg'
+                elif unit == 'ml':
+                    qty_value /= 1000.0
+                    base_unit = 'l'
+                elif unit == 'cl':
+                    qty_value /= 100.0
+                    base_unit = 'l'
+                if qty_value > 0:
+                    unit_price_value = price_value / qty_value
+                    unit_text = f"{unit_price_value:.2f} € / {base_unit.upper()}"
+                    unit_text = unit_text.replace('.', ',')
+
     cleaned_store = clean_spaces(store_name)
     expected_clean = clean_spaces(expected_store)
 

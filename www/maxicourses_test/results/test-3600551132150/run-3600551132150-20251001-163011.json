@@ -1,0 +1,59 @@
+{
+  "ean": "3600551132150",
+  "image_path": null,
+  "started_at": "2025-10-01T16:29:37.414522",
+  "finished_at": "2025-10-01T16:30:11.523222",
+  "duration_seconds": 34.1087,
+  "reference": {
+    "title": "Gel douche surgras lait d'amandes Cadum",
+    "description": "Gel douche surgras Cadum au lait d'amandes, peau sensible, flacon 450 ml.",
+    "source": "auchan",
+    "brand": "Cadum",
+    "quantity": "Flacon 450 ml",
+    "categories": null,
+    "image": "./assets/cadum-creme-douche.jpg",
+    "nutriscore_grade": null,
+    "nutriscore_score": null,
+    "nutriscore_image": null
+  },
+  "notes": [
+    "Human debug captures dans results/test-3600551132150/debug/run-3600551132150-20251001-162937"
+  ],
+  "adapters": [
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,35",
+        "title": "Crème douche à la crème d'amande  CADUM Surdoux 450 ml",
+        "url": "https://www.chronodrive.com/cadum--surdoux---creme-douche-a-la-creme-damande-P9 4133",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "7,44 € / L",
+        "quantity": "450 ML",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3600551132082"
+      },
+      "started_at": "2025-10-01T16:29:37.415333",
+      "finished_at": "2025-10-01T16:30:11.522724",
+      "duration_seconds": 34.107391,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3600551132150",
+        "QUERY": "3600551132150",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "results/test-3600551132150/debug/run-3600551132150-20251001-162937/01-chronodrive"
+      }
+    }
+  ]
+}

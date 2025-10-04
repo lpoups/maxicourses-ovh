@@ -112,83 +112,43 @@
   "5411188118961": {
     "carrefour_city": {
       "status": "OK",
-      "price": "2,57",
-      "store": "Carrefour City · Bordeaux Balguerie",
-      "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-nature-a-l-amande-alpro-5411188118961",
-      "note": "2025-09-25T14:36:13Z",
-      "unit_price": null,
-      "quantity": "500 G",
-      "title": "Dessert végétal soja nature à l'amande ALPRO",
-      "matched_ean": "5411188118961"
+      "payload": {
+        "status": "OK",
+        "price": "2,57",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-nature-a-l-amande-alpro-5411188 118961",
+        "note": null,
+        "unit_price": "5,14 € / KG",
+        "quantity": "500 G",
+        "title": "Dessert végétal soja nature à l'amande ALPRO",
+        "matched_ean": "5411188118961",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-01T14:00:29.309139",
+      "duration_seconds": 22.972956,
+      "error": null,
+      "store_query": null
     },
     "carrefour_market": {
       "status": "OK",
-      "price": "2,20",
-      "store": "Carrefour Market · Bordeaux Fondaudège",
-      "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-nature-a-l-amande-alpro-5411188118961",
-      "note": "2025-09-25T14:25:38Z",
-      "unit_price": null,
-      "quantity": "500 G",
-      "title": "Dessert végétal soja nature à l'amande ALPRO",
-      "matched_ean": "5411188118961"
-    },
-    "leclerc": {
-      "status": "OK",
-      "price": "1,80",
-      "title": "Dessert végétal soja alpro Nature à l'amande - 500g",
-      "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95817-Dessert-vegetal-soja-alpro.aspx",
-      "note": "2025-09-25T14:25:38Z",
-      "unit_price": "3,60 € / KG",
-      "quantity": "500 G",
-      "matched_ean": "5411188118961",
-      "store": "E.Leclerc Drive · Bruges"
-    },
-    "auchan": {
-      "status": "OK",
-      "price": "2,30",
-      "title": "Dessert végétal nature au soja & amande",
-      "url": "https://www.auchan.fr/alpro-dessert-vegetal-nature-au-soja-amande/pr-C1170063",
-      "note": "2025-09-25T14:25:38Z",
-      "unit_price": "4,60 € / KG",
-      "quantity": "4 x 125 g (500 g)",
-      "matched_ean": "5411188118961"
-    },
-    "intermarche": {
-      "status": "OK",
-      "price": "1,93",
-      "title": "Dessert végétal soja nature aux amandes",
-      "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-nature-aux-amandes/5411188118961",
-      "note": "2025-09-25T14:25:38Z",
-      "matched_ean": "5411188118961"
-    },
-    "chronodrive": {
-      "status": "OK",
-      "price": "2,05",
-      "title": "Dessert végétal soja et amandes ALPRO 500 g",
-      "url": "https://www.chronodrive.com/alpro--dessert-vegetal-soja-et-amandes-P364873",
-      "note": "2025-09-25T14:25:38Z",
-      "unit_price": "4,10 € / KG",
-      "quantity": "500 G",
-      "store": "Chronodrive Le Haillan",
-      "matched_ean": "5411188118961"
-    }
-  },
-  "5000112611861": {
-    "auchan": {
-      "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "2,38",
-        "title": "Boisson gazeuse aux extraits végétaux goût original",
-        "url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-original/pr-C1211988",
-        "note": "Collecte 2025-09-25T11:25:38Z",
-        "unit_price": "1,36 € / L",
-        "quantity": "1,75 L",
-        "matched_ean": "5000112611861",
-        "store": "Auchan Drive Talence-Gallieni"
+        "price": "2,20",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-nature-a-l-amande-alpro-5411188 118961",
+        "note": null,
+        "unit_price": "4,40 € / KG",
+        "quantity": "500 G",
+        "title": "Dessert végétal soja nature à l'amande ALPRO",
+        "matched_ean": "5411188118961",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
       },
-      "updated_at": "2025-09-25T11:25:38Z",
-      "duration_seconds": 0,
+      "updated_at": "2025-10-01T14:00:29.309139",
+      "duration_seconds": 22.207806,
       "error": null,
       "store_query": null
     },
@@ -196,35 +156,117 @@
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "2,38",
-        "title": "Soda Coca-Cola Original Bouteille - 1,75L",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
-        "note": "Collecte 2025-09-25T11:25:38Z",
-        "unit_price": "1,36 € / L",
-        "quantity": "1,75 L",
-        "matched_ean": "5000112611861",
-        "store": "E.Leclerc Drive · Bruges"
+        "title": "Dessert végétal soja Alpro Nature sans sucres - 500g",
+        "price": "1,62",
+        "unit_price": "3,24 € / kg",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-149068-Dessert-vegetal-soja-Alpro.aspx",
+        "matched_ean": "5411188118961",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-01T14:00:29Z · E.Leclerc Drive · Bruges"
       },
-      "updated_at": "2025-09-25T11:25:38Z",
-      "duration_seconds": 0,
+      "updated_at": "2025-10-01T14:00:29.309139",
+      "duration_seconds": 36.430421,
       "error": null,
-      "store_query": "Bruges"
+      "store_query": null
+    },
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,30",
+        "title": "Dessert végétal nature au soja &  amande",
+        "url": "https://www.auchan.fr/alpro-dessert-vegetal-nature-au-soja-amande/pr-C1170063",
+        "note": "Auchan (CDP)",
+        "unit_price": "4,60 € / KG",
+        "quantity": "4 x 125 g (500 g)",
+        "matched_ean": "5411188118961",
+        "image": "https://cdn.auchan.fr/media/P0200000000059YPRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "updated_at": "2025-10-01T14:00:29.309139",
+      "duration_seconds": 13.933211,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "ERROR",
+      "payload": {},
+      "updated_at": "2025-10-01T14:00:29.309139",
+      "duration_seconds": 0.204587,
+      "error": "EMPTY_STDOUT",
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,05",
+        "title": "Dessert végétal soja et amandes  ALPRO 500 g",
+        "url": "https://www.chronodrive.com/alpro--dessert-vegetal-soja-et-amandes-P364873",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "4,10 € / KG",
+        "quantity": "500  G",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "5411188118961"
+      },
+      "updated_at": "2025-10-01T14:00:29.309139",
+      "duration_seconds": 12.389155,
+      "error": null,
+      "store_query": null
+    }
+  },
+  "5000112611861": {
+    "leclerc": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Soda Coca-Cola Original Bouteille - 1,75L",
+        "price": "2,38",
+        "unit_price": "1,36 € / l",
+        "quantity": "Bouteille 1,75 L",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
+        "matched_ean": "5000112611861",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-01T17:45:38Z · E.Leclerc Drive · Bruges"
+      },
+      "updated_at": "2025-10-01T17:45:38.594171",
+      "duration_seconds": 38.371285,
+      "error": null,
+      "store_query": null
     },
     "intermarche": {
       "status": "OK",
       "payload": {
         "status": "OK",
         "price": "2,41",
-        "title": "Soda au cola goût original",
+        "title": "Soda au cola gout original",
         "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5000112611861",
-        "note": "Collecte 2025-09-25T11:25:38Z",
+        "note": "Intermarché · Super Talence",
         "matched_ean": "5000112611861",
         "unit_price": "1,38 € / L",
-        "quantity": "1,75 L",
-        "store": "Intermarché · Talence 33 (Drive)"
+        "quantity": "Bouteille 1,75 L",
+        "store": "Super  Talence"
       },
-      "updated_at": "2025-09-25T11:25:38Z",
-      "duration_seconds": 0,
+      "updated_at": "2025-10-01T17:46:01.320598",
+      "duration_seconds": 22.715191,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,38",
+        "title": "Boisson gazeuse aux extraits  végétaux goût original",
+        "url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-orig inal/pr-C1211988",
+        "note": "Auchan (CDP)",
+        "unit_price": "1,36 € / L",
+        "quantity": "Bouteille 1,75 L",
+        "matched_ean": "5000112611861",
+        "image": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_2048x2048/B2CD/?format= rw&amp;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "updated_at": "2025-10-01T17:44:45.721603",
+      "duration_seconds": 14.951164,
       "error": null,
       "store_query": null
     },
@@ -233,54 +275,60 @@
       "payload": {
         "status": "OK",
         "price": "2,45",
-        "store": "Chronodrive Le Haillan",
-        "url": "https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits-vegetaux-P384066",
-        "note": "Collecte 2025-09-25T13:50:08Z",
+        "title": "Boisson gazeuse aux extraits  végétaux COCA-COLA Original 1.75 L",
+        "url": "https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits- vegetaux-P384066",
+        "note": "Chronodrive Le Haillan",
         "unit_price": "1,40 € / L",
         "quantity": "1,75 L",
-        "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
+        "store": "Chronodrive Le Haillan",
         "matched_ean": "5000112611861"
       },
-      "updated_at": "2025-09-25T13:50:08Z",
-      "duration_seconds": 0,
+      "updated_at": "2025-10-01T17:45:00.222045",
+      "duration_seconds": 14.498569,
       "error": null,
-      "store_query": "Le Haillan"
+      "store_query": null
     },
     "carrefour_city": {
       "status": "OK",
       "payload": {
         "status": "OK",
         "price": "2,79",
-        "store": "Carrefour City · Bordeaux Balguerie",
+        "store": "City Bordeaux Balguerie",
         "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
-        "note": "Collecte 2025-09-25T11:37:03Z",
+        "note": null,
         "unit_price": "1,59 € / L",
         "quantity": "1,75 L",
-        "title": "Soda au Cola Goût Original COCA-COLA",
-        "matched_ean": "5000112611861"
+        "title": "Soda  au Cola Goût Original COCA-COLA",
+        "matched_ean": "5000112611861",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
       },
-      "updated_at": "2025-09-25T11:37:03Z",
-      "duration_seconds": 0,
+      "updated_at": "2025-10-01T17:44:02.963985",
+      "duration_seconds": 26.499529,
       "error": null,
-      "store_query": "Bordeaux Balguerie"
+      "store_query": null
     },
     "carrefour_market": {
       "status": "OK",
       "payload": {
         "status": "OK",
         "price": "2,45",
-        "store": "Carrefour Market · Bordeaux Fondaudège",
+        "store": "Market Fondaudège",
         "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
-        "note": "Collecte 2025-09-25T11:37:03Z",
+        "note": null,
         "unit_price": "1,40 € / L",
         "quantity": "1,75 L",
-        "title": "Soda au Cola Goût Original COCA-COLA",
-        "matched_ean": "5000112611861"
+        "title": "Soda  au Cola Goût Original COCA-COLA",
+        "matched_ean": "5000112611861",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
       },
-      "updated_at": "2025-09-25T11:37:03Z",
-      "duration_seconds": 0,
+      "updated_at": "2025-10-01T17:44:30.768186",
+      "duration_seconds": 27.801771,
       "error": null,
-      "store_query": "Fondaudège Bordeaux"
+      "store_query": null
     }
   },
   "3700260216148": {
@@ -289,72 +337,114 @@
       "payload": {
         "status": "OK",
         "price": "7,55",
-        "store": null,
-        "url": "https://www.auchan.fr/ultima-croquettes-au-saumon-pour-chat-sterilise/pr-C1187263",
-        "note": "Auchan (CDP) 24/09/2025",
-        "unit_price": "5,03 € / kg",
-        "quantity": "1,75 kg",
-        "title": "Croquettes au saumon pour chat stérilisé",
-        "matched_ean": "3700260216148"
+        "title": "Croquettes au saumon pour chat  stérilisé",
+        "url": "https://www.auchan.fr/ultima-croquettes-au-saumon-pour-chat-sterilise/pr-C11872 63",
+        "note": "Auchan (CDP)",
+        "unit_price": "5,03 € / KG",
+        "quantity": "1,5 KG",
+        "matched_ean": "3700260216148",
+        "image": "https://cdn.auchan.fr/media/A0220080612000538201PRIMARY_2048x2048/B2CD/?format= rw&amp;quality=75&amp;width=1200&amp;height=1200"
       },
-      "updated_at": "2025-09-24T17:35:33.515032Z",
-      "duration_seconds": 5.0,
+      "updated_at": "2025-10-03T15:46:52.788020",
+      "duration_seconds": 17.469135,
       "error": null,
       "store_query": null
     },
     "leclerc": {
-      "status": "NO_RESULTS",
+      "status": "NO_MATCH",
       "payload": {
-        "status": "NO_RESULTS",
+        "status": "NO_MATCH",
+        "title": "Croquettes chat Ultima Stérilisé - Saumon - 3kg",
         "price": null,
-        "store": "E.Leclerc Drive · Bruges",
-        "url": null,
-        "note": "Pas de fiche 1,5 kg (EAN 3700260216148) dans le drive testé",
         "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null
+        "quantity": "1,5 kg",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-48258-Croquettes-chat-Ultima.aspx",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-03T16:01:03Z · E.Leclerc Drive · Bruges"
       },
-      "updated_at": "2025-09-24T17:36:03.515032Z",
-      "duration_seconds": 0,
+      "updated_at": "2025-10-03T16:05:41.039921",
+      "duration_seconds": 63.169589,
       "error": null,
-      "store_query": "Bruges"
+      "store_query": null
     },
     "intermarche": {
-      "status": "OK",
+      "status": "NO_PRICE",
       "payload": {
-        "status": "OK",
-        "price": "6,91",
-        "title": "Croquettes pour chat stérilisé adulte saumon",
-        "url": "https://www.intermarche.com/produit/croquettes-pour-chat-sterilise-adulte-saumon/3700260216148",
-        "note": "Collecte 2025-09-25T09:58:17Z",
-        "matched_ean": "3700260216148",
-        "unit_price": "4,61 € / kg",
-        "quantity": "1,5 kg",
-        "store": "Intermarché · Bordeaux Talence (drive)"
+        "status": "NO_PRICE",
+        "price": null,
+        "title": "Croquettes pour chat stérilisé  saumon et blé Bifensis",
+        "url": "https://www.intermarche.com/produit/croquettes-pour-chat-sterilise-saumon-et-bl e-bifensis/7613032759155",
+        "note": null,
+        "matched_ean": null,
+        "unit_price": "4,86 € / KG",
+        "quantity": "1.5 kg",
+        "store": "Super Talence"
       },
-      "updated_at": "2025-09-25T09:58:17Z",
-      "duration_seconds": 15.0,
+      "updated_at": "2025-10-03T15:46:52.788020",
+      "duration_seconds": 25.195943,
       "error": null,
       "store_query": null
     },
     "chronodrive": {
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
+        "status": "OK",
+        "price": "7,65",
+        "title": "Croquettes pour chats stérilisés au  saumon et blé PURINA One 1.5 kg",
+        "url": "https://www.chronodrive.com/purina--one---croquettes-pour-chats-sterilises-au-s aumon-et-ble-P127627",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "Prix au  kg ou au litre : 5,10 € / KG",
+        "quantity": "1.5 kg",
+        "store": "Chronodrive Le  Haillan",
+        "matched_ean": null
+      },
+      "updated_at": "2025-10-03T15:46:52.788020",
+      "duration_seconds": 47.285539,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_city": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
         "price": null,
-        "title": null,
+        "store": "City Bordeaux Balguerie",
         "url": null,
-        "note": "Pas de fiche trouvée (magasin Le Haillan)",
+        "note": null,
         "unit_price": null,
         "quantity": null,
+        "title": null,
         "matched_ean": null,
-        "store": "Chronodrive Le Haillan"
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
       },
-      "updated_at": null,
-      "duration_seconds": 0,
+      "updated_at": "2025-10-03T15:46:52.788020",
+      "duration_seconds": 17.841675,
       "error": null,
-      "store_query": "Le Haillan"
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "7,25",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/croquettes-pour-chat-adulte-sterilise-saumon-ultima- 3700260216148",
+        "note": null,
+        "unit_price": "4,83 € / KG",
+        "quantity": "1,5 KG",
+        "title": "Croquettes Pour Chat Adulte Stérilisé Saumon ULTIMA",
+        "matched_ean": "3700260216148",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-03T15:46:52.788020",
+      "duration_seconds": 22.566937,
+      "error": null,
+      "store_query": null
     }
   },
   "5411188103387": {
@@ -568,6 +658,934 @@
       },
       "updated_at": "2025-09-27T13:24:41.343866",
       "duration_seconds": 15.358228,
+      "error": null,
+      "store_query": null
+    }
+  },
+  "3600551132150": {
+    "carrefour_city": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-01T16:49:31.386555",
+      "duration_seconds": 18.690691,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Market Fondaudège",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-01T16:49:47.346243",
+      "duration_seconds": 15.958919,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,69",
+        "title": "Crème douche surgras lait d'amandes  peau nourrie",
+        "url": "https://www.auchan.fr/cadum-creme-douche-surgras-lait-d-amandes-peau-nourrie/pr -C1746425",
+        "note": "Auchan (CDP)",
+        "unit_price": "8,20 € / L",
+        "quantity": "Flacon 450 ml",
+        "matched_ean": "3600551132150",
+        "image": "https://cdn.auchan.fr/media/S01000000040CAYPRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "updated_at": "2025-10-01T16:50:00.788348",
+      "duration_seconds": 13.441408,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,35",
+        "title": "Crème douche à la crème d'amande  CADUM Surdoux 450 ml",
+        "url": "https://www.chronodrive.com/cadum--surdoux---creme-douche-a-la-creme-damande-P9 4133",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "7,44 € / L",
+        "quantity": "450 ML",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3600551132082"
+      },
+      "updated_at": "2025-10-01T16:50:31.347693",
+      "duration_seconds": 30.558016,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "MISMATCH",
+      "payload": {
+        "status": "OK",
+        "title": "Gel Douche Sans Savon Bio Cadum Huile d'Amandes Douces - 450ml",
+        "price": "2,62",
+        "unit_price": "5,82 € / l",
+        "quantity": "Flacon 450 ml",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-213606-Gel-Douche-Sans-Savon-Bio-Cadum.aspx",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "Produit détecté comme différent ; prix affiché à titre indicatif."
+      },
+      "updated_at": "2025-10-01T16:51:09.246441",
+      "duration_seconds": 37.897691,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,39",
+        "title": "Crème douche surgras au lait  d'amandes",
+        "url": "https://www.intermarche.com/produit/creme-douche-surgras-au-lait-d'amandes/3600 551132150",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "3600551132150",
+        "unit_price": "5,31 € / L",
+        "quantity": "Flacon 450 ml",
+        "store": "Super Talence"
+      },
+      "updated_at": "2025-10-01T16:51:27.326506",
+      "duration_seconds": 18.077299,
+      "error": null,
+      "store_query": null
+    }
+  },
+  "3033491485756": {
+    "carrefour_city": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,85",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/yaourt-a-boire-fraise-framboise-proteine-0-mg-hipro- 3033491485756",
+        "note": null,
+        "unit_price": "9,50 € / KG",
+        "quantity": "300 G",
+        "title": "Yaourt à boire fraise framboise protéiné 0% MG HIPRO",
+        "matched_ean": "3033491485756",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-02T12:17:08.874452",
+      "duration_seconds": 22.043223,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,50",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/yaourt-a-boire-fraise-framboise-proteine-0-mg-hipro- 3033491485756",
+        "note": null,
+        "unit_price": "8,33 € / KG",
+        "quantity": "300 G",
+        "title": "Yaourt à boire fraise framboise protéiné 0% MG HIPRO",
+        "matched_ean": "3033491485756",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-02T12:17:08.874452",
+      "duration_seconds": 20.512562,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Yaourt à boire protéiné Hipro Fraise framboise 0%mg - 300g",
+        "price": "2,07",
+        "unit_price": "6,90 € / kg",
+        "quantity": "300 G",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-112294-Yaourt-a-boire-proteine-Hipro.aspx",
+        "matched_ean": "3033491485756",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-02T12:16:28Z · E.Leclerc Drive · Bruges"
+      },
+      "updated_at": "2025-10-02T12:17:08.874452",
+      "duration_seconds": 42.277835,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,13",
+        "title": "Yaourt à boire protéiné fraise  framboise 0%MG",
+        "url": "https://www.intermarche.com/produit/yaourt-a-boire-proteine-fraise-framboise-0% 25mg/3033491485756",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "3033491485756",
+        "unit_price": "7,10 € / KG",
+        "quantity": "300 G",
+        "store": "Super Talence"
+      },
+      "updated_at": "2025-10-02T12:17:08.874452",
+      "duration_seconds": 16.884299,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,44",
+        "title": "Yaourt à boire protéiné saveur  fraise framboise 0% MG",
+        "url": "https://www.auchan.fr/hipro-yaourt-a-boire-proteine-saveur-fraise-framboise-0-m g/pr-C1171247",
+        "note": "Auchan (CDP)",
+        "unit_price": "8,13 € / KG",
+        "quantity": "300 G",
+        "matched_ean": "3033491485756",
+        "image": "https://cdn.auchan.fr/media/P02000000000AKNPRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "updated_at": "2025-10-02T12:17:08.874452",
+      "duration_seconds": 12.438906,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,55",
+        "title": "Yaourt à boire protéiné à la fraise  et framboise HIPRO 300 g",
+        "url": "https://www.chronodrive.com/hipro--yaourt-a-boire-proteine-a-la-fraise-et-framb oise-P415422",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "8,50 € / KG",
+        "quantity": "300 G",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3033491485756"
+      },
+      "updated_at": "2025-10-02T12:17:08.874452",
+      "duration_seconds": 10.641666,
+      "error": null,
+      "store_query": null
+    }
+  },
+  "3229820787015": {
+    "carrefour_city": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-02T12:20:38.622350",
+      "duration_seconds": 15.044712,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,15",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/boisson-vegetale-amande-sans-sucres-bio-bjorg-322982 0787015",
+        "note": null,
+        "unit_price": "2,15 € / L",
+        "quantity": "1 L",
+        "title": "Boisson Végétale Amande Sans Sucres Bio BJORG",
+        "matched_ean": "3229820787015",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-02T12:20:38.622350",
+      "duration_seconds": 18.415259,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Boisson végétale lait d'amande bio bjorg sans sucre - 1l",
+        "price": "1,70",
+        "unit_price": "1,70 € / l",
+        "quantity": "1 L",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-42563-Boisson-vegetale-lait-damande.aspx",
+        "matched_ean": "3229820787015",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-02T12:20:21Z · E.Leclerc Drive · Bruges"
+      },
+      "updated_at": "2025-10-02T12:20:38.622350",
+      "duration_seconds": 85.398456,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,71",
+        "title": "Boisson végétale Lait d'amande sans  sucres ajoutés BIO",
+        "url": "https://www.intermarche.com/produit/boisson-vegetale-lait-d'amande-sans-sucres- ajoutes-bio/3229820787015",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "3229820787015",
+        "unit_price": "1,71 € / L",
+        "quantity": "1 L",
+        "store": "Super Talence"
+      },
+      "updated_at": "2025-10-02T12:20:38.622350",
+      "duration_seconds": 17.459793,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,05",
+        "title": "Boisson végétale au lait d'amande  sans sucres bio",
+        "url": "https://www.auchan.fr/bjorg-boisson-vegetale-au-lait-d-amande-sans-sucres-bio/p r-C1262496",
+        "note": "Auchan (CDP)",
+        "unit_price": "2,05 € / L",
+        "quantity": "1  L",
+        "matched_ean": "3229820787015",
+        "image": "https://cdn.auchan.fr/media/A0220140408000406838PRIMARY_2048x2048/B2CD/?format= rw&amp;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "updated_at": "2025-10-02T12:20:38.622350",
+      "duration_seconds": 12.682691,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,89",
+        "title": "Boisson végétale au lait d'amande  sans sucres bio BJORG 1 L",
+        "url": "https://www.chronodrive.com/bjorg--boisson-vegetale-au-lait-damande-sans-sucres -bio-P182688",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "1,89 € / L",
+        "quantity": "1 L",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3229820787015"
+      },
+      "updated_at": "2025-10-02T12:20:38.622350",
+      "duration_seconds": 10.469089,
+      "error": null,
+      "store_query": null
+    }
+  },
+  "8711000547403": {
+    "carrefour_city": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-03T11:10:24.508904",
+      "duration_seconds": 16.231211,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,55",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-espresso-supremo-intensite-10-compatib les-nespresso-l-or-8711000547403",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": "Café Capsules Espresso Supremo Intensité 10 Compatibles  Nespresso L'OR",
+        "matched_ean": "8711000547403",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-03T11:10:24.508904",
+      "duration_seconds": 19.151073,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Capsules L'Or Espresso Supremo x30 - 156g",
+        "price": "8,97",
+        "unit_price": "57,50 € / kg",
+        "quantity": "30 capsules",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231368-Capsules-LOr-Espresso.aspx",
+        "matched_ean": "8711000547403",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-03T11:10:06Z · E.Leclerc Drive · Bruges"
+      },
+      "updated_at": "2025-10-03T11:10:24.508904",
+      "duration_seconds": 39.58749,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,92",
+        "title": "Capsules de café compatibles  Nespresso Supremo Intensité 10",
+        "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-supr emo-intensite-10/8711000547403",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "8711000547403",
+        "unit_price": "63,59 € / KG",
+        "quantity": "30  capsules",
+        "store": "Super Talence"
+      },
+      "updated_at": "2025-10-03T11:10:24.508904",
+      "duration_seconds": 18.178772,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "10,25",
+        "title": "Capsules de café Supremo intensité  10 compatibles Nespresso",
+        "url": "https://www.auchan.fr/l-or-espresso-capsules-de-cafe-supremo-intensite-10-compa tibles-nespresso/pr-C1777908",
+        "note": "Auchan (CDP)",
+        "unit_price": "65,71 € /  KG",
+        "quantity": "30 capsules",
+        "matched_ean": "8711000547403",
+        "image": "https://cdn.auchan.fr/media/S01000000040J7CPRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "updated_at": "2025-10-03T11:10:24.508904",
+      "duration_seconds": 13.716984,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,89",
+        "title": "Capsules de café supremo N°10 L'OR  Espresso 30 capsules",
+        "url": "https://www.chronodrive.com/lor--espresso---capsules-de-cafe-supremo-n10-P54070 8",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "Prix au kg ou au litre :  63,40 € / KG",
+        "quantity": "30 capsules",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "8711000547403"
+      },
+      "updated_at": "2025-10-03T11:10:24.508904",
+      "duration_seconds": 12.295859,
+      "error": null,
+      "store_query": null
+    }
+  },
+  "5411188114536": {
+    "carrefour_city": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-02T16:00:20.302424",
+      "duration_seconds": 16.173449,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,25",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-fraise-alpro-5411188114536",
+        "note": null,
+        "unit_price": "4,50 € / KG",
+        "quantity": "500 G",
+        "title": "Dessert végétal soja fraise ALPRO",
+        "matched_ean": "5411188114536",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-02T16:00:20.302424",
+      "duration_seconds": 19.819949,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Dessert végétal Alpro Fraise - 500g",
+        "price": "1,79",
+        "unit_price": "3,58 € / kg",
+        "quantity": "500 g",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-211095-Dessert-vegetal-Alpro.aspx",
+        "matched_ean": "5411188114536",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-02T15:59:51Z · E.Leclerc Drive · Bruges"
+      },
+      "updated_at": "2025-10-02T16:00:20.302424",
+      "duration_seconds": 36.053804,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "MISMATCH",
+      "payload": {
+        "status": "OK",
+        "price": "1,92",
+        "title": "Dessert végétal soja vanille,",
+        "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-vanille/5411188103387",
+        "note": "Produit détecté comme différent ; prix affiché à titre indicatif.",
+        "matched_ean": null,
+        "unit_price": "3,84 € / KG",
+        "quantity": "500 g",
+        "store": "Super Talence"
+      },
+      "updated_at": "2025-10-02T16:00:20.302424",
+      "duration_seconds": 28.705123,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,38",
+        "title": "Dessert végétal au soja et à la  fraise",
+        "url": "https://www.auchan.fr/alpro-dessert-vegetal-au-soja-et-a-la-fraise/pr-C1569682",
+        "note": "Auchan (CDP)",
+        "unit_price": "4,76 € / KG",
+        "quantity": "500 G",
+        "matched_ean": "5411188114536",
+        "image": "https://cdn.auchan.fr/media/P02000000001L8LPRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "updated_at": "2025-10-02T16:00:20.302424",
+      "duration_seconds": 13.412872,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,99",
+        "title": "Dessert végétal à la fraise ALPRO  500 g",
+        "url": "https://www.chronodrive.com/alpro--dessert-vegetal-a-la-fraise-P324662",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "Prix au kg ou au litre : 3,98 € / KG",
+        "quantity": "500 g",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "5411188114536"
+      },
+      "updated_at": "2025-10-02T16:00:20.302424",
+      "duration_seconds": 10.819562,
+      "error": null,
+      "store_query": null
+    }
+  },
+  "3502110008329": {
+    "carrefour_city": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-03T09:51:13.146663",
+      "duration_seconds": 16.015662,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,03",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329",
+        "note": null,
+        "unit_price": "1,35 € / L",
+        "quantity": "1,5 L",
+        "title": "Soda au Cola PEPSI",
+        "matched_ean": "3502110008329",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-03T09:51:13.146663",
+      "duration_seconds": 20.758891,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Soda au cola Pepsi La bouteille de 1.5L",
+        "price": "1,17",
+        "unit_price": "0,78 € / l",
+        "quantity": "1.5 L",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx",
+        "matched_ean": "3502110008329",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-03T09:50:45Z · E.Leclerc Drive · Bruges"
+      },
+      "updated_at": "2025-10-03T09:51:13.146663",
+      "duration_seconds": 33.544774,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null
+      },
+      "updated_at": "2025-10-03T09:51:13.146663",
+      "duration_seconds": 3.606566,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,49",
+        "title": "Boisson gazeuse cola aux extraits  végétaux",
+        "url": "https://www.auchan.fr/pepsi-boisson-gazeuse-cola-aux-extraits-vegetaux/pr-C1209 689",
+        "note": "Auchan (CDP)",
+        "unit_price": "0,99 € / L",
+        "quantity": "1.5 L",
+        "matched_ean": "3502110008329",
+        "image": "https://cdn.auchan.fr/media/A0220160721000527152PRIMARY_2048x2048/B2CD/?format= rw&amp;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "updated_at": "2025-10-03T09:51:13.146663",
+      "duration_seconds": 13.060059,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,39",
+        "title": "Boisson gazeuse aux extraits  végétaux PEPSI 1.5 L",
+        "url": "https://www.chronodrive.com/pepsi--boisson-gazeuse-aux-extraits-vegetaux-P16714 ",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "Prix au kg ou au litre :  0,93 € / L",
+        "quantity": "1.5 L",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3502110008329"
+      },
+      "updated_at": "2025-10-03T09:51:13.146663",
+      "duration_seconds": 11.188798,
+      "error": null,
+      "store_query": null
+    }
+  },
+  "8712100731822": {
+    "carrefour_city": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,95",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/moutarde-epices-amorates-savora-amora-8712100731822",
+        "note": null,
+        "unit_price": "7,66 € / KG",
+        "quantity": "385 G",
+        "title": "Moutarde Epices & Amorates Savora AMORA",
+        "matched_ean": "8712100731822",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-04T09:48:15.371104",
+      "duration_seconds": 22.528649,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,84",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/moutarde-epices-amorates-savora-amora-8712100731822",
+        "note": null,
+        "unit_price": "7,38 € / KG",
+        "quantity": "385 G",
+        "title": "Moutarde Epices & Amorates Savora AMORA",
+        "matched_ean": "8712100731822",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-04T09:48:15.371104",
+      "duration_seconds": 21.915561,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Moutarde Savora Amora 385g",
+        "price": "2,29",
+        "unit_price": "5,95 € / kg",
+        "quantity": "385 G",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-39338-Moutarde-Savora-Amora.aspx",
+        "matched_ean": "8712100731822",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-04T09:47:29Z · E.Leclerc Drive · Bruges"
+      },
+      "updated_at": "2025-10-04T09:48:15.371104",
+      "duration_seconds": 28.854277,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,50",
+        "title": "Spécialité à la moutarde de Dijon  aux 11 épices et aromates",
+        "url": "https://www.intermarche.com/produit/specialite-a-la-moutarde-de-dijon-aux-11-ep ices-et-aromates/8712100731822",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "8712100731822",
+        "unit_price": "6,49 € / KG",
+        "quantity": "385  G",
+        "store": "Super Talence"
+      },
+      "updated_at": "2025-10-04T09:48:15.371104",
+      "duration_seconds": 19.380906,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,65",
+        "title": "Spécialité à la moutarde savora en  bocal",
+        "url": "https://www.auchan.fr/savora-specialite-a-la-moutarde-savora-en-bocal/pr-C12300 73",
+        "note": "Auchan (CDP)",
+        "unit_price": "6,88 € / KG",
+        "quantity": "385 G",
+        "matched_ean": "8712100731822",
+        "image": "https://cdn.auchan.fr/media/A0220141215000569861PRIMARY_2048x2048/B2CD/?format= rw&amp;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "updated_at": "2025-10-04T09:48:15.371104",
+      "duration_seconds": 15.131767,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,69",
+        "title": "Moutarde aux aromates SAVORA 385 g",
+        "url": "https://www.chronodrive.com/savora--moutarde-aux-aromates-P16609",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "Prix au kg ou au litre : 6,99 € / KG",
+        "quantity": "385 g",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "8712100731822"
+      },
+      "updated_at": "2025-10-04T09:48:15.371104",
+      "duration_seconds": 11.766256,
+      "error": null,
+      "store_query": null
+    }
+  },
+  "8000070075207": {
+    "carrefour_city": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-04T10:05:26.312339",
+      "duration_seconds": 16.615645,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "10,91",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-l-iconique-100-arabica-intensite-8-com patible-nespresso-carte-noire-8000070075207",
+        "note": null,
+        "unit_price": "0,36  € / L",
+        "quantity": "30 L",
+        "title": "Café Capsules L'Iconique 100% Arabica  Intensité 8 Compatible Nespresso CARTE NOIRE",
+        "matched_ean": "8000070075207",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-04T10:05:26.312339",
+      "duration_seconds": 17.443821,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Pain de mie nature Epi d'Or Sans croute - 500g",
+        "price": "1,39",
+        "unit_price": "2,78 € / kg",
+        "quantity": "8 TRC",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24500-Pain-de-mie-nature-Epi-dOr.aspx",
+        "matched_ean": "8000070075207",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-04T10:05:08Z · E.Leclerc Drive · Bruges"
+      },
+      "updated_at": "2025-10-04T10:05:26.312339",
+      "duration_seconds": 31.729811,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,75",
+        "title": "Capsules de café compatibles  Nespresso L'Iconique 100% arabica",
+        "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-l'ic onique-100%25-arabica/8000070075207",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "8000070075207",
+        "unit_price": "56,38 € / KG",
+        "quantity": "30  capsules",
+        "store": "Super Talence"
+      },
+      "updated_at": "2025-10-04T10:05:26.312339",
+      "duration_seconds": 17.383201,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,51",
+        "title": "Capsules de café l'Iconique café  long arôme intense 100% Arabica compatibles Nespresso",
+        "url": "https://www.auchan.fr/carte-noire-capsules-de-cafe-l-iconique-cafe-long-arome-i ntense-100-arabica-compatibles-nespresso/pr-C1814348",
+        "note": "Auchan (CDP)",
+        "unit_price": "56,61 € / KG",
+        "quantity": "30 L",
+        "matched_ean": "8000070075207",
+        "image": "https://cdn.auchan.fr/media/S010000000413HZPRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "updated_at": "2025-10-04T10:05:26.312339",
+      "duration_seconds": 13.209869,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,39",
+        "title": "Capsules de café allongé CARTE NOIRE L'Iconique 30 capsules",
+        "url": "https://www.chronodrive.com/carte-noire--liconique---capsules-de-cafe-allonge-P 564180",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "Prix au kg ou au litre : 55,89 € / KG",
+        "quantity": "30 capsules",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "8000070075207"
+      },
+      "updated_at": "2025-10-04T10:05:26.312339",
+      "duration_seconds": 11.014505,
       "error": null,
       "store_query": null
     }

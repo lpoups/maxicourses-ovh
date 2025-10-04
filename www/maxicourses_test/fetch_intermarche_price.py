@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Fetcher Intermarché respectant le mandat de collecte."""
+from __future__ import annotations
+
 import asyncio
 import json
 import os
@@ -8,7 +10,7 @@ import sys
 import typing
 from dataclasses import dataclass
 from pathlib import Path
-from urllib.parse import quote
+from urllib.parse import unquote
 
 from rich import print
 import sys as _sys, os as _os
@@ -23,7 +25,10 @@ HEADLESS = os.environ.get("HEADLESS", "1") == "1"
 PROXY = os.environ.get("PROXY")
 HOME_URL = os.environ.get("HOME_URL", "https://www.intermarche.com/accueil")
 MANDATE = get_method("intermarche")
+DEBUG_INTERMARCHE = os.environ.get("DEBUG_INTERMARCHE") == "1"
+DEBUG_DUMP_ROOT = os.environ.get("HUMAN_DEBUG_DIR") or os.environ.get("INTERMARCHE_DEBUG_DIR")
 
+# Avoid hammering the same fallback terms twice in a row
 DEFAULT_UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.120 Safari/537.36"
 DEFAULT_HEADERS = {
     "sec-ch-ua": '"Chromium";v="127", "Not(A:Brand";v="24", "Google Chrome";v="127"',
@@ -41,6 +46,15 @@ try:
         MANUAL_DESCRIPTOR = json.loads(descriptor_path.read_text(encoding="utf-8"))
 except Exception:
     MANUAL_DESCRIPTOR = {}
+
+
+def _looks_like_ean(term: typing.Optional[str]) -> bool:
+    if not term:
+        return False
+    stripped = "".join(ch for ch in term.strip() if ch.isdigit())
+    if not stripped:
+        return False
+    return stripped == term.strip().replace(" ", "") and 8 <= len(stripped) <= 14
 
 
 def load_storage_state(path: typing.Optional[Path]) -> typing.Optional[dict]:
@@ -63,6 +77,163 @@ async def apply_storage_state(context, page, state: typing.Optional[dict]) -> No
             pass
 
 
+def _debug_path(name: str) -> typing.Optional[Path]:
+    if not DEBUG_DUMP_ROOT:
+        return None
+    safe = re.sub(r"[^A-Za-z0-9._-]", "_", name)
+    path = Path(DEBUG_DUMP_ROOT).expanduser()
+    path.mkdir(parents=True, exist_ok=True)
+    return path / f"{safe}.html"
+
+
+async def debug_dump(page, name: str) -> None:
+    if not DEBUG_DUMP_ROOT:
+        return
+    try:
+        html = await page.content()
+    except Exception:
+        return
+    target = _debug_path(name)
+    if not target:
+        return
+    try:
+        target.write_text(html, encoding="utf-8")
+        if DEBUG_INTERMARCHE:
+            sys.stderr.write(f"[intermarche] debug dump -> {target}\n")
+    except Exception:
+        pass
+
+
+async def debug_shot(page, name: str) -> None:
+    if not DEBUG_DUMP_ROOT:
+        return
+    target = _debug_path(name)
+    if not target:
+        return
+    png_path = target.with_suffix('.png')
+    try:
+        await page.screenshot(path=str(png_path))
+        if DEBUG_INTERMARCHE:
+            sys.stderr.write(f"[intermarche] debug screenshot -> {png_path}\n")
+    except Exception:
+        pass
+
+
+def debug_json(name: str, payload: typing.Any) -> None:
+    if not DEBUG_DUMP_ROOT or payload is None:
+        return
+    target = _debug_path(name)
+    if not target:
+        return
+    json_path = target.with_suffix('.json')
+    try:
+        json_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        if DEBUG_INTERMARCHE:
+            sys.stderr.write(f"[intermarche] debug json -> {json_path}\n")
+    except Exception:
+        pass
+
+
+async def handle_404(page) -> bool:
+    """Detect Intermarché 404 page and click the return button if present."""
+    try:
+        banner = page.locator("text='Vous êtes perdus dans nos rayons'").first
+        if await banner.count():
+            if DEBUG_INTERMARCHE:
+                sys.stderr.write("[intermarche] 404 detected, returning to home\n")
+            await debug_dump(page, "404-page")
+            try:
+                await page.get_by_role('button', name=lambda name: name and 'Revenir' in name).click()
+            except Exception:
+                await page.locator("button", has_text="Revenir à l'accueil").first.click()
+            await page.wait_for_load_state('domcontentloaded')
+            await page.wait_for_timeout(1200)
+            return True
+    except Exception:
+        pass
+    return False
+
+
+def decode_store_label(raw: str) -> str:
+    if not raw:
+        return ''
+    return unquote(unquote(raw)).strip()
+
+
+async def get_store_metadata(context) -> typing.Optional[dict]:
+    try:
+        cookies = await context.cookies()
+    except Exception:
+        return None
+    for cookie in cookies:
+        if cookie.get('name') == 'itm_pdv':
+            try:
+                data = json.loads(unquote(cookie.get('value', '')))
+            except Exception:
+                return None
+            data['decoded_name'] = decode_store_label(data.get('name', ''))
+            data['decoded_city'] = decode_store_label(data.get('city', ''))
+            return data
+    return None
+
+
+async def fetch_products_api(page, store_ref: str, keyword: str) -> list[dict]:
+    if not store_ref or not keyword:
+        return []
+    payload = {
+        'keyword': keyword,
+        'page': 1,
+        'limit': 40,
+    }
+    url = f"https://www.intermarche.com/api/service/produits/v4/pdvs/{store_ref}/products/byKeywordAndCategory"
+    try:
+        data = await page.evaluate(
+            """
+            async (endpoint, body) => {
+              try {
+                const res = await fetch(endpoint, {
+                  method: 'POST',
+                  credentials: 'include',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(body),
+                });
+                if (!res.ok) {
+                  return { ok: false, status: res.status, body: await res.text() };
+                }
+                return { ok: true, json: await res.json() };
+              } catch (err) {
+                return { ok: false, error: err?.message || 'fetch_failed' };
+              }
+            }
+            """,
+            url,
+            payload,
+        )
+    except Exception:
+        data = None
+    if not data or not data.get('ok'):
+        if DEBUG_INTERMARCHE and data:
+            sys.stderr.write(f"[intermarche] API call failed ({data.get('status')}) for {keyword}: {str(data.get('error') or '')[:120]}\n")
+        return []
+    payload = data.get('json') or {}
+    products = payload.get('produits') or []
+    if DEBUG_INTERMARCHE and not products:
+        try:
+            debug_json(f"api-empty-{keyword}", data)
+        except Exception:
+            pass
+        try:
+            snippet = json.dumps(data, ensure_ascii=False)[:400]
+        except Exception:
+            snippet = repr(data)[:400]
+        sys.stderr.write(f"[intermarche] API empty payload raw: {snippet}\n")
+        try:
+            sys.stderr.flush()
+        except Exception:
+            pass
+    return products if isinstance(products, list) else []
+
+
 def _descriptor_seed(ean: str) -> typing.Optional[str]:
     """Compose the human search phrase stored in the manual descriptors table."""
     if not ean:
@@ -71,48 +242,129 @@ def _descriptor_seed(ean: str) -> typing.Optional[str]:
     if not isinstance(entry, dict):
         return None
     if entry.get("seed_query"):
-        return entry.get("seed_query").strip() or None
+        candidate = entry.get("seed_query").strip()
+        if candidate and not _looks_like_ean(candidate):
+            return candidate
     pieces = []
     for key in ("brand", "name", "quantity"):
         value = entry.get(key)
         if isinstance(value, str) and value.strip():
             pieces.append(value.strip())
     if pieces:
-        return " ".join(pieces)
+        candidate = " ".join(pieces)
+        if candidate and not _looks_like_ean(candidate):
+            return candidate
     if isinstance(entry.get("description"), str) and entry["description"].strip():
-        return entry["description"].strip()
+        candidate = entry["description"].strip()
+        if candidate and not _looks_like_ean(candidate):
+            return candidate
     return None
 
 
+def tokens_for(term: str) -> list[str]:
+    if not term:
+        return []
+    return [
+        token
+        for token in re.findall(r"[a-z0-9]+", term.lower())
+        if len(token) >= 3 and not token.isdigit()
+    ]
+
+
+def select_product(candidates: list[dict], *, tokens: list[str]) -> typing.Optional[dict]:
+    if not candidates:
+        return None
+    best = None
+    best_score = -1
+    for candidate in candidates:
+        label = f"{candidate.get('marque', '')} {candidate.get('libelle', '')}".lower()
+        score = sum(1 for token in tokens if token and token in label)
+        if EAN and candidate.get('produitEan13') == EAN:
+            score += 5
+        if score > best_score:
+            best = candidate
+            best_score = score
+    return best or candidates[0]
+
+
+def product_to_result(candidate: dict, store_label: typing.Optional[str]) -> Result:
+    price_value = candidate.get('prix')
+    price = None
+    if isinstance(price_value, (int, float)):
+        price = f"{float(price_value):.2f}".replace('.', ',')
+    elif isinstance(price_value, str) and price_value.strip():
+        try:
+            price = f"{float(price_value.replace(',', '.')):.2f}".replace('.', ',')
+        except Exception:
+            price = price_value
+
+    unit_price = None
+    unit_data = candidate.get('prixUnitaire') or candidate.get('prixPar') or candidate.get('unitPrice')
+    if isinstance(unit_data, (int, float)) and candidate.get('unitePrixVente'):
+        unit_text = candidate['unitePrixVente']
+        unit_price = f"{float(unit_data):.2f}".replace('.', ',') + f" € / {unit_text}"
+    elif isinstance(unit_data, str) and unit_data.strip():
+        unit_price = unit_data.replace('.', ',')
+
+    quantity = candidate.get('conditionnement') or candidate.get('format') or candidate.get('volume')
+    if isinstance(quantity, (int, float)):
+        quantity = f"{quantity}"
+
+    libelle = candidate.get('libelle') or ''
+    marque = candidate.get('marque') or ''
+    title = libelle
+    if marque and marque.lower() not in title.lower():
+        title = f"{marque} {title}".strip()
+
+    slug = re.sub(r"[^a-z0-9-]", '-', title.lower())
+    slug = re.sub(r"-+", '-', slug).strip('-') or 'produit'
+    ean = candidate.get('produitEan13') or candidate.get('ean') or EAN or ''
+    url = f"https://www.intermarche.com/produit/{slug}/{ean}" if ean else None
+
+    return Result(
+        status="OK",
+        price=price,
+        title=title or libelle,
+        url=url,
+        note=f"Intermarché · {store_label}" if store_label else "Intermarché (API)",
+        matched_ean=ean or None,
+        unit_price=unit_price,
+        quantity=quantity,
+        store=store_label,
+    )
+
+
 def build_query_terms() -> list[str]:
-    """Return search terms in priority order (descriptor first, EAN last)."""
+    """Return textual search terms sorted by relevance (never the raw EAN)."""
     terms: list[str] = []
 
     def add(term: typing.Optional[str]) -> None:
         if not term:
             return
-        candidate = term.strip()
-        if not candidate:
+        candidate = " ".join(term.split()).strip()
+        if not candidate or _looks_like_ean(candidate):
             return
         if candidate not in terms:
             terms.append(candidate)
 
-    add(_descriptor_seed(EAN))
-    if QUERY and QUERY != EAN:
-        add(QUERY)
-
     descriptor = MANUAL_DESCRIPTOR.get(EAN) if EAN else None
+
+    add(_descriptor_seed(EAN))
+    add(QUERY)
+
     if isinstance(descriptor, dict):
         extras = descriptor.get("alternate_queries")
         if isinstance(extras, (list, tuple)):
             for extra in extras:
                 if isinstance(extra, str):
                     add(extra)
-
-    if not terms and QUERY:
-        add(QUERY)  # fallback even if it equals the EAN
-    if not terms and EAN:
-        add(EAN)
+        if not terms:
+            fallback = " ".join(
+                part.strip()
+                for part in [descriptor.get("brand", ""), descriptor.get("name", ""), descriptor.get("quantity", "")]
+                if isinstance(part, str) and part.strip()
+            )
+            add(fallback)
 
     return terms
 
@@ -125,6 +377,9 @@ class Result:
     url: typing.Optional[str] = None
     note: typing.Optional[str] = None
     matched_ean: typing.Optional[str] = None
+    unit_price: typing.Optional[str] = None
+    quantity: typing.Optional[str] = None
+    store: typing.Optional[str] = None
 
 
 COOKIE_SELECTORS = [
@@ -133,14 +388,6 @@ COOKIE_SELECTORS = [
     "button:has-text(\"J'accepte\")",
     "#onetrust-accept-btn-handler",
     "#didomi-notice-agree-button",
-]
-
-
-PRODUCT_LINK_SELECTORS = [
-    "a[href*='/produit/']",
-    "a[href*='/product/']",
-    "a[href*='/catalogue/']",
-    "a[href*='/p/']",
 ]
 
 
@@ -247,72 +494,49 @@ async def ensure_home(page) -> bool:
     return False
 
 
-async def open_search_ui(page) -> bool:
-    """Try to open the search box if it is hidden behind a button."""
-    candidates = [
-        "button[aria-label*='Recher']",
-        "button:has-text('Rechercher')",
-        "button:has-text('Recherche')",
-        "[data-testid='search-button']",
-        "[class*='search'] button",
-    ]
-    for sel in candidates:
-        try:
-            btn = page.locator(sel).first
-            if await btn.count() and await btn.is_enabled():
-                await btn.click()
-                await page.wait_for_timeout(400)
-                inputs = await page.locator("input[type='search']").count()
-                if inputs:
-                    return True
-        except Exception:
-            continue
-    # Search input sometimes already visible
-    if await page.locator("input[type='search']").count():
-        return True
-    if await page.locator("input[placeholder*='Lait']").count():
-        return True
-    return False
-
-
 async def perform_search(page, term: str) -> bool:
-    """Drive the real site search instead of hitting endpoints directly."""
-    search_selectors = [
-        "input[type='search']",
-        "input[name='search']",
-        "input[placeholder*='Rechercher']",
-        "input[aria-label*='Rechercher']",
-        "input[placeholder*='Lait']",
-    ]
-
-    for sel in search_selectors:
+    """Submit a search query via the top search field."""
+    field = page.locator("input[placeholder='Lait, oeuf, pain...']").first
+    try:
+        if not await field.count():
+            return False
+        await field.click()
         try:
-            field = page.locator(sel).first
-            if await field.count():
-                try:
-                    await field.fill('', timeout=2000)
-                except Exception:
-                    await page.evaluate("(sel)=>{const el=document.querySelector(sel); if(el){el.value='';}}", sel)
-                await page.wait_for_timeout(80)
-                try:
-                    await field.type(term, delay=35, timeout=2000)
-                except Exception:
-                    await page.evaluate(
-                        "(sel,val)=>{const el=document.querySelector(sel); if(el){el.value=val; el.dispatchEvent(new Event('input',{bubbles:true}));}}",
-                        sel,
-                        term,
-                    )
-                await page.wait_for_timeout(400)
-                await page.keyboard.press('Enter')
-                try:
-                    await page.wait_for_load_state('networkidle')
-                except Exception:
-                    await page.wait_for_load_state('domcontentloaded')
-                await page.wait_for_timeout(1500)
-                return True
+            await field.fill('')
+        except Exception:
+            await page.evaluate("(sel)=>{const el=document.querySelector(sel); if(el){el.value='';}}", "input[placeholder='Lait, oeuf, pain...']")
+        await page.wait_for_timeout(80)
+        await field.type(term, delay=40)
+        await field.press('Enter')
+        try:
+            await page.wait_for_load_state('networkidle')
+        except Exception:
+            await page.wait_for_load_state('domcontentloaded')
+        await page.wait_for_timeout(1500)
+        return True
+    except Exception:
+        return False
+
+
+async def collect_product_links(page) -> list[dict]:
+    """Extract product anchors from the current search results page."""
+    results = []
+    try:
+        anchors = page.locator("a[href*='/produit/']")
+        count = await anchors.count()
+    except Exception:
+        count = 0
+    for idx in range(min(count, 20)):
+        try:
+            link = anchors.nth(idx)
+            href = await link.get_attribute('href')
+            if not href:
+                continue
+            text = await link.inner_text(timeout=2000)
+            results.append({'href': href, 'text': text})
         except Exception:
             continue
-    return False
+    return results
 
 
 async def run() -> Result:
@@ -341,12 +565,31 @@ async def run() -> Result:
             await page.goto(home_url, wait_until="domcontentloaded")
         except Exception:
             pass
+    if DEBUG_INTERMARCHE:
+        sys.stderr.write(f"[intermarche] landed on {page.url}\n")
     if await ensure_home(page):
         await ensure_home(page)  # second chance if redirected twice
     await accept_cookies(page)
     await ensure_store_selected(page)
 
-    # Build search terms: prefer QUERY text
+    store_metadata = await get_store_metadata(context)
+    store_ref = None
+    store_label_initial = None
+    if isinstance(store_metadata, dict):
+        store_ref = store_metadata.get('ref') or store_metadata.get('code')
+        store_label_initial = store_metadata.get('decoded_name') or store_metadata.get('name') or None
+    if DEBUG_INTERMARCHE:
+        sys.stderr.write(f"[intermarche] store metadata ref={store_ref} label={store_label_initial}\n")
+
+    descriptor_entry = MANUAL_DESCRIPTOR.get(EAN) if EAN else None
+    descriptor_tokens: list[str] = []
+    if isinstance(descriptor_entry, dict):
+        for part in [descriptor_entry.get('brand'), descriptor_entry.get('name'), descriptor_entry.get('quantity')]:
+            if isinstance(part, str):
+                descriptor_tokens.extend(tokens_for(part))
+    descriptor_tokens = list(dict.fromkeys(descriptor_tokens))
+
+    # Build search terms: prefer descriptor seed then manual query text
     terms = build_query_terms()
     if not terms:
         await browser.close(); await p.stop()
@@ -356,8 +599,27 @@ async def run() -> Result:
     title = None
     pdp = None
     matched_ean = None
+    unit_price = None
+    quantity_text = descriptor_entry.get('quantity') if isinstance(descriptor_entry, dict) else None
+    store_label = store_label_initial
     normalized_query_tokens: list[str] = []
+    api_candidate_url = None
+    api_candidate_price = None
+    api_candidate_title = None
+    api_candidate_unit = None
+    api_candidate_quantity = None
+    api_candidate_ean = None
+    seen_terms: set[str] = set()
+    unique_terms: list[str] = []
     for term in terms:
+        if not term:
+            continue
+        canonical_term = " ".join(term.lower().split())
+        if canonical_term in seen_terms:
+            continue
+        seen_terms.add(canonical_term)
+        unique_terms.append(term)
+    for term in unique_terms:
         candidate_tokens = [
             token
             for token in re.findall(r"[a-z0-9]+", term.lower())
@@ -366,78 +628,112 @@ async def run() -> Result:
         if candidate_tokens:
             normalized_query_tokens = candidate_tokens
             break
-    for term in terms:
+    for term in unique_terms:
         # Try to run the actual site search workflow (SPA)
-        await ensure_home(page)
-        await open_search_ui(page)
+        tokens_current = tokens_for(term)
+        api_keyword = " ".join(tokens_current) if tokens_current else term
+        if store_ref:
+            try:
+                api_products = await fetch_products_api(page, store_ref, api_keyword)
+            except Exception:
+                api_products = []
+            if DEBUG_INTERMARCHE:
+                sys.stderr.write(f"[intermarche] API products for '{term}': {len(api_products)}\n")
+                if api_products:
+                    debug_json(f"api-{term}", {"products": api_products})
+            if api_products:
+                tokens = normalized_query_tokens or tokens_current
+                if not tokens:
+                    tokens = tokens_for(term)
+                candidate = select_product(api_products, tokens=tokens)
+                if candidate:
+                    api_result = product_to_result(candidate, store_label or store_label_initial)
+                    if api_result.price:
+                        api_candidate_price = api_result.price
+                    if api_result.unit_price:
+                        api_candidate_unit = api_result.unit_price
+                    if api_result.quantity:
+                        api_candidate_quantity = api_result.quantity
+                    if api_result.title:
+                        api_candidate_title = api_result.title
+                    if api_result.url:
+                        api_candidate_url = api_result.url
+                    if api_result.matched_ean:
+                        api_candidate_ean = api_result.matched_ean
+                    if api_result.store:
+                        store_label = api_result.store
+
+        await page.goto(home_url, wait_until="domcontentloaded")
+        await page.wait_for_timeout(600)
+        await accept_cookies(page)
+        await ensure_store_selected(page)
+        await accept_cookies(page)
         performed = await perform_search(page, term)
         if not performed:
-            # Fallback: navigate via /recherche endpoints (may trigger Datadome)
-            search_candidates = [
-                f"https://www.intermarche.com/recherche/{quote(term)}",
-                f"https://www.intermarche.com/recherche?text={quote(term)}",
-                f"https://www.intermarche.com/recherche?text={quote(term)}&trier=relevance",
-            ]
-            search_url = None
-            for candidate in search_candidates:
-                try:
-                    resp = await page.goto(candidate, wait_until="domcontentloaded")
-                except Exception:
-                    continue
-                search_url = candidate
-                await page.wait_for_timeout(1000)
-                html = (await page.content()).lower()
-                if 'captcha-delivery.com' in html or 'datadome' in html or (resp and resp.status == 403):
-                    continue
-                has_product = False
-                for sel in PRODUCT_LINK_SELECTORS:
-                    try:
-                        if await page.locator(sel).count() > 0:
-                            has_product = True
-                            break
-                    except Exception:
-                        continue
-                if has_product:
-                    break
-                search_url = None
-            if not search_url:
-                continue
+            if DEBUG_INTERMARCHE:
+                sys.stderr.write(f"[intermarche] search field not available for term '{term}'\n")
+            continue
+        await debug_dump(page, f"search-{term}")
+        await debug_shot(page, f"search-{term}")
+        if await handle_404(page):
+            if DEBUG_INTERMARCHE:
+                sys.stderr.write(f"[intermarche] 404 after search '{term}', retrying next term\n")
+            continue
+        candidates_info = await collect_product_links(page)
+        if api_candidate_url:
+            candidates_info.insert(0, {'href': api_candidate_url, 'text': api_candidate_title or ''})
+
+        def score_candidate(info: dict) -> int:
+            href = info.get('href') or ''
+            text = (info.get('text') or '').lower()
+            score = 0
+            if EAN and href and EAN in href:
+                score += 100
+            for token in descriptor_tokens:
+                if token and token in text:
+                    score += 8
+            for token in normalized_query_tokens:
+                if token and token in text:
+                    score += 4
+            if '1,75' in text or '1.75' in text:
+                score += 2
+            return score
+
+        candidates_info.sort(key=score_candidate, reverse=True)
+        if DEBUG_INTERMARCHE:
+            sys.stderr.write(f"[intermarche] candidates for term '{term}': {[c.get('href') for c in candidates_info]}\n")
 
         pdp = None
         candidates: list[str] = []
-        for sel in PRODUCT_LINK_SELECTORS:
-            try:
-                items = page.locator(sel)
-                count = await items.count()
-                for idx in range(min(count, 8)):
-                    href = await items.nth(idx).get_attribute('href')
-                    if not href:
-                        continue
-                    if href.startswith('/'):
-                        href = f"https://www.intermarche.com{href}"
-                    if href not in candidates:
-                        candidates.append(href)
-            except Exception:
+        for info in candidates_info:
+            href = info.get('href')
+            if not href:
                 continue
-
-        if EAN:
-            preferred = [href for href in candidates if EAN in href]
-            if preferred:
-                others = [href for href in candidates if href not in preferred]
-                candidates = preferred + others
+            if href.startswith('/'):
+                href = f"https://www.intermarche.com{href}"
+            if href not in candidates:
+                candidates.append(href)
 
         matched_href = None
         fallback_href = None
-        for href in candidates:
+        for idx, href in enumerate(candidates):
             try:
                 await page.goto(href, wait_until='domcontentloaded')
                 await page.wait_for_timeout(800)
+                if await handle_404(page):
+                    await ensure_home(page)
+                    continue
                 html = await page.content()
-                if EAN and (EAN in href or EAN in html):
-                    matched_href = href
-                    break
+                if DEBUG_INTERMARCHE:
+                    sys.stderr.write(f"[intermarche] inspecting {page.url}\n")
+                await debug_dump(page, f"pdp-{idx}")
+                await debug_shot(page, f"pdp-{idx}")
                 if not fallback_href:
                     fallback_href = href
+                if EAN and (EAN in href or EAN in html):
+                    matched_href = href
+                    matched_ean = EAN
+                    break
             except Exception:
                 continue
         pdp = matched_href or fallback_href
@@ -455,7 +751,23 @@ async def run() -> Result:
         await accept_cookies(page)
         await ensure_store_selected(page)
 
-        matched_gtin = False
+        page_html = await page.content()
+        if not unit_price and page_html:
+            match = re.search(r"(\d+[\.,]\d{2})\s*€\s*/\s*([a-zA-ZéÉ/]+)", page_html)
+            if match:
+                amount = match.group(1).replace('.', ',')
+                unit = match.group(2).strip().upper()
+                unit_price = f"{amount} € / {unit}"
+        if not quantity_text:
+            try:
+                qty_candidate = await page.locator(
+                    "[data-testid='product-packaging'], .product__weight, .product__capacity, .product-details__weight"
+                ).first.text_content(timeout=2000)
+                if qty_candidate:
+                    quantity_text = " ".join(qty_candidate.split())
+            except Exception:
+                pass
+        has_identifier_match = False
         # Try schema.org
         try:
             for i in range(await page.locator("script[type='application/ld+json']").count()):
@@ -465,11 +777,15 @@ async def run() -> Result:
                 for it in items:
                     if isinstance(it, dict) and it.get("@type") in ("Product",):
                         gtin = it.get("gtin13") or it.get("gtin") or it.get("gtin14")
-                        if EAN and gtin and str(gtin).strip() == EAN:
-                            matched_gtin = True
-                            matched_ean = str(gtin).strip()
-                        if EAN and gtin and str(gtin).strip() != EAN:
-                            continue
+                        if gtin:
+                            gtin_str = str(gtin).strip()
+                            if gtin_str:
+                                if EAN and gtin_str == EAN:
+                                    matched_ean = gtin_str
+                                    has_identifier_match = True
+                                elif not EAN:
+                                    matched_ean = matched_ean or gtin_str
+                                    has_identifier_match = True
                         title = it.get("name") or title
                         offers = it.get("offers")
                         if isinstance(offers, dict):
@@ -496,17 +812,28 @@ async def run() -> Result:
                 canonical = await page.locator("link[rel='canonical']").first.get_attribute('href')
             except Exception:
                 canonical = None
-            html = await page.content()
             has_ean = (canonical and EAN in canonical) or (EAN in pdp if pdp else False) or False
-            if not has_ean:
-                has_ean = EAN in html
+            if not has_ean and page_html:
+                has_ean = EAN in page_html
             if has_ean:
                 matched_ean = EAN
-            if not matched_gtin and not has_ean and not heuristics_ok:
-                price = None
-                title = None
-                pdp = None
-                continue
+                has_identifier_match = True
+
+        if not has_identifier_match and page_html:
+            digits = re.findall(r"\b\d{13}\b", page_html)
+            if digits:
+                if EAN and EAN in digits:
+                    matched_ean = EAN
+                    has_identifier_match = True
+                elif not EAN:
+                    matched_ean = matched_ean or digits[0]
+                    has_identifier_match = True
+
+        if not heuristics_ok and not has_identifier_match:
+            price = None
+            title = None
+            pdp = None
+            continue
 
         # Try to read price from dedicated data attributes
         if not price:
@@ -536,6 +863,22 @@ async def run() -> Result:
         if price:
             break
 
+    if not price and api_candidate_price:
+        price = api_candidate_price.replace(',', '.').replace(' ', '')
+        pdp = api_candidate_url or pdp
+        title = title or api_candidate_title
+        unit_price = unit_price or api_candidate_unit
+        quantity_text = quantity_text or api_candidate_quantity
+        matched_ean = matched_ean or api_candidate_ean
+
+    if not store_label:
+        try:
+            metadata = await get_store_metadata(context)
+        except Exception:
+            metadata = None
+        if isinstance(metadata, dict):
+            store_label = metadata.get('decoded_name') or metadata.get('name') or None
+
     await browser.close(); await p.stop()
     if price and pdp:
         try:
@@ -543,13 +886,40 @@ async def run() -> Result:
         except Exception:
             price = str(price)
         price = price.replace('.', ',')
-        manual = MANUAL_DESCRIPTOR.get(EAN)
-        quantity = None
-        if manual:
-            quantity = manual.get('quantity')
-        return Result(status="OK", price=price, title=title, url=pdp, note=None, matched_ean=matched_ean,)
+        if isinstance(descriptor_entry, dict):
+            title = title or descriptor_entry.get('name') or descriptor_entry.get('description')
+        final_quantity = quantity_text or (descriptor_entry.get('quantity') if isinstance(descriptor_entry, dict) else None)
+        if unit_price:
+            amount, sep, tail = unit_price.partition(' €')
+            if amount:
+                unit_price = amount.replace('.', ',') + sep + tail
+        note = None
+        if store_label:
+            note = f"Intermarché · {store_label}"
+        else:
+            note = "Intermarché (CDP)"
+        return Result(
+            status="OK",
+            price=price,
+            title=title,
+            url=pdp,
+            note=note,
+            matched_ean=matched_ean,
+            unit_price=unit_price,
+            quantity=final_quantity,
+            store=store_label,
+        )
     if pdp:
-        return Result(status="NO_PRICE", title=title, url=pdp, matched_ean=matched_ean)
+        return Result(
+            status="NO_PRICE",
+            title=title,
+            url=pdp,
+            note=None,
+            matched_ean=matched_ean,
+            unit_price=unit_price,
+            quantity=quantity_text,
+            store=store_label,
+        )
     return Result(status="NO_RESULTS")
 
 

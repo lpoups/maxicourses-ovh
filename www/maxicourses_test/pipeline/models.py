@@ -44,6 +44,9 @@ class PipelineRun:
     reference_nutriscore_grade: Optional[str] = None
     reference_nutriscore_score: Optional[int] = None
     reference_nutriscore_image: Optional[str] = None
+    reference_ecoscore_grade: Optional[str] = None
+    reference_ecoscore_image: Optional[str] = None
+    reference_nova_group: Optional[str] = None
 
     def as_dict(self) -> Dict[str, Any]:
         return {
@@ -63,6 +66,9 @@ class PipelineRun:
                 "nutriscore_grade": self.reference_nutriscore_grade,
                 "nutriscore_score": self.reference_nutriscore_score,
                 "nutriscore_image": self.reference_nutriscore_image,
+                "ecoscore_grade": self.reference_ecoscore_grade,
+                "ecoscore_image": self.reference_ecoscore_image,
+                "nova_group": self.reference_nova_group,
             },
             "notes": self.notes,
             "adapters": [

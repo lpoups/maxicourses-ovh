@@ -7,6 +7,7 @@ import re
 import subprocess
 import sys
 import unicodedata
+import uuid
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, Optional, Set
@@ -15,11 +16,33 @@ from urllib.request import urlopen
 
 from flask import Flask, jsonify, request
 
+from decode_ean import decode_image_to_ean
+
 ROOT = Path(__file__).resolve().parent
 MANUAL_DESCRIPTOR_PATH = ROOT / "manual_descriptors.json"
 PIPELINE_SCRIPT = ROOT / "pipeline" / "run_pipeline.py"
+GLOBAL_SUMMARY_PATH = ROOT / "results" / "summary.json"
 OPENFOODFACTS_ENDPOINT = "https://world.openfoodfacts.org/api/v2/product/{ean}.json"
 OFF_TIMEOUT_SECONDS = 10
+EAN_REQUIRED_LENGTH = 13
+UPLOADS_DIR = ROOT.parent / "uploads_ean"
+
+STOPWORDS = {
+    "a",
+    "au",
+    "aux",
+    "avec",
+    "base",
+    "de",
+    "des",
+    "du",
+    "et",
+    "la",
+    "le",
+    "les",
+    "pour",
+    "sur",
+}
 
 
 def _clean_string(value: Optional[str]) -> str:
@@ -53,6 +76,14 @@ def fetch_openfoodfacts_descriptor(ean: str) -> Optional[Dict[str, Any]]:
         brand = brand.split(",")[0].strip()
 
     grade = _clean_string(product.get("nutriscore_grade")).lower()
+    eco_grade = _clean_string(product.get("ecoscore_grade")).lower()
+    nova_group = product.get("nova_group")
+    if nova_group is not None:
+        try:
+            nova_group = str(int(nova_group)).strip()
+        except (ValueError, TypeError):
+            nova_group = str(nova_group).strip() or None
+
     descriptor = {
         "ean": ean,
         "brand": brand,
@@ -63,13 +94,28 @@ def fetch_openfoodfacts_descriptor(ean: str) -> Optional[Dict[str, Any]]:
         "nutriscore_image": f"https://static.openfoodfacts.org/images/attributes/nutriscore-{grade}.svg"
         if grade
         else None,
+        "ecoscore_grade": eco_grade or None,
+        "ecoscore_image": f"https://static.openfoodfacts.org/images/attributes/ecoscore-{eco_grade}.svg"
+        if eco_grade in {"a", "b", "c", "d", "e"}
+        else None,
+        "nova_group": nova_group,
         "source": "openfoodfacts",
         "note": f"Descriptor importé depuis OpenFoodFacts le {datetime.utcnow().replace(microsecond=0).isoformat()}Z",
     }
 
     # Remove keys that are still empty strings to avoid polluting manual descriptors.
     cleaned: Dict[str, Any] = {"ean": ean, "source": descriptor["source"], "note": descriptor["note"]}
-    for key in ("brand", "name", "quantity", "categories", "nutriscore_grade", "nutriscore_image"):
+    for key in (
+        "brand",
+        "name",
+        "quantity",
+        "categories",
+        "nutriscore_grade",
+        "nutriscore_image",
+        "ecoscore_grade",
+        "ecoscore_image",
+        "nova_group",
+    ):
         value = descriptor.get(key)
         if isinstance(value, str):
             value = value.strip()
@@ -161,6 +207,7 @@ def load_manual_descriptor(ean: str) -> Dict[str, Any]:
     payload = dict(entry)
     payload.setdefault("ean", ean)
     payload.setdefault("source", "manual")
+    payload.setdefault("removed", bool(payload.get("removed")))
     return payload
 
 
@@ -197,7 +244,13 @@ def ensure_manual_descriptor(ean: str) -> Dict[str, Any]:
     entry.setdefault("quantity", "")
     entry.setdefault("categories", "")
     entry.setdefault("image", None)
+    entry.setdefault("nutriscore_grade", entry.get("nutriscore_grade"))
+    entry.setdefault("nutriscore_image", entry.get("nutriscore_image"))
+    entry.setdefault("ecoscore_grade", entry.get("ecoscore_grade"))
+    entry.setdefault("ecoscore_image", entry.get("ecoscore_image"))
+    entry.setdefault("nova_group", entry.get("nova_group"))
     entry.setdefault("source", entry.get("source", "auto"))
+    entry.setdefault("removed", bool(entry.get("removed")))
 
     data[ean] = entry
     try:
@@ -210,7 +263,18 @@ def ensure_manual_descriptor(ean: str) -> Dict[str, Any]:
     payload = dict(entry)
     payload.setdefault("ean", ean)
     payload.setdefault("source", "auto")
+    payload.setdefault("removed", bool(payload.get("removed")))
     return payload
+
+
+def decode_image_ean(image_path: str) -> Optional[str]:
+    try:
+        result = decode_image_to_ean(image_path)
+        if not result:
+            print(f"[decode_image_ean] unable to decode {image_path}", file=sys.stderr)
+        return result
+    except Exception:
+        return None
 
 
 def build_seed_query(ean: str, descriptor: Dict[str, Any]) -> str:
@@ -242,6 +306,68 @@ def build_seed_query(ean: str, descriptor: Dict[str, Any]) -> str:
 
 def results_dir_for(ean: str) -> Path:
     return ROOT / "results" / f"test-{ean}"
+
+
+def load_global_summary() -> Dict[str, Any]:
+    if not GLOBAL_SUMMARY_PATH.exists():
+        return {}
+    try:
+        data = json.loads(GLOBAL_SUMMARY_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    if not isinstance(data, dict):
+        return {}
+    return data
+
+
+def upsert_global_summary(ean: str, entry: Optional[Dict[str, Any]]) -> None:
+    if not ean or not isinstance(entry, dict):
+        return
+    summary = load_global_summary()
+    summary[ean] = entry
+    try:
+        GLOBAL_SUMMARY_PATH.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception:
+        pass
+
+
+def remove_global_summary_entry(ean: str) -> None:
+    summary = load_global_summary()
+    if ean in summary:
+        summary.pop(ean, None)
+        try:
+            GLOBAL_SUMMARY_PATH.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+        except Exception:
+            pass
+
+
+def set_descriptor_removed_flag(ean: str, removed: bool) -> Dict[str, Any]:
+    data: Dict[str, Any] = {}
+    if MANUAL_DESCRIPTOR_PATH.exists():
+        try:
+            data = json.loads(MANUAL_DESCRIPTOR_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            data = {}
+    if not isinstance(data, dict):
+        data = {}
+
+    entry = data.get(ean)
+    if not isinstance(entry, dict):
+        entry = {"ean": ean, "source": "auto"}
+    entry["removed"] = bool(removed)
+    data[ean] = entry
+    try:
+        MANUAL_DESCRIPTOR_PATH.write_text(
+            json.dumps(data, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+    except Exception:
+        pass
+    payload = dict(entry)
+    payload.setdefault("ean", ean)
+    payload.setdefault("source", entry.get("source", "auto"))
+    payload.setdefault("removed", bool(payload.get("removed")))
+    return payload
 
 
 def run_pipeline_collect(
@@ -304,10 +430,65 @@ def api_collect_options():
 
 @app.post("/api/collect")
 def api_collect():
-    payload = request.get_json(silent=True) or {}
-    ean = (payload.get("ean") or request.args.get("ean") or "").strip()
-    if not ean:
-        return jsonify({"error": "ean_requis"}), 400
+    image_mode = False
+
+    stored_path: Optional[Path] = None
+
+    if request.content_type and 'multipart/form-data' in request.content_type:
+        file_storage = request.files.get('image')
+        if not file_storage or not file_storage.filename:
+            return jsonify({"error": "image_requise"}), 400
+
+        try:
+            UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
+        except Exception:
+            return jsonify({"error": "uploads_dir_unavailable"}), 500
+
+        original_name = Path(file_storage.filename).name or "upload"
+        safe_name = re.sub(r"[^A-Za-z0-9_.-]", "_", original_name).strip("._") or "upload"
+        timestamp = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
+        unique_name = f"{timestamp}_{uuid.uuid4().hex}_{safe_name}"
+        stored_path = UPLOADS_DIR / unique_name
+
+        try:
+            file_storage.save(stored_path)
+        except Exception:
+            return jsonify({"error": "image_save_failed"}), 500
+
+        decoded = decode_image_ean(str(stored_path))
+        if not decoded:
+            return jsonify({"error": "image_ean_decode_fail", "uploaded_path": str(stored_path)}), 400
+
+        ean = re.sub(r"\D", "", decoded)
+        if len(ean) != EAN_REQUIRED_LENGTH:
+            return (
+                jsonify(
+                    {
+                        "error": "ean_format_invalid",
+                        "message": f"EAN doivent contenir {EAN_REQUIRED_LENGTH} chiffres (reçu: {decoded.strip()})",
+                        "uploaded_path": str(stored_path),
+                    }
+                ),
+                400,
+            )
+        image_mode = True
+        payload = {}
+    else:
+        payload = request.get_json(silent=True) or {}
+        raw_ean = (payload.get("ean") or request.args.get("ean") or "").strip()
+        ean = re.sub(r"\D", "", raw_ean)
+        if not ean:
+            return jsonify({"error": "ean_requis"}), 400
+        if len(ean) != EAN_REQUIRED_LENGTH:
+            return (
+                jsonify(
+                    {
+                        "error": "ean_format_invalid",
+                        "message": f"EAN doivent contenir {EAN_REQUIRED_LENGTH} chiffres (reçu: {raw_ean})",
+                    }
+                ),
+                400,
+            )
 
     descriptor = load_manual_descriptor(ean)
     if not descriptor:
@@ -371,6 +552,11 @@ def api_collect():
         except Exception:
             summary = None
 
+    summary_entry = summary.get(ean) if isinstance(summary, dict) else None
+    upsert_global_summary(ean, summary_entry)
+
+    descriptor = set_descriptor_removed_flag(ean, False)
+
     return jsonify(
         {
             "status": "OK",
@@ -378,8 +564,38 @@ def api_collect():
             "descriptor": descriptor,
             "query": build_seed_query(ean, descriptor),
             "latest": latest,
-            "summary": summary.get(ean) if isinstance(summary, dict) else None,
+            "summary": summary_entry,
             "stdout": stdout,
+            "from_image": image_mode,
+            "uploaded_image_path": str(stored_path) if stored_path else None,
+        }
+    )
+
+
+@app.post("/api/remove")
+def api_remove():
+    payload = request.get_json(silent=True) or {}
+    raw_ean = payload.get("ean") or ""
+    ean = re.sub(r"\D", "", str(raw_ean))
+    if len(ean) < 8 or len(ean) > 14:
+        return (
+            jsonify(
+                {
+                    "error": "ean_format_invalid",
+                    "message": f"EAN doivent contenir entre 8 et 14 chiffres (reçu: {raw_ean})",
+                }
+            ),
+            400,
+        )
+
+    descriptor = set_descriptor_removed_flag(ean, True)
+    remove_global_summary_entry(ean)
+
+    return jsonify(
+        {
+            "status": "OK",
+            "ean": ean,
+            "descriptor": descriptor,
         }
     )
 
@@ -391,19 +607,3 @@ def home():
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5001, debug=False)
-STOPWORDS = {
-    "a",
-    "au",
-    "aux",
-    "avec",
-    "base",
-    "de",
-    "des",
-    "du",
-    "et",
-    "la",
-    "le",
-    "les",
-    "pour",
-    "sur",
-}
