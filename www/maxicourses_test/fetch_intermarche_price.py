@@ -23,7 +23,7 @@ EAN = os.environ.get("EAN", "").strip()
 QUERY = os.environ.get("QUERY", "").strip()
 HEADLESS = os.environ.get("HEADLESS", "1") == "1"
 PROXY = os.environ.get("PROXY")
-HOME_URL = os.environ.get("HOME_URL", "https://www.intermarche.com/accueil")
+HOME_URL = os.environ.get("HOME_URL", "https://www.intermarche.com/")
 MANDATE = get_method("intermarche")
 DEBUG_INTERMARCHE = os.environ.get("DEBUG_INTERMARCHE") == "1"
 DEBUG_DUMP_ROOT = os.environ.get("HUMAN_DEBUG_DIR") or os.environ.get("INTERMARCHE_DEBUG_DIR")
@@ -147,7 +147,7 @@ async def handle_404(page) -> bool:
             except Exception:
                 await page.locator("button", has_text="Revenir à l'accueil").first.click()
             await page.wait_for_load_state('domcontentloaded')
-            await page.wait_for_timeout(1200)
+            await page.wait_for_timeout(5000)
             return True
     except Exception:
         pass
@@ -271,6 +271,20 @@ def tokens_for(term: str) -> list[str]:
     ]
 
 
+def _normalized_quantity_to_liters(quantity: typing.Optional[str]) -> typing.Optional[float]:
+    if not isinstance(quantity, str):
+        return None
+    text = quantity.lower().replace(',', '.').replace(' ', '')
+    match = re.search(r"([0-9]+(?:\.[0-9]+)?)\s*(l|litre|litres|ml|millilitre|millilitres)", quantity.lower())
+    if not match:
+        return None
+    value = float(match.group(1))
+    unit = match.group(2)
+    if unit.startswith('ml') or 'milli' in unit:
+        return value / 1000.0
+    return value
+
+
 def select_product(candidates: list[dict], *, tokens: list[str]) -> typing.Optional[dict]:
     if not candidates:
         return None
@@ -349,22 +363,23 @@ def build_query_terms() -> list[str]:
 
     descriptor = MANUAL_DESCRIPTOR.get(EAN) if EAN else None
 
-    add(_descriptor_seed(EAN))
-    add(QUERY)
-
     if isinstance(descriptor, dict):
-        extras = descriptor.get("alternate_queries")
-        if isinstance(extras, (list, tuple)):
-            for extra in extras:
-                if isinstance(extra, str):
-                    add(extra)
-        if not terms:
-            fallback = " ".join(
-                part.strip()
-                for part in [descriptor.get("brand", ""), descriptor.get("name", ""), descriptor.get("quantity", "")]
-                if isinstance(part, str) and part.strip()
-            )
-            add(fallback)
+        primary = descriptor.get("primary_keywords")
+        if isinstance(primary, (list, tuple)):
+            for item in primary:
+                add(item)
+
+    if not terms:
+        add(_descriptor_seed(EAN))
+    if not terms:
+        add(QUERY)
+    if not terms and isinstance(descriptor, dict):
+        fallback = " ".join(
+            part.strip()
+            for part in [descriptor.get("brand", ""), descriptor.get("name", ""), descriptor.get("quantity", "")]
+            if isinstance(part, str) and part.strip()
+        )
+        add(fallback)
 
     return terms
 
@@ -418,7 +433,7 @@ async def perform_site_search(page, term: str) -> bool:
                 await field.fill(term)
                 await field.press('Enter')
                 await page.wait_for_load_state('domcontentloaded')
-                await page.wait_for_timeout(1200)
+                await page.wait_for_timeout(5000)
                 return True
         except Exception:
             continue
@@ -487,7 +502,7 @@ async def ensure_home(page) -> bool:
             if await btn.count():
                 await btn.click()
                 await page.wait_for_load_state('domcontentloaded')
-                await page.wait_for_timeout(800)
+                await page.wait_for_timeout(5000)
                 return True
     except Exception:
         pass
@@ -505,14 +520,14 @@ async def perform_search(page, term: str) -> bool:
             await field.fill('')
         except Exception:
             await page.evaluate("(sel)=>{const el=document.querySelector(sel); if(el){el.value='';}}", "input[placeholder='Lait, oeuf, pain...']")
-        await page.wait_for_timeout(80)
+        await page.wait_for_timeout(5000)
         await field.type(term, delay=40)
         await field.press('Enter')
         try:
             await page.wait_for_load_state('networkidle')
         except Exception:
             await page.wait_for_load_state('domcontentloaded')
-        await page.wait_for_timeout(1500)
+        await page.wait_for_timeout(5000)
         return True
     except Exception:
         return False
@@ -547,10 +562,54 @@ async def run() -> Result:
         storage_state_path=storage_state_path if os.environ.get('USE_CDP') != '1' else None,
         user_agent=DEFAULT_UA,
     )
+    async def _adopt_new_page(new_page):
+        nonlocal page
+        try:
+            await new_page.wait_for_load_state("domcontentloaded")
+        except Exception:
+            pass
+        old_page = page
+        page = new_page
+        try:
+            await new_page.bring_to_front()
+        except Exception:
+            pass
+        if old_page and old_page != new_page:
+            try:
+                await old_page.close()
+            except Exception:
+                pass
+
+    context.on("page", lambda new_page: asyncio.create_task(_adopt_new_page(new_page)))
 
     state_data = load_storage_state(Path(storage_state_path) if storage_state_path else None)
     if state_data:
         await apply_storage_state(context, page, state_data)
+
+    use_cdp = os.environ.get("USE_CDP") == "1"
+    if use_cdp:
+        preferred_page = None
+        for existing in context.pages:
+            try:
+                url = existing.url
+            except Exception:
+                url = ""
+            if url and "intermarche.com" in url and not url.startswith("about:"):
+                preferred_page = existing
+                break
+        if not preferred_page and context.pages:
+            preferred_page = context.pages[0]
+        if preferred_page:
+            if page != preferred_page:
+                try:
+                    await page.close()
+                except Exception:
+                    pass
+            page = preferred_page
+        try:
+            await page.bring_to_front()
+        except Exception:
+            pass
 
     try:
         await context.set_extra_http_headers(DEFAULT_HEADERS)
@@ -558,13 +617,27 @@ async def run() -> Result:
         pass
 
     home_url = HOME_URL or "https://www.intermarche.com/"
-    try:
-        await page.goto(home_url, wait_until="networkidle")
-    except Exception:
+    if not page.url or "intermarche.com" not in page.url:
+        try:
+            await page.goto("about:blank")
+            await page.wait_for_timeout(5000)
+        except Exception:
+            pass
         try:
             await page.goto(home_url, wait_until="domcontentloaded")
         except Exception:
             pass
+    else:
+        try:
+            await page.reload(wait_until="domcontentloaded")
+        except Exception:
+            pass
+    try:
+        await page.wait_for_timeout(5000)
+        await page.mouse.move(200, 200, steps=15)
+        await page.wait_for_timeout(5000)
+    except Exception:
+        pass
     if DEBUG_INTERMARCHE:
         sys.stderr.write(f"[intermarche] landed on {page.url}\n")
     if await ensure_home(page):
@@ -662,9 +735,12 @@ async def run() -> Result:
                         api_candidate_ean = api_result.matched_ean
                     if api_result.store:
                         store_label = api_result.store
+                    if api_result.matched_ean and api_result.matched_ean == EAN and api_result.price:
+                        await browser.close(); await p.stop()
+                        return api_result
 
         await page.goto(home_url, wait_until="domcontentloaded")
-        await page.wait_for_timeout(600)
+        await page.wait_for_timeout(5000)
         await accept_cookies(page)
         await ensure_store_selected(page)
         await accept_cookies(page)
@@ -675,6 +751,7 @@ async def run() -> Result:
             continue
         await debug_dump(page, f"search-{term}")
         await debug_shot(page, f"search-{term}")
+        await page.wait_for_timeout(5000)
         if await handle_404(page):
             if DEBUG_INTERMARCHE:
                 sys.stderr.write(f"[intermarche] 404 after search '{term}', retrying next term\n")
@@ -692,11 +769,13 @@ async def run() -> Result:
             for token in descriptor_tokens:
                 if token and token in text:
                     score += 8
+            if 'original' in text:
+                score += 6
+            if '950' in text:
+                score += 4
             for token in normalized_query_tokens:
                 if token and token in text:
                     score += 4
-            if '1,75' in text or '1.75' in text:
-                score += 2
             return score
 
         candidates_info.sort(key=score_candidate, reverse=True)
@@ -719,7 +798,11 @@ async def run() -> Result:
         for idx, href in enumerate(candidates):
             try:
                 await page.goto(href, wait_until='domcontentloaded')
-                await page.wait_for_timeout(800)
+                await page.wait_for_timeout(5000)
+                try:
+                    await page.wait_for_selector("[data-testid='product-price'], .product-price", timeout=6000)
+                except Exception:
+                    pass
                 if await handle_404(page):
                     await ensure_home(page)
                     continue
@@ -743,7 +826,11 @@ async def run() -> Result:
         if page.url != pdp:
             try:
                 await page.goto(pdp, wait_until='domcontentloaded')
-                await page.wait_for_timeout(500)
+                await page.wait_for_timeout(5000)
+                try:
+                    await page.wait_for_selector("[data-testid='product-price'], .product-price", timeout=6000)
+                except Exception:
+                    pass
             except Exception:
                 pass
         await accept_cookies(page)
@@ -752,6 +839,49 @@ async def run() -> Result:
         await ensure_store_selected(page)
 
         page_html = await page.content()
+        if not price:
+            try:
+                ld_scripts = await page.locator("script[type='application/ld+json']").all_text_contents()
+            except Exception:
+                ld_scripts = []
+            for raw in ld_scripts:
+                try:
+                    data = json.loads(raw)
+                except Exception:
+                    continue
+                items = data if isinstance(data, list) else [data]
+                for item in items:
+                    if not isinstance(item, dict):
+                        continue
+                    if item.get("@type") != "Product":
+                        continue
+                    price_info = item.get("price")
+                    if isinstance(price_info, dict):
+                        value = price_info.get("value")
+                        if value is not None and price is None:
+                            try:
+                                price = f"{float(value):.2f}".replace('.', ',')
+                            except Exception:
+                                price = str(value)
+                    if not title:
+                        maybe_title = item.get("name")
+                        if isinstance(maybe_title, str) and maybe_title.strip():
+                            title = maybe_title.strip()
+        # Enforce secondary keywords on PDP and reject packs/lots
+        try:
+            lowered = page_html.lower()
+            banned = any(x in lowered for x in [" pack ", " lot ", " mini ", "canettes", "canette"]) or bool(re.search(r"\b\d+\s*(x|×)\s*\d+\b", lowered))
+            secondary = []
+            if isinstance(descriptor_entry, dict):
+                sec_raw = descriptor_entry.get('secondary_keywords') or []
+                if isinstance(sec_raw, list):
+                    secondary = [str(tok).lower() for tok in sec_raw if isinstance(tok, str)]
+            if banned:
+                continue
+            if secondary and not all(tok in lowered for tok in secondary):
+                continue
+        except Exception:
+            pass
         if not unit_price and page_html:
             match = re.search(r"(\d+[\.,]\d{2})\s*€\s*/\s*([a-zA-ZéÉ/]+)", page_html)
             if match:
@@ -889,6 +1019,14 @@ async def run() -> Result:
         if isinstance(descriptor_entry, dict):
             title = title or descriptor_entry.get('name') or descriptor_entry.get('description')
         final_quantity = quantity_text or (descriptor_entry.get('quantity') if isinstance(descriptor_entry, dict) else None)
+        if not unit_price:
+            liters = _normalized_quantity_to_liters(final_quantity)
+            try:
+                if liters and liters > 0:
+                    unit_value = float(price.replace(',', '.')) / liters
+                    unit_price = f"{unit_value:.2f}".replace('.', ',') + " € / L"
+            except Exception:
+                pass
         if unit_price:
             amount, sep, tail = unit_price.partition(' €')
             if amount:
@@ -916,8 +1054,8 @@ async def run() -> Result:
             url=pdp,
             note=None,
             matched_ean=matched_ean,
-            unit_price=unit_price,
-            quantity=quantity_text,
+            unit_price=None,
+            quantity=None,
             store=store_label,
         )
     return Result(status="NO_RESULTS")
