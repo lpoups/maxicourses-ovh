@@ -4,7 +4,7 @@
 Créer un moteur capable d’agréger automatiquement les prix multi-enseignes (Carrefour, Leclerc Drive, etc.), de normaliser les produits et de restituer les meilleures offres (ex. prix/kg minimal) avec preuve visuelle.
 
 ## État actuel
-- Scripts Playwright fonctionnels pour Carrefour, Leclerc Drive, Auchan, Intermarché, Chronodrive.
+- Scripts Playwright fonctionnels pour Carrefour, Leclerc Drive, Auchan, Intermarché, Chronodrive et Course U (Super U Eysines).
 - Contraintes strictes Leclerc Drive documentées dans `fetch_leclerc_drive_price.py` et `~/.codex/config.toml` (Chrome 9222 obligatoire, validation visuelle).
 - Collected dataset d’exemple sur le ketchup Heinz (Carrefour + Leclerc) avec calculs prix/kg (voir `docs/HANDOVER_DAILY.md` et captures dans `maxicourses_test/debug_screens/`).
 

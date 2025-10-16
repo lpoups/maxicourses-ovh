@@ -22,6 +22,7 @@ Ce répertoire regroupe les fichiers persistants à relire par chaque nouvel ass
 - `maxicourses_test/manual_descriptors.json` : attributs produit statiques utilisés pour alimenter l’en-tête (titre, Nutri-score, image locale).
 - `maxicourses_test/fetch_leclerc_drive_price.py` : simple wrapper qui appelle `manual_leclerc_cdp.py` (méthode humaine unique supportée).
 - `maxicourses_test/fetch_monoprix_price.py` : collecte Monoprix via recherche textuelle (pas de support EAN).
+- `maxicourses_test/fetch_courseu_price.py` : collecte Course U (Super U Eysines) par recherche EAN directe.
 - `maxicourses_test/ai_helpers.py` + `run_ai_pipeline.py` : génèrent via OpenAI les requêtes ≤30 caractères pour Leclerc/Monoprix/Intermarché à partir des seeds EAN.
 
 ## Bonnes pratiques

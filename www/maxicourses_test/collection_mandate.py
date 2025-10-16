@@ -205,6 +205,28 @@ METHODS: Dict[str, MethodSpec] = {
             "Toujours enregistrer une capture lorsque la méthode évolue.",
         ),
     ),
+    "courseu": MethodSpec(
+        key="courseu",
+        enseigne="Super U Eysines",
+        script="fetch_courseu_price.py",
+        summary="Recherche directe de l'EAN sur coursesu.com (Super U Eysines) puis extraction prix TTC + prix unitaire depuis la PDP.",
+        store_hint="Super U Eysines (coursesu.com)",
+        trace_files=(),
+        steps=(
+            "Lancer start_chrome_debug.sh puis fetch_courseu_price.py avec l'EAN (recherche brute).",
+            "Accepter les cookies et vérifier que le drive reste Super U Eysines.",
+            "Ouvrir la fiche correspondant à l'EAN et collecter prix TTC, prix unitaire, quantité, URL.",
+            "Consigner l'horodatage UTC + magasin dans le champ note.",
+        ),
+        outputs=(
+            "results/test-<EAN>/latest.json",
+            "results/test-<EAN>/summary.json",
+        ),
+        notes=(
+            "Course U accepte la recherche EAN : utiliser le code-barres sans texte.",
+            "Si Cloudflare bloque, basculer en mode CDP humain et documenter la manoeuvre dans docs/HANDOVER_DAILY.md.",
+        ),
+    ),
 }
 
 

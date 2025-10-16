@@ -1,7 +1,7 @@
 # Prompt Bootstrap (à copier dans la première requête au prochain GPT)
 
 - Tu es intégré sur le projet Maxicourses (comparateur de prix). Respecte strictement les règles décrites dans `docs/ONBOARDING.md`.
-- Toute collecte démarre par la recherche **EAN brut** sur Carrefour Market, Carrefour City, Auchan puis Chronodrive (dans cet ordre) pour récupérer un descriptif seed, avant de basculer vers Intermarché, Leclerc puis Monoprix avec le descriptif obtenu.
+- Toute collecte démarre par la recherche **EAN brut** sur Carrefour Market, Carrefour City, Auchan, Chronodrive puis Course U (Super U Eysines) pour récupérer un descriptif seed, avant de basculer vers Intermarché, Leclerc puis Monoprix avec le descriptif obtenu.
 - Toute interaction avec Leclerc Drive doit passer par Chrome remote (port 9222), `USE_CDP=1`, `HEADLESS=0`, avec validation visuelle et capture.
 - Avant toute action, lis : `docs/ONBOARDING.md`, `docs/PARCOURS_HUMAIN.md`, `docs/PRICE_COMPARATOR_PLAN.md`, `docs/PRICE_COLLECTION_GUIDE.md`, `docs/HANDOVER_DAILY.md` (dernière entrée).
 - Conserve les nouvelles captures dans `maxicourses_test/debug_screens/` avec nom explicite.

@@ -1,7 +1,7 @@
 # Guide de collecte prix par enseigne
 
 - Chrome remote lancé via `maxicourses_test/start_chrome_debug.sh` (profil `.chrome-debug`), puis toutes les commandes Playwright avec `USE_CDP=1`.
-- **Recherche EAN brut obligatoire** : pour tout nouveau produit, taper directement le code EAN (sans texte) sur les enseignes seed qui l’acceptent – Carrefour Market → Carrefour City → Auchan → Chronodrive. Une fois ces runs effectués, exploiter le descriptif obtenu pour Intermarché, Leclerc puis Monoprix. Aucun descriptif ne doit être utilisé sur les enseignes EAN si l’EAN est connu ; un résultat `NO_PRICE` ou `NO_RESULTS` signifie que le drive ne propose pas ce produit.
+- **Recherche EAN brut obligatoire** : pour tout nouveau produit, taper directement le code EAN (sans texte) sur les enseignes seed qui l’acceptent – Carrefour Market → Carrefour City → Auchan → Chronodrive → Course U (Super U Eysines). Une fois ces runs effectués, exploiter le descriptif obtenu pour Intermarché, Leclerc puis Monoprix. Aucun descriptif ne doit être utilisé sur les enseignes EAN si l’EAN est connu ; un résultat `NO_PRICE` ou `NO_RESULTS` signifie que le drive ne propose pas ce produit.
 - Chaque sortie JSON doit inclure `price`, `unit_price` (€/kg ou €/L), `quantity`, `store`, `note` (horodatage UTC), `url`, `matched_ean`.
 - Conserver les captures dans `maxicourses_test/debug_screens/` ou `maxicourses_test/debug/` et référencer la trace dans `docs/HANDOVER_DAILY.md`.
 - Chaque produit possède un visuel local dans `maxicourses_test/pipeline/assets/` déclaré via `manual_descriptors.json` ; le comparateur (`pipeline/index2.html`) affiche ensuite un lien « Voir image ».
@@ -85,6 +85,22 @@
   - `HEADLESS=0` recommandé lors des validations initiales pour vérifier la bannière magasin ; ensuite `HEADLESS=1` possible.
   - Le script extrait automatiquement prix TTC, prix unitaire et quantité depuis la fiche associée au drive.
 - Si malgré le seed aucune fiche ne correspond, retourner `NO_RESULTS` avec le magasin utilisé et ajouter la trace dans `docs/HANDOVER_DAILY.md`.
+
+## Course U (Super U Eysines)
+- **Script** : `maxicourses_test/fetch_courseu_price.py`.
+- **Commandes** :
+  ```bash
+  cd maxicourses_test
+  USE_CDP=1 HEADLESS=0 \
+    STORE_URL="https://www.coursesu.com/drive-superu-eysines" \
+    EAN=<ean> python3 fetch_courseu_price.py
+  ```
+- **Points de vigilance** :
+  - accepter les cookies OneTrust puis fermer les éventuels overlays promotionnels ;
+  - recherche EAN brut prioritaire (le script replonge sur `/recherche?q=<EAN>` en fallback) ;
+  - choisir la fiche dont l’URL/libellé contient l’EAN ou les tokens seed, puis extraire prix TTC, prix unitaire (JSON-LD) et quantité ;
+  - consigner dans `note` l’horodatage UTC + « Super U Eysines ».
+- **Blocages possibles** : si Cloudflare refuse l’accès, repasser en CDP humain, valider manuellement la recherche puis rejouer `state/courseu.json`. Documenter toute manoeuvre dans `docs/HANDOVER_DAILY.md`.
 
 ## Gestion des résultats & comparateur
 - Chaque EAN dispose de `results/test-<EAN>/latest.json` et `summary.json`. L’agrégat global `results/summary.json` alimente `pipeline/index2.html`.

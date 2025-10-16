@@ -977,7 +977,8 @@
       intermarche: 'intermarche.png',
       auchan: 'auchan.png',
       chronodrive: 'chronodrive.png',
-      monoprix: 'monoprix.png'
+      monoprix: 'monoprix.png',
+      courseu: 'courseu.png'
     };
 
     const DISPLAY_NAMES = {
@@ -989,7 +990,8 @@
       intermarche: 'Intermarché',
       auchan: 'Auchan',
       chronodrive: 'Chronodrive',
-      monoprix: 'Monoprix'
+      monoprix: 'Monoprix',
+      courseu: 'Super U Eysines'
     };
 
     const GENERIC_DESCRIPTOR_TOKENS = new Set([
@@ -2390,7 +2392,7 @@
         const displayName = DISPLAY_NAMES[row.adapterName] || row.adapterName;
         const suffix = suffixLabel(row.adapterName);
         let store = payload.store || payload.note || row.storeQuery || '';
-        if (row.adapterName === 'monoprix') {
+        if (row.adapterName === 'monoprix' || row.adapterName === 'courseu') {
           store = displayName;
         } else if (store && /^https?:\/\//i.test(store)) {
           store = '';

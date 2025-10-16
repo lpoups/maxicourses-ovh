@@ -9,7 +9,8 @@
 1. **Collecte seed systématique** : commencer chaque produit par une recherche **100 % EAN brut** (sans texte additionnel) sur les enseignes qui l’acceptent :
    - Carrefour Market d’abord, puis Carrefour City (via les wrappers CDP),
    - ensuite Auchan,
-   - puis Chronodrive.
+   - puis Chronodrive,
+   - et Course U (Super U Eysines).
   Une fois ce descriptif fiable (titre, quantité) récupéré, l’enregistrer dans `manual_descriptors.json` et l’utiliser pour enchaîner Intermarché, Leclerc puis Monoprix (qui ne prennent pas l’EAN brut).
 2. **Leclerc Drive** : toute interaction passe par Chrome remote (port 9222) + validation visuelle. `USE_CDP=1`, `HEADLESS=0`. Aucun scraping headless ni requête directe.
 3. **Carrefour** : privilégier Chrome remote pour contourner Cloudflare. Toujours sauvegarder au besoin les captures (`HUMAN_DEBUG_DIR`).
