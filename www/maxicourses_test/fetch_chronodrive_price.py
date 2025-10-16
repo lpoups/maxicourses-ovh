@@ -83,6 +83,10 @@ def build_query_terms() -> list[str]:
         seen.add(key)
         terms.append(cleaned)
 
+    # Toujours commencer par la recherche EAN brute
+    if EAN:
+        add(EAN)
+
     descriptor_entry = MANUAL_DESCRIPTOR.get(EAN) if EAN else None
 
     if isinstance(descriptor_entry, dict):
@@ -95,8 +99,6 @@ def build_query_terms() -> list[str]:
         add(_descriptor_seed(EAN))
     if not terms:
         add(QUERY)
-    if not terms:
-        add(EAN if EAN else None)
 
     return terms
 

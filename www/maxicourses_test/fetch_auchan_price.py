@@ -450,11 +450,13 @@ async def run_http() -> Result:
 
 
 async def run() -> Result:
-    prefer_playwright = (
-        os.environ.get('USE_CDP') == '1'
-        or os.environ.get('AUCHAN_USE_PLAYWRIGHT') == '1'
-        or not HEADLESS
-    )
+    prefer_playwright = os.environ.get('AUCHAN_SKIP_PLAYWRIGHT') != '1'
+    if not prefer_playwright:
+        prefer_playwright = (
+            os.environ.get('USE_CDP') == '1'
+            or os.environ.get('AUCHAN_USE_PLAYWRIGHT') == '1'
+            or not HEADLESS
+        )
 
     if prefer_playwright:
         result = await run_via_playwright()
