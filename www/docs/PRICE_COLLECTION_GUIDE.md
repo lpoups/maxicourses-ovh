@@ -1,7 +1,7 @@
 # Guide de collecte prix par enseigne
 
 - Chrome remote lancé via `maxicourses_test/start_chrome_debug.sh` (profil `.chrome-debug`), puis toutes les commandes Playwright avec `USE_CDP=1`.
-- **Recherche EAN brut obligatoire** : pour tout nouveau produit, taper directement le code EAN (sans texte) sur les enseignes seed qui l’acceptent – Carrefour City/Market → Auchan → Chronodrive. Aucun descriptif ne doit être utilisé sur ces enseignes si l’EAN est connu ; un résultat `NO_PRICE` ou `NO_RESULTS` signifie que le drive ne propose pas ce produit.
+- **Recherche EAN brut obligatoire** : pour tout nouveau produit, taper directement le code EAN (sans texte) sur les enseignes seed qui l’acceptent – Carrefour Market → Carrefour City → Auchan → Chronodrive. Une fois ces runs effectués, exploiter le descriptif obtenu pour Intermarché, Leclerc puis Monoprix. Aucun descriptif ne doit être utilisé sur les enseignes EAN si l’EAN est connu ; un résultat `NO_PRICE` ou `NO_RESULTS` signifie que le drive ne propose pas ce produit.
 - Chaque sortie JSON doit inclure `price`, `unit_price` (€/kg ou €/L), `quantity`, `store`, `note` (horodatage UTC), `url`, `matched_ean`.
 - Conserver les captures dans `maxicourses_test/debug_screens/` ou `maxicourses_test/debug/` et référencer la trace dans `docs/HANDOVER_DAILY.md`.
 - Chaque produit possède un visuel local dans `maxicourses_test/pipeline/assets/` déclaré via `manual_descriptors.json` ; le comparateur (`pipeline/index2.html`) affiche ensuite un lien « Voir image ».
@@ -18,6 +18,7 @@
     python3 manual_leclerc_cdp.py
   ```
 - **Logique** : saisie lente, acceptation OneTrust, sélection du meilleur résultat selon les tokens de la requête, extraction JSON-LD.
+- **Requêtes** : générées automatiquement à partir du seed (marque + fonction/nom + quantité) pour garantir un minimum de trois mots ciblés (« Destop Déboucheur 950 ML » par exemple). Les variantes éventuelles (liquide, original…) sont ajoutées en secondaire, mais la requête principale conserve toujours la structure marque/fonction/quantité.
 - **Traces** : conserver les traces humaines dans `traces/leclerc-*.jsonl` si la navigation change.
 - **Résultats** : JSON par EAN dans `maxicourses_test/results/test-<EAN>/`, agrégat global `maxicourses_test/results/summary.json`.
 
@@ -51,7 +52,24 @@
   USE_CDP=1 HEADLESS=0 EAN=<ean> QUERY="<libellé adopté>" python3 fetch_intermarche_price.py
   ```
 - **Notes** : attendre que le prix apparaisse (commutateur rafraîchissement automatique). Sauvegarder `store` (ex. « Intermarché · Bordeaux Talence (drive) »).
+- **Validation** : chaque fiche produit Intermarché expose l’EAN 13 chiffres dans l’URL (`.../produit/<slug>-<EAN>`). Le fetcher extrait systématiquement cet EAN et confirme qu’il correspond à la valeur recherchée avant de retourner un prix ; si l’EAN diffère ou est absent, la fiche est rejetée et le candidat suivant est testé.
 - **Sélection magasin** : la state `state/intermarche.json` capture actuellement le drive Hyper Cestas (`store_id_itm = 01047`). Mettre à jour ce fichier via Chrome 9222 si un autre point de vente est requis avant relance.
+
+## Monoprix (courses.monoprix.fr)
+- **Script** : `maxicourses_test/fetch_monoprix_price.py` (CDP obligatoire, recherche par descriptif uniquement).
+- **Commandes** :
+  ```bash
+  cd maxicourses_test
+  USE_CDP=1 HEADLESS=0 QUERY="<libellé seed>" \
+    HOME_URL="https://courses.monoprix.fr/" \
+    python3 fetch_monoprix_price.py
+  ```
+- **Logique** :
+  - se rendre sur `HOME_URL` (ou `STORE_URL` si un magasin spécifique doit être chargé),
+  - accepter les cookies puis saisir la requête issue du seed (identique à Intermarché),
+  - ouvrir la fiche la plus pertinente et extraire prix TTC, prix unitaire, quantité, URL, magasin.
+- **Résultats** : JSON par EAN dans `maxicourses_test/results/test-<EAN>/`, agrégat global `maxicourses_test/results/summary.json`.
+- **Notes** : Monoprix ne supporte pas la recherche EAN ; si aucun résultat n’est trouvé, documenter l’échec avant de passer à Leclerc.
 
 ## Chronodrive
 - **Script** : `maxicourses_test/fetch_chronodrive_price.py` (CDP obligatoire).
@@ -75,6 +93,19 @@
   2. Compléter `manual_descriptors.json` (titre, quantité, image locale, Nutri-score si dispo).
   3. Ajouter l’EAN dans `EXTRA_DATASETS` de `pipeline/index2.html`.
   4. Vérifier la page via `cd maxicourses_test && python3 -m http.server`.
+
+## Requêtes générées par l’IA (Leclerc / Monoprix / Intermarché)
+- Après une collecte seed réussie (Carrefour Market/City, Auchan, Chronodrive), lancer `USE_AI_ASSIST=true ./run_ai_pipeline.sh <EAN>` pour que `run_pipeline.py` envoie les payloads à OpenAI.
+- `summarize_product_seed` produit un profil canonique (`ai_profile`, `ai_keywords`), puis `suggest_search_queries(store=...)` fabrique des requêtes ≤30 caractères (« marque + produit [+ contenance] ») pour Leclerc, Monoprix et Intermarché.
+- Les requêtes sont stockées dans `manual_descriptors.json` (`leclerc_ai_queries`, `monoprix_ai_queries`, `intermarche_ai_queries`) et utilisées automatiquement lors des prochains fetchs.
+- Les journaux IA (prompts + réponses) sont archivés dans `maxicourses_test/logs/refonte_v2/runs/<horodatage>-<EAN>-<PID>/`.
+
+### Clés de recherche (IA)
+- `primary_keywords` = requête envoyée au moteur (marque → quantité/format → type → variante). Exemple croquettes : `ULTIMA 1.5kg chat croquettes`; lessive : `ARIEL 21 capsules lessive`; condiments : `Amora 385g moutarde`.
+- `secondary_keywords` = mots qui doivent apparaître sur la carte retenue (stérilisé, aromates, grandiose…). Le fetcher rejette toute carte qui ne les contient pas tous.
+- Termes interdits dans les primaires : `stérilisé`, `adulte`, `promo`, `lot`, `pack`, `xN`, etc. Ils restent autorisés en secondaires pour filtrer.
+- Toute fiche seed avec `matched_ean` vide ou différent est ignorée et consignée dans `docs/SEED_RULES.md` (« Faire ceci = erreur »).
+- Avant chaque run, relire `docs/SEED_RULES.md` pour appliquer la bonne méthode (contenu déjà validé, mots à bannir, variantes attendues).
 
 ## Documentation à lire impérativement
 1. `docs/PROMPT_BOOTSTRAP.md` – check-list initiale et ton attendu.

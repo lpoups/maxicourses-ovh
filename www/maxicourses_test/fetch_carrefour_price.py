@@ -121,6 +121,42 @@ def clean_spaces(value: Optional[str]) -> Optional[str]:
     return re.sub(r"\s+", " ", normalized).strip()
 
 
+def extract_image_url(image_data):
+    """Return a clean URL from Carrefour ld+json image payloads."""
+    if not image_data:
+        return None
+    if isinstance(image_data, str):
+        cleaned = clean_spaces(image_data)
+        return cleaned or None
+    if isinstance(image_data, dict):
+        for key in (
+            "url",
+            "contentUrl",
+            "contentURL",
+            "content_url",
+            "thumbnailUrl",
+            "thumbnail",
+        ):
+            value = image_data.get(key)
+            if isinstance(value, str):
+                cleaned = clean_spaces(value)
+                if cleaned:
+                    return cleaned
+        for nested_key in ("image", "images", "@list", "@value"):
+            nested = image_data.get(nested_key)
+            if nested:
+                candidate = extract_image_url(nested)
+                if candidate:
+                    return candidate
+        return None
+    if isinstance(image_data, (list, tuple, set)):
+        for item in image_data:
+            candidate = extract_image_url(item)
+            if candidate:
+                return candidate
+    return None
+
+
 def normalize_store_name(value: Optional[str]) -> str:
     return (clean_spaces(value) or "").lower()
 
@@ -470,6 +506,14 @@ async def run() -> Result:
         user_agent=None,
     )
 
+    async def _close_extra(new_page):
+        try:
+            await new_page.close()
+        except Exception:
+            pass
+
+    context.on("page", lambda pg: asyncio.create_task(_close_extra(pg)))
+
     frontal_store_id = os.environ.get("CARREFOUR_FRONTAL_STORE")
     if frontal_store_id:
         try:
@@ -649,11 +693,37 @@ async def run() -> Result:
                 pass
 
             try:
-                unit_locator = page.locator("[data-testid*='unit-price'], [class*='unit-price'], text=/€\s*\/\s*(?:l|kg)/i")
-                if await unit_locator.count():
-                    txt = await unit_locator.first.text_content(timeout=4000)
-                    if txt:
-                        unit_text = clean_spaces(txt.replace('\xa0', ' ')).replace(' / ', '/').replace(' ', '')
+                unit_selectors = [
+                    "[data-testid='price-per-unit']",
+                    "[data-testid*='unit-price']",
+                    "[class*='unit-price']",
+                ]
+                for sel in unit_selectors:
+                    locator = page.locator(sel)
+                    if await locator.count():
+                        candidate = await locator.first.text_content(timeout=4000)
+                        if candidate:
+                            unit_text = clean_spaces(candidate.replace('\xa0', ' '))
+                            break
+                if not unit_text:
+                    unit_text = await page.evaluate(
+                        """
+                        () => {
+                          const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+                          const patterns = /(€\s*\/\s*(?:kg|l|pi.?ce|lavage|unité))/i;
+                          while (walker.nextNode()) {
+                            const txt = (walker.currentNode.textContent || '').trim();
+                            if (!txt) continue;
+                            if (patterns.test(txt)) {
+                              return txt;
+                            }
+                          }
+                          return null;
+                        }
+                        """
+                    )
+                    if unit_text:
+                        unit_text = clean_spaces(str(unit_text))
             except Exception:
                 pass
 
@@ -676,11 +746,9 @@ async def run() -> Result:
                         if not title_text and item_ld.get('name'):
                             title_text = clean_spaces(str(item_ld.get('name')))
                         if not image_url and item_ld.get('image'):
-                            image_data = item_ld.get('image')
-                            if isinstance(image_data, list) and image_data:
-                                image_url = image_data[0]
-                            elif isinstance(image_data, str):
-                                image_url = image_data
+                            image_candidate = extract_image_url(item_ld.get('image'))
+                            if image_candidate:
+                                image_url = image_candidate
                         nutrition = item_ld.get('nutrition')
                         if isinstance(nutrition, dict):
                             grade = nutrition.get('nutriscoreGrade') or nutrition.get('nutriScore') or nutrition.get('nutriscore')
@@ -693,6 +761,15 @@ async def run() -> Result:
                             quantity_text = clean_spaces(str(item_ld.get('size')))
             except Exception:
                 pass
+
+            if not image_url:
+                try:
+                    og_image = await page.locator("meta[property='og:image']").first.get_attribute('content')
+                    og_image = clean_spaces(og_image) if og_image else None
+                    if og_image:
+                        image_url = og_image
+                except Exception:
+                    pass
 
             if not quantity_text:
                 search_fields = []
@@ -739,7 +816,11 @@ async def run() -> Result:
     if unit_text and '€' in unit_text:
         amount, sep, tail = unit_text.partition('€')
         if amount:
-            unit_text = amount.replace('.', ',') + sep + tail
+            amount_clean = clean_spaces(amount).replace('.', ',')
+            tail_clean = clean_spaces(tail)
+            if tail_clean and not tail_clean.startswith('/'):
+                tail_clean = f"/ {tail_clean}"
+            unit_text = f"{amount_clean} {sep} {tail_clean}".strip()
     quantity_text = clean_spaces(quantity_text)
 
     if (not unit_text) and quantity_text and price_text:

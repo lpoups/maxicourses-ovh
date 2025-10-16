@@ -24,7 +24,7 @@ Construire une interface propre (V2) permettant trois modes de recherche (EAN sa
    - [ ] Brancher le formulaire sur les endpoints backend (`/api/collect` + service de décodage image à créer).
 3. **Pipeline & scripts**
    - [ ] Supprimer les valeurs EAN par défaut dans les fetchers ; refuser une collecte sans EAN réel.
-   - [ ] Permettre la collecte seed à partir d’un descriptif et sécuriser l’enchaînement City → Market → Auchan → Chronodrive.
+   - [ ] Permettre la collecte seed à partir d’un descriptif et sécuriser l’enchaînement Market → City → Auchan → Chronodrive avant d’enchaîner Intermarché, Monoprix puis Leclerc.
    - [ ] Télécharger l’image produit dès la première seed validée et la sauvegarder localement.
    - [ ] Intégrer la récupération optionnelle des métadonnées (Nutri-score, Green-score, labels) via fr.openfoodfacts.org lors de la phase seed, sans remplacer les visuels locaux.
 4. **Infrastructure de test**
@@ -34,6 +34,7 @@ Construire une interface propre (V2) permettant trois modes de recherche (EAN sa
        - sorties `stdout`/`stderr`,
        - résumé horodaté de chaque tentative.
    - [x] Écrire un gabarit de rapport pour chaque campagne de test. ➜ `logs/refonte_v2/README.md` décrit la structure (commands.log, stdout/stderr, captures, notes horodatées Europe/Paris).
+   - [x] Les runs IA générations requêtes sont enregistrés dans `maxicourses_test/logs/refonte_v2/runs/<horodatage>-<EAN>-<PID>/` (prompts + réponses OpenAI).
 5. **Corrections itératives**
    - [ ] Planifier des scénarios de test (ex. "Carrefour City sans résultat", "Leclerc indisponible", "Chronodrive timeout").
   - [ ] Corriger les seeders qui envoient "produit <EAN>" : sur les enseignes compatibles EAN (Carrefour, Auchan, Chronodrive) la requête doit être l’EAN brut.

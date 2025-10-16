@@ -276,6 +276,13 @@ async def run_via_playwright() -> typing.Optional[Result]:
         storage_state_path=None if os.environ.get('USE_CDP') == '1' else storage_state,
         user_agent=None,
     )
+    async def _close_extra(_page):
+        try:
+            await _page.close()
+        except Exception:
+            pass
+
+    context.on("page", lambda new_page: asyncio.create_task(_close_extra(new_page)))
 
     state_data = load_storage_state(Path(storage_state)) if storage_state else None
     if state_data:

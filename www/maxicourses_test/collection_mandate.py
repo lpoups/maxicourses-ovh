@@ -19,7 +19,7 @@ AUTHORITY_STATEMENT = (
 
 GLOBAL_IMPERATIVES: Tuple[str, ...] = (
     "Chrome remote obligatoire via start_chrome_debug.sh (profil .chrome-debug) puis USE_CDP=1, HEADLESS=0 pour les validations.",
-    "Avant toute collecte, récupérer un descriptif seed : Carrefour City en priorité, puis Auchan si l'EAN est absent.",
+    "Avant toute collecte, respecter l’ordre seed : Carrefour City → Carrefour Market → Auchan → Chronodrive, puis enchaîner Intermarché → Leclerc Drive → Monoprix avec le descriptif obtenu.",
     "Chaque JSON résultat doit exposer prix TTC, prix unitaire (€/kg ou €/L), quantité, magasin, horodatage UTC, URL, matched_ean.",
     "Aucune donnée saisie manuellement : tous les prix proviennent des scripts Playwright/CDP.",
     "Image locale obligatoire dans pipeline/assets et lien ‘Voir image’ actif dans pipeline/index2.html.",
@@ -158,6 +158,29 @@ METHODS: Dict[str, MethodSpec] = {
         notes=(
             "Toujours renseigner le champ 'note' avec l'horodatage UTC + magasin.",
             "Si le prix au kg n'est pas trouvé, bug à corriger avant de poursuivre.",
+        ),
+    ),
+    "monoprix": MethodSpec(
+        key="monoprix",
+        enseigne="Monoprix (courses en ligne)",
+        script="fetch_monoprix_price.py",
+        summary="Recherche textuelle sur courses.monoprix.fr, ouverture de la fiche produit puis extraction prix/prix unitaire.",
+        store_hint="Monoprix en ligne – préciser HOME_URL/STORE_URL si un autre magasin doit être chargé.",
+        trace_files=(),
+        steps=(
+            "Lancer start_chrome_debug.sh puis s'assurer que USE_CDP=1.",
+            "Exécuter fetch_monoprix_price.py avec la QUERY seed (identique Intermarché).",
+            "Accepter les cookies, vérifier le magasin sélectionné puis lancer la recherche textuelle.",
+            "Ouvrir la fiche retenue, capturer prix TTC, prix unitaire, quantité, URL et horodatage UTC.",
+        ),
+        outputs=(
+            "results/test-<EAN>/latest.json",
+            "results/test-<EAN>/summary.json",
+            "results/summary.json",
+        ),
+        notes=(
+            "Monoprix ne supporte pas les recherches EAN : toujours partir du descriptif seed.",
+            "Documenter toute absence de résultat dans docs/HANDOVER_DAILY.md (Horodatage + requête utilisée).",
         ),
     ),
     "chronodrive": MethodSpec(

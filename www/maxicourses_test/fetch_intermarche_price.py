@@ -57,6 +57,16 @@ def _looks_like_ean(term: typing.Optional[str]) -> bool:
     return stripped == term.strip().replace(" ", "") and 8 <= len(stripped) <= 14
 
 
+def extract_ean_from_url(url: typing.Optional[str]) -> typing.Optional[str]:
+    """Intermarché PDP URLs embed the 13-digit EAN; extract it when present."""
+    if not url:
+        return None
+    match = re.search(r"(\d{13})(?=[^0-9]|$)", url)
+    if match:
+        return match.group(1)
+    return None
+
+
 def load_storage_state(path: typing.Optional[Path]) -> typing.Optional[dict]:
     if not path:
         return None
@@ -177,63 +187,6 @@ async def get_store_metadata(context) -> typing.Optional[dict]:
     return None
 
 
-async def fetch_products_api(page, store_ref: str, keyword: str) -> list[dict]:
-    if not store_ref or not keyword:
-        return []
-    payload = {
-        'keyword': keyword,
-        'page': 1,
-        'limit': 40,
-    }
-    url = f"https://www.intermarche.com/api/service/produits/v4/pdvs/{store_ref}/products/byKeywordAndCategory"
-    try:
-        data = await page.evaluate(
-            """
-            async (endpoint, body) => {
-              try {
-                const res = await fetch(endpoint, {
-                  method: 'POST',
-                  credentials: 'include',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify(body),
-                });
-                if (!res.ok) {
-                  return { ok: false, status: res.status, body: await res.text() };
-                }
-                return { ok: true, json: await res.json() };
-              } catch (err) {
-                return { ok: false, error: err?.message || 'fetch_failed' };
-              }
-            }
-            """,
-            url,
-            payload,
-        )
-    except Exception:
-        data = None
-    if not data or not data.get('ok'):
-        if DEBUG_INTERMARCHE and data:
-            sys.stderr.write(f"[intermarche] API call failed ({data.get('status')}) for {keyword}: {str(data.get('error') or '')[:120]}\n")
-        return []
-    payload = data.get('json') or {}
-    products = payload.get('produits') or []
-    if DEBUG_INTERMARCHE and not products:
-        try:
-            debug_json(f"api-empty-{keyword}", data)
-        except Exception:
-            pass
-        try:
-            snippet = json.dumps(data, ensure_ascii=False)[:400]
-        except Exception:
-            snippet = repr(data)[:400]
-        sys.stderr.write(f"[intermarche] API empty payload raw: {snippet}\n")
-        try:
-            sys.stderr.flush()
-        except Exception:
-            pass
-    return products if isinstance(products, list) else []
-
-
 def _descriptor_seed(ean: str) -> typing.Optional[str]:
     """Compose the human search phrase stored in the manual descriptors table."""
     if not ean:
@@ -261,16 +214,6 @@ def _descriptor_seed(ean: str) -> typing.Optional[str]:
     return None
 
 
-def tokens_for(term: str) -> list[str]:
-    if not term:
-        return []
-    return [
-        token
-        for token in re.findall(r"[a-z0-9]+", term.lower())
-        if len(token) >= 3 and not token.isdigit()
-    ]
-
-
 def _normalized_quantity_to_liters(quantity: typing.Optional[str]) -> typing.Optional[float]:
     if not isinstance(quantity, str):
         return None
@@ -283,69 +226,6 @@ def _normalized_quantity_to_liters(quantity: typing.Optional[str]) -> typing.Opt
     if unit.startswith('ml') or 'milli' in unit:
         return value / 1000.0
     return value
-
-
-def select_product(candidates: list[dict], *, tokens: list[str]) -> typing.Optional[dict]:
-    if not candidates:
-        return None
-    best = None
-    best_score = -1
-    for candidate in candidates:
-        label = f"{candidate.get('marque', '')} {candidate.get('libelle', '')}".lower()
-        score = sum(1 for token in tokens if token and token in label)
-        if EAN and candidate.get('produitEan13') == EAN:
-            score += 5
-        if score > best_score:
-            best = candidate
-            best_score = score
-    return best or candidates[0]
-
-
-def product_to_result(candidate: dict, store_label: typing.Optional[str]) -> Result:
-    price_value = candidate.get('prix')
-    price = None
-    if isinstance(price_value, (int, float)):
-        price = f"{float(price_value):.2f}".replace('.', ',')
-    elif isinstance(price_value, str) and price_value.strip():
-        try:
-            price = f"{float(price_value.replace(',', '.')):.2f}".replace('.', ',')
-        except Exception:
-            price = price_value
-
-    unit_price = None
-    unit_data = candidate.get('prixUnitaire') or candidate.get('prixPar') or candidate.get('unitPrice')
-    if isinstance(unit_data, (int, float)) and candidate.get('unitePrixVente'):
-        unit_text = candidate['unitePrixVente']
-        unit_price = f"{float(unit_data):.2f}".replace('.', ',') + f" € / {unit_text}"
-    elif isinstance(unit_data, str) and unit_data.strip():
-        unit_price = unit_data.replace('.', ',')
-
-    quantity = candidate.get('conditionnement') or candidate.get('format') or candidate.get('volume')
-    if isinstance(quantity, (int, float)):
-        quantity = f"{quantity}"
-
-    libelle = candidate.get('libelle') or ''
-    marque = candidate.get('marque') or ''
-    title = libelle
-    if marque and marque.lower() not in title.lower():
-        title = f"{marque} {title}".strip()
-
-    slug = re.sub(r"[^a-z0-9-]", '-', title.lower())
-    slug = re.sub(r"-+", '-', slug).strip('-') or 'produit'
-    ean = candidate.get('produitEan13') or candidate.get('ean') or EAN or ''
-    url = f"https://www.intermarche.com/produit/{slug}/{ean}" if ean else None
-
-    return Result(
-        status="OK",
-        price=price,
-        title=title or libelle,
-        url=url,
-        note=f"Intermarché · {store_label}" if store_label else "Intermarché (API)",
-        matched_ean=ean or None,
-        unit_price=unit_price,
-        quantity=quantity,
-        store=store_label,
-    )
 
 
 def build_query_terms() -> list[str]:
@@ -646,21 +526,13 @@ async def run() -> Result:
     await ensure_store_selected(page)
 
     store_metadata = await get_store_metadata(context)
-    store_ref = None
-    store_label_initial = None
+    store_label = None
     if isinstance(store_metadata, dict):
-        store_ref = store_metadata.get('ref') or store_metadata.get('code')
-        store_label_initial = store_metadata.get('decoded_name') or store_metadata.get('name') or None
+        store_label = store_metadata.get('decoded_name') or store_metadata.get('name') or None
     if DEBUG_INTERMARCHE:
-        sys.stderr.write(f"[intermarche] store metadata ref={store_ref} label={store_label_initial}\n")
+        sys.stderr.write(f"[intermarche] store metadata label={store_label}\n")
 
     descriptor_entry = MANUAL_DESCRIPTOR.get(EAN) if EAN else None
-    descriptor_tokens: list[str] = []
-    if isinstance(descriptor_entry, dict):
-        for part in [descriptor_entry.get('brand'), descriptor_entry.get('name'), descriptor_entry.get('quantity')]:
-            if isinstance(part, str):
-                descriptor_tokens.extend(tokens_for(part))
-    descriptor_tokens = list(dict.fromkeys(descriptor_tokens))
 
     # Build search terms: prefer descriptor seed then manual query text
     terms = build_query_terms()
@@ -674,14 +546,6 @@ async def run() -> Result:
     matched_ean = None
     unit_price = None
     quantity_text = descriptor_entry.get('quantity') if isinstance(descriptor_entry, dict) else None
-    store_label = store_label_initial
-    normalized_query_tokens: list[str] = []
-    api_candidate_url = None
-    api_candidate_price = None
-    api_candidate_title = None
-    api_candidate_unit = None
-    api_candidate_quantity = None
-    api_candidate_ean = None
     seen_terms: set[str] = set()
     unique_terms: list[str] = []
     for term in terms:
@@ -693,52 +557,7 @@ async def run() -> Result:
         seen_terms.add(canonical_term)
         unique_terms.append(term)
     for term in unique_terms:
-        candidate_tokens = [
-            token
-            for token in re.findall(r"[a-z0-9]+", term.lower())
-            if len(token) >= 3 and not token.isdigit()
-        ]
-        if candidate_tokens:
-            normalized_query_tokens = candidate_tokens
-            break
-    for term in unique_terms:
         # Try to run the actual site search workflow (SPA)
-        tokens_current = tokens_for(term)
-        api_keyword = " ".join(tokens_current) if tokens_current else term
-        if store_ref:
-            try:
-                api_products = await fetch_products_api(page, store_ref, api_keyword)
-            except Exception:
-                api_products = []
-            if DEBUG_INTERMARCHE:
-                sys.stderr.write(f"[intermarche] API products for '{term}': {len(api_products)}\n")
-                if api_products:
-                    debug_json(f"api-{term}", {"products": api_products})
-            if api_products:
-                tokens = normalized_query_tokens or tokens_current
-                if not tokens:
-                    tokens = tokens_for(term)
-                candidate = select_product(api_products, tokens=tokens)
-                if candidate:
-                    api_result = product_to_result(candidate, store_label or store_label_initial)
-                    if api_result.price:
-                        api_candidate_price = api_result.price
-                    if api_result.unit_price:
-                        api_candidate_unit = api_result.unit_price
-                    if api_result.quantity:
-                        api_candidate_quantity = api_result.quantity
-                    if api_result.title:
-                        api_candidate_title = api_result.title
-                    if api_result.url:
-                        api_candidate_url = api_result.url
-                    if api_result.matched_ean:
-                        api_candidate_ean = api_result.matched_ean
-                    if api_result.store:
-                        store_label = api_result.store
-                    if api_result.matched_ean and api_result.matched_ean == EAN and api_result.price:
-                        await browser.close(); await p.stop()
-                        return api_result
-
         await page.goto(home_url, wait_until="domcontentloaded")
         await page.wait_for_timeout(5000)
         await accept_cookies(page)
@@ -757,31 +576,6 @@ async def run() -> Result:
                 sys.stderr.write(f"[intermarche] 404 after search '{term}', retrying next term\n")
             continue
         candidates_info = await collect_product_links(page)
-        if api_candidate_url:
-            candidates_info.insert(0, {'href': api_candidate_url, 'text': api_candidate_title or ''})
-
-        def score_candidate(info: dict) -> int:
-            href = info.get('href') or ''
-            text = (info.get('text') or '').lower()
-            score = 0
-            if EAN and href and EAN in href:
-                score += 100
-            for token in descriptor_tokens:
-                if token and token in text:
-                    score += 8
-            if 'original' in text:
-                score += 6
-            if '950' in text:
-                score += 4
-            for token in normalized_query_tokens:
-                if token and token in text:
-                    score += 4
-            return score
-
-        candidates_info.sort(key=score_candidate, reverse=True)
-        if DEBUG_INTERMARCHE:
-            sys.stderr.write(f"[intermarche] candidates for term '{term}': {[c.get('href') for c in candidates_info]}\n")
-
         pdp = None
         candidates: list[str] = []
         for info in candidates_info:
@@ -792,6 +586,8 @@ async def run() -> Result:
                 href = f"https://www.intermarche.com{href}"
             if href not in candidates:
                 candidates.append(href)
+        if DEBUG_INTERMARCHE:
+            sys.stderr.write(f"[intermarche] candidates for term '{term}': {candidates}\n")
 
         matched_href = None
         fallback_href = None
@@ -813,15 +609,32 @@ async def run() -> Result:
                 await debug_shot(page, f"pdp-{idx}")
                 if not fallback_href:
                     fallback_href = href
-                if EAN and (EAN in href or EAN in html):
-                    matched_href = href
-                    matched_ean = EAN
+                current_url = page.url or href
+                url_ean = extract_ean_from_url(current_url)
+                if url_ean:
+                    if EAN:
+                        if url_ean == EAN:
+                            matched_href = current_url
+                            matched_ean = url_ean
+                            break
+                        # mauvaise fiche : essayer le candidat suivant
+                        continue
+                    matched_href = current_url
+                    matched_ean = url_ean
                     break
             except Exception:
                 continue
         pdp = matched_href or fallback_href
         if not pdp:
             continue
+        if EAN:
+            pdp_ean = extract_ean_from_url(pdp)
+            if pdp_ean != EAN:
+                # en dernier recours s'assurer qu'on ne conserve pas une mauvaise page
+                continue
+            matched_ean = EAN
+        elif matched_ean is None:
+            matched_ean = extract_ean_from_url(pdp)
         # ensure we are on the product page corresponding to pdp
         if page.url != pdp:
             try:
@@ -839,6 +652,7 @@ async def run() -> Result:
         await ensure_store_selected(page)
 
         page_html = await page.content()
+        has_identifier_match = bool(matched_ean and (matched_ean == EAN if EAN else True))
         if not price:
             try:
                 ld_scripts = await page.locator("script[type='application/ld+json']").all_text_contents()
@@ -867,21 +681,6 @@ async def run() -> Result:
                         maybe_title = item.get("name")
                         if isinstance(maybe_title, str) and maybe_title.strip():
                             title = maybe_title.strip()
-        # Enforce secondary keywords on PDP and reject packs/lots
-        try:
-            lowered = page_html.lower()
-            banned = any(x in lowered for x in [" pack ", " lot ", " mini ", "canettes", "canette"]) or bool(re.search(r"\b\d+\s*(x|×)\s*\d+\b", lowered))
-            secondary = []
-            if isinstance(descriptor_entry, dict):
-                sec_raw = descriptor_entry.get('secondary_keywords') or []
-                if isinstance(sec_raw, list):
-                    secondary = [str(tok).lower() for tok in sec_raw if isinstance(tok, str)]
-            if banned:
-                continue
-            if secondary and not all(tok in lowered for tok in secondary):
-                continue
-        except Exception:
-            pass
         if not unit_price and page_html:
             match = re.search(r"(\d+[\.,]\d{2})\s*€\s*/\s*([a-zA-ZéÉ/]+)", page_html)
             if match:
@@ -897,44 +696,37 @@ async def run() -> Result:
                     quantity_text = " ".join(qty_candidate.split())
             except Exception:
                 pass
-        has_identifier_match = False
-        # Try schema.org
-        try:
-            for i in range(await page.locator("script[type='application/ld+json']").count()):
-                raw = await page.locator("script[type='application/ld+json']").nth(i).text_content()
-                data = json.loads(raw)
-                items = data if isinstance(data, list) else [data]
-                for it in items:
-                    if isinstance(it, dict) and it.get("@type") in ("Product",):
-                        gtin = it.get("gtin13") or it.get("gtin") or it.get("gtin14")
-                        if gtin:
-                            gtin_str = str(gtin).strip()
-                            if gtin_str:
-                                if EAN and gtin_str == EAN:
-                                    matched_ean = gtin_str
-                                    has_identifier_match = True
-                                elif not EAN:
-                                    matched_ean = matched_ean or gtin_str
-                                    has_identifier_match = True
-                        title = it.get("name") or title
-                        offers = it.get("offers")
-                        if isinstance(offers, dict):
-                            price = price or offers.get("price")
-                        elif isinstance(offers, list):
-                            for of in offers:
-                                if isinstance(of, dict):
-                                    price = price or of.get("price")
-                        if EAN and gtin and str(gtin).strip() == EAN:
-                            matched_href = pdp
-        except Exception:
-            pass
-
-        heuristics_ok = False
-        if title and normalized_query_tokens:
-            normalized_title = re.sub(r"\s+", " ", title.lower())
-            hits = sum(1 for token in normalized_query_tokens if token in normalized_title)
-            if hits >= max(1, len(normalized_query_tokens) // 2):
-                heuristics_ok = True
+        if not has_identifier_match:
+            # Try schema.org pour récupérer l'identifiant GTIN
+            try:
+                for i in range(await page.locator("script[type='application/ld+json']").count()):
+                    raw = await page.locator("script[type='application/ld+json']").nth(i).text_content()
+                    data = json.loads(raw)
+                    items = data if isinstance(data, list) else [data]
+                    for it in items:
+                        if isinstance(it, dict) and it.get("@type") in ("Product",):
+                            gtin = it.get("gtin13") or it.get("gtin") or it.get("gtin14")
+                            if gtin:
+                                gtin_str = str(gtin).strip()
+                                if gtin_str:
+                                    if EAN and gtin_str == EAN:
+                                        matched_ean = gtin_str
+                                        has_identifier_match = True
+                                    elif not EAN:
+                                        matched_ean = matched_ean or gtin_str
+                                        has_identifier_match = True
+                            title = it.get("name") or title
+                            offers = it.get("offers")
+                            if isinstance(offers, dict):
+                                price = price or offers.get("price")
+                            elif isinstance(offers, list):
+                                for of in offers:
+                                    if isinstance(of, dict):
+                                        price = price or of.get("price")
+                            if EAN and gtin and str(gtin).strip() == EAN:
+                                matched_href = pdp
+            except Exception:
+                pass
 
         if EAN:
             canonical = None
@@ -949,17 +741,7 @@ async def run() -> Result:
                 matched_ean = EAN
                 has_identifier_match = True
 
-        if not has_identifier_match and page_html:
-            digits = re.findall(r"\b\d{13}\b", page_html)
-            if digits:
-                if EAN and EAN in digits:
-                    matched_ean = EAN
-                    has_identifier_match = True
-                elif not EAN:
-                    matched_ean = matched_ean or digits[0]
-                    has_identifier_match = True
-
-        if not heuristics_ok and not has_identifier_match:
+        if EAN and not has_identifier_match:
             price = None
             title = None
             pdp = None
@@ -991,15 +773,13 @@ async def run() -> Result:
                 pass
 
         if price:
+            if EAN and matched_ean and matched_ean != EAN:
+                price = None
+                title = None
+                matched_ean = None
+                pdp = None
+                continue
             break
-
-    if not price and api_candidate_price:
-        price = api_candidate_price.replace(',', '.').replace(' ', '')
-        pdp = api_candidate_url or pdp
-        title = title or api_candidate_title
-        unit_price = unit_price or api_candidate_unit
-        quantity_text = quantity_text or api_candidate_quantity
-        matched_ean = matched_ean or api_candidate_ean
 
     if not store_label:
         try:

@@ -39,8 +39,9 @@ async def run() -> dict:
         type_min_delay=int(os.environ.get("LECLERC_TYPE_MIN_MS", "80")),
         type_max_delay=int(os.environ.get("LECLERC_TYPE_MAX_MS", "180")),
     )
-    # Drop debug info when invoked through the fetcher
-    result.pop("debug", None)
+    if os.environ.get("LECLERC_KEEP_DEBUG", "0") not in {"1", "true", "TRUE"}:
+        # Drop debug info when invoked through the fetcher
+        result.pop("debug", None)
     return result
 
 

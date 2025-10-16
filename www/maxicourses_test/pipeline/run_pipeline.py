@@ -53,6 +53,8 @@ GENERIC_BRAND_TERMS = {
     "huile",
     "gout",
     "goût",
+    "lessive",
+    "lessives",
 }
 
 STOPWORDS = {
@@ -173,146 +175,206 @@ def build_seed_query_from_descriptor(descriptor: Dict[str, Any]) -> str:
     return seed
 
 
-def build_leclerc_queries(descriptor: Dict[str, Any]) -> List[str]:
-    queries: List[str] = []
-    preferred_name = (descriptor.get("seed_primary_name") or "").strip()
-    preferred_quantity = (descriptor.get("seed_primary_quantity") or descriptor.get("quantity") or "").strip()
+_UNIT_TOKENS = {"ml", "l", "cl", "g", "kg"}
 
-    def add_query(value: Optional[str]) -> None:
-        if not isinstance(value, str):
-            return
-        cleaned = re.sub(r"\s+", " ", value).strip()
-        if not cleaned:
-            return
-        if cleaned in queries:
-            return
-        queries.append(cleaned)
 
-    def extract_tokens(source: Optional[str]) -> List[str]:
+def _normalize_quantity_token(quantity: Optional[str]) -> Optional[str]:
+    if not isinstance(quantity, str):
+        return None
+    cleaned = quantity.strip()
+    if not cleaned:
+        return None
+    cleaned = cleaned.replace(",", ".")
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    upper_cleaned = cleaned.upper()
+    match = re.match(r"(\d+(?:\.\d+)?)(?:\s*[xX]\s*\d+)?\s*(ML|L|CL|KG|G)\b", upper_cleaned)
+    if match:
+        number = match.group(1).rstrip(".")
+        unit = match.group(2)
+        return f"{number} {unit}"
+    return upper_cleaned
+
+
+def _resolve_brand_token(descriptor: Dict[str, Any]) -> Optional[str]:
+    candidate = normalize_brand_candidate(descriptor.get("brand"))
+    if candidate and not is_generic_brand(candidate):
+        return candidate
+    for key in ("seed_primary_name", "name", "description", "seed_query"):
+        value = descriptor.get(key)
+        if not value:
+            continue
+        candidate = infer_brand_from_title(value)
+        if candidate and not is_generic_brand(candidate):
+            return candidate
+    return None
+
+
+def _extract_product_tokens_for_leclerc(
+    descriptor: Dict[str, Any],
+    brand_token: Optional[str],
+) -> List[str]:
+    sources = [
+        descriptor.get("seed_primary_name"),
+        descriptor.get("name"),
+        descriptor.get("description"),
+        descriptor.get("seed_query"),
+    ]
+    tokens: List[str] = []
+    seen: set[str] = set()
+    brand_norm = _normalize_seed_token(brand_token) if brand_token else None
+    for source in sources:
         if not isinstance(source, str):
-            return []
-        tokens: List[str] = []
-        seen: set[str] = set()
+            continue
         for raw in re.split(r"[^0-9A-Za-zÀ-ÖØ-öø-ÿ]+", source):
-            raw = raw.strip()
-            if not raw:
+            token = raw.strip()
+            if not token:
                 continue
-            normalized = _normalize_seed_token(raw)
-            if not normalized:
+            normalized = _normalize_seed_token(token)
+            if not normalized or normalized in STOPWORDS:
                 continue
-            if normalized in STOPWORDS:
+            if brand_norm and normalized == brand_norm:
+                continue
+            if normalized in _UNIT_TOKENS:
+                continue
+            if re.fullmatch(r"\d+", normalized):
                 continue
             if normalized in seen:
                 continue
             seen.add(normalized)
-            tokens.append(raw)
-        return tokens
+            tokens.append(token)
+    return tokens
 
-    name_tokens = extract_tokens(preferred_name) or extract_tokens(descriptor.get("name"))
-    if not name_tokens:
-        name_tokens = extract_tokens(descriptor.get("description"))
 
-    brand_token = None
-    candidate_sources = [
-        descriptor.get("brand"),
+def _compose_query_from_tokens(tokens: List[str], max_length: int = LECLERC_MAX_LENGTH) -> Optional[str]:
+    prepared = [tok for tok in tokens if isinstance(tok, str) and tok.strip()]
+    if not prepared:
+        return None
+    phrase = " ".join(prepared).strip()
+    if not phrase:
+        return None
+    if len(phrase) <= max_length:
+        return phrase
+    trimmed: List[str] = []
+    for token in prepared:
+        tentative = " ".join(trimmed + [token]) if trimmed else token
+        if len(tentative) > max_length:
+            break
+        trimmed.append(token)
+    phrase = " ".join(trimmed).strip()
+    return phrase or None
+
+
+def _qualify_query(value: Optional[str]) -> bool:
+    if not value:
+        return False
+    words = [word for word in value.split() if word]
+    return len(words) >= 3
+
+
+def _trim_for_store(query: str, max_length: int = 30) -> str:
+    if len(query) <= max_length:
+        return query
+    pieces: List[str] = []
+    for token in query.split():
+        tentative = " ".join(pieces + [token]) if pieces else token
+        if len(tentative) > max_length:
+            break
+        pieces.append(token)
+    return " ".join(pieces) if pieces else query[:max_length].rstrip()
+
+
+def build_leclerc_search_profile(descriptor: Dict[str, Any]) -> Dict[str, List[str]]:
+    brand_token = _resolve_brand_token(descriptor)
+    quantity_token = _normalize_quantity_token(
+        descriptor.get("seed_primary_quantity") or descriptor.get("quantity")
+    )
+    product_tokens = _extract_product_tokens_for_leclerc(descriptor, brand_token)
+    function_token = product_tokens[0] if product_tokens else None
+    variant_token = product_tokens[1] if len(product_tokens) > 1 else None
+
+    queries: List[str] = []
+    primary_query: Optional[str] = None
+
+    def add_query(value: Optional[str], *, enforce_words: bool = True) -> Optional[str]:
+        if not isinstance(value, str):
+            return None
+        cleaned = re.sub(r"\s+", " ", value).strip()
+        if not cleaned:
+            return None
+        if enforce_words and not _qualify_query(cleaned):
+            return None
+        if cleaned in queries:
+            return cleaned
+        queries.append(cleaned)
+        return cleaned
+
+    candidate_sequences: List[List[str]] = []
+    if brand_token and function_token and quantity_token:
+        candidate_sequences.append([brand_token, function_token, quantity_token])
+        if variant_token:
+            candidate_sequences.append([brand_token, function_token, variant_token, quantity_token])
+    if brand_token and function_token:
+        candidate_sequences.append([brand_token, function_token])
+    if function_token and quantity_token:
+        seq = [function_token]
+        if variant_token:
+            seq.append(variant_token)
+        seq.append(quantity_token)
+        candidate_sequences.append(seq)
+    if brand_token and variant_token and quantity_token:
+        candidate_sequences.append([brand_token, variant_token, quantity_token])
+
+    for sequence in candidate_sequences:
+        query = _compose_query_from_tokens(sequence)
+        if query:
+            added = add_query(query)
+            if primary_query is None and added:
+                primary_query = added
+
+    # fallback using broader descriptor information
+    for source in (
+        descriptor.get("seed_query"),
         descriptor.get("seed_primary_name"),
         descriptor.get("name"),
         descriptor.get("description"),
-    ]
+    ):
+        if isinstance(source, str):
+            add_query(source)
 
-    # Priority 1: explicit Savora / Amora tokens
-    for candidate in candidate_sources:
-        for token in extract_tokens(candidate):
-            normalized = _normalize_seed_token(token)
-            if normalized in {"savora", "amora"}:
-                brand_token = token
-                break
-        if brand_token:
-            break
+    fallback = descriptor.get("ean")
+    if fallback:
+        fallback_value = str(fallback).strip()
+        if fallback_value:
+            add_query(fallback_value, enforce_words=False)
 
-    # Priority 2: first token from brand field that is not generic
-    if not brand_token and descriptor.get("brand"):
-        for token in extract_tokens(descriptor.get("brand")):
-            normalized = _normalize_seed_token(token)
-            if normalized and normalized not in STOPWORDS and normalized not in {"specialite", "specialitea"}:
-                brand_token = token
-                break
+    if not queries:
+        fallback_value = str(descriptor.get("ean") or "").strip()
+        if fallback_value:
+            queries.append(fallback_value)
 
-    # Priority 3: scan the preferred name tokens for something uppercase/distinctive
-    if not brand_token:
-        for token in name_tokens:
-            normalized = _normalize_seed_token(token)
-            if normalized and normalized not in STOPWORDS:
-                is_distinctive = token.isupper() or token[:1].isupper()
-                if is_distinctive:
-                    brand_token = token
-                    break
+    # Primary keywords: ensure at least one trimmed query respecting store length
+    if primary_query is None:
+        primary_query = next((q for q in queries if _qualify_query(q)), queries[0])
+    trimmed_primary = _trim_for_store(primary_query)
+    primary_keywords = [trimmed_primary] if trimmed_primary else []
 
-    if brand_token:
-        normalized_brand = _normalize_seed_token(brand_token)
-        name_tokens = [tok for tok in name_tokens if _normalize_seed_token(tok) != normalized_brand]
-    else:
-        brand_token = name_tokens[0] if name_tokens else None
+    secondary_keywords: List[str] = []
+    for token in product_tokens[1:]:
+        normalized = _normalize_seed_token(token)
+        if not normalized or normalized in STOPWORDS:
+            continue
+        if token not in secondary_keywords:
+            secondary_keywords.append(token)
+    if variant_token and variant_token not in secondary_keywords:
+        secondary_keywords.append(variant_token)
+    if quantity_token and quantity_token not in secondary_keywords:
+        secondary_keywords.append(quantity_token)
 
-    keyword_tokens = name_tokens[:LECLERC_MAX_TOKENS]
-    quantity_clean = re.sub(r"\s+", " ", preferred_quantity).strip()
-
-    def combine(tokens: List[str]) -> Optional[str]:
-        if not tokens:
-            return None
-        filtered: List[str] = []
-        for token in tokens:
-            trial = " ".join(filtered + [token]) if filtered else token
-            if len(trial) > LECLERC_MAX_LENGTH:
-                break
-            filtered.append(token)
-        phrase = " ".join(filtered).strip()
-        return phrase or None
-
-    # 1. Brand + keywords (+ quantity)
-    def add_brand_keyword_queries(brand, keywords):
-        if not brand:
-            return
-        combine_tokens = [brand] + keywords
-        if quantity_clean:
-            add_query(combine(combine_tokens + [quantity_clean]))
-        add_query(combine(combine_tokens))
-
-    if brand_token:
-        add_query(brand_token)
-        if quantity_clean:
-            add_query(combine([brand_token, quantity_clean]))
-
-        add_brand_keyword_queries(brand_token, keyword_tokens)
-
-        # Known typo sur Carrefour (Amorates vs Aromates)
-        if any(_normalize_seed_token(tok) == 'amorates' for tok in keyword_tokens):
-            alt_keywords = [
-                'Aromates' if _normalize_seed_token(tok) == 'amorates' else tok
-                for tok in keyword_tokens
-            ]
-            add_brand_keyword_queries(brand_token, alt_keywords)
-
-    # 2. Keywords + quantity (sans brand)
-    if keyword_tokens:
-        if quantity_clean:
-            add_query(combine(keyword_tokens + [quantity_clean]))
-        add_query(combine(keyword_tokens))
-
-    # 3. Brand + quantity uniquement
-    if brand_token and quantity_clean:
-        add_query(combine([brand_token, quantity_clean]))
-
-    # 4. Seed query et libellés originaux
-    seed_query = descriptor.get("seed_query")
-    add_query(seed_query)
-    add_query(preferred_name)
-    add_query(descriptor.get("name"))
-
-    fallback = descriptor.get("ean") or ""
-    add_query(fallback)
-
-    return queries or [fallback]
+    return {
+        "queries": queries,
+        "primary_keywords": primary_keywords,
+        "secondary_keywords": secondary_keywords,
+    }
 
 if __package__ in (None, ""):
     sys.path.append(str(ROOT_DIR))
@@ -367,6 +429,12 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
             ),
         },
     },
+    "monoprix": {
+        "script": ROOT_DIR / "fetch_monoprix_price.py",
+        "env": lambda: {
+            "HOME_URL": os.getenv("MONOPRIX_HOME_URL", "https://courses.monoprix.fr/"),
+        },
+    },
 }
 
 EAN_ONLY_ADAPTERS = {
@@ -379,10 +447,11 @@ EAN_ONLY_ADAPTERS = {
 DEFAULT_ADAPTER_ORDER = [
     "carrefour_city",
     "carrefour_market",
-    "leclerc",
-    "intermarche",
     "auchan",
     "chronodrive",
+    "intermarche",
+    "leclerc",
+    "monoprix",
 ]
 
 
@@ -446,6 +515,12 @@ def merge_descriptor(base: Optional[Dict[str, Any]], updates: Dict[str, Any]) ->
             continue
         if isinstance(value, str) and not value.strip():
             continue
+        if key == "brand":
+            existing = descriptor.get("brand")
+            if existing and not is_generic_brand(existing) and is_generic_brand(value):
+                continue
+            if (not existing or is_generic_brand(existing)) and is_generic_brand(value):
+                continue
         descriptor[key] = value
     descriptor.setdefault("ean", updates.get("ean"))
     return descriptor
@@ -685,12 +760,14 @@ def descriptor_from_payload(ean: str, adapter: str, payload: Dict[str, Any]) -> 
         "description": payload.get("description") or name or "",
         "note": payload.get("note") or f"Collecte seed via {adapter}",
     }
-    # attempt to guess brand from title if not provided
-    brand = payload.get("brand")
-    if brand:
-        descriptor["brand"] = brand
-    elif not descriptor.get("brand") and isinstance(name, str) and name:
-        descriptor["brand"] = name.split()[0]
+    # attempt to guess brand from payload/title if not provided
+    brand_candidate = infer_brand_from_payload(payload)
+    if brand_candidate:
+        descriptor["brand"] = brand_candidate
+    elif not descriptor.get("brand"):
+        inferred_from_title = infer_brand_from_title(name) if isinstance(name, str) else None
+        if inferred_from_title and not is_generic_brand(inferred_from_title):
+            descriptor["brand"] = inferred_from_title
     if payload.get("nutriscore_grade"):
         descriptor["nutriscore_grade"] = payload.get("nutriscore_grade")
     if payload.get("nutriscore_image"):
@@ -702,9 +779,19 @@ def descriptor_from_payload(ean: str, adapter: str, payload: Dict[str, Any]) -> 
     if payload.get("nova_group"):
         descriptor["nova_group"] = payload.get("nova_group")
     descriptor["seed_query"] = build_seed_query_from_descriptor(descriptor)
-    leclerc_queries = build_leclerc_queries(descriptor)
-    descriptor["leclerc_query"] = leclerc_queries[0]
-    descriptor["leclerc_queries"] = leclerc_queries
+    leclerc_profile = build_leclerc_search_profile(descriptor)
+    leclerc_queries = leclerc_profile.get("queries") or []
+    if not leclerc_queries:
+        fallback_ean = descriptor.get("ean")
+        if fallback_ean:
+            leclerc_queries = [str(fallback_ean).strip()]
+    if leclerc_queries:
+        descriptor["leclerc_query"] = leclerc_queries[0]
+        descriptor["leclerc_queries"] = leclerc_queries
+    if leclerc_profile.get("primary_keywords"):
+        descriptor["primary_keywords"] = leclerc_profile["primary_keywords"]
+    if leclerc_profile.get("secondary_keywords"):
+        descriptor["secondary_keywords"] = leclerc_profile["secondary_keywords"]
     return descriptor
 
 
@@ -742,8 +829,6 @@ def ensure_descriptor_via_seed(
             continue
         if adapter in seed_results:
             continue
-        if not _needs_enrichment(descriptor_current):
-            break
         print(f"[SEED] Tentative via {adapter}")
         res = run_adapter(
             adapter,
@@ -766,9 +851,19 @@ def ensure_descriptor_via_seed(
 
     new_query = build_search_query(ean, descriptor_current)
     descriptor_current["seed_query"] = new_query
-    leclerc_queries = build_leclerc_queries(descriptor_current)
-    descriptor_current["leclerc_query"] = leclerc_queries[0]
-    descriptor_current["leclerc_queries"] = leclerc_queries
+    leclerc_profile = build_leclerc_search_profile(descriptor_current)
+    leclerc_queries = leclerc_profile.get("queries") or []
+    if not leclerc_queries:
+        fallback_ean = descriptor_current.get("ean")
+        if fallback_ean:
+            leclerc_queries = [str(fallback_ean).strip()]
+    if leclerc_queries:
+        descriptor_current["leclerc_query"] = leclerc_queries[0]
+        descriptor_current["leclerc_queries"] = leclerc_queries
+    if leclerc_profile.get("primary_keywords"):
+        descriptor_current["primary_keywords"] = leclerc_profile["primary_keywords"]
+    if leclerc_profile.get("secondary_keywords"):
+        descriptor_current["secondary_keywords"] = leclerc_profile["secondary_keywords"]
     save_manual_descriptor_entry(ean, descriptor_current)
     return descriptor_current, seed_results, new_query
 
@@ -1137,9 +1232,19 @@ def main(argv: Optional[List[str]] = None) -> int:
     descriptor = ensure_nutriscore_from_results(ean, descriptor, results)
     descriptor = ensure_local_image_asset(ean, descriptor, results)
     if descriptor:
-        leclerc_queries = build_leclerc_queries(descriptor)
-        descriptor["leclerc_query"] = leclerc_queries[0]
-        descriptor["leclerc_queries"] = leclerc_queries
+        leclerc_profile = build_leclerc_search_profile(descriptor)
+        leclerc_queries = leclerc_profile.get("queries") or []
+        if not leclerc_queries:
+            fallback_ean = descriptor.get("ean")
+            if fallback_ean:
+                leclerc_queries = [str(fallback_ean).strip()]
+        if leclerc_queries:
+            descriptor["leclerc_query"] = leclerc_queries[0]
+            descriptor["leclerc_queries"] = leclerc_queries
+        if leclerc_profile.get("primary_keywords"):
+            descriptor["primary_keywords"] = leclerc_profile["primary_keywords"]
+        if leclerc_profile.get("secondary_keywords"):
+            descriptor["secondary_keywords"] = leclerc_profile["secondary_keywords"]
         save_manual_descriptor_entry(ean, descriptor)
 
     finished_at = datetime.utcnow()

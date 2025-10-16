@@ -71,6 +71,12 @@ def _normalize(text: str) -> str:
     return " ".join(text.lower().split()) if text else ""
 
 
+def normalize_space(value: Optional[str]) -> str:
+    if value is None:
+        return ""
+    return " ".join(str(value).split())
+
+
 def _tokenize(text: str) -> List[str]:
     if not text:
         return []
@@ -96,49 +102,39 @@ def _build_query_candidates(descriptor_entry: Optional[dict], fallback_query: st
             return
         candidates.append(cleaned)
 
-    brand_lower = None
+    primary_keywords: List[str] = []
     if isinstance(descriptor_entry, dict):
-        brand_value = descriptor_entry.get('brand') or ''
-        brand_tokens = _tokenize(brand_value)
-        for token in brand_tokens:
-            if token in {'savora', 'amora'}:
-                brand_lower = token
-                break
-        if not brand_lower:
-            name_tokens = _tokenize(descriptor_entry.get('name'))
-            for token in name_tokens:
-                if token in {'savora', 'amora'}:
-                    brand_lower = token
-                    break
-        if brand_lower:
-            add(f"moutarde {brand_lower}")
-            quantity = (descriptor_entry.get('seed_primary_quantity') or descriptor_entry.get('quantity') or '').strip()
-            quantity_token = re.sub(r"\s+", '', quantity.lower())
-            if quantity_token:
-                add(f"moutarde {brand_lower} {quantity_token}")
-        add(descriptor_entry.get('seed_query'))
-        queries = descriptor_entry.get('leclerc_queries')
-        if isinstance(queries, list):
-            for q in queries:
-                add(q)
-        add(descriptor_entry.get('leclerc_query'))
-    add(fallback_query)
-    if ean:
-        add(ean)
+        primary_raw = descriptor_entry.get("primary_keywords")
+        if isinstance(primary_raw, (list, tuple)):
+            primary_keywords = [
+                normalize_space(str(item))
+                for item in primary_raw
+                if isinstance(item, str) and normalize_space(item)
+            ][:5]
+    for keyword in primary_keywords:
+        add(keyword)
+
+    if not candidates and isinstance(descriptor_entry, dict):
+        seed_query = descriptor_entry.get("seed_query")
+        if isinstance(seed_query, str) and seed_query.strip():
+            add(seed_query.strip())
+
+    if not candidates and fallback_query:
+        add(fallback_query)
 
     trimmed: List[str] = []
     for query in candidates:
-        if len(query) <= 45:
+        if len(query) <= 30:
             trimmed.append(query)
             continue
         pieces = []
         for token in query.split():
             tentative = " ".join(pieces + [token]) if pieces else token
-            if len(tentative) <= 45:
+            if len(tentative) <= 30:
                 pieces.append(token)
             else:
                 break
-        trimmed.append(" ".join(pieces) if pieces else query[:45])
+        trimmed.append(" ".join(pieces) if pieces else query[:30].rstrip())
     return trimmed
 
 
@@ -233,10 +229,32 @@ async def run_manual_leclerc(
                 brand_tokens.append(sanitized)
     query_candidates = _build_query_candidates(descriptor_entry, query, ean)
 
+    page: Optional["Page"] = None  # type: ignore[name-defined]
+
     async with async_playwright() as p:
         browser = await p.chromium.connect_over_cdp(cdp_url)
         context = browser.contexts[0] if browser.contexts else await browser.new_context()
-        page = await context.new_page()
+
+        if context.pages:
+            page = context.pages[0]
+        else:
+            page = await context.new_page()
+
+        async def _close_extra(new_page):
+            nonlocal page
+            if page is None:
+                page = new_page
+                return
+            if new_page is page:
+                return
+            try:
+                await new_page.close()
+            except Exception:
+                pass
+
+        context.on("page", lambda new_page: asyncio.create_task(_close_extra(new_page)))
+
+        await page.bring_to_front()
 
         await page.goto(store_url, wait_until="domcontentloaded")
         await human_pause(page, human_delay_ms)

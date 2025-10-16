@@ -494,10 +494,35 @@ def api_collect():
     if not descriptor:
         descriptor = ensure_manual_descriptor(ean)
 
+    preview_only = False
+    preview_sources = []
+    if isinstance(payload, dict):
+        preview_sources.append(payload.get("preview_only"))
+    if request.form:
+        preview_sources.append(request.form.get("preview_only"))
+    preview_sources.append(request.args.get("preview_only"))
+    for flag in preview_sources:
+        if isinstance(flag, bool) and flag:
+            preview_only = True
+            break
+        if isinstance(flag, str) and flag.lower() in {"1", "true", "yes"}:
+            preview_only = True
+            break
+
     headed = bool(payload.get("headed", True))
     adapters = payload.get("adapters")
     if adapters and not isinstance(adapters, list):
         adapters = None
+    if not adapters:
+        adapters = [
+            "carrefour_city",
+            "carrefour_market",
+            "auchan",
+            "chronodrive",
+            "intermarche",
+            "leclerc",
+            "monoprix",
+        ]
     proxy = payload.get("proxy") or request.args.get("proxy")
 
     extra_env: Dict[str, str] = {}
@@ -505,6 +530,15 @@ def api_collect():
         value = payload.get(key) or request.args.get(key.lower())
         if value:
             extra_env[key] = value
+
+    if preview_only:
+        response_payload = {
+            "status": "PREVIEW",
+            "ean": ean,
+            "descriptor": descriptor,
+            "uploaded_image_path": str(stored_path) if stored_path else None,
+        }
+        return jsonify(response_payload)
 
     proc = run_pipeline_collect(
         ean=ean,

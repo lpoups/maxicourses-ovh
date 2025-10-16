@@ -85,16 +85,18 @@ def build_query_terms() -> list[str]:
 
     descriptor_entry = MANUAL_DESCRIPTOR.get(EAN) if EAN else None
 
-    add(EAN if EAN else None)
-    add(QUERY)
-    add(_descriptor_seed(EAN))
-
     if isinstance(descriptor_entry, dict):
-        extras = descriptor_entry.get('alternate_queries')
-        if isinstance(extras, (list, tuple)):
-            for extra in extras:
-                if isinstance(extra, str):
-                    add(extra)
+        primary = descriptor_entry.get("primary_keywords")
+        if isinstance(primary, (list, tuple)):
+            for keyword in primary:
+                add(keyword)
+
+    if not terms:
+        add(_descriptor_seed(EAN))
+    if not terms:
+        add(QUERY)
+    if not terms:
+        add(EAN if EAN else None)
 
     return terms
 
@@ -256,6 +258,14 @@ async def extract_price_from_page(page) -> tuple[
         price = price.replace('.', ',')
 
     if unit_price:
+        # Some PDPs prepend "Prix au kg ou au litre :"; keep only the numeric segment.
+        match_segment = re.search(r'([0-9][0-9.,]*\s*€\s*/\s*(?:L|KG|G|CL|ML))', unit_price, re.IGNORECASE)
+        if match_segment:
+            unit_price = match_segment.group(1)
+        else:
+            # Fallback: drop text before the last colon if present.
+            if ':' in unit_price:
+                unit_price = unit_price.split(':')[-1]
         unit_price = (unit_price
                       .replace('\xa0', ' ')
                       .replace('€/l', '€ / L')
@@ -288,6 +298,13 @@ async def run() -> Result:
         headless=HEADLESS, proxy=PROXY, storage_state_path=storage_state,
         user_agent=None,
     )
+    async def _close_extra(new_page):
+        try:
+            await new_page.close()
+        except Exception:
+            pass
+
+    context.on("page", lambda page_obj: asyncio.create_task(_close_extra(page_obj)))
 
     # If direct PDP URL provided
     if CHRONO_URL:

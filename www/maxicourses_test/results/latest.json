@@ -1,62 +1,62 @@
 {
-  "ean": "3700260216148",
+  "ean": "3124480200433",
   "image_path": null,
-  "started_at": "2025-10-03T15:59:00.717911",
-  "finished_at": "2025-10-03T16:05:41.039921",
-  "duration_seconds": 400.32201,
+  "started_at": "2025-10-16T09:06:01.478887",
+  "finished_at": "2025-10-16T09:06:20.179323",
+  "duration_seconds": 18.700436,
   "reference": {
-    "title": "Croquettes pour chat stérilisé saumon Ultima 1,5 kg",
-    "description": "Croquettes pour chat stérilisé saumon Ultima 1,5 kg",
-    "source": "carrefour_market",
-    "brand": "Ultima",
-    "quantity": "1,5 kg",
-    "categories": "Alimentation pour chats",
-    "image": "./assets/3700260216148.jpg",
-    "nutriscore_grade": "unknown",
+    "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
+    "description": "Soda à  l'Orange et sa Pulpe ORANGINA",
+    "source": "carrefour_city",
+    "brand": "Soda",
+    "quantity": "1,5 L",
+    "categories": "Beverages and beverages preparations, Plant-based foods and beverages, Beverages, Plant-based beverages, Carbonated drinks, Fruit-based beverages, Sodas, Fruit sodas, Orange soft drinks, en:sweetened-beverages",
+    "image": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03 124480200433_C1N1_s04.jpeg",
+    "nutriscore_grade": "e",
     "nutriscore_score": null,
-    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
-    "ecoscore_grade": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
+    "ecoscore_grade": "not-applicable",
     "ecoscore_image": null,
-    "nova_group": null
+    "nova_group": "4"
   },
-  "notes": [
-    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-3700260216148-20251003-155900"
-  ],
+  "notes": [],
   "adapters": [
     {
-      "adapter": "leclerc",
-      "status": "NO_MATCH",
+      "adapter": "carrefour_market",
+      "status": "OK",
       "payload": {
-        "status": "NO_MATCH",
-        "title": "Croquettes chat Ultima Stérilisé - Saumon - 3kg",
-        "price": null,
-        "unit_price": null,
-        "quantity": "1,5 kg",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-48258-Croquettes-chat-Ultima.aspx",
-        "matched_ean": null,
-        "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-10-03T16:01:03Z · E.Leclerc Drive · Bruges"
+        "status": "OK",
+        "price": "2,49",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/soda-a-l-orange-et-sa-pulpe-orangina-3124480200433",
+        "note": null,
+        "unit_price": "1,66 € / L",
+        "quantity": "1,5 L",
+        "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
+        "matched_ean": "3124480200433",
+        "image": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03 124480200433_C1N1_s04.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null
       },
-      "started_at": "2025-10-03T16:00:00.594331",
-      "finished_at": "2025-10-03T16:01:03.763920",
-      "duration_seconds": 63.169589,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "started_at": "2025-10-16T09:06:01.479831",
+      "finished_at": "2025-10-16T09:06:19.952635",
+      "duration_seconds": 18.472804,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
       ],
       "env": {
-        "EAN": "3700260216148",
-        "QUERY": "Ultima 1,5 KG",
-        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
-        "HEADLESS": "0"
+        "EAN": "3124480200433",
+        "QUERY": "3124480200433",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
       },
       "exit_code": 0,
       "error": null,
       "stderr": null,
       "metadata": {
-        "attempt_query": "Ultima 1,5 KG",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-3700260216148-20251003-155900/01-leclerc"
+        "attempt_query": "3124480200433"
       }
     }
   ]

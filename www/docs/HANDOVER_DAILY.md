@@ -1085,40 +1085,6 @@
   2. Durcir les filtres Chronodrive (`matched_ean` obligatoire, rejet explicite des packs/volumes différents) avant la prochaine boucle pipeline.
   3. Retenter les seeds manquants (Sanex 8718951705876, références Intermarché) et consigner toute évolution dans `docs/SEED_RULES.md`.
 
-## 2025-10-09T17:53 (Europe/Paris) – GPT (Codex CLI)
-- **Objectif** : débloquer le fetcher Monoprix (3665468000312) qui restait ouvert >20 min et empêchait l’enchaînement Leclerc.
-- **Actions réalisées** :
-  - Reproduit le blocage (`fetch_monoprix_price.py` → `NO_RESULTS` après ~26 min) puis profilé les attentes longues.
-  - Ajouté un helper `read_text` pour toutes les lectures Playwright (card/PDP) avec timeout court, réduit les délais de frappe (`delay=75`), le `wait_for_timeout` inutile et coupé la liste de requêtes Monoprix à 4 (`MONOPRIX_MAX_TERMS`).
-  - Rejoué `pipeline/run_pipeline.py --adapters monoprix leclerc --ean 3665468000312` : Monoprix se termine en ~40 s (toujours `NO_RESULTS`) et Leclerc est bien déclenché (échec `EMPTY_STDOUT` à traiter séparément).
-- **Données/artefacts ajoutés** :
-  - `maxicourses_test/fetch_monoprix_price.py` (optimisation temps d’exécution).
-  - `docs/SEED_RULES.md` (note Monoprix `NO_RESULTS` tolérée pour 3665468000312).
-  - `maxicourses_test/results/run-3665468000312-20251009-155235.json` + logs IA correspondants.
-- **Blocages / alertes** :
-  - Leclerc Drive reste `TargetClosedError` (adapter `manual_leclerc_cdp.py` à reprendre).
-  - Produit toujours absent chez Monoprix : status `NO_RESULTS` conservé.
-- **Suivi / prochaines étapes** :
-  1. Durcir `manual_leclerc_cdp.py` pour éviter `EMPTY_STDOUT` (rejouer la navigation humaine si besoin).
-  2. Vérifier si d’autres EAN subissent le même allongement Monoprix (lancer une boucle multi-produits avec les nouveaux paramètres).
-  3. Laisser une trace debug Monoprix si le site change encore (activer `DEBUG_MONOPRIX=1` ponctuellement).
-
-## 2025-10-09T18:32 (Europe/Paris) – GPT (Codex CLI)
-- **Objectif** : fiabiliser l’identification produit Monoprix (3665468000312) avec matching visuel et requêtes primaires « Original ».
-- **Actions réalisées** :
-  - Ajout d’un matching d’image dans `fetch_monoprix_price.py` (hash perceptuel des vignettes) + téléchargement protégé (headers UA/Referer).
-  - Simplifié le scoring texte (plus de secondaires obligatoires) ; fallback image déclenche désormais les rejets `IMAGE_MISMATCH_*`.
-  - Mis à jour `manual_descriptors.json` pour 3665468000312 (seed « Déboucheur Liquide Original », primaires centrées sur « original », secondaires réduites) et rejoué `pipeline/run_pipeline.py --adapters monoprix leclerc` → fiche `MPX_6612348` sélectionnée (`4,39 €`).
-- **Données/artefacts ajoutés** :
-  - `maxicourses_test/results/run-3665468000312-20251009-163122.json` (Monoprix OK + Leclerc `EMPTY_STDOUT`).
-  - Logs image mismatch : `maxicourses_test/logs/seed_failures.log` (motif `IMAGE_MISMATCH_*`).
-  - `docs/SEED_RULES.md` (section 3665468000312 mise à jour : primaires « original » + matching visuel).
-- **Blocages / alertes** :
-  - Leclerc Drive toujours `EMPTY_STDOUT` (aucun changement côté CDP).
-- **Suivi / prochaines étapes** :
-  1. Décliner le matching visuel sur les autres fetchers texte si besoin (Intermarché, Leclerc équivalents).
-  2. Rejouer la boucle IA pour adapter les primaires sur les produits sensibles (packs vs unité) et valider l’affichage `pipeline/index2.html`.
-  3. Documenter côté front l’utilisation des hashes (debug) si l’on généralise la méthode.
 
 ## 2025-10-09T19:15 (Europe/Paris) – GPT (Codex CLI)
 - **Objectif** : sécuriser Intermarché / Leclerc pour 3665468000312 avant relance complète.
@@ -1132,3 +1098,36 @@
   1. Ouvrir Chrome remote (`./start_chrome_debug.sh`), passer le captcha Intermarché et rejouer `save_state_from_cdp.py --variant intermarche`.
   2. Dans le même Chrome, revalider `manual_leclerc_cdp.py` (Bruges) et mettre à jour la state si besoin.
   3. Relancer la collecte complète depuis `index2.html` une fois les deux fetchers stabilisés.
+
+## 2025-10-10T14:45 (Europe/Paris) – GPT (Codex CLI)
+- **Objectif** : fiabiliser la lecture photo + permettre l’annulation et la validation manuelle avant collecte.
+- **Actions réalisées** :
+  - `maxicourses_test/decode_ean.py` : pondération des candidats `EAN13`, extension des prétraitements (marges, contraste, zoom, stretch) et rejet systématique des lectures non majoritaires ; sortie désormais correcte (ex. image `IMG_4300.jpeg` → `3665468000312`).
+  - `maxicourses_test/server.py` : ajout du mode `preview_only=1` qui renvoie l’EAN décodé sans lancer le pipeline.
+  - `maxicourses_test/pipeline/index2.html` : boutons `Stopper`, `Valider`, `Annuler`; l’upload photo n’exécute plus la collecte avant validation explicite ; possibilité de relancer la collecte via le formulaire EAN.
+  - `maxicourses_test/pipeline/assets/3665468000312.jpg` remplacé par le visuel Carrefour (bouteille jaune) pour fiabiliser le matching Monoprix.
+  - `maxicourses_test/fetch_monoprix_price.py` : bannit explicitement les variantes « express/turbo/cheveux » afin d’éviter les faux positifs ; retour Monoprix désormais `NO_RESULTS` si seule la déclinaison gel express est disponible.
+  - Redémarrage de `maxicourses_test/server.py` (process 10346) pour charger la nouvelle logique.
+- **Données/artefacts ajoutés** :
+  - `tmp/variant_8.png` (debug local, non commit).
+- **Blocages / alertes** :
+  - A surveiller : la lecture photo reste sensible au cadrage ; vérifier les logs `[decode_image_to_ean] rejected candidates` en cas d’échec.
+- **Suivi / prochaines étapes** :
+  1. Revalider un upload photo depuis `index2.html` (attendre l’EAN détecté puis cliquer « Valider »).
+  2. Confirmer que le bouton Stop annule bien les collectes longues (EAN + photo).
+  3. Enrichir la doc utilisateur avec ce nouveau flux (guide front V2) et documenter que Monoprix peut retourner `NO_RESULTS` si seule la variante gel express est au catalogue.
+
+## 2025-10-10T17:05 (Europe/Paris) – GPT (Codex CLI)
+- **Objectif** : rétablir le matching Monoprix uniquement via comparaison d'image.
+- **Actions réalisées** :
+  - Rafraîchi `maxicourses_test/pipeline/assets/3665468000312.jpg` avec le visuel Carrefour 540×540 (bouteille jaune) servant de référence de hash.
+  - `maxicourses_test/fetch_monoprix_price.py` : exige désormais les tokens clés (Destop/déboucheur/liquide/original/multi/usages) et rejette toute carte/PDP dont l'image ne matche pas (logs `IMAGE_MISMATCH_*`, `MISSING_REQUIRED_TOKENS_*`).
+  - Relance `monoprix` (CDP) → `NO_RESULTS` tant que seule la variante "Gel express" est en ligne (plus de mauvaise fiche injectée).
+  - Nettoyé les reliques JSON/dossiers liés à l'EAN fantôme 6604402000312.
+- **Données/artefacts ajoutés** :
+  - `maxicourses_test/results/run-3665468000312-20251010-165523.json` (Monoprix strict = `NO_RESULTS`).
+- **Blocages / alertes** :
+  - Produit original absent chez Monoprix : surveiller les logs pour relancer dès que `MPX_6612348` revient (image matching déclenchera la capture).
+- **Suivi / prochaines étapes** :
+  1. Ajouter d'autres visuels seeds (Auchan/Chronodrive) dans `manual_descriptors` si l'enseigne change encore ses images.
+  2. Script de veille à déclencher périodiquement pour détecter le retour de l'original.

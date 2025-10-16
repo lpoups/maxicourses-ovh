@@ -1,9 +1,9 @@
 {
   "ean": "3502110008329",
   "image_path": null,
-  "started_at": "2025-10-03T09:49:34.963067",
-  "finished_at": "2025-10-03T09:51:13.146663",
-  "duration_seconds": 98.183596,
+  "started_at": "2025-10-08T09:16:55.083494",
+  "finished_at": "2025-10-08T09:23:01.715255",
+  "duration_seconds": 366.631761,
   "reference": {
     "title": "Boisson gazeuse aux extraits  végétaux PEPSI 1.5 L",
     "description": "Boisson gazeuse aux extraits  végétaux PEPSI 1.5 L",
@@ -20,9 +20,48 @@
     "nova_group": "4"
   },
   "notes": [
-    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251003-094934"
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251008-091655"
   ],
   "adapters": [
+    {
+      "adapter": "carrefour_market",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Market Fondaudège",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-10-08T09:16:55.086299",
+      "finished_at": "2025-10-08T09:17:10.602098",
+      "duration_seconds": 15.515799,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "3502110008329",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3502110008329",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251008-091655/01-carrefour_market"
+      }
+    },
     {
       "adapter": "carrefour_city",
       "status": "NO_PRICE",
@@ -40,9 +79,9 @@
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "started_at": "2025-10-03T09:49:34.964867",
-      "finished_at": "2025-10-03T09:49:50.980529",
-      "duration_seconds": 16.015662,
+      "started_at": "2025-10-08T09:17:10.602873",
+      "finished_at": "2025-10-08T09:17:26.647943",
+      "duration_seconds": 16.04507,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -58,80 +97,80 @@
       "error": null,
       "stderr": null,
       "metadata": {
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251003-094934/01-carrefour_city"
+        "attempt_query": "3502110008329",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251008-091655/02-carrefour_city"
       }
     },
     {
-      "adapter": "carrefour_market",
+      "adapter": "auchan",
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "2,03",
-        "store": "Market Fondaudège",
-        "url": "https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329",
-        "note": null,
-        "unit_price": "1,35 € / L",
-        "quantity": "1,5 L",
-        "title": "Soda au Cola PEPSI",
+        "price": "1,49",
+        "title": "Boisson gazeuse cola aux extraits  végétaux",
+        "url": "https://www.auchan.fr/pepsi-boisson-gazeuse-cola-aux-extraits-vegetaux/pr-C1209 689",
+        "note": "Auchan (CDP)",
+        "unit_price": "0,99 € / L",
+        "quantity": "1.5 L",
         "matched_ean": "3502110008329",
-        "image": null,
-        "nutriscore_grade": null,
-        "nutriscore_image": null
+        "image": "https://cdn.auchan.fr/media/A0220160721000527152PRIMARY_1200x1200/B2CD/"
       },
-      "started_at": "2025-10-03T09:49:50.981325",
-      "finished_at": "2025-10-03T09:50:11.740216",
-      "duration_seconds": 20.758891,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "started_at": "2025-10-08T09:17:26.648914",
+      "finished_at": "2025-10-08T09:17:39.525886",
+      "duration_seconds": 12.876972,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
       ],
       "env": {
         "EAN": "3502110008329",
         "QUERY": "3502110008329",
-        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HOME_URL": "https://www.auchan.fr",
         "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": null,
+      "stderr": "[auchan] recherche '3502110008329'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/pepsi-boisson-gazeuse-cola-aux-extraits-vegetaux/pr-C1209689",
       "metadata": {
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251003-094934/02-carrefour_market"
+        "attempt_query": "3502110008329",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251008-091655/03-auchan"
       }
     },
     {
-      "adapter": "leclerc",
+      "adapter": "chronodrive",
       "status": "OK",
       "payload": {
         "status": "OK",
-        "title": "Soda au cola Pepsi La bouteille de 1.5L",
-        "price": "1,17",
-        "unit_price": "0,78 € / l",
+        "price": "1,39",
+        "title": "Boisson gazeuse aux extraits  végétaux PEPSI 1.5 L",
+        "url": "https://www.chronodrive.com/pepsi--boisson-gazeuse-aux-extraits-vegetaux-P16714 ",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "0,93 € / L",
         "quantity": "1.5 L",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx",
-        "matched_ean": "3502110008329",
-        "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-10-03T09:50:45Z · E.Leclerc Drive · Bruges"
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3502110008329"
       },
-      "started_at": "2025-10-03T09:50:11.740994",
-      "finished_at": "2025-10-03T09:50:45.285768",
-      "duration_seconds": 33.544774,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "started_at": "2025-10-08T09:17:39.526733",
+      "finished_at": "2025-10-08T09:17:49.081027",
+      "duration_seconds": 9.554294,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
       ],
       "env": {
         "EAN": "3502110008329",
-        "QUERY": "Soda au Cola PEPSI 1,5 L",
-        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "QUERY": "3502110008329",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
         "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
       "stderr": null,
       "metadata": {
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251003-094934/03-leclerc"
+        "attempt_query": "3502110008329",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251008-091655/04-chronodrive"
       }
     },
     {
@@ -148,9 +187,9 @@
         "quantity": null,
         "store": null
       },
-      "started_at": "2025-10-03T09:50:45.286728",
-      "finished_at": "2025-10-03T09:50:48.893294",
-      "duration_seconds": 3.606566,
+      "started_at": "2025-10-08T09:17:49.081508",
+      "finished_at": "2025-10-08T09:18:04.107705",
+      "duration_seconds": 15.026197,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -166,77 +205,80 @@
       "error": null,
       "stderr": null,
       "metadata": {
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251003-094934/04-intermarche"
+        "attempt_query": "Pepsi Boisson gazeuse extraits végétaux 1.5 L",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251008-091655/05-intermarche"
       }
     },
     {
-      "adapter": "auchan",
+      "adapter": "monoprix",
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "1,49",
-        "title": "Boisson gazeuse cola aux extraits  végétaux",
-        "url": "https://www.auchan.fr/pepsi-boisson-gazeuse-cola-aux-extraits-vegetaux/pr-C1209 689",
-        "note": "Auchan (CDP)",
-        "unit_price": "0,99 € / L",
-        "quantity": "1.5 L",
-        "matched_ean": "3502110008329",
-        "image": "https://cdn.auchan.fr/media/A0220160721000527152PRIMARY_2048x2048/B2CD/?format= rw&amp;quality=75&amp;width=1200&amp;height=1200"
+        "price": "1,99",
+        "title": "Pepsi Soda au Cola Sans Sucres  6x33cl",
+        "url": "https://courses.monoprix.fr/products/pepsi-soda-au-cola-sans-sucres-6x33cl/MPX_ 1525538",
+        "note": "2025-10-08T09:22:27Z · Monoprix",
+        "matched_ean": null,
+        "unit_price": "1,99 € / L",
+        "quantity": "100 ml",
+        "store": "Monoprix"
       },
-      "started_at": "2025-10-03T09:50:48.894003",
-      "finished_at": "2025-10-03T09:51:01.954062",
-      "duration_seconds": 13.060059,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "started_at": "2025-10-08T09:18:12.888173",
+      "finished_at": "2025-10-08T09:22:27.120100",
+      "duration_seconds": 254.231927,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
       ],
       "env": {
         "EAN": "3502110008329",
-        "QUERY": "3502110008329",
-        "HOME_URL": "https://www.auchan.fr",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": "[auchan] recherche '3502110008329'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/pepsi-boisson-gazeuse-cola-aux-extraits-vegetaux/pr-C1209689",
-      "metadata": {
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251003-094934/05-auchan"
-      }
-    },
-    {
-      "adapter": "chronodrive",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "1,39",
-        "title": "Boisson gazeuse aux extraits  végétaux PEPSI 1.5 L",
-        "url": "https://www.chronodrive.com/pepsi--boisson-gazeuse-aux-extraits-vegetaux-P16714 ",
-        "note": "Chronodrive Le Haillan",
-        "unit_price": "Prix au kg ou au litre :  0,93 € / L",
-        "quantity": "1.5 L",
-        "store": "Chronodrive Le Haillan",
-        "matched_ean": "3502110008329"
-      },
-      "started_at": "2025-10-03T09:51:01.954878",
-      "finished_at": "2025-10-03T09:51:13.143676",
-      "duration_seconds": 11.188798,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
-      ],
-      "env": {
-        "EAN": "3502110008329",
-        "QUERY": "3502110008329",
-        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "QUERY": "Pepsi Boisson gazeuse extraits végétaux 1.5 L",
+        "HOME_URL": "https://courses.monoprix.fr/",
         "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
       "stderr": null,
       "metadata": {
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251003-094934/06-chronodrive"
+        "attempt_query": "Pepsi Boisson gazeuse extraits végétaux 1.5 L",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251008-091655/06-monoprix"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Soda au cola Pepsi La bouteille de 1.5L",
+        "price": "1,17",
+        "unit_price": "0,78 € / l",
+        "quantity": "1.5 L",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx",
+        "matched_ean": "3502110008329",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-08T09:23:01Z · E.Leclerc Drive · Bruges"
+      },
+      "started_at": "2025-10-08T09:22:27.125992",
+      "finished_at": "2025-10-08T09:23:01.710904",
+      "duration_seconds": 34.584912,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "Pepsi",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Pepsi",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251008-091655/07-leclerc"
       }
     }
   ]

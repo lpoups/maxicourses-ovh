@@ -16,29 +16,29 @@
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-10-03T09:51:13.146663",
-      "duration_seconds": 16.015662,
+      "updated_at": "2025-10-08T09:23:01.715255",
+      "duration_seconds": 16.04507,
       "error": null,
       "store_query": null
     },
     "carrefour_market": {
-      "status": "OK",
+      "status": "NO_PRICE",
       "payload": {
-        "status": "OK",
-        "price": "2,03",
+        "status": "NO_PRICE",
+        "price": null,
         "store": "Market Fondaudège",
-        "url": "https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329",
+        "url": null,
         "note": null,
-        "unit_price": "1,35 € / L",
-        "quantity": "1,5 L",
-        "title": "Soda au Cola PEPSI",
-        "matched_ean": "3502110008329",
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
         "image": null,
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-10-03T09:51:13.146663",
-      "duration_seconds": 20.758891,
+      "updated_at": "2025-10-08T09:23:01.715255",
+      "duration_seconds": 15.515799,
       "error": null,
       "store_query": null
     },
@@ -53,10 +53,10 @@
         "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx",
         "matched_ean": "3502110008329",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-10-03T09:50:45Z · E.Leclerc Drive · Bruges"
+        "note": "2025-10-08T09:23:01Z · E.Leclerc Drive · Bruges"
       },
-      "updated_at": "2025-10-03T09:51:13.146663",
-      "duration_seconds": 33.544774,
+      "updated_at": "2025-10-08T09:23:01.715255",
+      "duration_seconds": 34.584912,
       "error": null,
       "store_query": null
     },
@@ -73,8 +73,8 @@
         "quantity": null,
         "store": null
       },
-      "updated_at": "2025-10-03T09:51:13.146663",
-      "duration_seconds": 3.606566,
+      "updated_at": "2025-10-08T09:23:01.715255",
+      "duration_seconds": 15.026197,
       "error": null,
       "store_query": null
     },
@@ -89,10 +89,10 @@
         "unit_price": "0,99 € / L",
         "quantity": "1.5 L",
         "matched_ean": "3502110008329",
-        "image": "https://cdn.auchan.fr/media/A0220160721000527152PRIMARY_2048x2048/B2CD/?format= rw&amp;quality=75&amp;width=1200&amp;height=1200"
+        "image": "https://cdn.auchan.fr/media/A0220160721000527152PRIMARY_1200x1200/B2CD/"
       },
-      "updated_at": "2025-10-03T09:51:13.146663",
-      "duration_seconds": 13.060059,
+      "updated_at": "2025-10-08T09:23:01.715255",
+      "duration_seconds": 12.876972,
       "error": null,
       "store_query": null
     },
@@ -104,13 +104,31 @@
         "title": "Boisson gazeuse aux extraits  végétaux PEPSI 1.5 L",
         "url": "https://www.chronodrive.com/pepsi--boisson-gazeuse-aux-extraits-vegetaux-P16714 ",
         "note": "Chronodrive Le Haillan",
-        "unit_price": "Prix au kg ou au litre :  0,93 € / L",
+        "unit_price": "0,93 € / L",
         "quantity": "1.5 L",
         "store": "Chronodrive Le Haillan",
         "matched_ean": "3502110008329"
       },
-      "updated_at": "2025-10-03T09:51:13.146663",
-      "duration_seconds": 11.188798,
+      "updated_at": "2025-10-08T09:23:01.715255",
+      "duration_seconds": 9.554294,
+      "error": null,
+      "store_query": null
+    },
+    "monoprix": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,99",
+        "title": "Pepsi Soda au Cola Sans Sucres  6x33cl",
+        "url": "https://courses.monoprix.fr/products/pepsi-soda-au-cola-sans-sucres-6x33cl/MPX_ 1525538",
+        "note": "2025-10-08T09:22:27Z · Monoprix",
+        "matched_ean": null,
+        "unit_price": "1,99 € / L",
+        "quantity": "100 ml",
+        "store": "Monoprix"
+      },
+      "updated_at": "2025-10-08T09:23:01.715255",
+      "duration_seconds": 254.231927,
       "error": null,
       "store_query": null
     }
