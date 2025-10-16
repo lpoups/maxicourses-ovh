@@ -8,6 +8,7 @@
 - Mets à jour `docs/HANDOVER_DAILY.md` en fin de session (nouvelle entrée datée).
 - Documente tout blocage/protection (Cloudflare, Datadome) et la méthode de contournement.
 - Après chaque collecte seed, déclenche `USE_AI_ASSIST=true ./run_ai_pipeline.sh <EAN>` pour générer (OpenAI) les requêtes ≤30 caractères destinées à Leclerc/Monoprix/Intermarché.
+- Pour Monoprix, limite chaque recherche à deux mots-clefs : la marque en premier, la fonction (ou un mot du seed) en second (`<marque> <fonction>`).
 - Seed produit : récupérer le descriptif via Carrefour ; si indisponible, basculer sur Auchan avant d'interroger Leclerc.
 - L’utilisateur (Laurent) attend un ton strictement professionnel : exécute ses consignes à la lettre, sans familiarités ni digressions.
 - Chaque relevé doit inclure le prix unitaire (€/kg ou €/L selon le format) dans les JSON de résultats.
