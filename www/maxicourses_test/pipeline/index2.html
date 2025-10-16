@@ -976,7 +976,8 @@
       leclerc_drive: 'leclerc.png',
       intermarche: 'intermarche.png',
       auchan: 'auchan.png',
-      chronodrive: 'chronodrive.png'
+      chronodrive: 'chronodrive.png',
+      monoprix: 'monoprix.png'
     };
 
     const DISPLAY_NAMES = {
@@ -987,7 +988,8 @@
       leclerc_drive: 'E.Leclerc Drive',
       intermarche: 'Intermarché',
       auchan: 'Auchan',
-      chronodrive: 'Chronodrive'
+      chronodrive: 'Chronodrive',
+      monoprix: 'Monoprix'
     };
 
     const GENERIC_DESCRIPTOR_TOKENS = new Set([
@@ -2385,13 +2387,18 @@
         const payload = row.payload || {};
         const priceText = formatPrice(payload.price);
         const unitPrice = payload.unit_price || payload.price_unit || payload.price_per_unit || '';
-        const store = payload.store || payload.note || row.storeQuery || '';
+        const displayName = DISPLAY_NAMES[row.adapterName] || row.adapterName;
+        const suffix = suffixLabel(row.adapterName);
+        let store = payload.store || payload.note || row.storeQuery || '';
+        if (row.adapterName === 'monoprix') {
+          store = displayName;
+        } else if (store && /^https?:\/\//i.test(store)) {
+          store = '';
+        }
         const productName = cleanProductName(payload.product_name || payload.title || '');
         const updatedLabel = row.updatedAt ? formatDateTime(row.updatedAt) : '—';
         const { label: statusLabel, className: statusClass } = formatStatus(row.status);
         const logoSrc = logoFor(row.adapterName, row.rawAdapters);
-        const suffix = suffixLabel(row.adapterName);
-        const displayName = DISPLAY_NAMES[row.adapterName] || row.adapterName;
         const isBest = Number.isFinite(bestValue) && Number.isFinite(row.priceValue) && Math.abs(row.priceValue - bestValue) < 0.001;
         const isWorst = Number.isFinite(worstValue) && Number.isFinite(row.priceValue) && Math.abs(row.priceValue - worstValue) < 0.001 && (!Number.isFinite(bestValue) || Math.abs(worstValue - bestValue) > 0.001);
 
