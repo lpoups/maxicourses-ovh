@@ -11,6 +11,7 @@ TARGETS = {
     'carrefour': 'carrefour.fr',
     'auchan': 'auchan.fr',
     'chronodrive': 'chronodrive.com',
+    'courseu': 'coursesu.com',
 }
 
 async def main(site: str):

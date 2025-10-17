@@ -171,6 +171,51 @@ async def ensure_store(page) -> None:
     await accept_cookies(page)
     await close_overlays(page)
     await page.wait_for_timeout(800)
+    await _dump_html(page, "home")
+
+
+DEBUG = os.environ.get("DEBUG_COURSEU") == "1"
+HTML_DUMP = os.environ.get("COURSEU_DUMP")
+
+
+def _debug_log(message: str) -> None:
+    if DEBUG:
+        sys.stderr.write(f"[COURSEU_DEBUG] {message}\n")
+
+
+async def _dump_html(page, label: str) -> None:
+    if not HTML_DUMP:
+        return
+    try:
+        content = await page.content()
+    except Exception as exc:
+        _debug_log(f"dump_html failed ({label}): {exc}")
+        return
+    path = Path(HTML_DUMP)
+    if path.is_dir():
+        path.mkdir(parents=True, exist_ok=True)
+        output = path / f"{label}.html"
+    else:
+        output = Path(HTML_DUMP)
+        output.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        output.write_text(content, encoding="utf-8")
+        _debug_log(f"dumped HTML to {output}")
+    except Exception as exc:
+        _debug_log(f"cannot write dump {output}: {exc}")
+
+
+async def _is_cf_block(page) -> bool:
+    try:
+        text = await page.inner_text("body", timeout=2000)
+    except Exception:
+        return False
+    lowered = text.lower()
+    if "you are unable to access" in lowered or "you have been blocked" in lowered:
+        return True
+    if "cloudflare" in lowered and "ray id" in lowered:
+        return True
+    return False
 
 
 async def perform_search(page, term: str) -> None:
@@ -195,16 +240,20 @@ async def perform_search(page, term: str) -> None:
                 await page.wait_for_timeout(1500)
                 await accept_cookies(page)
                 return
-        except Exception:
+        except Exception as exc:
+            _debug_log(f"search selector {selector} failed: {exc}")
             continue
 
+    _debug_log("fallback to direct search URL")
     search_url = f"{HOME_URL}/recherche?q={quote_plus(term)}"
     try:
         await page.goto(search_url, wait_until="domcontentloaded")
     except PlaywrightTimeout:
+        _debug_log("direct search timeout")
         pass
     await page.wait_for_timeout(1500)
     await accept_cookies(page)
+    await _dump_html(page, f"results_{term}")
 
 
 async def open_best_result(page, term: str, ean: str) -> bool:
@@ -410,8 +459,9 @@ async def run() -> Result:
         opened = await open_best_result(page, query, EAN)
         if not opened:
             note = build_note(STORE_NAME)
+            status = "CF_BLOCK" if await _is_cf_block(page) else "NO_RESULTS"
             return Result(
-                status="NO_RESULTS",
+                status=status,
                 note=note,
                 store=STORE_NAME,
             )
@@ -431,8 +481,9 @@ async def run() -> Result:
                 store=STORE_NAME,
                 matched_ean=matched_ean or (EAN if EAN and EAN in (page.url or "") else None),
             )
+        status = "CF_BLOCK" if await _is_cf_block(page) else "NO_PRICE"
         return Result(
-            status="NO_PRICE",
+            status=status,
             title=title,
             quantity=quantity,
             url=page.url,

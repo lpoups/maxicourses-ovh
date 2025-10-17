@@ -435,6 +435,16 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
             "HOME_URL": os.getenv("MONOPRIX_HOME_URL", "https://courses.monoprix.fr/"),
         },
     },
+    "courseu": {
+        "script": ROOT_DIR / "fetch_courseu_price.py",
+        "env": lambda: {
+            "STORE_URL": os.getenv(
+                "COURSEU_STORE_URL",
+                "https://www.coursesu.com/drive-superu-eysines",
+            ),
+            "STORE_NAME": os.getenv("COURSEU_STORE_NAME", "Super U Eysines"),
+        },
+    },
 }
 
 EAN_ONLY_ADAPTERS = {
@@ -442,6 +452,7 @@ EAN_ONLY_ADAPTERS = {
     "carrefour_market",
     "auchan",
     "chronodrive",
+    "courseu",
 }
 
 DEFAULT_ADAPTER_ORDER = [
@@ -449,6 +460,7 @@ DEFAULT_ADAPTER_ORDER = [
     "carrefour_market",
     "auchan",
     "chronodrive",
+    "courseu",
     "intermarche",
     "leclerc",
     "monoprix",
@@ -822,7 +834,7 @@ def ensure_descriptor_via_seed(
     seed_results: Dict[str, RawAdapterResult] = {}
     descriptor_current = dict(descriptor or {"ean": ean})
 
-    seed_order = ["carrefour_city", "carrefour_market", "auchan", "chronodrive"]
+    seed_order = ["carrefour_city", "carrefour_market", "auchan", "chronodrive", "courseu"]
 
     for adapter in seed_order:
         if adapter not in adapters:

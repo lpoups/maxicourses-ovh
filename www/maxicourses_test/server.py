@@ -519,6 +519,7 @@ def api_collect():
             "carrefour_market",
             "auchan",
             "chronodrive",
+            "courseu",
             "intermarche",
             "leclerc",
             "monoprix",
@@ -526,7 +527,7 @@ def api_collect():
     proxy = payload.get("proxy") or request.args.get("proxy")
 
     extra_env: Dict[str, str] = {}
-    for key in ("CDP_URL", "LECLERC_DRIVE_URL", "CHRONODRIVE_STORE_URL"):
+    for key in ("CDP_URL", "LECLERC_DRIVE_URL", "CHRONODRIVE_STORE_URL", "COURSEU_STORE_URL", "COURSEU_STORE_NAME"):
         value = payload.get(key) or request.args.get(key.lower())
         if value:
             extra_env[key] = value

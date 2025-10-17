@@ -96,11 +96,15 @@
     EAN=<ean> python3 fetch_courseu_price.py
   ```
 - **Points de vigilance** :
-  - accepter les cookies OneTrust puis fermer les éventuels overlays promotionnels ;
+  - accepter les cookies OneTrust, passer le challenge Cloudflare puis fermer les overlays promotionnels (`div.mask`) avant toute saisie ;
   - recherche EAN brut prioritaire (le script replonge sur `/recherche?q=<EAN>` en fallback) ;
-  - choisir la fiche dont l’URL/libellé contient l’EAN ou les tokens seed, puis extraire prix TTC, prix unitaire (JSON-LD) et quantité ;
+  - choisir la fiche dont l’URL/libellé contient l’EAN ou les tokens seed (attention aux promos Skip/lessives renvoyées par défaut) ;
   - consigner dans `note` l’horodatage UTC + « Super U Eysines ».
-- **Blocages possibles** : si Cloudflare refuse l’accès, repasser en CDP humain, valider manuellement la recherche puis rejouer `state/courseu.json`. Documenter toute manoeuvre dans `docs/HANDOVER_DAILY.md`.
+- **Blocages possibles** :
+  - si Cloudflare refuse l’accès, repasser en CDP humain, valider manuellement la recherche puis rejouer `state/courseu.json` ;
+  - si le fetcher renvoie `NO_PRICE` avec un `matched_ean` différent (ex. Skip), l’overlay est encore présent dans la state : fermer la modale dans Chrome 9222, sauvegarder immédiatement la state et relancer.
+  - Documenter toute manoeuvre et l’EAN concerné dans `docs/HANDOVER_DAILY.md`.
+- **Cloudflare** : si la fiche n’apparaît pas (`status="CF_BLOCK"`), lancer `./start_chrome_debug.sh`, ouvrir le drive dans ce Chrome, accepter les cookies/challenges puis exécuter `USE_CDP=1 python3 save_state_from_cdp.py courseu` pour régénérer `state/courseu.json` avant de relancer le fetch.
 
 ## Gestion des résultats & comparateur
 - Chaque EAN dispose de `results/test-<EAN>/latest.json` et `summary.json`. L’agrégat global `results/summary.json` alimente `pipeline/index2.html`.

@@ -14,14 +14,16 @@
   Une fois ce descriptif fiable (titre, quantité) récupéré, l’enregistrer dans `manual_descriptors.json` et l’utiliser pour enchaîner Intermarché, Leclerc puis Monoprix (qui ne prennent pas l’EAN brut).
 2. **Leclerc Drive** : toute interaction passe par Chrome remote (port 9222) + validation visuelle. `USE_CDP=1`, `HEADLESS=0`. Aucun scraping headless ni requête directe.
 3. **Carrefour** : privilégier Chrome remote pour contourner Cloudflare. Toujours sauvegarder au besoin les captures (`HUMAN_DEBUG_DIR`).
-3. **Preuve humaine** : conserver les captures dans `maxicourses_test/debug_screens/` ou via les scripts existants. Nommer les fichiers explicitement (`leclerc_ketchup_search_only.png`, etc.).
-4. **Ne jamais écraser** les modifications utilisateur existantes. Toute évolution passe par de nouveaux fichiers ou des ajouts contrôlés.
-5. **Validation commits** : toujours demander l’accord explicite de l’utilisateur avant tout `git commit` (ou action équivalente).
-6. **Documentation vivante** : mettre à jour les fichiers de handover pour tout changement significatif.
-7. **Requêtes IA** : après chaque seed réussi, lancer `USE_AI_ASSIST=true ./run_ai_pipeline.sh <EAN>` pour générer (OpenAI) des requêtes ≤30 caractères destinées aux enseignes textuelles (Leclerc/Monoprix/Intermarché). Les résultats sont stockés dans `manual_descriptors.json` (`*_ai_queries`).
-8. **Intermarché** : recherche textuelle uniquement et validation stricte via l’EAN embarqué dans l’URL (`…/produit/<slug>-<EAN>`). Toute fiche dont l’URL ne contient pas l’EAN attendu est rejetée automatiquement par le fetcher.
-9. **Leclerc** : toutes les requêtes générées automatiquement respectent la forme « marque + fonction/nom + quantité » (au moins trois mots) afin d’éviter les recherches trop larges.
-10. **Monoprix** : les requêtes sont limitées à **deux** mots-clefs : d’abord la marque, ensuite la fonction ou un terme issu du seed (ex. `Destop Déboucheur`). Toute suggestion automatique est normalisée en ce sens.
+4. **Preuve humaine** : conserver les captures dans `maxicourses_test/debug_screens/` ou via les scripts existants. Nommer les fichiers explicitement (`leclerc_ketchup_search_only.png`, etc.).
+5. **Ne jamais écraser** les modifications utilisateur existantes. Toute évolution passe par de nouveaux fichiers ou des ajouts contrôlés.
+6. **Validation commits** : toujours demander l’accord explicite de l’utilisateur avant tout `git commit` (ou action équivalente).
+7. **Documentation vivante** : mettre à jour les fichiers de handover pour tout changement significatif.
+8. **Requêtes IA** : après chaque seed réussi, lancer `USE_AI_ASSIST=true ./run_ai_pipeline.sh <EAN>` pour générer (OpenAI) des requêtes ≤30 caractères destinées aux enseignes textuelles (Leclerc/Monoprix/Intermarché). Les résultats sont stockés dans `manual_descriptors.json`.
+9. **Intermarché** : recherche textuelle uniquement et validation stricte via l’EAN embarqué dans l’URL (`…/produit/<slug>-<EAN>`). Toute fiche dont l’URL ne contient pas l’EAN attendu est rejetée automatiquement par le fetcher.
+10. **Leclerc** : toutes les requêtes générées automatiquement respectent la forme « marque + fonction/nom + quantité » (au moins trois mots) afin d’éviter les recherches trop larges.
+11. **Monoprix** : les requêtes sont limitées à **deux** mots-clefs : d’abord la marque, ensuite la fonction ou un terme issu du seed (ex. `Destop Déboucheur`). Toute suggestion automatique est normalisée en ce sens.
+12. **Course U** : en cas de blocage Cloudflare (`status="CF_BLOCK"` ou `NO_PRICE` avec un autre EAN), ouvrir le drive Super U Eysines via Chrome remote, accepter les challenges, fermer l’overlay marketing qui masque la barre de recherche, puis régénérer `state/courseu.json` (`USE_CDP=1 python3 save_state_from_cdp.py courseu`) avant de relancer la collecte.
+    - Si l’overlay n’est pas fermé, le fetcher bascule sur une page promo (ex. lessive Skip) : on obtient `status="NO_PRICE"` et un `matched_ean` incorrect. Toujours valider la recherche manuelle (EAN Destop → fiche Destop) juste avant de sauvegarder la state.
 
 ## Arborescence Clés
 - `maxicourses_test/` : scripts de relevés Playwright (`fetch_*_price.py`), utilitaires, états.
@@ -55,15 +57,10 @@
    - Utiliser `scrape_active_tab_price.py` si une fiche est déjà ouverte dans Chrome remote.
    - En cas de blocage robot, enregistrer/rejouer un parcours humain (voir `docs/PARCOURS_HUMAIN.md`) et documenter la méthode dans le handover.
 
-## Pistes Actuelles (Comparateur)
-- Normalisation produits (poids, prix/kg) amorcée avec extraction Carrefour + Leclerc.
-- Besoin d’un datastore pour observations (`products`, `observations`, `sources`).
-- Workflow recommandé : `collecte ➜ validation ➜ stockage ➜ calcul prix/kg ➜ API`.
-
 ## Où Documenter ?
 - `docs/HANDOVER_DAILY.md` : à compléter à chaque fin de session.
 - `docs/PRICE_COMPARATOR_PLAN.md` : feuille de route technique.
-- Captures + scripts référencés dans `docs/README.md` (TODO : rédigé ci-dessous).
+- Captures + scripts référencés dans `docs/README.md`.
 
 ## Checklist de Démarrage (résumé)
 - Lire `docs/ONBOARDING.md` + `docs/README.md`.
