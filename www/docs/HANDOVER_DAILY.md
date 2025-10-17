@@ -47,3 +47,23 @@ Ce mémo remplace l’ancien journal volumineux. Il décrit l’état courant, l
 ---
 
 (Ajouter les nouvelles sections ici)  
+
+## 2025-10-17 – GPT (Codex CLI)
+
+### Faits marquants
+- Profil Chrome remote Course U remis à zéro (`maxicourses_test/.chrome-debug` renommé) puis session reconstruite : challenge Cloudflare validé, cookies/overlay fermés, `state/courseu.json` régénéré.
+- `fetch_courseu_price.py` enrichi : suppression systématique de la `div.mask` + mémorisation automatique des PDP Course U (`courseu_url`/`courseu_slug` dans `manual_descriptors.json`) afin de rejouer directement les fiches et limiter Cloudflare.
+- Documentation mise à jour (`ONBOARDING`, `PROMPT_BOOTSTRAP`, `PRICE_COLLECTION_GUIDE`, `README`) avec la méthode PDP et la procédure de reset Chrome.
+
+### Collectes Course U validées
+- Destop 950 ml – JSON : `maxicourses_test/results/test-3665468000312/courseu-20251017-105656.json` (prix 3,76 € / 3,96 €/L, `matched_ean` OK).
+- Savora 385 g – JSON : `maxicourses_test/results/test-8712100731822/courseu-20251017-105952.json` (prix 2,32 € / 6,03 €/kg).
+- Orangina 1,5 L – JSON : `maxicourses_test/results/test-3124480200433/courseu-20251017-110142.json` (prix 2,15 € / 1,43 €/L).
+
+### Points de vigilance
+- Cloudflare bloque à nouveau après plusieurs hits rapprochés (ex. `maxicourses_test/results/test-3665468000312/run-courseu-20251017-131212.json`). Avant tout nouveau run massif, patienter quelques minutes ou relancer Chrome 9222 avec profil vierge puis resauvegarder la state.
+- Vérifier régulièrement que les URLs PDP stockées dans `manual_descriptors.json` restent valides et les mettre à jour si Course U change les slugs produits.
+
+### Suites suggérées
+1. Relancer `python3 pipeline/run_pipeline.py --ean <EAN>` pour remettre `results/summary.json` à jour avec les prix Course U validés.
+2. Ajouter captures si besoin (non prises aujourd’hui) pour compléter le dossier de preuves.

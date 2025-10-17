@@ -11,7 +11,7 @@ import typing
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import quote_plus, urljoin
+from urllib.parse import quote_plus, urljoin, urlparse
 
 from rich import print  # noqa: T201
 from playwright.async_api import TimeoutError as PlaywrightTimeout
@@ -71,14 +71,17 @@ def _to_decimal(value: typing.Any) -> typing.Optional[float]:
         return float(value)
     if isinstance(value, str):
         cleaned = (
-            value.replace("€", "")
-            .replace("EUR", "")
-            .replace("\u202f", "")
-            .replace(" ", "")
-            .replace(",", ".")
+            value.replace("EUR", "")
+            .replace("\u202f", " ")
+            .replace("€", " ")
         )
+        cleaned = re.sub(r"[^\d,.\-]+", " ", cleaned)
+        cleaned = cleaned.replace(",", ".")
+        match = re.search(r"-?\d+(?:\.\d+)?", cleaned)
+        if not match:
+            return None
         try:
-            return float(cleaned)
+            return float(match.group(0))
         except ValueError:
             return None
     return None
@@ -127,6 +130,55 @@ def _descriptor_tokens(ean: str) -> list[str]:
     return list(dict.fromkeys(tokens))
 
 
+def _descriptor_entry(ean: str) -> dict[str, typing.Any]:
+    entry = MANUAL_DESCRIPTOR.get(ean)
+    if isinstance(entry, dict):
+        return entry
+    return {}
+
+
+def _store_courseu_hint(ean: str, url: str) -> None:
+    if not ean or not url:
+        return
+    descriptor_path = Path(__file__).with_name("manual_descriptors.json")
+    try:
+        data = json.loads(descriptor_path.read_text(encoding="utf-8"))
+    except Exception:
+        data = {}
+    if not isinstance(data, dict):
+        data = {}
+
+    entry = data.get(ean)
+    if not isinstance(entry, dict):
+        entry = {"ean": ean}
+
+    changed = False
+    if entry.get("courseu_url") != url:
+        entry["courseu_url"] = url
+        changed = True
+
+    parsed = urlparse(url)
+    slug = parsed.path or ""
+    if slug and not slug.startswith("/"):
+        slug = f"/{slug}"
+    if slug:
+        if entry.get("courseu_slug") != slug:
+            entry["courseu_slug"] = slug
+            changed = True
+    if not entry.get("source"):
+        entry["source"] = "courseu"
+        changed = True
+
+    if not changed:
+        return
+
+    data[ean] = entry
+    try:
+        descriptor_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception:
+        pass
+
+
 async def accept_cookies(page) -> None:
     selectors = [
         "#onetrust-accept-btn-handler",
@@ -152,6 +204,9 @@ async def close_overlays(page) -> None:
         "button[aria-label='Fermer']",
         "button:has-text('Fermer')",
         "button:has-text('Continuer sans accepter')",
+        "button.su-modal__close",
+        "div[data-testid='modal'] button[aria-label='Fermer']",
+        ".modal button[aria-label='Fermer']",
     ]
     for selector in selectors:
         try:
@@ -161,6 +216,37 @@ async def close_overlays(page) -> None:
                 await page.wait_for_timeout(300)
         except Exception:
             continue
+    # Fallback: force-remove Course U marketing mask that blocks pointer events.
+    try:
+        await page.evaluate(
+            """
+            () => {
+                const selectors = [
+                    '.mask',
+                    '.modal-backdrop',
+                    '.suu-mask',
+                    '.suu-modal',
+                    '[data-testid="su-modal"]',
+                ];
+                let removed = false;
+                for (const selector of selectors) {
+                    document.querySelectorAll(selector).forEach((node) => {
+                        node.remove();
+                        removed = true;
+                    });
+                }
+                if (removed) {
+                    const body = document.body;
+                    if (body && body.style.overflow === 'hidden') {
+                        body.style.overflow = '';
+                    }
+                }
+            }
+            """
+        )
+        await page.wait_for_timeout(200)
+    except Exception:
+        pass
 
 
 async def ensure_store(page) -> None:
@@ -329,6 +415,40 @@ async def open_best_result(page, term: str, ean: str) -> bool:
     return True
 
 
+async def open_descriptor_product(page, ean: str) -> bool:
+    entry = _descriptor_entry(ean)
+    hint = entry.get("courseu_url") or entry.get("courseu_slug")
+    if not hint:
+        return False
+
+    if isinstance(hint, str):
+        hint = hint.strip()
+    if not hint:
+        return False
+
+    product_url = hint
+    if not product_url.startswith("http"):
+        product_url = urljoin(COURSEU_BASE_URL, hint.lstrip("/"))
+
+    _debug_log(f"trying descriptor URL {product_url}")
+    try:
+        await page.goto(product_url, wait_until="domcontentloaded")
+    except PlaywrightTimeout:
+        pass
+    await page.wait_for_timeout(1200)
+    await accept_cookies(page)
+    await close_overlays(page)
+    if await _is_cf_block(page):
+        _debug_log("descriptor URL returned CF block")
+        return False
+
+    current_url = page.url or ""
+    if "/p/" in current_url or "/product" in current_url:
+        return True
+    _debug_log(f"descriptor URL did not resolve to PDP ({current_url})")
+    return False
+
+
 def _iter_product_nodes(data: typing.Any) -> typing.Iterator[dict]:
     if isinstance(data, dict):
         node_type = data.get("@type")
@@ -455,8 +575,10 @@ async def run() -> Result:
 
     try:
         await ensure_store(page)
-        await perform_search(page, query)
-        opened = await open_best_result(page, query, EAN)
+        opened = await open_descriptor_product(page, EAN)
+        if not opened:
+            await perform_search(page, query)
+            opened = await open_best_result(page, query, EAN)
         if not opened:
             note = build_note(STORE_NAME)
             status = "CF_BLOCK" if await _is_cf_block(page) else "NO_RESULTS"
@@ -470,7 +592,7 @@ async def run() -> Result:
         final_note = build_note(STORE_NAME)
 
         if price:
-            return Result(
+            result = Result(
                 status="OK",
                 price=price,
                 unit_price=unit_price,
@@ -481,6 +603,9 @@ async def run() -> Result:
                 store=STORE_NAME,
                 matched_ean=matched_ean or (EAN if EAN and EAN in (page.url or "") else None),
             )
+            if EAN and page.url:
+                _store_courseu_hint(EAN, page.url)
+            return result
         status = "CF_BLOCK" if await _is_cf_block(page) else "NO_PRICE"
         return Result(
             status=status,
