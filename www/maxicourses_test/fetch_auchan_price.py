@@ -22,10 +22,8 @@ from collection_mandate import get_method
 
 EAN = os.environ.get("EAN", "7613035676497").strip()
 QUERY = os.environ.get("QUERY")
-AUCHAN_URL = os.environ.get("AUCHAN_URL")  # direct PDP url if known
 HEADLESS = os.environ.get("HEADLESS", "1") == "1"
 PROXY = os.environ.get("PROXY")
-HOME_URL = os.environ.get("HOME_URL", "https://www.auchan.fr")
 MANDATE = get_method("auchan")
 
 MANUAL_DESCRIPTOR = {}
@@ -35,6 +33,108 @@ try:
         MANUAL_DESCRIPTOR = json.loads(descriptor_path.read_text(encoding="utf-8"))
 except Exception:
     MANUAL_DESCRIPTOR = {}
+
+
+def _descriptor_entry() -> typing.Optional[dict]:
+    entry = MANUAL_DESCRIPTOR.get(EAN) if MANUAL_DESCRIPTOR and EAN else None
+    return entry if isinstance(entry, dict) else None
+
+
+DESCRIPTOR_ENTRY = _descriptor_entry()
+
+
+def _normalize_url(url: typing.Optional[str]) -> typing.Optional[str]:
+    if not isinstance(url, str):
+        return None
+    cleaned = url.strip()
+    if not cleaned:
+        return None
+    if cleaned.startswith("//"):
+        cleaned = "https:" + cleaned
+    if cleaned.startswith("/"):
+        cleaned = f"https://www.auchan.fr{cleaned}"
+    return cleaned
+
+
+def _extract_store_slug(url: typing.Optional[str]) -> typing.Optional[str]:
+    if not isinstance(url, str):
+        return None
+    marker = "/drive/magasins/"
+    if marker not in url:
+        return None
+    path = url.split(marker, 1)[1]
+    slug = path.split("/", 1)[0]
+    return slug.strip("/") or None
+
+
+def _extract_store_id(url: typing.Optional[str]) -> typing.Optional[str]:
+    if not isinstance(url, str):
+        return None
+    match = re.search(r"/s-(\d+)", url)
+    if match:
+        return match.group(1)
+    return None
+
+
+DEFAULT_STORE_URL = None
+if DESCRIPTOR_ENTRY:
+    DEFAULT_STORE_URL = _normalize_url(DESCRIPTOR_ENTRY.get("auchan_store_url"))
+
+STORE_URL = _normalize_url(os.environ.get("AUCHAN_STORE_URL")) or DEFAULT_STORE_URL
+STORE_SLUG = (
+    os.environ.get("AUCHAN_STORE_SLUG")
+    or (DESCRIPTOR_ENTRY.get("auchan_slug") if DESCRIPTOR_ENTRY else None)
+    or _extract_store_slug(STORE_URL)
+)
+if STORE_SLUG:
+    STORE_SLUG = STORE_SLUG.strip("/")
+
+STORE_SWITCH_URL = _normalize_url(
+    os.environ.get("AUCHAN_STORE_SWITCH_URL")
+    or (DESCRIPTOR_ENTRY.get("auchan_store_switch_url") if DESCRIPTOR_ENTRY else None)
+)
+
+DEFAULT_STORE_HOME_URL = None
+if DESCRIPTOR_ENTRY:
+    DEFAULT_STORE_HOME_URL = _normalize_url(
+        DESCRIPTOR_ENTRY.get("auchan_store_home_url")
+        or DESCRIPTOR_ENTRY.get("auchan_store_url")
+    )
+
+STORE_HOME_URL = (
+    _normalize_url(os.environ.get("AUCHAN_HOME_URL"))
+    or DEFAULT_STORE_HOME_URL
+)
+
+STORE_ID = (
+    _extract_store_id(STORE_SWITCH_URL)
+    or _extract_store_id(STORE_HOME_URL)
+    or _extract_store_id(STORE_URL)
+)
+
+if not STORE_HOME_URL and STORE_ID:
+    STORE_HOME_URL = f"https://www.auchan.fr/magasins/drive/s-{STORE_ID}"
+
+if not STORE_SWITCH_URL and STORE_ID:
+    STORE_SWITCH_URL = f"https://www.auchan.fr/s-{STORE_ID}"
+
+if not STORE_HOME_URL:
+    STORE_HOME_URL = "https://www.auchan.fr"
+
+HOME_URL = _normalize_url(os.environ.get("HOME_URL")) or STORE_HOME_URL
+STORE_QUERY = (
+    os.environ.get("AUCHAN_STORE_QUERY")
+    or (DESCRIPTOR_ENTRY.get("auchan_store_label") if DESCRIPTOR_ENTRY else None)
+    or "Talence Gallieni"
+).strip()
+
+DEFAULT_AUCHAN_URL = None
+if DESCRIPTOR_ENTRY:
+    DEFAULT_AUCHAN_URL = _normalize_url(
+        DESCRIPTOR_ENTRY.get("auchan_product_url")
+        or DESCRIPTOR_ENTRY.get("auchan_url")
+    )
+AUCHAN_URL = _normalize_url(os.environ.get("AUCHAN_URL")) or DEFAULT_AUCHAN_URL
 
 
 def load_storage_state(path: Path) -> typing.Optional[dict]:
@@ -137,6 +237,141 @@ async def accept_cookies(page) -> None:
             continue
 
 
+def _with_store_slug(url: typing.Optional[str]) -> typing.Optional[str]:
+    if not isinstance(url, str) or not url:
+        return url
+    if STORE_SLUG and "/drive/magasins/" in url and STORE_SLUG in url:
+        return url
+    target_slug = STORE_SLUG or (DESCRIPTOR_ENTRY.get("auchan_slug") if DESCRIPTOR_ENTRY else None)
+    if not target_slug:
+        return url
+    from urllib.parse import urlsplit, urlunsplit
+
+    parts = urlsplit(url)
+    scheme = parts.scheme or "https"
+    netloc = parts.netloc or "www.auchan.fr"
+    path = parts.path.lstrip("/")
+    new_path = f"/drive/magasins/{target_slug}"
+    if path:
+        new_path += "/" + path
+    return urlunsplit((scheme, netloc, new_path, parts.query, parts.fragment))
+
+
+async def ensure_store_selected(page) -> None:
+    target = STORE_QUERY
+    if not target:
+        return
+
+    button_selectors = [
+        "button.journeyOverlayTrigger",
+        "button[data-testid='journeyOverlayTrigger']",
+        "button.context-header__pos-btn",
+        "button:has-text('Choisir mon mode de livraison')",
+    ]
+    overlay_button = None
+    for selector in button_selectors:
+        btn = page.locator(selector).first
+        if await btn.count():
+            overlay_button = btn
+            break
+
+    if overlay_button:
+        try:
+            await overlay_button.click()
+            await page.wait_for_timeout(500)
+        except Exception:
+            return
+    else:
+        return
+
+    overlay_root = page.locator("[data-testid='journey-overlay'], #journeyOverlay").first
+    try:
+        await overlay_root.wait_for(state="visible", timeout=5000)
+    except Exception:
+        return
+
+    search_input = overlay_root.locator("input[type='search'], input[type='text']").first
+    if await search_input.count():
+        try:
+            await search_input.fill("")
+            await page.wait_for_timeout(150)
+            await search_input.type(target, delay=60)
+            await page.wait_for_timeout(600)
+        except Exception:
+            pass
+
+    option_selectors = [
+        f"button:has-text('{target}')",
+        "button[data-testid='store-item']",
+    ]
+    store_option = None
+    for selector in option_selectors:
+        cand = overlay_root.locator(selector).first
+        if await cand.count():
+            store_option = cand
+            break
+    if store_option:
+        try:
+            await store_option.click()
+            await page.wait_for_timeout(400)
+        except Exception:
+            pass
+
+    confirm_selectors = [
+        "button:has-text('Choisir ce magasin')",
+        "button:has-text('Voir ce magasin')",
+        "button[data-testid='journey-overlay-validate']",
+    ]
+    confirm_btn = None
+    for selector in confirm_selectors:
+        cand = overlay_root.locator(selector).first
+        if await cand.count():
+            confirm_btn = cand
+            break
+    if confirm_btn:
+        try:
+            await confirm_btn.click()
+            await page.wait_for_timeout(800)
+        except Exception:
+            pass
+
+
+async def _reveal_price_if_needed(page) -> None:
+    selectors = [
+        "button:has-text(\"Afficher le prix\")",
+        "button:has-text(\"Voir le prix\")",
+        "button.price-unavailable__button",
+        "button[data-testid='product-price-reveal']",
+    ]
+    for selector in selectors:
+        btn = page.locator(selector).first
+        try:
+            if await btn.count():
+                await btn.click()
+                await page.wait_for_timeout(1200)
+                break
+        except Exception:
+            continue
+
+
+async def _reveal_price_if_needed(page) -> None:
+    selectors = [
+        "button:has-text(\"Afficher le prix\")",
+        "button:has-text(\"Voir le prix\")",
+        "button.price-unavailable__button",
+        "button[data-testid='product-price-reveal']",
+    ]
+    for selector in selectors:
+        btn = page.locator(selector).first
+        try:
+            if await btn.count():
+                await btn.click()
+                await page.wait_for_timeout(1200)
+                break
+        except Exception:
+            continue
+
+
 async def _extract_from_pdp(page) -> typing.Optional[Result]:
     title = None
     price = None
@@ -149,6 +384,10 @@ async def _extract_from_pdp(page) -> typing.Optional[Result]:
         title = await page.locator('h1').first.text_content(timeout=5000)
     except Exception:
         pass
+
+    await _reveal_price_if_needed(page)
+
+    await _reveal_price_if_needed(page)
 
     try:
         scripts = page.locator("script[type='application/ld+json']")
@@ -289,12 +528,23 @@ async def run_via_playwright() -> typing.Optional[Result]:
         await apply_storage_state(context, page, state_data)
 
     try:
+        if STORE_SWITCH_URL:
+            try:
+                await page.goto(STORE_SWITCH_URL, wait_until='domcontentloaded')
+                await page.wait_for_timeout(1200)
+            except Exception:
+                pass
+
         try:
-            await page.goto(HOME_URL, wait_until='domcontentloaded')
+            await page.goto(STORE_HOME_URL, wait_until='domcontentloaded')
         except Exception:
-            pass
+            try:
+                await page.goto(HOME_URL, wait_until='domcontentloaded')
+            except Exception:
+                pass
         await page.wait_for_timeout(1500)
         await accept_cookies(page)
+        await ensure_store_selected(page)
 
         for term in search_terms:
             log(f"recherche '{term}'")
@@ -337,6 +587,7 @@ async def run_via_playwright() -> typing.Optional[Result]:
                     continue
                 if href.startswith('/'):
                     href = urljoin('https://www.auchan.fr', href)
+                href = _with_store_slug(href)
                 try:
                     await page.goto(href, wait_until='domcontentloaded')
                     await page.wait_for_timeout(3000)
@@ -357,11 +608,15 @@ async def run_via_playwright() -> typing.Optional[Result]:
 
             # si aucune fiche valide, revenir home
             try:
-                await page.goto(HOME_URL, wait_until='domcontentloaded')
-                await page.wait_for_timeout(1500)
-                await accept_cookies(page)
+                await page.goto(STORE_HOME_URL, wait_until='domcontentloaded')
             except Exception:
-                pass
+                try:
+                    await page.goto(HOME_URL, wait_until='domcontentloaded')
+                except Exception:
+                    pass
+            await page.wait_for_timeout(1500)
+            await accept_cookies(page)
+            await ensure_store_selected(page)
     finally:
         try:
             await browser.close()
@@ -384,7 +639,8 @@ async def run_http() -> Result:
     try:
         if AUCHAN_URL:
             try:
-                await page.goto(AUCHAN_URL, wait_until='domcontentloaded')
+                target_url = _with_store_slug(AUCHAN_URL) or AUCHAN_URL
+                await page.goto(target_url, wait_until='domcontentloaded')
             except PlaywrightTimeout:
                 return Result(status="TIMEOUT")
             except Exception:
@@ -401,6 +657,8 @@ async def run_http() -> Result:
                     await page.locator(sel).first.click(timeout=1500)
             except Exception:
                 pass
+            await ensure_store_selected(page)
+            await _reveal_price_if_needed(page)
 
             title = None
             price = None

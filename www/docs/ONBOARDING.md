@@ -5,6 +5,14 @@
 - Assurer une traçabilité claire des relevés (Chrome remote, captures si besoin) pour préparer le comparateur de prix intelligent.
 - Capitaliser l'historique (décisions, obstacles, artefacts) afin que tout nouvel assistant reprenne le travail sans perte d'information.
 
+## Dernière itération (2025-10-26)
+- **Fait** : rétablissement du fetcher Auchan (slug `auchan-drive-talence-gallieni`, switch `/s-6117`, sauvegarde `state/auchan.json`), validation via run pipeline (prix 2,15 €, matched EAN).
+- **Fait** : descriptor `3124480200433` enrichi (`auchan_store_home_url`, label magasin Talence).
+- **Fait** : run complet `run_pipeline.py --ean 3124480200433 --headed` → Carrefour/Chronodrive/CourseU/Intermarché OK.
+- **À faire** : corriger l’adaptateur Leclerc (actuellement sélectionne Pepsi, matched_ean nul) en rejouant la trace Bruges + requête issue du descriptif (« Orangina 1,5L »).
+- **À faire** : ajuster la génération de requêtes Monoprix (les tokens actuels `5L Soda` ne trouvent rien) puis relancer l’adaptateur pour viser `MPX_2029`.
+- **À faire** : une fois Leclerc/Monoprix stabilisés, rejouer `run_pipeline.py --ean 3124480200433 --headed` pour mettre à jour `results/test-*/latest.json` et la page comparateur.
+
 ## Règles Incontournables
 1. **Collecte seed systématique** : commencer chaque produit par une recherche **100 % EAN brut** (sans texte additionnel) sur les enseignes qui l’acceptent :
    - Carrefour Market d’abord, puis Carrefour City (via les wrappers CDP),
