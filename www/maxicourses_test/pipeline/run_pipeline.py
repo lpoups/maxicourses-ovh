@@ -28,6 +28,26 @@ except ImportError:  # pragma: no cover - optional dependency when --image n/a
 ROOT_DIR = Path(__file__).resolve().parent.parent
 ASSETS_DIR = ROOT_DIR / "pipeline" / "assets"
 
+SIZE_TOKEN_SUFFIXES = ("ml", "cl", "dl", "l", "g", "kg")
+
+
+def _looks_like_size_token(raw: str) -> bool:
+    if not raw:
+        return False
+    token = raw.strip().lower().replace(" ", "")
+    if not token:
+        return False
+    token = token.replace(",", "").replace(".", "")
+    if token.isdigit():
+        return True
+    for suffix in SIZE_TOKEN_SUFFIXES:
+        if token.endswith(suffix):
+            prefix = token[: -len(suffix)]
+            if prefix and prefix.isdigit():
+                return True
+    return False
+
+
 GENERIC_BRAND_TERMS = {
     "yaourt",
     "yaourts",
@@ -128,6 +148,8 @@ def build_seed_query_from_descriptor(descriptor: Dict[str, Any]) -> str:
         for token in _tokenize_phrase(source):
             normalized = _normalize_seed_token(token)
             if not normalized or normalized in STOPWORDS:
+                continue
+            if _looks_like_size_token(token):
                 continue
             if token.isdigit() and quantity and token in quantity:
                 continue
@@ -232,6 +254,8 @@ def _extract_product_tokens_for_leclerc(
             normalized = _normalize_seed_token(token)
             if not normalized or normalized in STOPWORDS:
                 continue
+            if _looks_like_size_token(token):
+                continue
             if brand_norm and normalized == brand_norm:
                 continue
             if normalized in _UNIT_TOKENS:
@@ -309,6 +333,8 @@ def build_leclerc_search_profile(descriptor: Dict[str, Any]) -> Dict[str, List[s
         return cleaned
 
     candidate_sequences: List[List[str]] = []
+    if brand_token and quantity_token:
+        candidate_sequences.append([brand_token, quantity_token])
     if brand_token and function_token and quantity_token:
         candidate_sequences.append([brand_token, function_token, quantity_token])
         if variant_token:
@@ -567,6 +593,8 @@ def infer_brand_from_title(title: Any) -> Optional[str]:
     tokens = re.split(r"[\s\-·•()\[\]/\\,'\"]+", title)
     # Prefer uppercase distinctive tokens from the end of the string (e.g. HIPRO)
     for token in reversed(tokens):
+        if _looks_like_size_token(token):
+            continue
         candidate = normalize_brand_candidate(token)
         if not candidate:
             continue
@@ -574,6 +602,8 @@ def infer_brand_from_title(title: Any) -> Optional[str]:
             if not is_generic_brand(candidate):
                 return candidate
     for token in tokens:
+        if _looks_like_size_token(token):
+            continue
         candidate = normalize_brand_candidate(token)
         if not candidate or is_generic_brand(candidate):
             continue
@@ -1223,6 +1253,12 @@ def main(argv: Optional[List[str]] = None) -> int:
             candidate = descriptor.get("leclerc_query") if descriptor else None
             if isinstance(candidate, str) and candidate.strip():
                 adapter_query = candidate.strip()
+        elif adapter == "monoprix" and descriptor:
+            monoprix_queries = descriptor.get("queries", {}).get("monoprix") if isinstance(descriptor.get("queries"), dict) else None
+            if isinstance(monoprix_queries, list) and monoprix_queries:
+                candidate = monoprix_queries[0]
+                if isinstance(candidate, str) and candidate.strip():
+                    adapter_query = candidate.strip()
 
         res = run_adapter(
             adapter,

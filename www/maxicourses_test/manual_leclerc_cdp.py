@@ -26,7 +26,7 @@ import json
 import os
 import random
 import sys
-from typing import Optional
+from typing import Optional, List
 
 from datetime import datetime
 from pathlib import Path
@@ -228,6 +228,25 @@ async def run_manual_leclerc(
             if len(sanitized) >= 2 and sanitized not in brand_tokens:
                 brand_tokens.append(sanitized)
     query_candidates = _build_query_candidates(descriptor_entry, query, ean)
+    descriptor_negatives: List[str] = []
+    leclerc_negatives = None
+    if isinstance(descriptor_entry, dict):
+        neg_map = descriptor_entry.get("negatives")
+        if isinstance(neg_map, dict):
+            leclerc_negatives = neg_map.get("leclerc")
+    if isinstance(leclerc_negatives, (list, tuple)):
+        for item in leclerc_negatives:
+            if isinstance(item, str) and item.strip():
+                token = item.strip().lower()
+                if token not in descriptor_negatives:
+                    descriptor_negatives.append(token)
+    expected_pack_count = 1
+    if isinstance(descriptor_entry, dict):
+        canonical = descriptor_entry.get("canonical")
+        if isinstance(canonical, dict):
+            candidate_pack = canonical.get("pack_count")
+            if isinstance(candidate_pack, int) and candidate_pack > 1:
+                expected_pack_count = candidate_pack
 
     page: Optional["Page"] = None  # type: ignore[name-defined]
 
@@ -297,6 +316,8 @@ async def run_manual_leclerc(
                 href = await link.get_attribute("href") or ""
             except Exception:
                 continue
+            normalized_label = (label or "").lower()
+            normalized_href = (href or "").lower()
             score = _score_card(
                 label or "",
                 href,
@@ -306,6 +327,20 @@ async def run_manual_leclerc(
                 brand_tokens,
                 ean,
             )
+            penalty = 0
+            if descriptor_negatives:
+                for token in descriptor_negatives:
+                    if token and (token in normalized_label or token in normalized_href):
+                        penalty += 120
+                        break
+            if expected_pack_count <= 1:
+                if re.search(r"\b\d+\s*[x×]\s*\d+", normalized_label):
+                    penalty += 90
+                if " pack" in normalized_label or normalized_label.startswith("pack "):
+                    penalty += 60
+                if re.search(r"\bx\d+\b", normalized_label):
+                    penalty += 60
+            score -= penalty
             if score > chosen_score:
                 chosen_index = idx
                 chosen_label = label
