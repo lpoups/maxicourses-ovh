@@ -6,9 +6,9 @@
 - Capitaliser l'historique (décisions, obstacles, artefacts) afin que tout nouvel assistant reprenne le travail sans perte d'information.
 
 ## Dernière itération (2025-10-30)
-- **Fait** : Leclerc Drive sélectionne désormais la bouteille unitaire Orangina 1,5 L. Correctifs appliqués : normalisation du descripteur (`brand`/queries ↦ « Orangina 1.5L »), filtrage des tokens quantité dans `run_pipeline.py`, et pénalités anti-pack côté `manual_leclerc_cdp.py`. Run de validation : `results/run-3124480200433-20251030-115344.json` (`matched_ean=3124480200433`).
-- **À faire** : implémenter le verrou variante/negatives pour Monoprix (cf. `docs/monoprix_hotfix_brief.md`). Les requêtes générées sont correctes (`Orangina 1.5L`), mais l’adaptateur retourne encore `NO_RESULTS`.
-- **À faire** : après stabilisation Monoprix, relancer `run_pipeline.py --ean 3124480200433 --headed` puis rafraîchir `results/test-3124480200433/latest.json` + page comparateur.
+- **Fait** : Leclerc Drive sélectionne désormais la bouteille unitaire Orangina 1,5 L. Correctifs appliqués : normalisation du descripteur (brand/queries → « Orangina 1.5L »), filtrage des tokens quantité dans `run_pipeline.py`, et pénalités anti-pack dans `manual_leclerc_cdp.py`. Run de validation : `results/run-3124480200433-20251030-115344.json` (`matched_ean=3124480200433`).
+- **Fait** : Monoprix verrouillé via variant lock + négatifs dynamiques. Implémentation : `fetch_monoprix_price.py` évalue désormais la variante détectée, la famille d’unité et la taille (tolérance ±25 %), et rejette les cartes contenant des variantes négatives. Les requêtes Monoprix sortent en « marque + variant/volume » via `query_builder.py`. Run de validation : `results/run-3124480200433-20251030-122923.json` (`status=OK`, prix 2,45 €).
+- **À faire** : propager ces règles à d’autres seeds (vérifier desserts végétaux), archiver les captures Monoprix/Leclerc dans `results/debug/` et mettre à jour la page comparateur (rafraîchir `results/test-3124480200433/latest.json` déjà régénéré, contrôler le rendu web).
 
 ## Règles Incontournables
 1. **Collecte seed systématique** : commencer chaque produit par une recherche **100 % EAN brut** (sans texte additionnel) sur les enseignes qui l’acceptent :

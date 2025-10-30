@@ -35,10 +35,31 @@ class QueryStage:
     label: str
     max_words: Optional[int]
     queries: Tuple[str, ...]
+    negatives: Tuple[str, ...] = ()
 
 
 def _normalize_query(value: str) -> str:
     return " ".join(value.strip().lower().split())
+
+
+MONOPRIX_VARIANTS = ["nature", "vanille", "amande", "coco", "mangue", "chocolat", "orange", "sans sucre", "rouge"]
+
+
+def seed_variant_negatives(variant: Optional[str]) -> Tuple[str, ...]:
+    if not variant:
+        return tuple()
+    normalized = variant.strip().lower()
+    if not normalized:
+        return tuple()
+    negatives: List[str] = []
+    for token in MONOPRIX_VARIANTS:
+        if token != normalized:
+            negatives.append(token)
+    if normalized == "orange":
+        negatives.extend(["sans sucre", "sans sucres", "zero", "zéro", "rouge", "sanguine"])
+    elif normalized in {"sans sucre", "zero", "zéro"}:
+        negatives.extend(["orange", "original"])
+    return tuple(dict.fromkeys(negatives))
 
 
 def _dedupe(queries: Iterable[str], *, max_words: Optional[int]) -> Tuple[str, ...]:
@@ -123,10 +144,14 @@ def _monoprix_plan(seed_terms: SeedTerms) -> List[QueryStage]:
     size_tokens = _size_tokens(seed_terms)
     pack_token = seed_terms.pack_token
     is_liquid = _is_liquid(seed_terms)
+    variant_token = seed_terms.variant_tokens[0] if seed_terms.variant_tokens else None
+    variant_negatives = seed_variant_negatives(variant_token)
 
     stages: List[QueryStage] = []
 
     q1_candidates: List[str] = []
+    if brand and variant_token:
+        q1_candidates.append(_combine([brand, variant_token]))
     if brand and core_primary:
         q1_candidates.append(_combine([brand, core_primary]))
     elif brand and pack_token:
@@ -135,7 +160,7 @@ def _monoprix_plan(seed_terms: SeedTerms) -> List[QueryStage]:
         q1_candidates.append(brand)
     q1 = _dedupe(q1_candidates, max_words=2)
     if q1:
-        stages.append(QueryStage("Q1", 2, q1))
+        stages.append(QueryStage("Q1", 2, q1, variant_negatives))
 
     q2_candidates: List[str] = []
     if is_liquid and brand and size_tokens:
@@ -148,6 +173,9 @@ def _monoprix_plan(seed_terms: SeedTerms) -> List[QueryStage]:
         stages.append(QueryStage("Q2", 2, q2))
 
     q3_candidates: List[str] = []
+    if brand and variant_token and size_tokens:
+        for size in size_tokens:
+            q3_candidates.append(_combine([brand, variant_token, size]))
     if brand and core_primary and size_tokens:
         for size in size_tokens:
             q3_candidates.append(_combine([brand, core_primary, size]))
@@ -155,7 +183,7 @@ def _monoprix_plan(seed_terms: SeedTerms) -> List[QueryStage]:
         q3_candidates.append(_combine([brand, core_primary, pack_token]))
     q3 = _dedupe(q3_candidates, max_words=3)
     if q3:
-        stages.append(QueryStage("Q3", 3, q3))
+        stages.append(QueryStage("Q3", 3, q3, variant_negatives))
 
     return stages
 

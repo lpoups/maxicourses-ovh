@@ -9,6 +9,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 import typing
 from decimal import Decimal, InvalidOperation
 from dataclasses import dataclass
@@ -54,8 +55,35 @@ CARD_BANNED_KEYWORDS = {
     "la carte n'est pas acceptée",
 }
 
+# Variants normalisés pour le verrou "variant_lock"
+VARIANT_PATTERNS: dict[str, list[re.Pattern[str]]] = {
+    "nature": [
+        re.compile(r"\bnature\b", re.IGNORECASE),
+        re.compile(r"sans\s+sucres?", re.IGNORECASE),
+        re.compile(r"\boriginal\b", re.IGNORECASE),
+    ],
+    "vanille": [re.compile(r"\bvanill?e\b", re.IGNORECASE)],
+    "amande": [re.compile(r"\bamandes?\b", re.IGNORECASE)],
+    "coco": [re.compile(r"\bnoix\s+de\s+coco\b", re.IGNORECASE), re.compile(r"\bcoco\b", re.IGNORECASE)],
+    "mangue": [re.compile(r"\bmangues?\b", re.IGNORECASE)],
+    "chocolat": [re.compile(r"\bchocolat\b", re.IGNORECASE)],
+    "orange": [re.compile(r"\borange\b", re.IGNORECASE)],
+    "sans sucre": [
+        re.compile(r"\bsans\s+sucres?\b", re.IGNORECASE),
+        re.compile(r"\bzero\b", re.IGNORECASE),
+        re.compile(r"\bz[eé]ro\b", re.IGNORECASE),
+    ],
+    "rouge": [
+        re.compile(r"\brouge\b", re.IGNORECASE),
+        re.compile(r"\bsanguine\b", re.IGNORECASE),
+    ],
+}
+
+SEED_VARIANTS = ["nature", "vanille", "amande", "coco", "mangue", "chocolat", "orange", "sans sucre", "rouge"]
+
 # --- Patterns Regex ---
 MULTIPLIER_PATTERN = re.compile(r"\b\d+\s*(?:x|×)\s*\d+\b", flags=re.IGNORECASE)
+SIZE_TOKEN_PATTERN = re.compile(r"(\d+(?:[.,]\d+)?)[\s]*(ml|cl|l|kg|g)\b", flags=re.IGNORECASE)
 # Manual descriptor cache
 MANUAL_DESCRIPTOR: dict[str, dict] = {}
 try:
@@ -95,6 +123,8 @@ class Result:
     unit_price: typing.Optional[str] = None
     quantity: typing.Optional[str] = None
     store: typing.Optional[str] = None
+    raw_text: typing.Optional[str] = None
+    extras: typing.Optional[dict[str, typing.Any]] = None
 
 
 def tokens_for(value: typing.Optional[str]) -> list[str]:
@@ -107,6 +137,103 @@ def normalize_space(value: typing.Optional[str]) -> typing.Optional[str]:
     if not value:
         return None
     return re.sub(r"\s+", " ", value).strip()
+
+
+def _normalize_search_text(value: typing.Optional[str]) -> str:
+    if not isinstance(value, str):
+        return ""
+    normalized = unicodedata.normalize("NFKD", value.lower())
+    return "".join(ch for ch in normalized if not unicodedata.combining(ch))
+
+
+def detect_variant_from_text(text: typing.Optional[str]) -> typing.Optional[str]:
+    normalized = _normalize_search_text(text)
+    if not normalized:
+        return None
+    hits: list[str] = []
+    for variant, patterns in VARIANT_PATTERNS.items():
+        if any(pattern.search(normalized) for pattern in patterns):
+            hits.append(variant)
+    if "nature" in hits and len(hits) > 1:
+        hits = [variant for variant in hits if variant != "nature"]
+    return hits[0] if hits else None
+
+
+def _seed_variant_from_descriptor(descriptor: dict[str, typing.Any]) -> typing.Optional[str]:
+    canonical = descriptor.get("canonical") if isinstance(descriptor.get("canonical"), dict) else {}
+    for key in ("variant_norm", "variant"):
+        candidate = canonical.get(key)
+        if isinstance(candidate, str) and candidate.strip():
+            return candidate.strip().lower()
+    flavor = canonical.get("flavor_color")
+    if isinstance(flavor, str) and flavor.strip():
+        return flavor.strip().lower()
+    descriptor_variant = descriptor.get("variant")
+    if isinstance(descriptor_variant, str) and descriptor_variant.strip():
+        return descriptor_variant.strip().lower()
+    return None
+
+
+def seed_variant_negatives(seed_variant: typing.Optional[str]) -> list[str]:
+    variant = (seed_variant or "").strip().lower()
+    if not variant:
+        return []
+    negatives: list[str] = []
+    for token in SEED_VARIANTS:
+        if token != variant:
+            negatives.append(token)
+    if variant == "orange":
+        negatives.extend(["sans sucre", "sans sucres", "zero", "zéro", "rouge", "sanguine"])
+    elif variant in {"sans sucre", "zero", "zéro"}:
+        negatives.extend(["orange", "original"])
+    return list(dict.fromkeys(negatives))
+
+
+def _extract_category_tokens(descriptor: dict[str, typing.Any]) -> list[str]:
+    categories = descriptor.get("categories")
+    if not isinstance(categories, str):
+        return []
+    tokens: list[str] = []
+    for chunk in categories.split(","):
+        for token in re.findall(r"[a-zA-ZÀ-ÖØ-öø-ÿ']+", chunk.lower()):
+            if len(token) >= 4 and token not in tokens:
+                tokens.append(token)
+    return tokens
+
+
+def _collect_monoprix_negatives(descriptor: dict[str, typing.Any], seed_variant: typing.Optional[str]) -> list[str]:
+    negatives: list[str] = []
+    neg_map = descriptor.get("negatives")
+    if isinstance(neg_map, dict):
+        store_tokens = neg_map.get("monoprix") or []
+        for token in store_tokens:
+            if isinstance(token, str) and token.strip():
+                negatives.append(token.strip().lower())
+    negatives.extend(seed_variant_negatives(seed_variant))
+    return list(dict.fromkeys(negatives))
+
+
+def _unit_family_for_unit(unit: str) -> str:
+    unit_lower = unit.lower()
+    if unit_lower in {"ml", "cl", "dl", "l"}:
+        return "volume"
+    if unit_lower in {"g", "kg"}:
+        return "mass"
+    return "count"
+
+
+def _candidate_quantity(result: Result) -> typing.Optional[tuple[Decimal, str]]:
+    sources: list[typing.Optional[str]] = [result.quantity, result.raw_text]
+    for source in sources:
+        if not isinstance(source, str):
+            continue
+        normalized = _normalize_quantity_text(source)
+        candidate = normalized or source
+        parsed = _parse_quantity_to_base(candidate)
+        if parsed:
+            return parsed
+    return None
+
 
 
 async def read_text(locator, *, timeout: int = 500) -> typing.Optional[str]:
@@ -290,6 +417,63 @@ def _normalize_quantity_text(quantity: typing.Optional[str]) -> typing.Optional[
     number = match.group(1).replace(".", ",")
     unit = match.group(2).upper()
     return f"{number} {unit}"
+
+
+def _format_size_token(value: typing.Union[int, float, Decimal, str], unit: typing.Optional[str]) -> typing.Optional[str]:
+    if value is None or unit is None:
+        return None
+    try:
+        numeric = Decimal(str(value))
+    except InvalidOperation:
+        return None
+    normalized = format(numeric.normalize(), "f")
+    if "." in normalized:
+        normalized = normalized.rstrip("0").rstrip(".")
+    normalized = normalized.replace(",", ".")
+    unit_clean = unit.strip().upper()
+    if not unit_clean:
+        return None
+    return f"{normalized}{unit_clean}"
+
+
+def _size_token_from_text(value: typing.Optional[str]) -> typing.Optional[str]:
+    if not isinstance(value, str):
+        return None
+    cleaned = value.replace("·", " ")
+    match = SIZE_TOKEN_PATTERN.search(cleaned)
+    if not match:
+        return None
+    number = match.group(1).replace(",", ".")
+    unit = match.group(2)
+    try:
+        numeric = Decimal(number)
+    except InvalidOperation:
+        return None
+    return _format_size_token(numeric, unit)
+
+
+def _preferred_size_token(descriptor: dict[str, typing.Any]) -> typing.Optional[str]:
+    if not isinstance(descriptor, dict):
+        return None
+    canonical = descriptor.get("canonical")
+    if isinstance(canonical, dict):
+        size_value = canonical.get("size_value")
+        size_unit = canonical.get("size_unit")
+        token = _format_size_token(size_value, size_unit)
+        if token:
+            return token
+    for field in (
+        "seed_primary_quantity",
+        "quantity",
+        "seed_query",
+        "seed_primary_name",
+        "name",
+        "description",
+    ):
+        token = _size_token_from_text(descriptor.get(field))
+        if token:
+            return token
+    return None
 
 
 def _compute_unit_price(price_value: typing.Any, quantity: typing.Optional[str]) -> typing.Optional[str]:
@@ -494,7 +678,7 @@ def _prepare_query(term: typing.Optional[str], max_len: int) -> typing.Optional[
 
     # Applique les transformations regex
     candidate = re.sub(r"(\d+)\.(\d+)", r"\1,\2", candidate)
-    candidate = re.sub(r"(\d),(\d{1,2})([a-zA-Z])", r"\1,\2 \3", candidate)
+    candidate = re.sub(r"(\d),(\d{1,2})([a-zA-Z])", r"\1,\2\3", candidate)
     candidate = candidate.replace(" l", " L").replace(" ml", " ML").replace(" cl", " CL")
 
     # Tronque si nécessaire
@@ -548,6 +732,10 @@ MONOPRIX_GENERIC_STOPWORDS = {
     "un",
     "une",
     "monoprix",
+    "boisson",
+    "boissons",
+    "soda",
+    "sodas",
 }
 
 
@@ -650,9 +838,12 @@ def _build_two_keyword_query(term: typing.Optional[str], descriptor: dict[str, t
     brand_token = _pick_brand_token(descriptor, tokens)
     if not brand_token:
         return None
+    size_token = _preferred_size_token(descriptor)
     function_token = _select_function_token(tokens, descriptor, brand_token.lower())
     if not function_token:
         function_token = _select_function_token([], descriptor, brand_token.lower())
+    if size_token:
+        return f"{brand_token} {size_token}"
     if not function_token:
         return None
     return f"{brand_token} {function_token}"
@@ -1080,6 +1271,12 @@ async def extract_from_pdp(page) -> dict[str, typing.Optional[str]]:
 async def find_best_product(page, context, base_url: str, terms: list[str]) -> typing.Optional[Result]:
     sys.stderr.write("[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n")
     descriptor_entry = MANUAL_DESCRIPTOR.get(EAN, {}) if EAN else {}
+    seed_variant = _seed_variant_from_descriptor(descriptor_entry)
+    category_tokens = _extract_category_tokens(descriptor_entry)
+    dynamic_negatives = _collect_monoprix_negatives(descriptor_entry, seed_variant)
+    sys.stderr.write(
+        f"[MONOPRIX_DEBUG] Seed variant: {seed_variant} | dynamic negatives: {dynamic_negatives}\n"
+    )
 
     for i, term in enumerate(terms):
         sys.stderr.write(f"[MONOPRIX_DEBUG]  - Term {i+1}/{len(terms)}: '{term}'\n")
@@ -1190,20 +1387,35 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
         # Appliquer la logique de scoring et de correspondance d'image
         scored_results = []
         for res in all_results:
-            score, plausible = calculate_score(res.title, descriptor_entry)
-            sys.stderr.write(f"[MONOPRIX_DEBUG]  - Scoring '{res.title}': Initial Score={score}, Plausible={plausible}\n")
-
-            # res.note contient l'URL de l'image
+            score, plausible, extras = evaluate_candidate(
+                res,
+                descriptor_entry,
+                negatives=dynamic_negatives,
+                seed_variant=seed_variant,
+                category_tokens=category_tokens,
+            )
+            res.extras = extras
             image_match = await _image_matches_descriptor_async(descriptor_entry, res.note)
+            extras["image_match"] = image_match
             if image_match:
-                score += 50  # Bonus important pour la correspondance d'image
-                plausible = True # Une correspondance d'image rend le produit plausible
-                sys.stderr.write(f"[MONOPRIX_DEBUG]  - Image match FOUND for '{res.title}'. New score={score}\n")
+                score += 30
+                sys.stderr.write(f"[MONOPRIX_DEBUG]  - Image match FOUND for '{res.title}'.\n")
             else:
                 sys.stderr.write(f"[MONOPRIX_DEBUG]  - No image match for '{res.title}'.\n")
 
-            if plausible:
+            extras["final_score"] = score
+            extras["plausible_baseline"] = plausible
+
+            final_plausible = plausible and not extras["vetoes"]
+            if image_match and not extras["vetoes"]:
+                final_plausible = True
+
+            if final_plausible:
                 scored_results.append((score, res))
+            else:
+                sys.stderr.write(
+                    f"[MONOPRIX_DEBUG]  - Candidate rejected '{res.title}' | vetoes={extras['vetoes']}\n"
+                )
         
         if not scored_results:
             sys.stderr.write("[MONOPRIX_DEBUG]  - No plausible results after scoring and image matching.\n")
@@ -1296,6 +1508,11 @@ async def parse_product_page(
             except Exception:
                 pass # L'image reste None si tout échoue
 
+        try:
+            body_text = await page.inner_text("body")
+        except Exception:
+            body_text = ""
+
         sys.stderr.write(f"[MONOPRIX_DEBUG] Extracted image URL: {image_url}\n")
 
         return Result(
@@ -1305,56 +1522,152 @@ async def parse_product_page(
             unit_price=unit_price,
             quantity=quantity,
             url=page.url,
-            note=image_url # Stocke l'URL de l'image dans la note pour vérification
+            note=image_url, # Stocke l'URL de l'image dans la note pour vérification
+            raw_text=body_text,
         )
     except Exception as e:
         sys.stderr.write(f"[MONOPRIX_DEBUG] Error parsing product page {url}: {e}\n")
         return None
 
 
-def calculate_score(title: typing.Optional[str], descriptor: dict) -> tuple[int, bool]:
-    """Calcule un score de pertinence pour le titre donné par rapport au descripteur."""
-    if not title:
-        return 0, False
-    title_lower = title.lower()
+def evaluate_candidate(
+    result: Result,
+    descriptor: dict[str, typing.Any],
+    *,
+    negatives: list[str],
+    seed_variant: typing.Optional[str],
+    category_tokens: list[str],
+    size_tolerance: float = 0.25,
+) -> tuple[int, bool, dict]:
+    """Évalue un candidat Monoprix en appliquant les vérifications de veto."""
+    extras: dict[str, typing.Any] = {
+        "seed_variant": seed_variant,
+        "candidate_variant": None,
+        "negatives_hit": [],
+        "variant_ok": True,
+        "unit_family_ok": True,
+        "size_ok": True,
+        "category_ok": True,
+        "vetoes": [],
+    }
+
+    title_lower = (result.title or "").lower()
+    text_fields = [result.title, result.quantity, result.unit_price, result.raw_text]
+    text_blob = " ".join(value for value in text_fields if isinstance(value, str))
+    normalized_blob = _normalize_search_text(text_blob)
+    url_normalized = _normalize_search_text(result.url)
+    title_normalized = _normalize_search_text(result.title)
+    quantity_normalized = _normalize_search_text(result.quantity)
+    negative_haystacks = [title_normalized, quantity_normalized, url_normalized]
+
+    # Dynamic negatives
+    for token in negatives:
+        token_norm = _normalize_search_text(token)
+        if token_norm and any(token_norm in hay for hay in negative_haystacks if hay):
+            extras["negatives_hit"].append(token)
+            extras["vetoes"].append("neg_token")
+            break
+
+    # Variant lock
+    candidate_variant = detect_variant_from_text(text_blob)
+    extras["candidate_variant"] = candidate_variant
+    if seed_variant:
+        if seed_variant == "nature":
+            if candidate_variant and candidate_variant != "nature":
+                extras["variant_ok"] = False
+                extras["vetoes"].append("variant_mismatch")
+            elif not candidate_variant:
+                extras["variant_ok"] = False
+                extras["vetoes"].append("variant_missing")
+        else:
+            if candidate_variant and candidate_variant != seed_variant:
+                extras["variant_ok"] = False
+                extras["vetoes"].append("variant_mismatch")
+            elif not candidate_variant:
+                extras["variant_ok"] = False
+                extras["vetoes"].append("variant_missing")
+
+    # Unit family & size tolerance
+    descriptor_quantity = descriptor.get("seed_primary_quantity") or descriptor.get("quantity")
+    seed_parsed = _parse_quantity_to_base(_normalize_quantity_text(descriptor_quantity) or descriptor_quantity) if descriptor_quantity else None
+    candidate_parsed = _candidate_quantity(result)
+    if seed_parsed and candidate_parsed:
+        seed_amount, seed_unit = seed_parsed
+        cand_amount, cand_unit = candidate_parsed
+        seed_family = _unit_family_for_unit(seed_unit)
+        cand_family = _unit_family_for_unit(cand_unit)
+        if seed_family != cand_family:
+            extras["unit_family_ok"] = False
+            extras["vetoes"].append("unit_family")
+        else:
+            seed_val = float(seed_amount)
+            cand_val = float(cand_amount)
+            if seed_val > 0:
+                ratio = abs(cand_val - seed_val) / seed_val
+                if ratio > size_tolerance:
+                    extras["size_ok"] = False
+                    extras["vetoes"].append("size_out_of_range")
+
+    # Category check
+    if category_tokens:
+        if not any(token in normalized_blob for token in category_tokens):
+            extras["category_ok"] = False
+            extras["vetoes"].append("category")
+
+    # Baseline scoring (brand + keywords)
     score = 0
     plausible = False
     brand_match = False
-    
-    # Bonus si le nom de la marque est présent
-    brand = descriptor.get("brand", "").lower()
+    brand = (descriptor.get("brand") or "").lower()
     if brand and brand in title_lower:
         score += 10
         brand_match = True
 
-    # Bonus si la quantité est mentionnée
-    quantity = descriptor.get("quantity") or descriptor.get("seed_primary_quantity")
-    if quantity:
-        # Recherche de la quantité exacte, en normalisant les espaces
-        quantity_str = str(quantity).replace(" ", "").lower()
+    quantity_ref = descriptor.get("quantity") or descriptor.get("seed_primary_quantity")
+    if quantity_ref:
+        quantity_clean = str(quantity_ref).replace(" ", "").lower()
         title_nospace = title_lower.replace(" ", "")
-        if re.search(r"\b" + re.escape(quantity_str) + r"\b", title_nospace):
+        if quantity_clean and quantity_clean in title_nospace:
             score += 5
 
-    # Bonus pour chaque mot-clé principal trouvé dans le titre
     primary_keywords = descriptor.get("primary_keywords", [])
     keyword_match_count = 0
     for keyword in primary_keywords:
-        if keyword and keyword.lower() in title_lower:
-            score += 20  # Bonus plus important pour les mots-clés
+        if isinstance(keyword, str) and keyword and keyword.lower() in title_lower:
+            score += 20
             keyword_match_count += 1
-    
-    # Un produit est plausible s'il correspond à la marque ET à au moins un mot-clé
-    # ou s'il correspond à plusieurs mots-clés.
-    plausible = (brand_match and keyword_match_count > 0) or keyword_match_count > 1
 
-    # Pénalité si le titre contient des mots-clés bannis
+    plausible = brand_match
+    if keyword_match_count > 0:
+        plausible = True
+
     if _has_banned_keyword(title_lower):
         score -= 15
-    
-    sys.stderr.write(f"[MONOPRIX_DEBUG][SCORE] - Title: '{title}' | Brand: '{brand}' | Brand Match: {brand_match} | Keywords Matched: {keyword_match_count} | Score: {score} | Plausible: {plausible}\n")
 
-    return score, plausible
+    if extras["negatives_hit"]:
+        score -= 120
+    if not extras["variant_ok"]:
+        score -= 150
+
+    if extras["vetoes"]:
+        plausible = False
+
+    sys.stderr.write(
+        "[MONOPRIX_DEBUG][SCORE] - Title: '%s' | Brand: '%s' | Variant(seed/cand)=(%s/%s) | "
+        "Vetoes=%s | NegHits=%s | Score=%s | Plausible=%s\n"
+        % (
+            result.title,
+            brand,
+            seed_variant,
+            candidate_variant,
+            extras["vetoes"],
+            extras["negatives_hit"],
+            score,
+            plausible,
+        )
+    )
+
+    return score, plausible, extras
 
 
 async def run() -> Result:
