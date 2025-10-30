@@ -16,7 +16,14 @@ import os
 import sys
 
 from collection_mandate import get_method
-from manual_leclerc_cdp import run_manual_leclerc
+from manual_leclerc_cdp import (
+    HUMAN_DELAY_MS as DEFAULT_HUMAN_DELAY_MS,
+    RESULT_DELAY_MS as DEFAULT_RESULT_DELAY_MS,
+    PDP_DELAY_MS as DEFAULT_PDP_DELAY_MS,
+    TYPE_MIN_DELAY as DEFAULT_TYPE_MIN_DELAY,
+    TYPE_MAX_DELAY as DEFAULT_TYPE_MAX_DELAY,
+    run_manual_leclerc,
+)
 
 MANDATE = get_method("leclerc_drive")
 
@@ -33,11 +40,11 @@ async def run() -> dict:
         ean=env("EAN"),
         store_url=env("STORE_URL", "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx"),
         cdp_url=env("CDP_URL", "http://127.0.0.1:9222"),
-        human_delay_ms=int(os.environ.get("LECLERC_HUMAN_DELAY_MS", "5000")),
-        result_delay_ms=int(os.environ.get("LECLERC_RESULT_DELAY_MS", "12000")),
-        pdp_delay_ms=int(os.environ.get("LECLERC_PDP_DELAY_MS", "7000")),
-        type_min_delay=int(os.environ.get("LECLERC_TYPE_MIN_MS", "80")),
-        type_max_delay=int(os.environ.get("LECLERC_TYPE_MAX_MS", "180")),
+        human_delay_ms=int(os.environ.get("LECLERC_HUMAN_DELAY_MS", str(DEFAULT_HUMAN_DELAY_MS))),
+        result_delay_ms=int(os.environ.get("LECLERC_RESULT_DELAY_MS", str(DEFAULT_RESULT_DELAY_MS))),
+        pdp_delay_ms=int(os.environ.get("LECLERC_PDP_DELAY_MS", str(DEFAULT_PDP_DELAY_MS))),
+        type_min_delay=int(os.environ.get("LECLERC_TYPE_MIN_MS", str(DEFAULT_TYPE_MIN_DELAY))),
+        type_max_delay=int(os.environ.get("LECLERC_TYPE_MAX_MS", str(DEFAULT_TYPE_MAX_DELAY))),
     )
     if os.environ.get("LECLERC_KEEP_DEBUG", "0") not in {"1", "true", "TRUE"}:
         # Drop debug info when invoked through the fetcher

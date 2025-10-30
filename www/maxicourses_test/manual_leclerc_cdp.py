@@ -25,15 +25,16 @@ import asyncio
 import json
 import os
 import random
+import time
 import sys
 from typing import Optional, List
 
 from datetime import datetime
 from pathlib import Path
 import re
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 
-from playwright.async_api import async_playwright
+from playwright.async_api import TimeoutError as PlaywrightTimeoutError, async_playwright
 
 
 def env_int(name: str, default: int) -> int:
@@ -47,11 +48,25 @@ EAN = os.environ.get("EAN", "").strip()
 QUERY = os.environ.get("QUERY", "").strip()
 STORE_URL = os.environ.get("STORE_URL", "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx")
 CDP_URL = os.environ.get("CDP_URL", "http://127.0.0.1:9222")
-HUMAN_DELAY_MS = env_int("LECLERC_HUMAN_DELAY_MS", 5000)
-RESULT_DELAY_MS = env_int("LECLERC_RESULT_DELAY_MS", 12000)
-PDP_DELAY_MS = env_int("LECLERC_PDP_DELAY_MS", 7000)
-TYPE_MIN_DELAY = env_int("LECLERC_TYPE_MIN_MS", 80)
-TYPE_MAX_DELAY = env_int("LECLERC_TYPE_MAX_MS", 180)
+HUMAN_DELAY_MS = env_int("LECLERC_HUMAN_DELAY_MS", 300)
+RESULT_DELAY_MS = env_int("LECLERC_RESULT_DELAY_MS", 600)
+PDP_DELAY_MS = env_int("LECLERC_PDP_DELAY_MS", 400)
+TYPE_MIN_DELAY = env_int("LECLERC_TYPE_MIN_MS", 8)
+FAST_MODE = os.environ.get("LECLERC_FAST_MODE", "1").lower() in {"1", "true", "yes"}
+
+
+def _env_delay(name: str, default: int, *, minimum: int = 50) -> int:
+    value = env_int(name, default)
+    if FAST_MODE:
+        value = max(minimum, max(1, value) // 10)
+    return value
+
+
+HUMAN_DELAY_MS = _env_delay("LECLERC_HUMAN_DELAY_MS", 300 if FAST_MODE else 200, minimum=50)
+RESULT_DELAY_MS = _env_delay("LECLERC_RESULT_DELAY_MS", 600 if FAST_MODE else 300, minimum=50)
+PDP_DELAY_MS = _env_delay("LECLERC_PDP_DELAY_MS", 400 if FAST_MODE else 300, minimum=50)
+TYPE_MIN_DELAY = _env_delay("LECLERC_TYPE_MIN_MS", 8 if FAST_MODE else 8, minimum=5)
+TYPE_MAX_DELAY = _env_delay("LECLERC_TYPE_MAX_MS", 180 if FAST_MODE else 18, minimum=10)
 
 MANUAL_DESCRIPTOR: dict[str, dict] = {}
 try:
@@ -61,10 +76,24 @@ try:
 except Exception:
     MANUAL_DESCRIPTOR = {}
 
+MANUAL_DESCRIPTOR_PATH = Path(__file__).with_name("manual_descriptors.json")
+
+
+def _save_descriptor_entry(ean: str, entry: dict) -> None:
+    try:
+        data = json.loads(MANUAL_DESCRIPTOR_PATH.read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            data = {}
+    except Exception:
+        data = {}
+    data[ean] = entry
+    MANUAL_DESCRIPTOR_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    MANUAL_DESCRIPTOR[ean] = entry
+
 
 async def human_pause(page, base_ms: int) -> None:
     jitter = random.randint(-int(base_ms * 0.2), int(base_ms * 0.2))
-    await page.wait_for_timeout(max(400, base_ms + jitter))
+    await page.wait_for_timeout(max(100, base_ms + jitter))
 
 
 def _normalize(text: str) -> str:
@@ -199,17 +228,25 @@ async def run_manual_leclerc(
     ean: str,
     store_url: str,
     cdp_url: str = "http://127.0.0.1:9222",
-    human_delay_ms: int = 5000,
-    result_delay_ms: int = 12000,
-    pdp_delay_ms: int = 7000,
+    human_delay_ms: int = 500,
+    result_delay_ms: int = 1200,
+    pdp_delay_ms: int = 700,
     type_min_delay: int = 80,
     type_max_delay: int = 180,
 ) -> dict:
     """Replay a Leclerc Drive search with human pacing and return a JSON-ready dict."""
+    started = time.perf_counter()
+
     if not (query or ean):
         return {"status": "ERROR", "error": "QUERY is required"}
     if os.environ.get("USE_CDP") != "1":
         return {"status": "ERROR", "error": "SET USE_CDP=1 (Chrome remote obligatoire)"}
+
+    sys.stderr.write(
+        f"[LECLERC_DEBUG] FAST_MODE={FAST_MODE} | delays => human:{human_delay_ms}ms "
+        f"result:{result_delay_ms}ms pdp:{pdp_delay_ms}ms type:[{type_min_delay},{type_max_delay}] "
+        f"query:'{query}'\n"
+    )
 
     descriptor_entry = MANUAL_DESCRIPTOR.get(ean.strip()) if ean else None
     descriptor_tokens = _descriptor_tokens(descriptor_entry)
@@ -248,6 +285,16 @@ async def run_manual_leclerc(
             if isinstance(candidate_pack, int) and candidate_pack > 1:
                 expected_pack_count = candidate_pack
 
+    cached_pdp_url: Optional[str] = None
+    use_cached_pdp = False
+    force_search = os.environ.get("LECLERC_FORCE_SEARCH", "0").lower() in {"1", "true"}
+    if isinstance(descriptor_entry, dict):
+        candidate_url = descriptor_entry.get("leclerc_url")
+        if isinstance(candidate_url, str) and candidate_url.strip():
+            cached_pdp_url = candidate_url.strip()
+            if not force_search:
+                use_cached_pdp = True
+
     page: Optional["Page"] = None  # type: ignore[name-defined]
 
     async with async_playwright() as p:
@@ -277,6 +324,7 @@ async def run_manual_leclerc(
 
         await page.goto(store_url, wait_until="domcontentloaded")
         await human_pause(page, human_delay_ms)
+        sys.stderr.write(f"[LECLERC_DEBUG] after home human pause -> {time.perf_counter()-started:.2f}s\n")
 
         # Cookie consent (OneTrust) if visible
         try:
@@ -284,73 +332,105 @@ async def run_manual_leclerc(
             if await consent_button.count():
                 await consent_button.click()
                 await human_pause(page, 3000)
+                sys.stderr.write(f"[LECLERC_DEBUG] after consent -> {time.perf_counter()-started:.2f}s\n")
         except Exception:
             pass
 
-        search_field = page.locator("input[id*='rechercheTexte']").first
-        await search_field.click()
-        await human_pause(page, 1000)
-        await search_field.fill("")
-        await human_pause(page, 1000)
-        for ch in query:
-            await search_field.type(ch, delay=random.randint(type_min_delay, type_max_delay))
-        await human_pause(page, 1200)
-        await search_field.press("Enter")
-        await page.wait_for_load_state("networkidle")
-        await human_pause(page, result_delay_ms)
-
-        cards = page.locator("li.liWCRS310_Product")
-        card_count = await cards.count()
-        if not card_count:
-            return {"status": "NO_RESULTS", "query": query}
-
         expected_tokens = [tok.lower() for tok in query.split() if len(tok) > 2]
-        chosen_index = 0
-        chosen_label = None
+        chosen_index = -1
+        chosen_label: Optional[str] = None
         chosen_href = ""
-        chosen_score = -10_000
-        for idx in range(card_count):
-            try:
-                link = cards.nth(idx).locator("a.aWCRS310_Product").first
-                label = await link.inner_text(timeout=5000)
-                href = await link.get_attribute("href") or ""
-            except Exception:
-                continue
-            normalized_label = (label or "").lower()
-            normalized_href = (href or "").lower()
-            score = _score_card(
-                label or "",
-                href,
-                expected_tokens,
-                descriptor_tokens,
-                descriptor_numbers,
-                brand_tokens,
-                ean,
-            )
-            penalty = 0
-            if descriptor_negatives:
-                for token in descriptor_negatives:
-                    if token and (token in normalized_label or token in normalized_href):
-                        penalty += 120
-                        break
-            if expected_pack_count <= 1:
-                if re.search(r"\b\d+\s*[x×]\s*\d+", normalized_label):
-                    penalty += 90
-                if " pack" in normalized_label or normalized_label.startswith("pack "):
-                    penalty += 60
-                if re.search(r"\bx\d+\b", normalized_label):
-                    penalty += 60
-            score -= penalty
-            if score > chosen_score:
-                chosen_index = idx
-                chosen_label = label
-                chosen_href = href
-                chosen_score = score
+        card_html = ""
 
-        card_to_open = cards.nth(chosen_index)
-        async with page.expect_navigation(wait_until="domcontentloaded"):
+        if use_cached_pdp:
+            sys.stderr.write(f"[LECLERC_DEBUG] Using cached PDP URL {cached_pdp_url}\n")
+            await page.goto(cached_pdp_url, wait_until="domcontentloaded")
+            await human_pause(page, pdp_delay_ms)
+            sys.stderr.write(f"[LECLERC_DEBUG] after cached PDP -> {time.perf_counter()-started:.2f}s\n")
+        else:
+            search_field = page.locator("input[id*='rechercheTexte']").first
+            await search_field.click()
+            await human_pause(page, 1000)
+            sys.stderr.write(f"[LECLERC_DEBUG] after focus -> {time.perf_counter()-started:.2f}s\n")
+            await search_field.fill("")
+            await human_pause(page, 500)
+            for ch in query:
+                await search_field.type(ch, delay=random.randint(type_min_delay, type_max_delay))
+            await human_pause(page, 600)
+            await search_field.press("Enter")
+            await page.wait_for_load_state("domcontentloaded")
+            sys.stderr.write(f"[LECLERC_DEBUG] after search submit -> {time.perf_counter()-started:.2f}s\n")
+            await human_pause(page, result_delay_ms)
+            sys.stderr.write(f"[LECLERC_DEBUG] after result pause -> {time.perf_counter()-started:.2f}s\n")
+
+            cards = page.locator("li.liWCRS310_Product")
+            card_count = await cards.count()
+            if not card_count:
+                sys.stderr.write(f"[LECLERC_DEBUG] no cards after {time.perf_counter()-started:.2f}s\n")
+                return {"status": "NO_RESULTS", "query": query}
+
+            expected_tokens = [tok.lower() for tok in query.split() if len(tok) > 2]
+            chosen_index = 0
+            chosen_label = None
+            chosen_href = ""
+            chosen_score = -10_000
+            for idx in range(card_count):
+                try:
+                    link = cards.nth(idx).locator("a.aWCRS310_Product").first
+                    label = await link.inner_text(timeout=5000)
+                    href = await link.get_attribute("href") or ""
+                except Exception:
+                    continue
+                normalized_label = (label or "").lower()
+                normalized_href = (href or "").lower()
+                score = _score_card(
+                    label or "",
+                    href,
+                    expected_tokens,
+                    descriptor_tokens,
+                    descriptor_numbers,
+                    brand_tokens,
+                    ean,
+                )
+                penalty = 0
+                if descriptor_negatives:
+                    for token in descriptor_negatives:
+                        if token and (token in normalized_label or token in normalized_href):
+                            penalty += 120
+                            break
+                if expected_pack_count <= 1:
+                    if re.search(r"\b\d+\s*[x×]\s*\d+", normalized_label):
+                        penalty += 90
+                    if " pack" in normalized_label or normalized_label.startswith("pack "):
+                        penalty += 60
+                    if re.search(r"\bx\d+\b", normalized_label):
+                        penalty += 60
+                score -= penalty
+                if score > chosen_score:
+                    chosen_index = idx
+                    chosen_label = label
+                    chosen_href = href
+                    chosen_score = score
+
+            card_html = await cards.nth(chosen_index).inner_html()
+            sys.stderr.write(f"[LECLERC_DEBUG] chosen href='{chosen_href}' label='{chosen_label}'\n")
+            sys.stderr.write(f"[LECLERC_DEBUG] card html snippet:\n{card_html[:500]}...\n")
+
+            card_to_open = cards.nth(chosen_index)
             await card_to_open.locator("a.aWCRS310_Product").first.click()
-        await human_pause(page, pdp_delay_ms)
+            try:
+                await page.wait_for_url("**/fiche-produits-*.aspx", timeout=6000)
+            except PlaywrightTimeoutError:
+                if chosen_href:
+                    pdp_url = urljoin(store_url, chosen_href)
+                    sys.stderr.write(
+                        f"[LECLERC_DEBUG] wait_for_url timeout; navigating to fallback {pdp_url}\n"
+                    )
+                    await page.goto(pdp_url, wait_until="domcontentloaded")
+                else:
+                    sys.stderr.write("[LECLERC_DEBUG] wait_for_url timeout and no chosen href\n")
+            sys.stderr.write(f"[LECLERC_DEBUG] after PDP navigation -> {time.perf_counter()-started:.2f}s\n")
+            await human_pause(page, pdp_delay_ms)
 
         title = await page.locator("h1").first.text_content()
         title = title.strip() if title else None
@@ -446,6 +526,12 @@ async def run_manual_leclerc(
         if not quantity and isinstance(descriptor_entry, dict):
             quantity = descriptor_entry.get('quantity') or quantity
 
+        if status == "OK" and ean:
+            updated_entry = dict(descriptor_entry or {})
+            updated_entry.setdefault("ean", ean)
+            updated_entry["leclerc_url"] = page.url
+            _save_descriptor_entry(ean, updated_entry)
+
         return {
             "status": status,
             "title": title,
@@ -461,6 +547,7 @@ async def run_manual_leclerc(
                 "chosen_label": chosen_label,
                 "chosen_href": chosen_href,
                 "tokens": expected_tokens,
+                "elapsed_seconds": round(time.perf_counter()-started, 2),
             },
         }
 
