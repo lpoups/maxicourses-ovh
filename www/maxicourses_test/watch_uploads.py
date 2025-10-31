@@ -18,6 +18,7 @@ UPLOAD_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.webp', '.bmp', '.tiff'}
 DEFAULT_ADAPTERS = [
     'carrefour_city',
     'carrefour_market',
+    'carrefour_super',
     'auchan',
     'chronodrive',
     'leclerc',

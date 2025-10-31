@@ -5,7 +5,7 @@ Objectif : sécuriser l'extraction des prix pack + prix unitaire + descriptif po
 ## Carrefour
 - Utiliser `fetch_carrefour_price.py` avec un EAN (`STORE_QUERY=Bordeaux City` par défaut).
 - Home local: https://www.carrefour.fr/courses (chargée avant la recherche pour fixer la zone).
-- Variantes: `carrefour_city` (Bordeaux City) et `carrefour_market` (Bordeaux Market) via le pipeline; bascule magasin pilotée par `STORE_QUERY` + CDP `state/carrefour*.json`.
+- Variantes: `carrefour_city` (Bordeaux City), `carrefour_market` (Bordeaux Fondaudège) et `carrefour_super` (Lormont) via le pipeline; bascule magasin pilotée par `STORE_QUERY` + CDP `state/carrefour*.json`.
 - Étapes manuelles à reproduire : page recherche → premier résultat → sélection magasin (City/Market/Drive) → vérifier prix affiché + bloc €/L.
 - Si Cloudflare bloque (`status=CF_BLOCK`), relancer via proxy/ngrok ou `HEADLESS=0` pour observer le flux et ajuster les clics (cookies, magasin).
 - Validation : confirmer que `store` est renseigné (ex. "Carrefour City Bordeaux Pessac") et que `price` contient le pack.

@@ -50,6 +50,7 @@ Avant toute action :
 - Pour enrichir descriptif/Nutri-score/Eco-score, exploiter fr.openfoodfacts.org (version FR) sans remplacer les visuels issus des enseignes.
 - Transparence obligatoire : signaler immédiatement toute difficulté ou retard à Laurent.
 - Dès qu’un composant long-lived est modifié (API Flask `server.py`, pipeline, fetchers…), **tu stoppes et relances toi-même** les services concernés (kill process + redémarrage) avant de rendre la main ; ne jamais repousser cette étape sur Laurent.
+- **Gel fetchers existants** : ne **modifie JAMAIS** les scripts `fetch_*.py` suivants (ni leurs modules auxiliaires) sans ordre explicite de Laurent : Carrefour Market, Carrefour City, Auchan, Chronodrive, CourseU, Intermarché, Leclerc, Monoprix. Toute évolution doit se limiter à `fetch_carrefour_price_super.py` tant que Laurent n’a pas levé ce gel.
 - Démarrer Chrome via `./start_chrome_debug.sh`, travailler avec `USE_CDP=1`; basculer `HEADLESS=0` uniquement pour les vérifications humaines.
 - Recherche seed : Carrefour Market → Carrefour City → Auchan → Chronodrive → Intermarché → Monoprix → Leclerc (les quatre premiers en EAN brut, Intermarché/Monoprix/Leclerc exploitent le descriptif enrichi). Arrêter si aucune enseigne seed ne retourne le produit.
 - Pour Carrefour City/Market, Auchan et Chronodrive : la requête doit être l’EAN brut. Les wrappers City/Market injectent `FRONTAL_STORE` (`800041` / `1911`) pour verrouiller le drive ; adapter la valeur si un autre magasin est requis.
@@ -297,7 +298,7 @@ Avant toute action :
   - Pour les enseignes seed (City/Market/Auchan/Chronodrive), on ne lance la passe descriptive IA que si la recherche EAN n’a pas donné de fiche (statuts `NO_RESULTS`/`NO_PRICE`). Si le produit est trouvé dès l’EAN, on conserve ce résultat sans seconde recherche.
 - Pistes de code :
   - `maxicourses_test/pipeline/run_pipeline.py`
-    1. Agréger tous les payloads seed (`carrefour_city`, `carrefour_market`, `auchan`, `chronodrive`) puis appeler `summarize_product_seed` juste après leur réussite.
+    1. Agréger tous les payloads seed (`carrefour_city`, `carrefour_market`, `carrefour_super`, `auchan`, `chronodrive`) puis appeler `summarize_product_seed` juste après leur réussite.
     2. Ajouter un helper `store_ai_canonical_descriptor(descriptor, ai_profile)` qui écrit les champs `ai_profile`, `ai_keywords`, `ai_profile_generated_at_eur`, `canonical_descriptor` dans `manual_descriptors.json`.
     3. Propager `canonical_descriptor` dans `descriptor['leclerc_ai_queries']`, `descriptor['intermarche_ai_queries']` et `descriptor['seed_ai_queries']` (pour City/Market/Auchan/Chronodrive). Lors de la boucle des fetchers, n’exécuter ces requêtes IA que pour les enseignes ayant échoué en EAN.
   - `maxicourses_test/ai_helpers.py`
@@ -379,3 +380,8 @@ Avant toute action :
   - Si un fetch retourne `matched_ean` différent de l’EAN seed, le statut bascule sur `EQUIVALENT` avec note explicite « Produit différent (EAN divergent) ».
   - Pour Leclerc : en absence de match exact, appel automatique à `suggest_equivalent` (fichiers de log `10/11/12`) afin de proposer un substitut cohérent et remplir `difference_note`.
 - Impact front : le badge « produit différent » reste alimenté par `payload['equivalent']=true` + `difference_note` (inchangé côté `index2.html`).
+
+## Mise à jour 2025-10-31T21:15 (Europe/Paris) – GPT (Codex CLI)
+- Statut Carrefour Super : wrapper créé (`fetch_carrefour_price_super.py`) et intégré au pipeline/front. **À faire** : rejouer un parcours humain (Chrome 9222) pour sélectionner le drive « Lormont, Gironde, France » et regénérer `state/carrefour_super.json` (capturer `displayableUrlId`, `facilityServiceId`, `FRONTAL_STORE`). Aucun label « Lormont Super » n’existe dans l’UI, c’est normal.
+- Gel strict des fetchers historiques (Market, City, Auchan, Chronodrive, CourseU, Intermarché, Leclerc, Monoprix) : n’apporte aucune modification sans instruction claire de Laurent ; concentre-toi sur Carrefour Super et la documentation.
+- Avant toute prise en main, relis les fichiers listés dans la section « Lecture obligatoire (ordre strict) » ; c’est l’ordre à suivre pour le prochain GPT, ne le change pas.

@@ -5,6 +5,10 @@
 - Assurer une traçabilité claire des relevés (Chrome remote, captures si besoin) pour préparer le comparateur de prix intelligent.
 - Capitaliser l'historique (décisions, obstacles, artefacts) afin que tout nouvel assistant reprenne le travail sans perte d'information.
 
+## Garde-fous immédiats
+- **Gel fetchers existants** : ne toucher sous aucun prétexte aux scripts `fetch_carrefour_price_market.py`, `fetch_carrefour_price_city.py`, `fetch_auchan_price.py`, `fetch_chronodrive_price.py`, `fetch_courseu_price.py`, `fetch_intermarche_price.py`, `fetch_leclerc_drive_price.py`, `fetch_monoprix_price.py` (ni à leurs helpers) tant que Laurent n’a pas validé une modification. Les travaux en cours ne concernent que `fetch_carrefour_price_super.py` et sa configuration.
+- Les requêtes humaines doivent conserver des espaces (`"coca cola 1,75 l"`) ; bannir les `+` quels que soient les magasins.
+
 ## Dernière itération (2025-10-30)
 - **Fait** : Leclerc Drive sélectionne désormais la bouteille unitaire Orangina 1,5 L. Correctifs appliqués : normalisation du descripteur (brand/queries → « Orangina 1.5L »), filtrage des tokens quantité dans `run_pipeline.py`, et pénalités anti-pack dans `manual_leclerc_cdp.py`. Run de validation : `results/run-3124480200433-20251030-115344.json` (`matched_ean=3124480200433`).
 - **Fait** : Monoprix verrouillé via variant lock + négatifs dynamiques. Implémentation : `fetch_monoprix_price.py` évalue désormais la variante détectée, la famille d’unité et la taille (tolérance ±25 %), et rejette les cartes contenant des variantes négatives. Les requêtes Monoprix sortent en « marque + variant/volume » via `query_builder.py`. Run de validation : `results/run-3124480200433-20251030-122923.json` (`status=OK`, prix 2,45 €).
@@ -14,6 +18,8 @@
 - **Problème Chronodrive (règle « pas de + »)** : rappeler que toutes les chaînes passées aux scripts doivent remplacer `+` par un espace simple avant frappe. Le pipeline actuel envoie encore des requêtes `coca+cola+1,75l` quand le descripteur provient d’une source legacy. Le nettoyage doit être doublé : côté `query_builder` (génération IA) et côté fetchers (`_normalize_term_for_typing` / `normalize_search_term`).
 - **Auchan / CourseU (2025-10-31)** : même contexte anti-bot, la page résultats ne se charge pas quand on détecte un `TargetClosedError`. À investiguer après Chronodrive : vérifier qu’on clique bien sur la suggestion #1 avant d’ouvrir la PDP, sinon forcer la requête API catalogue comme sur Leclerc. Garder l’EAN `5000112611861` comme smoke test.
 - **Correctif Chronodrive déployé (2025-10-30 soir)** : `fetch_chronodrive_price.py` contourne désormais l’overlay capricieux en interrogeant l’API suggestions (`/v1/search-suggestions`) puis l’API produit (`/v1/products/{id}`) avec les en-têtes `x-chronodrive-site-id=1006`. On sélectionne le meilleur candidat via l’EAN + tokens, on résout la `canonicalUrl` et on ouvre la PDP Playwright (<2 s). Les anciens fallback UI restent présents mais ne devraient plus se déclencher.
+- **Nouveau scope Carrefour Super Lormont (2025-10-31)** : le wrapper `fetch_carrefour_price_super.py` reproduit la stratégie City/Market avec `STORE_QUERY="Super Lormont"`. Le pipeline connaît désormais l’adaptateur `carrefour_super` (logo Carrefour + label « Super ») et le point GPS (lat 44.867007, lon -0.516348). Seed en EAN brut obligatoire, aucune régression tolérée sur City/Market.
+- **À faire Carrefour Super** : l’état CDP actuel (`state/carrefour_super.json`) contient encore `FRONTAL_STORE=116` (Market Fondaudège). Il faut **rejouer un parcours humain** (ouvrir Chrome 9222, clic « Drive » → « Changer de drive » → rechercher « Lormont ») et sélectionner la fiche **« Lormont, Gironde, France »** (le site n’affiche pas « Lormont Super »). Enregistrer la trace/ID comme pour City/Market et relever `displayableUrlId`, `facilityServiceId`, `FRONTAL_STORE` avant de relancer des collectes.
 - **À faire** : propager ces règles à d’autres seeds (vérifier desserts végétaux), archiver les captures Monoprix/Leclerc dans `results/debug/` et mettre à jour la page comparateur (rafraîchir `results/test-3124480200433/latest.json` déjà régénéré, contrôler le rendu web).
 
 ## Règles Incontournables
@@ -37,6 +43,7 @@
     - Si l’overlay n’est pas fermé, le fetcher bascule sur une page promo (ex. lessive Skip) : on obtient `status="NO_PRICE"` et un `matched_ean` incorrect. Toujours valider la recherche manuelle (EAN Destop → fiche Destop) juste avant de sauvegarder la state.
     - Dès qu’un fetch Course U aboutit, le script mémorise automatiquement l’URL de la fiche (`courseu_url` / `courseu_slug` dans `manual_descriptors.json`) et réutilise cette PDP lors des runs suivants pour éviter Cloudflare. Vérifier que cette URL reste valable et ne pas la supprimer.
     - Si Cloudflare revient malgré tout après plusieurs collects, repartir d’un profil vierge : fermer Chrome 9222, sauvegarder/renommer `maxicourses_test/.chrome-debug`, relancer `./start_chrome_debug.sh`, repasser le challenge puis resauvegarder `state/courseu.json`.
+13. **Gel de maintenance des fetchers** : ne toucher **en aucun cas** aux scripts Carrefour City/Market/Super (`fetch_carrefour_price*.py`), Auchan, Chronodrive, Course U, Intermarché, Leclerc Drive ou Monoprix (et à leurs wrappers) sans instruction explicite de Laurent. Toute mise à jour non commandée est interdite.
 
 ## Arborescence Clés
 - `maxicourses_test/` : scripts de relevés Playwright (`fetch_*_price.py`), utilitaires, états.

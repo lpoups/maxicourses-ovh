@@ -425,6 +425,12 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
             "CARREFOUR_STATE_VARIANT": os.getenv("CARREFOUR_MARKET_STATE", "carrefour_market"),
         },
     },
+    "carrefour_super": {
+        "script": ROOT_DIR / "fetch_carrefour_price_super.py",
+        "env": lambda: {
+            "CARREFOUR_STATE_VARIANT": os.getenv("CARREFOUR_SUPER_STATE", "carrefour_super"),
+        },
+    },
     "leclerc": {
         "script": ROOT_DIR / "fetch_leclerc_drive_price.py",
         "env": lambda: {
@@ -476,6 +482,7 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
 EAN_ONLY_ADAPTERS = {
     "carrefour_city",
     "carrefour_market",
+    "carrefour_super",
     "auchan",
     "chronodrive",
     "courseu",
@@ -484,6 +491,7 @@ EAN_ONLY_ADAPTERS = {
 DEFAULT_ADAPTER_ORDER = [
     "carrefour_city",
     "carrefour_market",
+    "carrefour_super",
     "auchan",
     "chronodrive",
     "courseu",
@@ -864,7 +872,7 @@ def ensure_descriptor_via_seed(
     seed_results: Dict[str, RawAdapterResult] = {}
     descriptor_current = dict(descriptor or {"ean": ean})
 
-    seed_order = ["carrefour_city", "carrefour_market", "auchan", "chronodrive", "courseu"]
+    seed_order = ["carrefour_city", "carrefour_market", "carrefour_super", "auchan", "chronodrive", "courseu"]
 
     for adapter in seed_order:
         if adapter not in adapters:
@@ -884,7 +892,7 @@ def ensure_descriptor_via_seed(
         if res.status == "OK" and isinstance(res.payload, dict):
             updates = descriptor_from_payload(ean, adapter, res.payload)
             descriptor_current = merge_descriptor(descriptor_current, updates)
-            if adapter in {"carrefour_city", "carrefour_market"}:
+            if adapter in {"carrefour_city", "carrefour_market", "carrefour_super"}:
                 if updates.get("name") and not descriptor_current.get("seed_primary_name"):
                     descriptor_current["seed_primary_name"] = updates.get("name")
                 if updates.get("quantity") and not descriptor_current.get("seed_primary_quantity"):

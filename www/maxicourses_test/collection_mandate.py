@@ -118,6 +118,31 @@ METHODS: Dict[str, MethodSpec] = {
             "Ne jamais mélanger les traces : un fichier par enseigne.",
         ),
     ),
+    "carrefour_super": MethodSpec(
+        key="carrefour_super",
+        enseigne="Carrefour Super Lormont",
+        script="fetch_carrefour_price_super.py",
+        summary=(
+            "Identique au workflow City/Market mais ciblant le point de vente Super Lormont."
+            " Sélectionne le magasin via le sélecteur CDP puis rejoue l'extraction Playwright."
+        ),
+        store_hint="Super Lormont",
+        trace_files=(),
+        steps=(
+            "Démarrer Chrome remote (`start_chrome_debug.sh`) puis vérifier le port 9222.",
+            "Lancer le wrapper Super (trace live) qui force le sélecteur de magasin sur Lormont.",
+            "Passer la requête EAN (Carrefour Super accepte l'EAN brut) jusqu’à la fiche produit.",
+            "Contrôler que le JSON final contient bien 'Carrefour Super' dans le champ store.",
+        ),
+        outputs=(
+            "results/test-<EAN>/latest.json",
+            "results/test-<EAN>/summary.json",
+        ),
+        notes=(
+            "Même rythme 'humanisé' que City/Market ; n'intervertir aucune trace existante.",
+            "Slug magasin attendu : carrefour-super-lormont (Drive Carrefour Super Lormont).",
+        ),
+    ),
     "auchan": MethodSpec(
         key="auchan",
         enseigne="Auchan Mériadeck",

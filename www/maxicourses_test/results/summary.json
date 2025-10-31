@@ -16,8 +16,8 @@
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-10-31T08:24:46.414701",
-      "duration_seconds": 23.57137,
+      "updated_at": "2025-10-31T10:09:48.006762",
+      "duration_seconds": 20.109648,
       "error": null,
       "store_query": null
     },
@@ -37,8 +37,8 @@
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-10-31T08:24:46.414701",
-      "duration_seconds": 20.253845,
+      "updated_at": "2025-10-31T10:09:48.006762",
+      "duration_seconds": 18.103205,
       "error": null,
       "store_query": null
     },
@@ -161,6 +161,27 @@
       },
       "updated_at": "2025-10-31T08:24:46.414701",
       "duration_seconds": 7.160206,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_super": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,49",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/soda-a-l-orange-et-sa-pulpe-orangina-3124480200433",
+        "note": "store_mismatch current=Market Fondaudège expected=Super Lormont",
+        "unit_price": "1,66 € / L",
+        "quantity": "1,5 L",
+        "title": "Soda à l'Orange et sa Pulpe ORANGINA",
+        "matched_ean": "3124480200433",
+        "image": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03 124480200433_C1N1_s04.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-31T10:09:48.006762",
+      "duration_seconds": 53.062689,
       "error": null,
       "store_query": null
     }

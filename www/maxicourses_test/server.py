@@ -517,6 +517,7 @@ def api_collect():
         adapters = [
             "carrefour_city",
             "carrefour_market",
+            "carrefour_super",
             "auchan",
             "chronodrive",
             "courseu",
