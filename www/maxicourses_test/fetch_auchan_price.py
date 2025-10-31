@@ -76,6 +76,14 @@ def _extract_store_id(url: typing.Optional[str]) -> typing.Optional[str]:
     return None
 
 
+def _normalize_search_term(term: typing.Optional[str]) -> str:
+    if not isinstance(term, str):
+        return ""
+    cleaned = term.replace("+", " ")
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    return cleaned
+
+
 DEFAULT_STORE_URL = None
 if DESCRIPTOR_ENTRY:
     DEFAULT_STORE_URL = _normalize_url(DESCRIPTOR_ENTRY.get("auchan_store_url"))
@@ -504,7 +512,18 @@ async def _extract_from_pdp(page) -> typing.Optional[Result]:
 
 
 async def run_via_playwright() -> typing.Optional[Result]:
-    search_terms = [t for t in [QUERY, EAN] if t]
+    raw_terms = [QUERY, EAN]
+    search_terms: list[str] = []
+    seen_terms: set[str] = set()
+    for candidate in raw_terms:
+        normalized = _normalize_search_term(candidate)
+        if not normalized:
+            continue
+        key = normalized.lower()
+        if key in seen_terms:
+            continue
+        seen_terms.add(key)
+        search_terms.append(normalized)
     if not search_terms:
         return Result(status="NO_QUERY")
 
@@ -555,9 +574,9 @@ async def run_via_playwright() -> typing.Optional[Result]:
             try:
                 await search_input.click()
                 await search_input.fill('')
-                await page.wait_for_timeout(200)
-                await search_input.type(term, delay=80)
-                await page.wait_for_timeout(100)
+                await page.wait_for_timeout(120)
+                await search_input.type(term, delay=70)
+                await page.wait_for_timeout(80)
                 search_btn = page.locator("form#search button[type='submit']").first
                 if await search_btn.count():
                     await search_btn.click()
@@ -570,7 +589,7 @@ async def run_via_playwright() -> typing.Optional[Result]:
                 await page.wait_for_load_state('domcontentloaded')
             except PlaywrightTimeout:
                 pass
-            await page.wait_for_timeout(3000)
+            await page.wait_for_timeout(1500)
 
             # iterate results
             try:
@@ -590,7 +609,7 @@ async def run_via_playwright() -> typing.Optional[Result]:
                 href = _with_store_slug(href)
                 try:
                     await page.goto(href, wait_until='domcontentloaded')
-                    await page.wait_for_timeout(3000)
+                    await page.wait_for_timeout(1400)
                 except Exception:
                     continue
 

@@ -5,6 +5,7 @@ import json
 import os
 import re
 import sys
+import random
 from dataclasses import dataclass
 import typing
 from pathlib import Path
@@ -27,6 +28,13 @@ MANDATE = get_method("chronodrive")
 DEFAULT_STORE_URL = "https://www.chronodrive.com/magasin/le-haillan-422"
 STORE_URL = os.environ.get("STORE_URL") or DEFAULT_STORE_URL
 
+CHRONO_SEARCH_API = "https://api.chronodrive.com/v1/search-suggestions"
+CHRONO_PRODUCT_API = "https://api.chronodrive.com/v1/products/{product_id}"
+CHRONO_API_SEARCH_KEY = "49a29e90-6842-4b90-8d09-07222f40b3ed"
+CHRONO_API_PRODUCT_KEY = "34bfe4e1-82d1-458a-9a51-61198fff84b3"
+CHRONO_SITE_ID = "1006"
+CHRONO_SITE_MODE = "DRIVE"
+CHRONO_DEVICE_TYPE = "WEB"
 
 MANUAL_DESCRIPTOR: dict[str, typing.Any] = {}
 try:
@@ -130,7 +138,7 @@ async def accept_cookies(page) -> None:
             btn = page.locator(sel).first
             if await btn.count():
                 await btn.click()
-                await page.wait_for_timeout(600)
+                await page.wait_for_timeout(1800)
                 break
         except Exception:
             continue
@@ -177,6 +185,327 @@ async def ensure_store_selected(page) -> None:
                 await page.wait_for_timeout(800)
     except Exception:
         pass
+
+
+def _normalize_term_for_typing(term: str) -> str:
+    term = term.replace('+', ' ').strip()
+    term = re.sub(r"\s+", " ", term)
+    return term
+
+
+async def _type_search_query(page, term: str, submit: bool = True) -> bool:
+    typed = _normalize_term_for_typing(term)
+    if not typed:
+        return False
+    toggle_selectors = [
+        "div[role='search'] button",
+        "button[data-automation='search-toggle']",
+        "button[aria-label*='Rechercher']",
+    ]
+    for sel in toggle_selectors:
+        btn = page.locator(sel).first
+        try:
+            if await btn.count():
+                try:
+                    await btn.click()
+                except Exception:
+                    try:
+                        await btn.click(force=True)
+                    except Exception:
+                        try:
+                            await btn.evaluate("el => el.click()")
+                        except Exception:
+                            continue
+                await page.wait_for_timeout(260)
+                break
+        except Exception:
+            continue
+    selectors = [
+        "input#search-input",
+        "input[name='search']",
+        "input[type='search']",
+        "input[data-automation='search-input']",
+        "form[role='search'] input",
+        "input[placeholder*='Je cherche']",
+    ]
+    target = None
+    for sel in selectors:
+        loc = page.locator(sel).first
+        try:
+            if await loc.count():
+                target = loc
+                break
+        except Exception:
+            continue
+    if target is None:
+        # force-open the header search if the DOM toggle failed
+        try:
+            await page.evaluate(
+                "(() => { const root = document.querySelector('div.search');"
+                " if (root) { root.classList.add('is-open'); }"
+                " const form = document.querySelector('form.header-search');"
+                " if (form) { form.classList.add('is-open'); } })()"
+            )
+        except Exception:
+            pass
+        target = page.locator("form.header-search input").first
+        try:
+            if target and await target.count():
+                await target.evaluate(
+                    "el => { el.style.opacity = '1'; el.style.maxWidth = '100%'; }"
+                )
+        except Exception:
+            pass
+        if target is None or not await target.count():
+            return False
+    try:
+        try:
+            await target.click()
+        except Exception:
+            await target.click(force=True)
+        await target.fill("")
+    except Exception:
+        return False
+    try:
+        await page.evaluate(
+            "(() => { const root = document.querySelector('div.search');"
+            " if (root) { root.classList.add('is-open'); }"
+            " const form = document.querySelector('form.header-search');"
+            " if (form) { form.classList.add('is-open'); form.classList.add('-active'); } })()"
+        )
+    except Exception:
+        pass
+    for ch in typed:
+        try:
+            await target.type(ch, delay=random.randint(35, 75))
+        except Exception:
+            return False
+    await page.wait_for_timeout(random.randint(200, 350))
+    if not submit:
+        return True
+    submit_selectors = [
+        "form[role='search'] button[type='submit']",
+        "form[role='search'] .cta.-icon-only",
+        "button[data-automation='search-submit']",
+    ]
+    pressed = False
+    try:
+        await target.press("Enter")
+        pressed = True
+    except Exception:
+        pressed = False
+    if not pressed:
+        for sel in submit_selectors:
+            btn = page.locator(sel).first
+            try:
+                if await btn.count():
+                    await btn.click()
+                    pressed = True
+                    break
+            except Exception:
+                continue
+    if not pressed:
+        return False
+    return True
+
+
+async def _click_best_suggestion(page, term_tokens: list[str], descriptor_tokens: list[str]) -> bool:
+    links = page.locator("#site-search a")
+    count = 0
+    for _ in range(8):
+        try:
+            count = await links.count()
+        except Exception:
+            count = 0
+        if count:
+            break
+        await page.wait_for_timeout(350)
+    if not count:
+        try:
+            html = await page.evaluate("() => document.querySelector('#site-search')?.innerHTML || ''")
+            Path('chronodrive_suggestion_debug.html').write_text(html, encoding='utf-8')
+        except Exception:
+            pass
+        sys.stderr.write("[CHRONO_DEBUG] suggestions-timeout\n")
+        return False
+    sys.stderr.write(f"[CHRONO_DEBUG] suggestions={count}\n")
+    GENERIC_TOKENS = {"boisson", "gazeuse", "ajouter", "panier", "frais"}
+    best_idx = None
+    best_score = -999
+    for idx in range(count):
+        link = links.nth(idx)
+        try:
+            href = await link.get_attribute("href") or ""
+        except Exception:
+            href = ""
+        if not href or href.startswith("/search"):
+            continue
+        text = ""
+        try:
+            text = await link.inner_text(timeout=800)
+        except Exception:
+            text = ""
+        haystack = f"{href} {text}".lower()
+        score = 0
+        if EAN and EAN in haystack:
+            score += 200
+        for tok in term_tokens:
+            if tok and tok not in GENERIC_TOKENS and tok in haystack:
+                score += 8
+        for tok in descriptor_tokens:
+            if tok and tok not in GENERIC_TOKENS and tok in haystack:
+                score += 4
+        if "original" in haystack:
+            score += 6
+        if "zero" in haystack or "sans sucre" in haystack:
+            score -= 50
+        if best_idx is None or score > best_score:
+            best_idx = idx
+            best_score = score
+    if best_idx is None:
+        return False
+    sys.stderr.write(f"[CHRONO_DEBUG] suggestion_choice idx={best_idx} score={best_score}\n")
+    try:
+        await links.nth(best_idx).click()
+    except Exception:
+        try:
+            await links.nth(best_idx).click(force=True)
+        except Exception:
+            return False
+    try:
+        await page.wait_for_load_state("domcontentloaded")
+    except PlaywrightTimeout:
+        pass
+    await page.wait_for_timeout(900)
+    return True
+
+
+async def _submit_search(page) -> bool:
+    try:
+        await page.keyboard.press("Enter")
+        return True
+    except Exception:
+        pass
+    submit_selectors = [
+        "form[role='search'] button[type='submit']",
+        "form[role='search'] .cta.-icon-only",
+        "button[data-automation='search-submit']",
+    ]
+    for sel in submit_selectors:
+        btn = page.locator(sel).first
+        try:
+            if await btn.count():
+                await btn.click()
+                return True
+        except Exception:
+            continue
+    return False
+
+
+def _product_score(product: dict, term_tokens: list[str], descriptor_tokens: list[str], negatives: set[str]) -> int:
+    score = 0
+    eans = product.get("eans") or []
+    labels = product.get("labels") or {}
+    haystack_parts = [
+        " ".join(eans),
+        labels.get("productLabel", ""),
+        labels.get("brandLabel", ""),
+        labels.get("brandLineLabel", ""),
+        labels.get("ticketLabel", ""),
+    ]
+    haystack = " ".join(haystack_parts).lower()
+    if EAN and any(EAN in ean for ean in eans):
+        score += 500
+    for tok in term_tokens:
+        if tok and tok in haystack:
+            score += 15
+    for tok in descriptor_tokens:
+        if tok and tok in haystack:
+            score += 8
+    for neg in negatives:
+        if neg and neg in haystack:
+            score -= 120
+    if "zero" in haystack or "sans sucre" in haystack:
+        score -= 200
+    return score
+
+
+async def _resolve_product_url_via_api(page, typed_term: str, term_tokens: list[str], descriptor_tokens: list[str], negatives: set[str]) -> typing.Optional[str]:
+    try:
+        response = await page.request.get(
+            CHRONO_SEARCH_API,
+            params={"searchTerm": typed_term},
+            headers=_search_headers(),
+        )
+    except Exception as exc:
+        sys.stderr.write(f"[CHRONO_DEBUG] api_search_error={exc}\n")
+        return None
+    if response.status != 200:
+        sys.stderr.write(f"[CHRONO_DEBUG] api_search_status={response.status}\n")
+        return None
+    try:
+        payload = await response.json()
+    except Exception:
+        return None
+    products = payload.get("products") or []
+    if not products:
+        return None
+    best_product = None
+    best_score = -9999
+    for product in products:
+        if not isinstance(product, dict):
+            continue
+        score = _product_score(product, term_tokens, descriptor_tokens, negatives)
+        if best_product is None or score > best_score:
+            best_product = product
+            best_score = score
+    if not best_product:
+        return None
+    product_id = best_product.get("id")
+    if not product_id:
+        return None
+    try:
+        detail_resp = await page.request.get(
+            CHRONO_PRODUCT_API.format(product_id=product_id),
+            headers=_product_headers(),
+        )
+    except Exception as exc:
+        sys.stderr.write(f"[CHRONO_DEBUG] api_product_error={exc}\n")
+        return None
+    if detail_resp.status != 200:
+        sys.stderr.write(f"[CHRONO_DEBUG] api_product_status={detail_resp.status}\n")
+        return None
+    try:
+        detail = await detail_resp.json()
+    except Exception:
+        return None
+    seo = detail.get("seo") or {}
+    canonical = seo.get("canonicalUrl")
+    if not canonical:
+        return None
+    if not canonical.startswith("http"):
+        canonical = f"https://www.chronodrive.com{canonical}"
+    return canonical
+
+
+def _search_headers() -> dict[str, str]:
+    return {
+        "x-api-key": CHRONO_API_SEARCH_KEY,
+        "x-chronodrive-site-id": CHRONO_SITE_ID,
+        "x-device-type": CHRONO_DEVICE_TYPE,
+        "x-chronodrive-site-mode": CHRONO_SITE_MODE,
+        "referer": "https://www.chronodrive.com/",
+    }
+
+
+def _product_headers() -> dict[str, str]:
+    return {
+        "x-api-key": CHRONO_API_PRODUCT_KEY,
+        "x-chronodrive-site-id": CHRONO_SITE_ID,
+        "x-device-type": CHRONO_DEVICE_TYPE,
+        "x-chronodrive-site-mode": CHRONO_SITE_MODE,
+        "referer": "https://www.chronodrive.com/",
+    }
 
 
 async def extract_price_from_page(page) -> tuple[
@@ -357,31 +686,143 @@ async def run() -> Result:
                 if isinstance(extra, str):
                     descriptor_tokens.extend(re.split(r"[^a-z0-9]+", extra.lower()))
     descriptor_tokens = sorted(set(tok for tok in descriptor_tokens if len(tok) >= 3))
+    descriptor_negatives: set[str] = set()
+    if isinstance(descriptor_entry, dict):
+        neg_map = descriptor_entry.get("negatives")
+        if isinstance(neg_map, dict):
+            for values in neg_map.values():
+                if isinstance(values, (list, tuple)):
+                    for item in values:
+                        if isinstance(item, str):
+                            descriptor_negatives.add(item.lower())
+    descriptor_negatives.update({"zero", "sans sucre", "light", "zéro", "sugar free"})
 
     # Visit a store to set location if provided
     await ensure_store_selected(page)
+    try:
+        store_debug = await extract_store_label(page)
+        if store_debug:
+            sys.stderr.write(f"[CHRONO_DEBUG] store_label='{store_debug}'\n")
+    except Exception:
+        pass
 
-    search_base = "https://www.chronodrive.com/search/{}"
+    store_search_base = None
+    if STORE_URL:
+        store_search_base = STORE_URL.rstrip('/') + "/recherche?text={}"
+    search_base = store_search_base or "https://www.chronodrive.com/recherche?text={}"
 
     for term in terms:
-        encoded_term = quote(term, safe="")
-        search_url = search_base.format(encoded_term)
+        typed_term = _normalize_term_for_typing(term)
+        sys.stderr.write(f"[CHRONO_DEBUG] term='{typed_term}'\n")
+        term_tokens = [t for t in re.split(r"[^a-z0-9]+", typed_term.lower()) if t]
+        api_url = await _resolve_product_url_via_api(page, typed_term, term_tokens, descriptor_tokens, descriptor_negatives)
+        if api_url:
+            sys.stderr.write(f"[CHRONO_DEBUG] api_url={api_url}\n")
+            try:
+                await page.goto(api_url, wait_until='domcontentloaded')
+            except PlaywrightTimeout:
+                continue
+            await accept_cookies(page)
+            await page.wait_for_timeout(1000)
+            title, price, unit_price, quantity, matched_ean = await extract_price_from_page(page)
+            store_label = await extract_store_label(page) or 'Chronodrive Le Haillan'
+            if matched_ean is None and EAN and EAN in (page.url or ''):
+                matched_ean = EAN
+            if price:
+                await browser.close(); await p.stop()
+                return Result(
+                    status='OK',
+                    price=price,
+                    title=title,
+                    url=page.url,
+                    note=store_label,
+                    unit_price=unit_price,
+                    quantity=quantity,
+                    store=store_label,
+                    matched_ean=matched_ean,
+                )
+            continue
 
         try:
-            await page.goto(search_url, wait_until='domcontentloaded')
+            await page.goto(STORE_URL, wait_until='domcontentloaded')
         except PlaywrightTimeout:
             continue
 
         await accept_cookies(page)
         await page.wait_for_timeout(800)
 
-        is_ean_term = EAN and term.strip().replace(' ', '') == EAN.replace(' ', '')
+        typed = await _type_search_query(page, typed_term, submit=False)
+        sys.stderr.write(f"[CHRONO_DEBUG] typed={typed}\n")
+        suggestion_clicked = False
+        if typed:
+            try:
+                await page.wait_for_timeout(600)
+                suggestion_clicked = await _click_best_suggestion(page, term_tokens, descriptor_tokens)
+            except Exception as exc:
+                sys.stderr.write(f"[CHRONO_DEBUG] suggestion_error={exc}\n")
+                suggestion_clicked = False
+        if suggestion_clicked:
+            title, price, unit_price, quantity, matched_ean = await extract_price_from_page(page)
+            store_label = await extract_store_label(page) or 'Chronodrive Le Haillan'
+            if matched_ean is None and EAN and EAN in (page.url or ''):
+                matched_ean = EAN
+
+            if price:
+                await browser.close(); await p.stop()
+                return Result(
+                    status='OK',
+                    price=price,
+                    title=title,
+                    url=page.url,
+                    note=store_label,
+                    unit_price=unit_price,
+                    quantity=quantity,
+                    store=store_label,
+                    matched_ean=matched_ean,
+                )
+            # If PDP opened but no price, fall back to next term
+            continue
+        if typed:
+            typed = await _submit_search(page)
+            sys.stderr.write(f"[CHRONO_DEBUG] submit-triggered={typed}\n")
+        if not typed:
+            encoded_term = quote(typed_term, safe="")
+            search_url = search_base.format(encoded_term.replace('%2B', '%20'))
+            sys.stderr.write(f"[CHRONO_DEBUG] fallback search URL {search_url}\n")
+            try:
+                await page.goto(search_url, wait_until='domcontentloaded')
+            except PlaywrightTimeout:
+                continue
+            await accept_cookies(page)
+
+        await page.wait_for_load_state('domcontentloaded')
+        sys.stderr.write(f"[CHRONO_DEBUG] URL after search: {page.url}\n")
+
+        is_ean_term = EAN and typed_term.strip().replace(' ', '') == EAN.replace(' ', '')
         if not is_ean_term:
-            await page.wait_for_timeout(20_000)
+            await page.wait_for_timeout(1200)
+
+        if not page.url or page.url.rstrip('/') == STORE_URL.rstrip('/'):
+            encoded_term = quote(typed_term, safe="")
+            search_url = search_base.format(encoded_term.replace('%2B', '%20'))
+            sys.stderr.write(f"[CHRONO_DEBUG] forced search URL {search_url}\n")
+            try:
+                await page.goto(search_url, wait_until='domcontentloaded')
+                await accept_cookies(page)
+                await page.wait_for_timeout(1500)
+            except PlaywrightTimeout:
+                continue
 
         try:
             await page.wait_for_selector('article.product-card', timeout=12000)
         except PlaywrightTimeout:
+            html = await page.content()
+            debug_path = Path('chronodrive_debug.html')
+            try:
+                debug_path.write_text(html, encoding='utf-8')
+            except Exception:
+                pass
+            sys.stderr.write("[CHRONO_DEBUG] no product cards; snapshot snippet:\n" + html[:800] + "\n")
             continue
 
         cards = page.locator('article.product-card')
@@ -389,16 +830,14 @@ async def run() -> Result:
         if count == 0:
             continue
 
-        term_tokens = [t for t in re.split(r"[^a-z0-9]+", term.lower()) if t]
         best_idx = None
         best_score = -1
 
-        descriptor_tokens_lower = descriptor_tokens
         GENERIC_TOKENS = {
             'gel', 'douche', 'creme', 'cream', 'surgras', 'lait', 'peau', 'peaux',
             'format', 'flacon', 'bouteille', 'lot', 'pack', 'ml', 'kg', 'l', 'cadum', 'bio'
         }
-        required_tokens = [tok for tok in descriptor_tokens_lower if len(tok) >= 5 and tok not in GENERIC_TOKENS]
+        required_tokens = [tok for tok in descriptor_tokens if len(tok) >= 5 and tok not in GENERIC_TOKENS]
 
         for idx in range(count):
             card = cards.nth(idx)
@@ -430,7 +869,7 @@ async def run() -> Result:
             for tok in term_tokens:
                 if tok in haystack:
                     score += 1
-            descriptor_hits = sum(1 for tok in descriptor_tokens_lower if tok in haystack)
+            descriptor_hits = sum(1 for tok in descriptor_tokens if tok in haystack)
             descriptor_misses = sum(1 for tok in required_tokens if tok not in haystack)
             score += descriptor_hits * 4
             score -= descriptor_misses * 8

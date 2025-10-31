@@ -64,6 +64,14 @@ def _normalize_space(value: typing.Optional[str]) -> typing.Optional[str]:
     return cleaned or None
 
 
+def _normalize_search_term(term: typing.Optional[str]) -> str:
+    if not isinstance(term, str):
+        return ""
+    cleaned = term.replace("+", " ")
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    return cleaned
+
+
 def _to_decimal(value: typing.Any) -> typing.Optional[float]:
     if value is None:
         return None
@@ -305,6 +313,9 @@ async def _is_cf_block(page) -> bool:
 
 
 async def perform_search(page, term: str) -> None:
+    normalized = _normalize_search_term(term)
+    if not normalized:
+        return
     selectors = [
         "input[type='search'][name*='search']",
         "input[type='search']",
@@ -317,13 +328,13 @@ async def perform_search(page, term: str) -> None:
             if await input_box.count() and await input_box.is_visible():
                 await input_box.click()
                 await input_box.fill("")
-                await input_box.type(term, delay=60)
+                await input_box.type(normalized, delay=55)
                 await page.keyboard.press("Enter")
                 try:
-                    await page.wait_for_load_state("networkidle", timeout=12000)
+                    await page.wait_for_load_state("networkidle", timeout=10000)
                 except PlaywrightTimeout:
                     pass
-                await page.wait_for_timeout(1500)
+                await page.wait_for_timeout(1200)
                 await accept_cookies(page)
                 return
         except Exception as exc:
@@ -331,13 +342,13 @@ async def perform_search(page, term: str) -> None:
             continue
 
     _debug_log("fallback to direct search URL")
-    search_url = f"{HOME_URL}/recherche?q={quote_plus(term)}"
+    search_url = f"{HOME_URL}/recherche?q={quote_plus(normalized)}"
     try:
         await page.goto(search_url, wait_until="domcontentloaded")
     except PlaywrightTimeout:
         _debug_log("direct search timeout")
         pass
-    await page.wait_for_timeout(1500)
+    await page.wait_for_timeout(1200)
     await accept_cookies(page)
     await _dump_html(page, f"results_{term}")
 

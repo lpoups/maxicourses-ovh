@@ -18,6 +18,9 @@ CLI usage example::
 
 The script prints a JSON payload on stdout. It requires Chrome remote (port 9222)
 to be up before invocation.
+
+????forcer la recherche manuelle, passe LECLERC_FORCE_SEARCH=1
+
 """
 from __future__ import annotations
 
@@ -67,6 +70,12 @@ RESULT_DELAY_MS = _env_delay("LECLERC_RESULT_DELAY_MS", 600 if FAST_MODE else 30
 PDP_DELAY_MS = _env_delay("LECLERC_PDP_DELAY_MS", 400 if FAST_MODE else 300, minimum=50)
 TYPE_MIN_DELAY = _env_delay("LECLERC_TYPE_MIN_MS", 8 if FAST_MODE else 8, minimum=5)
 TYPE_MAX_DELAY = _env_delay("LECLERC_TYPE_MAX_MS", 180 if FAST_MODE else 18, minimum=10)
+
+
+def _adaptive_delay(ms: int, minimum: int = 100) -> int:
+    if FAST_MODE:
+        return max(minimum, max(1, ms) // 10)
+    return max(minimum, ms)
 
 MANUAL_DESCRIPTOR: dict[str, dict] = {}
 try:
@@ -228,11 +237,11 @@ async def run_manual_leclerc(
     ean: str,
     store_url: str,
     cdp_url: str = "http://127.0.0.1:9222",
-    human_delay_ms: int = 500,
-    result_delay_ms: int = 1200,
-    pdp_delay_ms: int = 700,
+    human_delay_ms: int = 50,
+    result_delay_ms: int = 120,
+    pdp_delay_ms: int = 70,
     type_min_delay: int = 80,
-    type_max_delay: int = 180,
+    type_max_delay: int = 80,
 ) -> dict:
     """Replay a Leclerc Drive search with human pacing and return a JSON-ready dict."""
     started = time.perf_counter()
@@ -331,7 +340,7 @@ async def run_manual_leclerc(
             consent_button = page.locator("#onetrust-accept-btn-handler")
             if await consent_button.count():
                 await consent_button.click()
-                await human_pause(page, 3000)
+                await human_pause(page, _adaptive_delay(3000))
                 sys.stderr.write(f"[LECLERC_DEBUG] after consent -> {time.perf_counter()-started:.2f}s\n")
         except Exception:
             pass
@@ -350,13 +359,13 @@ async def run_manual_leclerc(
         else:
             search_field = page.locator("input[id*='rechercheTexte']").first
             await search_field.click()
-            await human_pause(page, 1000)
+            await human_pause(page, _adaptive_delay(1000))
             sys.stderr.write(f"[LECLERC_DEBUG] after focus -> {time.perf_counter()-started:.2f}s\n")
             await search_field.fill("")
-            await human_pause(page, 500)
+            await human_pause(page, _adaptive_delay(500))
             for ch in query:
                 await search_field.type(ch, delay=random.randint(type_min_delay, type_max_delay))
-            await human_pause(page, 600)
+            await human_pause(page, _adaptive_delay(600))
             await search_field.press("Enter")
             await page.wait_for_load_state("domcontentloaded")
             sys.stderr.write(f"[LECLERC_DEBUG] after search submit -> {time.perf_counter()-started:.2f}s\n")
