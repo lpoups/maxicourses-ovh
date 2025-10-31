@@ -1,13 +1,13 @@
 {
   "ean": "3124480200433",
   "image_path": null,
-  "started_at": "2025-10-31T12:47:35.837402",
-  "finished_at": "2025-10-31T12:47:55.939684",
-  "duration_seconds": 20.102282,
+  "started_at": "2025-10-31T12:47:12.533765",
+  "finished_at": "2025-10-31T12:47:32.538293",
+  "duration_seconds": 20.004528,
   "reference": {
     "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
     "description": "Soda à  l'Orange et sa Pulpe ORANGINA",
-    "source": "carrefour_super",
+    "source": "carrefour_market",
     "brand": "Orangina",
     "quantity": "1,5 L",
     "categories": "Beverages and beverages preparations, Plant-based foods and beverages, Beverages, Plant-based beverages, Carbonated drinks, Fruit-based beverages, Sodas, Fruit sodas, Orange soft drinks, en:sweetened-beverages",
@@ -22,15 +22,15 @@
   "notes": [],
   "adapters": [
     {
-      "adapter": "carrefour_super",
+      "adapter": "carrefour_market",
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "2,15",
-        "store": "Super Lormont",
+        "price": "2,49",
+        "store": "Market Fondaudège",
         "url": "https://www.carrefour.fr/p/soda-a-l-orange-et-sa-pulpe-orangina-3124480200433",
         "note": null,
-        "unit_price": "1,43 € / L",
+        "unit_price": "1,66 € / L",
         "quantity": "1,5 L",
         "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
         "matched_ean": "3124480200433",
@@ -38,18 +38,18 @@
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "started_at": "2025-10-31T12:47:35.837844",
-      "finished_at": "2025-10-31T12:47:55.852868",
-      "duration_seconds": 20.015024,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "started_at": "2025-10-31T12:47:12.534291",
+      "finished_at": "2025-10-31T12:47:32.449346",
+      "duration_seconds": 19.915055,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
       ],
       "env": {
         "EAN": "3124480200433",
         "QUERY": "3124480200433",
-        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
         "HEADLESS": "1"
       },
       "exit_code": 0,

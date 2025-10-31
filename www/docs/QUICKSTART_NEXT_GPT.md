@@ -30,9 +30,15 @@ Avant toute action :
 4. Utilise docs/SESSION_TEMPLATE.md pour rédiger ton entrée dans docs/HANDOVER_DAILY.md en fin de session.
 ```
 
+### Pour le prochain GPT (FR)
+- Lire les fichiers dans cet ordre impératif : docs/PROMPT_BOOTSTRAP.md -> docs/ONBOARDING.md -> docs/GIT_SAUVEGARDE.md -> docs/PARCOURS_HUMAIN.md -> dernière entrée de docs/HANDOVER_DAILY.md -> docs/PRICE_COLLECTION_GUIDE.md -> docs/LECLERC_HUMAN_METHOD.md -> docs/PRICE_COMPARATOR_PLAN.md -> docs/README.md -> docs/SESSION_TEMPLATE.md -> docs/PROMPT_LOG.md -> docs/REFONTE_FRONT_V2.md.
+- Ne pas modifier les fetchs Carrefour Market/City, Auchan, Chronodrive, CourseU, Intermarché, Leclerc ou Monoprix tant qu’une consigne explicite n’est pas donnée ; seul le wrapper Carrefour Super peut évoluer sans validation préalable de Laurent.
+- Carrefour Super : priorité au drive de Lormont (Gironde). Sélectionne ce magasin via Chrome 9222 et recapture les identifiants pour remettre `state/carrefour_super.json` en conformité.
+
 ## Lecture obligatoire (ordre strict)
 - docs/PROMPT_BOOTSTRAP.md
 - docs/ONBOARDING.md
+- docs/GIT_SAUVEGARDE.md
 - docs/PARCOURS_HUMAIN.md
 - docs/HANDOVER_DAILY.md (dernière entrée)
 - docs/PRICE_COLLECTION_GUIDE.md
