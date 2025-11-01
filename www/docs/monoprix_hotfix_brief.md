@@ -161,3 +161,18 @@ Succès = `candidate_variant == seed_variant`, aucun veto `variant_*`, unit_fami
 
 ## H. Déploiement
 Flag `feature_flags.variant_lock = true`. Canary Monoprix/desserts_vegetaux. Rollback si `fp_rate > 2 %` sur 500 décisions ou `abstain_rate > 40 %`.
+
+---
+
+## Mise à jour 2025-11-01 — Requêtes humanisées validées
+- **Requêtes** : `build_query_terms()` injecte désormais en tête `Hipro fraise`, `Hipro fraise framboise`, `Hipro framboise`, `Hipro yaourt`. Les longues formulations historiques restent en secours.
+- **Validation** : variantes `fraise`/`framboise` ajoutées dans `VARIANT_PATTERNS` + vérification `missing_tokens` assouplie (ignore chiffres, accepte singulier/pluriel). Plus de veto arbitraire.
+- **Runs récents**
+  - `5411188118961` (Hipro amande) : OK (tokens + image).
+  - `3033491485756` (Hipro fraise/framboise) : OK (`run-3033491485756-20251101-104543.json`, 2,99 €, image match true).
+  - `8712100731822` (Savora 385 g) : OK (`run-8712100731822-20251101-111349.json`, 2,75 €).
+  - `3665468000312` (Destop 950 ml) : OK (`run-3665468000312-20251101-113240.json`, 4,39 €) après ajout d’un visuel Monoprix dédié.
+
+### TODO immédiats
+1. Étendre la même logique (tokens seed + image) aux autres enseignes textuelles si besoin.
+2. Maintenir une librairie d’images seed → `pipeline/assets/<EAN>.jpg` synchronisée avec les runs récents (sans visuel, le matching image échoue).

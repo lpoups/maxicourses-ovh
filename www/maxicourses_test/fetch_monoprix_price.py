@@ -11,6 +11,7 @@ import re
 import sys
 import unicodedata
 import typing
+from itertools import combinations
 from decimal import Decimal, InvalidOperation
 from dataclasses import dataclass
 from datetime import datetime
@@ -62,6 +63,8 @@ VARIANT_PATTERNS: dict[str, list[re.Pattern[str]]] = {
         re.compile(r"sans\s+sucres?", re.IGNORECASE),
         re.compile(r"\boriginal\b", re.IGNORECASE),
     ],
+    "fraise": [re.compile(r"\bfraises?\b", re.IGNORECASE)],
+    "framboise": [re.compile(r"\bframboises?\b", re.IGNORECASE)],
     "vanille": [re.compile(r"\bvanill?e\b", re.IGNORECASE)],
     "amande": [re.compile(r"\bamandes?\b", re.IGNORECASE)],
     "coco": [re.compile(r"\bnoix\s+de\s+coco\b", re.IGNORECASE), re.compile(r"\bcoco\b", re.IGNORECASE)],
@@ -84,6 +87,86 @@ SEED_VARIANTS = ["nature", "vanille", "amande", "coco", "mangue", "chocolat", "o
 # --- Patterns Regex ---
 MULTIPLIER_PATTERN = re.compile(r"\b\d+\s*(?:x|×)\s*\d+\b", flags=re.IGNORECASE)
 SIZE_TOKEN_PATTERN = re.compile(r"(\d+(?:[.,]\d+)?)[\s]*(ml|cl|l|kg|g)\b", flags=re.IGNORECASE)
+
+VALIDATION_STOPWORDS = {
+    "dessert",
+    "desserts",
+    "vegetal",
+    "végétal",
+    "produit",
+    "produits",
+    "soja",
+    "lait",
+    "naturel",
+    "nature",
+    "avec",
+    "sans",
+    "gourmand",
+    "format",
+    "brasse",
+    "brassé",
+    "aromates",
+    "amorates",
+    "epices",
+    "épices",
+    "aux",
+    "multi",
+    "usages",
+    "flacon",
+}
+
+MONOPRIX_PRODUCT_TOKENS = {
+    "yaourt",
+    "yaourts",
+    "dessert",
+    "desserts",
+    "boire",
+    "boisson",
+    "boissons",
+    "proteine",
+    "proteines",
+    "protéine",
+    "protéines",
+    "protéiné",
+    "protéinés",
+}
+
+
+def _seed_search_tokens(descriptor: dict[str, typing.Any]) -> list[str]:
+    tokens: dict[str, str] = {}
+
+    def add_token(token: str) -> None:
+        token = token.strip()
+        if not token:
+            return
+        normalized = _normalize_search_text(token)
+        if (
+            normalized
+            and normalized not in VALIDATION_STOPWORDS
+            and not normalized.isdigit()
+            and len(normalized) >= 3
+        ):
+            tokens.setdefault(normalized, token)
+
+    sources: list[typing.Any] = [
+        descriptor.get("seed_primary_name"),
+        descriptor.get("seed_query"),
+        descriptor.get("name"),
+        descriptor.get("description"),
+    ]
+
+    for value in sources:
+        if isinstance(value, str):
+            for token in _tokenize_preserve_case(value):
+                add_token(token)
+
+    secondary = descriptor.get("secondary_keywords") or []
+    if isinstance(secondary, (list, tuple)):
+        for item in secondary:
+            if isinstance(item, str):
+                add_token(item)
+
+    return list(tokens.values())
 # Manual descriptor cache
 MANUAL_DESCRIPTOR: dict[str, dict] = {}
 try:
@@ -139,6 +222,40 @@ def normalize_space(value: typing.Optional[str]) -> typing.Optional[str]:
     return re.sub(r"\s+", " ", value).strip()
 
 
+def _descriptor_validation_tokens(descriptor: dict[str, typing.Any]) -> list[str]:
+    tokens: set[str] = set()
+
+    def collect(source: typing.Optional[str]) -> None:
+        if not isinstance(source, str):
+            return
+        for tok in tokens_for(source):
+            normalized = _normalize_search_text(tok)
+            if (
+                normalized
+                and normalized not in VALIDATION_STOPWORDS
+                and len(normalized) >= 3
+            ):
+                tokens.add(normalized)
+
+    collect(descriptor.get("brand"))
+    collect(descriptor.get("variant"))
+    collect(descriptor.get("seed_primary_name"))
+    collect(descriptor.get("name"))
+    collect(descriptor.get("seed_query"))
+    collect(descriptor.get("description"))
+
+    for keyword in descriptor.get("primary_keywords", []) or []:
+        collect(keyword)
+    for keyword in descriptor.get("secondary_keywords", []) or []:
+        collect(keyword)
+
+    size_token = _preferred_size_token(descriptor)
+    if size_token:
+        tokens.add(_normalize_search_text(size_token))
+
+    return sorted(tokens)
+
+
 def _normalize_search_text(value: typing.Optional[str]) -> str:
     if not isinstance(value, str):
         return ""
@@ -180,7 +297,12 @@ def seed_variant_negatives(seed_variant: typing.Optional[str]) -> list[str]:
         return []
     negatives: list[str] = []
     for token in SEED_VARIANTS:
-        if token != variant:
+        if token == variant:
+            continue
+        if token == "nature" and variant != "nature":
+            # ne pas bloquer les combinaisons "nature + <variant>" (ex. nature aux amandes)
+            continue
+        if token not in negatives:
             negatives.append(token)
     if variant == "orange":
         negatives.extend(["sans sucre", "sans sucres", "zero", "zéro", "rouge", "sanguine"])
@@ -937,18 +1059,150 @@ def _monoprix_fallback_terms(descriptor: dict, max_len: int) -> list[str]:
     return [term for term in terms if isinstance(term, str) and term.strip()]
 
 
+def _preferred_monoprix_terms(descriptor: dict[str, typing.Any], max_len: int) -> list[str]:
+    preferred: list[str] = []
+    brand = normalize_space(descriptor.get("brand"))
+    if not brand:
+        return preferred
+
+    brand_normalized = _normalize_search_text(brand)
+
+    def push(term: typing.Optional[str]) -> None:
+        prepared = _prepare_query(term, max_len)
+        if not prepared:
+            return
+        lowered = prepared.lower()
+        for existing in preferred:
+            if existing.lower() == lowered:
+                return
+        preferred.append(prepared)
+
+    variant_sources: list[str] = []
+    canonical = descriptor.get("canonical")
+    if isinstance(canonical, dict):
+        for key in ("variant", "variant_norm", "flavor", "flavor_color"):
+            value = canonical.get(key)
+            if isinstance(value, str):
+                variant_sources.append(value)
+    for key in ("variant", "seed_variant", "flavor"):
+        value = descriptor.get(key)
+        if isinstance(value, str):
+            variant_sources.append(value)
+    secondary = descriptor.get("secondary_keywords")
+    if isinstance(secondary, (list, tuple)):
+        for item in secondary:
+            if isinstance(item, str):
+                variant_sources.append(item)
+
+    variant_phrase = ""
+    for candidate in variant_sources:
+        cleaned = normalize_space(candidate)
+        if cleaned:
+            variant_phrase = cleaned
+            break
+
+    variant_tokens: list[str] = []
+    seen_variant_tokens: set[str] = set()
+    for source in variant_sources:
+        for token in _tokenize_preserve_case(source):
+            normalized = _normalize_search_text(token)
+            if (
+                not normalized
+                or len(normalized) < 3
+                or normalized == brand_normalized
+                or normalized in seen_variant_tokens
+                or normalized in VALIDATION_STOPWORDS
+                or normalized in MONOPRIX_PRODUCT_TOKENS
+                or any(ch.isdigit() for ch in normalized)
+            ):
+                continue
+            seen_variant_tokens.add(normalized)
+            variant_tokens.append(token)
+
+    if variant_phrase and _normalize_search_text(variant_phrase) != brand_normalized:
+        push(f"{brand} {variant_phrase}")
+    if len(variant_tokens) >= 2:
+        combined = " ".join(variant_tokens[:2])
+        if combined:
+            push(f"{brand} {combined}")
+    for token in variant_tokens:
+        push(f"{brand} {token}")
+
+    product_tokens: list[str] = []
+    seen_product_tokens: set[str] = set()
+    product_sources: list[typing.Any] = [
+        descriptor.get("seed_primary_name"),
+        descriptor.get("seed_query"),
+        descriptor.get("name"),
+        descriptor.get("description"),
+    ]
+    for source in product_sources:
+        if isinstance(source, str):
+            for token in tokens_for(source):
+                normalized = _normalize_search_text(token)
+                if (
+                    normalized
+                    and normalized in MONOPRIX_PRODUCT_TOKENS
+                    and normalized not in seen_product_tokens
+                ):
+                    seen_product_tokens.add(normalized)
+                    product_tokens.append(token)
+
+    for token in product_tokens[:2]:
+        push(f"{brand} {token}")
+
+    if variant_tokens and product_tokens:
+        push(f"{brand} {variant_tokens[0]} {product_tokens[0]}")
+
+    return preferred
+
+
+def _prioritize_monoprix_terms(
+    descriptor: dict[str, typing.Any],
+    candidate_terms: list[str],
+    max_len: int,
+    max_terms: int,
+) -> list[str]:
+    prioritized: list[str] = []
+    seen: set[str] = set()
+
+    def push(term: typing.Optional[str]) -> None:
+        prepared = _prepare_query(term, max_len)
+        if not prepared:
+            return
+        lowered = prepared.lower()
+        if lowered in seen:
+            return
+        seen.add(lowered)
+        prioritized.append(prepared)
+
+    for term in _preferred_monoprix_terms(descriptor, max_len):
+        push(term)
+        if max_terms > 0 and len(prioritized) >= max_terms:
+            return prioritized[:max_terms]
+
+    for term in candidate_terms:
+        push(term)
+        if max_terms > 0 and len(prioritized) >= max_terms:
+            return prioritized[:max_terms]
+
+    if max_terms > 0:
+        return prioritized[:max_terms]
+    return prioritized
+
+
 def build_query_terms() -> list[str]:
     """Return textual terms sorted by relevance."""
     terms: list[str] = []
     max_len = int(os.environ.get("MONOPRIX_MAX_QUERY_LEN", "30"))
-    max_terms = int(os.environ.get("MONOPRIX_MAX_TERMS", "4"))
+    max_terms = int(os.environ.get("MONOPRIX_MAX_TERMS", "12"))
     descriptor = MANUAL_DESCRIPTOR.get(EAN) if EAN else {}
     if not isinstance(descriptor, dict):
         descriptor = {}
     seen: set[str] = set()
 
     def add(term: typing.Optional[str]) -> None:
-        candidate = _enforce_two_keyword_term(term, descriptor, max_len)
+        candidate = _prepare_query(term, max_len)
         if not candidate:
             return
         # Normalize and add to seen set to avoid duplicates
@@ -960,7 +1214,24 @@ def build_query_terms() -> list[str]:
         if max_terms > 0 and len(terms) >= max_terms:
             return
 
-    # 1. Utiliser en priorité les primary_keywords (déjà issus des seeds)
+    # 1. Requêtes spécifiques au magasin (manual_descriptors.json → queries.monoprix)
+    store_queries = descriptor.get("queries")
+    if isinstance(store_queries, dict):
+        for item in store_queries.get("monoprix", []):
+            add(item)
+            if max_terms > 0 and len(terms) >= max_terms:
+                break
+
+    # Toujours reprendre les requêtes Leclerc, même si queries.monoprix est défini,
+    # afin d'avoir un socle commun multi-enseignes.
+    leclerc_list = descriptor.get("leclerc_queries")
+    if isinstance(leclerc_list, (list, tuple)):
+        for item in leclerc_list:
+            add(item)
+            if max_terms > 0 and len(terms) >= max_terms:
+                break
+
+    # 2. Utiliser en priorité les primary_keywords (déjà issus des seeds)
     primary = descriptor.get("primary_keywords")
     if isinstance(primary, (list, tuple)):
         for item in primary:
@@ -968,12 +1239,12 @@ def build_query_terms() -> list[str]:
             if max_terms > 0 and len(terms) >= max_terms:
                 break
 
-    # 2. Requêtes fournies via l'environnement (QUERY) ensuite
+    # 3. Requêtes fournies via l'environnement (QUERY) ensuite
     if max_terms <= 0 or len(terms) < max_terms:
         if QUERY:
             add(QUERY)
 
-    # 3. Autres champs du descriptor pour récupérer la fonction (seed/name/description)
+    # 4. Autres champs du descriptor pour récupérer la fonction (seed/name/description)
     if max_terms <= 0 or len(terms) < max_terms:
         additional_entries: list[typing.Optional[str]] = [
             descriptor.get("seed_primary_name"),
@@ -987,20 +1258,73 @@ def build_query_terms() -> list[str]:
                 if max_terms > 0 and len(terms) >= max_terms:
                     break
 
-    # 4. Fallback historique (quantités, variantes)
+    # 5. Fallback historique (quantités, variantes)
+    # Génération automatique à partir des tokens seed (marque + variant + bénéfices).
     if max_terms <= 0 or len(terms) < max_terms:
+        brand_value = normalize_space(descriptor.get("brand"))
+        seed_tokens = _seed_search_tokens(descriptor)
+        canonical = descriptor.get("canonical") if isinstance(descriptor.get("canonical"), dict) else {}
+        variant_phrase = normalize_space(canonical.get("variant")) or normalize_space(canonical.get("flavor_color"))
+
+        if brand_value:
+            if variant_phrase:
+                add(f"{brand_value} {variant_phrase}")
+                for token in tokens_for(variant_phrase):
+                    add(f"{brand_value} {token}")
+
+            limited_tokens = seed_tokens[:6]
+            for token in limited_tokens:
+                if _normalize_search_text(token) != _normalize_search_text(brand_value):
+                    add(f"{brand_value} {token}")
+            for tok1, tok2 in combinations(limited_tokens, 2):
+                combined = f"{brand_value} {tok1} {tok2}"
+                add(combined)
+        else:
+            for token in seed_tokens[:8]:
+                add(token)
+
+    # Fallback historique seulement si aucune autre requête n'a été ajoutée
+    if (max_terms <= 0 or len(terms) < max_terms) and not terms:
         for fallback in _monoprix_fallback_terms(descriptor, max_len):
             add(fallback)
             if max_terms > 0 and len(terms) >= max_terms:
                 break
 
-    # 5. Ultime recours : construire à partir du descriptor seul
+    # Combinaisons marque + tokens seed (Carrefour/Auchan/Chronodrive/CourseU)
+    if max_terms <= 0 or len(terms) < max_terms:
+        brand = normalize_space(descriptor.get("brand")) or ""
+        brand_clean = _prepare_query(brand, max_len)
+        if brand_clean:
+            seed_tokens = set()
+            for source in (
+                descriptor.get("seed_primary_name"),
+                descriptor.get("name"),
+                descriptor.get("description"),
+                descriptor.get("seed_query"),
+            ):
+                if isinstance(source, str):
+                    for tok in tokens_for(source):
+                        normalized_tok = _normalize_search_text(tok)
+                        if (
+                            normalized_tok
+                            and normalized_tok not in VALIDATION_STOPWORDS
+                            and len(normalized_tok) >= 3
+                        ):
+                            seed_tokens.add(tok)
+            for tok in descriptor.get("secondary_keywords") or []:
+                if isinstance(tok, str):
+                    seed_tokens.add(tok)
+            for token in sorted(seed_tokens):
+                combo = f"{brand} {token}"
+                add(combo)
+                if max_terms > 0 and len(terms) >= max_terms:
+                    break
+
+    # 6. Ultime recours : construire à partir du descriptor seul
     if not terms:
         add("")
 
-    if max_terms > 0:
-        return terms[:max_terms]
-    return terms
+    return _prioritize_monoprix_terms(descriptor, terms, max_len, max_terms)
 
 
 def expected_tokens() -> tuple[list[str], list[str], list[str]]:
@@ -1402,6 +1726,7 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
                 sys.stderr.write(f"[MONOPRIX_DEBUG]  - Image match FOUND for '{res.title}'.\n")
             else:
                 sys.stderr.write(f"[MONOPRIX_DEBUG]  - No image match for '{res.title}'.\n")
+                extras["vetoes"].append("image_mismatch")
 
             extras["final_score"] = score
             extras["plausible_baseline"] = plausible
@@ -1613,6 +1938,25 @@ def evaluate_candidate(
         if not any(token in normalized_blob for token in category_tokens):
             extras["category_ok"] = False
             extras["vetoes"].append("category")
+
+    # Validation tokens (descriptors seed)
+    validation_tokens = _descriptor_validation_tokens(descriptor)
+    missing_tokens: list[str] = []
+    if validation_tokens:
+        for token in validation_tokens:
+            if not token:
+                continue
+            if any(ch.isdigit() for ch in token):
+                continue
+            if token not in normalized_blob:
+                if token.endswith("e") and f"{token}s" in normalized_blob:
+                    continue
+                if token.endswith("es") and token[:-1] in normalized_blob:
+                    continue
+                missing_tokens.append(token)
+        if missing_tokens:
+            extras.setdefault("missing_tokens", missing_tokens)
+            extras["vetoes"].append("missing_tokens")
 
     # Baseline scoring (brand + keywords)
     score = 0

@@ -48,6 +48,42 @@ Ce mémo remplace l’ancien journal volumineux. Il décrit l’état courant, l
 
 (Ajouter les nouvelles sections ici)  
 
+## 2025-11-01 – GPT (Codex CLI)
+
+### Faits marquants
+- Monoprix (`fetch_monoprix_price.py`) génère désormais en tête des requêtes humaines courtes : `Hipro fraise`, `Hipro fraise framboise`, `Hipro framboise`, `Hipro yaourt`. Les anciens termes verbeux restent en fallback si besoin.
+- Ajout des variantes `fraise` / `framboise` dans `VARIANT_PATTERNS` + assouplissement du contrôle `missing_tokens` (ignore chiffres, accepte singulier/pluriel). Les fiches 300 g ne sont plus rejetées.
+- Run de validation : `maxicourses_test/results/run-3033491485756-20251101-104543.json` (`status=OK`, prix 2,99 €, image match true).
+- `manual_descriptors.json` (`3033491485756`) mis à jour avec les requêtes gagnantes + note horodatée.
+- Destop 950 ml (EAN 3665468000312) validé après ajout de l’asset Monoprix (`pipeline/assets/3665468000312.jpg`) et extension des stopwords (`multi`, `usages`, `flacon`). Run : `maxicourses_test/results/run-3665468000312-20251101-113240.json`.
+- Rappel : toute fiche Monoprix impose désormais un visuel référent dans `pipeline/assets/<EAN>.jpg`; sans cela le matching image bloque la collecte.
+
+### Points ouverts
+- Éventuellement réduire `MONOPRIX_MAX_TERMS` (actuel 12) si la nouvelle shortlist suffit partout ; pour l’instant laisser par défaut.
+- Les variantes sucrées (cookie, mangue…) restent couvertes par la liste négative (`negatives.monoprix`) mais la revue complète des seeds textuels est encore à faire.
+
+## 2025-10-31 – GPT (Codex CLI)
+
+### Faits marquants
+- Monoprix : le fetcher s’appuie désormais d’abord sur les requêtes « marque + variant » issues des seeds (`fetch_monoprix_price.py`). La validation impose le quadruple verrou (variant, catégorie, taille, image). Les runs `maxicourses_test/results/run-5411188118961-20251031-150919.json` et `...-170412.json` confirment que l’amande est bien reconnue via tokens + matching visuel.
+- Monoprix : les descripteurs ont été enrichis (`manual_descriptors.json`) avec les clichés locaux (`maxicourses_test/pipeline/assets/*`) pour les EAN Alpro/Hipro. Les requêtes Monoprix restent encore verbeuses et bloquent sur `3033491485756` (fraise/framboise).
+- Leclerc Drive : `manual_leclerc_cdp.py` n’utilise plus le cache PDP et embarque un mode rapide (`FAST_MODE`) qui divise tous les délais par 10 pour éviter les attentes de plusieurs minutes.
+- Front comparateur : nouveaux logos spécifiques City/Market/Super (`maxicourses_test/assets/logos/`) et badge “Super” dans `pipeline/index2.html`.
+- Carrefour Super : l’état JSON a été rafraîchi (`maxicourses_test/state/carrefour_super.json`) mais doit encore être rejoué proprement via Chrome 9222 (sélection « Lormont, Gironde, France »).
+
+### Résultats & captures
+- `5411188118961` → `status=OK`, prix 2,45 € chez Monoprix (`maxicourses_test/results/latest.json`).
+- `5411188103387` → toujours `NO_RESULTS` avec la génération automatique actuelle (`maxicourses_test/results/run-5411188103387-20251031-153833.json`).
+- `3033491485756` → `NO_RESULTS` malgré quatre requêtes dérivées, voir `maxicourses_test/results/run-3033491485756-20251031-165005.json`.
+- Assets images ajoutés : `maxicourses_test/pipeline/assets/5411188118961.jpg`, `...8103387.jpg`, `...48756.jpg`.
+
+### ToDo immédiat
+1. Finaliser `build_query_terms()` (Monoprix) pour privilégier 2–3 requêtes « marque + saveur » (ex. `hipro fraise`, `hipro framboise`). Journaliser les termes testés pour le debug.
+2. Retester `3033491485756` et `5411188103387` une fois le générateur raffiné ; archiver la requête gagnante dans `manual_descriptors.json`.
+3. Reprendre la capture humaine Carrefour Super Lormont (Chrome 9222) pour stabiliser `state/carrefour_super.json` et confirmer la collecte multi-Carrefour.
+4. Mettre à jour `docs/PRICE_COMPARATOR_PLAN.md` et `docs/monoprix_hotfix_brief.md` après validation du point 1.
+5. Prévoir une passe sur les logos Carrefour (Super) côté `pipeline/index2.html` lorsque la collecte sera validée pour éviter l’affichage « Market » par défaut.
+
 ## 2025-10-17 – GPT (Codex CLI)
 
 ### Faits marquants
