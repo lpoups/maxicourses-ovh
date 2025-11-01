@@ -126,7 +126,7 @@ METHODS: Dict[str, MethodSpec] = {
             "Identique au workflow City/Market mais ciblant le point de vente Super Lormont."
             " Sélectionne le magasin via le sélecteur CDP puis rejoue l'extraction Playwright."
         ),
-        store_hint="Super Lormont",
+        store_hint="Lormont",
         trace_files=(),
         steps=(
             "Démarrer Chrome remote (`start_chrome_debug.sh`) puis vérifier le port 9222.",

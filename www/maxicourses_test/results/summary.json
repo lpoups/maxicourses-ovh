@@ -188,23 +188,23 @@
   },
   "5411188118961": {
     "carrefour_city": {
-      "status": "NO_PRICE",
+      "status": "OK",
       "payload": {
-        "status": "NO_PRICE",
-        "price": null,
+        "status": "OK",
+        "price": "2,57",
         "store": "City Bordeaux Balguerie",
-        "url": null,
+        "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-nature-a-l-amande-alpro-5411188 118961",
         "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
+        "unit_price": "5,14 € / KG",
+        "quantity": "500 G",
+        "title": "Dessert végétal soja nature à l'amande ALPRO",
+        "matched_ean": "5411188118961",
+        "image": "https://media.carrefour.fr/media/referential/media/21c3413019084953b767ba11b37a d886/05411188118961_H1N1_s15.png",
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-10-09T00:21:42.343869",
-      "duration_seconds": 13.683387,
+      "updated_at": "2025-10-31T15:31:04.034881",
+      "duration_seconds": 22.389576,
       "error": null,
       "store_query": null
     },
@@ -220,21 +220,31 @@
         "quantity": "500 G",
         "title": "Dessert végétal soja nature à l'amande ALPRO",
         "matched_ean": "5411188118961",
-        "image": "https://media.carrefour.fr/medias/0b52a921176347d9b71afd2cca8e19e1/p_540x540/05 411188118961_H1N1_s15.png",
+        "image": "https://media.carrefour.fr/media/referential/media/21c3413019084953b767ba11b37a d886/05411188118961_H1N1_s15.png",
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-10-09T00:21:42.343869",
-      "duration_seconds": 23.1064,
+      "updated_at": "2025-10-31T15:31:04.034881",
+      "duration_seconds": 20.260967,
       "error": null,
       "store_query": null
     },
     "leclerc": {
-      "status": "ERROR",
-      "payload": {},
-      "updated_at": "2025-10-09T00:21:42.343869",
-      "duration_seconds": 1.068938,
-      "error": "EMPTY_STDOUT",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Dessert végétal soja alpro Nature à l'amande - 500g",
+        "price": "1,80",
+        "unit_price": "3,60 € / kg",
+        "quantity": "500  g",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95817-Dessert-vegetal-soja-alpro.aspx",
+        "matched_ean": "5411188118961",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-31T15:30:22Z · E.Leclerc Drive · Bruges"
+      },
+      "updated_at": "2025-10-31T15:31:04.034881",
+      "duration_seconds": 7.573123,
+      "error": null,
       "store_query": null
     },
     "auchan": {
@@ -250,26 +260,26 @@
         "matched_ean": "5411188118961",
         "image": "https://cdn.auchan.fr/media/P0200000000059YPRIMARY_1200x1200/B2CD/"
       },
-      "updated_at": "2025-10-09T00:21:42.343869",
-      "duration_seconds": 11.826673,
+      "updated_at": "2025-10-31T15:31:04.034881",
+      "duration_seconds": 15.390171,
       "error": null,
       "store_query": null
     },
     "intermarche": {
-      "status": "NO_PRICE",
+      "status": "OK",
       "payload": {
-        "status": "NO_PRICE",
-        "price": null,
-        "title": null,
+        "status": "OK",
+        "price": "1,95",
+        "title": "Dessert végétal soja nature aux  amandes",
         "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-nature-aux-amandes/541 1188118961",
-        "note": null,
+        "note": "Intermarché · Super Talence",
         "matched_ean": "5411188118961",
-        "unit_price": null,
-        "quantity": null,
+        "unit_price": "3,90 € / KG",
+        "quantity": "500  g",
         "store": "Super Talence"
       },
-      "updated_at": "2025-10-09T00:21:42.343869",
-      "duration_seconds": 36.663606,
+      "updated_at": "2025-10-31T15:31:04.034881",
+      "duration_seconds": 43.234258,
       "error": null,
       "store_query": null
     },
@@ -278,7 +288,7 @@
       "payload": {
         "status": "OK",
         "price": "2,05",
-        "title": "Dessert végétal soja et amandes  ALPRO 500 g",
+        "title": "Dessert végétal soja et amandes  ALPRO",
         "url": "https://www.chronodrive.com/alpro--dessert-vegetal-soja-et-amandes-P364873",
         "note": "Chronodrive Le Haillan",
         "unit_price": "4,10 € / KG",
@@ -286,26 +296,79 @@
         "store": "Chronodrive Le Haillan",
         "matched_ean": "5411188118961"
       },
-      "updated_at": "2025-10-09T00:21:42.343869",
-      "duration_seconds": 29.885532,
+      "updated_at": "2025-10-31T15:31:04.034881",
+      "duration_seconds": 6.781177,
       "error": null,
       "store_query": null
     },
     "monoprix": {
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
-        "price": null,
-        "title": null,
-        "url": null,
-        "note": null,
+        "status": "OK",
+        "price": "2,45",
+        "title": "Alpro Dessert Végétal Nature Aux  Amandes Soja 500g",
+        "url": "https://courses.monoprix.fr/products/alpro-dessert-v%C3%A9g%C3%A9tal-nature-aux -amandes-soja-500g/MPX_3778641",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8e e4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg",
         "matched_ean": null,
-        "unit_price": null,
-        "quantity": null,
-        "store": null
+        "unit_price": "4,90 € / KG",
+        "quantity": "500 G",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières  commandes\nEN SAVOIR +\nAccueil\nRégimes alimentaires\nVégétal\nDessert  végétal\nAlpro Dessert Végétal Nature Aux Amandes Soja 500g\n1 s+\n1 semaine de  garantie de vie du produit\nNutriscore A\n500g 4,90 € / kilo\n500g\n(4,90 € /  kilo)\n2,45 €\nAjouter\nInformations produit\n\n\nDescription Produit\nAlpro  Nature aux Amandes est un dessert végétal à base de soja et de délicieuses  amandes méditerranéennes, sans lactose. Cette alternative végétale au yaourt  nature est naturellement faible en matières grasses, faible en sucres et riche  en protéines végétales. Il constitue également une source de calcium et de  vitamine D2, E et B12. Ce dessert végétal soja amande Alpro à la texture  onctueuse se savoure aussi bien au petit-déjeuner, qu'en dessert ou en  encas.\n\n\nOrigine\nBelgique\nMarque\nDanone\nService consommateur\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\nConseils d'utilisation\nSe mange à la  cuillère\nIngredients\n\nINGRÉDIENTS: jus de SOJA (94,8%), sucre, AMANDE (1,5%), calcium, stabilisant (pectines), correcteurs d'acidité (acide citrique, citrates de sodium), sel marin de table, antioxydants (extrait riche en tocophérols,  esters d'acides gras de l'acide ascorbique), arômes, vitamines B12, E, D2,  ferments de yaourt (S. thermophilus, L. bulgaricus).\n\nAllergènes\nContient :  SOJA ET AMANDE\nType d’emballage\nbocal\nProducteur\nDANONE Produits Frais  France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\nConseil de  conservation\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5  jours.\nConseils d'utilisation\nSe mange à la cuillère\nValeurs  nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 g\nValeurs  Energétique en Kilojoules\t~ 221 kJ\nValeurs Energétique en Kilocalories\t~ 3  kcal\nValeurs Nutritionnelles\nMatières grasses\t~ 2.8 g\nDont Acides Gras  Saturés\t~ 0.4 g\nGlucides\t~ 2.2 g\nDont Sucres\t~ 2.1 g\nProtéines\t~ 3.9  g\nSel\t~ 0.23 g\n\n\nMicro Nutriments\tpour 100 g\nVitamine D\t~ 0.75  µg\nVitamine E\t~ 1.8 mg\nVitamine B12\t~ 0.38 µg\nCalcium\t~ 120 mg\nNous  contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle  fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon  magasin\nProgramme de fidélité\nNos catalogues\nNos magasins avec  Parapharmacie\nAide & Mentions\nDonnées personnelles et cookies\n(s’ouvre dans  une nouvelle fenêtre)\nConditions de nos offres\nContacts\nRappel produits\nCGV  & Mentions légales\n(s’ouvre dans une nouvelle fenêtre)\nNos autres  sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une nouvelle fenêtre)\nAffiliation  monoprix.fr\nBons plans des marques\nMonoprix.fr Courses\nTarifs de  livraison\nPrésentation du service\nAstuces\nAbonnement M+\nFAQ\nPlus de  services\nAppli mobile Apple\n(s’ouvre dans une nouvelle fenêtre)\nAppli mobile  Android\n(s’ouvre dans une nouvelle fenêtre)\n© 2025\nfacebook\n(s’ouvre dans  une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une nouvelle  fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": "amande",
+          "candidate_variant": "amande",
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [],
+          "image_match": true,
+          "final_score": 45,
+          "plausible_baseline": true
+        }
       },
-      "updated_at": "2025-10-09T00:21:42.343869",
-      "duration_seconds": 2057.430623,
+      "updated_at": "2025-10-31T17:04:12.783242",
+      "duration_seconds": 41.956957,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_super": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,99",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-nature-a-l-amande-alpro-5411188 118961",
+        "note": null,
+        "unit_price": "3,98 € / KG",
+        "quantity": "500 G",
+        "title": "Dessert végétal soja nature à l'amande ALPRO",
+        "matched_ean": "5411188118961",
+        "image": "https://media.carrefour.fr/media/referential/media/21c3413019084953b767ba11b37a d886/05411188118961_H1N1_s15.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-31T15:31:04.034881",
+      "duration_seconds": 23.660936,
+      "error": null,
+      "store_query": null
+    },
+    "courseu": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,89",
+        "unit_price": "3,78 € / KG",
+        "quantity": "500  g",
+        "title": "Dessert végétal soja nature à l'amande ALPRO - 500g",
+        "url": "https://www.coursesu.com/p/dessert-vegetal-soja-nature-a-lamande-alpro---500g/2 947231.html",
+        "note": "2025-10-31T15:29:31Z · Super U Eysines",
+        "store": "Super  U Eysines",
+        "matched_ean": "5411188118961"
+      },
+      "updated_at": "2025-10-31T15:31:04.034881",
+      "duration_seconds": 11.83252,
       "error": null,
       "store_query": null
     }
@@ -322,10 +385,10 @@
         "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
         "matched_ean": "5000112611861",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-10-30T19:20:59Z · E.Leclerc Drive · Bruges"
+        "note": "2025-10-31T13:10:18Z · E.Leclerc Drive · Bruges"
       },
-      "updated_at": "2025-10-30T19:22:14.799009",
-      "duration_seconds": 12.856638,
+      "updated_at": "2025-10-31T13:11:23.788823",
+      "duration_seconds": 6.053539,
       "error": null,
       "store_query": null
     },
@@ -342,8 +405,8 @@
         "quantity": null,
         "store": null
       },
-      "updated_at": "2025-10-30T19:22:14.799009",
-      "duration_seconds": 75.410873,
+      "updated_at": "2025-10-31T13:11:23.788823",
+      "duration_seconds": 69.756976,
       "error": null,
       "store_query": null
     },
@@ -360,8 +423,8 @@
         "matched_ean": "5000112611861",
         "image": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/"
       },
-      "updated_at": "2025-10-30T19:22:14.799009",
-      "duration_seconds": 17.265507,
+      "updated_at": "2025-10-31T13:11:23.788823",
+      "duration_seconds": 15.175687,
       "error": null,
       "store_query": null
     },
@@ -378,8 +441,8 @@
         "store": "Chronodrive Le Haillan",
         "matched_ean": "5000112611861"
       },
-      "updated_at": "2025-10-30T19:22:14.799009",
-      "duration_seconds": 8.657416,
+      "updated_at": "2025-10-31T13:11:23.788823",
+      "duration_seconds": 5.862217,
       "error": null,
       "store_query": null
     },
@@ -399,8 +462,8 @@
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-10-30T19:22:14.799009",
-      "duration_seconds": 23.884114,
+      "updated_at": "2025-10-31T13:11:23.788823",
+      "duration_seconds": 19.968321,
       "error": null,
       "store_query": null
     },
@@ -420,8 +483,8 @@
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-10-30T19:22:14.799009",
-      "duration_seconds": 25.929942,
+      "updated_at": "2025-10-31T13:11:23.788823",
+      "duration_seconds": 20.148002,
       "error": null,
       "store_query": null
     },
@@ -434,12 +497,12 @@
         "quantity": "1,75  L",
         "title": "Soda COCA-COLA Original - Bouteille 1,75L",
         "url": "https://www.coursesu.com/p/soda-coca-cola-original---bouteille-175l/5192990.htm l",
-        "note": "2025-10-30T19:18:16Z · Super U Eysines",
+        "note": "2025-10-31T13:07:56Z · Super U Eysines",
         "store": "Super U  Eysines",
         "matched_ean": "5000112611861"
       },
-      "updated_at": "2025-10-30T19:22:14.799009",
-      "duration_seconds": 9.324174,
+      "updated_at": "2025-10-31T13:11:23.788823",
+      "duration_seconds": 9.846467,
       "error": null,
       "store_query": null
     },
@@ -458,8 +521,29 @@
         "raw_text": null,
         "extras": null
       },
-      "updated_at": "2025-10-30T19:22:14.799009",
-      "duration_seconds": 40.292723,
+      "updated_at": "2025-10-31T13:11:23.788823",
+      "duration_seconds": 33.11003,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_super": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,45",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+        "note": "store_mismatch current=Market Fondaudège expected=Super Lormont",
+        "unit_price": "1,40 € / L",
+        "quantity": "1,75 L",
+        "title": "Soda au Cola Goût  Original COCA-COLA",
+        "matched_ean": "5000112611861",
+        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-31T13:11:23.788823",
+      "duration_seconds": 50.70016,
       "error": null,
       "store_query": null
     }
@@ -477,42 +561,52 @@
         "quantity": "500 G",
         "title": "Dessert végétal soja vanille ALPRO",
         "matched_ean": "5411188103387",
-        "image": "https://media.carrefour.fr/medias/ac2b8facaaff46c68a00677a2015aa99/p_540x540/05 411188103387_H1N1_s42.png",
+        "image": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac19 4cb6/05411188103387_H1N1_s42.png",
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-10-09T00:26:53.794360",
-      "duration_seconds": 24.953041,
+      "updated_at": "2025-10-31T15:38:33.440227",
+      "duration_seconds": 19.812465,
       "error": null,
       "store_query": null
     },
     "carrefour_market": {
-      "status": "NO_PRICE",
+      "status": "OK",
       "payload": {
-        "status": "NO_PRICE",
-        "price": null,
+        "status": "OK",
+        "price": "2,25",
         "store": "Market Fondaudège",
-        "url": null,
+        "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-vanille-alpro-5411188103387",
         "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
+        "unit_price": "4,50 € / KG",
+        "quantity": "500 G",
+        "title": "Dessert végétal soja vanille ALPRO",
+        "matched_ean": "5411188103387",
+        "image": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac19 4cb6/05411188103387_H1N1_s42.png",
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-10-09T00:26:53.794360",
-      "duration_seconds": 16.208001,
+      "updated_at": "2025-10-31T15:38:33.440227",
+      "duration_seconds": 22.581175,
       "error": null,
       "store_query": null
     },
     "leclerc": {
-      "status": "ERROR",
-      "payload": {},
-      "updated_at": "2025-10-08T16:16:05.655699",
-      "duration_seconds": 0.878894,
-      "error": "EMPTY_STDOUT",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Dessert végétal soja alpro Vanille - 500g",
+        "price": "1,81",
+        "unit_price": "3,62 € / kg",
+        "quantity": "500  g",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
+        "matched_ean": "5411188103387",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-31T15:37:44Z · E.Leclerc Drive · Bruges"
+      },
+      "updated_at": "2025-10-31T15:38:33.440227",
+      "duration_seconds": 8.079586,
+      "error": null,
       "store_query": null
     },
     "auchan": {
@@ -528,26 +622,26 @@
         "matched_ean": "5411188103387",
         "image": "https://cdn.auchan.fr/media/P020000000005A1PRIMARY_1200x1200/B2CD/"
       },
-      "updated_at": "2025-10-09T00:26:53.794360",
-      "duration_seconds": 13.157466,
+      "updated_at": "2025-10-31T15:38:33.440227",
+      "duration_seconds": 16.522665,
       "error": null,
       "store_query": null
     },
     "intermarche": {
-      "status": "NO_PRICE",
+      "status": "OK",
       "payload": {
-        "status": "NO_PRICE",
-        "price": null,
-        "title": null,
+        "status": "OK",
+        "price": "1,96",
+        "title": "Dessert végétal soja vanille,",
         "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-vanille/5411188103387",
-        "note": null,
+        "note": "Intermarché · Super Talence",
         "matched_ean": "5411188103387",
-        "unit_price": null,
-        "quantity": null,
+        "unit_price": "3,92 € / KG",
+        "quantity": "500  g",
         "store": "Super Talence"
       },
-      "updated_at": "2025-10-09T00:26:53.794360",
-      "duration_seconds": 34.574629,
+      "updated_at": "2025-10-31T15:38:33.440227",
+      "duration_seconds": 44.916288,
       "error": null,
       "store_query": null
     },
@@ -556,7 +650,7 @@
       "payload": {
         "status": "OK",
         "price": "2,05",
-        "title": "Dessert végétal soja et vanille  ALPRO 500 g",
+        "title": "Dessert végétal soja et vanille  ALPRO",
         "url": "https://www.chronodrive.com/alpro--dessert-vegetal-soja-et-vanille-P364875",
         "note": "Chronodrive Le Haillan",
         "unit_price": "4,10 € / KG",
@@ -564,26 +658,79 @@
         "store": "Chronodrive Le Haillan",
         "matched_ean": "5411188103387"
       },
-      "updated_at": "2025-10-09T00:26:53.794360",
-      "duration_seconds": 29.166152,
+      "updated_at": "2025-10-31T15:38:33.440227",
+      "duration_seconds": 6.65781,
       "error": null,
       "store_query": null
     },
     "monoprix": {
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
+        "status": "OK",
+        "price": "2,45",
+        "title": "Alpro Dessert Végétal Vanille Soja  500g",
+        "url": "https://courses.monoprix.fr/products/alpro-dessert-v%C3%A9g%C3%A9tal-vanille-so ja-500g/MPX_3305890",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977 fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg",
+        "matched_ean": null,
+        "unit_price": "4,90 € / KG",
+        "quantity": "500 G",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières  commandes\nEN SAVOIR +\nAccueil\nRégimes alimentaires\nVégétal\nDessert  végétal\nAlpro Dessert Végétal Vanille Soja 500g\n1 s+\n1 semaine de garantie de vie du produit\nNutriscore A\n500g 4,90 € / kilo\n500g\n(4,90 € / kilo)\n2,45  €\nAjouter\nInformations produit\n\n\nDescription Produit\nEnvie d'une pause  gourmande et naturellement sans lactose ? Alerte au régal végétal !  Délicieusement onctueux, le brassé végétal alpro soja Vanille 100% gourmand  contribue à vos apports quotidiens en 5 nutriments essentiels (riche en  protéines, source de calcium et de vitamines B12, B2 et D2). A déguster à tout  moment de la journée !\n\n\nOrigine\nBelgique\nMarque\nDanone\nService  consommateur\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\nConseils  d'utilisation\nSe mange à la cuillère\nIngredients\n\nINGRÉDIENTS: jus de SOJA  (90,9%), sucre, stabilisant (pectines), correcteurs d'acidité (acide citrique,  citrates de sodium), calcium, concentré de carotte, sel marin de table, arômes,  arôme naturel de vanille, vanille en poudre (0,03%), antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), vitamines (2, B12,  D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\n\nAllergènes\nContient : SOJA\nType d’emballage\nbocal\nProducteur\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\nConseil de conservation\nA conserver  au frais à max. 7°C. Après ouverture, se conserve 5 jours.\nConseils  d'utilisation\nSe mange à la cuillère\nValeurs nutritionnelles\nINFORMATIONS  NUTRITIONNELLES MOYENNES\n\tpour 100 g\nValeurs Energétique en Kilojoules\t~ 279 kJ\nValeurs Energétique en Kilocalories\t~ 66 kcal\nValeurs  Nutritionnelles\nMatières grasses\t~ 2.2 g\nDont Acides Gras Saturés\t~ 0.4  g\nGlucides\t~ 7.5 g\nDont Sucres\t~ 7.5 g\nProtéines\t~ 3.7 g\nSel\t~ 0.2  g\n\n\nMicro Nutriments\tpour 100 g\nVitamine D\t~ 0.75 µg\nVitamine B12\t~ 0.38 µg\nCalcium\t~ 120 mg\nNous contacter\n(s’ouvre dans une nouvelle  fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": "vanille",
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [],
+          "image_match": true,
+          "final_score": 45,
+          "plausible_baseline": true
+        }
+      },
+      "updated_at": "2025-10-31T15:38:33.440227",
+      "duration_seconds": 48.386618,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_super": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
         "price": null,
-        "title": null,
+        "store": "Lormont",
         "url": null,
         "note": null,
-        "matched_ean": null,
         "unit_price": null,
         "quantity": null,
-        "store": null
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
       },
-      "updated_at": "2025-10-08T16:16:05.655699",
-      "duration_seconds": 1.095665,
+      "updated_at": "2025-10-31T15:38:33.440227",
+      "duration_seconds": 13.542845,
+      "error": null,
+      "store_query": null
+    },
+    "courseu": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,91",
+        "unit_price": "3,82 € / KG",
+        "quantity": "500  g",
+        "title": "Dessert végétal soja vanille ALPRO - 500g",
+        "url": "https://www.coursesu.com/p/dessert-vegetal-soja-vanille-alpro---500g/2764270.ht ml",
+        "note": "2025-10-31T15:36:51Z · Super U Eysines",
+        "store": "Super U  Eysines",
+        "matched_ean": "5411188103387"
+      },
+      "updated_at": "2025-10-31T15:38:33.440227",
+      "duration_seconds": 9.265164,
       "error": null,
       "store_query": null
     }
@@ -833,42 +980,52 @@
         "quantity": "300 G",
         "title": "Yaourt à boire fraise framboise protéiné 0% MG HIPRO",
         "matched_ean": "3033491485756",
-        "image": "https://media.carrefour.fr/medias/e020b53e85164d07af4757ad692557cc/p_540x540/03 033491485756_C1N1_s10.png",
+        "image": "https://media.carrefour.fr/media/referential/media/f51f8b9ec2964262b3cd59f55f3f 388c/03033491485756_C1N1_s10.png",
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-10-09T00:35:45.086925",
-      "duration_seconds": 23.868143,
+      "updated_at": "2025-10-31T15:46:04.636301",
+      "duration_seconds": 23.042744,
       "error": null,
       "store_query": null
     },
     "carrefour_market": {
-      "status": "NO_PRICE",
+      "status": "OK",
       "payload": {
-        "status": "NO_PRICE",
-        "price": null,
+        "status": "OK",
+        "price": "2,50",
         "store": "Market Fondaudège",
-        "url": null,
+        "url": "https://www.carrefour.fr/p/yaourt-a-boire-fraise-framboise-proteine-0-mg-hipro- 3033491485756",
         "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
+        "unit_price": "8,33 € / KG",
+        "quantity": "300 G",
+        "title": "Yaourt à boire fraise framboise protéiné 0% MG HIPRO",
+        "matched_ean": "3033491485756",
+        "image": "https://media.carrefour.fr/media/referential/media/f51f8b9ec2964262b3cd59f55f3f 388c/03033491485756_C1N1_s10.png",
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-10-09T00:35:45.086925",
-      "duration_seconds": 15.078163,
+      "updated_at": "2025-10-31T15:46:04.636301",
+      "duration_seconds": 21.657328,
       "error": null,
       "store_query": null
     },
     "leclerc": {
-      "status": "ERROR",
-      "payload": {},
-      "updated_at": "2025-10-08T16:19:50.949782",
-      "duration_seconds": 1.440499,
-      "error": "EMPTY_STDOUT",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Yaourt à boire protéiné Hipro Fraise framboise 0%mg - 300g",
+        "price": "2,13",
+        "unit_price": "7,10 € / kg",
+        "quantity": "300  g",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-112294-Yaourt-a-boire-proteine-Hipro.aspx",
+        "matched_ean": "3033491485756",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-31T15:44:16Z · E.Leclerc Drive · Bruges"
+      },
+      "updated_at": "2025-10-31T15:46:04.636301",
+      "duration_seconds": 8.402151,
+      "error": null,
       "store_query": null
     },
     "intermarche": {
@@ -884,8 +1041,8 @@
         "quantity": null,
         "store": null
       },
-      "updated_at": "2025-10-09T00:35:45.086925",
-      "duration_seconds": 6.452612,
+      "updated_at": "2025-10-31T15:46:04.636301",
+      "duration_seconds": 48.498295,
       "error": null,
       "store_query": null
     },
@@ -893,17 +1050,17 @@
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "2,44",
+        "price": "2,08",
         "title": "Yaourt à boire protéiné saveur  fraise framboise 0% MG",
         "url": "https://www.auchan.fr/hipro-yaourt-a-boire-proteine-saveur-fraise-framboise-0-m g/pr-C1171247",
         "note": "Auchan (CDP)",
-        "unit_price": "8,13 € / KG",
+        "unit_price": "6,93 € / KG",
         "quantity": "300 G",
         "matched_ean": "3033491485756",
         "image": "https://cdn.auchan.fr/media/P02000000000AKNPRIMARY_1200x1200/B2CD/"
       },
-      "updated_at": "2025-10-09T00:35:45.086925",
-      "duration_seconds": 13.131837,
+      "updated_at": "2025-10-31T15:46:04.636301",
+      "duration_seconds": 15.998805,
       "error": null,
       "store_query": null
     },
@@ -912,7 +1069,7 @@
       "payload": {
         "status": "OK",
         "price": "2,55",
-        "title": "Yaourt à boire protéiné à la fraise  et framboise HIPRO 300 g",
+        "title": "Yaourt à boire protéiné à la fraise  et framboise HIPRO",
         "url": "https://www.chronodrive.com/hipro--yaourt-a-boire-proteine-a-la-fraise-et-framb oise-P415422",
         "note": "Chronodrive Le Haillan",
         "unit_price": "8,50 € / KG",
@@ -920,26 +1077,79 @@
         "store": "Chronodrive Le Haillan",
         "matched_ean": "3033491485756"
       },
-      "updated_at": "2025-10-09T00:35:45.086925",
-      "duration_seconds": 29.348769,
+      "updated_at": "2025-10-31T15:46:04.636301",
+      "duration_seconds": 6.532456,
       "error": null,
       "store_query": null
     },
     "monoprix": {
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
-        "price": null,
-        "title": null,
-        "url": null,
-        "note": null,
+        "status": "OK",
+        "price": "2,99",
+        "title": "HiPRO Yaourt À Boire Fraise  Framboise 25% Protéines 300g",
+        "url": "https://courses.monoprix.fr/products/hipro-yaourt-%C3%A0-boire-fraise-framboise -25-prot%C3%A9ines-300g/MPX_3563217",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/fab9 d5ce-688c-42a9-a8f0-bb84cb6d9c15/300x300.jpg",
         "matched_ean": null,
-        "unit_price": null,
-        "quantity": null,
-        "store": null
+        "unit_price": "9,97 € / KG",
+        "quantity": "300 G",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières  commandes\nEN SAVOIR +\nAccueil\nProduits Laitiers, Œufs et  Fromages\nYaourts\nYaourts aromatisés et aux fruits\nHiPRO Yaourt À Boire Fraise Framboise 25% Protéines 300g\n1 s+\n1 semaine de garantie de vie du  produit\n300g 9,97 € / kilo\n300g\n(9,97 € / kilo)\n2,99  €\nAjouter\nInformations produit\n\n\nDescription Produit\nHiPRO à boire est un  produit laitier riche en protéines*, avec 25g de protéines par bouteille, 0% de  matières grasses, enrichie en magnésium et en vitamine B9**, pour contribuer au  maintien de la masse musculaire* et à la réduction de la fatigue**. Pouvant se  consommer 6h hors du frigo, il peut se consommer au petit-déjeuner, snack ou  dessert, donc adapté à toutes les pratiques sportives! Disponible en 6 saveurs : banane, myrtille, noix de coco, vanille - cookie, mangue,  fraise-framboise\n\n\nOrigine\nEspagne\nMarque\nHipro\nService  consommateur\nD.P.F.F. 17 RUE DES DEUX GARES 92500 RUEIL MALMAISON France  https://www.danone.fr\nConseils d'utilisation\nSecouer avant  ouverture\nIngredients\nLAIT écrémé, protéines de LAIT, fruits (0,9%) (fraise  (0,7%), framboise (0,2%)), magnésium, épaississants (amidon modifié, pectine de  fruits), correcteurs d'acidité (acide citrique, citrate de sodium), arômes,  arôme naturel, édulcorants (acésulfame-K, sucralose), ferments lactiques (LAIT), Vitamine B9.\nAllergènes\nLAIT\nType d’emballage\nbocal\nProducteur\nDANONE  Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\nConseil  de conservation\nA consommer jusqu'au (jour/mois) :\nConseils  d'utilisation\nSecouer avant ouverture\nValeurs nutritionnelles\nINFORMATIONS  NUTRITIONNELLES MOYENNES\n\tpour 100 g\tEn % des AJR\tpour Par portion/Per  portie (300 g)\nValeurs Energétique en Kilojoules\t~ 252 kJ\t3 %\t755  kJ\nValeurs Energétique en Kilocalories\t~ 59 kcal\t3 %\t178 kcal\nValeurs  Nutritionnelles\nMatières grasses\t~ 0.5 g\t\t1.5 g\nDont Acides Gras Saturés\t~ 0.2 g\t1 %\t0.6 g\nGlucides\t~ 5.5 g\t2 %\t16.5 g\nDont Sucres\t~ 5.2 g\t5  %\t15.6 g\nProtéines\t~ 8.3 g\t16 %\t25.2 g\nSel\t~ 0.18 g\t3 %\t0.53  g\n\n\nMicro Nutriments\tpour 100 g\nCalcium\t~ 176 mg\nMagnésium\t~ 56.25  mg\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une  nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos  magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos  magasins avec Parapharmacie\nAide & Mentions\nDonnées personnelles et  cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": "fraise",
+          "candidate_variant": "fraise",
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [],
+          "image_match": true,
+          "final_score": 45,
+          "plausible_baseline": true
+        }
       },
-      "updated_at": "2025-10-08T16:19:50.949782",
-      "duration_seconds": 1.430016,
+      "updated_at": "2025-11-01T10:45:43.248666",
+      "duration_seconds": 58.636486,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_super": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,05",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/yaourt-a-boire-fraise-framboise-proteine-0-mg-hipro- 3033491485756",
+        "note": null,
+        "unit_price": "6,83 € / KG",
+        "quantity": "300 G",
+        "title": "Yaourt à boire fraise framboise protéiné 0% MG HIPRO",
+        "matched_ean": "3033491485756",
+        "image": "https://media.carrefour.fr/media/referential/media/f51f8b9ec2964262b3cd59f55f3f 388c/03033491485756_C1N1_s10.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-10-31T15:46:04.636301",
+      "duration_seconds": 20.497565,
+      "error": null,
+      "store_query": null
+    },
+    "courseu": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,20",
+        "unit_price": "7,33 € / KG",
+        "quantity": "300  g",
+        "title": "Yaourt à boire fraise framboise protéiné 0%mg HIPRO - 300g",
+        "url": "https://www.coursesu.com/p/yaourt-a-boire-fraise-framboise-proteine-0mg-hipro-- -300g/3722232.html",
+        "note": "2025-10-31T15:42:34Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "3033491485756"
+      },
+      "updated_at": "2025-10-31T15:46:04.636301",
+      "duration_seconds": 11.685209,
       "error": null,
       "store_query": null
     }
@@ -1984,20 +2194,34 @@
       "store_query": null
     },
     "monoprix": {
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
-        "price": null,
-        "title": null,
-        "url": null,
-        "note": null,
+        "status": "OK",
+        "price": "2,75",
+        "title": "Amora Spécialité à la Moutarde  Savora Bocal 385g",
+        "url": "https://courses.monoprix.fr/products/amora-sp%C3%A9cialit%C3%A9-%C3%A0-la-mouta rde-savora-bocal-385g/MPX_1170829",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/2416 755b-fe5f-4849-b500-3d432a6163ee/300x300.jpg",
         "matched_ean": null,
-        "unit_price": null,
-        "quantity": null,
-        "store": null
+        "unit_price": "7,14 € / KG",
+        "quantity": "385 G",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières  commandes\nEN SAVOIR +\nAccueil\nEpicerie Salée\nSauce et Base  culinaire\nMayonnaise, Ketchup et Autres\nMoutarde\nAmora Spécialité à la  Moutarde Savora Bocal 385g\n2 m+\n2 mois de garantie de vie du  produit\nNutriscore D\n385g 7,14 € / kilo\n385g\n(7,14 € / kilo)\n2,75  €\nAjouter\nInformations produit\n\n\nDescription Produit\nDécouvrez notre  Spécialité à la Moutarde de Dijon Savora dans un bocal en verre de 385 g. Une  recette de spécialité unique et inimitable depuis 1899. Un goût indéfinissable  et délicieux ! Le seul condiment aux 11 épices et aromates : de délicates  graines de moutardes brunes et blanches, un soupçon de cannelle et de piment de  Cayenne, de la précieuse muscade, du curcuma, du clou de girofle, mais aussi du  céleri, de l'ail, de l'oignon, de l'estragon ainsi que du vinaigre de malt et du miel mille-fleurs. Parce qu'il est important pour nous de limiter notre impact  environnemental, les bocaux en verre de nos moutardes sont 100 % recyclable.  Aidez-nous à réduire les déchets en les recyclant. Présente dans le cœur des  Français depuis 1919, Amora est reconnue et appréciée pour son savoir-faire et  la qualité de ses produits. La marque séduit chaque année avec des recettes  pleines de goût, simples et originales. Réalisez des recettes faciles et  gourmandes et réinventez vos plats en leur donnant toujours plus de goût avec la sauce moutarde Amora. Sur le bord de l'assiette, dans vos sandwichs, ou à chaud, les produits Amora assaisonneront tous vos plats et relèveront les saveurs de  votre cuisine. Découvrez ainsi le plaisir de partager de délicieux repas en  famille ou entre amis. Retrouvez tous les produits Amora® et des idées recettes  sur www.amora.fr. Vous régalerez les grands comme les petits, pour le plaisir de toutes les papilles. Avec les condiments Amora, partagez plus que des repas  !\n\n\nOrigine\nFrance\nMarque\nAmora\nService consommateur\nAmora Relation  Consommateurs Unilever France 20 rue des Deux Gares 92842 Rueil-Malmaison Cedex  France 09 69 32 00 90 (appel non surtaxé)  https://www.mavieencouleurs.fr/marques/amora\nConseils  d'utilisation\n.\nIngredients\nIngrédients : moutarde de Dijon 40% (eau, graines de MOUTARDE brunes 14%, vinaigre d'alcool, sel, acidifiant : acide citrique,  conservateur : E224 (SULFITES)), vinaigre de malt (ORGE) 27%, eau, farine de  BLÉ, sucre, vinaigre d'alcool, sel, miel 1,4%, épices et aromates 0,8% (curcuma, cannelle, ail, noix de muscade, oignon, piment de Cayenne, graines de CÉLERI,  clou de girofle, graines de MOUTARDE blanches, estragon).\nAllergènes\nSulfite,  Orge, Moutarde, Céleri, Blé\nA propos de la marque\nPrésente dans le cœur des  Français depuis 1919, Amora est reconnue et appréciée pour son savoir-faire et  la qualité de ses produits. La marque continue de séduire chaque année avec des  nouveautés authentiques, pleines de goût et originales. Réalisez des recettes  faciles et gourmandes, et réinventez vos plats en leur donnant toujours plus de  goût avec Amora. Sur le bord de l'assiette, dans vos sandwichs, ou à chaud, les  produits Amora assaisonneront tous vos plats et relèveront les saveurs de votre  cuisine. Profitez ainsi du plaisir de partager de délicieux repas en famille ou  entre amis. Découvrez toutes les astuces et les recettes faciles et gourmandes  Amora sur www.amora.fr : de quoi régaler les petits comme les grands, pour le  plaisir de toute la famille !\nType d’emballage\nbocal\nProducteur\nUNILEVER  BESTFOODS 20 RUE DES 2 GARES/CS 90056//92500/RUEIL MALMAISON/FRANCE\nConseil de  conservation\nÀ conserver au réfrigérateur après ouverture.\nConseils  d'utilisation\n.\nValeurs nutritionnelles\nINFORMATIONS NUTRITIONNELLES  MOYENNES\n\tpour 100 g\tpour 10 g\nValeurs Energétique en Kilojoules\t~ 513  kJ\t51 kJ\nValeurs Energétique en Kilocalories\t~ 124 kcal\t12 kcal\nValeurs  Nutritionnelles\nMatières grasses\t~ 4.8 g\t0.5 g\nDont Acides Gras Saturés\t~  0.3 g\t0.1 g\nGlucides\t~ 15 g\t1.5 g\nDont Sucres\t~ 5.9 g\t0.6 g\nProtéines\t~ 3.8 g\t0.5 g\nSel\t~ 4.7 g\t0.47 g\nFibre\t~ 1.04 g\t\n\n\nMicro  Nutriments\tpour 100 g\nFibres alimentaires\t~ 1.04 g\nNous contacter\n(s’ouvre  dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique  relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de  fidélité\nNos catalogues\nNos magasins avec Parapharmacie\nAide &  Mentions\nDonnées personnelles et cookies\n(s’ouvre dans une nouvelle  fenêtre)\nConditions de nos offres\nContacts\nRappel produits\nCGV & Mentions  légales\n(s’ouvre dans une nouvelle fenêtre)\nNos autres  sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une nouvelle fenêtre)\nAffiliation  monoprix.fr\nBons plans des marques\nMonoprix.fr Courses\nTarifs de  livraison\nPrésentation du service\nAstuces\nAbonnement M+\nFAQ\nPlus de  services\nAppli mobile Apple\n(s’ouvre dans une nouvelle fenêtre)\nAppli mobile  Android\n(s’ouvre dans une nouvelle fenêtre)\n© 2025\nfacebook\n(s’ouvre dans  une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une nouvelle  fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": null,
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [],
+          "image_match": true,
+          "final_score": 45,
+          "plausible_baseline": true
+        }
       },
-      "updated_at": "2025-10-08T08:54:31.253352",
-      "duration_seconds": 255.94902,
+      "updated_at": "2025-11-01T11:13:49.142024",
+      "duration_seconds": 27.702244,
       "error": null,
       "store_query": null
     },
@@ -2208,10 +2432,24 @@
         "matched_ean": null,
         "unit_price": "4,62 € / L",
         "quantity": "950 ML",
-        "store": null
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières  commandes\nEN SAVOIR +\nAccueil\nEntretien & Nettoyage\nSalle de bain, WC et  Déboucheur\nDéboucheur\nDestop Déboucheur Liquide Original 950ml\n950ml 4,62 € / litre\n950ml\n(4,62 € / litre)\n4,39 €\nAjouter\nInformations  produit\n\n\nDescription Produit\nLa formule du Gel Déboucheur Liquide Destop  dissout intégralement toutes les matières organiques (cheveux, graisse…). Il est adapté à tous types de canalisations (douches, éviers, WC…). Faites confiance à  Destop, la marque N°1 des déboucheurs*. *Destop marque N°1 des ventes volume du  marché Déboucheurs - GMS - France - Cumul annuel mobile P11 2022 (source  Nielsen)\n\n\nOrigine\nPologne\nMarque\nDestop\nService consommateur\nRB HYGIENE HOME FRANCE SAS 38 RUE VICTOR BASCH, CS11018, 91300 MASSY 01 69 93 17 00  euconsumercarefr@rb.com\nIngredients\n\nSODIUM HYDROXIDE\n\nProducteur\nRB  HYGIENE HOME FRANCE 38 RUE VICTOR BASCH///91300/MASSY/FRANCE\nAutres  informations\nSGH05 - Corrosif. Provoque des lésions oculaires graves. Peut être corrosif pour les métaux. Provoque des brûlures de la peau et des lésions  oculaires graves. Provoque une sévére irritation des yeux. Liquide et vapeurs  inflammables\nConseils d'utilisation\nDéboucher avec précaution et sans  comprimer le flacon. Verser doucement un 1/2 flacon (0,5 L) même s’il y a de  l’eau stagnante (pour WC et grosses canalisations toute la bouteille). Reboucher le flacon immédiatement après usage. Ne pas ajouter d'eau bouillante.\nNous  contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle  fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon  magasin\nProgramme de fidélité\nNos catalogues\nNos magasins avec  Parapharmacie\nAide & Mentions\nDonnées personnelles et cookies\n(s’ouvre dans  une nouvelle fenêtre)\nConditions de nos offres\nContacts\nRappel produits\nCGV  & Mentions légales\n(s’ouvre dans une nouvelle fenêtre)\nNos autres  sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une nouvelle fenêtre)\nAffiliation  monoprix.fr\nBons plans des marques\nMonoprix.fr Courses\nTarifs de  livraison\nPrésentation du service\nAstuces\nAbonnement M+\nFAQ\nPlus de  services\nAppli mobile Apple\n(s’ouvre dans une nouvelle fenêtre)\nAppli mobile  Android\n(s’ouvre dans une nouvelle fenêtre)\n© 2025\nfacebook\n(s’ouvre dans  une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une nouvelle  fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": "nature",
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [],
+          "image_match": true,
+          "final_score": 45,
+          "plausible_baseline": true
+        }
       },
-      "updated_at": "2025-10-16T17:27:06.210613",
-      "duration_seconds": 37.946261,
+      "updated_at": "2025-11-01T11:32:40.323542",
+      "duration_seconds": 20.743245,
       "error": null,
       "store_query": null
     },

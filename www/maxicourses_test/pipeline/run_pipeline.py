@@ -429,6 +429,7 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
         "script": ROOT_DIR / "fetch_carrefour_price_super.py",
         "env": lambda: {
             "CARREFOUR_STATE_VARIANT": os.getenv("CARREFOUR_SUPER_STATE", "carrefour_super"),
+            "CARREFOUR_SUPER_FRONTAL_STORE": os.getenv("CARREFOUR_SUPER_FRONTAL_STORE", "116"),
         },
     },
     "leclerc": {

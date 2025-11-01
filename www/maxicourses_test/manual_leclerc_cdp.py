@@ -19,8 +19,6 @@ CLI usage example::
 The script prints a JSON payload on stdout. It requires Chrome remote (port 9222)
 to be up before invocation.
 
-????forcer la recherche manuelle, passe LECLERC_FORCE_SEARCH=1
-
 """
 from __future__ import annotations
 
@@ -84,21 +82,6 @@ try:
         MANUAL_DESCRIPTOR = json.loads(descriptor_path.read_text(encoding="utf-8"))
 except Exception:
     MANUAL_DESCRIPTOR = {}
-
-MANUAL_DESCRIPTOR_PATH = Path(__file__).with_name("manual_descriptors.json")
-
-
-def _save_descriptor_entry(ean: str, entry: dict) -> None:
-    try:
-        data = json.loads(MANUAL_DESCRIPTOR_PATH.read_text(encoding="utf-8"))
-        if not isinstance(data, dict):
-            data = {}
-    except Exception:
-        data = {}
-    data[ean] = entry
-    MANUAL_DESCRIPTOR_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    MANUAL_DESCRIPTOR[ean] = entry
-
 
 async def human_pause(page, base_ms: int) -> None:
     jitter = random.randint(-int(base_ms * 0.2), int(base_ms * 0.2))
@@ -294,16 +277,6 @@ async def run_manual_leclerc(
             if isinstance(candidate_pack, int) and candidate_pack > 1:
                 expected_pack_count = candidate_pack
 
-    cached_pdp_url: Optional[str] = None
-    use_cached_pdp = False
-    force_search = os.environ.get("LECLERC_FORCE_SEARCH", "0").lower() in {"1", "true"}
-    if isinstance(descriptor_entry, dict):
-        candidate_url = descriptor_entry.get("leclerc_url")
-        if isinstance(candidate_url, str) and candidate_url.strip():
-            cached_pdp_url = candidate_url.strip()
-            if not force_search:
-                use_cached_pdp = True
-
     page: Optional["Page"] = None  # type: ignore[name-defined]
 
     async with async_playwright() as p:
@@ -351,95 +324,103 @@ async def run_manual_leclerc(
         chosen_href = ""
         card_html = ""
 
-        if use_cached_pdp:
-            sys.stderr.write(f"[LECLERC_DEBUG] Using cached PDP URL {cached_pdp_url}\n")
-            await page.goto(cached_pdp_url, wait_until="domcontentloaded")
-            await human_pause(page, pdp_delay_ms)
-            sys.stderr.write(f"[LECLERC_DEBUG] after cached PDP -> {time.perf_counter()-started:.2f}s\n")
+        search_field = page.locator("input[id*='rechercheTexte']").first
+        await search_field.click()
+        await human_pause(page, _adaptive_delay(1000))
+        sys.stderr.write(f"[LECLERC_DEBUG] after focus -> {time.perf_counter()-started:.2f}s\n")
+        await search_field.fill("")
+        await human_pause(page, _adaptive_delay(500))
+        for ch in query:
+            await search_field.type(ch, delay=random.randint(type_min_delay, type_max_delay))
+        await human_pause(page, _adaptive_delay(600))
+        await search_field.press("Enter")
+        search_timeout = min(6000, max(1500, result_delay_ms * 20))
+        try:
+            await page.wait_for_selector("li.liWCRS310_Product", timeout=search_timeout)
+        except PlaywrightTimeoutError:
+            sys.stderr.write(
+                f"[LECLERC_DEBUG] search results timeout after {time.perf_counter()-started:.2f}s\n"
+            )
         else:
-            search_field = page.locator("input[id*='rechercheTexte']").first
-            await search_field.click()
-            await human_pause(page, _adaptive_delay(1000))
-            sys.stderr.write(f"[LECLERC_DEBUG] after focus -> {time.perf_counter()-started:.2f}s\n")
-            await search_field.fill("")
-            await human_pause(page, _adaptive_delay(500))
-            for ch in query:
-                await search_field.type(ch, delay=random.randint(type_min_delay, type_max_delay))
-            await human_pause(page, _adaptive_delay(600))
-            await search_field.press("Enter")
-            await page.wait_for_load_state("domcontentloaded")
-            sys.stderr.write(f"[LECLERC_DEBUG] after search submit -> {time.perf_counter()-started:.2f}s\n")
-            await human_pause(page, result_delay_ms)
-            sys.stderr.write(f"[LECLERC_DEBUG] after result pause -> {time.perf_counter()-started:.2f}s\n")
+            sys.stderr.write(
+                f"[LECLERC_DEBUG] results visible -> {time.perf_counter()-started:.2f}s\n"
+            )
+        await human_pause(page, result_delay_ms)
+        sys.stderr.write(f"[LECLERC_DEBUG] after result pause -> {time.perf_counter()-started:.2f}s\n")
 
-            cards = page.locator("li.liWCRS310_Product")
-            card_count = await cards.count()
-            if not card_count:
-                sys.stderr.write(f"[LECLERC_DEBUG] no cards after {time.perf_counter()-started:.2f}s\n")
-                return {"status": "NO_RESULTS", "query": query}
+        cards = page.locator("li.liWCRS310_Product")
+        card_count = min(await cards.count(), 8)
+        if not card_count:
+            sys.stderr.write(f"[LECLERC_DEBUG] no cards after {time.perf_counter()-started:.2f}s\n")
+            return {"status": "NO_RESULTS", "query": query}
 
-            expected_tokens = [tok.lower() for tok in query.split() if len(tok) > 2]
-            chosen_index = 0
-            chosen_label = None
-            chosen_href = ""
-            chosen_score = -10_000
-            for idx in range(card_count):
-                try:
-                    link = cards.nth(idx).locator("a.aWCRS310_Product").first
-                    label = await link.inner_text(timeout=5000)
-                    href = await link.get_attribute("href") or ""
-                except Exception:
-                    continue
-                normalized_label = (label or "").lower()
-                normalized_href = (href or "").lower()
-                score = _score_card(
-                    label or "",
-                    href,
-                    expected_tokens,
-                    descriptor_tokens,
-                    descriptor_numbers,
-                    brand_tokens,
-                    ean,
-                )
-                penalty = 0
-                if descriptor_negatives:
-                    for token in descriptor_negatives:
-                        if token and (token in normalized_label or token in normalized_href):
-                            penalty += 120
-                            break
-                if expected_pack_count <= 1:
-                    if re.search(r"\b\d+\s*[x×]\s*\d+", normalized_label):
-                        penalty += 90
-                    if " pack" in normalized_label or normalized_label.startswith("pack "):
-                        penalty += 60
-                    if re.search(r"\bx\d+\b", normalized_label):
-                        penalty += 60
-                score -= penalty
-                if score > chosen_score:
-                    chosen_index = idx
-                    chosen_label = label
-                    chosen_href = href
-                    chosen_score = score
-
-            card_html = await cards.nth(chosen_index).inner_html()
-            sys.stderr.write(f"[LECLERC_DEBUG] chosen href='{chosen_href}' label='{chosen_label}'\n")
-            sys.stderr.write(f"[LECLERC_DEBUG] card html snippet:\n{card_html[:500]}...\n")
-
-            card_to_open = cards.nth(chosen_index)
-            await card_to_open.locator("a.aWCRS310_Product").first.click()
+        expected_tokens = [tok.lower() for tok in query.split() if len(tok) > 2]
+        chosen_index = 0
+        chosen_label = None
+        chosen_href = ""
+        chosen_score = -10_000
+        for idx in range(card_count):
             try:
-                await page.wait_for_url("**/fiche-produits-*.aspx", timeout=6000)
+                link = cards.nth(idx).locator("a.aWCRS310_Product").first
+                label = await link.inner_text(timeout=1500)
+                href = await link.get_attribute("href", timeout=1500) or ""
             except PlaywrightTimeoutError:
-                if chosen_href:
-                    pdp_url = urljoin(store_url, chosen_href)
-                    sys.stderr.write(
-                        f"[LECLERC_DEBUG] wait_for_url timeout; navigating to fallback {pdp_url}\n"
-                    )
-                    await page.goto(pdp_url, wait_until="domcontentloaded")
-                else:
-                    sys.stderr.write("[LECLERC_DEBUG] wait_for_url timeout and no chosen href\n")
-            sys.stderr.write(f"[LECLERC_DEBUG] after PDP navigation -> {time.perf_counter()-started:.2f}s\n")
-            await human_pause(page, pdp_delay_ms)
+                continue
+            except Exception:
+                continue
+            normalized_label = (label or "").lower()
+            normalized_href = (href or "").lower()
+            score = _score_card(
+                label or "",
+                href,
+                expected_tokens,
+                descriptor_tokens,
+                descriptor_numbers,
+                brand_tokens,
+                ean,
+            )
+            penalty = 0
+            if descriptor_negatives:
+                for token in descriptor_negatives:
+                    if token and (token in normalized_label or token in normalized_href):
+                        penalty += 120
+                        break
+            if expected_pack_count <= 1:
+                if re.search(r"\b\d+\s*[x×]\s*\d+", normalized_label):
+                    penalty += 90
+                if " pack" in normalized_label or normalized_label.startswith("pack "):
+                    penalty += 60
+                if re.search(r"\bx\d+\b", normalized_label):
+                    penalty += 60
+            score -= penalty
+            if score > chosen_score:
+                chosen_index = idx
+                chosen_label = label
+                chosen_href = href
+                chosen_score = score
+
+        try:
+            card_html = await cards.nth(chosen_index).inner_html(timeout=1500)
+        except Exception:
+            card_html = ""
+        sys.stderr.write(f"[LECLERC_DEBUG] chosen href='{chosen_href}' label='{chosen_label}'\n")
+        sys.stderr.write(f"[LECLERC_DEBUG] card html snippet:\n{card_html[:500]}...\n")
+
+        card_to_open = cards.nth(chosen_index)
+        await card_to_open.locator("a.aWCRS310_Product").first.click()
+        try:
+            await page.wait_for_url("**/fiche-produits-*.aspx", timeout=6000)
+        except PlaywrightTimeoutError:
+            if chosen_href:
+                pdp_url = urljoin(store_url, chosen_href)
+                sys.stderr.write(
+                    f"[LECLERC_DEBUG] wait_for_url timeout; navigating to fallback {pdp_url}\n"
+                )
+                await page.goto(pdp_url, wait_until="domcontentloaded")
+            else:
+                sys.stderr.write("[LECLERC_DEBUG] wait_for_url timeout and no chosen href\n")
+        sys.stderr.write(f"[LECLERC_DEBUG] after PDP navigation -> {time.perf_counter()-started:.2f}s\n")
+        await human_pause(page, pdp_delay_ms)
 
         title = await page.locator("h1").first.text_content()
         title = title.strip() if title else None
@@ -534,12 +515,6 @@ async def run_manual_leclerc(
 
         if not quantity and isinstance(descriptor_entry, dict):
             quantity = descriptor_entry.get('quantity') or quantity
-
-        if status == "OK" and ean:
-            updated_entry = dict(descriptor_entry or {})
-            updated_entry.setdefault("ean", ean)
-            updated_entry["leclerc_url"] = page.url
-            _save_descriptor_entry(ean, updated_entry)
 
         return {
             "status": status,

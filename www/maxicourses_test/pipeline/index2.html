@@ -970,8 +970,8 @@
     const LOGO_BASE = new URL('../assets/logos/', window.location.href).href;
     const LOGOS = {
       carrefour: 'carrefour.png',
-      carrefour_city: 'carrefour.png',
-      carrefour_market: 'carrefour.png',
+      carrefour_city: 'carrefour_city.png',
+      carrefour_market: 'carrefour_market.png',
       carrefour_super: 'carrefour.png',
       leclerc: 'leclerc.png',
       leclerc_drive: 'leclerc.png',
@@ -2662,7 +2662,7 @@
       if (key.includes('city')) return 'City';
       if (key.includes('express')) return 'Express';
       if (key.includes('contact')) return 'Contact';
-      if (key.includes('montagne')) return 'Montagne';
+      if (key.includes('super')) return 'Super';
       return '';
     }
 

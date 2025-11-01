@@ -21,7 +21,8 @@ Créer un moteur capable d’agréger automatiquement les prix multi-enseignes (
 4. **Surveillance & preuves**
    - [ ] Formaliser stockage des captures (chemin + hash) et lien dans la base.
    - [ ] Mettre en place alerte lorsque le statut `CF_BLOCK`/`NO_RESULTS` persiste.
-   - [ ] Finaliser l’enseigne Carrefour Super : rejouer un parcours humain (Chrome 9222) pour capturer `facilityServiceId` / `FRONTAL_STORE` propres à Lormont (la sélection dans le modal s’appelle « Lormont, Gironde, France ») et mettre à jour `state/carrefour_super.json` + trace documentaire.
+   - [ ] Finaliser l’enseigne Carrefour Super : rejouer un parcours humain (Chrome 9222) pour capturer `facilityServiceId` / `FRONTAL_STORE` propres à Lormont (sélection « Lormont, Gironde, France »), mettre à jour `state/carrefour_super.json` et vérifier l’affichage « Super » côté UI (`pipeline/index2.html`).
+   - [x] Monoprix : `build_query_terms()` priorise désormais 4 requêtes « marque + variant » (fraise/framboise). Les requêtes gagnantes sont journalisées dans `manual_descriptors.json` (`3033491485756`) et le matching image valide `run-3033491485756-20251101-104543.json`.
 
 ## Rôles du prochain assistant
 - Poursuivre la conception de la base et du script d’ingestion.
