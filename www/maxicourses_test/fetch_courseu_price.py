@@ -20,6 +20,7 @@ import sys as _sys, os as _os  # noqa: E402
 _sys.path.append(_os.path.dirname(__file__))
 from scraper.engine import make_context, state_path_for  # noqa: E402
 from collection_mandate import get_method  # noqa: E402
+from seed_catalog import all_seeds, get_seed  # noqa: E402
 
 
 EAN = os.environ.get("EAN", "").strip()
@@ -33,13 +34,7 @@ MANDATE = get_method("courseu")
 
 STATE_PATH = state_path_for("courseu")
 
-MANUAL_DESCRIPTOR: dict[str, typing.Any] = {}
-try:
-    descriptor_path = Path(__file__).with_name("manual_descriptors.json")
-    if descriptor_path.exists():
-        MANUAL_DESCRIPTOR = json.loads(descriptor_path.read_text(encoding="utf-8"))
-except Exception:
-    MANUAL_DESCRIPTOR = {}
+MANUAL_DESCRIPTOR: dict[str, typing.Any] = all_seeds()
 
 COURSEU_BASE_URL = "https://www.coursesu.com"
 
@@ -146,45 +141,10 @@ def _descriptor_entry(ean: str) -> dict[str, typing.Any]:
 
 
 def _store_courseu_hint(ean: str, url: str) -> None:
-    if not ean or not url:
-        return
-    descriptor_path = Path(__file__).with_name("manual_descriptors.json")
-    try:
-        data = json.loads(descriptor_path.read_text(encoding="utf-8"))
-    except Exception:
-        data = {}
-    if not isinstance(data, dict):
-        data = {}
-
-    entry = data.get(ean)
-    if not isinstance(entry, dict):
-        entry = {"ean": ean}
-
-    changed = False
-    if entry.get("courseu_url") != url:
-        entry["courseu_url"] = url
-        changed = True
-
-    parsed = urlparse(url)
-    slug = parsed.path or ""
-    if slug and not slug.startswith("/"):
-        slug = f"/{slug}"
-    if slug:
-        if entry.get("courseu_slug") != slug:
-            entry["courseu_slug"] = slug
-            changed = True
-    if not entry.get("source"):
-        entry["source"] = "courseu"
-        changed = True
-
-    if not changed:
-        return
-
-    data[ean] = entry
-    try:
-        descriptor_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    except Exception:
-        pass
+    # With the hardcoded seed catalog, hints must be updated manually.
+    # Keep the function for compatibility but only log the discovered URL.
+    if ean and url:
+        sys.stderr.write(f"[COURSEU_HINT] {ean} -> {url}\n")
 
 
 async def accept_cookies(page) -> None:

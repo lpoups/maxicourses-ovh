@@ -34,6 +34,7 @@ import sys as _sys, os as _os
 _sys.path.append(_os.path.dirname(__file__))
 from scraper.engine import make_context, state_path_for  # noqa: E402
 from collection_mandate import get_method  # noqa: E402
+from seed_catalog import all_seeds, get_seed  # noqa: E402
 
 
 EAN = os.environ.get("EAN", "").strip()
@@ -169,32 +170,8 @@ def _seed_search_tokens(descriptor: dict[str, typing.Any]) -> list[str]:
                 add_token(item)
 
     return list(tokens.values())
-# Manual descriptor cache
-MANUAL_DESCRIPTOR: dict[str, dict] = {}
-try:
-    # Build a path to the descriptor file relative to this script's location.
-    # This is more robust than assuming a specific parent directory structure.
-    descriptor_path = Path(__file__).resolve().parent / "manual_descriptors.json"
-    
-    sys.stderr.write(f"[MONOPRIX_DEBUG] Attempting to load manual descriptors from: {descriptor_path}\n")
-
-    if descriptor_path.exists():
-        MANUAL_DESCRIPTOR = json.loads(descriptor_path.read_text(encoding="utf-8"))
-        sys.stderr.write(f"[MONOPRIX_DEBUG] SUCCESS: manual_descriptors.json loaded successfully.\n")
-    else:
-        sys.stderr.write(f"[MONOPRIX_DEBUG] CRITICAL: manual_descriptors.json not found at the expected path.\n")
-        # As a fallback, check the parent directory, just in case.
-        fallback_path = Path(__file__).resolve().parent.parent / "manual_descriptors.json"
-        sys.stderr.write(f"[MONOPRIX_DEBUG] Attempting fallback path: {fallback_path}\n")
-        if fallback_path.exists():
-            MANUAL_DESCRIPTOR = json.loads(fallback_path.read_text(encoding="utf-8"))
-            sys.stderr.write(f"[MONOPRIX_DEBUG] SUCCESS: Loaded manual_descriptors.json from fallback path.\n")
-        else:
-            sys.stderr.write(f"[MONOPRIX_DEBUG] CRITICAL: Fallback path also failed. Descriptors are NOT loaded.\n")
-
-except Exception as e:
-    sys.stderr.write(f"[MONOPRIX_DEBUG] ERROR: An exception occurred while loading manual_descriptors.json: {e}\n")
-    MANUAL_DESCRIPTOR = {}
+# Manual descriptor cache (hardcoded catalog)
+MANUAL_DESCRIPTOR: dict[str, dict] = all_seeds()
 
 
 @dataclass

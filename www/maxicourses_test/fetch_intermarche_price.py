@@ -20,6 +20,7 @@ _sys.path.append(_os.path.dirname(__file__))
 from scraper.engine import make_context, state_path_for
 
 from collection_mandate import get_method
+from seed_catalog import all_seeds  # noqa: E402
 from telemetry import (
     StageLiteral,
     log_candidate_scored,
@@ -62,13 +63,7 @@ CORE_STOPWORDS = {"aux", "au", "de", "du", "des", "la", "le", "les", "et", "en"}
 INTERMARCHE_MAX_PDP = 3
 INTERMARCHE_MAX_RESULTS = 5
 
-MANUAL_DESCRIPTOR = {}
-try:
-    descriptor_path = Path(__file__).with_name("manual_descriptors.json")
-    if descriptor_path.exists():
-        MANUAL_DESCRIPTOR = json.loads(descriptor_path.read_text(encoding="utf-8"))
-except Exception:
-    MANUAL_DESCRIPTOR = {}
+MANUAL_DESCRIPTOR = all_seeds()
 
 
 def _looks_like_ean(term: typing.Optional[str]) -> bool:

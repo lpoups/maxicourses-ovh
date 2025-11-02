@@ -36,6 +36,7 @@ import re
 from urllib.parse import urlparse, urljoin
 
 from playwright.async_api import TimeoutError as PlaywrightTimeoutError, async_playwright
+from seed_catalog import all_seeds  # noqa: E402
 
 
 def env_int(name: str, default: int) -> int:
@@ -75,13 +76,7 @@ def _adaptive_delay(ms: int, minimum: int = 100) -> int:
         return max(minimum, max(1, ms) // 10)
     return max(minimum, ms)
 
-MANUAL_DESCRIPTOR: dict[str, dict] = {}
-try:
-    descriptor_path = Path(__file__).with_name("manual_descriptors.json")
-    if descriptor_path.exists():
-        MANUAL_DESCRIPTOR = json.loads(descriptor_path.read_text(encoding="utf-8"))
-except Exception:
-    MANUAL_DESCRIPTOR = {}
+MANUAL_DESCRIPTOR: dict[str, dict] = all_seeds()
 
 async def human_pause(page, base_ms: int) -> None:
     jitter = random.randint(-int(base_ms * 0.2), int(base_ms * 0.2))

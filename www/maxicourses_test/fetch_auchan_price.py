@@ -19,6 +19,7 @@ from playwright.async_api import TimeoutError as PlaywrightTimeout
 from urllib.parse import urljoin
 
 from collection_mandate import get_method
+from seed_catalog import all_seeds  # noqa: E402
 
 EAN = os.environ.get("EAN", "7613035676497").strip()
 QUERY = os.environ.get("QUERY")
@@ -26,13 +27,7 @@ HEADLESS = os.environ.get("HEADLESS", "1") == "1"
 PROXY = os.environ.get("PROXY")
 MANDATE = get_method("auchan")
 
-MANUAL_DESCRIPTOR = {}
-try:
-    descriptor_path = Path(__file__).with_name("manual_descriptors.json")
-    if descriptor_path.exists():
-        MANUAL_DESCRIPTOR = json.loads(descriptor_path.read_text(encoding="utf-8"))
-except Exception:
-    MANUAL_DESCRIPTOR = {}
+MANUAL_DESCRIPTOR = all_seeds()
 
 
 def _descriptor_entry() -> typing.Optional[dict]:

@@ -18,6 +18,7 @@ from scraper.engine import make_context, state_path_for
 from playwright.async_api import TimeoutError as PlaywrightTimeout
 
 from collection_mandate import get_method
+from seed_catalog import all_seeds  # noqa: E402
 
 EAN = os.environ.get("EAN", "").strip()
 QUERY = os.environ.get("QUERY", "").strip()
@@ -36,13 +37,7 @@ CHRONO_SITE_ID = "1006"
 CHRONO_SITE_MODE = "DRIVE"
 CHRONO_DEVICE_TYPE = "WEB"
 
-MANUAL_DESCRIPTOR: dict[str, typing.Any] = {}
-try:
-    descriptor_path = Path(__file__).with_name("manual_descriptors.json")
-    if descriptor_path.exists():
-        MANUAL_DESCRIPTOR = json.loads(descriptor_path.read_text(encoding="utf-8"))
-except Exception:
-    MANUAL_DESCRIPTOR = {}
+MANUAL_DESCRIPTOR: dict[str, typing.Any] = all_seeds()
 
 
 def _descriptor_seed(ean: str) -> typing.Optional[str]:
