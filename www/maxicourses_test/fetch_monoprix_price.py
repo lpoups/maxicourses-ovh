@@ -83,6 +83,8 @@ VARIANT_PATTERNS: dict[str, list[re.Pattern[str]]] = {
 }
 
 SEED_VARIANTS = ["nature", "vanille", "amande", "coco", "mangue", "chocolat", "orange", "sans sucre", "rouge"]
+MAX_PRODUCTS_PER_TERM = int(os.environ.get("MONOPRIX_MAX_PRODUCTS", "12"))
+DESCRIPTOR_MATCH_COVERAGE = float(os.environ.get("MONOPRIX_DESCRIPTOR_COVERAGE", "0.7"))
 
 # --- Patterns Regex ---
 MULTIPLIER_PATTERN = re.compile(r"\b\d+\s*(?:x|×)\s*\d+\b", flags=re.IGNORECASE)
@@ -249,11 +251,49 @@ def _descriptor_validation_tokens(descriptor: dict[str, typing.Any]) -> list[str
     for keyword in descriptor.get("secondary_keywords", []) or []:
         collect(keyword)
 
+    canonical = descriptor.get("canonical")
+    if isinstance(canonical, dict):
+        collect(canonical.get("brand"))
+        collect(canonical.get("line"))
+        collect(canonical.get("name_core"))
+        signature = canonical.get("normalized_signature")
+        if isinstance(signature, str):
+            collect(signature)
+        for feature in canonical.get("features") or []:
+            collect(feature)
+
     size_token = _preferred_size_token(descriptor)
     if size_token:
         tokens.add(_normalize_search_text(size_token))
 
     return sorted(tokens)
+
+
+def _descriptor_core_tokens(descriptor: dict[str, typing.Any]) -> set[str]:
+    core: set[str] = set()
+
+    def collect(source: typing.Optional[str]) -> None:
+        if not isinstance(source, str):
+            return
+        for tok in tokens_for(source):
+            normalized = _normalize_search_text(tok)
+            if normalized and normalized not in VALIDATION_STOPWORDS:
+                core.add(normalized)
+
+    for field in ("brand", "seed_primary_name", "name", "seed_query"):
+        collect(descriptor.get(field))
+
+    for keyword in descriptor.get("primary_keywords") or []:
+        collect(keyword)
+
+    quantity_token = _preferred_size_token(descriptor)
+    if quantity_token:
+        normalized_quantity = _normalize_search_text(quantity_token)
+        if normalized_quantity:
+            core.add(normalized_quantity)
+            core.add(normalized_quantity.replace(" ", ""))
+
+    return core
 
 
 def _normalize_search_text(value: typing.Optional[str]) -> str:
@@ -332,6 +372,15 @@ def _collect_monoprix_negatives(descriptor: dict[str, typing.Any], seed_variant:
             if isinstance(token, str) and token.strip():
                 negatives.append(token.strip().lower())
     negatives.extend(seed_variant_negatives(seed_variant))
+
+    descriptor_tokens = set(_descriptor_validation_tokens(descriptor))
+    allow_packaging = descriptor.get("allow_monoprix_squeeze")
+    if not allow_packaging:
+        packaging_bans = {"squeeze", "squeez"}
+        for token in packaging_bans:
+            if token not in descriptor_tokens:
+                negatives.append(token)
+
     return list(dict.fromkeys(negatives))
 
 
@@ -356,6 +405,38 @@ def _candidate_quantity(result: Result) -> typing.Optional[tuple[Decimal, str]]:
             return parsed
     return None
 
+
+def _select_quantity_from_candidates(
+    candidates: typing.Iterable[typing.Optional[str]],
+) -> typing.Optional[str]:
+    """Choisit la quantité la plus pertinente parmi plusieurs sources."""
+    best_candidate: typing.Optional[str] = None
+    best_value: typing.Optional[float] = None
+
+    for candidate in candidates:
+        if not isinstance(candidate, str):
+            continue
+        normalized = _normalize_quantity_text(candidate)
+        if not normalized:
+            continue
+        parsed = _parse_quantity_to_base(normalized)
+        if parsed:
+            amount, _ = parsed
+            try:
+                value = float(amount)
+            except (TypeError, ValueError):
+                value = None
+            if value is None:
+                if best_candidate is None:
+                    best_candidate = normalized
+                continue
+            if best_value is None or value > best_value:
+                best_value = value
+                best_candidate = normalized
+        elif best_candidate is None:
+            best_candidate = normalized
+
+    return best_candidate
 
 
 async def read_text(locator, *, timeout: int = 500) -> typing.Optional[str]:
@@ -399,6 +480,16 @@ def _descriptor_remote_images(descriptor: dict[str, typing.Any]) -> list[str]:
     ai_profile = descriptor.get("ai_profile")
     if isinstance(ai_profile, dict):
         candidates.append(ai_profile.get("image"))
+    canonical = descriptor.get("canonical")
+    if isinstance(canonical, dict):
+        for image_url in canonical.get("images") or []:
+            candidates.append(image_url)
+    for extra_key in ("reference_image", "reference_images"):
+        extra_value = descriptor.get(extra_key)
+        if isinstance(extra_value, str):
+            candidates.append(extra_value)
+        elif isinstance(extra_value, list):
+            candidates.extend(extra_value)
     for candidate in candidates:
         if isinstance(candidate, str) and candidate.strip():
             trimmed = candidate.strip()
@@ -679,7 +770,7 @@ async def _extract_offer_from_json_ld(page: Page) -> typing.Optional[dict[str, t
     return None
 
 
-def _compare_image_with_descriptor(descriptor: dict[str, typing.Any], image_url: typing.Optional[str], *, threshold: int = 32) -> bool:
+def _compare_image_with_descriptor(descriptor: dict[str, typing.Any], image_url: typing.Optional[str], *, threshold: int = 16) -> bool:
     current_ean = descriptor.get("ean") or EAN
     is_debug_ean = current_ean == "3665468000312"
     if is_debug_ean:
@@ -1683,75 +1774,156 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
             sys.stderr.write("[MONOPRIX_DEBUG]  - Still no product links found.\n")
             continue
             
-        product_urls = []
-        for link in product_links:
-            href = await link.get_attribute("href")
-            if href:
+        product_urls: list[str] = []
+        filtered_urls: list[str] = []
+
+        descriptor_brand_norm = _normalize_search_text(descriptor_entry.get("brand")) if descriptor_entry else ""
+        target_quantity = descriptor_entry.get("seed_primary_quantity") if descriptor_entry else None
+        if not target_quantity and descriptor_entry:
+            target_quantity = descriptor_entry.get("quantity")
+        target_quantity_norm = _normalize_quantity_text(target_quantity) if target_quantity else None
+        target_quantity_compact = target_quantity_norm.replace(" ", "").lower() if target_quantity_norm else None
+
+        cards_locator = page.locator("[data-testid='product-card'], article[data-testid='product-card'], article[data-testid*='product-card'], li[data-testid='product-card'], li[data-testid*='product-card'], div[data-testid='product-card'], div.product-card")
+        card_count = await cards_locator.count()
+        sys.stderr.write(f"[MONOPRIX_DEBUG]  - Found {card_count} product card nodes.\n")
+        if card_count:
+            for idx in range(card_count):
+                card = cards_locator.nth(idx)
+                card_data = await extract_from_card(page, card, base_url)
+                url = card_data.get("url")
+                title = card_data.get("title") or ""
+                quantity_text = card_data.get("quantity")
+                if not url or not title:
+                    continue
+                url = urljoin(base_url, url)
+                title_norm = _normalize_search_text(title)
+                title_compact = title_norm.replace(" ", "").lower()
+                quantity_norm = _normalize_quantity_text(quantity_text)
+                quantity_compact = quantity_norm.replace(" ", "").lower() if quantity_norm else None
+
+                brand_ok = True
+                if descriptor_brand_norm:
+                    brand_ok = descriptor_brand_norm in title_norm
+
+                quantity_ok = True
+                if target_quantity_compact:
+                    quantity_ok = False
+                    if quantity_compact and quantity_compact == target_quantity_compact:
+                        quantity_ok = True
+                    elif target_quantity_compact in title_compact:
+                        quantity_ok = True
+
+                if brand_ok and quantity_ok:
+                    if url not in filtered_urls:
+                        filtered_urls.append(url)
+
+        if filtered_urls:
+            product_urls = filtered_urls
+            sys.stderr.write(f"[MONOPRIX_DEBUG]  - Filtered to {len(product_urls)} candidate URLs matching brand/quantity.\n")
+        else:
+            for link in product_links:
+                href = await link.get_attribute("href")
+                if not href:
+                    continue
+                full_url = urljoin(base_url, href)
+                if full_url in product_urls:
+                    continue
+                link_text = _normalize_search_text(await link.inner_text())
+                link_compact = link_text.replace(" ", "")
+                brand_ok = True
+                if descriptor_brand_norm:
+                    brand_ok = descriptor_brand_norm in link_text
+                quantity_ok = True
+                if target_quantity_compact:
+                    quantity_ok = target_quantity_compact in link_compact
+                if brand_ok and quantity_ok:
+                    product_urls.append(full_url)
+
+        if not product_urls:
+            for link in product_links:
+                href = await link.get_attribute("href")
+                if not href:
+                    continue
                 full_url = urljoin(base_url, href)
                 if full_url not in product_urls:
                     product_urls.append(full_url)
 
         sys.stderr.write(f"[MONOPRIX_DEBUG]  - Found {len(product_urls)} product URLs to check.\n")
 
-        all_results = []
-        for product_url in product_urls[:5]: # Limite aux 5 premiers pour la démo
+        fallback_results: list[tuple[int, Result]] = []
+        for product_url in product_urls[:MAX_PRODUCTS_PER_TERM]:
             sys.stderr.write(f"[MONOPRIX_DEBUG]  - Parsing product page in new tab: {product_url}\n")
             new_page = await context.new_page()
             try:
                 product_result = await parse_product_page(new_page, product_url, descriptor_entry)
-                if product_result:
-                    all_results.append(product_result)
             finally:
                 await new_page.close()
                 sys.stderr.write(f"[MONOPRIX_DEBUG]  - Closed tab for {product_url}\n")
 
-        if not all_results:
-            continue
+            if not product_result:
+                continue
 
-        # Appliquer la logique de scoring et de correspondance d'image
-        scored_results = []
-        for res in all_results:
             score, plausible, extras = evaluate_candidate(
-                res,
+                product_result,
                 descriptor_entry,
                 negatives=dynamic_negatives,
                 seed_variant=seed_variant,
                 category_tokens=category_tokens,
             )
-            res.extras = extras
-            image_match = await _image_matches_descriptor_async(descriptor_entry, res.note)
+            product_result.extras = extras
+            image_match = await _image_matches_descriptor_async(descriptor_entry, product_result.note)
             extras["image_match"] = image_match
             if image_match:
                 score += 30
-                sys.stderr.write(f"[MONOPRIX_DEBUG]  - Image match FOUND for '{res.title}'.\n")
+                sys.stderr.write(f"[MONOPRIX_DEBUG]  - Image match FOUND for '{product_result.title}'.\n")
             else:
-                sys.stderr.write(f"[MONOPRIX_DEBUG]  - No image match for '{res.title}'.\n")
+                sys.stderr.write(f"[MONOPRIX_DEBUG]  - No image match for '{product_result.title}'.\n")
                 extras["vetoes"].append("image_mismatch")
 
             extras["final_score"] = score
             extras["plausible_baseline"] = plausible
 
-            final_plausible = plausible and not extras["vetoes"]
-            if image_match and not extras["vetoes"]:
-                final_plausible = True
+            core_tokens = descriptor_entry.get("_monoprix_core_tokens")
+            if core_tokens is None:
+                core_tokens = _descriptor_core_tokens(descriptor_entry)
+                descriptor_entry["_monoprix_core_tokens"] = core_tokens
+
+            if core_tokens:
+                title_blob = _normalize_search_text(product_result.title)
+                normalized_blob = _normalize_search_text(product_result.raw_text)
+                missing_core = [
+                    token for token in core_tokens
+                    if token and token not in (title_blob or "") and token not in (normalized_blob or "")
+                ]
+                if missing_core:
+                    extras.setdefault("missing_core_tokens", missing_core)
+                    extras["vetoes"].append("core_token")
+
+            final_plausible = (
+                plausible
+                and image_match
+                and not extras["vetoes"]
+            )
 
             if final_plausible:
-                scored_results.append((score, res))
-            else:
-                sys.stderr.write(
-                    f"[MONOPRIX_DEBUG]  - Candidate rejected '{res.title}' | vetoes={extras['vetoes']}\n"
-                )
-        
-        if not scored_results:
-            sys.stderr.write("[MONOPRIX_DEBUG]  - No plausible results after scoring and image matching.\n")
-            continue
+                product_result.status = "OK"
+                sys.stderr.write(f"[MONOPRIX_DEBUG] Best match (early return): '{product_result.title}' (Score: {score})\n")
+                return product_result
 
-        scored_results.sort(key=lambda x: x[0], reverse=True)
-        best_score, best_result = scored_results[0]
-        
-        sys.stderr.write(f"[MONOPRIX_DEBUG] Best match: '{best_result.title}' (Score: {best_score})\n")
-        best_result.status = "OK"
-        return best_result
+            fallback_results.append((score, product_result))
+            sys.stderr.write(
+                f"[MONOPRIX_DEBUG]  - Candidate rejected '{product_result.title}' | vetoes={extras['vetoes']}\n"
+            )
+
+        if fallback_results:
+            fallback_results.sort(key=lambda x: x[0], reverse=True)
+            top_score, top_result = fallback_results[0]
+            sys.stderr.write(
+                f"[MONOPRIX_DEBUG]  - Best rejected candidate '{top_result.title}' (Score: {top_score}) | vetoes={top_result.extras.get('vetoes')}\n"
+            )
+        else:
+            sys.stderr.write("[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n")
 
     return Result(status="NO_RESULTS")
 
@@ -1798,15 +1970,27 @@ async def parse_product_page(
                 price = price_candidate
 
         descriptor_quantity = descriptor.get("quantity") or descriptor.get("seed_primary_quantity")
-        if descriptor_quantity:
+
+        packaging_texts: list[typing.Optional[str]] = []
+        if json_size:
+            packaging_texts.append(json_size)
+
+        for selector in (
+            "[data-testid='pdp-packaging']",
+            "[data-testid='pdp-weight']",
+            "[data-testid='pdp-selling-unit']",
+            "[data-testid='pdp-size']",
+            ".pdp-packaging",
+            ".pdp-product-info",
+        ):
+            packaging_texts.append(await read_text(page.locator(selector)))
+
+        packaging_texts.extend([title, unit_price])
+        quantity = _select_quantity_from_candidates(packaging_texts)
+
+        if not quantity and descriptor_quantity:
             normalized_descriptor_quantity = _normalize_quantity_text(descriptor_quantity)
             quantity = normalized_descriptor_quantity or descriptor_quantity
-        elif json_size:
-            normalized_size = _normalize_quantity_text(json_size)
-            if normalized_size:
-                quantity = normalized_size
-            else:
-                quantity = json_size
 
         if not unit_price:
             base_quantity = quantity or json_size or descriptor_quantity
@@ -1915,6 +2099,7 @@ def evaluate_candidate(
     # Unit family & size tolerance
     descriptor_quantity = descriptor.get("seed_primary_quantity") or descriptor.get("quantity")
     seed_parsed = _parse_quantity_to_base(_normalize_quantity_text(descriptor_quantity) or descriptor_quantity) if descriptor_quantity else None
+    extras["candidate_quantity"] = result.quantity
     candidate_parsed = _candidate_quantity(result)
     if seed_parsed and candidate_parsed:
         seed_amount, seed_unit = seed_parsed
@@ -1929,7 +2114,8 @@ def evaluate_candidate(
             cand_val = float(cand_amount)
             if seed_val > 0:
                 ratio = abs(cand_val - seed_val) / seed_val
-                if ratio > size_tolerance:
+                extras["candidate_size_ratio"] = ratio
+                if ratio >= size_tolerance:
                     extras["size_ok"] = False
                     extras["vetoes"].append("size_out_of_range")
 
@@ -1941,22 +2127,37 @@ def evaluate_candidate(
 
     # Validation tokens (descriptors seed)
     validation_tokens = _descriptor_validation_tokens(descriptor)
+    matched_tokens: list[str] = []
     missing_tokens: list[str] = []
+    considered_tokens = 0
     if validation_tokens:
         for token in validation_tokens:
             if not token:
                 continue
             if any(ch.isdigit() for ch in token):
                 continue
-            if token not in normalized_blob:
-                if token.endswith("e") and f"{token}s" in normalized_blob:
-                    continue
-                if token.endswith("es") and token[:-1] in normalized_blob:
-                    continue
+            considered_tokens += 1
+            token_hit = False
+            if token in normalized_blob:
+                token_hit = True
+            elif token.endswith("e") and f"{token}s" in normalized_blob:
+                token_hit = True
+            elif token.endswith("es") and token[:-1] in normalized_blob:
+                token_hit = True
+            if token_hit:
+                matched_tokens.append(token)
+            else:
                 missing_tokens.append(token)
-        if missing_tokens:
-            extras.setdefault("missing_tokens", missing_tokens)
-            extras["vetoes"].append("missing_tokens")
+        coverage = len(matched_tokens) / considered_tokens if considered_tokens else 0.0
+        extras["descriptor_token_coverage"] = {
+            "coverage": coverage,
+            "matched": matched_tokens,
+            "missing": missing_tokens,
+            "total": considered_tokens,
+        }
+        extras["missing_tokens"] = missing_tokens
+        if coverage < DESCRIPTOR_MATCH_COVERAGE:
+            extras["vetoes"].append("descriptor_coverage")
 
     # Baseline scoring (brand + keywords)
     score = 0
@@ -2024,7 +2225,6 @@ async def run() -> Result:
     if not terms:
         sys.stderr.write("[MONOPRIX_DEBUG] NO_QUERY: build_query_terms() returned no terms\n")
         return Result(status="NO_QUERY")
-    sys.stderr.write(f"[MONOPRIX_DEBUG] Search terms: {terms}\n")
 
     descriptor_entry = MANUAL_DESCRIPTOR.get(EAN) if EAN else None
     if not descriptor_entry:
@@ -2033,6 +2233,23 @@ async def run() -> Result:
         # return Result(status="ERROR", note=f"EAN {EAN} not in descriptors")
     else:
         sys.stderr.write(f"[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '{EAN}'.\n")
+
+    if descriptor_entry:
+        manual_queries = []
+        queries_map = descriptor_entry.get("queries")
+        if isinstance(queries_map, dict):
+            manual_queries = queries_map.get("monoprix") or []
+        if not manual_queries:
+            manual_queries = descriptor_entry.get("monoprix_queries") or []
+        manual_queries = [q for q in manual_queries if isinstance(q, str) and q.strip()]
+        if manual_queries:
+            terms = manual_queries[:3]
+        else:
+            terms = terms[:1]
+    else:
+        terms = terms[:1]
+
+    sys.stderr.write(f"[MONOPRIX_DEBUG] Search terms: {terms}\n")
 
     storage_state = state_path_for("monoprix")
     sys.stderr.write(f"[MONOPRIX_DEBUG] Using storage state: {storage_state}\n")

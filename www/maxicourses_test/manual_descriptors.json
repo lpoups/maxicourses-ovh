@@ -583,31 +583,34 @@
   },
   "3088545004001": {
     "ean": "3088545004001",
-    "name": "Miel de fleurs LUNE DE MIEL 500 g",
-    "quantity": "500 g",
+    "name": "Miel de fleurs liquide LUNE DE MIEL, 500g",
+    "quantity": "500  g",
     "image": "./assets/3088545004001.jpg",
-    "source": "chronodrive",
-    "description": "Miel de fleurs LUNE DE MIEL 500 g",
-    "note": "Chronodrive Le Haillan",
-    "brand": "Miel",
-    "seed_query": "Miel fleurs LUNE g 500 g",
-    "leclerc_query": "Miel 500G",
+    "source": "courseu",
+    "description": "Miel de fleurs liquide LUNE DE MIEL, 500g",
+    "note": "2025-11-02T11:38:43Z · Super U Eysines",
+    "brand": "Lune de Miel",
+    "seed_query": "Miel fleurs liquide LUNE 500 g",
+    "leclerc_query": "Miel 500 G",
     "leclerc_queries": [
-      "Miel 500G",
-      "Miel Fleurs",
-      "Miel Fleurs 500G",
-      "Miel Lune",
-      "Miel Fleurs Lune",
-      "Fleurs 500G",
-      "Miel"
+      "Miel 500 G",
+      "Miel Fleurs 500 G",
+      "Miel Fleurs Liquide 500 G",
+      "Fleurs Liquide 500 G",
+      "Miel Liquide 500 G",
+      "Miel fleurs liquide LUNE 500 g",
+      "Miel De Fleurs Liquide LUNE DE MIEL",
+      "Miel de fleurs liquide LUNE DE MIEL, 500g",
+      "3088545004001"
     ],
     "primary_keywords": [
-      "Miel 500G"
+      "Miel 500 G"
     ],
     "secondary_keywords": [
-      "Lune",
-      "G",
-      "500G"
+      "Liquide",
+      "LUNE",
+      "500 G",
+      "Squeeze"
     ],
     "seed_primary_name": "Miel  De Fleurs Liquide LUNE DE MIEL",
     "seed_primary_quantity": "500 G",
@@ -632,8 +635,8 @@
     },
     "queries": {
       "monoprix": [
-        "miel fleurs",
-        "miel fleurs 500g"
+        "lune de miel",
+        "lune de miel fleurs"
       ],
       "leclerc": [
         "miel fleurs",
@@ -690,8 +693,10 @@
         "mega"
       ]
     },
+    "allow_monoprix_squeeze": true,
     "nutriscore_grade": "unknown",
-    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg"
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "removed": false
   },
   "5411188118961": {
     "ean": "5411188118961",
@@ -752,7 +757,40 @@
     }
   },
   "5411188114536": {
-    "ean": "5411188114536"
+    "ean": "5411188114536",
+    "source": "chronodrive",
+    "seed_query": "Alpro Dessert végétal fraise 500 g",
+    "name": "Dessert végétal à la fraise ALPRO",
+    "quantity": "500  g",
+    "image": "https://media.carrefour.fr/media/referential/media/64bd7df311b04bdd8ac62274a8f5 143b/05411188114536_H1N1_s04.png",
+    "description": "Dessert végétal à la fraise ALPRO",
+    "note": "Chronodrive Le Haillan",
+    "brand": "Alpro",
+    "leclerc_query": "Alpro 500 G",
+    "leclerc_queries": [
+      "Alpro 500 G",
+      "Alpro Dessert 500 G",
+      "Alpro Dessert végétal 500 G",
+      "Dessert végétal 500 G",
+      "Alpro végétal 500 G",
+      "Alpro Dessert végétal fraise 500 g",
+      "Dessert végétal soja fraise ALPRO",
+      "Dessert végétal à la fraise ALPRO",
+      "5411188114536"
+    ],
+    "primary_keywords": [
+      "Alpro 500 G"
+    ],
+    "secondary_keywords": [
+      "végétal",
+      "soja",
+      "fraise",
+      "500 G"
+    ],
+    "seed_primary_name": "Dessert végétal soja fraise ALPRO",
+    "seed_primary_quantity": "500 G",
+    "nutriscore_grade": "unknown",
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg"
   },
   "5411188103387": {
     "ean": "5411188103387",
