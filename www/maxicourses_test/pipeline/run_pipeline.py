@@ -9,11 +9,12 @@ import subprocess
 import sys
 import unicodedata
 import html
+from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 from urllib.parse import urlparse
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 
 try:
     from PIL import Image  # type: ignore
@@ -406,9 +407,24 @@ if __package__ in (None, ""):
     sys.path.append(str(ROOT_DIR))
     from decode_ean import decode_image_to_ean  # type: ignore
     from pipeline.models import PipelineRun, RawAdapterResult  # type: ignore
+    from pipeline.finder import (  # type: ignore
+        ProductDescriptor,
+        KeywordGenerator,
+        FinderPipeline,
+        MatchResult,
+        KEYWORD_REGISTRY,
+    )
+    from pipeline.text_utils import is_pack_or_bundle, norm_brand, norm_qty  # type: ignore
 else:  # pragma: no cover - executed when package imports are available
     from ..decode_ean import decode_image_to_ean  # type: ignore
     from .models import PipelineRun, RawAdapterResult
+    from .finder import (
+        ProductDescriptor,
+        FinderPipeline,
+        MatchResult,
+        KEYWORD_REGISTRY,
+    )
+    from .text_utils import is_pack_or_bundle, norm_brand, norm_qty
 DEFAULT_RESULTS_DIR = ROOT_DIR / "results"
 MANUAL_DESCRIPTOR_PATH = ROOT_DIR / "manual_descriptors.json"
 
@@ -450,7 +466,24 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
     "auchan": {
         "script": ROOT_DIR / "fetch_auchan_price.py",
         "env": lambda: {
-            "HOME_URL": os.getenv("AUCHAN_HOME_URL", "https://www.auchan.fr"),
+            "HOME_URL": os.getenv("AUCHAN_HOME_URL", "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117"),
+            "AUCHAN_STORE_URL": os.getenv(
+                "AUCHAN_STORE_URL",
+                "https://www.auchan.fr/drive/magasins/auchan-drive-talence-gallieni/s-6117",
+            ),
+            "AUCHAN_STORE_SWITCH_URL": os.getenv(
+                "AUCHAN_STORE_SWITCH_URL",
+                "https://www.auchan.fr/s-6117",
+            ),
+            "AUCHAN_STORE_HOME_URL": os.getenv(
+                "AUCHAN_STORE_HOME_URL",
+                "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+            ),
+            "AUCHAN_STORE_SLUG": os.getenv(
+                "AUCHAN_STORE_SLUG",
+                "auchan-drive-talence-gallieni",
+            ),
+            "AUCHAN_STORE_QUERY": os.getenv("AUCHAN_STORE_QUERY", "Talence Gallieni"),
         },
     },
     "chronodrive": {
@@ -512,25 +545,10 @@ def decode_ean(image_path: Path) -> str:
 
 
 def load_manual_descriptor(ean: str) -> Optional[Dict[str, str]]:
-    manual = fetch_manual_descriptor(ean)
-    if not manual:
-        return None
-    descriptor = dict(manual)
-    descriptor.setdefault("source", "manual")
-    descriptor.setdefault("ean", ean)
-    return descriptor
+    return None
 
 
 def fetch_manual_descriptor(ean: str) -> Optional[Dict[str, str]]:
-    if not MANUAL_DESCRIPTOR_PATH.exists():
-        return None
-    try:
-        data = json.loads(MANUAL_DESCRIPTOR_PATH.read_text(encoding="utf-8"))
-    except Exception:
-        return None
-    entry = data.get(ean)
-    if isinstance(entry, dict):
-        return entry
     return None
 
 
@@ -547,12 +565,7 @@ def load_all_descriptors() -> Dict[str, Dict[str, Any]]:
 
 
 def save_manual_descriptor_entry(ean: str, entry: Dict[str, Any]) -> None:
-    data = load_all_descriptors()
-    data[ean] = entry
-    try:
-        MANUAL_DESCRIPTOR_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    except Exception:
-        pass
+    return None
 
 
 def merge_descriptor(base: Optional[Dict[str, Any]], updates: Dict[str, Any]) -> Dict[str, Any]:
@@ -792,6 +805,279 @@ def ensure_local_image_asset(ean: str, descriptor: Optional[Dict[str, Any]], ada
     return updated
 
 
+def _stringify(value: Any) -> str:
+    if isinstance(value, str):
+        return value.strip()
+    if value is None:
+        return ""
+    return str(value).strip()
+
+
+def _qualifiers_from_any(value: Any) -> List[str]:
+    if isinstance(value, list):
+        return [str(item).strip() for item in value if isinstance(item, (str, int, float)) and str(item).strip()]
+    if isinstance(value, str):
+        parts = re.split(r"[;,/]", value)
+        return [part.strip() for part in parts if part.strip()]
+    return []
+
+
+def _payload_to_product_descriptor(payload: Dict[str, Any], source: str) -> Optional[ProductDescriptor]:
+    if not isinstance(payload, dict):
+        return None
+    title = payload.get("title") or payload.get("name")
+    brand = payload.get("brand") or ""
+    kind = payload.get("kind") or payload.get("category") or payload.get("type") or ""
+    qty = payload.get("quantity") or payload.get("qty") or payload.get("size") or payload.get("weight") or ""
+    qualifiers = payload.get("qualifiers") or payload.get("features") or payload.get("tags")
+    ean_value = payload.get("matched_ean") or payload.get("ean")
+    image_candidate = payload.get("image_url") or payload.get("image") or payload.get("thumbnail")
+    raw_text = payload.get("raw_text") or payload.get("description") or payload.get("long_description") or ""
+
+    if not any([title, brand, kind, qty, raw_text]):
+        return None
+
+    if isinstance(image_candidate, list):
+        image_candidate = next((str(x).strip() for x in image_candidate if isinstance(x, (str, int, float))), None)
+    elif isinstance(image_candidate, (str, int, float)):
+        image_candidate = _stringify(image_candidate)
+    else:
+        image_candidate = None
+
+    qualifiers_list = _qualifiers_from_any(qualifiers)
+
+    title_str = _stringify(title)
+    brand_str = norm_brand(_stringify(brand))
+    kind_str = _stringify(kind)
+    qty_str = norm_qty(_stringify(qty))
+    raw_text_str = _stringify(raw_text)
+    return ProductDescriptor(
+        title=title_str,
+        brand=brand_str,
+        kind=kind_str,
+        qty=qty_str,
+        qualifiers=qualifiers_list,
+        ean=_stringify(ean_value) or None,
+        image_url=image_candidate,
+        source=source,
+        raw_text=raw_text_str,
+    )
+
+
+def _normalized_candidate(adapter: str, url: Optional[str], product_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    pd = _payload_to_product_descriptor(product_data, adapter)
+    if not pd:
+        return None
+    if adapter == "intermarche" and url:
+        match = re.search(r"\b(\d{8,14})\b", url)
+        if match:
+            pd.ean = match.group(1)
+    if is_pack_or_bundle(pd.title, pd.raw_text):
+        return None
+    return {
+        "url": url or "",
+        "product": asdict(pd),
+    }
+
+
+def annotate_adapter_payload(adapter: str, payload: Dict[str, Any], *, ean: str) -> None:
+    if not isinstance(payload, dict):
+        return
+
+    if adapter in EAN_ONLY_ADAPTERS:
+        meta = payload.setdefault("_meta", {})
+        meta["supports_ean"] = True
+        product = _payload_to_product_descriptor(payload, adapter)
+        if product:
+            if not product.ean:
+                product.ean = ean
+            payload["product"] = asdict(product)
+        return
+
+    meta = payload.setdefault("_meta", {})
+    meta["supports_keywords"] = True
+
+    base_candidates: List[Dict[str, Any]] = []
+    existing_candidates = payload.get("candidates")
+    if isinstance(existing_candidates, list):
+        base_candidates = [c for c in existing_candidates if isinstance(c, dict)]
+
+    if not base_candidates:
+        product = _payload_to_product_descriptor(payload, adapter)
+        url = _stringify(payload.get("url") or payload.get("product_url") or payload.get("href"))
+        if product and url and not is_pack_or_bundle(product.title, product.raw_text):
+            base_candidates = [{"url": url, "product": asdict(product)}]
+
+    normalized: List[Dict[str, Any]] = []
+    for entry in base_candidates:
+        url = _stringify(entry.get("url"))
+        product_dict = entry.get("product")
+        if not isinstance(product_dict, dict):
+            product_dict = {}
+        candidate = _normalized_candidate(adapter, url, product_dict)
+        if candidate:
+            normalized.append(candidate)
+        if len(normalized) >= 10:
+            break
+
+    payload["candidates"] = normalized
+
+
+def _default_html_provider(url: str) -> Optional[str]:
+    try:
+        req = Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"})
+        with urlopen(req, timeout=12) as response:
+            code = getattr(response, "status", None)
+            if code is None:
+                try:
+                    code = response.getcode()
+                except Exception:
+                    code = None
+            if code and code >= 400:
+                return None
+            data = response.read()
+            if not data:
+                return None
+            charset = response.headers.get_content_charset() or "utf-8"
+            return data.decode(charset, errors="ignore")
+    except Exception:
+        return None
+def build_finder_block(
+    *,
+    ean: str,
+    descriptor: Optional[Dict[str, Any]],
+    adapter_results: List[RawAdapterResult],
+    threshold: float,
+) -> Optional[Dict[str, Any]]:
+    fp = FinderPipeline()
+
+    seeds_added = False
+    for res in adapter_results:
+        if res.adapter not in EAN_ONLY_ADAPTERS:
+            continue
+        if res.status != "OK":
+            continue
+        pd = _payload_to_product_descriptor(res.payload, source=res.adapter)
+        if pd:
+            fp.consolidator.add(pd)
+            seeds_added = True
+
+    if descriptor:
+        pd_descriptor = _payload_to_product_descriptor(descriptor, source=str(descriptor.get("source") or "manual"))
+        if pd_descriptor:
+            fp.consolidator.add(pd_descriptor)
+            seeds_added = True
+
+    if not seeds_added:
+        return None
+
+    consolidated = fp.consolidator.merged()
+    if not consolidated.ean:
+        consolidated.ean = ean
+
+    keywords = fp.generate_keywords(consolidated)
+
+    candidates: List[MatchResult] = []
+    for res in adapter_results:
+        if res.adapter in EAN_ONLY_ADAPTERS:
+            continue
+        if res.status != "OK":
+            continue
+
+        entries: List[Dict[str, Any]] = []
+        raw_entries = res.payload.get("candidates")
+        if isinstance(raw_entries, list):
+            entries = [entry for entry in raw_entries if isinstance(entry, dict)]
+
+        if not entries:
+            fallback_pd = _payload_to_product_descriptor(res.payload, source=res.adapter)
+            fallback_url = _stringify(res.payload.get("url") or res.payload.get("product_url") or res.payload.get("href"))
+            if fallback_pd and fallback_url and not is_pack_or_bundle(fallback_pd.title, fallback_pd.raw_text):
+                entries = [
+                    {
+                        "url": fallback_url,
+                        "product": asdict(fallback_pd),
+                    }
+                ]
+
+        adapter_cls = next((cls for cls in KEYWORD_REGISTRY if getattr(cls, "name", "") == res.adapter), None)
+        adapter_instance = adapter_cls() if adapter_cls else None
+        if adapter_instance and adapter_instance.name == "leclerc" and not getattr(adapter_instance, "_html_provider", None):
+            adapter_instance._html_provider = _default_html_provider
+
+        for entry in entries:
+            url = _stringify(entry.get("url"))
+            product_data = entry.get("product") if isinstance(entry.get("product"), dict) else {}
+            candidate_pd = _payload_to_product_descriptor(product_data, source=res.adapter)
+            if not candidate_pd:
+                continue
+
+            score = fp.matcher.score(consolidated, candidate_pd)
+            if adapter_instance:
+                original_strict = fp.matcher.strict_qty
+                override_strict = adapter_instance.override_strict_qty()
+                if override_strict is not None:
+                    fp.matcher.strict_qty = bool(override_strict)
+                try:
+                    forced = adapter_instance.hard_validate(consolidated, url, candidate_pd)
+                    if forced is not None:
+                        score = float(forced)
+                    else:
+                        score = fp.matcher.score(consolidated, candidate_pd)
+                        if adapter_instance.name == "monoprix":
+                            local_threshold = adapter_instance.override_threshold() or 0.75
+                            if score >= local_threshold and fp.matcher.image_match(consolidated.image_url, candidate_pd.image_url):
+                                score = max(score, 0.95)
+                finally:
+                    fp.matcher.strict_qty = original_strict
+
+            candidates.append(
+                MatchResult(
+                    adapter=res.adapter,
+                    url=url,
+                    descriptor=candidate_pd,
+                    score=score,
+                )
+            )
+
+    if not candidates:
+        return {
+            "consolidated": asdict(consolidated),
+            "keywords": keywords,
+            "candidates": [],
+            "decision": None,
+            "audit": [asdict(entry) for entry in fp.audit],
+        }
+
+    candidates.sort(key=lambda r: -r.score)
+    decision = fp.decide(consolidated, candidates, threshold=threshold)
+
+    return {
+        "consolidated": asdict(consolidated),
+        "keywords": keywords,
+        "candidates": [
+            {
+                "adapter": c.adapter,
+                "url": c.url,
+                "score": round(float(c.score), 4),
+                "product": asdict(c.descriptor),
+            }
+            for c in candidates[:20]
+        ],
+        "decision": (
+            {
+                "adapter": decision.adapter,
+                "url": decision.url,
+                "score": round(float(decision.score), 4),
+                "product": asdict(decision.descriptor),
+            }
+            if decision
+            else None
+        ),
+        "audit": [asdict(entry) for entry in fp.audit],
+    }
+
+
 def descriptor_from_payload(ean: str, adapter: str, payload: Dict[str, Any]) -> Dict[str, Any]:
     if not payload:
         return {}
@@ -839,10 +1125,6 @@ def descriptor_from_payload(ean: str, adapter: str, payload: Dict[str, Any]) -> 
     if leclerc_queries:
         descriptor["leclerc_query"] = leclerc_queries[0]
         descriptor["leclerc_queries"] = leclerc_queries
-    if leclerc_profile.get("primary_keywords"):
-        descriptor["primary_keywords"] = leclerc_profile["primary_keywords"]
-    if leclerc_profile.get("secondary_keywords"):
-        descriptor["secondary_keywords"] = leclerc_profile["secondary_keywords"]
     return descriptor
 
 
@@ -889,6 +1171,7 @@ def ensure_descriptor_via_seed(
             proxy=proxy,
             descriptor=descriptor_current,
         )
+        annotate_adapter_payload(adapter, res.payload, ean=ean)
         seed_results[adapter] = res
         if res.status == "OK" and isinstance(res.payload, dict):
             updates = descriptor_from_payload(ean, adapter, res.payload)
@@ -911,10 +1194,6 @@ def ensure_descriptor_via_seed(
     if leclerc_queries:
         descriptor_current["leclerc_query"] = leclerc_queries[0]
         descriptor_current["leclerc_queries"] = leclerc_queries
-    if leclerc_profile.get("primary_keywords"):
-        descriptor_current["primary_keywords"] = leclerc_profile["primary_keywords"]
-    if leclerc_profile.get("secondary_keywords"):
-        descriptor_current["secondary_keywords"] = leclerc_profile["secondary_keywords"]
     save_manual_descriptor_entry(ean, descriptor_current)
     return descriptor_current, seed_results, new_query
 
@@ -936,6 +1215,7 @@ def run_adapter(
     proxy: Optional[str],
     extra_env: Optional[Dict[str, str]] = None,
     descriptor: Optional[Dict[str, Any]] = None,
+    finder_keywords: Optional[List[str]] = None,
 ) -> RawAdapterResult:
     if adapter not in ADAPTER_SCRIPTS:
         raise ValueError(f"Adaptateur inconnu: {adapter}")
@@ -975,31 +1255,28 @@ def run_adapter(
         query_candidates = [ean]
     else:
         candidates: List[str] = []
-        if query and query.strip():
-            candidates.append(query.strip())
-        if adapter == "leclerc" and descriptor:
-            for value in descriptor.get("leclerc_queries", []) or []:
-                if isinstance(value, str) and value.strip():
-                    candidates.append(value.strip())
-            extra = descriptor.get("leclerc_query")
-            if isinstance(extra, str) and extra.strip():
-                candidates.append(extra.strip())
+        seen: set[str] = set()
+
+        def add_candidate(value: Optional[str]) -> None:
+            if not isinstance(value, str):
+                return
+            cleaned = value.strip()
+            if not cleaned or cleaned.lower() in seen:
+                return
+            seen.add(cleaned.lower())
+            candidates.append(cleaned)
+
+        add_candidate(query)
+        if finder_keywords:
+            for kw in finder_keywords:
+                add_candidate(kw)
+        if descriptor:
             seed_q = descriptor.get("seed_query")
-            if isinstance(seed_q, str) and seed_q.strip():
-                candidates.append(seed_q.strip())
-        if ean and ean.strip():
-            candidates.append(ean.strip())
+            add_candidate(seed_q)
+        add_candidate(ean)
         if not candidates:
-            candidates = [(query or ean or "").strip()]
-        seen_queries = set()
-        query_candidates = []
-        for cand in candidates:
-            if not cand:
-                continue
-            if cand in seen_queries:
-                continue
-            seen_queries.add(cand)
-            query_candidates.append(cand)
+            add_candidate((query or ean or "").strip())
+        query_candidates = candidates
 
     best_result: Optional[RawAdapterResult] = None
     for candidate_query in query_candidates:
@@ -1153,6 +1430,9 @@ def update_summary(run: PipelineRun, *, results_dir: Path) -> None:
             "store_query": res.env.get("STORE_QUERY"),
         }
 
+    if run.finder is not None:
+        ean_entry["_finder"] = run.finder
+
     summary[run.ean] = ean_entry
     summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -1167,6 +1447,8 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser.add_argument("--results-dir", default=str(DEFAULT_RESULTS_DIR), help="Répertoire de sortie pour les JSON")
     parser.add_argument("--human", action="store_true", help="Active un mode debug humain (screenshots, timings)" )
     parser.add_argument("--human-debug-root", help="Répertoire parent pour stocker les captures du mode humain")
+    parser.add_argument("--use_finder", action="store_true", help="Active le post-traitement Finder")
+    parser.add_argument("--finder_threshold", type=float, default=0.7, help="Seuil de décision Finder")
     return parser.parse_args(argv)
 
 
@@ -1243,10 +1525,27 @@ def main(argv: Optional[List[str]] = None) -> int:
     descriptor = ensure_nutriscore_from_results(ean, descriptor, list(seed_results.values()))
     query = build_search_query(ean, descriptor)
 
+    finder_keywords: List[str] = []
+    seed_fp = FinderPipeline()
+    for res in seed_results.values():
+        if res.status == "OK":
+            pd_seed = _payload_to_product_descriptor(res.payload, res.adapter)
+            if pd_seed:
+                seed_fp.consolidator.add(pd_seed)
+    pd_descriptor = _payload_to_product_descriptor(descriptor or {}, str((descriptor or {}).get("source") or "seed"))
+    if pd_descriptor:
+        seed_fp.consolidator.add(pd_descriptor)
+    if seed_fp.consolidator.sources:
+        merged_seed = seed_fp.consolidator.merged()
+        finder_keywords = KeywordGenerator(max_keywords=4).make(merged_seed)
+    elif pd_descriptor:
+        finder_keywords = KeywordGenerator(max_keywords=4).make(pd_descriptor)
+
     for adapter in adapters:
         print(f"\n=== Adaptateur {adapter} ===")
         if adapter in seed_results:
             res = seed_results[adapter]
+            annotate_adapter_payload(adapter, res.payload, ean=ean)
             results.append(res)
             print(json.dumps(res.payload, ensure_ascii=False))
             if res.error:
@@ -1258,17 +1557,6 @@ def main(argv: Optional[List[str]] = None) -> int:
             adapter_debug.mkdir(parents=True, exist_ok=True)
 
         adapter_query = query
-        if adapter == "leclerc":
-            candidate = descriptor.get("leclerc_query") if descriptor else None
-            if isinstance(candidate, str) and candidate.strip():
-                adapter_query = candidate.strip()
-        elif adapter == "monoprix" and descriptor:
-            monoprix_queries = descriptor.get("queries", {}).get("monoprix") if isinstance(descriptor.get("queries"), dict) else None
-            if isinstance(monoprix_queries, list) and monoprix_queries:
-                candidate = monoprix_queries[0]
-                if isinstance(candidate, str) and candidate.strip():
-                    adapter_query = candidate.strip()
-
         res = run_adapter(
             adapter,
             ean,
@@ -1277,7 +1565,9 @@ def main(argv: Optional[List[str]] = None) -> int:
             proxy=args.proxy,
             extra_env={"HUMAN_DEBUG_DIR": str(adapter_debug)} if adapter_debug else None,
             descriptor=descriptor,
+            finder_keywords=finder_keywords,
         )
+        annotate_adapter_payload(adapter, res.payload, ean=ean)
         results.append(res)
         print(json.dumps(res.payload, ensure_ascii=False))
         if res.error:
@@ -1298,11 +1588,28 @@ def main(argv: Optional[List[str]] = None) -> int:
         if leclerc_queries:
             descriptor["leclerc_query"] = leclerc_queries[0]
             descriptor["leclerc_queries"] = leclerc_queries
-        if leclerc_profile.get("primary_keywords"):
-            descriptor["primary_keywords"] = leclerc_profile["primary_keywords"]
-        if leclerc_profile.get("secondary_keywords"):
-            descriptor["secondary_keywords"] = leclerc_profile["secondary_keywords"]
         save_manual_descriptor_entry(ean, descriptor)
+
+    finder_block: Optional[Dict[str, Any]] = None
+    if args.use_finder:
+        try:
+            finder_block = build_finder_block(
+                ean=ean,
+                descriptor=descriptor,
+                adapter_results=results,
+                threshold=args.finder_threshold,
+            )
+            if finder_block:
+                decision = finder_block.get("decision")
+                if decision:
+                    print("\n[Finder] Décision:", json.dumps(decision, ensure_ascii=False))
+                else:
+                    print("\n[Finder] Aucun match retenu (candidats analysés).")
+            else:
+                print("\n[Finder] Post-traitement indisponible (seeds/candidats manquants).")
+        except Exception as exc:  # pragma: no cover - instrumentation best effort
+            print(f"\n[WARN] Finder post-traitement: {exc}")
+            finder_block = {"error": str(exc)}
 
     finished_at = datetime.utcnow()
 
@@ -1337,6 +1644,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         reference_ecoscore_grade=eco_grade,
         reference_ecoscore_image=eco_image,
         reference_nova_group=nova_group,
+        finder=finder_block,
     )
 
     if human_mode and debug_root:

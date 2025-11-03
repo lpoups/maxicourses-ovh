@@ -27,6 +27,13 @@
   - `_collect_monoprix_negatives` respecte le flag `allow_monoprix_squeeze` dans `manual_descriptors.json` pour éviter les faux veto.
   - Tests `tests/test_monoprix_validation.py` vérifient la couverture et l’agrégation d’images. Run de contrôle : `USE_CDP=1 HEADLESS=0 EAN=3088545004001` → fiche « Lune de Miel Squeeze Miel de Fleur 500g » validée.
 
+## Dernière itération (2025-11-03)
+- **Mots-clés générés par Finder** : `run_pipeline.py` ne consomme plus `manual_descriptors.json` pour produire les requêtes texte. Les seeds EAN sont consolidées par `FinderPipeline` (`finder.py`) puis `KeywordGenerator` fournit les listes de mots-clés pour Leclerc / Intermarché / Monoprix avant d’appeler les fetchers. Ne plus éditer `primary_keywords` / `secondary_keywords` dans les JSON manuels : seules les données du seed (titre, quantité, visuel…) y restent.
+- **Normalisation partagée** : `pipeline/text_utils.py` centralise `norm_brand`, `parse_qty` (retourne unité unitaire + totale + flag pack) et `is_pack_or_bundle`. Tout fetcher doit filtrer ses candidats avec ces helpers pour éviter les lots et homogénéiser les quantités.
+- **Audit Finder exposé** : chaque run enrichit `results/run-*.json` et `results/summary.json` d’un bloc `_finder` (consolidé, candidats, audit). L’UI `pipeline/index2.html` filtre ce bloc pour n’afficher que les enseignes réelles.
+- **Monoprix fallback** : lorsque le texte et la taille correspondent mais que le matching visuel échoue (ex. visuel marketing différent), le fetcher accepte la fiche (`status="OK"`) et consigne `accepted_without_image_match` dans `extras.notes`.
+- **Auchan Talence Gallieni** : la sélection store reste fragile. Malgré les slugs forcés et les clics automatiques « Choisir ce Drive », la PDP peut encore afficher « Afficher le prix ». Procédure provisoire : rejouer un parcours humain via Chrome 9222 (`record_generic_navigation.py` sur `https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117`) jusqu’à voir le prix, consigner la trace dans `traces/` puis adapter `fetch_auchan_price.py` en conséquence. Tant que cette trace n’est pas réinjectée, considérer les `NO_RESULTS` Auchan comme problème ouvert.
+
 ## Règles Incontournables
 1. **Collecte seed systématique** : commencer chaque produit par une recherche **100 % EAN brut** (sans texte additionnel) sur les enseignes qui l’acceptent :
    - Carrefour Market d’abord, puis Carrefour City (via les wrappers CDP),

@@ -29,6 +29,7 @@ import random
 import time
 import sys
 from typing import Optional, List
+from functools import lru_cache
 
 from datetime import datetime
 from pathlib import Path
@@ -37,6 +38,10 @@ from urllib.parse import urlparse, urljoin
 
 from playwright.async_api import TimeoutError as PlaywrightTimeoutError, async_playwright
 from seed_catalog import all_seeds  # noqa: E402
+try:
+    from pipeline.finder import LeclercAdapter  # type: ignore
+except Exception:  # pragma: no cover - Finder optional
+    LeclercAdapter = None  # type: ignore
 
 
 def env_int(name: str, default: int) -> int:
@@ -77,6 +82,43 @@ def _adaptive_delay(ms: int, minimum: int = 100) -> int:
     return max(minimum, ms)
 
 MANUAL_DESCRIPTOR: dict[str, dict] = all_seeds()
+
+
+def make_leclerc_html_provider(ctx) -> callable:
+    """Build a cached HTML provider backed by Playwright."""
+
+    loop = asyncio.get_running_loop()
+
+    @lru_cache(maxsize=64)
+    def _cached_html(url: str) -> Optional[str]:
+        async def _fetch() -> Optional[str]:
+            page = await ctx.new_page()
+            try:
+                await page.goto(url, wait_until="domcontentloaded")
+                return await page.content()
+            except Exception:
+                return None
+            finally:
+                await page.close()
+
+        if loop.is_running():
+            try:
+                future = asyncio.run_coroutine_threadsafe(_fetch(), loop)
+                return future.result(timeout=15)
+            except Exception:
+                return None
+        return None
+
+    return _cached_html
+
+
+def inject_leclerc_html_provider(ctx) -> None:
+    if LeclercAdapter is None:
+        return
+    try:
+        LeclercAdapter._html_provider = make_leclerc_html_provider(ctx)  # type: ignore[attr-defined]
+    except Exception:
+        pass
 
 async def human_pause(page, base_ms: int) -> None:
     jitter = random.randint(-int(base_ms * 0.2), int(base_ms * 0.2))
@@ -277,6 +319,11 @@ async def run_manual_leclerc(
     async with async_playwright() as p:
         browser = await p.chromium.connect_over_cdp(cdp_url)
         context = browser.contexts[0] if browser.contexts else await browser.new_context()
+
+        try:
+            inject_leclerc_html_provider(context)
+        except Exception:
+            pass
 
         if context.pages:
             page = context.pages[0]

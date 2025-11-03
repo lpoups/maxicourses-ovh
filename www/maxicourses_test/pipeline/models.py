@@ -47,6 +47,7 @@ class PipelineRun:
     reference_ecoscore_grade: Optional[str] = None
     reference_ecoscore_image: Optional[str] = None
     reference_nova_group: Optional[str] = None
+    finder: Optional[Dict[str, Any]] = None
 
     def as_dict(self) -> Dict[str, Any]:
         return {
@@ -89,4 +90,5 @@ class PipelineRun:
                 }
                 for r in self.adapter_results
             ],
+            "finder": self.finder,
         }

@@ -2127,6 +2127,9 @@
       const map = new Map();
       if (summaryBlock) {
         Object.entries(summaryBlock).forEach(([adapter, entry]) => {
+          if (!adapter || adapter === '_finder') {
+            return;
+          }
           upsertRow(map, adapter, {
             payload: entry.payload || {},
             status: entry.status,
@@ -2162,6 +2165,9 @@
     }
 
     function upsertRow(map, adapterName, entry) {
+      if (!adapterName || adapterName === '_finder') {
+        return;
+      }
       const base = normalizeAdapterName(adapterName);
       let row = map.get(base);
       if (!row) {

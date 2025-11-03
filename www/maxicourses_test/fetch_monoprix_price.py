@@ -18,7 +18,7 @@ from datetime import datetime
 from pathlib import Path
 from urllib.parse import urljoin, quote, quote_plus
 import logging
-from playwright.async_api import Page
+from playwright.async_api import Page, BrowserContext
 
 print("--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---", file=sys.stderr)
 
@@ -35,6 +35,10 @@ _sys.path.append(_os.path.dirname(__file__))
 from scraper.engine import make_context, state_path_for  # noqa: E402
 from collection_mandate import get_method  # noqa: E402
 from seed_catalog import all_seeds, get_seed  # noqa: E402
+try:
+    from pipeline.finder import MonoprixAdapter  # type: ignore
+except Exception:  # pragma: no cover - provider optional
+    MonoprixAdapter = None  # type: ignore
 
 
 EAN = os.environ.get("EAN", "").strip()
@@ -86,6 +90,103 @@ VARIANT_PATTERNS: dict[str, list[re.Pattern[str]]] = {
 SEED_VARIANTS = ["nature", "vanille", "amande", "coco", "mangue", "chocolat", "orange", "sans sucre", "rouge"]
 MAX_PRODUCTS_PER_TERM = int(os.environ.get("MONOPRIX_MAX_PRODUCTS", "12"))
 DESCRIPTOR_MATCH_COVERAGE = float(os.environ.get("MONOPRIX_DESCRIPTOR_COVERAGE", "0.7"))
+
+
+def _ahash_js() -> str:
+    return """
+    async (imgUrl) => {
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      const loaded = new Promise((res, rej) => {
+        img.onload = () => res();
+        img.onerror = (e) => rej(e);
+      });
+      img.src = imgUrl;
+      await loaded;
+
+      const size = 8;
+      const canvas = document.createElement('canvas');
+      canvas.width = size; canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, size, size);
+      const data = ctx.getImageData(0, 0, size, size).data;
+
+      const gray = [];
+      for (let i = 0; i < data.length; i += 4) {
+        const r = data[i], g = data[i+1], b = data[i+2];
+        const y = Math.round(0.299*r + 0.587*g + 0.114*b);
+        gray.push(y);
+      }
+      const avg = gray.reduce((a,b)=>a+b,0) / gray.length;
+
+      let hash = 0n;
+      for (let i = 0; i < gray.length; i++) {
+        hash = (hash << 1n) | (gray[i] >= avg ? 1n : 0n);
+      }
+      return hash.toString();
+    }
+    """
+
+
+def _hamming64(a: int, b: int) -> int:
+    x = a ^ b
+    count = 0
+    while x:
+        x &= x - 1
+        count += 1
+    return count
+
+
+async def _compute_ahash(ctx: BrowserContext, url: Optional[str]) -> Optional[int]:
+    if not url:
+        return None
+    page = await ctx.new_page()
+    try:
+        await page.goto("about:blank")
+        script = _ahash_js()
+        h_str = await page.evaluate(
+            f"""async (targetUrl) => {{
+                const fn = {script};
+                return await fn(targetUrl);
+            }}""",
+            url,
+        )
+        return int(h_str) if h_str is not None else None
+    except Exception:
+        return None
+    finally:
+        await page.close()
+
+
+async def _compare_images_async(ctx: BrowserContext, seed_url: Optional[str], cand_url: Optional[str]) -> bool:
+    a = await _compute_ahash(ctx, seed_url)
+    b = await _compute_ahash(ctx, cand_url)
+    if a is None or b is None:
+        return False
+    return _hamming64(a, b) <= 8
+
+
+def compare_images_via_playwright(ctx: BrowserContext, seed_url: Optional[str], cand_url: Optional[str]) -> bool:
+    async def _runner() -> bool:
+        return await _compare_images_async(ctx, seed_url, cand_url)
+
+    try:
+        loop = asyncio.get_running_loop()
+    except RuntimeError:
+        loop = None
+
+    if loop and loop.is_running():
+        return False
+    try:
+        return asyncio.run(_runner())
+    except RuntimeError:
+        return False
+
+
+def inject_monoprix_image_provider(ctx: BrowserContext) -> None:
+    if MonoprixAdapter is None:
+        return
+    MonoprixAdapter._image_provider = lambda seed, cand: compare_images_via_playwright(ctx, seed, cand)
 
 # --- Patterns Regex ---
 MULTIPLIER_PATTERN = re.compile(r"\b\d+\s*(?:x|×)\s*\d+\b", flags=re.IGNORECASE)
@@ -1899,6 +2000,15 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
             sys.stderr.write(
                 f"[MONOPRIX_DEBUG]  - Best rejected candidate '{top_result.title}' (Score: {top_score}) | vetoes={top_result.extras.get('vetoes')}\n"
             )
+            vetoes = set(top_result.extras.get("vetoes") or [])
+            baseline_ok = bool(top_result.extras.get("plausible_baseline"))
+            if baseline_ok and vetoes.issubset({"image_mismatch"}) and top_result.price:
+                top_result.status = "OK"
+                top_result.extras.setdefault("notes", []).append("accepted_without_image_match")
+                sys.stderr.write(
+                    f"[MONOPRIX_DEBUG]  - Accepting fallback candidate despite image mismatch: '{top_result.title}'.\n"
+                )
+                return top_result
         else:
             sys.stderr.write("[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n")
 
@@ -2237,6 +2347,10 @@ async def run() -> Result:
         storage_state_path=storage_state,
         user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
     )
+    try:
+        inject_monoprix_image_provider(context)
+    except Exception:
+        pass
     sys.stderr.write("[MONOPRIX_DEBUG] make_context() successful\n")
     
     # async def _close_extra(new_page):

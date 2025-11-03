@@ -2,6 +2,7 @@
 
 - Chrome remote lancé via `maxicourses_test/start_chrome_debug.sh` (profil `.chrome-debug`), puis toutes les commandes Playwright avec `USE_CDP=1`.
 - **Recherche EAN brut obligatoire** : pour tout nouveau produit, taper directement le code EAN (sans texte) sur les enseignes seed qui l’acceptent – Carrefour Market → Carrefour City → Auchan → Chronodrive → Course U (Super U Eysines). Une fois ces runs effectués, exploiter le descriptif obtenu pour Intermarché, Leclerc puis Monoprix. Aucun descriptif ne doit être utilisé sur les enseignes EAN si l’EAN est connu ; un résultat `NO_PRICE` ou `NO_RESULTS` signifie que le drive ne propose pas ce produit.
+- **Mots-clés générés par Finder** : `run_pipeline.py` construit désormais la short-list de requêtes via `FinderPipeline`/`KeywordGenerator`. Ne plus modifier manuellement `primary_keywords`/`secondary_keywords` dans `manual_descriptors.json` : ces champs ne sont plus lus par la pipeline.
 - Chaque sortie JSON doit inclure `price`, `unit_price` (€/kg ou €/L), `quantity`, `store`, `note` (horodatage UTC), `url`, `matched_ean`.
 - Conserver les captures dans `maxicourses_test/debug_screens/` ou `maxicourses_test/debug/` et référencer la trace dans `docs/HANDOVER_DAILY.md`.
 - Chaque produit possède un visuel local dans `maxicourses_test/pipeline/assets/` déclaré via `manual_descriptors.json` ; le comparateur (`pipeline/index2.html`) affiche ensuite un lien « Voir image ».
@@ -43,7 +44,7 @@
   USE_CDP=1 HEADLESS=0 EAN=<ean> QUERY="<libellé seed ou EAN>" python3 fetch_auchan_price.py
   ```
 - Sert de seed alternatif lorsque Carrefour n’a pas l’EAN ; taper d’abord l’EAN brut, puis réutiliser le descriptif trouvé pour les autres enseignes.
-- **Sélection magasin** : le script charge automatiquement l’état Talence-Gallieni (`state/auchan.json` → `storeReference.id = 6117`). Si un autre drive est requis, mettre à jour ce fichier via Chrome 9222 avant de relancer.
+- **Sélection magasin** : le script charge automatiquement l’état Talence-Gallieni (`state/auchan.json` → `storeReference.id = 6117`). Si un autre drive est requis, mettre à jour ce fichier via Chrome 9222 avant de relancer. Actuellement, le bouton « Choisir ce drive » peut réapparaître sur la PDP : enregistrer un parcours humain (`record_generic_navigation.py`) et rejouer la trace jusqu’à ce que le prix soit visible avant de conclure. Considérer les `NO_RESULTS` Auchan comme un bug ouvert tant que cette trace n’est pas mise à jour.
 
 ## Intermarché
 - **Script** : `maxicourses_test/fetch_intermarche_price.py` (CDP, accepter cookies via script).
@@ -137,7 +138,7 @@
 6. Ce guide (`docs/PRICE_COLLECTION_GUIDE.md`) pour connaître la méthode par enseigne.
 
 ## Traces & captures utiles
-- `traces/auchan-20240922-clean.jsonl` – navigation Auchan seed.
+- `traces/auchan-20240922-clean.jsonl` – navigation Auchan seed (à rafraîchir pour Talence Gallieni si le bouton « Choisir ce drive » persiste).
 - `traces/leclerc-20250924-*.jsonl` – sélection drive Bruges.
 - `traces/carrefour-switch-back-20250923.jsonl` puis `traces/carrefour-store-switch-20250923.jsonl` – séquence obligatoire avant toute collecte Carrefour (City puis Market).
 - Captures debug dans `maxicourses_test/debug/` (HTML) et `maxicourses_test/debug_screens/` (PNG).
