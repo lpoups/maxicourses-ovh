@@ -60,10 +60,30 @@ EARLY_EAN_URL_PATTERN = re.compile(r"/produit/[^?#]*?(?:-|/)(\d{13})(?:[^0-9]|$)
 FORBIDDEN_LABEL_TOKENS = {"boisson gazeuse"}
 SKU_LABEL_PATTERN = re.compile(r"\bp\d{5,}\b", flags=re.IGNORECASE)
 CORE_STOPWORDS = {"aux", "au", "de", "du", "des", "la", "le", "les", "et", "en"}
-INTERMARCHE_MAX_PDP = 3
-INTERMARCHE_MAX_RESULTS = 5
+INTERMARCHE_MAX_PDP = 10
+INTERMARCHE_MAX_RESULTS = 10
 
 MANUAL_DESCRIPTOR = all_seeds()
+
+def _parse_finder_keywords() -> list[str]:
+    raw = os.environ.get("FINDER_KEYWORDS")
+    if not raw:
+        return []
+    try:
+        data = json.loads(raw)
+        if isinstance(data, list):
+            result = []
+            for item in data:
+                if isinstance(item, str) and item.strip():
+                    result.append(item.strip())
+            return result
+    except json.JSONDecodeError:
+        pass
+    parts = [chunk.strip() for chunk in raw.split(",") if chunk.strip()]
+    return parts[:4]
+
+
+FINDER_KEYWORDS = _parse_finder_keywords()
 
 
 def _looks_like_ean(term: typing.Optional[str]) -> bool:
@@ -307,6 +327,52 @@ def _descriptor_seed(ean: str) -> typing.Optional[str]:
     return None
 
 
+def _normalize_field(value: typing.Optional[str]) -> str:
+    if not isinstance(value, str):
+        return ""
+    return " ".join(value.split())
+
+
+def _build_candidate_product(
+    descriptor: typing.Optional[dict],
+    title: str,
+    matched_ean: typing.Optional[str],
+    html_snippet: str,
+) -> dict:
+    brand = ""
+    kind = ""
+    quantity = ""
+    qualifiers: list[str] = []
+    if isinstance(descriptor, dict):
+        brand = _normalize_field(descriptor.get("brand"))
+        quantity = (
+            _normalize_field(descriptor.get("quantity"))
+            or _normalize_field(descriptor.get("seed_primary_quantity"))
+        )
+        kind = _normalize_field(
+            descriptor.get("seed_primary_name")
+            or descriptor.get("name")
+            or descriptor.get("description")
+        )
+        raw_qualifiers = descriptor.get("qualifiers")
+        if isinstance(raw_qualifiers, list):
+            qualifiers = [
+                _normalize_field(str(item))
+                for item in raw_qualifiers
+                if isinstance(item, str) and item.strip()
+            ]
+    return {
+        "title": _normalize_field(title),
+        "brand": brand,
+        "kind": kind,
+        "qty": quantity,
+        "qualifiers": qualifiers,
+        "ean": matched_ean,
+        "image_url": None,
+        "raw_text": html_snippet,
+    }
+
+
 def _normalized_quantity_to_liters(
     quantity: typing.Optional[str],
 ) -> typing.Optional[float]:
@@ -519,37 +585,36 @@ def _build_inter_queries(ean: str, descriptor: typing.Optional[dict]) -> list[st
     return queries[:3]
 
 
-def _descriptor_queries(descriptor: typing.Optional[dict]) -> list[str]:
-    if not isinstance(descriptor, dict):
-        return []
-    queries_map = descriptor.get("queries")
-    if not isinstance(queries_map, dict):
-        return []
-    raw_queries = queries_map.get("intermarche")
-    if not isinstance(raw_queries, list):
-        return []
-    queries: list[str] = []
-    seen: set[str] = set()
-    for raw in raw_queries:
-        if not isinstance(raw, str):
-            continue
-        normalized = _normalize_query(raw)
-        if not normalized or normalized in seen:
-            continue
-        seen.add(normalized)
-        queries.append(normalized)
-        if len(queries) >= 3:
-            break
-    return queries
-
-
 def build_query_plan() -> list[tuple[StageLiteral, str]]:
     if not EAN:
         return []
     descriptor = MANUAL_DESCRIPTOR.get(EAN)
-    queries = _descriptor_queries(descriptor)
+    queries: list[str] = []
+    seen: set[str] = set()
+
+    def add(candidate: typing.Optional[str]) -> None:
+        normalized = _normalize_query(candidate) if candidate else ""
+        if not normalized or normalized in seen:
+            return
+        seen.add(normalized)
+        queries.append(normalized)
+
+    for keyword in FINDER_KEYWORDS:
+        add(keyword)
+
+    add(QUERY)
+
     if not queries:
-        queries = _build_inter_queries(EAN, descriptor)
+        descriptor_seed = _descriptor_seed(EAN)
+        if descriptor_seed:
+            add(descriptor_seed)
+        inter_queries = _build_inter_queries(EAN, descriptor)
+        for candidate in inter_queries:
+            add(candidate)
+
+    if not queries:
+        return []
+
     plan: list[tuple[StageLiteral, str]] = []
     for idx, query in enumerate(queries):
         stage = cast(StageLiteral, f"Q{idx + 1}")
@@ -583,6 +648,8 @@ class Result:
     unit_price: typing.Optional[str] = None
     quantity: typing.Optional[str] = None
     store: typing.Optional[str] = None
+    candidates: typing.Optional[list] = None
+    _meta: typing.Optional[dict] = None
 
 
 COOKIE_SELECTORS = [
@@ -874,6 +941,14 @@ async def run() -> Result:
     accepted_query: typing.Optional[str] = None
     accepted_search_url: typing.Optional[str] = None
 
+    finder_candidates: list[dict] = []
+
+    def finalize_result(res: Result) -> Result:
+        res._meta = {"supports_keywords": True}
+        if finder_candidates:
+            res.candidates = finder_candidates
+        return res
+
     for stage_label, term in query_plan:
         stage_matched_ean: typing.Optional[str] = None
         stage_matched_reason: typing.Optional[str] = None
@@ -961,24 +1036,18 @@ async def run() -> Result:
         matched_href = None
         fallback_href = None
         pdp_visits = 0
+        last_candidate_entry: typing.Optional[dict] = None
         for idx, href in enumerate(candidates):
             if pdp_visits >= INTERMARCHE_MAX_PDP:
                 break
             label = candidate_labels.get(href, "")
+            candidate_entry: dict[str, typing.Any] = {"listing_url": href}
+            if label:
+                candidate_entry["listing_label"] = label
+            last_candidate_entry = candidate_entry
+            candidate_entry["status"] = "REJECTED"
             candidate_reason = None
             url_ean_candidate = extract_ean_from_candidate_href(href)
-            if url_ean_candidate and EAN and url_ean_candidate != EAN:
-                _emit_candidate_telemetry(
-                    query=normalized_term,
-                    stage=stage_label,
-                    candidate_url=href,
-                    title=label or None,
-                    match_status="REJECTED",
-                    reason="ean_mismatch",
-                    search_url=search_url,
-                    ean=EAN,
-                )
-                continue
             if url_ean_candidate and EAN and url_ean_candidate == EAN:
                 candidate_reason = "ean_in_url"
             try:
@@ -992,6 +1061,8 @@ async def run() -> Result:
                 except Exception:
                     pass
                 if await handle_404(page):
+                    candidate_entry["status"] = "REJECTED"
+                    candidate_entry["reason"] = "pdp_404"
                     await ensure_home(page)
                     _emit_candidate_telemetry(
                         query=normalized_term,
@@ -1011,12 +1082,38 @@ async def run() -> Result:
                 current_url = page.url or href
                 if not fallback_href:
                     fallback_href = current_url
+                title_raw = None
+                try:
+                    title_raw = await page.locator("h1").first.text_content()
+                except Exception:
+                    title_raw = None
+                title_text = " ".join(title_raw.split()) if title_raw else (label or "")
+                html = await page.content()
                 url_ean = extract_ean_from_candidate_href(
                     current_url
                 ) or extract_ean_from_url(current_url)
+                observed_eans: list[str] = []
+                if url_ean_candidate and url_ean_candidate not in observed_eans:
+                    observed_eans.append(url_ean_candidate)
+                if url_ean and url_ean not in observed_eans:
+                    observed_eans.append(url_ean)
+                candidate_entry["url"] = current_url
+                candidate_entry["title"] = title_text
+                candidate_entry["observed_eans"] = observed_eans
+                candidate_entry["product"] = _build_candidate_product(
+                    descriptor_entry,
+                    title_text,
+                    url_ean,
+                    (html or "")[:2000],
+                )
+                candidate_entry["matched_ean"] = url_ean
                 if url_ean:
+                    candidate_entry["matched_ean"] = url_ean
+                    candidate_entry["product"]["ean"] = url_ean
                     if EAN:
                         if url_ean == EAN:
+                            candidate_entry["status"] = "MATCHED"
+                            candidate_entry["reason"] = candidate_reason or "ean_in_url"
                             matched_href = current_url
                             stage_matched_ean = url_ean
                             stage_matched_reason = candidate_reason or "ean_in_url"
@@ -1025,6 +1122,8 @@ async def run() -> Result:
                                     f"[intermarche] url match -> {stage_matched_ean} reason={stage_matched_reason}\n"
                                 )
                             break
+                        candidate_entry["status"] = "REJECTED"
+                        candidate_entry["reason"] = "ean_mismatch"
                         _emit_candidate_telemetry(
                             query=normalized_term,
                             stage=stage_label,
@@ -1036,10 +1135,14 @@ async def run() -> Result:
                             ean=EAN,
                         )
                         continue
+                    candidate_entry["status"] = "MATCHED"
+                    candidate_entry["reason"] = candidate_reason or "ean_in_url"
                     matched_href = current_url
                     stage_matched_ean = url_ean
                     break
-            except Exception:
+            except Exception as exc:
+                candidate_entry["status"] = "ERROR"
+                candidate_entry["reason"] = f"exception:{exc.__class__.__name__}"
                 _emit_candidate_telemetry(
                     query=normalized_term,
                     stage=stage_label,
@@ -1051,6 +1154,17 @@ async def run() -> Result:
                     ean=EAN,
                 )
                 continue
+            finally:
+                if "product" not in candidate_entry:
+                    candidate_entry["product"] = _build_candidate_product(
+                        descriptor_entry,
+                        candidate_entry.get("title") or label or "",
+                        candidate_entry.get("matched_ean"),
+                        "",
+                    )
+                if "status" not in candidate_entry:
+                    candidate_entry["status"] = "REJECTED"
+                finder_candidates.append(candidate_entry)
         pdp = matched_href or fallback_href
         if not pdp:
             continue
@@ -1155,6 +1269,12 @@ async def run() -> Result:
                                     if EAN and gtin_str == EAN:
                                         stage_matched_ean = gtin_str
                                         has_identifier_match = True
+                                        if last_candidate_entry is not None:
+                                            last_candidate_entry["matched_ean"] = gtin_str
+                                            if "product" in last_candidate_entry:
+                                                last_candidate_entry["product"]["ean"] = gtin_str
+                                            last_candidate_entry["status"] = "MATCHED"
+                                            last_candidate_entry["reason"] = stage_matched_reason or "ean_in_pdp"
                                         if stage_matched_reason is None:
                                             stage_matched_reason = "ean_in_pdp"
                                     elif not EAN:
@@ -1162,6 +1282,12 @@ async def run() -> Result:
                                             stage_matched_ean or gtin_str
                                         )
                                         has_identifier_match = True
+                                        if last_candidate_entry is not None and stage_matched_ean:
+                                            last_candidate_entry["matched_ean"] = stage_matched_ean
+                                            if "product" in last_candidate_entry:
+                                                last_candidate_entry["product"]["ean"] = stage_matched_ean
+                                            last_candidate_entry["status"] = "MATCHED"
+                                            last_candidate_entry.setdefault("reason", "ean_in_pdp")
                             title = it.get("name") or title
                             offers = it.get("offers")
                             if isinstance(offers, dict):
@@ -1193,10 +1319,19 @@ async def run() -> Result:
             if has_ean:
                 stage_matched_ean = EAN
                 has_identifier_match = True
+                if last_candidate_entry is not None:
+                    last_candidate_entry["matched_ean"] = EAN
+                    if "product" in last_candidate_entry:
+                        last_candidate_entry["product"]["ean"] = EAN
+                    last_candidate_entry["status"] = "MATCHED"
+                    last_candidate_entry["reason"] = stage_matched_reason or "ean_in_pdp"
                 if stage_matched_reason is None:
                     stage_matched_reason = "ean_in_pdp"
 
         if EAN and not has_identifier_match:
+            if last_candidate_entry is not None:
+                last_candidate_entry["status"] = "REJECTED"
+                last_candidate_entry["reason"] = "ean_not_found"
             _emit_candidate_telemetry(
                 query=normalized_term,
                 stage=stage_label,
@@ -1337,7 +1472,7 @@ async def run() -> Result:
             note = f"Intermarché · {store_label}"
         else:
             note = "Intermarché (CDP)"
-        return Result(
+        return finalize_result(Result(
             status="OK",
             price=price,
             title=title,
@@ -1347,7 +1482,7 @@ async def run() -> Result:
             unit_price=unit_price,
             quantity=final_quantity,
             store=store_label,
-        )
+        ))
     if final_matched_ean and final_pdp:
         if DEBUG_INTERMARCHE:
             sys.stderr.write(
@@ -1374,7 +1509,7 @@ async def run() -> Result:
             match_status="EXACT",
             reason="no_price",
         )
-        return Result(
+        return finalize_result(Result(
             status="NO_PRICE",
             title=title,
             url=final_pdp,
@@ -1383,9 +1518,9 @@ async def run() -> Result:
             unit_price=None,
             quantity=None,
             store=store_label,
-        )
+        ))
     if pdp:
-        return Result(
+        return finalize_result(Result(
             status="NO_PRICE",
             title=title,
             url=pdp,
@@ -1394,8 +1529,8 @@ async def run() -> Result:
             unit_price=None,
             quantity=None,
             store=store_label,
-        )
-    return Result(status="NO_RESULTS")
+        ))
+    return finalize_result(Result(status="NO_RESULTS"))
 
 
 if __name__ == "__main__":

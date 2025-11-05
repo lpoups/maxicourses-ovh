@@ -62,7 +62,7 @@ Ce mémo doit être mis à jour après chaque collecte. Pour chaque EAN : consig
 ## 3017760821375 – (DESCRIPTEUR À TROUVER)
 - **Faire ceci = erreur**
   - Sauter la collecte seed Carrefour/Auchan : les scripts retournent `NO_PRICE`/`NO_RESULTS`. Tant que la fiche n’est pas trouvée, ne pas lancer les fetchers texte.
-  - Injecter manuellement un descriptif générique dans `manual_descriptors.json`.
+  - Injecter manuellement un descriptif générique dans `seed_catalog.py`.
 - **Faire cela = OK**
   - Relancer Carrefour Market → City → Auchan avec l’EAN brut dès qu’un magasin référence le produit.
   - Documenter l’échec dans le handover tant qu’aucune enseigne seed ne connaît l’article.

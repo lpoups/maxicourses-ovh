@@ -7,10 +7,12 @@ from playwright_stealth import stealth_async
 async def make_context(headless: bool = True,
                        proxy: Optional[str] = None,
                        storage_state_path: Optional[str] = None,
-                       user_agent: Optional[str] = None):
+                       user_agent: Optional[str] = None,
+                       use_stealth: bool = True):
     p = await async_playwright().start()
     use_chrome = os.getenv("USE_CHROME", "0") == "1"
-    use_cdp = os.getenv("USE_CDP", "0") == "1"
+    use_cdp_env = os.getenv("USE_CDP")
+    use_cdp = True if use_cdp_env is None else use_cdp_env == "1"
     cdp_url = os.getenv("CDP_URL") or "http://127.0.0.1:9222"
     launch_kwargs = {"headless": headless, "timeout": 60000}
     if proxy:
@@ -18,28 +20,24 @@ async def make_context(headless: bool = True,
     if use_chrome:
         launch_kwargs["channel"] = "chrome"
     if use_cdp:
-        # Connect to an already running Chrome/Chromium (remote debugging)
-        browser = await p.chromium.connect_over_cdp(cdp_url)
-        # Persistent context when using CDP; reuse first context
+        # Connect to an already running Chrome in remote-debug mode
+        try:
+            browser = await p.chromium.connect_over_cdp(cdp_url)
+        except Exception as exc:
+            await p.stop()
+            raise RuntimeError(f"Impossible de se connecter à Chrome debug via {cdp_url}: {exc}") from exc
         context = browser.contexts[0] if browser.contexts else await browser.new_context()
     else:
-        browser = await p.chromium.launch(**launch_kwargs)
-        context = await browser.new_context(
-            storage_state=storage_state_path,
-            user_agent=user_agent,
-            locale="fr-FR",
-            timezone_id="Europe/Paris",
+        raise RuntimeError(
+            "Exécution sans Chrome remote-debug interdite. Lance Chrome avec ./start_chrome_debug.sh "
+            "ou exporte USE_CDP=1."
         )
+    page = await context.new_page()
+    if use_stealth:
         try:
-            await context.grant_permissions(["geolocation"])
-            await context.set_geolocation({"latitude": 44.8378, "longitude": -0.5792})  # Bordeaux
+            await stealth_async(page)
         except Exception:
             pass
-    page = await context.new_page()
-    try:
-        await stealth_async(page)
-    except Exception:
-        pass
     return p, browser, context, page
 
 

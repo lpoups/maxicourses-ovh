@@ -950,7 +950,8 @@
     ];
 
     const SUMMARY_URL = '../results/summary.json';
-    const MANUAL_DESCRIPTORS_URL = '../manual_descriptors.json';
+    const DESCRIPTORS_ENDPOINT = window.MAXICOURSES_DESCRIPTORS_ENDPOINT || 'http://127.0.0.1:5001/api/descriptors';
+    const DESCRIPTOR_CACHE_URL = '../pipeline/descriptor_cache.json';
 
     const MANUAL_COMPARISON = {};
 
@@ -1405,7 +1406,7 @@
 
     document.addEventListener('DOMContentLoaded', async () => {
       const [manualDescriptors, summary] = await Promise.all([
-        fetchJson(MANUAL_DESCRIPTORS_URL),
+        fetchDescriptorsCatalog(),
         fetchJson(withCacheBuster(SUMMARY_URL))
       ]);
 
@@ -1491,6 +1492,38 @@
         console.warn('fetchJson failed', url, err);
         return null;
       }
+    }
+
+    function normalizeDescriptorPayload(payload) {
+      if (!payload || typeof payload !== 'object') {
+        return {};
+      }
+      if (payload.descriptors && typeof payload.descriptors === 'object') {
+        return payload.descriptors;
+      }
+      if (payload.descriptor && typeof payload.descriptor === 'object') {
+        const single = payload.descriptor;
+        if (single.ean) {
+          return { [single.ean]: single };
+        }
+      }
+      if (!Array.isArray(payload)) {
+        return payload;
+      }
+      return {};
+    }
+
+    async function fetchDescriptorsCatalog(endpoint = DESCRIPTORS_ENDPOINT) {
+      let descriptors = {};
+      if (endpoint) {
+        const primaryPayload = await fetchJson(endpoint);
+        descriptors = normalizeDescriptorPayload(primaryPayload);
+      }
+      if (!descriptors || !Object.keys(descriptors).length) {
+        const cachePayload = await fetchJson(DESCRIPTOR_CACHE_URL);
+        descriptors = normalizeDescriptorPayload(cachePayload);
+      }
+      return descriptors || {};
     }
 
     async function fetchDatasetOnce(config) {
@@ -1874,7 +1907,7 @@
     }
 
     async function reloadManualDescriptors() {
-      const descriptors = await fetchJson(withCacheBuster(MANUAL_DESCRIPTORS_URL));
+      const descriptors = await fetchDescriptorsCatalog();
       cachedManualDescriptors = descriptors || {};
       removedDatasets.clear();
       Object.entries(cachedManualDescriptors).forEach(([ean, descriptor]) => {

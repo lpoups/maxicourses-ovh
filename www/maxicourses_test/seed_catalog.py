@@ -1,4 +1,4 @@
-"""Seed catalog hardcoded from manual_descriptors.json."""
+"""Seed catalog codé en dur (remplace l'ancien manual_descriptors.json)."""
 from __future__ import annotations
 
 SEED_CATALOG = {'1234567890123': {'ean': '1234567890123',

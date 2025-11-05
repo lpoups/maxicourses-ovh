@@ -93,7 +93,11 @@ def main():
                 context = contexts[min(max(args.context_index, 0), len(contexts) - 1)]
             else:
                 context = await browser.new_context()
-            page = await context.new_page()
+            pages = context.pages
+            if pages:
+                page = pages[0]
+            else:
+                page = await context.new_page()
 
             async def record(payload):
                 events.append({
@@ -101,6 +105,11 @@ def main():
                     "ts": time.time() - start,
                     "data": payload,
                 })
+
+            try:
+                await page.bring_to_front()
+            except Exception:
+                pass
 
             await page.expose_function("recordEvent", lambda payload: asyncio.create_task(record(payload)))
             await page.add_init_script(JS_INSTRUMENTATION)

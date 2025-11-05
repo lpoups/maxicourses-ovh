@@ -19,7 +19,6 @@ from playwright.async_api import TimeoutError as PlaywrightTimeout
 from urllib.parse import urljoin
 
 from collection_mandate import get_method
-from seed_catalog import all_seeds  # noqa: E402
 
 EAN = os.environ.get("EAN", "7613035676497").strip()
 QUERY = os.environ.get("QUERY")
@@ -27,7 +26,13 @@ HEADLESS = os.environ.get("HEADLESS", "1") == "1"
 PROXY = os.environ.get("PROXY")
 MANDATE = get_method("auchan")
 
-MANUAL_DESCRIPTOR = all_seeds()
+MANUAL_DESCRIPTOR = {}
+try:
+    descriptor_path = Path(__file__).with_name("manual_descriptors.json")
+    if descriptor_path.exists():
+        MANUAL_DESCRIPTOR = json.loads(descriptor_path.read_text(encoding="utf-8"))
+except Exception:
+    MANUAL_DESCRIPTOR = {}
 
 
 def _descriptor_entry() -> typing.Optional[dict]:
@@ -243,6 +248,8 @@ async def accept_cookies(page) -> None:
 def _with_store_slug(url: typing.Optional[str]) -> typing.Optional[str]:
     if not isinstance(url, str) or not url:
         return url
+    if STORE_SLUG and "/drive/magasins/" in url and STORE_SLUG in url:
+        return url
     target_slug = STORE_SLUG or (DESCRIPTOR_ENTRY.get("auchan_slug") if DESCRIPTOR_ENTRY else None)
     if not target_slug:
         return url
@@ -252,12 +259,9 @@ def _with_store_slug(url: typing.Optional[str]) -> typing.Optional[str]:
     scheme = parts.scheme or "https"
     netloc = parts.netloc or "www.auchan.fr"
     path = parts.path.lstrip("/")
-    if path.startswith(f"drive/magasins/{target_slug}"):
-        new_path = parts.path
-    else:
-        new_path = f"/drive/magasins/{target_slug}"
-        if path:
-            new_path += "/" + path
+    new_path = f"/drive/magasins/{target_slug}"
+    if path:
+        new_path += "/" + path
     return urlunsplit((scheme, netloc, new_path, parts.query, parts.fragment))
 
 
@@ -265,152 +269,77 @@ async def ensure_store_selected(page) -> None:
     target = STORE_QUERY
     if not target:
         return
-    log(f"ensure_store_selected target={target}")
-
-    async def _try_overlay(current_page) -> bool:
-        button_selectors = [
-            "button.journeyOverlayTrigger",
-            "button[data-testid='journeyOverlayTrigger']",
-            "button.context-header__pos-btn",
-            "button:has-text('Choisir mon mode de livraison')",
-        ]
-        overlay_button = None
-        for selector in button_selectors:
-            btn = current_page.locator(selector).first
-            if await btn.count():
-                overlay_button = btn
-                break
-
-        if not overlay_button:
-            return False
-        try:
-            await overlay_button.click()
-            await current_page.wait_for_timeout(500)
-        except Exception:
-            return False
-
-        overlay_root = current_page.locator("[data-testid='journey-overlay'], #journeyOverlay").first
-        try:
-            await overlay_root.wait_for(state="visible", timeout=5000)
-        except Exception:
-            return False
-
-        search_input = overlay_root.locator("input[type='search'], input[type='text']").first
-        if await search_input.count():
-            try:
-                await search_input.fill("")
-                await current_page.wait_for_timeout(150)
-                await search_input.type(target, delay=60)
-                await current_page.wait_for_timeout(800)
-            except Exception:
-                pass
-
-        option_selectors = [
-            f"button:has-text('{target}')",
-            "button[data-testid='store-item']",
-        ]
-        store_option = None
-        for selector in option_selectors:
-            cand = overlay_root.locator(selector).first
-            if await cand.count():
-                store_option = cand
-                break
-        if store_option:
-            try:
-                await store_option.click()
-                await current_page.wait_for_timeout(400)
-            except Exception:
-                pass
-
-        confirm_selectors = [
-            "button:has-text('Choisir ce magasin')",
-            "button:has-text('Voir ce magasin')",
-            "button[data-testid='journey-overlay-validate']",
-        ]
-        confirm_btn = None
-        for selector in confirm_selectors:
-            cand = overlay_root.locator(selector).first
-            if await cand.count():
-                confirm_btn = cand
-                break
-        if confirm_btn:
-            try:
-                await confirm_btn.click()
-                await current_page.wait_for_timeout(800)
-            except Exception:
-                pass
-        return True
-
-    async def _try_store_cta(current_page) -> bool:
-        selectors = [
-            "button:has-text('Choisir ce Drive')",
-            "button:has-text('Choisir ce drive')",
-            "button[data-testid='choose-this-drive']",
-        ]
-        for selector in selectors:
-            try:
-                await current_page.wait_for_selector(selector, timeout=3000)
-            except Exception:
-                continue
-            btn = current_page.locator(selector).first
-            if not await btn.count():
-                continue
-            try:
-                log(f"clic CTA magasin via {selector}")
-                await btn.scroll_into_view_if_needed()
-                await btn.click(force=True)
-                await current_page.wait_for_timeout(1800)
-                log("CTA magasin cliqué")
-                return True
-            except Exception:
-                log("échec clic CTA magasin")
-                continue
-        return False
 
     button_selectors = [
-        "a[data-testid='current-store-link']",
-        "button[data-testid='current-store-link']",
+        "button.journeyOverlayTrigger",
+        "button[data-testid='journeyOverlayTrigger']",
+        "button.context-header__pos-btn",
+        "button:has-text('Choisir mon mode de livraison')",
     ]
-    header_btn = None
+    overlay_button = None
     for selector in button_selectors:
-        cand = page.locator(selector).first
-        if await cand.count():
-            header_btn = cand
+        btn = page.locator(selector).first
+        if await btn.count():
+            overlay_button = btn
             break
 
-    header_text = None
-    if header_btn:
+    if overlay_button:
         try:
-            header_text = (await header_btn.inner_text()).strip()
-            log(f"store header : {header_text}")
+            await overlay_button.click()
+            await page.wait_for_timeout(500)
         except Exception:
-            header_text = None
-
-    if header_text and target.lower() in header_text.lower():
+            return
+    else:
         return
 
-    if await _try_store_cta(page):
+    overlay_root = page.locator("[data-testid='journey-overlay'], #journeyOverlay").first
+    try:
+        await overlay_root.wait_for(state="visible", timeout=5000)
+    except Exception:
         return
 
-    if await _try_overlay(page):
-        return
-
-    if STORE_SWITCH_URL:
+    search_input = overlay_root.locator("input[type='search'], input[type='text']").first
+    if await search_input.count():
         try:
-            await page.goto(STORE_SWITCH_URL, wait_until='domcontentloaded')
-            await page.wait_for_timeout(1200)
-            await accept_cookies(page)
-            if await _try_overlay(page):
-                return
+            await search_input.fill("")
+            await page.wait_for_timeout(150)
+            await search_input.type(target, delay=60)
+            await page.wait_for_timeout(600)
         except Exception:
             pass
 
-    if STORE_HOME_URL:
+    option_selectors = [
+        f"button:has-text('{target}')",
+        "button[data-testid='store-item']",
+    ]
+    store_option = None
+    for selector in option_selectors:
+        cand = overlay_root.locator(selector).first
+        if await cand.count():
+            store_option = cand
+            break
+    if store_option:
         try:
-            await page.goto(_with_store_slug(STORE_HOME_URL) or STORE_HOME_URL, wait_until='domcontentloaded')
-            await page.wait_for_timeout(1200)
-            await accept_cookies(page)
-            await _try_overlay(page)
+            await store_option.click()
+            await page.wait_for_timeout(400)
+        except Exception:
+            pass
+
+    confirm_selectors = [
+        "button:has-text('Choisir ce magasin')",
+        "button:has-text('Voir ce magasin')",
+        "button[data-testid='journey-overlay-validate']",
+    ]
+    confirm_btn = None
+    for selector in confirm_selectors:
+        cand = overlay_root.locator(selector).first
+        if await cand.count():
+            confirm_btn = cand
+            break
+    if confirm_btn:
+        try:
+            await confirm_btn.click()
+            await page.wait_for_timeout(800)
         except Exception:
             pass
 
@@ -420,17 +349,14 @@ async def _reveal_price_if_needed(page) -> None:
         "button:has-text(\"Afficher le prix\")",
         "button:has-text(\"Voir le prix\")",
         "button.price-unavailable__button",
-        "button.product-unavailable__button",
-        "button.productItemAvailabilityTrigger",
         "button[data-testid='product-price-reveal']",
     ]
     for selector in selectors:
         btn = page.locator(selector).first
         try:
             if await btn.count():
-                await btn.scroll_into_view_if_needed()
-                await btn.click(force=True)
-                await page.wait_for_timeout(2500)
+                await btn.click()
+                await page.wait_for_timeout(1200)
                 break
         except Exception:
             continue
@@ -517,12 +443,6 @@ async def _extract_from_pdp(page) -> typing.Optional[Result]:
                 break
 
     if html:
-        try:
-            debug_dir = Path(__file__).resolve().parent / "debug"
-            debug_dir.mkdir(parents=True, exist_ok=True)
-            (debug_dir / "auchan_last_pdp.html").write_text(html, encoding="utf-8")
-        except Exception:
-            pass
         if matched_ean is None and EAN and EAN in html:
             matched_ean = EAN
         if quantity is None:

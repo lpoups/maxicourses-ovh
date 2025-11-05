@@ -64,7 +64,7 @@ Avant toute action :
 - Collecte déclenchable par EAN ou descriptif (front index2.html + serveur) : toujours vérifier que le descriptif résout vers le bon EAN avant d’enchaîner.
 - Enseignes sans recherche EAN (Leclerc, Intermarché, etc.) : utiliser le descriptif seed généré, jamais « produit <EAN> ».
 - Aucune saisie manuelle : scripts seulement. Chaque résultat JSON doit inclure prix TTC, prix unitaire (€/kg ou €/L), quantité, magasin, note horodatée (Europe/Paris), URL, matched_ean.
-- Image locale obligatoire dans `maxicourses_test/pipeline/assets/`, référencée dans `manual_descriptors.json`, afin que « Voir image » fonctionne dans `pipeline/index2.html`.
+- Image locale obligatoire dans `maxicourses_test/pipeline/assets/`, référencée dans `seed_catalog.py`, afin que « Voir image » fonctionne dans `pipeline/index2.html`.
 - Priorité immédiate : stabiliser les fetchers Carrefour City/Market, Auchan, Chronodrive, Intermarché, Monoprix et Leclerc Drive pour les démonstrations (collecte complète + traces archivées).
 - Toute collecte seed doit produire un descriptif complet : marque en premier, titre descriptif, quantité, Nutri-score (badge local) et visuel enseigne téléchargé dans `maxicourses_test/pipeline/assets/`.
 - Documenter chaque session dans `docs/HANDOVER_DAILY.md` avec preuves (captures, commandes). Utiliser `docs/SESSION_TEMPLATE.md`.
@@ -78,7 +78,7 @@ Avant toute action :
 - Normalisation des requêtes/descripteurs assurée dans `maxicourses_test/pipeline/run_pipeline.py` (construction du seed via `descriptor_from_payload`/`build_search_query`) et dans `maxicourses_test/server.py`.
 - Si Carrefour City ne trouve pas immédiatement l’EAN, basculer sans boucle vers Market, puis Auchan, puis Chronodrive.
 - Ajouter l’EAN dans `EXTRA_DATASETS` si la nouvelle fiche doit apparaître dans `pipeline/index2.html`.
-- Vérifier que `manual_descriptors.json` contient une entrée propre avant de lancer Leclerc/Intermarché ; l’API crée un stub assaini si besoin.
+- Vérifier que `seed_catalog.py` contient une entrée propre avant de lancer Leclerc/Intermarché ; l’API crée un stub assaini si besoin.
 - La refonte front se déroule dans `maxicourses_front_v2/` (aperçu local : `http://localhost:8000/maxicourses_front_v2/index.html`).
 - Les campagnes de tests doivent archiver leurs traces dans `logs/refonte_v2/` (structure détaillée dans `logs/refonte_v2/README.md`).
 - Servir V1/V2 avec `python3 -m http.server 8000` lancé depuis `www/` (changer de port uniquement si un autre serveur est actif).
@@ -154,12 +154,12 @@ Avant toute action :
 - En cas de changement de magasin, regénérer `state/intermarche.json` via Chrome 9222 avant de relancer; la collecte Super Talence est validée (`5000112611861`, `5411188118961`).
 
 ## Mise à jour 2025-10-01T17:41 (Europe/Paris) – GPT (Codex CLI)
-- Chronodrive : fallback systématique sur les requêtes descriptives (`seed_query` + `alternate_queries` dans `manual_descriptors.json`) lorsque l’EAN ne renvoie rien ; scoring renforcé pour privilégier les cartes correspondant aux tokens différenciants (ex. « amande »).
-- Leclerc Drive : la collecte valide désormais un match sans GTIN si le titre recoupe les mots-clés du descriptif ; s’assurer que `manual_descriptors.json` contient marque + type + contenance pour tous les nouveaux produits.
+- Chronodrive : fallback systématique sur les requêtes descriptives (`seed_query` + `alternate_queries` dans `seed_catalog.py`) lorsque l’EAN ne renvoie rien ; scoring renforcé pour privilégier les cartes correspondant aux tokens différenciants (ex. « amande »).
+- Leclerc Drive : la collecte valide désormais un match sans GTIN si le titre recoupe les mots-clés du descriptif ; s’assurer que `seed_catalog.py` contient marque + type + contenance pour tous les nouveaux produits.
 
 ## Mise à jour 2025-10-01T19:25 (Europe/Paris) – GPT (Codex CLI)
 - Règle d’or pour le descriptif : interroger d’abord l’API OpenFoodFacts (`/api/v2/product/<EAN>.json`), puis – uniquement si nécessaire – fallback Auchan → Carrefour → Chronodrive pour compléter marque/nom/quantité.
-- Les fiches produits affichent désormais Eco-score (A–E) et NOVA (1–4) aux côtés du Nutri-score ; toute nouvelle entrée `manual_descriptors.json` doit renseigner ces champs dès que disponibles.
+- Les fiches produits affichent désormais Eco-score (A–E) et NOVA (1–4) aux côtés du Nutri-score ; toute nouvelle entrée `seed_catalog.py` doit renseigner ces champs dès que disponibles.
 - Le front propose un formulaire « Upload code-barres » qui envoie la photo au backend (`/api/collect` multipart). Ne rien modifier à l’API sans vérifier la compatibilité avec cette nouvelle voie (décodage zxing côté serveur).
 - Nouveau script utilitaire `maxicourses_test/watch_uploads.py` : surveille `uploads/` et déclenche `run_pipeline.py` dès qu’une image est déposée. Lancer via `USE_CDP=1 python3 watch_uploads.py` (pip3 : `pillow`, `zxing-cpp`).
 
@@ -171,7 +171,7 @@ Avant toute action :
 
 ## Mise à jour 2025-10-02T14:50 (Europe/Paris) – GPT (Codex CLI)
 - Icônes Nutri-score : préférer les fichiers locaux (`../assets/nutriscore/nutriscore-*.svg`) \+ fallback `nutriscore-unknown.svg`, les URLs distantes sont proscrites.
-- `run_pipeline.py` recalcule désormais automatiquement `seed_query` (marque en premier), télécharge l’image enseigne et applique le fallback Nutri-score ; ne jamais modifier `manual_descriptors.json` à la main.
+- `run_pipeline.py` recalcule désormais automatiquement `seed_query` (marque en premier), télécharge l’image enseigne et applique le fallback Nutri-score ; ne jamais modifier `seed_catalog.py` à la main.
 - Chronodrive : lancer la recherche en EAN pur d'abord ; si `NO_RESULTS`, relancer avec le descriptif seed (attente 20 s avant de lire les cartes).
 
 ## Mise à jour 2025-10-02T15:26 (Europe/Paris) – GPT (Codex CLI)
@@ -200,8 +200,8 @@ Avant toute action :
 - À garder pour la suite : Option 2 (lisibilité des tableaux) et Option 3 (cartes compactes) encore en attente, demander validation avant de modifier la page.
 ## Mise à jour 2025-10-02T20:55 (Europe/Paris) – GPT (Codex CLI)
 - `run_pipeline.py` : `ensure_local_image_asset()` nettoie désormais les URLs (`html.unescape`, suppression des espaces) avant téléchargement ; les images enseignes sont rapatriées même si la source encode `&amp;`.
-- `descriptor_from_payload()` dés-encode les URLs avant de sauvegarder le descriptor (évite de conserver des liens Auchan avec HTML entities dans `manual_descriptors.json`).
-- EAN `3502110008329` : asset local `pipeline/assets/3502110008329.jpg` ajouté et référencé dans `manual_descriptors.json`, `results/test-3502110008329/latest.json`, `results/summary.json`.
+- `descriptor_from_payload()` dés-encode les URLs avant de sauvegarder le descriptor (évite de conserver des liens Auchan avec HTML entities dans `seed_catalog.py`).
+- EAN `3502110008329` : asset local `pipeline/assets/3502110008329.jpg` ajouté et référencé dans `seed_catalog.py`, `results/test-3502110008329/latest.json`, `results/summary.json`.
 - Conserver les sauvegardes `index2.html.option1*` / `.revamp` ; toute nouvelle collecte doit vérifier que chaque `image_path` pointe bien vers `../pipeline/assets/<EAN>.*` (gestion automatique désormais).
 
 ## Mise à jour 2025-10-02T22:04 (Europe/Paris) – GPT (Codex CLI)
@@ -212,7 +212,7 @@ Avant toute action :
 ## Mise à jour 2025-10-02T22:20 (Europe/Paris) – GPT (Codex CLI)
 - `run_pipeline.py` mémorise désormais le premier descriptif validé (Carrefour City/Market en priorité) dans `seed_primary_name/quantity` et s’en sert directement pour `leclerc_query` (libellé mot‑pour‑mot, quantité incluse).
 - `ensure_local_image_asset()` + `descriptor_from_payload()` nettoient toujours les URLs (`html.unescape`, suppression espaces) avant stockage/téléchargement → toutes les collectes créent `pipeline/assets/<EAN>.*` sans intervention manuelle.
-- `manual_descriptors.json` enrichi pour 3502110008329 (Pepsi) avec `seed_primary_*`; les futurs descriptors suivront automatiquement la même structure.
+- `seed_catalog.py` enrichi pour 3502110008329 (Pepsi) avec `seed_primary_*`; les futurs descriptors suivront automatiquement la même structure.
 - Pour récupérer les prix Leclerc/Intermarché, rejouer les fetchers via Chrome 9222 : les nouvelles requêtes utiliseront directement le libellé Carrefour.
 
 ## Mise à jour 2025-10-04T11:55 (Europe/Paris) – GPT (Codex CLI)
@@ -229,7 +229,7 @@ Avant toute action :
 2. **Phase 1 – Profil produit IA**
    - Point d’entrée : juste après les seeds Carrefour/Auchan/Chronodrive.
    - Appeler `summarize_product_seed` pour obtenir un profil structuré (marque, gamme, type, quantité, attributs critiques, mots-clés).
-   - Stocker `ai_profile`, `ai_keywords`, `ai_profile_generated_at` (Europe/Paris) dans `manual_descriptors.json`.
+   - Stocker `ai_profile`, `ai_keywords`, `ai_profile_generated_at` (Europe/Paris) dans `seed_catalog.py`.
 
 3. **Phase 2 – Requêtes Leclerc générées par l’IA**
    - `suggest_search_queries` produit ≤5 requêtes ≤40 caractères.
@@ -261,7 +261,7 @@ Avant toute action :
   - `01_seed_profile_*` → prompt/réponse brute + JSON parsé par `summarize_product_seed` (profil produit + mots-clés).
   - `04/05/06` → requêtes Leclerc proposées par l’IA (≤5 items / 40 caractères).
   - `07/08/09` → pour chaque tentative Leclerc : prompt de validation, réponse brute, couples `{candidates, verdicts}`.
-- Seed side : les payloads Carrefour/Market/Auchan/Chronodrive sont passés à `summarize_product_seed`; le descriptif est enrichi automatiquement avec `ai_profile`, `ai_keywords`, `ai_profile_generated_at_eur`. Les requêtes IA sont stockées dans `descriptor['leclerc_ai_queries']` (persistées dans `manual_descriptors.json`) et ressérées en tête de l’ordre de recherche.
+- Seed side : les payloads Carrefour/Market/Auchan/Chronodrive sont passés à `summarize_product_seed`; le descriptif est enrichi automatiquement avec `ai_profile`, `ai_keywords`, `ai_profile_generated_at_eur`. Les requêtes IA sont stockées dans `descriptor['leclerc_ai_queries']` (persistées dans `seed_catalog.py`) et ressérées en tête de l’ordre de recherche.
 - Fetch Leclerc : `manual_leclerc_cdp.py` expose maintenant la liste complète des cartes (`debug.candidates`). Le fetcher conserve ce bloc quand `LECLERC_KEEP_DEBUG=1`; `run_pipeline.py` le transmet à `score_leclerc_candidates`. Si l’IA retourne `NO_MATCH`, le statut bascule immédiatement sur `NO_MATCH` et le prix est vidé afin de forcer l’essai suivant. Les verdicts sont enregistrés dans `result.metadata['ai']['attempt_XX']`.
 - Après validation IA, le `debug` est retiré du payload final (JSON de sortie identique à l’existant). En cas d’erreur IA, la collecte continue avec les heuristiques classiques (aucun blocage).
 - Prochain GPT : ne pas modifier `run_pipeline.py`/`manual_leclerc_cdp.py` sans maintenir cette journalisation. En cas de changement de modèle ou d’API, adapter `ai_helpers.py` (fonctions `summarize_product_seed`, `suggest_search_queries`, `score_leclerc_candidates`) et documenter les nouveaux endpoints ici.
@@ -282,7 +282,7 @@ Avant toute action :
 
 ## Mise à jour 2025-10-04T16:15 (Europe/Paris) – GPT (Codex CLI)
 - Rappel impératif : **aucun seed ne doit être modifié manuellement sans accord de Laurent**. Le descriptif canonique vient exclusivement du premier fetch EAN strict (Carrefour Market → City → Auchan → Chronodrive). L’IA n’intervient qu’après pour proposer éventuel équivalent.
-- `manual_descriptors.json` contient désormais l’entrée alignée Carrefour Market pour l’EAN `3700260216148` (Ultima). Toute évolution devra être validée par Laurent avant modification.
+- `seed_catalog.py` contient désormais l’entrée alignée Carrefour Market pour l’EAN `3700260216148` (Ultima). Toute évolution devra être validée par Laurent avant modification.
 - `ai_helpers.toml` reste la copie du sample : ne jamais versionner de clé. Exporter `OPENAI_API_KEY` et `USE_AI_ASSIST=true` avant chaque run (ou renseigner la clé dans le `.toml` local non versionné).
 - `maxicourses_test/run_ai_pipeline.sh` est le lanceur unique : il s’assure de l’activation IA et de `USE_CDP=1`. Ne jamais recourir aux anciens scripts manuellement.
 - Page V1 (`pipeline/index2.html`) affiche maintenant un badge « Produit différent » lorsqu’un équivalent IA est utilisé : la note fournie par l’IA (`difference_note`) est visible dans la colonne produit. Un statut `EQUIVALENT` doit être considéré comme « différent » et entraine validation explicite côté démo.
@@ -297,7 +297,7 @@ Avant toute action :
 - Stratégie IA actée :
   1. Toujours collecter en EAN brut (Market → City → Auchan → Chronodrive) et stocker les libellés, quantités et images renvoyés par ces drives, puis enchaîner Intermarché, Monoprix et enfin Leclerc en s’appuyant sur ce descriptif.
   2. Passer l’ensemble de ces retours à `ai_helpers.summarize_product_seed` pour obtenir un profil canonique : `brand`, `product_name`, `quantity`, `keywords`, `ai_profile_generated_at_eur`.
-  3. Écrire/mettre à jour ce profil dans `manual_descriptors.json` (`ai_profile.brand`, `ai_profile.title`, `ai_profile.quantity`, `ai_keywords`, `canonical_descriptor`) pour que toutes les enseignes textuelles partent de la même base.
+  3. Écrire/mettre à jour ce profil dans `seed_catalog.py` (`ai_profile.brand`, `ai_profile.title`, `ai_profile.quantity`, `ai_keywords`, `canonical_descriptor`) pour que toutes les enseignes textuelles partent de la même base.
 - Utilisation descendante :
   - `ai_helpers.suggest_search_queries(ai_profile)` doit générer les libellés courts (≤40 caractères) pour Leclerc/Intermarché ; ces requêtes sont injectées en tête dans `descriptor['search_queries']` avant les fallback historiques.
   - `ai_helpers.score_leclerc_candidates(ai_profile, candidates)` valide le meilleur match. Si tout échoue, appeler `ai_helpers.suggest_equivalent` pour identifier le produit le plus proche et retourner `status = "EQUIVALENT"` + `difference_note` (prix conservé mais marqué « produit différent » côté front).
@@ -305,7 +305,7 @@ Avant toute action :
 - Pistes de code :
   - `maxicourses_test/pipeline/run_pipeline.py`
     1. Agréger tous les payloads seed (`carrefour_city`, `carrefour_market`, `carrefour_super`, `auchan`, `chronodrive`) puis appeler `summarize_product_seed` juste après leur réussite.
-    2. Ajouter un helper `store_ai_canonical_descriptor(descriptor, ai_profile)` qui écrit les champs `ai_profile`, `ai_keywords`, `ai_profile_generated_at_eur`, `canonical_descriptor` dans `manual_descriptors.json`.
+    2. Ajouter un helper `store_ai_canonical_descriptor(descriptor, ai_profile)` qui écrit les champs `ai_profile`, `ai_keywords`, `ai_profile_generated_at_eur`, `canonical_descriptor` dans `seed_catalog.py`.
     3. Propager `canonical_descriptor` dans `descriptor['leclerc_ai_queries']`, `descriptor['intermarche_ai_queries']` et `descriptor['seed_ai_queries']` (pour City/Market/Auchan/Chronodrive). Lors de la boucle des fetchers, n’exécuter ces requêtes IA que pour les enseignes ayant échoué en EAN.
   - `maxicourses_test/ai_helpers.py`
     - Vérifier que `summarize_product_seed` renvoie clairement `brand`, `title`, `quantity`, `key_attributes`, `keywords`.
@@ -328,7 +328,7 @@ Avant toute action :
 - Toujours exécuter la recherche EAN en premier. Les requêtes descriptives IA ne sont déclenchées que lorsque l’EAN échoue sur l’enseigne cible.
 - Utiliser en priorité les modèles `gpt-5.0` / `gpt-5.0-mini` (voir `maxicourses_test/ai_helpers.toml`). En cas de quota ou d’erreur d’API, rétrograder explicitement vers `gpt-4.1*` et documenter le switch dans le handover.
 - Ne jamais contester les instructions de Laurent : appliquer ses décisions à la lettre et documenter le résultat.
-- Après chaque run, mettre à jour `manual_descriptors.json` (profil canonique, requêtes IA) et vérifier que le front affiche le badge « produit différent » lorsque `result.status == EQUIVALENT`.
+- Après chaque run, mettre à jour `seed_catalog.py` (profil canonique, requêtes IA) et vérifier que le front affiche le badge « produit différent » lorsque `result.status == EQUIVALENT`.
 - Priorité immédiate : corriger le pipeline IA pour ne conserver que les seeds dont `matched_ean == EAN`, faire recalculer `brand` via `ai_profile.brand`, et garantir que les requêtes générées suivent strictement le format « marque + produit + type + contenance » (≤30 caractères) pour Leclerc, Monoprix, Intermarché.
 - Bloquer les fetchers Leclerc qui renvoient des packs (ex. 4x1,5L) lorsque l’EAN cible est une unité ; ajuster `manual_leclerc_cdp.py` en conséquence.
 - Relancer des runs complets (seed + IA + toutes enseignes) pour les EAN 8712100731822 / 3124480200433 / 3700260216148 et vérifier que `results/summary.json` affiche les entrées Monoprix et Intermarché correctes.
@@ -347,13 +347,13 @@ Avant toute action :
     ```
 - Pipeline :
   - Rejet automatique des seeds où `matched_ean` est absent/différent (exclusion des Chronodrive « Purina 3 kg »).
-  - `manual_descriptors.json` stocke désormais `primary_keywords`, `secondary_keywords` et les listes secondaires par enseigne (`leclerc_secondary_keywords`, etc.).
+  - `seed_catalog.py` stocke désormais `primary_keywords`, `secondary_keywords` et les listes secondaires par enseigne (`leclerc_secondary_keywords`, etc.).
   - Les fetchers texte n’utilisent que `primary_keywords` pour la requête et valident les cartes via tous les `secondary_keywords`. Sinon → `NO_MATCH` + consigne dans `docs/SEED_RULES.md`.
   - Nouveau mémo `docs/SEED_RULES.md` (format : « Faire ceci = erreur » / « Faire cela = OK » par EAN).
 
 ## Mise à jour 2025-10-07T15:10 (Europe/Paris) – GPT (Codex CLI)
 - Toutes les enseignes textuelles (Leclerc, Monoprix, Intermarché) utilisent désormais des requêtes générées par OpenAI à partir des seeds EAN (Carrefour/Auchan/Chronodrive). Chaque requête ≤ 30 caractères, format « marque + produit [+ contenance] ».
-- Pipeline `run_pipeline.py` : après les seeds, `summarize_product_seed` produit `ai_profile`/`ai_keywords`, puis `suggest_search_queries(store=…)` génère `leclerc_ai_queries`, `monoprix_ai_queries`, `intermarche_ai_queries` (stockées dans `manual_descriptors.json`).
+- Pipeline `run_pipeline.py` : après les seeds, `summarize_product_seed` produit `ai_profile`/`ai_keywords`, puis `suggest_search_queries(store=…)` génère `leclerc_ai_queries`, `monoprix_ai_queries`, `intermarche_ai_queries` (stockées dans `seed_catalog.py`).
 - `run_adapter` priorise ces listes pour les fetchers texte ; fallback = seed query + EAN. Intermarché profite du même mécanisme (mots clés courts).
 - Monoprix : frappe humaine (`type` avec délai), recharge `/search?q=<query>`, parse JSON-LD pour extraire les PDPs si les cartes ne s'affichent pas ; PDP fallback lit le `body` pour récupérer prix/quantité en filtrant 0,00 €/60,00 €.
 - Logs IA déposés dans `maxicourses_test/logs/refonte_v2/runs/<horodatage>-<ean>-<pid>/` (1. `01_seed_summary`, 2. `02_queries_<enseigne>`).

@@ -17,9 +17,15 @@ from urllib.request import urlopen
 from flask import Flask, jsonify, request
 
 from decode_ean import decode_image_to_ean
+from descriptor_store import (
+    all_descriptors as descriptor_catalog,
+    descriptor_exists,
+    get_descriptor as load_descriptor_from_store,
+    removed_eans,
+    set_removed_flag,
+)
 
 ROOT = Path(__file__).resolve().parent
-MANUAL_DESCRIPTOR_PATH = ROOT / "manual_descriptors.json"
 PIPELINE_SCRIPT = ROOT / "pipeline" / "run_pipeline.py"
 GLOBAL_SUMMARY_PATH = ROOT / "results" / "summary.json"
 OPENFOODFACTS_ENDPOINT = "https://world.openfoodfacts.org/api/v2/product/{ean}.json"
@@ -195,76 +201,44 @@ def merge_descriptor_fields(base: Dict[str, Any], updates: Dict[str, Any]) -> bo
 
 
 def load_manual_descriptor(ean: str) -> Dict[str, Any]:
-    if not MANUAL_DESCRIPTOR_PATH.exists():
-        return {}
-    try:
-        data = json.loads(MANUAL_DESCRIPTOR_PATH.read_text(encoding="utf-8"))
-    except Exception:
-        return {}
-    entry = data.get(ean)
-    if not isinstance(entry, dict):
-        return {}
-    payload = dict(entry)
-    payload.setdefault("ean", ean)
-    payload.setdefault("source", "manual")
-    payload.setdefault("removed", bool(payload.get("removed")))
-    return payload
+    descriptor = load_descriptor_from_store(ean)
+    descriptor.setdefault("ean", ean)
+    return descriptor
 
 
 def ensure_manual_descriptor(ean: str) -> Dict[str, Any]:
-    data: Dict[str, Any] = {}
-    if MANUAL_DESCRIPTOR_PATH.exists():
-        try:
-            data = json.loads(MANUAL_DESCRIPTOR_PATH.read_text(encoding="utf-8"))
-        except Exception:
-            data = {}
-    if not isinstance(data, dict):
-        data = {}
-
-    entry = data.get(ean)
-    if not isinstance(entry, dict):
-        entry = {"ean": ean, "source": "auto"}
+    entry = load_manual_descriptor(ean)
+    entry.setdefault("ean", ean)
+    entry.setdefault("source", entry.get("source") or ("seed" if descriptor_exists(ean) else "auto"))
 
     off_updates = fetch_openfoodfacts_descriptor(ean)
     if off_updates:
-        # Ensure we do not overwrite existing non-empty fields.
         if merge_descriptor_fields(entry, off_updates):
             entry.setdefault("note", off_updates.get("note"))
-            entry.setdefault("source", off_updates.get("source", "openfoodfacts"))
+            entry["source"] = off_updates.get("source", entry.get("source"))
 
     if not entry.get("name"):
         entry.setdefault(
             "note",
             "Stub incomplet – lancer une collecte seed Carrefour/Auchan pour remplir le descriptif.",
         )
-        entry.setdefault("description", "Entrée générée automatiquement – descriptif requis.")
+        entry.setdefault("description", entry.get("description") or "Entrée générée automatiquement – descriptif requis.")
 
-    entry.setdefault("brand", "")
-    entry.setdefault("name", "")
-    entry.setdefault("quantity", "")
-    entry.setdefault("categories", "")
-    entry.setdefault("image", None)
+    entry.setdefault("brand", entry.get("brand") or "")
+    entry.setdefault("name", entry.get("name") or entry.get("title") or "")
+    entry.setdefault("quantity", entry.get("quantity") or "")
+    entry.setdefault("categories", entry.get("categories") or "")
+    entry.setdefault("image", entry.get("image"))
     entry.setdefault("nutriscore_grade", entry.get("nutriscore_grade"))
     entry.setdefault("nutriscore_image", entry.get("nutriscore_image"))
     entry.setdefault("ecoscore_grade", entry.get("ecoscore_grade"))
     entry.setdefault("ecoscore_image", entry.get("ecoscore_image"))
     entry.setdefault("nova_group", entry.get("nova_group"))
-    entry.setdefault("source", entry.get("source", "auto"))
-    entry.setdefault("removed", bool(entry.get("removed")))
-
-    data[ean] = entry
-    try:
-        MANUAL_DESCRIPTOR_PATH.write_text(
-            json.dumps(data, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
-    except Exception:
-        pass
-    payload = dict(entry)
-    payload.setdefault("ean", ean)
-    payload.setdefault("source", "auto")
-    payload.setdefault("removed", bool(payload.get("removed")))
-    return payload
+    entry["removed"] = bool(entry.get("removed"))
+    entry.setdefault("source", entry.get("source") or "auto")
+    entry.setdefault("note", entry.get("note") or "")
+    entry.setdefault("description", entry.get("description") or "")
+    return dict(entry)
 
 
 def decode_image_ean(image_path: str) -> Optional[str]:
@@ -342,31 +316,9 @@ def remove_global_summary_entry(ean: str) -> None:
 
 
 def set_descriptor_removed_flag(ean: str, removed: bool) -> Dict[str, Any]:
-    data: Dict[str, Any] = {}
-    if MANUAL_DESCRIPTOR_PATH.exists():
-        try:
-            data = json.loads(MANUAL_DESCRIPTOR_PATH.read_text(encoding="utf-8"))
-        except Exception:
-            data = {}
-    if not isinstance(data, dict):
-        data = {}
-
-    entry = data.get(ean)
-    if not isinstance(entry, dict):
-        entry = {"ean": ean, "source": "auto"}
-    entry["removed"] = bool(removed)
-    data[ean] = entry
-    try:
-        MANUAL_DESCRIPTOR_PATH.write_text(
-            json.dumps(data, ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
-    except Exception:
-        pass
-    payload = dict(entry)
-    payload.setdefault("ean", ean)
-    payload.setdefault("source", entry.get("source", "auto"))
-    payload.setdefault("removed", bool(payload.get("removed")))
+    set_removed_flag(ean, removed)
+    payload = ensure_manual_descriptor(ean)
+    payload["removed"] = bool(removed)
     return payload
 
 
@@ -426,6 +378,16 @@ def add_cors_headers(response):
 @app.route("/api/collect", methods=["OPTIONS"])
 def api_collect_options():
     return ('', 204)
+
+
+@app.get("/api/descriptors")
+def api_descriptors():
+    ean = _clean_string(request.args.get("ean"))
+    if ean:
+        descriptor = ensure_manual_descriptor(ean)
+        return jsonify({"status": "OK", "descriptor": descriptor})
+    descriptors = descriptor_catalog()
+    return jsonify({"status": "OK", "descriptors": descriptors, "removed": sorted(removed_eans())})
 
 
 @app.post("/api/collect")

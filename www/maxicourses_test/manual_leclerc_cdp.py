@@ -34,6 +34,7 @@ from functools import lru_cache
 from datetime import datetime
 from pathlib import Path
 import re
+import unicodedata
 from urllib.parse import urlparse, urljoin
 
 from playwright.async_api import TimeoutError as PlaywrightTimeoutError, async_playwright
@@ -82,6 +83,53 @@ def _adaptive_delay(ms: int, minimum: int = 100) -> int:
     return max(minimum, ms)
 
 MANUAL_DESCRIPTOR: dict[str, dict] = all_seeds()
+EAN_PATTERN = re.compile(r"(?<!\d)(\d{13})(?!\d)")
+
+
+def _extract_ean_from_html(html: str, url: Optional[str] = None) -> Optional[str]:
+    if not html:
+        return None
+    patterns = [
+        re.compile(r'"(?:gtin13|gtin|gtin14|ean)"\s*:\s*"(\d{13})"', flags=re.IGNORECASE),
+        re.compile(r">\s*EAN\s*[:#]?\s*(\d{13})", flags=re.IGNORECASE),
+        re.compile(r"data-(?:ean|productean|gtin)=\"?(\d{13})\"?", flags=re.IGNORECASE),
+    ]
+    for pattern in patterns:
+        match = pattern.search(html)
+        if match:
+            return match.group(1)
+    if url:
+        match = EAN_PATTERN.search(url)
+        if match:
+            return match.group(1)
+    match = EAN_PATTERN.search(html)
+    if match:
+        return match.group(1)
+    return None
+
+
+async def _find_info_link(page) -> Optional[str]:
+    selectors = [
+        "a:has-text(\"Informations pratiques\")",
+        "a:has-text(\"information produit\")",
+        "a[href*='fiche']",
+    ]
+    for sel in selectors:
+        try:
+            node = page.locator(sel).first
+            if await node.count():
+                href = await node.get_attribute("href")
+                if href and not href.lower().startswith("javascript:"):
+                    return href
+        except Exception:
+            continue
+    return None
+
+
+def _strip_accents(text: str) -> str:
+    return "".join(
+        ch for ch in unicodedata.normalize("NFD", text) if unicodedata.category(ch) != "Mn"
+    )
 
 
 def make_leclerc_html_provider(ctx) -> callable:
@@ -145,6 +193,15 @@ GENERIC_TOKENS = {
     "lot", "lots", "pack", "format", "ml", "g", "kg", "cl", "l", "sans", "avec",
     "capsules", "capsule", "pcs", "piece", "pieces", "unit", "unite", "unites",
 }
+
+DEFAULT_NEGATIVE_PATTERNS = [
+    "sans sucre",
+    "sans sucres",
+    "zero",
+    "zéro",
+]
+
+LECLERC_MAX_PDP = 10
 
 
 def _build_query_candidates(descriptor_entry: Optional[dict], fallback_query: str, ean: str) -> List[str]:
@@ -251,6 +308,57 @@ def _numeric_tokens(text: Optional[str]) -> List[str]:
     return re.findall(r"\d+", text)
 
 
+def _build_candidate_product(
+    descriptor_entry: Optional[dict],
+    title: str,
+    matched_ean: Optional[str],
+    html_snippet: str,
+    image_url: Optional[str],
+    quantity_text: Optional[str],
+) -> dict:
+    def _norm(value: Optional[str]) -> str:
+        if not isinstance(value, str):
+            return ""
+        return " ".join(value.split())
+
+    product = {
+        "title": _norm(title),
+        "brand": "",
+        "kind": "",
+        "qty": _norm(quantity_text),
+        "qualifiers": [],
+        "ean": matched_ean,
+        "image_url": image_url,
+        "source": "leclerc",
+        "raw_text": (html_snippet or "")[:4000],
+    }
+
+    if isinstance(descriptor_entry, dict):
+        brand = _norm(descriptor_entry.get("brand"))
+        if brand:
+            product["brand"] = brand
+        description = (
+            _norm(descriptor_entry.get("seed_primary_name"))
+            or _norm(descriptor_entry.get("name"))
+            or _norm(descriptor_entry.get("description"))
+        )
+        if description:
+            product["kind"] = description
+        if not product["qty"]:
+            qty = (
+                _norm(descriptor_entry.get("quantity"))
+                or _norm(descriptor_entry.get("seed_primary_quantity"))
+            )
+            if qty:
+                product["qty"] = qty
+        qualifiers = descriptor_entry.get("qualifiers")
+        if isinstance(qualifiers, list):
+            norm_q = [_norm(str(item)) for item in qualifiers if _norm(str(item))]
+            if norm_q:
+                product["qualifiers"] = norm_q
+    return product
+
+
 async def run_manual_leclerc(
     *,
     query: str,
@@ -306,6 +414,10 @@ async def run_manual_leclerc(
                 token = item.strip().lower()
                 if token not in descriptor_negatives:
                     descriptor_negatives.append(token)
+    for pattern in DEFAULT_NEGATIVE_PATTERNS:
+        token = pattern.strip().lower()
+        if token and token not in descriptor_negatives:
+            descriptor_negatives.append(token)
     expected_pack_count = 1
     if isinstance(descriptor_entry, dict):
         canonical = descriptor_entry.get("canonical")
@@ -315,6 +427,7 @@ async def run_manual_leclerc(
                 expected_pack_count = candidate_pack
 
     page: Optional["Page"] = None  # type: ignore[name-defined]
+    finder_candidates: List[dict] = []
 
     async with async_playwright() as p:
         browser = await p.chromium.connect_over_cdp(cdp_url)
@@ -361,10 +474,6 @@ async def run_manual_leclerc(
             pass
 
         expected_tokens = [tok.lower() for tok in query.split() if len(tok) > 2]
-        chosen_index = -1
-        chosen_label: Optional[str] = None
-        chosen_href = ""
-        card_html = ""
 
         search_field = page.locator("input[id*='rechercheTexte']").first
         await search_field.click()
@@ -391,21 +500,17 @@ async def run_manual_leclerc(
         sys.stderr.write(f"[LECLERC_DEBUG] after result pause -> {time.perf_counter()-started:.2f}s\n")
 
         cards = page.locator("li.liWCRS310_Product")
-        card_count = min(await cards.count(), 8)
+        card_count = min(await cards.count(), 12)
         if not card_count:
             sys.stderr.write(f"[LECLERC_DEBUG] no cards after {time.perf_counter()-started:.2f}s\n")
             return {"status": "NO_RESULTS", "query": query}
 
-        expected_tokens = [tok.lower() for tok in query.split() if len(tok) > 2]
-        chosen_index = 0
-        chosen_label = None
-        chosen_href = ""
-        chosen_score = -10_000
+        candidate_rows: List[dict] = []
         for idx in range(card_count):
             try:
-                link = cards.nth(idx).locator("a.aWCRS310_Product").first
-                label = await link.inner_text(timeout=1500)
-                href = await link.get_attribute("href", timeout=1500) or ""
+                node = cards.nth(idx).locator("a.aWCRS310_Product").first
+                label = await node.inner_text(timeout=1500)
+                href = await node.get_attribute("href", timeout=1500) or ""
             except PlaywrightTimeoutError:
                 continue
             except Exception:
@@ -435,37 +540,26 @@ async def run_manual_leclerc(
                 if re.search(r"\bx\d+\b", normalized_label):
                     penalty += 60
             score -= penalty
-            if score > chosen_score:
-                chosen_index = idx
-                chosen_label = label
-                chosen_href = href
-                chosen_score = score
+            try:
+                snippet = await cards.nth(idx).inner_html(timeout=1500)
+            except Exception:
+                snippet = ""
+            candidate_rows.append(
+                {
+                    "index": idx,
+                    "label": label or "",
+                    "href": href,
+                    "score": score,
+                    "snippet": snippet,
+                }
+            )
 
-        try:
-            card_html = await cards.nth(chosen_index).inner_html(timeout=1500)
-        except Exception:
-            card_html = ""
-        sys.stderr.write(f"[LECLERC_DEBUG] chosen href='{chosen_href}' label='{chosen_label}'\n")
-        sys.stderr.write(f"[LECLERC_DEBUG] card html snippet:\n{card_html[:500]}...\n")
+        if not candidate_rows:
+            sys.stderr.write(f"[LECLERC_DEBUG] no usable cards after filtering\n")
+            return {"status": "NO_RESULTS", "query": query}
 
-        card_to_open = cards.nth(chosen_index)
-        await card_to_open.locator("a.aWCRS310_Product").first.click()
-        try:
-            await page.wait_for_url("**/fiche-produits-*.aspx", timeout=6000)
-        except PlaywrightTimeoutError:
-            if chosen_href:
-                pdp_url = urljoin(store_url, chosen_href)
-                sys.stderr.write(
-                    f"[LECLERC_DEBUG] wait_for_url timeout; navigating to fallback {pdp_url}\n"
-                )
-                await page.goto(pdp_url, wait_until="domcontentloaded")
-            else:
-                sys.stderr.write("[LECLERC_DEBUG] wait_for_url timeout and no chosen href\n")
-        sys.stderr.write(f"[LECLERC_DEBUG] after PDP navigation -> {time.perf_counter()-started:.2f}s\n")
-        await human_pause(page, pdp_delay_ms)
-
-        title = await page.locator("h1").first.text_content()
-        title = title.strip() if title else None
+        candidate_rows.sort(key=lambda item: item["score"], reverse=True)
+        search_url = page.url
 
         async def text_clean(selector: str) -> Optional[str]:
             node = page.locator(selector).first
@@ -478,30 +572,233 @@ async def run_manual_leclerc(
                 return None
             return None
 
-        whole = await text_clean(".prix .prix-actuel-partie-entiere, .pWCRS310_PrixUnitairePartieEntiere") or ""
-        decimal = await text_clean(".prix .prix-actuel-partie-decimale, .pWCRS310_PrixUnitairePartieDecimale") or ""
-        whole_digits = "".join(filter(str.isdigit, whole))
-        decimal_digits = "".join(filter(str.isdigit, decimal))[:2]
-        price = f"{int(whole_digits)}.{decimal_digits or '00'}" if whole_digits else None
-        if price:
-            price = price.replace('.', ',')
+        final_title: Optional[str] = None
+        final_price: Optional[str] = None
+        final_unit_price: Optional[str] = None
+        final_quantity: Optional[str] = None
+        final_url: Optional[str] = None
+        final_matched_ean: Optional[str] = None
+        final_image_url: Optional[str] = None
+        final_reason: Optional[str] = None
+        last_candidate_entry: Optional[dict] = None
 
-        unit_price = await text_clean(".prix .prix-detail, .pWCRS310_PrixUniteMesure")
-        quantity = None
-        if unit_price and "€" in unit_price:
-            quantity = await text_clean(".spanWCRS310_ContenanceInfo")
-        if not quantity:
-            quantity = await text_clean(".ficheProduit__infos--poids")
-        if quantity:
-            quantity = quantity.upper()
+        adapter_instance = None
+        if LeclercAdapter is not None:
+            try:
+                adapter_instance = LeclercAdapter()
+            except Exception:
+                adapter_instance = None
 
-        matched_ean = None
-        try:
-            html = await page.content()
-            if ean and ean in html:
-                matched_ean = ean
-        except Exception:
-            matched_ean = None
+        for visit_idx, cand in enumerate(candidate_rows[:LECLERC_MAX_PDP]):
+            listing_url = urljoin(store_url, cand.get("href", "")) if cand.get("href") else None
+            candidate_entry: dict = {
+                "listing_index": cand["index"],
+                "listing_label": cand["label"],
+                "listing_url": listing_url,
+                "score": cand["score"],
+                "query": query,
+                "status": "PENDING",
+            }
+            if cand.get("snippet"):
+                candidate_entry["listing_snippet"] = cand["snippet"][:4000]
+
+            normalized_label = cand["label"].lower()
+            normalized_href = (cand.get("href") or "").lower()
+            if descriptor_negatives and any(
+                token and (token in normalized_label or token in normalized_href)
+                for token in descriptor_negatives
+            ):
+                candidate_entry["status"] = "REJECTED"
+                candidate_entry["reason"] = "negative_keyword"
+                finder_candidates.append(candidate_entry)
+                last_candidate_entry = candidate_entry
+                continue
+
+            fallback_url = listing_url
+            navigated = False
+            try:
+                if visit_idx > 0:
+                    await page.goto(search_url, wait_until="domcontentloaded")
+                    await human_pause(page, result_delay_ms)
+                cards = page.locator("li.liWCRS310_Product")
+                target_card = cards.nth(cand["index"])
+                link = target_card.locator("a.aWCRS310_Product").first
+                await link.scroll_into_view_if_needed()
+                await human_pause(page, _adaptive_delay(400))
+                await link.click()
+                try:
+                    await page.wait_for_url("**/fiche-produits-*.aspx", timeout=6000)
+                    navigated = True
+                except PlaywrightTimeoutError:
+                    navigated = False
+            except Exception:
+                navigated = False
+
+            if not navigated and fallback_url:
+                sys.stderr.write(
+                    f"[LECLERC_DEBUG] navigation fallback to {fallback_url}\n"
+                )
+                try:
+                    await page.goto(fallback_url, wait_until="domcontentloaded")
+                    navigated = True
+                except Exception:
+                    navigated = False
+
+            if not navigated:
+                candidate_entry["status"] = "ERROR"
+                candidate_entry["reason"] = "navigation_failed"
+                finder_candidates.append(candidate_entry)
+                last_candidate_entry = candidate_entry
+                continue
+
+            await human_pause(page, pdp_delay_ms)
+
+            current_url = page.url or fallback_url or ""
+            candidate_entry["url"] = current_url
+
+            try:
+                title_raw = await page.locator("h1").first.text_content()
+            except Exception:
+                title_raw = None
+            title = " ".join(title_raw.split()) if title_raw else cand["label"]
+            candidate_entry["title"] = title
+
+            whole = await text_clean(".prix .prix-actuel-partie-entiere, .pWCRS310_PrixUnitairePartieEntiere") or ""
+            decimal = await text_clean(".prix .prix-actuel-partie-decimale, .pWCRS310_PrixUnitairePartieDecimale") or ""
+            whole_digits = "".join(filter(str.isdigit, whole))
+            decimal_digits = "".join(filter(str.isdigit, decimal))[:2]
+            price = f"{int(whole_digits)}.{decimal_digits or '00'}" if whole_digits else None
+            if price:
+                price = price.replace(".", ",")
+            unit_price = await text_clean(".prix .prix-detail, .pWCRS310_PrixUniteMesure")
+            quantity = None
+            if unit_price and "€" in unit_price:
+                quantity = await text_clean(".spanWCRS310_ContenanceInfo")
+            if not quantity:
+                quantity = await text_clean(".ficheProduit__infos--poids")
+            if quantity:
+                quantity = quantity.upper()
+
+            candidate_entry["price"] = price
+            candidate_entry["unit_price"] = unit_price
+            candidate_entry["quantity"] = quantity
+
+            image_url = None
+            image_selectors = [
+                "img[itemprop='image']",
+                ".ficheProduit__visuel img",
+                "img[data-testid='medias-img']",
+                ".product-image img",
+            ]
+            for sel in image_selectors:
+                node = page.locator(sel).first
+                try:
+                    if await node.count():
+                        src = await node.get_attribute("src")
+                        if src:
+                            image_url = src.strip()
+                            break
+                except Exception:
+                    continue
+            if image_url:
+                if image_url.startswith("//"):
+                    image_url = "https:" + image_url
+                elif image_url.startswith("/"):
+                    image_url = urljoin(current_url, image_url)
+            candidate_entry["image_url"] = image_url
+
+            html = ""
+            try:
+                html = await page.content()
+            except Exception:
+                html = ""
+
+            observed_eans: List[str] = []
+            url_match = EAN_PATTERN.search(current_url or "")
+            if url_match:
+                observed_eans.append(url_match.group(1))
+            html_ean = _extract_ean_from_html(html, current_url)
+            if html_ean and html_ean not in observed_eans:
+                observed_eans.append(html_ean)
+
+            info_ean = None
+            info_url = None
+            if adapter_instance:
+                try:
+                    info_url = adapter_instance.find_info_link(current_url)
+                    if info_url:
+                        info_ean = adapter_instance.extract_ean_from_info(info_url)
+                        if info_ean and info_ean not in observed_eans:
+                            observed_eans.append(info_ean)
+                except Exception:
+                    info_ean = None
+            candidate_entry["observed_eans"] = observed_eans
+            if info_url:
+                candidate_entry["info_url"] = info_url
+
+            matched_candidate_ean = None
+            if ean and ean in observed_eans:
+                matched_candidate_ean = ean
+            elif info_ean:
+                matched_candidate_ean = info_ean
+            elif html_ean:
+                matched_candidate_ean = html_ean
+            elif observed_eans:
+                matched_candidate_ean = observed_eans[0]
+
+            candidate_entry["matched_ean"] = matched_candidate_ean
+            candidate_entry["product"] = _build_candidate_product(
+                descriptor_entry,
+                title or cand["label"],
+                matched_candidate_ean,
+                html,
+                image_url,
+                quantity,
+            )
+
+            if matched_candidate_ean and ean and matched_candidate_ean == ean:
+                candidate_entry["status"] = "MATCHED"
+                candidate_entry["reason"] = "ean_match"
+            elif ean:
+                candidate_entry["status"] = "REJECTED"
+                candidate_entry["reason"] = "ean_mismatch"
+            else:
+                candidate_entry["status"] = "REJECTED"
+                candidate_entry["reason"] = "no_seed_ean"
+
+            finder_candidates.append(candidate_entry)
+            last_candidate_entry = candidate_entry
+
+            if candidate_entry["status"] == "MATCHED":
+                final_title = title
+                final_price = price
+                final_unit_price = unit_price
+                final_quantity = quantity
+                final_url = current_url
+                final_matched_ean = matched_candidate_ean
+                final_image_url = image_url
+                final_reason = candidate_entry.get("reason")
+                break
+
+        if final_title is None and last_candidate_entry:
+            final_title = last_candidate_entry.get("title") or last_candidate_entry.get("listing_label")
+        if final_price is None and last_candidate_entry:
+            final_price = last_candidate_entry.get("price")
+        if final_unit_price is None and last_candidate_entry:
+            final_unit_price = last_candidate_entry.get("unit_price")
+        if final_quantity is None and last_candidate_entry:
+            candidate_qty = last_candidate_entry.get("quantity")
+            if not candidate_qty and isinstance(last_candidate_entry.get("product"), dict):
+                candidate_qty = last_candidate_entry["product"].get("qty")
+            final_quantity = candidate_qty
+        if final_url is None:
+            final_url = page.url or (last_candidate_entry.get("url") if last_candidate_entry else None)
+
+        title = final_title
+        price = final_price
+        unit_price = final_unit_price
+        quantity = final_quantity
+        matched_ean = final_matched_ean
 
         # Try to read the current drive label; fallback to the slug in the URL.
         async def current_store_label() -> Optional[str]:
@@ -558,24 +855,28 @@ async def run_manual_leclerc(
         if not quantity and isinstance(descriptor_entry, dict):
             quantity = descriptor_entry.get('quantity') or quantity
 
-        return {
+        result_payload = {
             "status": status,
             "title": title,
             "price": price,
             "unit_price": unit_price,
             "quantity": quantity,
-            "url": page.url,
+            "url": final_url or page.url,
             "matched_ean": matched_ean,
             "store": store_label,
             "note": timestamp_note,
             "debug": {
-                "chosen_index": chosen_index,
-                "chosen_label": chosen_label,
-                "chosen_href": chosen_href,
+                "attempted_candidates": len(finder_candidates),
+                "final_reason": final_reason,
                 "tokens": expected_tokens,
                 "elapsed_seconds": round(time.perf_counter()-started, 2),
             },
         }
+        meta = result_payload.setdefault("_meta", {})
+        meta["supports_keywords"] = True
+        if finder_candidates:
+            result_payload["candidates"] = finder_candidates
+        return result_payload
 
 
 async def _main() -> None:

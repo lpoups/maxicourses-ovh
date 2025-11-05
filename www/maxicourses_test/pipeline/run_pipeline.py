@@ -467,23 +467,7 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
         "script": ROOT_DIR / "fetch_auchan_price.py",
         "env": lambda: {
             "HOME_URL": os.getenv("AUCHAN_HOME_URL", "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117"),
-            "AUCHAN_STORE_URL": os.getenv(
-                "AUCHAN_STORE_URL",
-                "https://www.auchan.fr/drive/magasins/auchan-drive-talence-gallieni/s-6117",
-            ),
-            "AUCHAN_STORE_SWITCH_URL": os.getenv(
-                "AUCHAN_STORE_SWITCH_URL",
-                "https://www.auchan.fr/s-6117",
-            ),
-            "AUCHAN_STORE_HOME_URL": os.getenv(
-                "AUCHAN_STORE_HOME_URL",
-                "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
-            ),
-            "AUCHAN_STORE_SLUG": os.getenv(
-                "AUCHAN_STORE_SLUG",
-                "auchan-drive-talence-gallieni",
-            ),
-            "AUCHAN_STORE_QUERY": os.getenv("AUCHAN_STORE_QUERY", "Talence Gallieni"),
+            
         },
     },
     "chronodrive": {
@@ -1550,30 +1534,30 @@ def main(argv: Optional[List[str]] = None) -> int:
             print(json.dumps(res.payload, ensure_ascii=False))
             if res.error:
                 print(f"[WARN] {adapter} -> {res.error}")
-            continue
-        adapter_debug = None
-        if debug_root:
-            adapter_debug = debug_root / f"{len(results)+1:02d}-{adapter}"
-            adapter_debug.mkdir(parents=True, exist_ok=True)
+        else:
+            adapter_debug: Optional[Path] = None
+            if debug_root:
+                adapter_debug = debug_root / f"{len(results)+1:02d}-{adapter}"
+                adapter_debug.mkdir(parents=True, exist_ok=True)
 
-        adapter_query = query
-        res = run_adapter(
-            adapter,
-            ean,
-            adapter_query,
-            headless=not args.headed,
-            proxy=args.proxy,
-            extra_env={"HUMAN_DEBUG_DIR": str(adapter_debug)} if adapter_debug else None,
-            descriptor=descriptor,
-            finder_keywords=finder_keywords,
-        )
-        annotate_adapter_payload(adapter, res.payload, ean=ean)
-        results.append(res)
-        print(json.dumps(res.payload, ensure_ascii=False))
-        if res.error:
-            print(f"[WARN] {adapter} -> {res.error}")
-        if adapter_debug:
-            res.metadata["debug_dir"] = str(adapter_debug)
+            adapter_query = query
+            res = run_adapter(
+                adapter,
+                ean,
+                adapter_query,
+                headless=not args.headed,
+                proxy=args.proxy,
+                extra_env={"HUMAN_DEBUG_DIR": str(adapter_debug)} if adapter_debug else None,
+                descriptor=descriptor,
+                finder_keywords=finder_keywords,
+            )
+            annotate_adapter_payload(adapter, res.payload, ean=ean)
+            results.append(res)
+            print(json.dumps(res.payload, ensure_ascii=False))
+            if res.error:
+                print(f"[WARN] {adapter} -> {res.error}")
+            if adapter_debug:
+                res.metadata["debug_dir"] = str(adapter_debug)
 
     descriptor = ensure_brand_from_results(ean, descriptor, results)
     descriptor = ensure_nutriscore_from_results(ean, descriptor, results)

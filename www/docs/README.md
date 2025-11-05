@@ -19,10 +19,10 @@ Ce répertoire regroupe les fichiers persistants à relire par chaque nouvel ass
 - `PARCOURS_HUMAIN.md` : procédure détaillée pour enregistrer/rejouer un parcours humain anti-bot.
 - `LECLERC_HUMAN_METHOD.md` : workflow spécifique pour Leclerc Drive (Bruges) en mode CDP humain.
 - `maxicourses_test/pipeline/index2.html` : page de démonstration (copie du layout historique) branchée sur les résultats JSON.
-- `maxicourses_test/manual_descriptors.json` : attributs produit statiques utilisés pour alimenter l’en-tête (titre, Nutri-score, image locale).
+- `maxicourses_test/seed_catalog.py` : catalogue seed codé en dur (titre, quantité, visuel local, requêtes par enseigne) consommé via `descriptor_store.py`.
 - `maxicourses_test/fetch_leclerc_drive_price.py` : simple wrapper qui appelle `manual_leclerc_cdp.py` (méthode humaine unique supportée).
 - `maxicourses_test/fetch_monoprix_price.py` : collecte Monoprix via recherche textuelle (pas de support EAN).
-- `maxicourses_test/fetch_courseu_price.py` : collecte Course U (Super U Eysines) par recherche EAN directe (session Chrome 9222 validée, overlay promo fermé, state sauvegardée). Le script mémorise l’URL PDP `courseu_url` dans `manual_descriptors.json` pour limiter les reblocs Cloudflare lors des runs suivants.
+- `maxicourses_test/fetch_courseu_price.py` : collecte Course U (Super U Eysines) par recherche EAN directe (session Chrome 9222 validée, overlay promo fermé, state sauvegardée). Le script mémorise l’URL PDP `courseu_url` dans `seed_catalog.py` pour limiter les reblocs Cloudflare lors des runs suivants.
 - `maxicourses_test/ai_helpers.py` + `run_ai_pipeline.py` : génèrent via OpenAI les requêtes ≤30 caractères pour Leclerc/Monoprix/Intermarché à partir des seeds EAN.
 
 ## Bonnes pratiques
@@ -31,14 +31,14 @@ Ce répertoire regroupe les fichiers persistants à relire par chaque nouvel ass
 - **Liens** : préférer les chemins relatifs ou URL complètes publiques des enseignes.
 
 ## Processus Conseillé à Chaque Relève
-- `pipeline/index2.html` : la fiche principale charge l’EAN 3124480200433 (Orangina) via `results/summary.json`. Les comparatifs additionnels sont décrits dans `EXTRA_DATASETS`. Ajouter un produit = générer `results/test-<EAN>/{latest,summary}.json`, compléter `manual_descriptors.json`, puis ajouter l’entrée dans `EXTRA_DATASETS`.
+- `pipeline/index2.html` : la fiche principale charge l’EAN 3124480200433 (Orangina) via `results/summary.json`. Les comparatifs additionnels sont décrits dans `EXTRA_DATASETS`. Ajouter un produit = générer `results/test-<EAN>/{latest,summary}.json`, compléter `seed_catalog.py`, puis ajouter l’entrée dans `EXTRA_DATASETS`.
 1. Lire le dernier bloc dans `HANDOVER_DAILY.md`.
 2. Mettre à jour la section "Tâches en cours" ou créer une nouvelle entrée si les priorités changent.
 3. Compléter `PROMPT_BOOTSTRAP.md` si de nouvelles consignes doivent être rappelées systématiquement.
 
 ### Rafraîchir la page `index2.html`
 1. Lancer les fetchs Playwright (Carrefour, Leclerc, etc.) avec `USE_CDP=1 HEADLESS=0` pour mettre à jour `results/latest.json` et `results/test-<EAN>/`.
-2. Ajuster `manual_descriptors.json` uniquement si le descriptif produit change (visuel local dans `maxicourses_test/pipeline/assets/` recommandé).
+2. Ajuster `seed_catalog.py` uniquement si le descriptif produit change (visuel local dans `maxicourses_test/pipeline/assets/` recommandé).
 3. Tester localement : `cd maxicourses_test && python3 -m http.server`, puis ouvrir `http://localhost:8000/pipeline/index2.html`.
 4. Capturer les éventuels nouveaux parcours humains dans `traces/` et consigner le tout dans `docs/HANDOVER_DAILY.md`.
 

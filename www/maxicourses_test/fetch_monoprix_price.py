@@ -11,7 +11,6 @@ import re
 import sys
 import unicodedata
 import typing
-from itertools import combinations
 from decimal import Decimal, InvalidOperation
 from dataclasses import dataclass
 from datetime import datetime
@@ -54,6 +53,37 @@ FAILURE_LOG_PATH = Path(__file__).resolve().with_name("logs") / "seed_failures.l
 
 IMAGE_HASH_CACHE: dict[Path, int] = {}
 REMOTE_HASH_CACHE: dict[str, int] = {}
+
+
+def _parse_finder_keywords() -> list[str]:
+    raw = os.environ.get("FINDER_KEYWORDS")
+    if not raw:
+        return []
+    try:
+        data = json.loads(raw)
+        if isinstance(data, list):
+            result: list[str] = []
+            for item in data:
+                if isinstance(item, str):
+                    cleaned = item.strip()
+                    if cleaned:
+                        result.append(cleaned)
+            return result
+    except json.JSONDecodeError:
+        pass
+    return [chunk.strip() for chunk in raw.split(",") if chunk.strip()]
+
+
+FINDER_KEYWORDS = _parse_finder_keywords()
+
+
+def _looks_like_ean(term: typing.Optional[str]) -> bool:
+    if not term:
+        return False
+    cleaned = "".join(ch for ch in term if ch.isdigit())
+    if not cleaned:
+        return False
+    return cleaned == term.replace(" ", "") and 8 <= len(cleaned) <= 14
 
 # Mots-clés pour détecter les cartes où le produit n'est pas disponible
 CARD_BANNED_KEYWORDS = {
@@ -264,12 +294,6 @@ def _seed_search_tokens(descriptor: dict[str, typing.Any]) -> list[str]:
             for token in _tokenize_preserve_case(value):
                 add_token(token)
 
-    secondary = descriptor.get("secondary_keywords") or []
-    if isinstance(secondary, (list, tuple)):
-        for item in secondary:
-            if isinstance(item, str):
-                add_token(item)
-
     return list(tokens.values())
 # Manual descriptor cache (hardcoded catalog)
 MANUAL_DESCRIPTOR: dict[str, dict] = all_seeds()
@@ -288,6 +312,7 @@ class Result:
     store: typing.Optional[str] = None
     raw_text: typing.Optional[str] = None
     extras: typing.Optional[dict[str, typing.Any]] = None
+    candidates: typing.Optional[list] = None
 
 
 def tokens_for(value: typing.Optional[str]) -> list[str]:
@@ -324,11 +349,6 @@ def _descriptor_validation_tokens(descriptor: dict[str, typing.Any]) -> list[str
     collect(descriptor.get("seed_query"))
     collect(descriptor.get("description"))
 
-    for keyword in descriptor.get("primary_keywords", []) or []:
-        collect(keyword)
-    for keyword in descriptor.get("secondary_keywords", []) or []:
-        collect(keyword)
-
     canonical = descriptor.get("canonical")
     if isinstance(canonical, dict):
         collect(canonical.get("brand"))
@@ -360,9 +380,6 @@ def _descriptor_core_tokens(descriptor: dict[str, typing.Any]) -> set[str]:
 
     for field in ("brand", "seed_primary_name", "name", "seed_query"):
         collect(descriptor.get(field))
-
-    for keyword in descriptor.get("primary_keywords") or []:
-        collect(keyword)
 
     quantity_token = _preferred_size_token(descriptor)
     if quantity_token:
@@ -1060,8 +1077,6 @@ def _iter_descriptor_tokens(descriptor: dict[str, typing.Any]) -> typing.Iterato
     if not isinstance(descriptor, dict):
         return
     ordered_fields: list[str] = [
-        "primary_keywords",
-        "secondary_keywords",
         "seed_primary_name",
         "seed_query",
         "name",
@@ -1208,8 +1223,7 @@ def _monoprix_fallback_terms(descriptor: dict, max_len: int) -> list[str]:
         else:
             terms.append(normalized)
 
-    primary_keywords = descriptor.get("primary_keywords") or []
-    for keyword in primary_keywords[:5]:
+    for keyword in FINDER_KEYWORDS[:5]:
         prepared = _prepare_query(keyword, max_len)
         if prepared:
             terms.append(prepared)
@@ -1257,12 +1271,6 @@ def _preferred_monoprix_terms(descriptor: dict[str, typing.Any], max_len: int) -
         value = descriptor.get(key)
         if isinstance(value, str):
             variant_sources.append(value)
-    secondary = descriptor.get("secondary_keywords")
-    if isinstance(secondary, (list, tuple)):
-        for item in secondary:
-            if isinstance(item, str):
-                variant_sources.append(item)
-
     variant_phrase = ""
     for candidate in variant_sources:
         cleaned = normalize_space(candidate)
@@ -1360,8 +1368,33 @@ def _prioritize_monoprix_terms(
     return prioritized
 
 
+def _descriptor_function_token(descriptor: dict) -> typing.Optional[str]:
+    brand = descriptor.get("brand")
+    brand_lower = brand.lower() if isinstance(brand, str) else ""
+    for field in (
+        descriptor.get("seed_primary_name"),
+        descriptor.get("name"),
+        descriptor.get("description"),
+        descriptor.get("seed_query"),
+    ):
+        if not isinstance(field, str):
+            continue
+        for token in WORD_PATTERN.findall(field):
+            lowered = token.lower()
+            if len(lowered) < 3:
+                continue
+            if lowered in MONOPRIX_GENERIC_STOPWORDS:
+                continue
+            if lowered in MONOPRIX_UNIT_TOKENS:
+                continue
+            if brand_lower and lowered == brand_lower:
+                continue
+            return token
+    return None
+
+
 def build_query_terms() -> list[str]:
-    """Return textual terms sorted by relevance."""
+    """Return textual terms sorted by relevance (Finder first, minimal fallbacks)."""
     terms: list[str] = []
     max_len = int(os.environ.get("MONOPRIX_MAX_QUERY_LEN", "30"))
     max_terms = int(os.environ.get("MONOPRIX_MAX_TERMS", "12"))
@@ -1374,7 +1407,8 @@ def build_query_terms() -> list[str]:
         candidate = _prepare_query(term, max_len)
         if not candidate:
             return
-        # Normalize and add to seen set to avoid duplicates
+        if _looks_like_ean(candidate):
+            return
         normalized_candidate = candidate.lower()
         if normalized_candidate in seen:
             return
@@ -1383,117 +1417,37 @@ def build_query_terms() -> list[str]:
         if max_terms > 0 and len(terms) >= max_terms:
             return
 
-    # 1. Requêtes spécifiques au magasin (manual_descriptors.json → queries.monoprix)
-    store_queries = descriptor.get("queries")
-    if isinstance(store_queries, dict):
-        for item in store_queries.get("monoprix", []):
-            add(item)
-            if max_terms > 0 and len(terms) >= max_terms:
-                break
+    for keyword in FINDER_KEYWORDS:
+        add(keyword)
 
-    # Toujours reprendre les requêtes Leclerc, même si queries.monoprix est défini,
-    # afin d'avoir un socle commun multi-enseignes.
-    leclerc_list = descriptor.get("leclerc_queries")
-    if isinstance(leclerc_list, (list, tuple)):
-        for item in leclerc_list:
-            add(item)
-            if max_terms > 0 and len(terms) >= max_terms:
-                break
+    # 1. Finder-provided term from the environment (primary source)
+    if QUERY:
+        add(QUERY)
 
-    # 2. Utiliser en priorité les primary_keywords (déjà issus des seeds)
-    primary = descriptor.get("primary_keywords")
-    if isinstance(primary, (list, tuple)):
-        for item in primary:
-            add(item)
-            if max_terms > 0 and len(terms) >= max_terms:
-                break
-
-    # 3. Requêtes fournies via l'environnement (QUERY) ensuite
+    # 2. Minimal fallback built from descriptor (brand + function)
     if max_terms <= 0 or len(terms) < max_terms:
-        if QUERY:
-            add(QUERY)
+        brand = normalize_space(descriptor.get("brand"))
+        function_token = _descriptor_function_token(descriptor) or ""
+        if brand and function_token:
+            add(f"{brand} {function_token}")
+        elif brand:
+            add(brand)
+        elif function_token:
+            add(function_token)
 
-    # 4. Autres champs du descriptor pour récupérer la fonction (seed/name/description)
+    # 3. Seed query trimmed to the first two words as an additional fallback
     if max_terms <= 0 or len(terms) < max_terms:
-        additional_entries: list[typing.Optional[str]] = [
-            descriptor.get("seed_primary_name"),
-            descriptor.get("seed_query"),
-            descriptor.get("name"),
-            descriptor.get("description"),
-        ]
-        for entry in additional_entries:
-            if entry:
-                add(entry)
-                if max_terms > 0 and len(terms) >= max_terms:
-                    break
+        seed_query = descriptor.get("seed_query")
+        if isinstance(seed_query, str) and seed_query.strip():
+            trimmed = " ".join(seed_query.split()[:2])
+            add(trimmed)
 
-    # 5. Fallback historique (quantités, variantes)
-    # Génération automatique à partir des tokens seed (marque + variant + bénéfices).
+    # 4. Final fallback: EAN search
     if max_terms <= 0 or len(terms) < max_terms:
-        brand_value = normalize_space(descriptor.get("brand"))
-        seed_tokens = _seed_search_tokens(descriptor)
-        canonical = descriptor.get("canonical") if isinstance(descriptor.get("canonical"), dict) else {}
-        variant_phrase = normalize_space(canonical.get("variant")) or normalize_space(canonical.get("flavor_color"))
+        if EAN:
+            add(EAN)
 
-        if brand_value:
-            if variant_phrase:
-                add(f"{brand_value} {variant_phrase}")
-                for token in tokens_for(variant_phrase):
-                    add(f"{brand_value} {token}")
-
-            limited_tokens = seed_tokens[:6]
-            for token in limited_tokens:
-                if _normalize_search_text(token) != _normalize_search_text(brand_value):
-                    add(f"{brand_value} {token}")
-            for tok1, tok2 in combinations(limited_tokens, 2):
-                combined = f"{brand_value} {tok1} {tok2}"
-                add(combined)
-        else:
-            for token in seed_tokens[:8]:
-                add(token)
-
-    # Fallback historique seulement si aucune autre requête n'a été ajoutée
-    if (max_terms <= 0 or len(terms) < max_terms) and not terms:
-        for fallback in _monoprix_fallback_terms(descriptor, max_len):
-            add(fallback)
-            if max_terms > 0 and len(terms) >= max_terms:
-                break
-
-    # Combinaisons marque + tokens seed (Carrefour/Auchan/Chronodrive/CourseU)
-    if max_terms <= 0 or len(terms) < max_terms:
-        brand = normalize_space(descriptor.get("brand")) or ""
-        brand_clean = _prepare_query(brand, max_len)
-        if brand_clean:
-            seed_tokens = set()
-            for source in (
-                descriptor.get("seed_primary_name"),
-                descriptor.get("name"),
-                descriptor.get("description"),
-                descriptor.get("seed_query"),
-            ):
-                if isinstance(source, str):
-                    for tok in tokens_for(source):
-                        normalized_tok = _normalize_search_text(tok)
-                        if (
-                            normalized_tok
-                            and normalized_tok not in VALIDATION_STOPWORDS
-                            and len(normalized_tok) >= 3
-                        ):
-                            seed_tokens.add(tok)
-            for tok in descriptor.get("secondary_keywords") or []:
-                if isinstance(tok, str):
-                    seed_tokens.add(tok)
-            for token in sorted(seed_tokens):
-                combo = f"{brand} {token}"
-                add(combo)
-                if max_terms > 0 and len(terms) >= max_terms:
-                    break
-
-    # 6. Ultime recours : construire à partir du descriptor seul
-    if not terms:
-        add("")
-
-    return _prioritize_monoprix_terms(descriptor, terms, max_len, max_terms)
+    return terms[:max_terms] if max_terms > 0 else terms
 
 
 def expected_tokens() -> tuple[list[str], list[str], list[str]]:
@@ -1771,6 +1725,9 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
         f"[MONOPRIX_DEBUG] Seed variant: {seed_variant} | dynamic negatives: {dynamic_negatives}\n"
     )
 
+    candidate_records: list[dict[str, typing.Any]] = []
+    candidate_index: dict[str, dict] = {}
+
     for i, term in enumerate(terms):
         sys.stderr.write(f"[MONOPRIX_DEBUG]  - Term {i+1}/{len(terms)}: '{term}'\n")
         
@@ -1929,9 +1886,52 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
 
         sys.stderr.write(f"[MONOPRIX_DEBUG]  - Found {len(product_urls)} product URLs to check.\n")
 
+        for full_url in product_urls[:MAX_PRODUCTS_PER_TERM]:
+            if full_url in candidate_index:
+                continue
+            if len(candidate_records) >= MAX_PRODUCTS_PER_TERM:
+                break
+            candidate_entry = {
+                "url": full_url,
+                "status": "PENDING",
+                "product": {
+                    "title": "",
+                    "brand": descriptor_entry.get("brand") or "",
+                    "kind": descriptor_entry.get("seed_primary_name") or descriptor_entry.get("name") or "",
+                    "qty": descriptor_entry.get("quantity") or descriptor_entry.get("seed_primary_quantity") or "",
+                    "qualifiers": descriptor_entry.get("qualifiers") or [],
+                    "ean": None,
+                    "image_url": None,
+                    "source": "monoprix",
+                    "raw_text": "",
+                },
+            }
+            candidate_records.append(candidate_entry)
+            candidate_index[full_url] = candidate_entry
+
         fallback_results: list[tuple[int, Result]] = []
         for product_url in product_urls[:MAX_PRODUCTS_PER_TERM]:
             sys.stderr.write(f"[MONOPRIX_DEBUG]  - Parsing product page in new tab: {product_url}\n")
+            entry = candidate_index.get(product_url)
+            if entry is None:
+                entry = {
+                    "url": product_url,
+                    "status": "PENDING",
+                    "product": {
+                        "title": "",
+                        "brand": descriptor_entry.get("brand") or "",
+                        "kind": descriptor_entry.get("seed_primary_name") or descriptor_entry.get("name") or "",
+                        "qty": descriptor_entry.get("quantity") or descriptor_entry.get("seed_primary_quantity") or "",
+                        "qualifiers": descriptor_entry.get("qualifiers") or [],
+                        "ean": None,
+                        "image_url": None,
+                        "source": "monoprix",
+                        "raw_text": "",
+                    },
+                }
+                candidate_index[product_url] = entry
+                if entry not in candidate_records and len(candidate_records) < MAX_PRODUCTS_PER_TERM:
+                    candidate_records.append(entry)
             new_page = await context.new_page()
             try:
                 product_result = await parse_product_page(new_page, product_url, descriptor_entry)
@@ -1986,6 +1986,7 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
 
             if final_plausible:
                 product_result.status = "OK"
+                product_result.candidates = list(candidate_records)
                 sys.stderr.write(f"[MONOPRIX_DEBUG] Best match (early return): '{product_result.title}' (Score: {score})\n")
                 return product_result
 
@@ -1993,6 +1994,20 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
             sys.stderr.write(
                 f"[MONOPRIX_DEBUG]  - Candidate rejected '{product_result.title}' | vetoes={extras['vetoes']}\n"
             )
+
+            entry = candidate_index.get(product_url)
+            if entry:
+                entry["status"] = product_result.status or "CHECKED"
+                entry["score"] = score
+                entry["product"]["title"] = product_result.title or entry["product"]["title"]
+                entry["product"]["qty"] = product_result.quantity or entry["product"]["qty"]
+                entry["product"]["image_url"] = product_result.note or entry["product"]["image_url"]
+                entry["product"]["raw_text"] = product_result.raw_text or entry["product"]["raw_text"]
+                entry.setdefault("extras", {}).update(extras)
+                if product_result.price:
+                    entry["product"]["price"] = product_result.price
+                if product_result.unit_price:
+                    entry["product"]["unit_price"] = product_result.unit_price
 
         if fallback_results:
             fallback_results.sort(key=lambda x: x[0], reverse=True)
@@ -2008,11 +2023,15 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
                 sys.stderr.write(
                     f"[MONOPRIX_DEBUG]  - Accepting fallback candidate despite image mismatch: '{top_result.title}'.\n"
                 )
+                top_result.candidates = list(candidate_records)
                 return top_result
         else:
             sys.stderr.write("[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n")
 
-    return Result(status="NO_RESULTS")
+    no_res = Result(status="NO_RESULTS")
+    if candidate_records:
+        no_res.candidates = candidate_records
+    return no_res
 
 
 async def parse_product_page(
@@ -2262,10 +2281,18 @@ def evaluate_candidate(
         if quantity_clean and quantity_clean in title_nospace:
             score += 5
 
-    primary_keywords = descriptor.get("primary_keywords", [])
     keyword_match_count = 0
-    for keyword in primary_keywords:
-        if isinstance(keyword, str) and keyword and keyword.lower() in title_lower:
+    finder_terms = []
+    finder_terms.extend(FINDER_KEYWORDS)
+    if QUERY:
+        finder_terms.append(QUERY)
+    for keyword in finder_terms:
+        if not isinstance(keyword, str):
+            continue
+        normalized = keyword.strip().lower()
+        if not normalized:
+            continue
+        if normalized in title_lower:
             score += 20
             keyword_match_count += 1
 
@@ -2315,26 +2342,31 @@ async def run() -> Result:
 
     descriptor_entry = MANUAL_DESCRIPTOR.get(EAN) if EAN else None
     if not descriptor_entry:
-        sys.stderr.write(f"[MONOPRIX_DEBUG] ERROR: EAN '{EAN}' not found in manual_descriptors.json. Scoring will fail.\n")
+        sys.stderr.write(f"[MONOPRIX_DEBUG] ERROR: EAN '{EAN}' not found in seed_catalog.py. Scoring will fail.\n")
         # Optionnel : on peut décider de s'arrêter ici si le descripteur est essentiel
         # return Result(status="ERROR", note=f"EAN {EAN} not in descriptors")
     else:
         sys.stderr.write(f"[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '{EAN}'.\n")
 
     if descriptor_entry:
-        manual_queries = []
+        manual_queries: list[str] = []
         queries_map = descriptor_entry.get("queries")
         if isinstance(queries_map, dict):
             manual_queries = queries_map.get("monoprix") or []
         if not manual_queries:
             manual_queries = descriptor_entry.get("monoprix_queries") or []
         manual_queries = [q for q in manual_queries if isinstance(q, str) and q.strip()]
-        if manual_queries:
+        filtered_manual = [q for q in manual_queries if not _looks_like_ean(q)]
+        if filtered_manual:
+            terms = filtered_manual[:3]
+        elif manual_queries:
             terms = manual_queries[:3]
         else:
-            terms = terms[:1]
+            filtered_terms = [t for t in terms if not _looks_like_ean(t)]
+            terms = filtered_terms or terms
     else:
-        terms = terms[:1]
+        filtered_terms = [t for t in terms if not _looks_like_ean(t)]
+        terms = filtered_terms or terms
 
     sys.stderr.write(f"[MONOPRIX_DEBUG] Search terms: {terms}\n")
 

@@ -2,10 +2,10 @@
 
 - Chrome remote lancé via `maxicourses_test/start_chrome_debug.sh` (profil `.chrome-debug`), puis toutes les commandes Playwright avec `USE_CDP=1`.
 - **Recherche EAN brut obligatoire** : pour tout nouveau produit, taper directement le code EAN (sans texte) sur les enseignes seed qui l’acceptent – Carrefour Market → Carrefour City → Auchan → Chronodrive → Course U (Super U Eysines). Une fois ces runs effectués, exploiter le descriptif obtenu pour Intermarché, Leclerc puis Monoprix. Aucun descriptif ne doit être utilisé sur les enseignes EAN si l’EAN est connu ; un résultat `NO_PRICE` ou `NO_RESULTS` signifie que le drive ne propose pas ce produit.
-- **Mots-clés générés par Finder** : `run_pipeline.py` construit désormais la short-list de requêtes via `FinderPipeline`/`KeywordGenerator`. Ne plus modifier manuellement `primary_keywords`/`secondary_keywords` dans `manual_descriptors.json` : ces champs ne sont plus lus par la pipeline.
+- **Mots-clés générés par Finder** : `run_pipeline.py` construit désormais la short-list de requêtes via `FinderPipeline`/`KeywordGenerator`. Les seeds (marque, quantité, requêtes par enseigne) sont codées dans `seed_catalog.py` et exposées via `descriptor_store.py` ; toute mise à jour passe par le code, plus par un JSON.
 - Chaque sortie JSON doit inclure `price`, `unit_price` (€/kg ou €/L), `quantity`, `store`, `note` (horodatage UTC), `url`, `matched_ean`.
 - Conserver les captures dans `maxicourses_test/debug_screens/` ou `maxicourses_test/debug/` et référencer la trace dans `docs/HANDOVER_DAILY.md`.
-- Chaque produit possède un visuel local dans `maxicourses_test/pipeline/assets/` déclaré via `manual_descriptors.json` ; le comparateur (`pipeline/index2.html`) affiche ensuite un lien « Voir image ».
+- Chaque produit possède un visuel local dans `maxicourses_test/pipeline/assets/` référencé par le seed (`seed_catalog.py` → champ `image`). Le comparateur (`pipeline/index2.html`) s’appuie sur l’API `/api/descriptors` du serveur pour exposer ces métadonnées.
 
 ## Leclerc Drive (Bruges)
 - **Script** : `maxicourses_test/manual_leclerc_cdp.py` (CDP humain). Wrapper CLI : `fetch_leclerc_drive_price.py`.
@@ -19,6 +19,7 @@
     python3 manual_leclerc_cdp.py
   ```
 - **Logique** : saisie lente, acceptation OneTrust, sélection du meilleur résultat selon les tokens de la requête, extraction JSON-LD.
+- **Validation** : le script ouvre jusqu’à 10 cartes du listing ; chaque PDP est rejetée si l’EAN récupéré via « Informations pratiques » diffère du seed. Les variantes « sans sucre », « zero/zéro » sont bannies par défaut.
 - **Requêtes** : générées automatiquement à partir du seed (marque + fonction/nom + quantité) pour garantir un minimum de trois mots ciblés (« Destop Déboucheur 950 ML » par exemple). Les variantes éventuelles (liquide, original…) sont ajoutées en secondaire, mais la requête principale conserve toujours la structure marque/fonction/quantité.
 - **Traces** : conserver les traces humaines dans `traces/leclerc-*.jsonl` si la navigation change.
 - **Résultats** : JSON par EAN dans `maxicourses_test/results/test-<EAN>/`, agrégat global `maxicourses_test/results/summary.json`.
@@ -38,13 +39,14 @@
 - **IDs magasins (cookie `FRONTAL_STORE`)** : City Bordeaux Balguerie = `800041`, Market Fondaudège = `1911`. Les wrappers injectent ces valeurs automatiquement ; vérifier/mettre à jour si un autre drive est utilisé.
 
 ## Auchan
-- **Script** : `maxicourses_test/fetch_auchan_price.py` (CDP + seed humain `traces/auchan-20240922-clean.jsonl`).
+- **Script** : `maxicourses_test/fetch_auchan_price.py` (CDP + seed humain `traces/auchan-20240922-clean.jsonl`, nouvelle trace EAN `traces/auchan-20251104-talence-orangina.jsonl`).
 - **Commandes** :
   ```bash
   USE_CDP=1 HEADLESS=0 EAN=<ean> QUERY="<libellé seed ou EAN>" python3 fetch_auchan_price.py
   ```
 - Sert de seed alternatif lorsque Carrefour n’a pas l’EAN ; taper d’abord l’EAN brut, puis réutiliser le descriptif trouvé pour les autres enseignes.
 - **Sélection magasin** : le script charge automatiquement l’état Talence-Gallieni (`state/auchan.json` → `storeReference.id = 6117`). Si un autre drive est requis, mettre à jour ce fichier via Chrome 9222 avant de relancer. Actuellement, le bouton « Choisir ce drive » peut réapparaître sur la PDP : enregistrer un parcours humain (`record_generic_navigation.py`) et rejouer la trace jusqu’à ce que le prix soit visible avant de conclure. Considérer les `NO_RESULTS` Auchan comme un bug ouvert tant que cette trace n’est pas mise à jour.
+- **Slug magasin** : utiliser systématiquement `auchan-drive-supermarche-talence-gallieni`. Après chaque navigation, cliquer « Choisir ce drive »/« Afficher le prix » si les boutons sont présents avant d’extraire le prix.
 
 ## Intermarché
 - **Script** : `maxicourses_test/fetch_intermarche_price.py` (CDP, accepter cookies via script).
@@ -101,7 +103,7 @@
   - recherche EAN brut prioritaire (le script replonge sur `/recherche?q=<EAN>` en fallback) ;
   - choisir la fiche dont l’URL/libellé contient l’EAN ou les tokens seed (attention aux promos Skip/lessives renvoyées par défaut) ;
   - consigner dans `note` l’horodatage UTC + « Super U Eysines ».
-  - dès qu’un run aboutit, vérifier que `manual_descriptors.json` contient bien `courseu_url`/`courseu_slug` pour l’EAN ; ces champs sont utilisés en priorité pour charger directement la PDP sans repasser par la recherche (diminue fortement les CF).
+  - dès qu’un run aboutit, vérifier que `seed_catalog.py` contient bien `courseu_url`/`courseu_slug` pour l’EAN ; ces champs sont utilisés en priorité pour charger directement la PDP sans repasser par la recherche (diminue fortement les CF).
 - **Blocages possibles** :
   - si Cloudflare refuse l’accès, repasser en CDP humain, valider manuellement la recherche puis rejouer `state/courseu.json` ;
   - si le fetcher renvoie `NO_PRICE` avec un `matched_ean` différent (ex. Skip), l’overlay est encore présent dans la state : fermer la modale dans Chrome 9222, sauvegarder immédiatement la state et relancer.
@@ -112,14 +114,14 @@
 - Chaque EAN dispose de `results/test-<EAN>/latest.json` et `summary.json`. L’agrégat global `results/summary.json` alimente `pipeline/index2.html`.
 - Ajouter un produit dans le comparateur :
   1. Générer ou mettre à jour les JSON `results/test-<EAN>/`.
-  2. Compléter `manual_descriptors.json` (titre, quantité, image locale, Nutri-score si dispo).
+  2. Compléter l’entrée correspondante dans `seed_catalog.py` (titre, quantité, image locale, Nutri-score si dispo).
   3. Ajouter l’EAN dans `EXTRA_DATASETS` de `pipeline/index2.html`.
   4. Vérifier la page via `cd maxicourses_test && python3 -m http.server`.
 
 ## Requêtes générées par l’IA (Leclerc / Monoprix / Intermarché)
 - Après une collecte seed réussie (Carrefour Market/City, Auchan, Chronodrive), lancer `USE_AI_ASSIST=true ./run_ai_pipeline.sh <EAN>` pour que `run_pipeline.py` envoie les payloads à OpenAI.
 - `summarize_product_seed` produit un profil canonique (`ai_profile`, `ai_keywords`), puis `suggest_search_queries(store=...)` fabrique des requêtes ≤30 caractères (« marque + produit [+ contenance] ») pour Leclerc, Monoprix et Intermarché.
-- Les requêtes sont stockées dans `manual_descriptors.json` (`leclerc_ai_queries`, `monoprix_ai_queries`, `intermarche_ai_queries`) et utilisées automatiquement lors des prochains fetchs.
+- Les requêtes texte validées sont stockées dans `seed_catalog.py` (`queries` et `leclerc_queries`) et utilisées automatiquement lors des prochains fetchs via `descriptor_store`.
 - Les journaux IA (prompts + réponses) sont archivés dans `maxicourses_test/logs/refonte_v2/runs/<horodatage>-<EAN>-<PID>/`.
 
 ### Clés de recherche (IA)
@@ -138,7 +140,8 @@
 6. Ce guide (`docs/PRICE_COLLECTION_GUIDE.md`) pour connaître la méthode par enseigne.
 
 ## Traces & captures utiles
-- `traces/auchan-20240922-clean.jsonl` – navigation Auchan seed (à rafraîchir pour Talence Gallieni si le bouton « Choisir ce drive » persiste).
+- `traces/auchan-20240922-clean.jsonl` – navigation Auchan seed (ancienne version).
+- `traces/auchan-20251104-talence-orangina.jsonl` – sélection Talence Gallieni avec recherche EAN et clic « Afficher le prix ».
 - `traces/leclerc-20250924-*.jsonl` – sélection drive Bruges.
 - `traces/carrefour-switch-back-20250923.jsonl` puis `traces/carrefour-store-switch-20250923.jsonl` – séquence obligatoire avant toute collecte Carrefour (City puis Market).
 - Captures debug dans `maxicourses_test/debug/` (HTML) et `maxicourses_test/debug_screens/` (PNG).

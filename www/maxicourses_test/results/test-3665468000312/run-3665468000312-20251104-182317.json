@@ -1,0 +1,503 @@
+{
+  "ean": "3665468000312",
+  "image_path": null,
+  "started_at": "2025-11-04T18:19:09.185547",
+  "finished_at": "2025-11-04T18:23:17.775231",
+  "duration_seconds": 248.589684,
+  "reference": {
+    "title": "Déboucheur liquide destop flacon 950ml",
+    "description": "Déboucheur liquide destop flacon 950ml",
+    "source": "courseu",
+    "brand": "Déboucheur",
+    "quantity": "950  ml",
+    "categories": null,
+    "image": "https://media.carrefour.fr/medias/28bb940e3a8b49b58446338e8f270c3f/p_540x540/03 665468000312_A1N1_s03.jpeg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3665468000312/debug/run-3665468000312-20251104-181909"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,95",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/deboucheur-liquide-multi-usages-destop-3665468000312 ",
+        "note": null,
+        "unit_price": "5,21 € / L",
+        "quantity": "950 ML",
+        "title": "Déboucheur Liquide Multi-Usages DESTOP",
+        "matched_ean": "3665468000312",
+        "image": "https://media.carrefour.fr/medias/28bb940e3a8b49b58446338e8f270c3f/p_540x540/03 665468000312_A1N1_s03.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Déboucheur Liquide Multi-Usages DESTOP",
+          "brand": "",
+          "kind": "",
+          "qty": "0.95 l",
+          "qualifiers": [],
+          "ean": "3665468000312",
+          "image_url": "https://media.carrefour.fr/medias/28bb940e3a8b49b58446338e8f270c3f/p_540x540/03 665468000312_A1N1_s03.jpeg",
+          "source": "carrefour_city",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-04T18:19:09.186674",
+      "finished_at": "2025-11-04T18:19:32.584745",
+      "duration_seconds": 23.398071,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "3665468000312",
+        "QUERY": "3665468000312",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3665468000312"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,79",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/deboucheur-liquide-multi-usages-destop-3665468000312 ",
+        "note": null,
+        "unit_price": "3,99 € / L",
+        "quantity": "950 ML",
+        "title": "Déboucheur Liquide Multi-Usages DESTOP",
+        "matched_ean": "3665468000312",
+        "image": "https://media.carrefour.fr/medias/28bb940e3a8b49b58446338e8f270c3f/p_540x540/03 665468000312_A1N1_s03.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Déboucheur Liquide Multi-Usages DESTOP",
+          "brand": "",
+          "kind": "",
+          "qty": "0.95 l",
+          "qualifiers": [],
+          "ean": "3665468000312",
+          "image_url": "https://media.carrefour.fr/medias/28bb940e3a8b49b58446338e8f270c3f/p_540x540/03 665468000312_A1N1_s03.jpeg",
+          "source": "carrefour_market",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-04T18:19:32.586872",
+      "finished_at": "2025-11-04T18:19:52.788647",
+      "duration_seconds": 20.201775,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3665468000312",
+        "QUERY": "3665468000312",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3665468000312"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,79",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/deboucheur-liquide-multi-usages-destop-3665468000312 ",
+        "note": null,
+        "unit_price": "3,99 € / L",
+        "quantity": "950 ML",
+        "title": "Déboucheur Liquide Multi-Usages DESTOP",
+        "matched_ean": "3665468000312",
+        "image": "https://media.carrefour.fr/medias/28bb940e3a8b49b58446338e8f270c3f/p_540x540/03 665468000312_A1N1_s03.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Déboucheur Liquide Multi-Usages DESTOP",
+          "brand": "",
+          "kind": "",
+          "qty": "0.95 l",
+          "qualifiers": [],
+          "ean": "3665468000312",
+          "image_url": "https://media.carrefour.fr/medias/28bb940e3a8b49b58446338e8f270c3f/p_540x540/03 665468000312_A1N1_s03.jpeg",
+          "source": "carrefour_super",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-04T18:19:52.790690",
+      "finished_at": "2025-11-04T18:20:16.140777",
+      "duration_seconds": 23.350087,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3665468000312",
+        "QUERY": "3665468000312",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3665468000312"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-04T18:20:16.143653",
+      "finished_at": "2025-11-04T18:21:28.901864",
+      "duration_seconds": 72.758211,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000312",
+        "QUERY": "3665468000312",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] ensure_store_selected target=Talence Gallieni\n[auchan] recherche '3665468000312'\n[auchan] aucun résultat visible après recherche (url=https://www.auchan.fr/recherche?text=3665468000312)\n[auchan] recherche redirect vers https://www.auchan.fr/drive/magasins/auchan-drive-supermarche-talence-gallieni/produit/recherche?text=3665468000312\n[auchan] boutons 'Afficher le prix' trouvés: 0\n[auchan] 0 candidats Auchan identifiés après tri brut\n[auchan] aucun lien produit exploitable trouvé après recherche\n[auchan] aucune fiche ouverte pour ce terme\n[auchan] ensure_store_selected target=Talence Gallieni",
+      "metadata": {
+        "attempt_query": "3665468000312"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,95",
+        "title": "Déboucheur liquide surpuissant  DESTOP",
+        "url": "https://www.chronodrive.com/destop--deboucheur-liquide-surpuissant-P200687",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "4,16 € / L",
+        "quantity": "950  ml",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3665468000312",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Déboucheur liquide surpuissant  DESTOP",
+          "brand": "",
+          "kind": "",
+          "qty": "0.95 l",
+          "qualifiers": [],
+          "ean": "3665468000312",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-04T18:21:28.909460",
+      "finished_at": "2025-11-04T18:21:35.392654",
+      "duration_seconds": 6.483194,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000312",
+        "QUERY": "3665468000312",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='3665468000312'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/destop--deboucheur-liquide-surpuissant-P200687",
+      "metadata": {
+        "attempt_query": "3665468000312"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,73",
+        "unit_price": "3,93 € / L",
+        "quantity": "950  ml",
+        "title": "Déboucheur liquide destop flacon 950ml",
+        "url": "https://www.coursesu.com/p/deboucheur-liquide-destop-flacon-950ml/3867435.html",
+        "note": "2025-11-04T18:21:42Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "3665468000312",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Déboucheur liquide destop flacon 950ml",
+          "brand": "",
+          "kind": "",
+          "qty": "0.95 l",
+          "qualifiers": [],
+          "ean": "3665468000312",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-04T18:21:35.395283",
+      "finished_at": "2025-11-04T18:21:42.866141",
+      "duration_seconds": 7.470858,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000312",
+        "QUERY": "3665468000312",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[COURSEU_HINT] 3665468000312 -> https://www.coursesu.com/p/deboucheur-liquide-destop-flacon-950ml/3867435.html",
+      "metadata": {
+        "attempt_query": "3665468000312"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,83",
+        "title": "Déboucheur liquide",
+        "url": "https://www.intermarche.com/produit/deboucheur-liquide/3665468000312",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "3665468000312",
+        "unit_price": "7,76 € / L",
+        "quantity": "950 ml",
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/gel-deboucheur-express/3665468000329",
+            "product": {
+              "title": "DestopGel déboucheur express",
+              "brand": "Destop",
+              "kind": "Déboucheur Liquide Multi-Usages DESTOP",
+              "qty": "0.95 l",
+              "qualifiers": [],
+              "ean": "3665468000329",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\"  async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_de7ccf30.js\"></sc ript><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MWM3YTYxZDc2MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript async=\"\" src=\"//kwo.eulerian.net/azA228.js?2\"></script><script  async=\"\" src=\"https://via.batch.com/v4/bootstrap.min.js\"></script><script  type=\"text/javascript\" async=\"\"  src=\"https://ads-engagement.presage.io/script?site=www.intermarche.com&amp;full _url=https%3A%2F%2Fwww.intermarche.com%2Fproduit%2Fgel-deboucheur-express%2F3665 468000329&amp;src=gtm\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://bat.bing.com/bat.js\"></script><script type=\"text/javascript\"  async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=C8PMUHT9481U83L7JH 2G&amp;lib=ttq\"></script><script async=\"\"  src=\"//acdn.adnxs.com/dmp/up/pixie.js\"></script><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:  var(--toastify-color-error);--toastify-container-width:  fit-content;--toastify-toast-width: 320px;--toastify-toast-offset:  16px;--toastify-toast-top: max(var(--toastify-toast-offset),  env(safe-area-inset-top));--toastify-toast-right:  max(var(--toastify-toast-offset), env(s"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/gel-deboucheur-special-cheveux/305994000728 7",
+            "product": {
+              "title": "DestopGel déboucheur spécial cheveux",
+              "brand": "Destop",
+              "kind": "Déboucheur Liquide Multi-Usages DESTOP",
+              "qty": "0.95 l",
+              "qualifiers": [],
+              "ean": "305994000728",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><script  type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_de7ccf30.js\"></sc ript><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MWM3YTYxZDc2MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript async=\"\" src=\"//kwo.eulerian.net/azA228.js?2\"></script><script  async=\"\" src=\"https://via.batch.com/v4/bootstrap.min.js\"></script><script  type=\"text/javascript\" async=\"\"  src=\"https://ads-engagement.presage.io/script?site=www.intermarche.com&amp;full _url=https%3A%2F%2Fwww.intermarche.com%2Fproduit%2Fgel-deboucheur-special-cheveu x%2F3059940007287&amp;src=gtm\"></script><script type=\"text/javascript\"  async=\"\" src=\"https://bat.bing.com/bat.js\"></script><script  type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=C8PMUHT9481U83L7JH 2G&amp;lib=ttq\"></script><script async=\"\"  src=\"//acdn.adnxs.com/dmp/up/pixie.js\"></script><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:  var(--toastify-color-error);--toastify-container-width:  fit-content;--toastify-toast-width: 320px;--toastify-toast-offset:  16px;--toastify-toast-top: max(var(--toastify-toast-offset),  env(safe-area-inset-top));--toastify-toast-right:  max(var(--toastify-toast-offset"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/deboucheur-liquide/3665468000312",
+            "product": {
+              "title": "DestopDéboucheur liquide",
+              "brand": "Destop",
+              "kind": "Déboucheur  Liquide Multi-Usages DESTOP",
+              "qty": "0.95 l",
+              "qualifiers": [],
+              "ean": "3665468000312",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\"  async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_de7ccf30.js\"></sc ript><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MWM3YTYxZDc2MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript async=\"\" src=\"//kwo.eulerian.net/azA228.js?2\"></script><script  async=\"\" src=\"https://via.batch.com/v4/bootstrap.min.js\"></script><script  type=\"text/javascript\" async=\"\"  src=\"https://ads-engagement.presage.io/script?site=www.intermarche.com&amp;full _url=https%3A%2F%2Fwww.intermarche.com%2Fproduit%2Fdeboucheur-liquide%2F36654680 00312&amp;src=gtm\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://bat.bing.com/bat.js\"></script><script type=\"text/javascript\"  async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=C8PMUHT9481U83L7JH 2G&amp;lib=ttq\"></script><script async=\"\"  src=\"//acdn.adnxs.com/dmp/up/pixie.js\"></script><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:  var(--toastify-color-error);--toastify-container-width:  fit-content;--toastify-toast-width: 320px;--toastify-toast-offset:  16px;--toastify-toast-top: max(var(--toastify-toast-offset),  env(safe-area-inset-top));--toastify-toast-right:  max(var(--toastify-toast-offset), env(safe-"
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-04T18:21:43.809762",
+      "finished_at": "2025-11-04T18:22:54.958972",
+      "duration_seconds": 71.14921,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000312",
+        "QUERY": "Déboucheur liquide destop flacon 950 ml",
+        "FINDER_KEYWORDS": "[\"Déboucheur destop 0.95 L\", \"Déboucheur destop liquide\", \"Déboucheur 0.95 L\", \"Déboucheur multi 0.95 L\"]",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Déboucheur liquide destop flacon 950 ml",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3665468000312/debug/run-3665468000312-20251104-181909/07-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Déboucheur Liquide Destop 4 doses - 950ml",
+        "price": "2,96",
+        "unit_price": "3,12 € / l",
+        "quantity": "950 ml",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-209859-Deboucheur-Liquide-Destop-.aspx",
+        "matched_ean": "3665468000312",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-04T18:23:02Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-209859-Deboucheur-Liquide-Destop-.aspx",
+            "product": {
+              "title": "Déboucheur Liquide Destop 4 doses - 950ml",
+              "brand": "Destop",
+              "kind": "Déboucheur Liquide Multi-Usages DESTOP",
+              "qty": "0.95 l",
+              "qualifiers": [],
+              "ean": "3665468000312",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b30\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b30\"></script><script src=\"https://connect.facebook.net/signals/config/252104876580447?v=2.9.240&amp;r=stable&amp;domain=fd12-courses.leclercdrive.fr&amp;hme=12b14309f5cddaa66f2a1780ffdc98e8d9d29d0665941385f2f06853f713f49d&amp;ex_m=90%2C151%2C131%2C19%2C66%2C67%2C124%2C62%2C42%2C125%2C71%2C61%2C138%2C79%2C13%2C89%2C27%2C119%2C111%2C69%2C72%2C118%2C135%2C98%2C140%2C7%2C3%2C4%2C6%2C5%2C2%2C80%2C88%2C141%2C218%2C162%2C56%2C220%2C221%2C49%2C177%2C26%2C68%2C226%2C225%2C165%2C29%2C55%2C8%2C58%2C84%2C85%2C86%2C91%2C115%2C28%2C25%2C117%2C114%2C113%2C132%2C70%2C134%2C133%2C44%2C54%2C108%2C12%2C137%2C39%2C207%2C209%2C172%2C22%2C23%2C24%2C16%2C17%2C38%2C34%2C36%2C35%2C75%2C81%2C83%2C96%2C123%2C126%2C40%2C97%2C20%2C18%2C102%2C63%2C32%2C128%2C127%2C129%2C120%2C21%2C31%2C53%2C95%2C136%2C64%2C15%2C130%2C30%2C187%2C158%2C268%2C205%2C149%2C190%2C183%2C159%2C93%2C116%2C74%2C106%2C48%2C41%2C104%2C105%2C110%2C52%2C14%2C112%2C103%2C59%2C43%2C99%2C47%2C50%2C46%2C87%2C139%2C0%2C109%2C11%2C107%2C9%2C1%2C51%2C82%2C57%2C60%2C101%2C78%2C77%2C45%2C121%2C76%2C73%2C65%2C100%2C92%2C37%2C122%2C33%2C94%2C10%2C142\" async=\"\"></script><script async=\"\" src=\"https://connect.facebook.net/en_US/fbevents.js\"></script><script type=\"text/javascript\" async=\"\" src=\"https://t.contentsquare.net/uxa/5410cd051be75.js\"></script><script type=\"text/javascript\" async=\"\" src=\"https://bat.bing.com/bat.js\"></script><script async=\"\" src=\"https://www.googletagmanager.com/gtm.js?id=GTM-T4SXDX3\"></script><script>\n        window.ddjskey = \"8FE0CF7F8AB30EC588599D8046ED0E\"; window.ddoptions = { ajaxListenerPath: \"leclercdrive\" };\n    </script>\n    \n        <script src=\"https://js.datadome.co/tags.js\" async=\"\"></script>\n    \n    <!-- End Datadome script -->\n    <meta name=\"robots\" content=\"NOINDEX, NOFOLLOW, NOARCHIVE\"><meta http-equiv=\"Content-Type\" content=\"text/html; CHARSET=utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\"><title>\n\tDéboucheur Liquide Destop  | Bruges | E.Leclerc DRIVE\n</title><script type=\"text/javascript\" language=\"javascript\" src=\"/__js/release/fr/vbNETpWASPUTL/Infomil.ZCWB.WASP.Utilitaires/jsWASP009_GestionnaireClient.js?v=638973190984474296\"></script><link id=\"ctl00_imgFavIcon\" rel=\"icon\" type=\"image/x-icon\" href=\"/_res/release/_img/WCSD201_Commun/favicon.ico?v=638935516660000000\"><link id=\"ctl00_imgFavIcon2\" rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/_res/release/_img/WCSD201_Commun/favicon.ico?v=638935516660000000\"><link id=\"ctl00_imgFavIconIphone\" rel=\"apple-touch-icon\" href=\"/_res/release/_img/WCSD201_Commun/touch-icon-iphone.png?v=638935516660000000\"><link id=\"ctl00_imgFavIconIpad\" rel=\"apple-touch-icon\" sizes=\"76x76\" href=\"/_res/release/_img/WCSD201_Commun/touch-icon-ipad.png?v=638935516660000000\"><link id=\"ctl00_imgFavIconIphoneRetina\" rel=\"apple-touch-icon\" sizes=\"120x120\" href=\"/_res/release/_img/WCSD201_Commun/touch-icon-iphone-retina.png?v=638935516660000000\"><link id=\"ctl00_imgFavIconIpadRetina\" rel=\"apple-touch-icon\" sizes=\"152x152\" href=\"/_res/release/_img/WCSD201_Commun/touch-icon-ipad-retina.png?v=638935516660000000\"><script>\n    dataLayer = [{\"GoogleAnalyticsActif\":\"oui\",\"PixelFacebookActif\":\"oui\",\"MyFeelBackActif\":\"oui\",\"TradeExterneActif\":\"oui\",\"ContentSquareActif\":\"oui\",\"Client_EstConnecte\":\"non\",\"Client_IdExt\":\"\",\"Client_EstClientCarte\":\"\",\"Client_Segment\":\"\",\"Client_Pfg\":\"non\",\"Client_EmailChiffre\":\"\",\"Page_Groupe\":\"courses\",\"Page_Niveau1\":\"rp_entretien_nettoyage\",\"Page_Niveau2\":\"nettoyants_menagers\",\"Page_Niveau3\":\"deboucheurs_et_foss"
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-04T18:22:54.963630",
+      "finished_at": "2025-11-04T18:23:02.893207",
+      "duration_seconds": 7.929577,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000312",
+        "QUERY": "Déboucheur liquide destop flacon 950 ml",
+        "FINDER_KEYWORDS": "[\"Déboucheur destop 0.95 L\", \"Déboucheur destop liquide\", \"Déboucheur 0.95 L\", \"Déboucheur multi 0.95 L\"]",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Déboucheur liquide destop flacon 950 ml'\n[LECLERC_DEBUG] after home human pause -> 1.88s\n[LECLERC_DEBUG] after focus -> 3.21s\n[LECLERC_DEBUG] results visible -> 5.32s\n[LECLERC_DEBUG] after result pause -> 5.43s",
+      "metadata": {
+        "attempt_query": "Déboucheur liquide destop flacon 950 ml",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3665468000312/debug/run-3665468000312-20251104-181909/08-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-04T18:23:02.897435",
+      "finished_at": "2025-11-04T18:23:17.448448",
+      "duration_seconds": 14.551013,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000312",
+        "QUERY": "Déboucheur liquide destop flacon 950 ml",
+        "FINDER_KEYWORDS": "[\"Déboucheur destop 0.95 L\", \"Déboucheur destop liquide\", \"Déboucheur 0.95 L\", \"Déboucheur multi 0.95 L\"]",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '3665468000312'.\n[MONOPRIX_DEBUG] Search terms: ['Déboucheur destop 0,95 L']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez']\n[MONOPRIX_DEBUG]  - Term 1/1: 'Déboucheur destop 0,95 L'\n[MONOPRIX_DEBUG]  - Typing 'Déboucheur destop 0,95 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=D%C3%A9boucheur+destop+0%2C95+L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=None)\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Déboucheur liquide destop flacon 950 ml",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3665468000312/debug/run-3665468000312-20251104-181909/09-monoprix"
+      }
+    }
+  ],
+  "finder": null
+}
