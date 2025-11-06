@@ -1455,7 +1455,17 @@ def update_summary(run: PipelineRun, *, results_dir: Path) -> None:
 
     ean_entry = summary.setdefault(run.ean, {})
     for res in run.adapter_results:
-        ean_entry[res.adapter] = {
+        previous_entry = ean_entry.get(res.adapter)
+        previous_snapshot = None
+        if isinstance(previous_entry, dict):
+            previous_snapshot = {
+                "status": previous_entry.get("status"),
+                "payload": previous_entry.get("payload"),
+                "updated_at": previous_entry.get("updated_at"),
+                "error": previous_entry.get("error"),
+                "store_query": previous_entry.get("store_query"),
+            }
+        entry = {
             "status": res.status,
             "payload": res.payload,
             "updated_at": run.finished_at.isoformat(),
@@ -1463,6 +1473,9 @@ def update_summary(run: PipelineRun, *, results_dir: Path) -> None:
             "error": res.error,
             "store_query": res.env.get("STORE_QUERY"),
         }
+        if previous_snapshot:
+            entry["previous"] = previous_snapshot
+        ean_entry[res.adapter] = entry
 
     if run.finder is not None:
         ean_entry["_finder"] = run.finder

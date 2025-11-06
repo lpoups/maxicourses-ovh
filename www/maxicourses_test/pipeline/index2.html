@@ -714,6 +714,12 @@
       font-size: 0.8rem;
       color: #64748b;
     }
+    .meta-sub {
+      display: block;
+      font-size: 0.7rem;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
     .table-logo {
       display: inline-flex;
       align-items: center;
@@ -1797,6 +1803,7 @@
               <th>Statut</th>
               <th>Prix pack</th>
               <th>Prix / unité</th>
+              <th>Collecte précédente</th>
               <th>Magasin / Note</th>
               <th>Maj</th>
               <th>Liens</th>
@@ -2213,7 +2220,8 @@
           status: '',
           updatedAt: null,
           error: null,
-          storeQuery: null
+          storeQuery: null,
+          previous: null
         };
       }
       row.rawAdapters.add(adapterName);
@@ -2222,6 +2230,16 @@
       row.error = entry.error || row.error;
       row.storeQuery = entry.storeQuery || row.storeQuery;
       row.payload = mergePayloads(row.payload, entry.payload || {});
+      if (entry.previous && !row.previous) {
+        const previousPayload = entry.previous.payload ? { ...entry.previous.payload } : entry.previous.payload;
+        row.previous = {
+          status: entry.previous.status || null,
+          updated_at: entry.previous.updated_at || null,
+          payload: previousPayload || {},
+          error: entry.previous.error || null,
+          store_query: entry.previous.store_query || null,
+        };
+      }
       map.set(base, row);
     }
 
@@ -2230,6 +2248,11 @@
       const quantityText = payload.quantity || manualQuantity || '';
       const priceValue = parsePriceValue(payload.price);
       const hasPrice = Number.isFinite(priceValue);
+      const previousSnapshot = row.previous || null;
+      const previousPayload = previousSnapshot?.payload || null;
+      const previousPriceRaw = previousPayload ? previousPayload.price : null;
+      const previousPriceValue = parsePriceValue(previousPriceRaw);
+      const previousUpdatedAt = previousSnapshot?.updated_at || null;
       const expectedEanValue = normalizeEan(expectedEan);
       const matchedEanValue = normalizeEan(payload.matched_ean);
       const productTitle = (payload.title || '').toLowerCase();
@@ -2260,6 +2283,11 @@
         error: row.error,
         storeQuery: row.storeQuery,
         priceValue,
+        previous: previousSnapshot,
+        previousPayload,
+        previousPriceRaw,
+        previousPriceValue,
+        previousUpdatedAt,
         displayName: DISPLAY_NAMES[row.adapterName] || row.adapterName,
         rawAdapters: Array.from(row.rawAdapters || []),
         quantityText,
@@ -2491,6 +2519,23 @@
         const unitCell = document.createElement('td');
         unitCell.textContent = unitPrice || '—';
 
+        const previousCell = document.createElement('td');
+        previousCell.className = 'meta-cell';
+        const previousPriceText = formatPrice(row.previousPriceRaw);
+        const previousDateLabel = row.previousUpdatedAt ? formatDateTime(row.previousUpdatedAt) : '';
+        if (previousPriceText || previousDateLabel) {
+          const parts = [];
+          if (previousPriceText) {
+            parts.push(`<span>${escapeHtml(previousPriceText)}</span>`);
+          }
+          if (previousDateLabel) {
+            parts.push(`<span class="meta-sub">${escapeHtml(previousDateLabel)}</span>`);
+          }
+          previousCell.innerHTML = parts.join('');
+        } else {
+          previousCell.textContent = '—';
+        }
+
         const storeCell = document.createElement('td');
         storeCell.textContent = store || '—';
 
@@ -2514,6 +2559,7 @@
         tr.appendChild(statusCell);
         tr.appendChild(priceCell);
         tr.appendChild(unitCell);
+        tr.appendChild(previousCell);
         tr.appendChild(storeCell);
         tr.appendChild(updatedCell);
         tr.appendChild(linkCell);
