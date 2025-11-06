@@ -1,0 +1,493 @@
+{
+  "ean": "3033491485756",
+  "image_path": null,
+  "started_at": "2025-11-06T11:25:13.851310",
+  "finished_at": "2025-11-06T11:27:46.633035",
+  "duration_seconds": 152.781725,
+  "reference": {
+    "title": "Yaourt à boire fraise framboise protéiné 0%mg HIPRO - 300g",
+    "description": "Yaourt à boire fraise framboise protéiné 0%mg HIPRO - 300g",
+    "source": "courseu",
+    "brand": "Hipro",
+    "quantity": "300  g",
+    "categories": null,
+    "image": "https://media.carrefour.fr/media/referential/media/f51f8b9ec2964262b3cd59f55f3f 388c/03033491485756_C1N1_s10.png",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3033491485756/debug/run-3033491485756-20251106-112513"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-06T11:25:13.852320",
+      "finished_at": "2025-11-06T11:25:30.225833",
+      "duration_seconds": 16.373513,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "3033491485756",
+        "QUERY": "3033491485756",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3033491485756"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Market Fondaudège",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-06T11:25:30.226451",
+      "finished_at": "2025-11-06T11:25:44.872918",
+      "duration_seconds": 14.646467,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3033491485756",
+        "QUERY": "3033491485756",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3033491485756"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,05",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/yaourt-a-boire-fraise-framboise-proteine-0-mg-hipro- 3033491485756",
+        "note": null,
+        "unit_price": "6,83 € / KG",
+        "quantity": "300 G",
+        "title": "Yaourt à boire fraise framboise protéiné 0% MG HIPRO",
+        "matched_ean": "3033491485756",
+        "image": "https://media.carrefour.fr/media/referential/media/f51f8b9ec2964262b3cd59f55f3f 388c/03033491485756_C1N1_s10.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Yaourt à boire fraise framboise protéiné 0% MG HIPRO",
+          "brand": "Yaourt",
+          "kind": "",
+          "qty": "0.3 kg",
+          "qualifiers": [],
+          "ean": "3033491485756",
+          "image_url": "https://media.carrefour.fr/media/referential/media/f51f8b9ec2964262b3cd59f55f3f 388c/03033491485756_C1N1_s10.png",
+          "source": "carrefour_super",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-06T11:25:44.873502",
+      "finished_at": "2025-11-06T11:26:05.850478",
+      "duration_seconds": 20.976976,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3033491485756",
+        "QUERY": "3033491485756",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3033491485756"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-06T11:26:05.857831",
+      "finished_at": "2025-11-06T11:26:21.894370",
+      "duration_seconds": 16.036539,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3033491485756",
+        "QUERY": "3033491485756",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche '3033491485756'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/hipro-yaourt-a-boire-proteine-saveur-fraise-framboise-0-mg/pr-C1171247",
+      "metadata": {
+        "attempt_query": "3033491485756"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,55",
+        "title": "Yaourt à boire protéiné à la fraise  et framboise HIPRO",
+        "url": "https://www.chronodrive.com/hipro--yaourt-a-boire-proteine-a-la-fraise-et-framb oise-P415422",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "8,50 € / KG",
+        "quantity": "300 g",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3033491485756",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Yaourt à boire protéiné à la fraise  et framboise HIPRO",
+          "brand": "Yaourt",
+          "kind": "",
+          "qty": "0.3 kg",
+          "qualifiers": [],
+          "ean": "3033491485756",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-06T11:26:21.895006",
+      "finished_at": "2025-11-06T11:26:28.354566",
+      "duration_seconds": 6.45956,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3033491485756",
+        "QUERY": "3033491485756",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='3033491485756'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/hipro--yaourts-a-boire-a-la-fraise-et-framboise-P415422",
+      "metadata": {
+        "attempt_query": "3033491485756"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,20",
+        "unit_price": "7,33 € / KG",
+        "quantity": "300  g",
+        "title": "Yaourt à boire fraise framboise protéiné 0%mg HIPRO - 300g",
+        "url": "https://www.coursesu.com/p/yaourt-a-boire-fraise-framboise-proteine-0mg-hipro-- -300g/3722232.html",
+        "note": "2025-11-06T11:26:35Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "3033491485756",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Yaourt à boire fraise framboise protéiné 0%mg HIPRO - 300g",
+          "brand": "Yaourt",
+          "kind": "",
+          "qty": "0.3 kg",
+          "qualifiers": [],
+          "ean": "3033491485756",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-06T11:26:28.355705",
+      "finished_at": "2025-11-06T11:26:35.129651",
+      "duration_seconds": 6.773946,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3033491485756",
+        "QUERY": "3033491485756",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[COURSEU_HINT] 3033491485756 -> https://www.coursesu.com/p/yaourt-a-boire-fraise-framboise-proteine-0mg-hipro---300g/3722232.html",
+      "metadata": {
+        "attempt_query": "3033491485756"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,08",
+        "title": "Yaourt à boire protéiné fraise  framboise 0%MG",
+        "url": "https://www.intermarche.com/produit/yaourt-a-boire-proteine-fraise-framboise-0% 25mg/3033491485756",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "3033491485756",
+        "unit_price": "6,93 € / KG",
+        "quantity": "300  g",
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/yaourt-a-boire-proteine-fraise-framboise-0% 25mg/3033491485756",
+            "product": {
+              "title": "HiproYaourt à  boire protéiné fraise framboise 0%MG",
+              "brand": "Hipro",
+              "kind": "Yaourt à boire fraise framboise protéiné 0% MG HIPRO",
+              "qty": "0.3 kg",
+              "qualifiers": [],
+              "ean": "3033491485756",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\"  async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></sc ript><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript"
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-06T11:26:36.060000",
+      "finished_at": "2025-11-06T11:27:20.903599",
+      "duration_seconds": 44.843599,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3033491485756",
+        "QUERY": "Hipro Yaourt boire fraise framboise protéiné mg 300 g",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Hipro Yaourt boire fraise framboise protéiné mg 300 g",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3033491485756/debug/run-3033491485756-20251106-112513/07-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Yaourt à boire protéiné Hipro Fraise framboise 0%mg - 300g",
+        "price": "2,13",
+        "unit_price": "7,10 € / kg",
+        "quantity": "300 g",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-112294-Yaourt-a-boire-proteine-Hipro.aspx",
+        "matched_ean": "3033491485756",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-06T11:27:28Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-112294-Yaourt-a-boire-proteine-Hipro.aspx",
+            "product": {
+              "title": "Yaourt à boire protéiné Hipro Fraise framboise 0%mg - 300g",
+              "brand": "Hipro",
+              "kind": "Yaourt à boire fraise framboise protéiné 0% MG HIPRO",
+              "qty": "0.3 kg",
+              "qualifiers": [],
+              "ean": "3033491485756",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b40\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b40\"></script><script"
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-06T11:27:20.906827",
+      "finished_at": "2025-11-06T11:27:28.979598",
+      "duration_seconds": 8.072771,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3033491485756",
+        "QUERY": "Hipro Yaourt boire fraise framboise protéiné mg 300 g",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Hipro Yaourt boire fraise framboise protéiné mg 300 g'\n[LECLERC_DEBUG] after home human pause -> 0.90s\n[LECLERC_DEBUG] after focus -> 4.84s\n[LECLERC_DEBUG] results visible -> 6.57s\n[LECLERC_DEBUG] after result pause -> 6.67s",
+      "metadata": {
+        "attempt_query": "Hipro Yaourt boire fraise framboise protéiné mg 300 g",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3033491485756/debug/run-3033491485756-20251106-112513/08-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,99",
+        "title": "HiPRO Yaourt À Boire Fraise  Framboise 25% Protéines 300g",
+        "url": "https://courses.monoprix.fr/products/hipro-yaourt-%C3%A0-boire-fraise-framboise -25-prot%C3%A9ines-300g/MPX_3563217",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/fab9 d5ce-688c-42a9-a8f0-bb84cb6d9c15/300x300.jpg",
+        "matched_ean": null,
+        "unit_price": "9,97 € / KG",
+        "quantity": "300 G",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières  commandes\nEN SAVOIR +\nAccueil\nRégimes alimentaires\nNutrition et  Minceur\nProtéines et Encas pour sportifs\nHiPRO Yaourt À Boire Fraise Framboise 25% Protéines 300g\n1 s+\n1 semaine de garantie de vie du produit\n300g 9,97 € / kilo\n300g\n(9,97 € / kilo)\n2,99 €\nAjouter\nInformations  produit\n\n\nDescription Produit\nHiPRO à boire est un produit laitier riche en  protéines*, avec 25g de protéines par bouteille, 0% de matières grasses,  enrichie en magnésium et en vitamine B9**, pour contribuer au maintien de la  masse musculaire* et à la réduction de la fatigue**. Pouvant se consommer 6h  hors du frigo, il peut se consommer au petit-déjeuner, snack ou dessert, donc  adapté à toutes les pratiques sportives! Disponible en 6 saveurs : banane,  myrtille, noix de coco, vanille - cookie, mangue,  fraise-framboise\n\n\nOrigine\nEspagne\nMarque\nHipro\nService  consommateur\nD.P.F.F. 17 RUE DES DEUX GARES 92500 RUEIL MALMAISON France  https://www.danone.fr\nConseils d'utilisation\nSecouer avant  ouverture\nIngredients\nLAIT écrémé, protéines de LAIT, fruits (0,9%) (fraise  (0,7%), framboise (0,2%)), magnésium, épaississants (amidon modifié, pectine de  fruits), correcteurs d'acidité (acide citrique, citrate de sodium), arômes,  arôme naturel, édulcorants (acésulfame-K, sucralose), ferments lactiques (LAIT), Vitamine B9.\nAllergènes\nLAIT\nType d’emballage\nbocal\nProducteur\nDANONE  Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\nConseil  de conservation\nA consommer jusqu'au (jour/mois) :\nConseils  d'utilisation\nSecouer avant ouverture\nValeurs nutritionnelles\nINFORMATIONS  NUTRITIONNELLES MOYENNES\n\tpour 100 g\tEn % des AJR\tpour Par portion/Per  portie (300 g)\nValeurs Energétique en Kilojoules\t~ 252 kJ\t3 %\t755  kJ\nValeurs Energétique en Kilocalories\t~ 59 kcal\t3 %\t178 kcal\nValeurs  Nutritionnelles\nMatières grasses\t~ 0.5 g\t\t1.5 g\nDont Acides Gras Saturés\t~ 0.2 g\t1 %\t0.6 g\nGlucides\t~ 5.5 g\t2 %\t16.5 g\nDont Sucres\t~ 5.2 g\t5  %\t15.6 g\nProtéines\t~ 8.3 g\t16 %\t25.2 g\nSel\t~ 0.18 g\t3 %\t0.53  g\n\n\nMicro Nutriments\tpour 100 g\nCalcium\t~ 176 mg\nMagnésium\t~ 56.25  mg\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une  nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos  magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos  magasins avec Parapharmacie\nAide & Mentions\nDonnées personnelles et  cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": "fraise",
+          "candidate_variant": "fraise",
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [],
+          "candidate_quantity": "300 G",
+          "candidate_size_ratio": 0.0,
+          "descriptor_token_coverage": {
+            "coverage": 1.0,
+            "matched": [
+              "boire",
+              "fraise",
+              "framboise",
+              "hipro",
+              "proteine",
+              "yaourt"
+            ],
+            "missing": [],
+            "total": 6
+          },
+          "missing_tokens": [],
+          "image_match": true,
+          "final_score": 45,
+          "plausible_baseline": true
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/hipro-yaourt-à-boire-fraise-framboise-25-p rotéines-300g/MPX_3563217",
+            "product": {
+              "title": "",
+              "brand": "Hipro",
+              "kind": "Yaourt à boire fraise framboise protéiné 0% MG  HIPRO",
+              "qty": "0.3 kg",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": ""
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-06T11:27:28.980888",
+      "finished_at": "2025-11-06T11:27:46.547977",
+      "duration_seconds": 17.567089,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "3033491485756",
+        "QUERY": "Hipro Yaourt boire fraise framboise protéiné mg 300 g",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '3033491485756'.\n[MONOPRIX_DEBUG] Search terms: ['Hipro fraise', 'Hipro fraise framboise', 'Hipro framboise']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: fraise | dynamic negatives: ['sans sucre', 'zero', 'light', 'vanille', 'amande', 'coco', 'mangue', 'chocolat', 'orange', 'rouge', 'squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/3: 'Hipro fraise'\n[MONOPRIX_DEBUG]  - Typing 'Hipro fraise' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Hipro+fraise\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 1 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/hipro-yaourt-à-boire-fraise-framboise-25-protéines-300g/MPX_3563217\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/fab9d5ce-688c-42a9-a8f0-bb84cb6d9c15/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/hipro-yaourt-à-boire-fraise-framboise-25-protéines-300g/MPX_3563217\n[MONOPRIX_DEBUG][SCORE] - Title: 'HiPRO Yaourt À Boire Fraise Framboise 25% Protéines 300g' | Brand: 'hipro' | Variant(seed/cand)=(fraise/fraise) | Vetoes=[] | NegHits=[] | Score=15 | Plausible=True\n[MONOPRIX_DEBUG]  - Image match FOUND for 'HiPRO Yaourt À Boire Fraise Framboise 25% Protéines 300g'.\n[MONOPRIX_DEBUG] Best match (early return): 'HiPRO Yaourt À Boire Fraise Framboise 25% Protéines 300g' (Score: 45)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='2,99', title='HiPRO Yaourt À Boire Fraise Framboise 25% Protéines 300g', url='https://courses.monoprix.fr/products/hipro-yaourt-%C3%A0-boire-fraise-framboise-25-prot%C3%A9ines-300g/MPX_3563217', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/fab9d5ce-688c-42a9-a8f0-bb84cb6d9c15/300x300.jpg', matched_ean=None, unit_price='9,97 € / KG', quantity='300 G', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nNutrition et Minceur\\nProtéines et Encas pour sportifs\\nHiPRO Yaourt À Boire Fraise Framboise 25% Protéines 300g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\n300g 9,97\\xa0€ / kilo\\n300g\\n(9,97\\xa0€ / kilo)\\n2,99\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nHiPRO à boire est un produit laitier riche en protéines*, avec 25g de protéines par bouteille, 0% de matières grasses, enrichie en magnésium et en vitamine B9**, pour contribuer au maintien de la masse musculaire* et à la réduction de la fatigue**. Pouvant se consommer 6h hors du frigo, il peut se consommer au petit-déjeuner, snack ou dessert, donc adapté à toutes les pratiques sportives! Disponible en 6 saveurs : banane, myrtille, noix de coco, vanille - cookie, mangue, fraise-framboise\\n\\n\\nOrigine\\nEspagne\\nMarque\\nHipro\\nService consommateur\\nD.P.F.F. 17 RUE DES DEUX GARES 92500 RUEIL MALMAISON France https://www.danone.fr\\nConseils d'utilisation\\nSecouer avant ouverture\\nIngredients\\nLAIT écrémé, protéines de LAIT, fruits (0,9%) (fraise (0,7%), framboise (0,2%)), magnésium, épaississants (amidon modifié, pectine de fruits), correcteurs d'acidité (acide citrique, citrate de sodium), arômes, arôme naturel, édulcorants (acésulfame-K, sucralose), ferments lactiques (LAIT), Vitamine B9.\\nAllergènes\\nLAIT\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA consommer jusqu'au (jour/mois) :\\nConseils d'utilisation\\nSecouer avant ouverture\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\tEn % des AJR\\tpour Par portion/Per portie (300 g)\\nValeurs Energétique en Kilojoules\\t~ 252 kJ\\t3 %\\t755 kJ\\nValeurs Energétique en Kilocalories\\t~ 59 kcal\\t3 %\\t178 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 0.5 g\\t\\t1.5 g\\nDont Acides Gras Saturés\\t~ 0.2 g\\t1 %\\t0.6 g\\nGlucides\\t~ 5.5 g\\t2 %\\t16.5 g\\nDont Sucres\\t~ 5.2 g\\t5 %\\t15.6 g\\nProtéines\\t~ 8.3 g\\t16 %\\t25.2 g\\nSel\\t~ 0.18 g\\t3 %\\t0.53 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nCalcium\\t~ 176 mg\\nMagnésium\\t~ 56.25 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': 'fraise', 'candidate_variant': 'fraise', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '300 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['boire', 'fraise', 'framboise', 'hipro', 'proteine', 'yaourt'], 'missing': [], 'total': 6}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}, candidates=[{'url': 'https://courses.monoprix.fr/products/hipro-yaourt-à-boire-fraise-framboise-25-protéines-300g/MPX_3563217', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Hipro', 'kind': 'Yaourt à boire fraise framboise protéiné 0% MG HIPRO', 'qty': '300  g', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Hipro Yaourt boire fraise framboise protéiné mg 300 g",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3033491485756/debug/run-3033491485756-20251106-112513/09-monoprix"
+      }
+    }
+  ],
+  "finder": null
+}

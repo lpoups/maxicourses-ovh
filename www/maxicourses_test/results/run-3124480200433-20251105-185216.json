@@ -1,0 +1,65 @@
+{
+  "ean": "3124480200433",
+  "image_path": null,
+  "started_at": "2025-11-05T18:52:14.167345",
+  "finished_at": "2025-11-05T18:52:16.518933",
+  "duration_seconds": 2.351588,
+  "reference": {
+    "title": null,
+    "description": null,
+    "source": null,
+    "brand": null,
+    "quantity": null,
+    "categories": null,
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans maxicourses_test/results/debug/run-3124480200433-20251105-185214"
+  ],
+  "adapters": [
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-05T18:52:14.168020",
+      "finished_at": "2025-11-05T18:52:14.779769",
+      "duration_seconds": 0.611749,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "3124480200433",
+        "QUERY": "3124480200433",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "3124480200433"
+      }
+    }
+  ],
+  "finder": null
+}

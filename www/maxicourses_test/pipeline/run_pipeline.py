@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 from urllib.parse import urlparse
 from urllib.request import urlopen, Request
+from zoneinfo import ZoneInfo
 
 try:
     from PIL import Image  # type: ignore
@@ -30,6 +31,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 ASSETS_DIR = ROOT_DIR / "pipeline" / "assets"
 
 SIZE_TOKEN_SUFFIXES = ("ml", "cl", "dl", "l", "g", "kg")
+PARIS_TZ = ZoneInfo("Europe/Paris")
 
 
 def _looks_like_size_token(raw: str) -> bool:
@@ -83,6 +85,7 @@ STOPWORDS = {
     "au",
     "aux",
     "avec",
+    "boire",
     "base",
     "de",
     "des",
@@ -133,6 +136,8 @@ def build_seed_query_from_descriptor(descriptor: Dict[str, Any]) -> str:
         normalized = _normalize_seed_token(token)
         if not normalized:
             return
+        if len(normalized) <= 2:
+            return
         if normalized in STOPWORDS:
             return
         if normalized in seen:
@@ -148,7 +153,7 @@ def build_seed_query_from_descriptor(descriptor: Dict[str, Any]) -> str:
             return
         for token in _tokenize_phrase(source):
             normalized = _normalize_seed_token(token)
-            if not normalized or normalized in STOPWORDS:
+            if not normalized or len(normalized) <= 2 or normalized in STOPWORDS:
                 continue
             if _looks_like_size_token(token):
                 continue
@@ -253,7 +258,7 @@ def _extract_product_tokens_for_leclerc(
             if not token:
                 continue
             normalized = _normalize_seed_token(token)
-            if not normalized or normalized in STOPWORDS:
+            if not normalized or len(normalized) <= 2 or normalized in STOPWORDS:
                 continue
             if _looks_like_size_token(token):
                 continue
@@ -388,7 +393,7 @@ def build_leclerc_search_profile(descriptor: Dict[str, Any]) -> Dict[str, List[s
     secondary_keywords: List[str] = []
     for token in product_tokens[1:]:
         normalized = _normalize_seed_token(token)
-        if not normalized or normalized in STOPWORDS:
+        if not normalized or len(normalized) <= 2 or normalized in STOPWORDS:
             continue
         if token not in secondary_keywords:
             secondary_keywords.append(token)
@@ -495,6 +500,16 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
             "STORE_NAME": os.getenv("COURSEU_STORE_NAME", "Super U Eysines"),
         },
     },
+    "g20": {
+        "script": ROOT_DIR / "fetch_g20_price.py",
+        "env": lambda: {
+            "G20_SEARCH_TEMPLATE": os.getenv(
+                "G20_SEARCH_TEMPLATE",
+                "https://www.g20-minute.com/search/{ean}",
+            ),
+            "G20_BASE_URL": os.getenv("G20_BASE_URL", "https://www.g20-minute.com"),
+        },
+    },
 }
 
 EAN_ONLY_ADAPTERS = {
@@ -504,6 +519,7 @@ EAN_ONLY_ADAPTERS = {
     "auchan",
     "chronodrive",
     "courseu",
+    "g20",
 }
 
 DEFAULT_ADAPTER_ORDER = [
@@ -513,6 +529,7 @@ DEFAULT_ADAPTER_ORDER = [
     "auchan",
     "chronodrive",
     "courseu",
+    "g20",
     "intermarche",
     "leclerc",
     "monoprix",
@@ -809,6 +826,9 @@ def _qualifiers_from_any(value: Any) -> List[str]:
 def _payload_to_product_descriptor(payload: Dict[str, Any], source: str) -> Optional[ProductDescriptor]:
     if not isinstance(payload, dict):
         return None
+    status_value = str(payload.get("status") or "").upper()
+    if status_value in {"NO_MATCH", "NO_RESULTS", "ERROR", "TIMEOUT", "CF_BLOCK"}:
+        return None
     title = payload.get("title") or payload.get("name")
     brand = payload.get("brand") or ""
     kind = payload.get("kind") or payload.get("category") or payload.get("type") or ""
@@ -817,6 +837,20 @@ def _payload_to_product_descriptor(payload: Dict[str, Any], source: str) -> Opti
     ean_value = payload.get("matched_ean") or payload.get("ean")
     image_candidate = payload.get("image_url") or payload.get("image") or payload.get("thumbnail")
     raw_text = payload.get("raw_text") or payload.get("description") or payload.get("long_description") or ""
+    product_block = payload.get("product") if isinstance(payload.get("product"), dict) else {}
+
+    if not brand and isinstance(product_block, dict):
+        brand = product_block.get("brand") or ""
+    if not kind and isinstance(product_block, dict):
+        kind = product_block.get("kind") or ""
+    if not qty and isinstance(product_block, dict):
+        qty = product_block.get("qty") or ""
+    if not raw_text and isinstance(product_block, dict):
+        raw_text = product_block.get("raw_text") or ""
+    if not title and isinstance(product_block, dict):
+        title = product_block.get("title") or ""
+    if not qualifiers and isinstance(product_block, dict):
+        qualifiers = product_block.get("qualifiers") or []
 
     if not any([title, brand, kind, qty, raw_text]):
         return None
@@ -835,6 +869,14 @@ def _payload_to_product_descriptor(payload: Dict[str, Any], source: str) -> Opti
     kind_str = _stringify(kind)
     qty_str = norm_qty(_stringify(qty))
     raw_text_str = _stringify(raw_text)
+    if raw_text_str and len(raw_text_str.split()) > 120:
+        raw_text_str = " ".join(raw_text_str.split()[:120])
+    if raw_text_str and len(raw_text_str) > 600:
+        raw_text_str = raw_text_str[:600].rsplit(" ", 1)[0]
+    if not brand_str and title_str:
+        candidate_brand = title_str.split()[0]
+        if candidate_brand and len(candidate_brand) >= 3:
+            brand_str = norm_brand(candidate_brand)
     return ProductDescriptor(
         title=title_str,
         brand=brand_str,
@@ -1139,7 +1181,15 @@ def ensure_descriptor_via_seed(
     seed_results: Dict[str, RawAdapterResult] = {}
     descriptor_current = dict(descriptor or {"ean": ean})
 
-    seed_order = ["carrefour_city", "carrefour_market", "carrefour_super", "auchan", "chronodrive", "courseu"]
+    seed_order = [
+        "carrefour_city",
+        "carrefour_market",
+        "carrefour_super",
+        "auchan",
+        "chronodrive",
+        "courseu",
+        "g20",
+    ]
 
     for adapter in seed_order:
         if adapter not in adapters:
@@ -1271,7 +1321,7 @@ def run_adapter(
             local_env["QUERY"] = candidate_query
 
         command = [sys.executable, str(script_path)]
-        started_at = datetime.utcnow()
+        started_at = datetime.now(PARIS_TZ)
         proc = subprocess.run(
             command,
             env=local_env,
@@ -1279,7 +1329,7 @@ def run_adapter(
             text=True,
             cwd=str(ROOT_DIR),
         )
-        finished_at = datetime.utcnow()
+        finished_at = datetime.now(PARIS_TZ)
         stdout = proc.stdout.strip()
         stderr = proc.stderr.strip() if proc.stderr else None
 
@@ -1359,8 +1409,8 @@ def run_adapter(
         adapter=adapter,
         status="ERROR",
         payload={},
-        started_at=datetime.utcnow(),
-        finished_at=datetime.utcnow(),
+        started_at=datetime.now(PARIS_TZ),
+        finished_at=datetime.now(PARIS_TZ),
         script_path=str(script_path),
         command=[sys.executable, str(script_path)],
         env={
@@ -1485,7 +1535,7 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     query = build_search_query(ean, descriptor)
 
-    started_at = datetime.utcnow()
+    started_at = datetime.now(PARIS_TZ)
     adapters = args.adapters or DEFAULT_ADAPTER_ORDER
 
     human_mode = args.human or args.headed
@@ -1595,7 +1645,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             print(f"\n[WARN] Finder post-traitement: {exc}")
             finder_block = {"error": str(exc)}
 
-    finished_at = datetime.utcnow()
+    finished_at = datetime.now(PARIS_TZ)
 
     nutri_score_value = None
     if descriptor:

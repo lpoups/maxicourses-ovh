@@ -10,7 +10,9 @@
 
 - Les requêtes humaines doivent etre tapé avec des espaces (`"coca cola 1,75 l"`) ; bannir les `+` quels que soient les magasins (le fait d'ajouter de "+" force des mots clés et augment la quantité de resultats sur certain magasins).
 
-Nous utilison `finder.py` et plus du tout de fichier .json pour definir les mots cles de recherche et les mots cles de descriptif pour pre-validations de fiche avant matching image! 
+Nous utilison `finder.py` et plus du tout de fichier .json pour definir les mots cles de recherche et les mots cles de descriptif pour pre-validations de fiche avant matching image!
+
+⚠️ **RAPPEL ABSOLU** : aucun mot-clé ne doit être maintenu dans des fichiers `.json`. Toute génération/édition passe exclusivement par `finder.py` et la logique Python associée. Toute réintroduction de `.json` pour les mots-clés est strictement interdite.
 
 Il est strictement interdit de toucher aux fetcher autre que auchan!
 

@@ -483,6 +483,7 @@ def api_collect():
             "auchan",
             "chronodrive",
             "courseu",
+            "g20",
             "intermarche",
             "leclerc",
             "monoprix",

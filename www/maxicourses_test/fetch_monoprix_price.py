@@ -15,7 +15,7 @@ from decimal import Decimal, InvalidOperation
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from urllib.parse import urljoin, quote, quote_plus
+from urllib.parse import urljoin, quote
 import logging
 from playwright.async_api import Page, BrowserContext
 
@@ -763,13 +763,6 @@ def _size_token_from_text(value: typing.Optional[str]) -> typing.Optional[str]:
 def _preferred_size_token(descriptor: dict[str, typing.Any]) -> typing.Optional[str]:
     if not isinstance(descriptor, dict):
         return None
-    canonical = descriptor.get("canonical")
-    if isinstance(canonical, dict):
-        size_value = canonical.get("size_value")
-        size_unit = canonical.get("size_unit")
-        token = _format_size_token(size_value, size_unit)
-        if token:
-            return token
     for field in (
         "seed_primary_quantity",
         "quantity",
@@ -779,6 +772,13 @@ def _preferred_size_token(descriptor: dict[str, typing.Any]) -> typing.Optional[
         "description",
     ):
         token = _size_token_from_text(descriptor.get(field))
+        if token:
+            return token
+    canonical = descriptor.get("canonical")
+    if isinstance(canonical, dict):
+        size_value = canonical.get("size_value")
+        size_unit = canonical.get("size_unit")
+        token = _format_size_token(size_value, size_unit)
         if token:
             return token
     return None
@@ -1793,7 +1793,7 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
 
         # Fallback : navigation directe vers la page de recherche si la simulation n'affiche rien
         if not product_links:
-            fallback_url = urljoin(base_url, f"search?q={quote_plus(term)}")
+            fallback_url = urljoin(base_url, f"search?q={quote(term, safe='')}")
             sys.stderr.write("[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: "
                              f"{fallback_url}\n")
             try:
@@ -1968,12 +1968,34 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
                 descriptor_entry["_monoprix_core_tokens"] = core_tokens
 
             if core_tokens:
+                def _compact(value: typing.Optional[str]) -> str:
+                    return "".join(ch for ch in (value or "") if not ch.isspace())
                 title_blob = _normalize_search_text(product_result.title)
                 normalized_blob = _normalize_search_text(product_result.raw_text)
-                missing_core = [
-                    token for token in core_tokens
-                    if token and token not in (title_blob or "") and token not in (normalized_blob or "")
-                ]
+                title_compact = _compact(title_blob)
+                normalized_compact = _compact(normalized_blob)
+                missing_core = []
+                for token in core_tokens:
+                    if not token:
+                        continue
+                    token_compact = _compact(token)
+                    token_variants = {token, token_compact}
+                    if token.endswith("e"):
+                        token_variants.add(f"{token}s")
+                        token_variants.add(f"{token_compact}s")
+                    if token.endswith("es") and len(token) > 2:
+                        token_variants.add(token[:-1])
+                        token_variants.add(token_compact[:-1])
+                    if not any(
+                        variant and (
+                            (title_blob and variant in title_blob)
+                            or (normalized_blob and variant in normalized_blob)
+                            or (title_compact and variant in title_compact)
+                            or (normalized_compact and variant in normalized_compact)
+                        )
+                        for variant in token_variants
+                    ):
+                        missing_core.append(token)
                 if missing_core:
                     extras.setdefault("missing_core_tokens", missing_core)
                     extras["vetoes"].append("core_token")
@@ -2244,11 +2266,15 @@ def evaluate_candidate(
                 continue
             considered_tokens += 1
             token_hit = False
+            token_compact = "".join(ch for ch in token if not ch.isspace())
+            blob_compact = "".join(ch for ch in normalized_blob if not ch.isspace()) if normalized_blob else ""
             if token in normalized_blob:
                 token_hit = True
             elif token.endswith("e") and f"{token}s" in normalized_blob:
                 token_hit = True
             elif token.endswith("es") and token[:-1] in normalized_blob:
+                token_hit = True
+            elif token_compact and token_compact in blob_compact:
                 token_hit = True
             if token_hit:
                 matched_tokens.append(token)

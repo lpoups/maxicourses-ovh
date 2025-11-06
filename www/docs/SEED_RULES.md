@@ -2,6 +2,8 @@
 
 Ce mémo doit être mis à jour après chaque collecte. Pour chaque EAN : consigner les erreurs à éviter et la méthode validée.
 
+⚠️ **Règle globale** : plus aucun mot-clé n’est maintenu dans des fichiers `.json`. Toute évolution passe par `finder.py`, `KeywordGenerator` ou `seed_catalog.py`. Toute tentative de recréer des `.json` de mots-clés est interdite et doit être refusée.
+
 ## 3700260216148 – Croquettes chat saumon ULTIMA 1,5 kg
 - **Faire ceci = erreur**
   - Utiliser la fiche Chronodrive (renvoie Purina 3 kg, `matched_ean` vide).

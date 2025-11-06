@@ -11,7 +11,7 @@ import typing
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import quote_plus, urljoin, urlparse
+from urllib.parse import quote, urljoin, urlparse
 
 from rich import print  # noqa: T201
 from playwright.async_api import TimeoutError as PlaywrightTimeout
@@ -272,10 +272,19 @@ async def _is_cf_block(page) -> bool:
     return False
 
 
-async def perform_search(page, term: str) -> None:
+async def perform_search(page, term: str, *, refresh_first: bool = True) -> None:
     normalized = _normalize_search_term(term)
     if not normalized:
         return
+    if refresh_first:
+        try:
+            await page.reload(wait_until="domcontentloaded")
+        except PlaywrightTimeout:
+            pass
+        await page.wait_for_timeout(800)
+        await accept_cookies(page)
+        await close_overlays(page)
+
     selectors = [
         "input[type='search'][name*='search']",
         "input[type='search']",
@@ -302,7 +311,7 @@ async def perform_search(page, term: str) -> None:
             continue
 
     _debug_log("fallback to direct search URL")
-    search_url = f"{HOME_URL}/recherche?q={quote_plus(normalized)}"
+    search_url = f"{HOME_URL}/recherche?q={quote(normalized, safe='')}"
     try:
         await page.goto(search_url, wait_until="domcontentloaded")
     except PlaywrightTimeout:

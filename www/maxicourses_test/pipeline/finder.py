@@ -388,6 +388,7 @@ class KeywordGenerator:
         "et",
         "pour",
         "avec",
+        "boire",
         "sans",
         "lot",
         "lots",
@@ -454,18 +455,18 @@ class KeywordGenerator:
     def _extract_tokens(self, descriptor: ProductDescriptor) -> List[str]:
         counter: Dict[str, float] = {}
         brand_norm = self._normalize(descriptor.brand)
-        fields = [
-            (descriptor.kind, 5.0),
-            (descriptor.title, 4.0),
-            (" ".join(descriptor.qualifiers), 3.0),
-            (descriptor.raw_text, 1.0),
-        ]
-        for text, weight in fields:
+        tracked_tokens: set[str] = set()
+
+        raw_text = descriptor.raw_text
+        if isinstance(raw_text, str) and len(raw_text) > 180:
+            raw_text = " ".join(raw_text.split()[:40])
+
+        def harvest(text: Optional[str], weight: float, *, primary: bool = False) -> None:
             if not text:
-                continue
+                return
             normalized_text = self._normalize(text)
             if not normalized_text:
-                continue
+                return
             for token in normalized_text.split():
                 if not token or len(token) <= 2:
                     continue
@@ -476,6 +477,15 @@ class KeywordGenerator:
                 if brand_norm and token == brand_norm:
                     continue
                 counter[token] = counter.get(token, 0.0) + weight
+                if primary:
+                    tracked_tokens.add(token)
+
+        harvest(descriptor.kind, 5.0, primary=True)
+        harvest(descriptor.title, 4.0, primary=True)
+        harvest(" ".join(descriptor.qualifiers), 3.0, primary=True)
+        if raw_text:
+            filtered = " ".join(tok for tok in self._normalize(raw_text).split() if tok in tracked_tokens)
+            harvest(filtered, 0.5)
         ranked = sorted(counter.items(), key=lambda kv: (-kv[1], kv[0]))
         return [token for token, _score in ranked]
 
@@ -495,6 +505,17 @@ class KeywordGenerator:
         brand = self._format_brand(d.brand)
         quantity = self._format_quantity(d.qty)
         tokens = self._extract_tokens(d)
+
+        # déduire s’il s’agit d’un paquet multi-articles (xN)
+        has_multiplier = False
+        if d.qty and isinstance(d.qty, str):
+            if re.search(r"\b\d+\s*[x×]\s*\d+\b", d.qty.lower()):
+                has_multiplier = True
+        if d.title and isinstance(d.title, str) and not has_multiplier:
+            if re.search(r"\b\d+\s*[x×]\s*\d+\b", d.title.lower()):
+                has_multiplier = True
+        if not has_multiplier and sum(1 for t in tokens if re.fullmatch(r"\d+", t)) > 1:
+            has_multiplier = True
         qualifiers = [self._format_brand(q) for q in d.qualifiers if isinstance(q, str)]
 
         queries: List[str] = []

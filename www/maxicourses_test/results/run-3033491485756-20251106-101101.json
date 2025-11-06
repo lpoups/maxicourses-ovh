@@ -1,0 +1,66 @@
+{
+  "ean": "3033491485756",
+  "image_path": null,
+  "started_at": "2025-11-06T10:10:51.057614",
+  "finished_at": "2025-11-06T10:11:01.369891",
+  "duration_seconds": 10.312277,
+  "reference": {
+    "title": null,
+    "description": null,
+    "source": null,
+    "brand": null,
+    "quantity": null,
+    "categories": null,
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans maxicourses_test/results/debug/run-3033491485756-20251106-101051"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "note": "2025-11-06T10:11:00Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-06T10:10:51.058929",
+      "finished_at": "2025-11-06T10:11:00.379303",
+      "duration_seconds": 9.320374,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3033491485756",
+        "QUERY": "3033491485756",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3033491485756"
+      }
+    }
+  ],
+  "finder": null
+}

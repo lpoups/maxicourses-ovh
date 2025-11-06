@@ -10,7 +10,7 @@ import sys
 import typing
 from dataclasses import dataclass
 from pathlib import Path
-from urllib.parse import quote_plus, unquote
+from urllib.parse import quote, unquote
 
 from rich import print
 import sys as _sys
@@ -773,7 +773,7 @@ async def ensure_home(page) -> bool:
 async def perform_search(page, term: str) -> bool:
     """Submit a search query via the header search box."""
     try:
-        encoded = quote_plus(term)
+        encoded = quote(term, safe="")
         search_url = f"https://www.intermarche.com/recherche/{encoded}"
         await page.goto(search_url, wait_until="networkidle")
         try:
