@@ -424,6 +424,32 @@ class KeywordGenerator:
         "supermarche",
     }
 
+    GENERIC_TOKENS = {
+        "cafe",
+        "cafes",
+        "café",
+        "cafés",
+        "boisson",
+        "boissons",
+        "produit",
+        "produits",
+        "arabica",
+        "intensite",
+        "intensité",
+        "qualite",
+        "qualité",
+    }
+
+    BOOST_SUBSTRINGS = (
+        "capsul",
+        "dosett",
+        "pod",
+        "supremo",
+        "ristretto",
+        "espresso",
+        "nespresso",
+    )
+
     def __init__(self, max_keywords: int = 4, max_length: int = 30) -> None:
         self.max_keywords = max_keywords
         self.max_length = max_length
@@ -459,6 +485,53 @@ class KeywordGenerator:
         cleaned = cleaned.replace(",", ".")
         cleaned = re.sub(r"\s+", " ", cleaned)
         return cleaned.upper()
+
+    def _expand_quantity_variants(self, quantity: Optional[str]) -> List[str]:
+        formatted = self._format_quantity(quantity)
+        if not formatted:
+            return []
+
+        variants: List[str] = []
+        seen: set[str] = set()
+
+        def add_variant(text: str) -> None:
+            candidate = text.strip()
+            if not candidate:
+                return
+            key = candidate.upper()
+            if key in seen:
+                return
+            seen.add(key)
+            variants.append(candidate)
+
+        add_variant(formatted)
+
+        match = re.match(r"(?P<number>\d+(?:\.\d+)?)(?:\s*)?(?P<unit>ML|CL|L)\b", formatted)
+        if match:
+            try:
+                value = float(match.group("number"))
+            except ValueError:
+                value = None
+            unit = match.group("unit")
+            if value is not None:
+                liters = value
+                if unit == "ML":
+                    liters = value / 1000.0
+                elif unit == "CL":
+                    liters = value / 100.0
+
+                liter_text = f"{liters:.2f}"
+                add_variant(f"{liter_text} L")
+                add_variant(f"{liter_text.replace('.', ',')} L")
+
+                cl_value = int(round(liters * 100))
+                ml_value = int(round(liters * 1000))
+                if cl_value > 0:
+                    add_variant(f"{cl_value} CL")
+                if ml_value > 0:
+                    add_variant(f"{ml_value} ML")
+
+        return variants
 
     def _extract_tokens(self, descriptor: ProductDescriptor) -> List[str]:
         counter: Dict[str, float] = {}
@@ -511,8 +584,10 @@ class KeywordGenerator:
 
     def make(self, d: ProductDescriptor) -> List[str]:
         brand = self._format_brand(d.brand)
-        quantity = self._format_quantity(d.qty)
+        quantity_variants = self._expand_quantity_variants(d.qty)
+        quantity_primary = quantity_variants[0] if quantity_variants else ""
         tokens = self._extract_tokens(d)
+        tokens = self._reprioritize_tokens(tokens)
 
         # déduire s’il s’agit d’un paquet multi-articles (xN)
         has_multiplier = False
@@ -543,27 +618,31 @@ class KeywordGenerator:
         secondary_token = tokens[1] if len(tokens) > 1 else ""
         tertiary_token = tokens[2] if len(tokens) > 2 else ""
 
-        if brand and main_token and quantity:
-            add_query([brand, main_token, quantity])
+        if brand and main_token and quantity_variants:
+            for qty in quantity_variants:
+                add_query([brand, main_token, qty])
 
         if brand and main_token and secondary_token:
             add_query([brand, main_token, secondary_token])
 
-        if brand and quantity:
-            add_query([brand, quantity])
+        if brand and quantity_variants:
+            for qty in quantity_variants:
+                add_query([brand, qty])
 
-        if brand and tertiary_token and len(queries) < self.max_keywords:
-            add_query([brand, tertiary_token, quantity])
+        if brand and tertiary_token and quantity_primary and len(queries) < self.max_keywords:
+            add_query([brand, tertiary_token, quantity_primary])
 
         for qual in qualifiers:
-            if brand and qual and qual.lower() not in seen:
-                add_query([brand, qual, quantity or main_token])
+            if brand and qual and quantity_primary:
+                add_query([brand, qual, quantity_primary])
+            elif brand and qual and main_token:
+                add_query([brand, qual, main_token])
 
         if not queries and brand and main_token:
             add_query([brand, main_token])
 
-        if not queries and main_token and quantity:
-            add_query([main_token, quantity])
+        if not queries and main_token and quantity_primary:
+            add_query([main_token, quantity_primary])
 
         if not queries and tokens:
             add_query(tokens[:3])
@@ -572,6 +651,22 @@ class KeywordGenerator:
             add_query([brand])
 
         return queries[: self.max_keywords]
+
+    def _reprioritize_tokens(self, tokens: List[str]) -> List[str]:
+        if not tokens:
+            return tokens
+
+        def priority(token: str) -> tuple[int, int]:
+            base = token.lower()
+            if any(sub in base for sub in self.BOOST_SUBSTRINGS):
+                return (0, -len(token))
+            if base in self.GENERIC_TOKENS:
+                return (2, len(token))
+            return (1, -len(token))
+
+        enumerated = list(enumerate(tokens))
+        enumerated.sort(key=lambda item: (*priority(item[1]), item[0]))
+        return [token for _, token in enumerated]
 # ---------- Moteur de matching ----------
 class MatchingEngine:
     def __init__(self, strict_qty: bool = True) -> None:

@@ -758,6 +758,38 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
+    .table-collect-button {
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.25);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .table-collect-button:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.3);
+    }
+    .table-collect-button:disabled {
+      opacity: 0.55;
+      cursor: progress;
+      box-shadow: none;
+    }
+    .table-collect-button--success {
+      background: linear-gradient(135deg, #059669, #10b981);
+      box-shadow: 0 12px 24px rgba(16, 185, 129, 0.3);
+    }
+    .table-collect-button--error {
+      background: linear-gradient(135deg, #dc2626, #f97316);
+      box-shadow: 0 12px 24px rgba(220, 38, 38, 0.3);
+    }
     .price-badge {
       display: inline-flex;
       align-items: center;
@@ -2045,12 +2077,21 @@
               <th>Collecte précédente</th>
               <th>Magasin / Note</th>
               <th>Maj</th>
-              <th>Liens</th>
+              <th>Collecte</th>
             </tr>
           </thead>
           <tbody></tbody>
         `;
-        renderTable(table.querySelector('tbody'), rows, best?.value, worstValue);
+        renderTable(
+          table.querySelector('tbody'),
+          rows,
+          best?.value,
+          worstValue,
+          {
+            ean: cardOptionsWithContext.ean || descriptor.ean || null,
+            datasetConfig: cardOptionsWithContext.datasetConfig || null,
+          }
+        );
         target.appendChild(table);
       } else {
         const empty = document.createElement('div');
@@ -2563,6 +2604,51 @@
       }
     }
 
+    async function handleAdapterCollect({ ean, adapter, datasetConfig, button }) {
+      const normalizedAdapter = normalizeAdapterName(adapter);
+      if (!ean || !normalizedAdapter || !button) {
+        return;
+      }
+
+      const originalLabel = button.textContent || 'Collecter';
+      button.disabled = true;
+      button.classList.remove('table-collect-button--error', 'table-collect-button--success');
+      button.textContent = 'Collecte…';
+
+      try {
+        const response = await fetch(REFRESH_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ean, adapters: [normalizedAdapter] }),
+        });
+        if (!response.ok) {
+          let details = '';
+          try {
+            const body = await response.json();
+            details = body?.message || body?.error || '';
+          } catch (err) {
+            // ignore JSON errors
+          }
+          throw new Error(details || `HTTP ${response.status}`);
+        }
+
+        await reloadSummary();
+        await reloadDataset(ean, datasetConfig || null);
+        button.classList.add('table-collect-button--success');
+        button.textContent = 'OK';
+      } catch (error) {
+        console.error('Collecte magasin échouée', error);
+        button.classList.add('table-collect-button--error');
+        button.textContent = 'Erreur';
+      } finally {
+        setTimeout(() => {
+          button.classList.remove('table-collect-button--error', 'table-collect-button--success');
+          button.textContent = originalLabel;
+          button.disabled = false;
+        }, 1800);
+      }
+    }
+
     function buildRows(ean, data, summaryBlock, manualDescriptors) {
       const map = new Map();
       if (summaryBlock) {
@@ -2674,6 +2760,7 @@
       }
 
       return {
+        ean: expectedEanValue || null,
         adapterName: row.adapterName,
         payload,
         status: row.status,
@@ -2853,7 +2940,9 @@
       return lines.filter(Boolean).map((line) => escapeHtml(line)).join('<br />');
     }
 
-    function renderTable(tbody, rows, bestValue, worstValue) {
+    function renderTable(tbody, rows, bestValue, worstValue, options = {}) {
+      const tableEan = options?.ean || null;
+      const datasetConfig = options?.datasetConfig || null;
       tbody.innerHTML = '';
       rows.forEach((row) => {
         const payload = row.payload || {};
@@ -2941,15 +3030,36 @@
         updatedCell.className = 'meta-cell';
         updatedCell.textContent = updatedLabel;
 
-        const linkCell = document.createElement('td');
+        const actionsCell = document.createElement('td');
+        const effectiveEan = tableEan || row.ean || null;
+        if (effectiveEan && row.adapterName) {
+          const collectButton = document.createElement('button');
+          collectButton.type = 'button';
+          collectButton.className = 'table-collect-button';
+          collectButton.textContent = 'Collecter';
+          collectButton.addEventListener('click', () => {
+            handleAdapterCollect({
+              ean: effectiveEan,
+              adapter: row.adapterName,
+              datasetConfig,
+              button: collectButton,
+            });
+          });
+          actionsCell.appendChild(collectButton);
+        }
         if (payload.url) {
           const link = document.createElement('a');
           link.className = 'link';
           link.href = payload.url;
           link.target = '_blank';
           link.rel = 'noopener';
-          link.textContent = 'Ouvrir';
-          linkCell.appendChild(link);
+          link.textContent = 'Voir fiche';
+          link.style.display = 'block';
+          link.style.marginTop = '6px';
+          actionsCell.appendChild(link);
+        }
+        if (!actionsCell.childNodes.length) {
+          actionsCell.textContent = '—';
         }
 
         tr.appendChild(nameCell);
@@ -2960,13 +3070,13 @@
         tr.appendChild(previousCell);
         tr.appendChild(storeCell);
         tr.appendChild(updatedCell);
-        tr.appendChild(linkCell);
+        tr.appendChild(actionsCell);
 
         if (row.error && !row.priceValue) {
           const err = document.createElement('div');
           err.className = 'notes';
           err.textContent = row.error;
-          linkCell.appendChild(err);
+          actionsCell.appendChild(err);
         }
 
         tbody.appendChild(tr);

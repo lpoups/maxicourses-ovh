@@ -1,0 +1,686 @@
+{
+  "ean": "8711000547403",
+  "image_path": null,
+  "started_at": "2025-11-08T13:38:03.775895+01:00",
+  "finished_at": "2025-11-08T13:45:19.848792+01:00",
+  "duration_seconds": 436.072897,
+  "reference": {
+    "title": "Café Capsules L'OR SUPREMO N°10 - compatible NESPRESSO - x30",
+    "description": "Café Capsules L'OR SUPREMO N°10 - compatible NESPRESSO - x30",
+    "source": "courseu",
+    "brand": "Or",
+    "quantity": "21 G",
+    "categories": null,
+    "image": "./assets/8711000547403.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-08T13:38:03.776373+01:00",
+      "finished_at": "2025-11-08T13:38:20.708118+01:00",
+      "duration_seconds": 16.931745,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "8711000547403",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547403"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,55",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-espresso-supremo-intensite-10-compatib les-nespresso-l-or-8711000547403",
+        "note": null,
+        "unit_price": "61,22 € / KG",
+        "quantity": "10 L",
+        "title": "Café Capsules Espresso Supremo Intensité 10  Compatibles Nespresso L'OR",
+        "matched_ean": "8711000547403",
+        "image": "https://media.carrefour.fr/medias/ffb8d35cdefb42cc83936fc429fea013/p_540x540/08 711000547403_C1N1_s04.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Espresso Supremo Intensité 10  Compatibles Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "10 l",
+          "qualifiers": [],
+          "ean": "8711000547403",
+          "image_url": "https://media.carrefour.fr/medias/ffb8d35cdefb42cc83936fc429fea013/p_540x540/08 711000547403_C1N1_s04.png",
+          "source": "carrefour_market",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-08T13:38:20.708474+01:00",
+      "finished_at": "2025-11-08T13:38:39.015816+01:00",
+      "duration_seconds": 18.307342,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "8711000547403",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547403"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,35",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-espresso-supremo-intensite-10-compatib les-nespresso-l-or-8711000547403",
+        "note": null,
+        "unit_price": "59,94 € / KG",
+        "quantity": "10 L",
+        "title": "Café Capsules Espresso Supremo Intensité 10  Compatibles Nespresso L'OR",
+        "matched_ean": "8711000547403",
+        "image": "https://media.carrefour.fr/medias/ffb8d35cdefb42cc83936fc429fea013/p_540x540/08 711000547403_C1N1_s04.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Espresso Supremo Intensité 10  Compatibles Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "10 l",
+          "qualifiers": [],
+          "ean": "8711000547403",
+          "image_url": "https://media.carrefour.fr/medias/ffb8d35cdefb42cc83936fc429fea013/p_540x540/08 711000547403_C1N1_s04.png",
+          "source": "carrefour_super",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-08T13:38:39.018140+01:00",
+      "finished_at": "2025-11-08T13:39:00.197711+01:00",
+      "duration_seconds": 21.179571,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "8711000547403",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547403"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "17,49",
+        "title": "Capsules de café Supremo intensité  10 compatibles Nespresso",
+        "url": "https://www.auchan.fr/l-or-espresso-capsules-de-cafe-supremo-intensite-10-compa tibles-nespresso/pr-C1777908",
+        "note": "Auchan (CDP)",
+        "unit_price": "112,12 € / KG",
+        "quantity": "156 G",
+        "matched_ean": "8711000547403",
+        "image": "https://cdn.auchan.fr/media/S01000000040J7CPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café Supremo intensité  10 compatibles Nespresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "0.156 kg",
+          "qualifiers": [],
+          "ean": "8711000547403",
+          "image_url": "https://cdn.auchan.fr/media/S01000000040J7CPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-08T13:39:00.198882+01:00",
+      "finished_at": "2025-11-08T13:39:17.163762+01:00",
+      "duration_seconds": 16.96488,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "8711000547403",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche '8711000547403'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/l-or-espresso-capsules-de-cafe-supremo-intensite-10-compatibles-nespresso/pr-C1777908",
+      "metadata": {
+        "attempt_query": "8711000547403"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,89",
+        "title": "Capsules de café supremo N°10 L'OR  Espresso",
+        "url": "https://www.chronodrive.com/lor--espresso---capsules-de-cafe-supremo-n10-P54070 8",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "63,40 € / KG",
+        "quantity": "30 capsules",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "8711000547403",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café supremo N°10 L'OR  Espresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "30 capsules",
+          "qualifiers": [],
+          "ean": "8711000547403",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-08T13:39:17.164480+01:00",
+      "finished_at": "2025-11-08T13:39:23.423262+01:00",
+      "duration_seconds": 6.258782,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "8711000547403",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='8711000547403'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/lor--espresso---capsules-de-cafe-supremo-n10-P540708",
+      "metadata": {
+        "attempt_query": "8711000547403"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,57",
+        "unit_price": "455,71 € / KG",
+        "quantity": "21 G",
+        "title": "Café Capsules L'OR SUPREMO N°10 - compatible NESPRESSO - x30",
+        "url": "https://www.coursesu.com/p/cafe-capsules-lor-supremo-n10---compatible-nespresso ---x30/6590240.html",
+        "note": "2025-11-08T12:39:54Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "8711000547403",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules L'OR SUPREMO N°10 - compatible NESPRESSO - x30",
+          "brand": "Café",
+          "kind": "",
+          "qty": "0.021 kg",
+          "qualifiers": [],
+          "ean": "8711000547403",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-08T13:39:23.424081+01:00",
+      "finished_at": "2025-11-08T13:39:54.530535+01:00",
+      "duration_seconds": 31.106454,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "8711000547403",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547403"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-08T13:39:54.531229+01:00",
+      "finished_at": "2025-11-08T13:39:55.146415+01:00",
+      "duration_seconds": 0.615186,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "8711000547403",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "8711000547403"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "title": null,
+        "url": "https://www.intermarche.com/produit/cafe-en-grains-absolu-intensite-7/871100089 8949",
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/cafe-en-grains-absolu-intensite-7/871100089 8949",
+            "product": {
+              "title": "L'OrCafé en grains Absolu Intensité 7",
+              "brand": "L'OrCafé",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "871100089",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></sc ript><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/cafe-grains-qualite-or/3250390102342",
+            "product": {
+              "title": "Planteur des  Tropiques, une marque IntermarchéCafé grains qualité or",
+              "brand": "Planteur",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3250390102342",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></sc ript><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-forz a-intensite-9/8711000705032",
+            "product": {
+              "title": "L'OrCapsules de café compatibles Nespresso Forza Intensité 9",
+              "brand": "L'OrCapsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000705032",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></sc ript><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/cafe-moulu-qualite-or/3250390102335",
+            "product": {
+              "title": "Planteur des  Tropiques, une marque IntermarchéCafé moulu Qualité Or",
+              "brand": "Planteur",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3250390102335",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></sc ript><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-rist retto-intensite-11/8711000705094",
+            "product": {
+              "title": "L'OrCapsules de café compatibles Nespresso Ristretto  Intensité 11",
+              "brand": "L'OrCapsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000705094",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\"  async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></sc ript><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/cafe-en-grains-selection-intensite-6-100%25 -arabica/8711000898901",
+            "product": {
+              "title": "L'OrCafé en  grains Sélection Intensité 6 100% Arabica",
+              "brand": "L'OrCafé",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000898901",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><script  type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></sc ript><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/cafe-en-grains-absolu-intensite-10/87110005 63977",
+            "product": {
+              "title": "L'OrCafé en grains Absolu Intensité  10",
+              "brand": "L'OrCafé",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "87110005",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\"  async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></sc ript><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/cafe-en-grains-espresso-intensite-8-100%25- arabica/3228470052016",
+            "product": {
+              "title": "L'OrCafé en  grains Espresso Intensité 8 100% Arabica",
+              "brand": "L'OrCafé",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3228470052016",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><script  type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></sc ript><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-sple ndente-intensite-7/8711000705162",
+            "product": {
+              "title": "L'OrCapsules de café compatibles Nespresso Splendente  Intensité 7",
+              "brand": "L'OrCapsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000705162",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\"  async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></sc ript><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-deca ffeinato-intensite-6/8711000360538",
+            "product": {
+              "title": "L'OrCapsules de café compatibles Nespresso Decaffeinato  Intensité 6",
+              "brand": "L'OrCapsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000360538",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\"  async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></sc ript><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript"
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-08T13:39:55.671041+01:00",
+      "finished_at": "2025-11-08T13:42:25.735423+01:00",
+      "duration_seconds": 150.064382,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "Or cafe 0.021 KG",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Or cafe 0.021 KG"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Capsules L'Or Espresso Supremo x30 - 156g",
+        "price": "9,33",
+        "unit_price": "59,81 € / kg",
+        "quantity": "",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231368-Capsules-LOr-Espresso.aspx",
+        "matched_ean": "8711000547403",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-08T12:43:13Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-147224-Capsules-Nescafe-Dolce-Gusto-.aspx",
+            "product": {
+              "title": "Capsules Nescafé Dolce Gusto Espresso - x30",
+              "brand": "Capsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "7613037935080",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b50h1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b50h1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-115320-Capsules-cafe-Plantation.aspx",
+            "product": {
+              "title": "Capsules café Plantation Equilibré n°6 - x10 - 52g",
+              "brand": "Capsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564706594708",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b50h1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b50h1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-115349-Capsules-cafe-Plantation.aspx",
+            "product": {
+              "title": "Capsules café Plantation Intense n°10 - x30 - 156g",
+              "brand": "Capsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564706594807",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b50h1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b50h1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-115321-Capsules-cafe-Plantation.aspx",
+            "product": {
+              "title": "Capsules café Plantation Intense n°10 - x10 - 52g",
+              "brand": "Capsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564706594715",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b50h1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b50h1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231368-Capsules-LOr-Espresso.aspx",
+            "product": {
+              "title": "Capsules L'Or Espresso Supremo x30 - 156g",
+              "brand": "Capsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000547403",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b50h1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b50h1\"></script><script"
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-08T13:42:31.632989+01:00",
+      "finished_at": "2025-11-08T13:43:13.743920+01:00",
+      "duration_seconds": 42.110931,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "Or cafe capsules",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Or cafe capsules'\n[LECLERC_DEBUG] after home human pause -> 0.87s\n[LECLERC_DEBUG] after focus -> 1.29s\n[LECLERC_DEBUG] results visible -> 2.32s\n[LECLERC_DEBUG] after result pause -> 2.42s",
+      "metadata": {
+        "attempt_query": "Or cafe capsules"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-08T13:43:13.747732+01:00",
+      "finished_at": "2025-11-08T13:43:26.588948+01:00",
+      "duration_seconds": 12.841216,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547403",
+        "QUERY": "Or cafe 0.021 KG",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] ERROR: EAN '8711000547403' not found in seed_catalog.py. Scoring will fail.\n[MONOPRIX_DEBUG] Search terms: ['Or cafe 0,021 KG']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/1: 'Or cafe 0,021 KG'\n[MONOPRIX_DEBUG]  - Typing 'Or cafe 0,021 KG' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Or%20cafe%200%2C021%20KG\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=None)\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Or cafe 0.021 KG"
+      }
+    }
+  ],
+  "finder": null
+}

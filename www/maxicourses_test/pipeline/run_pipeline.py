@@ -209,6 +209,19 @@ def build_seed_query_from_descriptor(descriptor: Dict[str, Any]) -> str:
 _UNIT_TOKENS = {"ml", "l", "cl", "g", "kg"}
 
 
+def _quantity_rank(value: Optional[str]) -> int:
+    if not isinstance(value, str):
+        return 3
+    cleaned = value.strip().upper()
+    if not cleaned:
+        return 3
+    if re.search(r"\b(ML|L|CL)\b", cleaned):
+        return 0
+    if re.search(r"\b(KG|G)\b", cleaned):
+        return 1
+    return 2
+
+
 def _normalize_quantity_token(quantity: Optional[str]) -> Optional[str]:
     if not isinstance(quantity, str):
         return None
@@ -581,6 +594,13 @@ def merge_descriptor(base: Optional[Dict[str, Any]], updates: Dict[str, Any]) ->
             continue
         if isinstance(value, str) and not value.strip():
             continue
+        if key == "quantity":
+            existing_quantity = descriptor.get("quantity")
+            if existing_quantity:
+                current_rank = _quantity_rank(existing_quantity)
+                new_rank = _quantity_rank(value)
+                if current_rank <= new_rank:
+                    continue
         if key == "brand":
             existing = descriptor.get("brand")
             existing_norm = normalize_brand_candidate(existing)
