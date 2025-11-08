@@ -346,7 +346,15 @@ class Consolidator:
             self.sources.append(d)
     def merged(self) -> ProductDescriptor:
         # règle simple: privilégie champs les plus fréquents non vides parmi sources EAN-direct
-        def pick(field: str) -> str:
+        preferred_sources = {"seed", "canonical"}
+        def pick(field: str, prefer_seed: bool = False) -> str:
+            if prefer_seed:
+                for src in self.sources:
+                    source_label = (src.source or "").lower()
+                    if source_label in preferred_sources:
+                        value = getattr(src, field)
+                        if value:
+                            return value
             vals = [getattr(s, field) for s in self.sources if getattr(s, field)]
             if not vals:
                 return ""
@@ -356,10 +364,10 @@ class Consolidator:
                 scores[v] = scores.get(v, 0) + 1
             return max(scores.items(), key=lambda kv: kv[1])[0]
         merged = ProductDescriptor(
-            title=pick("title"),
-            brand=pick("brand"),
+            title=pick("title", prefer_seed=True),
+            brand=pick("brand", prefer_seed=True),
             kind=pick("kind"),
-            qty=pick("qty"),
+            qty=pick("qty", prefer_seed=True),
             ean=next((s.ean for s in self.sources if s.ean), None),
             image_url=next((s.image_url for s in self.sources if s.image_url), None),
             source="consolidated",

@@ -8,6 +8,7 @@ import sys
 from dataclasses import dataclass
 import typing
 from pathlib import Path
+from collections import Counter
 
 # Keep Rich pretty print for local debugging but default to stderr logging so
 # stdout remains valid JSON for the pipeline consumer.
@@ -308,6 +309,52 @@ async def ensure_store_selected(page) -> None:
         except Exception:
             pass
 
+
+async def refresh_and_confirm_drive(page) -> None:
+    """Forces a reload then clicks the 'Choisir ce Drive' button before searching."""
+    try:
+        await page.reload(wait_until="domcontentloaded")
+    except PlaywrightTimeout:
+        pass
+    except Exception:
+        return
+    await page.wait_for_timeout(1200)
+    await accept_cookies(page)
+    button_selectors = [
+        "button:has-text('Choisir ce Drive')",
+        "button:has-text('Choisir ce magasin')",
+        "button[data-testid='store-location-btn']",
+    ]
+    drive_button = None
+    for selector in button_selectors:
+        cand = page.locator(selector).first
+        if await cand.count():
+            drive_button = cand
+            break
+    if not drive_button:
+        return
+    try:
+        await drive_button.click()
+        await page.wait_for_timeout(10000)
+    except Exception:
+        return
+    # Close overlay if still visible
+    close_selectors = [
+        "button:has-text('Valider')",
+        "button:has-text('Choisir ce magasin')",
+        "button[aria-label='Fermer']",
+        "button:has-text('Voir ce magasin')",
+    ]
+    for selector in close_selectors:
+        node = page.locator(selector).first
+        if await node.count():
+            try:
+                await node.click()
+                await page.wait_for_timeout(500)
+                break
+            except Exception:
+                continue
+
     option_selectors = [
         f"button:has-text('{target}')",
         "button[data-testid='store-item']",
@@ -442,13 +489,81 @@ async def _extract_from_pdp(page) -> typing.Optional[Result]:
                 price = m.group(1).replace(',', '.')
                 break
 
+    def _select_quantity_from_html(html_text: str, unit_groups: typing.Sequence[str]) -> typing.Optional[str]:
+        units_pattern = "|".join(unit_groups)
+        pattern = rf"(\d+[\.,]?\d*)\s*({units_pattern})"
+        matches = re.findall(pattern, html_text, flags=re.IGNORECASE)
+        if not matches:
+            return None
+        counter: Counter = Counter()
+        values_map: dict[tuple[float, str], float] = {}
+        for raw_value, raw_unit in matches:
+            try:
+                numeric = float(raw_value.replace(",", "."))
+            except ValueError:
+                continue
+            unit = raw_unit.upper()
+            base_unit = None
+            base_value = numeric
+            if unit in {"G", "KG"}:
+                base_unit = "G"
+                if unit == "KG":
+                    base_value = numeric * 1000
+            elif unit in {"ML", "CL", "L"}:
+                base_unit = "ML"
+                if unit == "CL":
+                    base_value = numeric * 10
+                elif unit == "L":
+                    base_value = numeric * 1000
+            else:
+                continue
+            if base_value <= 0:
+                continue
+            if base_unit == "G":
+                if not (5 <= base_value <= 20000):
+                    continue
+            else:
+                if not (5 <= base_value <= 20000):
+                    continue
+            key = (round(base_value, 3), base_unit)
+            counter[key] += 1
+            if key not in values_map:
+                values_map[key] = base_value
+        if not counter:
+            return None
+        best_key = max(counter.keys(), key=lambda k: counter[k])
+        base_value = values_map[best_key]
+        base_unit = best_key[1]
+        def _format_quantity(value: float, unit: str) -> str:
+            if unit == "G":
+                if value >= 1000 and abs(value % 1000) < 1e-6:
+                    qty = value / 1000
+                    unit_out = "KG"
+                else:
+                    qty = value
+                    unit_out = "G"
+            else:
+                if value >= 1000 and abs(value % 1000) < 1e-6:
+                    qty = value / 1000
+                    unit_out = "L"
+                elif value >= 100 and abs(value % 10) < 1e-6:
+                    qty = value / 10
+                    unit_out = "CL"
+                else:
+                    qty = value
+                    unit_out = "ML"
+            if abs(qty - round(qty)) < 1e-6:
+                qty_str = str(int(round(qty)))
+            else:
+                qty_str = f"{qty:.2f}".rstrip("0").rstrip(".")
+            return f"{qty_str} {unit_out}"
+        return _format_quantity(base_value, base_unit)
+
     if html:
         if matched_ean is None and EAN and EAN in html:
             matched_ean = EAN
         if quantity is None:
-            mqty = re.search(r"(\d+[\.,]?\d*)\s*(L|l|KG|kg|G|g|CL|cl|ML|ml)", html)
-            if mqty:
-                quantity = f"{mqty.group(1).replace(',', '.')} {mqty.group(2).upper()}"
+            quantity = _select_quantity_from_html(html, ("G", "KG")) or _select_quantity_from_html(html, ("ML", "CL", "L"))
         if unit_price is None:
             munit = re.search(r"(\d+[\.,]\d{2})\s*€\s*/\s*(?:L|l|kg|KG|G|g)", html)
             if munit:
@@ -564,6 +679,7 @@ async def run_via_playwright() -> typing.Optional[Result]:
         await page.wait_for_timeout(1500)
         await accept_cookies(page)
         await ensure_store_selected(page)
+        await refresh_and_confirm_drive(page)
 
         for term in search_terms:
             log(f"recherche '{term}'")
@@ -636,6 +752,7 @@ async def run_via_playwright() -> typing.Optional[Result]:
             await page.wait_for_timeout(1500)
             await accept_cookies(page)
             await ensure_store_selected(page)
+            await refresh_and_confirm_drive(page)
     finally:
         try:
             await browser.close()

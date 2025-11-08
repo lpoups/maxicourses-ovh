@@ -6,7 +6,7 @@
 - Capitaliser l'historique (décisions, obstacles, artefacts) afin que tout nouvel assistant reprenne le travail sans perte d'information.
 
 ## Garde-fous immédiats
-- **Gel fetchers existants** : ne toucher sous aucun prétexte aux scripts `fetch_carrefour_price_market.py`, `fetch_carrefour_price_city.py`, `fetch_chronodrive_price.py`, `fetch_courseu_price.py`, `fetch_intermarche_price.py`, `fetch_leclerc_drive_price.py`, `fetch_monoprix_price.py`, `fetch_carrefour_price_super.py` (ni à leurs helpers) tant que Laurent n’a pas validé une modification. Les travaux en cours ne concernent que,  `fetch_auchan_price.py` ainsi que verifier que la collect globale à partir de index2.html ne s'arrete pas à intermarche ! 
+- **Gel fetchers existants** : ne toucher sous aucun prétexte aux scripts `fetch_carrefour_price_market.py`, `fetch_carrefour_price_city.py`, `fetch_auchan_price.py`, `fetch_chronodrive_price.py`, `fetch_courseu_price.py`, `fetch_intermarche_price.py`, `fetch_leclerc_drive_price.py`, `fetch_monoprix_price.py` (ni à leurs helpers) tant que Laurent n’a pas validé une modification explicite. Seul le wrapper `fetch_carrefour_price_super.py` peut évoluer sans validation préalable (objectif : sécuriser la collecte Carrefour Super Lormont).
 
 - Les requêtes humaines doivent etre tapé avec des espaces (`"coca cola 1,75 l"`) ; bannir les `+` quels que soient les magasins (le fait d'ajouter de "+" force des mots clés et augment la quantité de resultats sur certain magasins).
 
@@ -14,11 +14,22 @@ Nous utilison `finder.py` et plus du tout de fichier .json pour definir les mots
 
 ⚠️ **RAPPEL ABSOLU** : aucun mot-clé ne doit être maintenu dans des fichiers `.json`. Toute génération/édition passe exclusivement par `finder.py` et la logique Python associée. Toute réintroduction de `.json` pour les mots-clés est strictement interdite.
 
-Il est strictement interdit de toucher aux fetcher autre que auchan!
 
 //
 - **URGENT PRIORITE : Auchan Talence (2025-11-05)** : 
 Recommencer l'intégralité de la collect AUCHAN car tout a été saccagé par le précendent GPT! il faut repartir de zero! AUCHAN accept la recherche directe via EAN! eventuellement rechercher la sauvegarde de fetch_auchan_price.py datant de avant le 01/11/2025
+
+- **Journal 2025-11-06 — Actions récentes**
+  - `fetch_auchan_price.py` normalise désormais la quantité collectée : on extrait toutes les mesures (g/ml) et on garde la valeur majoritaire pour éviter les faux `5 L`.
+  - `maxicourses_test/decode_ean.py` possède un double fallback :
+    - OCR local (pytesseract) si ZXing n’arrive pas à lire les barres ;
+    - Appel optionnel à l’API OpenAI (`gpt-4o-mini`) pour lire les chiffres imprimés (clé recherchée dans `OPENAI_API_KEY` ou `docs/API_KEY.md`).
+  - `start_chrome_debug.sh` ajoute `--remote-allow-origins=*` pour garantir la compatibilité Playwright ↔ Chrome 142.
+
+- **À poursuivre**
+
+  - Valider en conditions réelles la lecture via OpenAI : certains prompts retournent encore « je ne peux pas aider », il faudra éventuellement ajuster le wording ou le modèle.
+  - Relancer une collecte globale complète pour s’assurer que les nouvelles quantités Auchan et la colonne « collecte précédente » côté front sont conformes.
 
 - **Correctif Chronodrive déployé (2025-10-30 soir)** : `fetch_chronodrive_price.py` contourne désormais l’overlay capricieux en interrogeant l’API suggestions (`/v1/search-suggestions`) puis l’API produit (`/v1/products/{id}`) avec les en-têtes `x-chronodrive-site-id=1006`. On sélectionne le meilleur candidat via l’EAN + tokens, on résout la `canonicalUrl` et on ouvre la PDP Playwright (<2 s). Les anciens fallback UI restent présents mais ne devraient plus se déclencher.
 - **Nouveau scope Carrefour Super Lormont (2025-10-31)** : le wrapper `fetch_carrefour_price_super.py` reproduit la stratégie City/Market avec `STORE_QUERY="Super Lormont"`. Le pipeline connaît désormais l’adaptateur `carrefour_super` (logo Carrefour + label « Super ») et le point GPS (lat 44.867007, lon -0.516348). Seed en EAN brut obligatoire, aucune régression tolérée sur City/Market.

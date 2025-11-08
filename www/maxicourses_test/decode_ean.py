@@ -3,12 +3,25 @@
 
 from __future__ import annotations
 
+import base64
+import io
+import os
+import re
 import sys
 from pathlib import Path
 from typing import Iterable, Optional
 
 from PIL import Image, ImageOps, ImageFilter, ImageEnhance
 import zxingcpp
+try:
+    import pytesseract  # type: ignore
+except ImportError:  # pragma: no cover - optional dependency
+    pytesseract = None
+
+try:
+    import requests  # type: ignore
+except ImportError:  # pragma: no cover - optional dependency
+    requests = None  # type: ignore
 
 
 PREFERRED_LENGTHS: tuple[int, ...] = (13,)
@@ -139,6 +152,111 @@ def _preferred_formats() -> zxingcpp.BarcodeFormats:
     return formats
 
 
+def _ean_checksum_ok(value: str) -> bool:
+    if len(value) != 13 or not value.isdigit():
+        return False
+    odd = sum(int(value[i]) for i in range(0, 12, 2))
+    even = sum(int(value[i]) for i in range(1, 12, 2))
+    check = (10 - ((odd + even * 3) % 10)) % 10
+    return check == int(value[-1])
+
+
+def _load_openai_api_key() -> Optional[str]:
+    key = os.getenv("OPENAI_API_KEY")
+    if isinstance(key, str) and key.strip():
+        return key.strip()
+    try:
+        docs_path = Path(__file__).resolve().parent.parent / "docs" / "API_KEY.md"
+        if docs_path.exists():
+            text = docs_path.read_text(encoding="utf-8")
+            match = re.search(r"(sk-[A-Za-z0-9_\-]+)", text)
+            if match:
+                return match.group(1).strip()
+    except Exception:
+        pass
+    return None
+
+
+def _read_digits_via_openai(image: Image.Image, api_key: str) -> Optional[str]:
+    if requests is None:
+        return None
+    try:
+        width, height = image.size
+        crop_top = max(0, height - int(height * 0.5))
+        cropped = image.crop((0, crop_top, width, height))
+        grey = ImageOps.grayscale(cropped)
+        buffer = io.BytesIO()
+        grey.save(buffer, format="PNG")
+        encoded = base64.b64encode(buffer.getvalue()).decode("ascii")
+        payload = {
+            "model": os.getenv("OPENAI_VISION_MODEL", "gpt-4o-mini"),
+            "input": [
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "input_text",
+                            "text": (
+                                "Lis uniquement les chiffres imprimés sur cette image (ils correspondent à un code-barres public). "
+                                "Réponds strictement par ces chiffres, sans mots ni espaces supplémentaires. "
+                                "S'il y a 12 chiffres visibles, retourne-les dans l'ordre; s'il y en a 13, retourne les 13."
+                            ),
+                        },
+                        {
+                            "type": "input_image",
+                            "image_url": f"data:image/png;base64,{encoded}",
+                        },
+                    ],
+                }
+            ],
+            "max_output_tokens": 50,
+        }
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        }
+        response = requests.post(
+            "https://api.openai.com/v1/responses",
+            json=payload,
+            headers=headers,
+            timeout=40,
+        )
+        if response.status_code >= 400:
+            return None
+        data = response.json()
+        text = data.get("output_text")
+        if not text:
+            outputs = data.get("output") or []
+            for item in outputs:
+                content = item.get("content") if isinstance(item, dict) else None
+                if content and isinstance(content, list):
+                    for chunk in content:
+                        if isinstance(chunk, dict) and "text" in chunk:
+                            text = chunk["text"]
+                            break
+                if text:
+                    break
+        if not text:
+            return None
+        match = re.search(r"(\d{12,14})", text.replace(" ", "").replace("\n", ""))
+        if not match:
+            return None
+        digits = match.group(1)
+        if len(digits) == 12:
+            odd = sum(int(digits[i]) for i in range(0, 12, 2))
+            even = sum(int(digits[i]) for i in range(1, 12, 2))
+            check = (10 - ((odd + even * 3) % 10)) % 10
+            digits = digits + str(check)
+        if len(digits) == 13 and _ean_checksum_ok(digits):
+            return digits
+    except Exception:
+        return None
+    return None
+
+
+_OPENAI_API_KEY = _load_openai_api_key()
+
+
 def decode_image_to_ean(
     image_path: Path | str,
     *,
@@ -257,11 +375,52 @@ def decode_image_to_ean(
                 attempt(scaled)
                 for angle in (-10, -8, -6, -5, -4, -3, -2, -1, 0.5, 1, 2, 3, 4, 5, 6, 8, 10, 90, 180, 270):
                     rotated = scaled.rotate(angle, expand=True)
-                    attempt(rotated)
+                attempt(rotated)
                 if candidate_votes:
                     break
         if candidate_votes:
             break
+    if not candidate_votes and pytesseract is not None:
+        try:
+            fallback_img = ImageOps.autocontrast(grayscale)
+        except Exception:
+            fallback_img = grayscale
+        width, height = fallback_img.size
+        upscale = fallback_img.resize((width * 2, height * 2), Image.BICUBIC)
+        up_width, up_height = upscale.size
+        regions = [
+            upscale,
+            upscale.crop((0, max(0, up_height - int(up_height * 0.45)), up_width, up_height)),
+            upscale.crop((0, max(0, up_height - int(up_height * 0.6)), up_width, up_height)),
+        ]
+        for region in regions:
+            try:
+                text = pytesseract.image_to_string(
+                    region,
+                    config="--psm 6 -c tessedit_char_whitelist=0123456789",
+                )
+            except Exception:
+                continue
+            if not text:
+                continue
+            for match in re.findall(r"\d{12,14}", text):
+                digits = _sanitize_digits(match)
+                if len(digits) == 12:
+                    # compute checksum
+                    odd = sum(int(digits[i]) for i in range(0, 12, 2))
+                    even = sum(int(digits[i]) for i in range(1, 12, 2))
+                    checksum = (10 - ((odd + even * 3) % 10)) % 10
+                    digits = digits + str(checksum)
+                if len(digits) == 13 and _ean_checksum_ok(digits):
+                    register_candidate(digits)
+                    _debug_candidate(digits)
+        # ensure OCR variants are closed if PIL reused caches
+    if not candidate_votes and _OPENAI_API_KEY:
+        digits = _read_digits_via_openai(base, _OPENAI_API_KEY)
+        if digits:
+            register_candidate(digits)
+            _debug_candidate(digits)
+
     if candidate_votes:
         best = max(candidate_votes.items(), key=lambda item: (item[1], item[0]))
         if best[1] > 1:

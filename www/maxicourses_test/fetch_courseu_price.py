@@ -11,16 +11,18 @@ import typing
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import quote, urljoin, urlparse
+from urllib.parse import quote_plus, urljoin, urlparse
+
+import html as html_module
 
 from rich import print  # noqa: T201
 from playwright.async_api import TimeoutError as PlaywrightTimeout
 
 import sys as _sys, os as _os  # noqa: E402
 _sys.path.append(_os.path.dirname(__file__))
-from scraper.engine import make_context, state_path_for  # noqa: E402
+_sys.path.append(_os.path.join(_os.path.dirname(__file__), "pipeline"))
+from pipeline.engine import make_context, state_path_for  # noqa: E402
 from collection_mandate import get_method  # noqa: E402
-from seed_catalog import all_seeds, get_seed  # noqa: E402
 
 
 EAN = os.environ.get("EAN", "").strip()
@@ -34,7 +36,13 @@ MANDATE = get_method("courseu")
 
 STATE_PATH = state_path_for("courseu")
 
-MANUAL_DESCRIPTOR: dict[str, typing.Any] = all_seeds()
+MANUAL_DESCRIPTOR: dict[str, typing.Any] = {}
+try:
+    descriptor_path = Path(__file__).with_name("manual_descriptors.json")
+    if descriptor_path.exists():
+        MANUAL_DESCRIPTOR = json.loads(descriptor_path.read_text(encoding="utf-8"))
+except Exception:
+    MANUAL_DESCRIPTOR = {}
 
 COURSEU_BASE_URL = "https://www.coursesu.com"
 
@@ -57,14 +65,6 @@ def _normalize_space(value: typing.Optional[str]) -> typing.Optional[str]:
         return None
     cleaned = re.sub(r"\s+", " ", value).strip()
     return cleaned or None
-
-
-def _normalize_search_term(term: typing.Optional[str]) -> str:
-    if not isinstance(term, str):
-        return ""
-    cleaned = term.replace("+", " ")
-    cleaned = re.sub(r"\s+", " ", cleaned).strip()
-    return cleaned
 
 
 def _to_decimal(value: typing.Any) -> typing.Optional[float]:
@@ -141,10 +141,45 @@ def _descriptor_entry(ean: str) -> dict[str, typing.Any]:
 
 
 def _store_courseu_hint(ean: str, url: str) -> None:
-    # With the hardcoded seed catalog, hints must be updated manually.
-    # Keep the function for compatibility but only log the discovered URL.
-    if ean and url:
-        sys.stderr.write(f"[COURSEU_HINT] {ean} -> {url}\n")
+    if not ean or not url:
+        return
+    descriptor_path = Path(__file__).with_name("manual_descriptors.json")
+    try:
+        data = json.loads(descriptor_path.read_text(encoding="utf-8"))
+    except Exception:
+        data = {}
+    if not isinstance(data, dict):
+        data = {}
+
+    entry = data.get(ean)
+    if not isinstance(entry, dict):
+        entry = {"ean": ean}
+
+    changed = False
+    if entry.get("courseu_url") != url:
+        entry["courseu_url"] = url
+        changed = True
+
+    parsed = urlparse(url)
+    slug = parsed.path or ""
+    if slug and not slug.startswith("/"):
+        slug = f"/{slug}"
+    if slug:
+        if entry.get("courseu_slug") != slug:
+            entry["courseu_slug"] = slug
+            changed = True
+    if not entry.get("source"):
+        entry["source"] = "courseu"
+        changed = True
+
+    if not changed:
+        return
+
+    data[ean] = entry
+    try:
+        descriptor_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception:
+        pass
 
 
 async def accept_cookies(page) -> None:
@@ -228,6 +263,39 @@ async def ensure_store(page) -> None:
     await _dump_html(page, "home")
 
 
+async def refresh_home(page) -> None:
+    try:
+        await page.reload(wait_until="domcontentloaded")
+    except PlaywrightTimeout:
+        pass
+    await accept_cookies(page)
+    await close_overlays(page)
+    await page.wait_for_timeout(500)
+
+
+async def open_search_box(page) -> None:
+    toggles = [
+        "[data-search-wrapper] button[data-search-loupe]",
+        "button[data-search-loupe]",
+        "button[data-search-button]",
+        "button:has-text('Rechercher')",
+        "button[aria-label*='Rechercher']",
+    ]
+    for selector in toggles:
+        try:
+            button = page.locator(selector).first
+            if not await button.count():
+                continue
+            await button.click(force=True)
+            await page.wait_for_timeout(250)
+            await accept_cookies(page)
+            await close_overlays(page)
+            break
+        except Exception as exc:
+            _debug_log(f"search toggle {selector} failed: {exc}")
+            continue
+
+
 DEBUG = os.environ.get("DEBUG_COURSEU") == "1"
 HTML_DUMP = os.environ.get("COURSEU_DUMP")
 
@@ -272,19 +340,8 @@ async def _is_cf_block(page) -> bool:
     return False
 
 
-async def perform_search(page, term: str, *, refresh_first: bool = True) -> None:
-    normalized = _normalize_search_term(term)
-    if not normalized:
-        return
-    if refresh_first:
-        try:
-            await page.reload(wait_until="domcontentloaded")
-        except PlaywrightTimeout:
-            pass
-        await page.wait_for_timeout(800)
-        await accept_cookies(page)
-        await close_overlays(page)
-
+async def perform_search(page, term: str) -> None:
+    await open_search_box(page)
     selectors = [
         "input[type='search'][name*='search']",
         "input[type='search']",
@@ -293,36 +350,77 @@ async def perform_search(page, term: str, *, refresh_first: bool = True) -> None
     ]
     for selector in selectors:
         try:
-            input_box = page.locator(selector).first
-            if await input_box.count() and await input_box.is_visible():
-                await input_box.click()
-                await input_box.fill("")
-                await input_box.type(normalized, delay=55)
-                await page.keyboard.press("Enter")
+            await page.wait_for_selector(selector, state="attached", timeout=6000)
+            success = await page.eval_on_selector(
+                selector,
+                """
+                (input, value) => {
+                    if (!input) {
+                        return false;
+                    }
+                    const form = input.form || input.closest('form');
+                    input.focus();
+                    input.value = value;
+                    const events = ['input', 'change'];
+                    for (const type of events) {
+                        input.dispatchEvent(new Event(type, { bubbles: true }));
+                    }
+                    if (form) {
+                        if (form.requestSubmit) {
+                            form.requestSubmit();
+                        } else {
+                            form.submit();
+                        }
+                    } else {
+                        input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+                        input.dispatchEvent(new KeyboardEvent('keyup', { key: 'Enter', bubbles: true }));
+                    }
+                    return true;
+                }
+                """,
+                term,
+            )
+            if success:
                 try:
-                    await page.wait_for_load_state("networkidle", timeout=10000)
+                    await page.wait_for_load_state("networkidle", timeout=15000)
                 except PlaywrightTimeout:
                     pass
-                await page.wait_for_timeout(1200)
+                await page.wait_for_timeout(1500)
                 await accept_cookies(page)
+                await close_overlays(page)
                 return
         except Exception as exc:
             _debug_log(f"search selector {selector} failed: {exc}")
             continue
 
     _debug_log("fallback to direct search URL")
-    search_url = f"{HOME_URL}/recherche?q={quote(normalized, safe='')}"
+    search_url = f"{HOME_URL}/recherche?q={quote_plus(term)}"
     try:
         await page.goto(search_url, wait_until="domcontentloaded")
     except PlaywrightTimeout:
         _debug_log("direct search timeout")
         pass
-    await page.wait_for_timeout(1200)
+    await page.wait_for_timeout(1500)
     await accept_cookies(page)
     await _dump_html(page, f"results_{term}")
 
 
-async def open_best_result(page, term: str, ean: str) -> bool:
+def _html_is_cf_block(html: str | None) -> bool:
+    if not html:
+        return False
+    lowered = html.lower()
+    if "attention required" in lowered and "cloudflare" in lowered:
+        return True
+    if "sorry, you have been blocked" in lowered:
+        return True
+    if "cf-error-details" in lowered:
+        return True
+    if "cloudflare ray id" in lowered:
+        return True
+    return False
+
+
+async def open_best_result(page, term: str, ean: str) -> tuple[bool, typing.Optional[str]]:
     tokens = re.findall(r"[0-9a-zà-öø-ÿ]+", term.lower())
     descriptor_tokens = _descriptor_tokens(ean)
     selectors = [
@@ -371,7 +469,7 @@ async def open_best_result(page, term: str, ean: str) -> bool:
             pass
 
     if not candidates:
-        return False
+        return False, None
 
     candidates.sort(key=lambda item: item[0], reverse=True)
     _, href, link = candidates[0]
@@ -379,32 +477,41 @@ async def open_best_result(page, term: str, ean: str) -> bool:
     if not target:
         try:
             await link.click()
-            await page.wait_for_timeout(1200)
-            return True
+            await page.wait_for_timeout(250)
+            snapshot = await page.content()
+            await accept_cookies(page)
+            await close_overlays(page)
+            if _html_is_cf_block(snapshot):
+                return False, None
+            return True, snapshot
         except Exception:
-            return False
+            return False, None
 
     if not target.startswith("http"):
         target = urljoin(COURSEU_BASE_URL, target)
     try:
-        await page.goto(target, wait_until="domcontentloaded")
+        await page.goto(target, wait_until="commit")
     except PlaywrightTimeout:
         pass
-    await page.wait_for_timeout(1200)
+    await page.wait_for_timeout(250)
+    snapshot = await page.content()
     await accept_cookies(page)
-    return True
+    await close_overlays(page)
+    if _html_is_cf_block(snapshot):
+        return False, None
+    return True, snapshot
 
 
-async def open_descriptor_product(page, ean: str) -> bool:
+async def open_descriptor_product(page, ean: str) -> tuple[bool, typing.Optional[str]]:
     entry = _descriptor_entry(ean)
     hint = entry.get("courseu_url") or entry.get("courseu_slug")
     if not hint:
-        return False
+        return False, None
 
     if isinstance(hint, str):
         hint = hint.strip()
     if not hint:
-        return False
+        return False, None
 
     product_url = hint
     if not product_url.startswith("http"):
@@ -412,21 +519,23 @@ async def open_descriptor_product(page, ean: str) -> bool:
 
     _debug_log(f"trying descriptor URL {product_url}")
     try:
-        await page.goto(product_url, wait_until="domcontentloaded")
+        await page.goto(product_url, wait_until="commit")
     except PlaywrightTimeout:
         pass
-    await page.wait_for_timeout(1200)
+    await page.wait_for_timeout(200)
+    snapshot = await page.content()
     await accept_cookies(page)
     await close_overlays(page)
-    if await _is_cf_block(page):
-        _debug_log("descriptor URL returned CF block")
-        return False
+    if _html_is_cf_block(snapshot):
+        preview = (snapshot[:160] + "...") if snapshot else ""
+        _debug_log(f"descriptor snapshot is CF block (preview={preview})")
+        return False, None
 
     current_url = page.url or ""
-    if "/p/" in current_url or "/product" in current_url:
-        return True
+    if "/p/" in current_url or "/product" in current_url or snapshot:
+        return True, snapshot
     _debug_log(f"descriptor URL did not resolve to PDP ({current_url})")
-    return False
+    return False, None
 
 
 def _iter_product_nodes(data: typing.Any) -> typing.Iterator[dict]:
@@ -441,11 +550,72 @@ def _iter_product_nodes(data: typing.Any) -> typing.Iterator[dict]:
             yield from _iter_product_nodes(item)
 
 
-async def extract_product_data(page) -> tuple[typing.Optional[str], typing.Optional[str], typing.Optional[str], typing.Optional[str], typing.Optional[str]]:
+def _extract_from_html_source(html_source: str) -> tuple[typing.Optional[str], typing.Optional[str], typing.Optional[str], typing.Optional[str]]:
     price = None
     title = None
     quantity = None
     matched_ean = None
+    pattern = re.compile(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', re.IGNORECASE | re.DOTALL)
+    for match in pattern.finditer(html_source):
+        raw = html_module.unescape(match.group(1).strip())
+        if not raw:
+            continue
+        try:
+            payload = json.loads(raw)
+        except Exception:
+            continue
+        for product in _iter_product_nodes(payload):
+            if not isinstance(product, dict):
+                continue
+            if not title:
+                title = _normalize_space(product.get("name"))
+            offers = product.get("offers")
+            if isinstance(offers, list):
+                offers = next((item for item in offers if isinstance(item, dict)), None)
+            if isinstance(offers, dict) and price is None:
+                raw_price = offers.get("price") or offers.get("priceValue")
+                candidate = _format_price(raw_price)
+                if candidate:
+                    price = candidate
+            if not quantity:
+                quantity = _normalize_space(product.get("size") or product.get("weight"))
+            if not matched_ean:
+                for key in ("gtin13", "gtin", "sku"):
+                    value = product.get(key)
+                    if isinstance(value, str) and re.fullmatch(r"\d{13}", value.strip()):
+                        matched_ean = value.strip()
+                        break
+    if not title:
+        title_match = re.search(r"<h1[^>]*>(.*?)</h1>", html_source, re.IGNORECASE | re.DOTALL)
+        if title_match:
+            title = _normalize_space(re.sub(r"<[^>]+>", "", html_module.unescape(title_match.group(1))))
+    if not price:
+        data_price = re.search(r'data-item-price="([0-9]+(?:[.,][0-9]+)?)"', html_source)
+        if data_price:
+            price = _format_price(data_price.group(1))
+    if not price:
+        price_match = re.search(r"(\d+[.,]\d+)\s*[€EUR]", html_source)
+        if price_match:
+            price = _format_price(price_match.group(1))
+    if not quantity:
+        quantity_match = re.search(r"(\d+[.,]?\d*)\s*(g|kg|ml|l)\b", html_source, re.IGNORECASE)
+        if quantity_match:
+            quantity = _normalize_space(f"{quantity_match.group(1)} {quantity_match.group(2)}")
+    if not matched_ean:
+        ean_match = re.search(r"(?<!\d)(\d{13})(?!\d)", html_source)
+        if ean_match:
+            matched_ean = ean_match.group(1)
+    return price, title, quantity, matched_ean
+
+
+async def extract_product_data(page, snapshot: typing.Optional[str] = None) -> tuple[typing.Optional[str], typing.Optional[str], typing.Optional[str], typing.Optional[str], typing.Optional[str]]:
+    price = None
+    title = None
+    quantity = None
+    matched_ean = None
+
+    if snapshot:
+        price, title, quantity, matched_ean = _extract_from_html_source(snapshot)
 
     scripts = page.locator("script[type='application/ld+json']")
     count = 0
@@ -517,10 +687,12 @@ async def extract_product_data(page) -> tuple[typing.Optional[str], typing.Optio
                 continue
 
     if not matched_ean:
-        try:
-            body = await page.content()
-        except Exception:
-            body = ""
+        body = snapshot
+        if not body:
+            try:
+                body = await page.content()
+            except Exception:
+                body = ""
         m = re.search(r"(?<!\d)(\d{13})(?!\d)", body or "")
         if m:
             matched_ean = m.group(1)
@@ -541,67 +713,97 @@ def build_note(store: str) -> str:
     return f"{timestamp} · {store}"
 
 
-async def run() -> Result:
-    query = EAN or QUERY
-    if not query:
-        return Result(status="NO_QUERY", note="Query required")
-
-    p, browser, context, page = await make_context(
-        headless=HEADLESS,
-        proxy=PROXY,
-        storage_state_path=STATE_PATH,
-        user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    )
-
+async def _collect_once(use_cdp: bool) -> Result:
+    prev_cdp = os.environ.get("USE_CDP")
+    os.environ["USE_CDP"] = "1" if use_cdp else "0"
     try:
-        await ensure_store(page)
-        opened = await open_descriptor_product(page, EAN)
-        if not opened:
-            await perform_search(page, query)
-            opened = await open_best_result(page, query, EAN)
-        if not opened:
-            note = build_note(STORE_NAME)
-            status = "CF_BLOCK" if await _is_cf_block(page) else "NO_RESULTS"
+        query = EAN or QUERY
+        if not query:
+            return Result(status="NO_QUERY", note="Query required")
+
+        p, browser, context, page = await make_context(
+            headless=HEADLESS,
+            proxy=PROXY,
+            storage_state_path=STATE_PATH,
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        )
+
+        try:
+            async def _block_cf_scripts(route, request):
+                url = request.url
+                if "cdn-cgi/challenge-platform" in url:
+                    ctype = "application/javascript" if url.endswith(".js") else "text/plain"
+                    await route.fulfill(status=204, body="", headers={"content-type": ctype})
+                    return
+                await route.continue_()
+
+            await context.route("**/cdn-cgi/challenge-platform/**", _block_cf_scripts)
+            await ensure_store(page)
+            await refresh_home(page)
+            search_term = EAN or query
+            await perform_search(page, search_term)
+            opened, snapshot = await open_best_result(page, search_term, EAN)
+            if not opened and query and query != search_term:
+                await perform_search(page, query)
+                opened, snapshot = await open_best_result(page, query, EAN)
+            if not opened:
+                note = build_note(STORE_NAME)
+                status = "CF_BLOCK" if await _is_cf_block(page) else "NO_RESULTS"
+                return Result(
+                    status=status,
+                    note=note,
+                    store=STORE_NAME,
+                )
+
+            price, title, quantity, unit_price, matched_ean = await extract_product_data(page, snapshot)
+            final_note = build_note(STORE_NAME)
+
+            if price:
+                result = Result(
+                    status="OK",
+                    price=price,
+                    unit_price=unit_price,
+                    quantity=quantity,
+                    title=title,
+                    url=page.url,
+                    note=final_note,
+                    store=STORE_NAME,
+                    matched_ean=matched_ean or (EAN if EAN and EAN in (page.url or "") else None),
+                )
+                if EAN and page.url:
+                    _store_courseu_hint(EAN, page.url)
+                return result
+            status = "CF_BLOCK" if await _is_cf_block(page) else "NO_PRICE"
             return Result(
                 status=status,
-                note=note,
-                store=STORE_NAME,
-            )
-
-        price, title, quantity, unit_price, matched_ean = await extract_product_data(page)
-        final_note = build_note(STORE_NAME)
-
-        if price:
-            result = Result(
-                status="OK",
-                price=price,
-                unit_price=unit_price,
-                quantity=quantity,
                 title=title,
+                quantity=quantity,
                 url=page.url,
                 note=final_note,
                 store=STORE_NAME,
-                matched_ean=matched_ean or (EAN if EAN and EAN in (page.url or "") else None),
+                matched_ean=matched_ean,
             )
-            if EAN and page.url:
-                _store_courseu_hint(EAN, page.url)
-            return result
-        status = "CF_BLOCK" if await _is_cf_block(page) else "NO_PRICE"
-        return Result(
-            status=status,
-            title=title,
-            quantity=quantity,
-            url=page.url,
-            note=final_note,
-            store=STORE_NAME,
-            matched_ean=matched_ean,
-        )
+        finally:
+            try:
+                await browser.close()
+            except Exception:
+                pass
+            await p.stop()
     finally:
-        try:
-            await browser.close()
-        except Exception:
-            pass
-        await p.stop()
+        if prev_cdp is None:
+            os.environ.pop("USE_CDP", None)
+        else:
+            os.environ["USE_CDP"] = prev_cdp
+
+
+async def run() -> Result:
+    initial_cdp = os.environ.get("USE_CDP", "0") == "1"
+    result = await _collect_once(initial_cdp)
+    if result.status == "CF_BLOCK" and initial_cdp:
+        _debug_log("CF_BLOCK detected with CDP; retrying with standalone Playwright browser")
+        fallback = await _collect_once(False)
+        return fallback
+    return result
 
 
 if __name__ == "__main__":

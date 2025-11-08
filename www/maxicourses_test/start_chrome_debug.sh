@@ -20,6 +20,7 @@ fi
 
 "$CHROME" \
   --remote-debugging-port=9222 \
+  --remote-allow-origins=* \
   --user-data-dir="$PROFILE_DIR" \
   --no-first-run --no-default-browser-check \
   --disable-features=AutomationControlled \

@@ -65,6 +65,9 @@ GENERIC_BRAND_TERMS = {
     "protein",
     "original",
     "gel",
+    "moutarde",
+    "specialite",
+    "spécialité",
     "savon",
     "creme",
     "crème",
@@ -420,6 +423,7 @@ if __package__ in (None, ""):
         KEYWORD_REGISTRY,
     )
     from pipeline.text_utils import is_pack_or_bundle, norm_brand, norm_qty  # type: ignore
+    from descriptor_store import get_descriptor as get_seed_descriptor  # type: ignore
 else:  # pragma: no cover - executed when package imports are available
     from ..decode_ean import decode_image_to_ean  # type: ignore
     from .models import PipelineRun, RawAdapterResult
@@ -430,6 +434,7 @@ else:  # pragma: no cover - executed when package imports are available
         KEYWORD_REGISTRY,
     )
     from .text_utils import is_pack_or_bundle, norm_brand, norm_qty
+    from ..descriptor_store import get_descriptor as get_seed_descriptor
 DEFAULT_RESULTS_DIR = ROOT_DIR / "results"
 MANUAL_DESCRIPTOR_PATH = ROOT_DIR / "manual_descriptors.json"
 
@@ -578,9 +583,14 @@ def merge_descriptor(base: Optional[Dict[str, Any]], updates: Dict[str, Any]) ->
             continue
         if key == "brand":
             existing = descriptor.get("brand")
-            if existing and not is_generic_brand(existing) and is_generic_brand(value):
-                continue
-            if (not existing or is_generic_brand(existing)) and is_generic_brand(value):
+            existing_norm = normalize_brand_candidate(existing)
+            value_norm = normalize_brand_candidate(value)
+            if existing_norm and not is_generic_brand(existing_norm):
+                if not value_norm:
+                    continue
+                if existing_norm.lower() != value_norm.lower():
+                    continue
+            if (not existing_norm or is_generic_brand(existing_norm)) and is_generic_brand(value):
                 continue
         descriptor[key] = value
     descriptor.setdefault("ean", updates.get("ean"))
@@ -1179,7 +1189,10 @@ def ensure_descriptor_via_seed(
     proxy: Optional[str],
 ) -> tuple[Dict[str, Any], Dict[str, RawAdapterResult], str]:
     seed_results: Dict[str, RawAdapterResult] = {}
-    descriptor_current = dict(descriptor or {"ean": ean})
+    base_descriptor = get_seed_descriptor(ean) or {"ean": ean}
+    descriptor_current = dict(base_descriptor)
+    if descriptor:
+        descriptor_current = merge_descriptor(descriptor_current, descriptor)
 
     seed_order = [
         "carrefour_city",
@@ -1290,6 +1303,7 @@ def run_adapter(
     else:
         candidates: List[str] = []
         seen: set[str] = set()
+        adapter_uses_ean_search = adapter not in {"leclerc"}
 
         def add_candidate(value: Optional[str]) -> None:
             if not isinstance(value, str):
@@ -1300,16 +1314,21 @@ def run_adapter(
             seen.add(cleaned.lower())
             candidates.append(cleaned)
 
-        add_candidate(query)
         if finder_keywords:
             for kw in finder_keywords:
                 add_candidate(kw)
-        if descriptor:
+        if adapter != "leclerc":
+            add_candidate(query)
+        if descriptor and adapter != "leclerc":
             seed_q = descriptor.get("seed_query")
             add_candidate(seed_q)
-        add_candidate(ean)
+        if adapter_uses_ean_search:
+            add_candidate(ean)
         if not candidates:
-            add_candidate((query or ean or "").strip())
+            fallback = None
+            if not finder_keywords:
+                fallback = query if query else (ean if adapter_uses_ean_search else None)
+            add_candidate(fallback)
         query_candidates = candidates
 
     best_result: Optional[RawAdapterResult] = None
@@ -1579,7 +1598,9 @@ def main(argv: Optional[List[str]] = None) -> int:
             pd_seed = _payload_to_product_descriptor(res.payload, res.adapter)
             if pd_seed:
                 seed_fp.consolidator.add(pd_seed)
-    pd_descriptor = _payload_to_product_descriptor(descriptor or {}, str((descriptor or {}).get("source") or "seed"))
+    base_pd_descriptor_input = dict(descriptor or {"ean": ean})
+    base_pd_descriptor_input["source"] = "seed"
+    pd_descriptor = _payload_to_product_descriptor(base_pd_descriptor_input, "seed")
     if pd_descriptor:
         seed_fp.consolidator.add(pd_descriptor)
     if seed_fp.consolidator.sources:

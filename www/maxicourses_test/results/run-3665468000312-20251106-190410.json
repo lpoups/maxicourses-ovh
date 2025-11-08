@@ -1,0 +1,77 @@
+{
+  "ean": "3665468000312",
+  "image_path": null,
+  "started_at": "2025-11-06T19:04:04.531895+01:00",
+  "finished_at": "2025-11-06T19:04:10.649303+01:00",
+  "duration_seconds": 6.117408,
+  "reference": {
+    "title": "Déboucheur liquide destop flacon 950ml",
+    "description": "Déboucheur liquide destop flacon 950ml",
+    "source": "courseu",
+    "brand": "Déboucheur",
+    "quantity": "950  ml",
+    "categories": null,
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans maxicourses_test/results/debug/run-3665468000312-20251106-190404"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,73",
+        "unit_price": "3,93 € / L",
+        "quantity": "950  ml",
+        "title": "Déboucheur liquide destop flacon 950ml",
+        "url": "https://www.coursesu.com/p/deboucheur-liquide-destop-flacon-950ml/3867435.html",
+        "note": "2025-11-06T18:04:09Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "3665468000312",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Déboucheur liquide destop flacon 950ml",
+          "brand": "Déboucheur",
+          "kind": "",
+          "qty": "0.95 l",
+          "qualifiers": [],
+          "ean": "3665468000312",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-06T19:04:04.532466+01:00",
+      "finished_at": "2025-11-06T19:04:10.013572+01:00",
+      "duration_seconds": 5.481106,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000312",
+        "QUERY": "3665468000312",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3665468000312"
+      }
+    }
+  ],
+  "finder": null
+}

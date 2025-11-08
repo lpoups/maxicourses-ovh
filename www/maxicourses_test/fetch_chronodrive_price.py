@@ -133,7 +133,7 @@ async def accept_cookies(page) -> None:
             btn = page.locator(sel).first
             if await btn.count():
                 await btn.click()
-                await page.wait_for_timeout(1800)
+                await page.wait_for_timeout(1000)
                 break
         except Exception:
             continue
@@ -149,7 +149,7 @@ async def extract_store_label(page) -> typing.Optional[str]:
         try:
             node = page.locator(sel).first
             if await node.count():
-                text = await node.text_content(timeout=2000)
+                text = await node.text_content(timeout=1000)
                 if text:
                     return text.strip()
         except Exception:

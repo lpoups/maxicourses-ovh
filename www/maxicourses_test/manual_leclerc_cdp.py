@@ -199,6 +199,8 @@ DEFAULT_NEGATIVE_PATTERNS = [
     "sans sucres",
     "zero",
     "zéro",
+    "cheveux",
+    "turbo",
 ]
 
 LECLERC_MAX_PDP = 10
@@ -558,7 +560,10 @@ async def run_manual_leclerc(
             sys.stderr.write(f"[LECLERC_DEBUG] no usable cards after filtering\n")
             return {"status": "NO_RESULTS", "query": query}
 
-        candidate_rows.sort(key=lambda item: item["score"], reverse=True)
+        # Parcourir les cartes dans l'ordre d'affichage pour couvrir toutes les fiches visibles.
+        # L'ordre du site est généralement trié par pertinence sur "Produits en stock",
+        # on ne re-trie donc plus les candidats par score pour éviter de rester bloqué
+        # sur une promotion hors-sujet en tête de liste.
         search_url = page.url
 
         async def text_clean(selector: str) -> Optional[str]:
@@ -844,10 +849,13 @@ async def run_manual_leclerc(
         token_threshold = max(2, len([tok for tok in expected_tokens if tok]) // 2 or 1)
 
         status = "OK" if price else "NO_PRICE"
-        if matched_ean is None:
-            if price and token_hits >= token_threshold:
-                status = "OK"
-            else:
+        if ean:
+            if matched_ean != ean:
+                status = "NO_MATCH"
+                price = None
+                unit_price = None
+        elif matched_ean is None:
+            if not (price and token_hits >= token_threshold):
                 status = "NO_MATCH"
                 price = None
                 unit_price = None
