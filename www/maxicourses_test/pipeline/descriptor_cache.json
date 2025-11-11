@@ -8,7 +8,7 @@
     "primary_keywords": [
       "1234567890123"
     ],
-    "removed": true,
+    "removed": false,
     "source": "auto"
   },
   "3017760821375": {
@@ -20,7 +20,7 @@
     "primary_keywords": [
       "3017760821375"
     ],
-    "removed": true,
+    "removed": false,
     "source": "auto"
   },
   "3033491485756": {
@@ -78,6 +78,7 @@
         "Hipro yaourt"
       ]
     },
+    "courseu_url": "https://www.coursesu.com/p/yaourt-a-boire-fraise-framboise-proteine-0mg-hipro---300g/3722232.html",
     "secondary_keywords": [
       "boire",
       "fraise",
@@ -89,7 +90,8 @@
     "seed_primary_name": "Yaourt à boire fraise framboise protéiné 0% MG HIPRO",
     "seed_primary_quantity": "300 G",
     "seed_query": "Hipro Yaourt boire fraise framboise protéiné mg 300 g",
-    "source": "courseu"
+    "source": "courseu",
+    "removed": false
   },
   "3088545004001": {
     "allow_monoprix_squeeze": true,
@@ -323,7 +325,7 @@
     "primary_keywords": [
       "3222472129798"
     ],
-    "removed": true,
+    "removed": false,
     "source": "auto"
   },
   "3274080005003": {
@@ -335,7 +337,7 @@
     "primary_keywords": [
       "3274080005003"
     ],
-    "removed": true,
+    "removed": false,
     "source": "auto"
   },
   "3599741007593": {
@@ -347,7 +349,7 @@
     "primary_keywords": [
       "3599741007593"
     ],
-    "removed": true,
+    "removed": false,
     "source": "auto"
   },
   "3665468000312": {
@@ -399,7 +401,7 @@
     "primary_keywords": [
       "3665468402529"
     ],
-    "removed": true,
+    "removed": false,
     "source": "auto"
   },
   "5000112611861": {
@@ -553,7 +555,7 @@
     "primary_keywords": [
       "5010029229110"
     ],
-    "removed": true,
+    "removed": false,
     "source": "auto"
   },
   "5411188103387": {
@@ -590,48 +592,55 @@
     "seed_primary_name": "Dessert végétal soja vanille ALPRO",
     "seed_primary_quantity": "500 G",
     "seed_query": "Alpro Dessert végétal soja vanille 500 g",
-    "source": "courseu"
+    "source": "courseu",
+    "removed": false
   },
   "5411188114536": {
-    "brand": "Eysines",
-    "description": "Bienvenue au drive Super U EYSINES",
+    "brand": "Alpro",
+    "description": "Dessert végétal soja fraise ALPRO - 500g",
     "ean": "5411188114536",
-    "image": "https://media.carrefour.fr/media/referential/media/64bd7df311b04bdd8ac62274a8f5 143b/05411188114536_H1N1_s04.png",
+    "image": "./assets/5411188114536.jpg",
     "leclerc_queries": [
-      "Eysines 500 G",
-      "Eysines Dessert 500 G",
-      "Eysines Dessert végétal 500 G",
+      "Alpro fraise 500 G",
+      "Alpro dessert fraise 500 G",
+      "Alpro dessert végétal 500 G",
       "Dessert végétal 500 G",
-      "Eysines végétal 500 G",
-      "Eysines Bienvenue drive Super U 500 g",
+      "Alpro végétal 500 G",
+      "Alpro dessert végétal soja fraise 500 g",
       "Dessert végétal soja fraise ALPRO",
-      "Bienvenue au drive Super U EYSINES",
+      "Dessert végétal soja fraise ALPRO - 500g",
       "5411188114536"
     ],
-    "leclerc_query": "Eysines 500 G",
-    "name": "Bienvenue au drive Super U EYSINES",
+    "leclerc_query": "Alpro fraise 500 G",
+    "name": "Dessert végétal soja fraise ALPRO - 500g",
     "note": "2025-11-02T15:09:02Z · Super U Eysines",
-    "nutriscore_grade": "unknown",
-    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "nutriscore_grade": "e",
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
     "primary_keywords": [
-      "Eysines 500 G"
+      "Alpro fraise 500 G"
     ],
     "quantity": "500  g",
+    "queries": {
+      "intermarche": [
+        "Alpro dessert fraise 500 g",
+        "Dessert végétal soja fraise"
+      ],
+      "monoprix": [
+        "Alpro fraise",
+        "Alpro dessert"
+      ]
+    },
     "removed": false,
     "secondary_keywords": [
       "végétal",
       "soja",
       "fraise",
       "ALPRO",
-      "Bienvenue",
-      "drive",
-      "Super",
-      "U",
       "500 G"
     ],
     "seed_primary_name": "Dessert végétal soja fraise ALPRO",
     "seed_primary_quantity": "500 G",
-    "seed_query": "Eysines Bienvenue drive Super U 500 g",
+    "seed_query": "Alpro Dessert végétal soja fraise 500 g",
     "source": "courseu"
   },
   "5411188118961": {
@@ -701,7 +710,7 @@
     "primary_keywords": [
       "5449000000996"
     ],
-    "removed": true,
+    "removed": false,
     "source": "auto"
   },
   "8712100731822": {
@@ -833,5 +842,32 @@
     "seed_primary_quantity": "385 G",
     "seed_query": "Savora Moutarde aromates g 385 g",
     "source": "chronodrive"
+  },
+  "5411188119098": {
+    "brand": "Alpro",
+    "description": "Dessert végétal soja nature à la noix de coco ALPRO",
+    "ean": "5411188119098",
+    "image": "https://media.carrefour.fr/media/referential/media/d534d5010ea842138387e4c7910b 6b3e/05411188119098_H1N1_s14.png",
+    "leclerc_queries": [
+      "Alpro 500 G",
+      "Alpro Dessert 500 G",
+      "Alpro Dessert végétal 500 G",
+      "Dessert végétal 500 G",
+      "Alpro végétal 500 G",
+      "Alpro Dessert végétal soja nature noix coco 500 G",
+      "Dessert végétal soja nature à la noix de coco ALPRO",
+      "5411188119098"
+    ],
+    "leclerc_query": "Alpro 500 G",
+    "name": "Dessert végétal soja nature à la noix de coco ALPRO",
+    "note": "Collecte seed via carrefour_market",
+    "nutriscore_grade": "e",
+    "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltfca4e212b35 0ee05/nutriscore-a",
+    "quantity": "500 G",
+    "removed": false,
+    "seed_primary_name": "Dessert végétal soja nature à la noix de coco ALPRO",
+    "seed_primary_quantity": "500 G",
+    "seed_query": "Alpro Dessert végétal soja nature noix coco 500 G",
+    "source": "unknown"
   }
 }

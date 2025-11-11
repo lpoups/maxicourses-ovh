@@ -67,9 +67,13 @@ def parse_qty(value: Optional[str]) -> Tuple[str, str, bool]:
 
 
 def norm_qty(value: Optional[str]) -> str:
-    """Convenience wrapper returning the normalized unit string only."""
-    unit_norm, _, _ = parse_qty(value)
-    return unit_norm
+    """Preserve the original quantity wording (no unit conversion)."""
+    if value is None:
+        return ""
+    text = str(value).strip()
+    if not text:
+        return ""
+    return re.sub(r"\s+", " ", text)
 
 
 def _to_base(qty: float, unit: str) -> Tuple[str, float]:

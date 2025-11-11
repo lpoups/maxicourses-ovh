@@ -19,6 +19,7 @@ from playwright.async_api import TimeoutError as PlaywrightTimeout
 
 from collection_mandate import get_method
 from seed_catalog import all_seeds  # noqa: E402
+from pipeline.nutriscore import extract_nutriscore_from_html  # noqa: E402
 
 EAN = os.environ.get("EAN", "").strip()
 QUERY = os.environ.get("QUERY", "").strip()
@@ -117,6 +118,8 @@ class Result:
     quantity: typing.Optional[str] = None
     store: typing.Optional[str] = None
     matched_ean: typing.Optional[str] = None
+    nutriscore_grade: typing.Optional[str] = None
+    nutriscore_image: typing.Optional[str] = None
 
 
 async def accept_cookies(page) -> None:
@@ -509,12 +512,16 @@ async def extract_price_from_page(page) -> tuple[
     typing.Optional[str],
     typing.Optional[str],
     typing.Optional[str],
+    typing.Optional[str],
+    typing.Optional[str],
 ]:
     title = None
     price = None
     unit_price = None
     quantity = None
     matched_ean = None
+    nutri_grade = None
+    nutri_image = None
 
     try:
         title = await page.locator('h1').first.text_content(timeout=6000)
@@ -577,6 +584,11 @@ async def extract_price_from_page(page) -> tuple[
                 if m_qty:
                     qty_val = m_qty.group(1).replace('.', ',')
                     quantity = f"{qty_val} {m_qty.group(2).upper()}"
+            guess_grade, guess_image = extract_nutriscore_from_html(html, base_url=page.url)
+            if guess_grade and not nutri_grade:
+                nutri_grade = guess_grade
+            if guess_image and not nutri_image:
+                nutri_image = guess_image
     except Exception:
         pass
 
@@ -615,7 +627,7 @@ async def extract_price_from_page(page) -> tuple[
             except Exception:
                 pass
 
-    return title, price, unit_price, quantity, matched_ean
+    return title, price, unit_price, quantity, matched_ean, nutri_grade, nutri_image
 
 
 async def run() -> Result:
@@ -645,7 +657,7 @@ async def run() -> Result:
                 await page.locator(sel).first.click(timeout=1500)
         except Exception:
             pass
-        title, price, unit_price, quantity, matched_ean = await extract_price_from_page(page)
+        title, price, unit_price, quantity, matched_ean, nutri_grade, nutri_image = await extract_price_from_page(page)
         await browser.close(); await p.stop()
         store_label = 'Chronodrive Le Haillan'
         if price:
@@ -659,6 +671,8 @@ async def run() -> Result:
                 quantity=quantity,
                 store=store_label,
                 matched_ean=matched_ean,
+                nutriscore_grade=nutri_grade,
+                nutriscore_image=nutri_image,
             )
         return Result(status='NO_PRICE', title=title, url=page.url, note=store_label, store=store_label)
 
@@ -719,7 +733,7 @@ async def run() -> Result:
                 continue
             await accept_cookies(page)
             await page.wait_for_timeout(1000)
-            title, price, unit_price, quantity, matched_ean = await extract_price_from_page(page)
+            title, price, unit_price, quantity, matched_ean, nutri_grade, nutri_image = await extract_price_from_page(page)
             store_label = await extract_store_label(page) or 'Chronodrive Le Haillan'
             if matched_ean is None and EAN and EAN in (page.url or ''):
                 matched_ean = EAN
@@ -735,6 +749,8 @@ async def run() -> Result:
                     quantity=quantity,
                     store=store_label,
                     matched_ean=matched_ean,
+                    nutriscore_grade=nutri_grade,
+                    nutriscore_image=nutri_image,
                 )
             continue
 
@@ -757,7 +773,7 @@ async def run() -> Result:
                 sys.stderr.write(f"[CHRONO_DEBUG] suggestion_error={exc}\n")
                 suggestion_clicked = False
         if suggestion_clicked:
-            title, price, unit_price, quantity, matched_ean = await extract_price_from_page(page)
+            title, price, unit_price, quantity, matched_ean, nutri_grade, nutri_image = await extract_price_from_page(page)
             store_label = await extract_store_label(page) or 'Chronodrive Le Haillan'
             if matched_ean is None and EAN and EAN in (page.url or ''):
                 matched_ean = EAN
@@ -774,6 +790,8 @@ async def run() -> Result:
                     quantity=quantity,
                     store=store_label,
                     matched_ean=matched_ean,
+                    nutriscore_grade=nutri_grade,
+                    nutriscore_image=nutri_image,
                 )
             # If PDP opened but no price, fall back to next term
             continue
@@ -809,7 +827,7 @@ async def run() -> Result:
                 continue
 
         try:
-            await page.wait_for_selector('article.product-card', timeout=12000)
+            await page.wait_for_selector('article.product-card', timeout=1000)
         except PlaywrightTimeout:
             html = await page.content()
             debug_path = Path('chronodrive_debug.html')
@@ -888,7 +906,7 @@ async def run() -> Result:
         except Exception:
             continue
 
-        title, price, unit_price, quantity, matched_ean = await extract_price_from_page(page)
+        title, price, unit_price, quantity, matched_ean, nutri_grade, nutri_image = await extract_price_from_page(page)
         store_label = await extract_store_label(page) or 'Chronodrive Le Haillan'
 
         if matched_ean is None and EAN and EAN in (page.url or ''):
@@ -909,8 +927,19 @@ async def run() -> Result:
                 quantity=quantity,
                 store=store_label,
                 matched_ean=matched_ean,
+                nutriscore_grade=nutri_grade,
+                nutriscore_image=nutri_image,
             )
-        return Result(status='NO_PRICE', title=title, url=page.url, note=store_label, store=store_label, matched_ean=matched_ean)
+        return Result(
+            status='NO_PRICE',
+            title=title,
+            url=page.url,
+            note=store_label,
+            store=store_label,
+            matched_ean=matched_ean,
+            nutriscore_grade=nutri_grade,
+            nutriscore_image=nutri_image,
+        )
 
     await browser.close(); await p.stop()
     return Result(status='NO_RESULTS')

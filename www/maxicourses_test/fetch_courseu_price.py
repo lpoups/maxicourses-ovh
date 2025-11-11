@@ -23,6 +23,8 @@ _sys.path.append(_os.path.dirname(__file__))
 _sys.path.append(_os.path.join(_os.path.dirname(__file__), "pipeline"))
 from pipeline.engine import make_context, state_path_for  # noqa: E402
 from collection_mandate import get_method  # noqa: E402
+from pipeline.nutriscore import extract_nutriscore_from_html  # noqa: E402
+from seed_catalog import get_seed  # noqa: E402
 
 
 EAN = os.environ.get("EAN", "").strip()
@@ -58,6 +60,8 @@ class Result:
     note: typing.Optional[str] = None
     store: typing.Optional[str] = None
     matched_ean: typing.Optional[str] = None
+    nutriscore_grade: typing.Optional[str] = None
+    nutriscore_image: typing.Optional[str] = None
 
 
 def _normalize_space(value: typing.Optional[str]) -> typing.Optional[str]:
@@ -124,12 +128,26 @@ def _compute_unit_price(price: typing.Any, quantity: typing.Optional[str]) -> ty
 
 def _descriptor_tokens(ean: str) -> list[str]:
     tokens: list[str] = []
-    entry = MANUAL_DESCRIPTOR.get(ean)
-    if isinstance(entry, dict):
-        for key in ("brand", "name", "description", "quantity", "seed_query"):
-            value = entry.get(key)
+    seed_entry = get_seed(ean)
+    if isinstance(seed_entry, dict):
+        text_fields = (
+            "brand",
+            "name",
+            "description",
+            "quantity",
+            "seed_primary_name",
+            "seed_query",
+        )
+        for key in text_fields:
+            value = seed_entry.get(key)
             if isinstance(value, str):
                 tokens.extend(re.findall(r"[0-9a-zà-öø-ÿ]+", value.lower()))
+        for list_key in ("primary_keywords", "secondary_keywords"):
+            values = seed_entry.get(list_key)
+            if isinstance(values, (list, tuple)):
+                for item in values:
+                    if isinstance(item, str):
+                        tokens.extend(re.findall(r"[0-9a-zà-öø-ÿ]+", item.lower()))
     return list(dict.fromkeys(tokens))
 
 
@@ -608,14 +626,25 @@ def _extract_from_html_source(html_source: str) -> tuple[typing.Optional[str], t
     return price, title, quantity, matched_ean
 
 
-async def extract_product_data(page, snapshot: typing.Optional[str] = None) -> tuple[typing.Optional[str], typing.Optional[str], typing.Optional[str], typing.Optional[str], typing.Optional[str]]:
+async def extract_product_data(page, snapshot: typing.Optional[str] = None) -> tuple[
+    typing.Optional[str],
+    typing.Optional[str],
+    typing.Optional[str],
+    typing.Optional[str],
+    typing.Optional[str],
+    typing.Optional[str],
+    typing.Optional[str],
+]:
     price = None
     title = None
     quantity = None
     matched_ean = None
+    nutri_grade = None
+    nutri_image = None
 
     if snapshot:
         price, title, quantity, matched_ean = _extract_from_html_source(snapshot)
+        nutri_grade, nutri_image = extract_nutriscore_from_html(snapshot, base_url=page.url)
 
     scripts = page.locator("script[type='application/ld+json']")
     count = 0
@@ -686,7 +715,7 @@ async def extract_product_data(page, snapshot: typing.Optional[str] = None) -> t
             except Exception:
                 continue
 
-    if not matched_ean:
+    if not matched_ean or not nutri_grade:
         body = snapshot
         if not body:
             try:
@@ -696,6 +725,12 @@ async def extract_product_data(page, snapshot: typing.Optional[str] = None) -> t
         m = re.search(r"(?<!\d)(\d{13})(?!\d)", body or "")
         if m:
             matched_ean = m.group(1)
+        if not nutri_grade:
+            guess_grade, guess_image = extract_nutriscore_from_html(body, base_url=page.url)
+            if guess_grade:
+                nutri_grade = guess_grade
+            if guess_image:
+                nutri_image = guess_image
 
     if not quantity:
         descriptor = MANUAL_DESCRIPTOR.get(EAN or "")
@@ -705,7 +740,7 @@ async def extract_product_data(page, snapshot: typing.Optional[str] = None) -> t
                 quantity = _normalize_space(quantity)
 
     unit_price = _compute_unit_price(price, quantity)
-    return price, title, quantity, unit_price, matched_ean
+    return price, title, quantity, unit_price, matched_ean, nutri_grade, nutri_image
 
 
 def build_note(store: str) -> str:
@@ -755,7 +790,7 @@ async def _collect_once(use_cdp: bool) -> Result:
                     store=STORE_NAME,
                 )
 
-            price, title, quantity, unit_price, matched_ean = await extract_product_data(page, snapshot)
+            price, title, quantity, unit_price, matched_ean, nutri_grade, nutri_image = await extract_product_data(page, snapshot)
             final_note = build_note(STORE_NAME)
 
             if price:
@@ -769,6 +804,8 @@ async def _collect_once(use_cdp: bool) -> Result:
                     note=final_note,
                     store=STORE_NAME,
                     matched_ean=matched_ean or (EAN if EAN and EAN in (page.url or "") else None),
+                    nutriscore_grade=nutri_grade,
+                    nutriscore_image=nutri_image,
                 )
                 if EAN and page.url:
                     _store_courseu_hint(EAN, page.url)
@@ -782,6 +819,8 @@ async def _collect_once(use_cdp: bool) -> Result:
                 note=final_note,
                 store=STORE_NAME,
                 matched_ean=matched_ean,
+                nutriscore_grade=nutri_grade,
+                nutriscore_image=nutri_image,
             )
         finally:
             try:

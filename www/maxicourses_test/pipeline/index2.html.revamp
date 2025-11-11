@@ -1518,7 +1518,7 @@
       .join(' ')
       .toLowerCase();
     if (!combined) return [];
-    const generic = new Set(['dessert', 'desserts', 'vegetal', 'vegetaux', 'vegan', 'soja', 'produit', 'produits', 'fermente', 'fermentes', 'yaourt', 'yaourts', 'boisson', 'boissons', 'lait', 'laitier', 'laitiers', 'g', 'kg', 'ml', 'l']);
+    const generic = new Set(['dessert', 'desserts', 'vegetal', 'vegetaux', 'vegan', 'soja', 'produit', 'produits', 'yaourt', 'yaourts', 'boisson', 'boissons', 'lait', 'laitier', 'laitiers', 'g', 'kg', 'ml', 'l']);
     const tokens = combined
       .split(/[^a-z0-9]+/)
       .map((token) => token.trim())

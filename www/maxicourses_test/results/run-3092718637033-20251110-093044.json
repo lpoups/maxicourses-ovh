@@ -1,0 +1,469 @@
+{
+  "ean": "3092718637033",
+  "image_path": null,
+  "started_at": "2025-11-10T09:26:22.910041+01:00",
+  "finished_at": "2025-11-10T09:30:44.326295+01:00",
+  "duration_seconds": 261.416254,
+  "reference": {
+    "title": "Sirop de Menthe verte TEISSEIRE, bidon 60cl",
+    "description": "Sirop de Menthe verte TEISSEIRE, bidon 60cl",
+    "source": "courseu",
+    "brand": "Teisseire",
+    "quantity": "60 CL",
+    "categories": null,
+    "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-10T09:26:22.910688+01:00",
+      "finished_at": "2025-11-10T09:26:42.398516+01:00",
+      "duration_seconds": 19.487828,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3092718637033"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,81",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033",
+        "note": null,
+        "unit_price": "4,68 € / L",
+        "quantity": "60 CL",
+        "title": "Sirop Menthe  Verte TEISSEIRE",
+        "matched_ean": "3092718637033",
+        "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Sirop Menthe  Verte TEISSEIRE",
+          "brand": "Sirop",
+          "kind": "",
+          "qty": "0.6 l",
+          "qualifiers": [],
+          "ean": "3092718637033",
+          "image_url": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
+          "source": "carrefour_market",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-10T09:26:42.420798+01:00",
+      "finished_at": "2025-11-10T09:27:02.356361+01:00",
+      "duration_seconds": 19.935563,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3092718637033"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,45",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033",
+        "note": null,
+        "unit_price": "4,08 € / L",
+        "quantity": "60 CL",
+        "title": "Sirop Menthe  Verte TEISSEIRE",
+        "matched_ean": "3092718637033",
+        "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Sirop Menthe  Verte TEISSEIRE",
+          "brand": "Sirop",
+          "kind": "",
+          "qty": "0.6 l",
+          "qualifiers": [],
+          "ean": "3092718637033",
+          "image_url": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
+          "source": "carrefour_super",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-10T09:27:02.359501+01:00",
+      "finished_at": "2025-11-10T09:27:24.918723+01:00",
+      "duration_seconds": 22.559222,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3092718637033"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-10T09:27:24.921446+01:00",
+      "finished_at": "2025-11-10T09:27:46.078883+01:00",
+      "duration_seconds": 21.157437,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche '3092718637033'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/teisseire-sirop-de-menthe/pr-C1628583",
+      "metadata": {
+        "attempt_query": "3092718637033"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,79",
+        "title": "Sirop de menthe verte TEISSEIRE",
+        "url": "https://www.chronodrive.com/teisseire--sirop-de-menthe-verte-P519369",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "4,65 € / L",
+        "quantity": "60  cl",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3092718637033",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Sirop de menthe verte TEISSEIRE",
+          "brand": "Sirop",
+          "kind": "",
+          "qty": "0.6 l",
+          "qualifiers": [],
+          "ean": "3092718637033",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-10T09:27:46.080180+01:00",
+      "finished_at": "2025-11-10T09:27:52.687175+01:00",
+      "duration_seconds": 6.606995,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='3092718637033'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/teisseire--sirop-de-menthe-verte-P519369",
+      "metadata": {
+        "attempt_query": "3092718637033"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,42",
+        "unit_price": "4,03 € / KG",
+        "quantity": "0,6  kg",
+        "title": "Sirop de Menthe verte TEISSEIRE, bidon 60cl",
+        "url": "https://www.coursesu.com/p/sirop-de-menthe-verte-teisseire-bidon-60cl/2758855.h tml",
+        "note": "2025-11-10T08:28:24Z · Super U Eysines",
+        "store": "Super U  Eysines",
+        "matched_ean": "3092718637033",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Sirop de Menthe verte TEISSEIRE, bidon 60cl",
+          "brand": "Sirop",
+          "kind": "",
+          "qty": "0.6 kg",
+          "qualifiers": [],
+          "ean": "3092718637033",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-10T09:27:52.689495+01:00",
+      "finished_at": "2025-11-10T09:28:24.912464+01:00",
+      "duration_seconds": 32.222969,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3092718637033"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-10T09:28:24.914948+01:00",
+      "finished_at": "2025-11-10T09:28:25.682934+01:00",
+      "duration_seconds": 0.767986,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "3092718637033"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,40",
+        "title": "Sirop menthe verte",
+        "url": "https://www.intermarche.com/produit/sirop-menthe-verte/3092718637033",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "3092718637033",
+        "unit_price": "4,00 € / L",
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/sirop-menthe-verte/3092718637033",
+            "product": {
+              "title": "TeisseireSirop menthe verte",
+              "brand": "TeisseireSirop",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3092718637033",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><script  type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></sc ript><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript"
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-10T09:28:26.504496+01:00",
+      "finished_at": "2025-11-10T09:29:33.531667+01:00",
+      "duration_seconds": 67.027171,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Teisseire menthe 0.6 L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Teisseire menthe 0.6 L"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-10T09:29:33.534371+01:00",
+      "finished_at": "2025-11-10T09:29:33.631655+01:00",
+      "duration_seconds": 0.097284,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Teisseire menthe 0.6 L",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py\", line 19, in <module>\n    from manual_leclerc_cdp import (\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/manual_leclerc_cdp.py\", line 43\n    from pipeline.finder import LeclercAdapter  # type: ignore\n    ^\nIndentationError: expected an indented block",
+      "metadata": {
+        "attempt_query": "Teisseire menthe 0.6 L"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-10T09:29:33.784902+01:00",
+      "finished_at": "2025-11-10T09:29:48.102861+01:00",
+      "duration_seconds": 14.317959,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Teisseire menthe 0.6 L",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] ERROR: EAN '3092718637033' not found in seed_catalog.py. Scoring will fail.\n[MONOPRIX_DEBUG] Search terms: ['Teisseire menthe 0,6 L']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/1: 'Teisseire menthe 0,6 L'\n[MONOPRIX_DEBUG]  - Typing 'Teisseire menthe 0,6 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Teisseire%20menthe%200%2C6%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=None)\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Teisseire menthe 0.6 L"
+      }
+    }
+  ],
+  "finder": null
+}

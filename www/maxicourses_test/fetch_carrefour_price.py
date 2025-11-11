@@ -9,6 +9,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Any
+from urllib.parse import urljoin
 
 from rich import print
 import sys as _sys, os as _os
@@ -761,6 +762,64 @@ async def run() -> Result:
                             quantity_text = clean_spaces(str(item_ld.get('size')))
             except Exception:
                 pass
+
+            if not nutriscore_grade or not nutriscore_image:
+                try:
+                    dom_nutri = await page.evaluate(
+                        """
+                        () => {
+                          const selectors = [
+                            "[data-testid='nutri-score']",
+                            "[data-testid='nutrition-nutriscore']",
+                            "[class*='nutri-score']",
+                            "[class*='NutriScore']"
+                          ];
+                          let root = null;
+                          for (const sel of selectors) {
+                            const found = document.querySelector(sel);
+                            if (found) { root = found; break; }
+                          }
+                          let img = root ? root.querySelector('img') : null;
+                          if (!img) {
+                            img = document.querySelector("img[alt*='Nutri']") || document.querySelector("img[src*='nutri']");
+                          }
+                          const label =
+                            (root && (root.getAttribute('aria-label') || root.getAttribute('data-value'))) ||
+                            (img ? img.getAttribute('alt') : null) ||
+                            (root ? root.textContent : null);
+                          const src = img ? img.getAttribute('src') : null;
+                          if (!label && !src) {
+                            return null;
+                          }
+                            return { label, src };
+                        }
+                        """
+                    )
+                except Exception:
+                    dom_nutri = None
+                if isinstance(dom_nutri, dict):
+                    label = dom_nutri.get("label") or ""
+                    dom_src = dom_nutri.get("src")
+                    candidate_grade: Optional[str] = None
+                    if isinstance(label, str):
+                        cleaned_label = clean_spaces(label) or ""
+                        if cleaned_label:
+                            match = re.search(r"nutri[- ]?score[^A-E]*([A-E])", cleaned_label, flags=re.IGNORECASE)
+                            if not match:
+                                match = re.search(r"\b([A-E])\b", cleaned_label, flags=re.IGNORECASE)
+                            if match:
+                                candidate_grade = match.group(1).lower()
+                    if isinstance(dom_src, str):
+                        cand = clean_spaces(dom_src)
+                        if cand:
+                            if not cand.lower().startswith("http"):
+                                cand = urljoin(page.url, cand)
+                            nutriscore_image = cand
+                            match = re.search(r"nutri(?:score)?[-_]?([a-e])", cand, flags=re.IGNORECASE)
+                            if match:
+                                candidate_grade = match.group(1).lower()
+                    if candidate_grade:
+                        nutriscore_grade = candidate_grade
 
             if not image_url:
                 try:

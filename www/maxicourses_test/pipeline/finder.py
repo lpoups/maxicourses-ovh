@@ -904,6 +904,14 @@ class LeclercAdapter:
             pd.ean = ean
             if ean == src.ean:
                 return 1.0
+        elif src.image_url and pd.image_url:
+            try:
+                from .image_matching import compare_references
+            except Exception:
+                return None
+            if compare_references(src.image_url, pd.image_url, threshold=16):
+                pd.ean = src.ean
+                return 0.92
         return None
 
 LeclercAdapterBase = LeclercAdapter
@@ -980,10 +988,10 @@ class FinderPipeline:
         try:
             html_provider = _make_leclerc_html_provider()
             if html_provider is not None:
-                LeclercAdapter._html_provider = html_provider  # type: ignore[attr-defined]
+                LeclercAdapter._html_provider = staticmethod(html_provider)  # type: ignore[attr-defined]
             listing_provider = _make_leclerc_listing_provider()
             if listing_provider is not None:
-                LeclercAdapter._listing_provider = listing_provider  # type: ignore[attr-defined]
+                LeclercAdapter._listing_provider = staticmethod(listing_provider)  # type: ignore[attr-defined]
         except Exception:
             pass
         try:

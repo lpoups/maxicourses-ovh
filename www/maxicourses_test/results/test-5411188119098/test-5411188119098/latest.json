@@ -1,0 +1,597 @@
+{
+  "ean": "5411188119098",
+  "image_path": null,
+  "started_at": "2025-11-11T16:22:29.744511+01:00",
+  "finished_at": "2025-11-11T16:26:11.723933+01:00",
+  "duration_seconds": 221.979422,
+  "reference": {
+    "title": "Dessert végétal soja nature à la noix de coco ALPRO",
+    "description": "Dessert végétal soja nature à la noix de coco ALPRO",
+    "source": "carrefour_market",
+    "brand": "Alpro",
+    "quantity": "500 G",
+    "categories": null,
+    "image": "./assets/5411188119098.jpg",
+    "nutriscore_grade": "a",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-a.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188119098/debug/run-5411188119098-20251111-162229"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-11T16:22:29.746586+01:00",
+      "finished_at": "2025-11-11T16:22:48.577959+01:00",
+      "duration_seconds": 18.831373,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5411188119098",
+        "QUERY": "5411188119098",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188119098"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,25",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-nature-a-la-noix-de-coco-alpro- 5411188119098",
+        "note": null,
+        "unit_price": "4,50 € / KG",
+        "quantity": "500 G",
+        "title": "Dessert végétal soja nature à la noix de coco ALPRO",
+        "matched_ean": "5411188119098",
+        "image": "https://media.carrefour.fr/media/referential/media/d534d5010ea842138387e4c7910b 6b3e/05411188119098_H1N1_s14.png",
+        "nutriscore_grade": "a",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-a.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Dessert végétal soja nature à la noix de coco ALPRO",
+          "brand": "Dessert",
+          "kind": "",
+          "qty": "500 G",
+          "qualifiers": [],
+          "ean": "5411188119098",
+          "image_url": "https://media.carrefour.fr/media/referential/media/d534d5010ea842138387e4c7910b 6b3e/05411188119098_H1N1_s14.png",
+          "source": "carrefour_market",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-11T16:22:48.578573+01:00",
+      "finished_at": "2025-11-11T16:23:09.469245+01:00",
+      "duration_seconds": 20.890672,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5411188119098",
+        "QUERY": "5411188119098",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188119098"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Lormont",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-11T16:23:09.474639+01:00",
+      "finished_at": "2025-11-11T16:23:27.302135+01:00",
+      "duration_seconds": 17.827496,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5411188119098",
+        "QUERY": "5411188119098",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188119098"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,30",
+        "title": "Dessert végétal nature au soja et  noix de coco",
+        "url": "https://www.auchan.fr/alpro-dessert-vegetal-nature-au-soja-et-noix-de-coco/pr-C 1170064",
+        "note": "Auchan (CDP)",
+        "unit_price": "4,60 € / KG",
+        "quantity": "500  G",
+        "matched_ean": "5411188119098",
+        "image": "https://cdn.auchan.fr/media/P0200000000059WPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Dessert végétal nature au soja et  noix de coco",
+          "brand": "Dessert",
+          "kind": "",
+          "qty": "500 G",
+          "qualifiers": [],
+          "ean": "5411188119098",
+          "image_url": "https://cdn.auchan.fr/media/P0200000000059WPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-11T16:23:27.303022+01:00",
+      "finished_at": "2025-11-11T16:23:44.754522+01:00",
+      "duration_seconds": 17.4515,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5411188119098",
+        "QUERY": "5411188119098",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche '5411188119098'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/alpro-dessert-vegetal-nature-au-soja-et-noix-de-coco/pr-C1170064",
+      "metadata": {
+        "attempt_query": "5411188119098"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,05",
+        "title": "Dessert végétal soja et noix de coco ALPRO",
+        "url": "https://www.chronodrive.com/alpro--dessert-vegetal-soja-et-noix-de-coco-P364872 ",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "4,10 € / KG",
+        "quantity": "500 g",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "5411188119098",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltfca4e212b35 0ee05/nutriscore-a",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Dessert végétal soja et noix de coco ALPRO",
+          "brand": "Dessert",
+          "kind": "",
+          "qty": "500 g",
+          "qualifiers": [],
+          "ean": "5411188119098",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-11T16:23:44.759801+01:00",
+      "finished_at": "2025-11-11T16:23:51.424445+01:00",
+      "duration_seconds": 6.664644,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5411188119098",
+        "QUERY": "5411188119098",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='5411188119098'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/alpro--specialite-vegetale-a-base-de-soja-et-noix-de-coco-P364872",
+      "metadata": {
+        "attempt_query": "5411188119098"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "unit_price": null,
+        "quantity": "500 g",
+        "title": "Dessert végétal soja nature coco ALPRO - 500g",
+        "url": "https://www.coursesu.com/p/dessert-vegetal-soja-nature-coco-alpro---500g/529501 1.html",
+        "note": "2025-11-11T15:24:21Z · Super U Eysines",
+        "store": "Super U  Eysines",
+        "matched_ean": "5411188119098",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Dessert végétal soja nature coco ALPRO - 500g",
+          "brand": "Dessert",
+          "kind": "",
+          "qty": "500 g",
+          "qualifiers": [],
+          "ean": "5411188119098",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-11T16:23:51.427392+01:00",
+      "finished_at": "2025-11-11T16:24:21.679671+01:00",
+      "duration_seconds": 30.252279,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5411188119098",
+        "QUERY": "5411188119098",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188119098"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,09",
+        "title": "ALPRO SOJA NOIX DE COCO 500 G X 1",
+        "url": "https://www.g20-minute.com/products/5411188119098/alpro-soja-noix-de-coco-500-g-x-1-5411188119098",
+        "note": "G20 Minute",
+        "unit_price": "4,18 €/Kg",
+        "quantity": "500g",
+        "matched_ean": "5411188119098",
+        "image": "https://www.g20-minute.com/media/cache/product_box_image/3e/a8/5905192ec19b57594269c95b210c.jpg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "ALPRO SOJA NOIX DE COCO 500 G X 1",
+          "brand": "ALPRO",
+          "kind": "",
+          "qty": "500g",
+          "qualifiers": [],
+          "ean": "5411188119098",
+          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/3e/a8/5905192ec19b57594269c95b210c.jpg",
+          "source": "g20",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-11T16:24:21.680896+01:00",
+      "finished_at": "2025-11-11T16:24:22.415961+01:00",
+      "duration_seconds": 0.735065,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5411188119098",
+        "QUERY": "5411188119098",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "5411188119098"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,97",
+        "title": "Dessert végétal soja noix de coco  ,",
+        "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-noix-de-coco-/54111881 19098",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "5411188119098",
+        "unit_price": "3,94 € / KG",
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-vanille/5411188103387",
+            "product": {
+              "title": "AlproDessert végétal soja vanille,",
+              "brand": "AlproDessert",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "5411188103387",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-noix-de-coco-/54111881 19098",
+            "product": {
+              "title": "AlproDessert végétal soja noix de coco  ,",
+              "brand": "AlproDessert",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "54111881",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://www.intermarche.com/icons/nutriscore/score=B.svg"
+      },
+      "started_at": "2025-11-11T16:24:22.992450+01:00",
+      "finished_at": "2025-11-11T16:25:17.600700+01:00",
+      "duration_seconds": 54.60825,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5411188119098",
+        "QUERY": "Alpro dessert 500 G",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Alpro dessert 500 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188119098/debug/run-5411188119098-20251111-162229/08-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Dessert végétal soja Alpro Nature à la coco - 500g",
+        "price": "1,82",
+        "unit_price": "3,64 € / kg",
+        "quantity": "",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-93600-Dessert-vegetal-soja-Alpro.aspx",
+        "matched_ean": "5411188119098",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-11T15:25:34Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-93600-Dessert-vegetal-soja-Alpro.aspx",
+            "product": {
+              "title": "Dessert végétal soja Alpro Nature à la coco - 500g",
+              "brand": "Dessert",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "5411188119098",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b71\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b71\"></script><script"
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-11T16:25:17.604200+01:00",
+      "finished_at": "2025-11-11T16:25:34.568212+01:00",
+      "duration_seconds": 16.964012,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5411188119098",
+        "QUERY": "Alpro dessert 500 G",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Alpro dessert 500 G'\n[LECLERC_DEBUG] after home human pause -> 1.03s\n[LECLERC_DEBUG] after focus -> 1.69s\n[LECLERC_DEBUG] results visible -> 7.32s\n[LECLERC_DEBUG] after result pause -> 7.47s",
+      "metadata": {
+        "attempt_query": "Alpro dessert 500 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188119098/debug/run-5411188119098-20251111-162229/09-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,45",
+        "title": "Alpro Dessert Végétal Soja Nature  Noix De Coco 500g",
+        "url": "https://courses.monoprix.fr/products/alpro-dessert-v%C3%A9g%C3%A9tal-soja-natur e-noix-de-coco-500g/MPX_3305889",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8927 d1a0-80e2-4d16-9008-6faf1698a172/300x300.jpg",
+        "matched_ean": null,
+        "unit_price": "4,90 € / KG",
+        "quantity": "500 G",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières  commandes\nEN SAVOIR +\nAccueil\nRégimes alimentaires\nVegan\nDessert  vegan\nAlpro Dessert Végétal Soja Nature Noix De Coco 500g\n1 s+\n1 semaine de  garantie de vie du produit\nNutriscore A\n500g 4,90 € / kilo\n500g\n(4,90 € /  kilo)\n2,45 €\nAjouter\nInformations produit\n\n\nDescription Produit\nAlpro  Nature à la Noix de Coco est un dessert végétal à base de soja, sans lactose et  avec du bon lait de coco. Cette alternative végétale au yaourt est naturellement faible en matières grasses, faible en sucres et riche en protéines végétales. Il constitue également une source de calcium et de vitamine D2 et B12. Ce dessert  végétal coco Alpro à la texture onctueuse se savoure aussi bien au  petit-déjeuner, qu'en dessert ou en  encas.\n\n\nOrigine\nBelgique\nMarque\nAlpro\nService consommateur\nD.P.F.F. CS  50149 92565 Rueil-Malmaison Cedex\nConseils d'utilisation\nSe mange à la  cuillère\nIngredients\n\nINGRÉDIENTS: jus de SOJA (93,1%), lait de coco (6,2%)  (eau, crème de coco (2,9%)), sucre, calcium, stabilisant (pectines), correcteurs d'acidité (citrates de sodium, acide citrique), arômes naturels, sel marin de  table, antioxydants (extrait riche en tocophérols, esters d'acides gras de  l'acide ascorbique), vitamines B12, D2, ferments de yaourt (S. thermophilus, L.  bulgaricus).\n\nAllergènes\nContient : SOJA\nType  d’emballage\nbocal\nProducteur\nDANONE Produits Frais France 150 BD VICTOR  HUGO///93589/ST OUEN CEDEX/FRANCE\nConseil de conservation\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\nConseils d'utilisation\nSe  mange à la cuillère\nValeurs nutritionnelles\nINFORMATIONS NUTRITIONNELLES  MOYENNES\n\tpour 100 g\nValeurs Energétique en Kilojoules\t~ 224 kJ\nValeurs  Energétique en Kilocalories\t~ 4 kcal\nValeurs Nutritionnelles\nMatières  grasses\t~ 2.8 g\nDont Acides Gras Saturés\t~ 1 g\nGlucides\t~ 2.4 g\nDont  Sucres\t~ 2.2 g\nProtéines\t~ 3.9 g\nSel\t~ 0.22 g\n\n\nMicro Nutriments\tpour  100 g\nVitamine D\t~ 0.75 µg\nVitamine B12\t~ 0.38 µg\nCalcium\t~ 120 mg\nNous  contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle  fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon  magasin\nProgramme de fidélité\nNos catalogues\nNos magasins avec  Parapharmacie\nAide & Mentions\nDonnées personnelles et cookies\n(s’ouvre dans  une nouvelle fenêtre)\nConditions de nos offres\nContacts\nRappel produits\nCGV  & Mentions légales\n(s’ouvre dans une nouvelle fenêtre)\nNos autres  sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une nouvelle fenêtre)\nAffiliation  monoprix.fr\nBons plans des marques\nMonoprix.fr Courses\nTarifs de  livraison\nPrésentation du service\nAstuces\nAbonnement M+\nFAQ\nPlus de  services\nAppli mobile Apple\n(s’ouvre dans une nouvelle fenêtre)\nAppli mobile  Android\n(s’ouvre dans une nouvelle fenêtre)\n© 2025\nfacebook\n(s’ouvre dans  une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une nouvelle  fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": "coco",
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [],
+          "candidate_quantity": "500 G",
+          "candidate_size_ratio": 0.0,
+          "descriptor_token_coverage": {
+            "coverage": 1.0,
+            "matched": [
+              "alpro",
+              "coco",
+              "noix"
+            ],
+            "missing": [],
+            "total": 3
+          },
+          "missing_tokens": [],
+          "image_match": true,
+          "final_score": 45,
+          "plausible_baseline": true
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MP X_3305890",
+            "product": {
+              "title": "Alpro Dessert Végétal  Vanille Soja 500g",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja nature à la  noix de coco ALPRO",
+              "qty": "500 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977 fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-s oja-500g/MPX_3778641",
+            "product": {
+              "title": "Alpro  Dessert Végétal Nature Aux Amandes Soja 500g",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja nature à la noix de coco ALPRO",
+              "qty": "500 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8e e4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/alpro-dessert-végétal-soja-nature-noix-de- coco-500g/MPX_3305889",
+            "product": {
+              "title": "",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja nature à la noix de coco ALPRO",
+              "qty": "500 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": ""
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-11T16:25:34.571072+01:00",
+      "finished_at": "2025-11-11T16:26:11.641650+01:00",
+      "duration_seconds": 37.070578,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5411188119098",
+        "QUERY": "Alpro dessert 500 G",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5411188119098'.\n[MONOPRIX_DEBUG] Search terms: ['Alpro dessert 500 G', 'Alpro Dessert']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/2: 'Alpro dessert 500 G'\n[MONOPRIX_DEBUG]  - Typing 'Alpro dessert 500 G' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Alpro%20dessert%20500%20G\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/2: 'Alpro Dessert'\n[MONOPRIX_DEBUG]  - Typing 'Alpro Dessert' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Alpro%20Dessert\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 3 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MPX_3305890\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MPX_3305890\n[MONOPRIX_DEBUG][SCORE] - Title: 'Alpro Dessert Végétal Vanille Soja 500g' | Brand: 'alpro' | Variant(seed/cand)=(None/vanille) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=15 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Alpro Dessert Végétal Vanille Soja 500g'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Alpro Dessert Végétal Vanille Soja 500g' | vetoes=['descriptor_coverage', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8ee4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641\n[MONOPRIX_DEBUG][SCORE] - Title: 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g' | Brand: 'alpro' | Variant(seed/cand)=(None/amande) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=15 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g' | vetoes=['descriptor_coverage', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/alpro-dessert-végétal-soja-nature-noix-de-coco-500g/MPX_3305889\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8927d1a0-80e2-4d16-9008-6faf1698a172/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/alpro-dessert-végétal-soja-nature-noix-de-coco-500g/MPX_3305889\n[MONOPRIX_DEBUG][SCORE] - Title: 'Alpro Dessert Végétal Soja Nature Noix De Coco 500g' | Brand: 'alpro' | Variant(seed/cand)=(None/coco) | Vetoes=[] | NegHits=[] | Score=15 | Plausible=True\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Alpro Dessert Végétal Soja Nature Noix De Coco 500g'.\n[MONOPRIX_DEBUG] Best match (early return): 'Alpro Dessert Végétal Soja Nature Noix De Coco 500g' (Score: 45)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='2,45', title='Alpro Dessert Végétal Soja Nature Noix De Coco 500g', url='https://courses.monoprix.fr/products/alpro-dessert-v%C3%A9g%C3%A9tal-soja-nature-noix-de-coco-500g/MPX_3305889', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8927d1a0-80e2-4d16-9008-6faf1698a172/300x300.jpg', matched_ean=None, unit_price='4,90 € / KG', quantity='500 G', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Soja Nature Noix De Coco 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAlpro Nature à la Noix de Coco est un dessert végétal à base de soja, sans lactose et avec du bon lait de coco. Cette alternative végétale au yaourt est naturellement faible en matières grasses, faible en sucres et riche en protéines végétales. Il constitue également une source de calcium et de vitamine D2 et B12. Ce dessert végétal coco Alpro à la texture onctueuse se savoure aussi bien au petit-déjeuner, qu'en dessert ou en encas.\\n\\n\\nOrigine\\nBelgique\\nMarque\\nAlpro\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (93,1%), lait de coco (6,2%) (eau, crème de coco (2,9%)), sucre, calcium, stabilisant (pectines), correcteurs d'acidité (citrates de sodium, acide citrique), arômes naturels, sel marin de table, antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), vitamines B12, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 224 kJ\\nValeurs Energétique en Kilocalories\\t~ 4 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.8 g\\nDont Acides Gras Saturés\\t~ 1 g\\nGlucides\\t~ 2.4 g\\nDont Sucres\\t~ 2.2 g\\nProtéines\\t~ 3.9 g\\nSel\\t~ 0.22 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': None, 'candidate_variant': 'coco', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['alpro', 'coco', 'noix'], 'missing': [], 'total': 3}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}, candidates=[{'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MPX_3305890', 'status': 'OK_PARTIAL', 'product': {'title': 'Alpro Dessert Végétal Vanille Soja 500g', 'brand': 'Alpro', 'kind': 'Dessert végétal soja nature à la noix de coco ALPRO', 'qty': '500 G', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Vanille Soja 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nEnvie d'une pause gourmande et naturellement sans lactose ? Alerte au régal végétal ! Délicieusement onctueux, le brassé végétal alpro soja Vanille 100% gourmand contribue à vos apports quotidiens en 5 nutriments essentiels (riche en protéines, source de calcium et de vitamines B12, B2 et D2). A déguster à tout moment de la journée !\\n\\n\\nOrigine\\nBelgique\\nMarque\\nDanone\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (90,9%), sucre, stabilisant (pectines), correcteurs d'acidité (acide citrique, citrates de sodium), calcium, concentré de carotte, sel marin de table, arômes, arôme naturel de vanille, vanille en poudre (0,03%), antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), vitamines (2, B12, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 279 kJ\\nValeurs Energétique en Kilocalories\\t~ 66 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.2 g\\nDont Acides Gras Saturés\\t~ 0.4 g\\nGlucides\\t~ 7.5 g\\nDont Sucres\\t~ 7.5 g\\nProtéines\\t~ 3.7 g\\nSel\\t~ 0.2 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'price': '2,45', 'unit_price': '4,90 € / KG'}, 'score': 15, 'extras': {'seed_variant': None, 'candidate_variant': 'vanille', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['descriptor_coverage', 'image_mismatch', 'core_token'], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.3333333333333333, 'matched': ['alpro'], 'missing': ['coco', 'noix'], 'total': 3}, 'missing_tokens': ['coco', 'noix'], 'image_match': False, 'final_score': 15, 'plausible_baseline': False, 'missing_core_tokens': ['coco', 'noix']}}, {'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641', 'status': 'OK_PARTIAL', 'product': {'title': 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g', 'brand': 'Alpro', 'kind': 'Dessert végétal soja nature à la noix de coco ALPRO', 'qty': '500 G', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8ee4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Nature Aux Amandes Soja 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAlpro Nature aux Amandes est un dessert végétal à base de soja et de délicieuses amandes méditerranéennes, sans lactose. Cette alternative végétale au yaourt nature est naturellement faible en matières grasses, faible en sucres et riche en protéines végétales. Il constitue également une source de calcium et de vitamine D2, E et B12. Ce dessert végétal soja amande Alpro à la texture onctueuse se savoure aussi bien au petit-déjeuner, qu'en dessert ou en encas.\\n\\n\\nOrigine\\nBelgique\\nMarque\\nDanone\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (94,8%), sucre, AMANDE (1,5%), calcium, stabilisant (pectines), correcteurs d'acidité (acide citrique, citrates de sodium), sel marin de table, antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), arômes, vitamines B12, E, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA ET AMANDE\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 221 kJ\\nValeurs Energétique en Kilocalories\\t~ 3 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.8 g\\nDont Acides Gras Saturés\\t~ 0.4 g\\nGlucides\\t~ 2.2 g\\nDont Sucres\\t~ 2.1 g\\nProtéines\\t~ 3.9 g\\nSel\\t~ 0.23 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine E\\t~ 1.8 mg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'price': '2,45', 'unit_price': '4,90 € / KG'}, 'score': 15, 'extras': {'seed_variant': None, 'candidate_variant': 'amande', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['descriptor_coverage', 'image_mismatch', 'core_token'], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.3333333333333333, 'matched': ['alpro'], 'missing': ['coco', 'noix'], 'total': 3}, 'missing_tokens': ['coco', 'noix'], 'image_match': False, 'final_score': 15, 'plausible_baseline': False, 'missing_core_tokens': ['coco', 'noix']}}, {'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-soja-nature-noix-de-coco-500g/MPX_3305889', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Alpro', 'kind': 'Dessert végétal soja nature à la noix de coco ALPRO', 'qty': '500 G', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Alpro dessert 500 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188119098/debug/run-5411188119098-20251111-162229/10-monoprix"
+      }
+    }
+  ],
+  "finder": null
+}

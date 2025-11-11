@@ -41,8 +41,12 @@ from playwright.async_api import TimeoutError as PlaywrightTimeoutError, async_p
 from seed_catalog import all_seeds  # noqa: E402
 try:
     from pipeline.finder import LeclercAdapter  # type: ignore
+    from pipeline.image_matching import descriptor_matches_candidate
 except Exception:  # pragma: no cover - Finder optional
     LeclercAdapter = None  # type: ignore
+
+    def descriptor_matches_candidate(*_args, **_kwargs) -> bool:
+        return False
 
 
 def env_int(name: str, default: int) -> int:
@@ -761,9 +765,26 @@ async def run_manual_leclerc(
                 quantity,
             )
 
+            image_match = False
+            if descriptor_entry and image_url:
+                try:
+                    image_match = descriptor_matches_candidate(
+                        descriptor_entry,
+                        image_url,
+                        ean=ean or descriptor_entry.get("ean"),
+                        threshold=16,
+                    )
+                except Exception:
+                    image_match = False
+            candidate_entry["image_match"] = image_match
+
             if matched_candidate_ean and ean and matched_candidate_ean == ean:
                 candidate_entry["status"] = "MATCHED"
                 candidate_entry["reason"] = "ean_match"
+            elif image_match and ean:
+                matched_candidate_ean = ean
+                candidate_entry["status"] = "MATCHED"
+                candidate_entry["reason"] = "image_match"
             elif ean:
                 candidate_entry["status"] = "REJECTED"
                 candidate_entry["reason"] = "ean_mismatch"
@@ -878,6 +899,7 @@ async def run_manual_leclerc(
                 "final_reason": final_reason,
                 "tokens": expected_tokens,
                 "elapsed_seconds": round(time.perf_counter()-started, 2),
+                "image_match": any(c.get("image_match") for c in finder_candidates if c.get("status") == "MATCHED"),
             },
         }
         meta = result_payload.setdefault("_meta", {})

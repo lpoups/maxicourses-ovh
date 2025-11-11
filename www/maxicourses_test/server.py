@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import unicodedata
@@ -282,6 +283,23 @@ def results_dir_for(ean: str) -> Path:
     return ROOT / "results" / f"test-{ean}"
 
 
+def purge_results(ean: str) -> None:
+    dataset_dir = results_dir_for(ean)
+    if dataset_dir.exists():
+        try:
+            shutil.rmtree(dataset_dir)
+        except Exception:
+            pass
+    results_root = ROOT / "results"
+    if results_root.exists():
+        for run_file in results_root.glob(f"run-{ean}-*.json"):
+            try:
+                run_file.unlink()
+            except Exception:
+                pass
+    remove_global_summary_entry(ean)
+
+
 def load_global_summary() -> Dict[str, Any]:
     if not GLOBAL_SUMMARY_PATH.exists():
         return {}
@@ -504,6 +522,8 @@ def api_collect():
             "uploaded_image_path": str(stored_path) if stored_path else None,
         }
         return jsonify(response_payload)
+
+    purge_results(ean)
 
     proc = run_pipeline_collect(
         ean=ean,

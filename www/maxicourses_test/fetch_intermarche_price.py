@@ -31,6 +31,7 @@ from telemetry import (
 )
 from query_builder import CATEGORY_STOPWORDS, SKU_PATTERN
 from typing import cast
+from pipeline.nutriscore import extract_nutriscore_from_html  # noqa: E402
 
 EAN = os.environ.get("EAN", "").strip()
 QUERY = os.environ.get("QUERY", "").strip()
@@ -650,6 +651,8 @@ class Result:
     store: typing.Optional[str] = None
     candidates: typing.Optional[list] = None
     _meta: typing.Optional[dict] = None
+    nutriscore_grade: typing.Optional[str] = None
+    nutriscore_image: typing.Optional[str] = None
 
 
 COOKIE_SELECTORS = [
@@ -940,6 +943,8 @@ async def run() -> Result:
     accepted_stage: typing.Optional[StageLiteral] = None
     accepted_query: typing.Optional[str] = None
     accepted_search_url: typing.Optional[str] = None
+    nutri_grade: typing.Optional[str] = None
+    nutri_image: typing.Optional[str] = None
 
     finder_candidates: list[dict] = []
 
@@ -1197,6 +1202,12 @@ async def run() -> Result:
         await ensure_store_selected(page)
 
         page_html = await page.content()
+        if nutri_grade is None:
+            guess_grade, guess_image = extract_nutriscore_from_html(page_html, base_url=pdp)
+            if guess_grade:
+                nutri_grade = guess_grade
+            if guess_image:
+                nutri_image = guess_image
         has_identifier_match = bool(
             stage_matched_ean and (stage_matched_ean == EAN if EAN else True)
         )
@@ -1482,6 +1493,8 @@ async def run() -> Result:
             unit_price=unit_price,
             quantity=final_quantity,
             store=store_label,
+            nutriscore_grade=nutri_grade,
+            nutriscore_image=nutri_image,
         ))
     if final_matched_ean and final_pdp:
         if DEBUG_INTERMARCHE:
@@ -1518,6 +1531,8 @@ async def run() -> Result:
             unit_price=None,
             quantity=None,
             store=store_label,
+            nutriscore_grade=nutri_grade,
+            nutriscore_image=nutri_image,
         ))
     if pdp:
         return finalize_result(Result(
@@ -1529,6 +1544,8 @@ async def run() -> Result:
             unit_price=None,
             quantity=None,
             store=store_label,
+            nutriscore_grade=nutri_grade,
+            nutriscore_image=nutri_image,
         ))
     return finalize_result(Result(status="NO_RESULTS"))
 

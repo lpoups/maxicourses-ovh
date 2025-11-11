@@ -12,7 +12,7 @@ import html
 from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional, Tuple
 from urllib.parse import urlparse
 from urllib.request import urlopen, Request
 from zoneinfo import ZoneInfo
@@ -436,7 +436,12 @@ if __package__ in (None, ""):
         KEYWORD_REGISTRY,
     )
     from pipeline.text_utils import is_pack_or_bundle, norm_brand, norm_qty  # type: ignore
-    from descriptor_store import get_descriptor as get_seed_descriptor  # type: ignore
+    from descriptor_store import (  # type: ignore
+        get_descriptor as get_seed_descriptor,
+        descriptor_exists as seed_descriptor_exists,
+        add_dynamic_seed_entry,
+        all_descriptors as descriptor_catalog_all,
+    )
 else:  # pragma: no cover - executed when package imports are available
     from ..decode_ean import decode_image_to_ean  # type: ignore
     from .models import PipelineRun, RawAdapterResult
@@ -447,9 +452,47 @@ else:  # pragma: no cover - executed when package imports are available
         KEYWORD_REGISTRY,
     )
     from .text_utils import is_pack_or_bundle, norm_brand, norm_qty
-    from ..descriptor_store import get_descriptor as get_seed_descriptor
+    from ..descriptor_store import (
+        get_descriptor as get_seed_descriptor,
+        descriptor_exists as seed_descriptor_exists,
+        add_dynamic_seed_entry,
+        all_descriptors as descriptor_catalog_all,
+    )
 DEFAULT_RESULTS_DIR = ROOT_DIR / "results"
 MANUAL_DESCRIPTOR_PATH = ROOT_DIR / "manual_descriptors.json"
+DESCRIPTOR_CACHE_PATH = ROOT_DIR / "pipeline" / "descriptor_cache.json"
+ALLOWED_MANUAL_DESCRIPTOR_FIELDS = {
+    "ean",
+    "source",
+    "courseu_url",
+    "courseu_slug",
+    "name",
+    "description",
+    "brand",
+    "quantity",
+    "image",
+    "categories",
+    "nutriscore_grade",
+    "nutriscore_image",
+    "ecoscore_grade",
+    "ecoscore_image",
+    "nova_group",
+    "seed_primary_name",
+    "seed_primary_quantity",
+    "seed_query",
+    "leclerc_query",
+    "note",
+}
+
+ALWAYS_OVERRIDE_FIELDS = {
+    "image",
+    "nutriscore_grade",
+    "nutriscore_image",
+    "ecoscore_grade",
+    "ecoscore_image",
+    "nova_group",
+}
+
 
 ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
     "carrefour_city": {
@@ -553,6 +596,13 @@ DEFAULT_ADAPTER_ORDER = [
     "monoprix",
 ]
 
+NUTRISCORE_ADAPTER_PRIORITY = {
+    "carrefour_market": 120,
+    "carrefour_super": 115,
+    "carrefour_city": 110,
+    "chronodrive": 105,
+}
+
 
 def decode_ean(image_path: Path) -> str:
     if Image is None or zxingcpp is None:
@@ -563,28 +613,37 @@ def decode_ean(image_path: Path) -> str:
     return value
 
 
-def load_manual_descriptor(ean: str) -> Optional[Dict[str, str]]:
+def refresh_descriptor_cache() -> None:
+    try:
+        catalog = descriptor_catalog_all()
+    except Exception:
+        return
+    try:
+        DESCRIPTOR_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        DESCRIPTOR_CACHE_PATH.write_text(
+            json.dumps(catalog, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    except Exception:
+        pass
+
+
+def load_manual_descriptor(ean: str) -> Optional[Dict[str, Any]]:
     return None
 
 
-def fetch_manual_descriptor(ean: str) -> Optional[Dict[str, str]]:
-    return None
+def fetch_manual_descriptor(ean: str) -> Optional[Dict[str, Any]]:
+    # Historical alias kept for backward compatibility (server/importers)
+    return load_manual_descriptor(ean)
 
 
 def load_all_descriptors() -> Dict[str, Dict[str, Any]]:
-    if not MANUAL_DESCRIPTOR_PATH.exists():
-        return {}
-    try:
-        data = json.loads(MANUAL_DESCRIPTOR_PATH.read_text(encoding="utf-8"))
-    except Exception:
-        data = {}
-    if not isinstance(data, dict):
-        data = {}
-    return data
+    return {}
 
 
 def save_manual_descriptor_entry(ean: str, entry: Dict[str, Any]) -> None:
-    return None
+    return
+    refresh_descriptor_cache()
 
 
 def merge_descriptor(base: Optional[Dict[str, Any]], updates: Dict[str, Any]) -> Dict[str, Any]:
@@ -594,6 +653,17 @@ def merge_descriptor(base: Optional[Dict[str, Any]], updates: Dict[str, Any]) ->
             continue
         if isinstance(value, str) and not value.strip():
             continue
+        if key in ALWAYS_OVERRIDE_FIELDS:
+            descriptor[key] = value
+            continue
+        if key not in {"quantity", "brand"}:
+            existing = descriptor.get(key)
+            if isinstance(existing, str):
+                if existing.strip():
+                    continue
+            elif existing not in (None, False):
+                if existing != []:
+                    continue
         if key == "quantity":
             existing_quantity = descriptor.get("quantity")
             if existing_quantity:
@@ -735,34 +805,35 @@ def ensure_nutriscore_from_results(
     def local_asset_for(grade: str) -> str:
         return f"../assets/nutriscore/nutriscore-{grade.lower()}.svg"
 
-    current_grade = (descriptor.get("nutriscore_grade") or "").strip().lower()
-    if current_grade and current_grade not in {"unknown", "na", "n/a"}:
-        if current_grade in {"a", "b", "c", "d", "e"}:
-            expected = local_asset_for(current_grade)
-            if descriptor.get("nutriscore_image") != expected:
-                updated = dict(descriptor)
-                updated["nutriscore_image"] = expected
-                save_manual_descriptor_entry(ean, updated)
-                return updated
-        return descriptor
-
+    best_candidate: Optional[Tuple[int, str, Optional[str]]] = None
     for res in adapter_results:
+        if res.adapter not in {"carrefour_city", "carrefour_market", "carrefour_super"}:
+            continue
         payload = res.payload or {}
         candidate_grade = payload.get("nutriscore_grade")
-        if isinstance(candidate_grade, str) and candidate_grade.strip():
-            grade_value = candidate_grade.strip().lower()
-            updated = dict(descriptor)
-            updated["nutriscore_grade"] = grade_value
-            if grade_value in {"a", "b", "c", "d", "e"}:
-                updated["nutriscore_image"] = local_asset_for(grade_value)
-            else:
-                image_candidate = payload.get("nutriscore_image")
-                if isinstance(image_candidate, str) and image_candidate.strip():
-                    updated["nutriscore_image"] = image_candidate.strip()
-                else:
-                    updated.pop("nutriscore_image", None)
-            save_manual_descriptor_entry(ean, updated)
-            return updated
+        if not isinstance(candidate_grade, str) or not candidate_grade.strip():
+            continue
+        grade_value = candidate_grade.strip().lower()
+        priority = NUTRISCORE_ADAPTER_PRIORITY.get(res.adapter, 0)
+        image_candidate = payload.get("nutriscore_image")
+        if (
+            best_candidate is None
+            or priority > best_candidate[0]
+        ):
+            best_candidate = (priority, grade_value, image_candidate if isinstance(image_candidate, str) else None)
+
+    if best_candidate:
+        _, grade_value, image_candidate = best_candidate
+        updated = dict(descriptor)
+        updated["nutriscore_grade"] = grade_value
+        if grade_value in {"a", "b", "c", "d", "e"}:
+            updated["nutriscore_image"] = local_asset_for(grade_value)
+        elif isinstance(image_candidate, str) and image_candidate.strip():
+            updated["nutriscore_image"] = image_candidate.strip()
+        else:
+            updated.pop("nutriscore_image", None)
+        save_manual_descriptor_entry(ean, updated)
+        return updated
     # Fallback for unknown / missing grades
     if not descriptor.get("nutriscore_image") or str(descriptor.get("nutriscore_image")).startswith("http"):
         updated = dict(descriptor)
@@ -1210,9 +1281,18 @@ def ensure_descriptor_via_seed(
 ) -> tuple[Dict[str, Any], Dict[str, RawAdapterResult], str]:
     seed_results: Dict[str, RawAdapterResult] = {}
     base_descriptor = get_seed_descriptor(ean) or {"ean": ean}
-    descriptor_current = dict(base_descriptor)
+    descriptor_current = {"ean": ean}
+    best_seed_score = 0
+    if base_descriptor:
+        if base_descriptor.get("source") in {"carrefour_market", "carrefour_city", "carrefour_super"}:
+            descriptor_current.update(base_descriptor)
+            best_seed_score = 2
+        else:
+            descriptor_current.update(base_descriptor)
+            best_seed_score = 1
     if descriptor:
         descriptor_current = merge_descriptor(descriptor_current, descriptor)
+    seed_missing = not seed_descriptor_exists(ean)
 
     seed_order = [
         "carrefour_city",
@@ -1243,12 +1323,39 @@ def ensure_descriptor_via_seed(
         if res.status == "OK" and isinstance(res.payload, dict):
             updates = descriptor_from_payload(ean, adapter, res.payload)
             descriptor_current = merge_descriptor(descriptor_current, updates)
+            seed_score = 2 if adapter in {"carrefour_city", "carrefour_market", "carrefour_super"} else 1
+            if seed_score >= best_seed_score:
+                descriptor_current["source"] = adapter.replace("carrefour_", "carrefour_")
+                best_seed_score = seed_score
             if adapter in {"carrefour_city", "carrefour_market", "carrefour_super"}:
                 if updates.get("name") and not descriptor_current.get("seed_primary_name"):
                     descriptor_current["seed_primary_name"] = updates.get("name")
                 if updates.get("quantity") and not descriptor_current.get("seed_primary_quantity"):
                     descriptor_current["seed_primary_quantity"] = updates.get("quantity")
             save_manual_descriptor_entry(ean, descriptor_current)
+
+    if base_descriptor:
+        fallback_fields = (
+            "name",
+            "description",
+            "brand",
+            "quantity",
+            "seed_primary_name",
+            "seed_primary_quantity",
+            "note",
+        )
+        for key in fallback_fields:
+            if descriptor_current.get(key):
+                continue
+            value = base_descriptor.get(key)
+            if isinstance(value, str) and value.strip():
+                descriptor_current[key] = value.strip()
+        if not descriptor_current.get("image"):
+            seed_image = base_descriptor.get("image")
+            if isinstance(seed_image, str) and seed_image.strip():
+                descriptor_current["image"] = seed_image.strip()
+        if not descriptor_current.get("source"):
+            descriptor_current["source"] = base_descriptor.get("source")
 
     new_query = build_search_query(ean, descriptor_current)
     descriptor_current["seed_query"] = new_query
@@ -1262,6 +1369,8 @@ def ensure_descriptor_via_seed(
         descriptor_current["leclerc_query"] = leclerc_queries[0]
         descriptor_current["leclerc_queries"] = leclerc_queries
     save_manual_descriptor_entry(ean, descriptor_current)
+    if seed_missing:
+        add_dynamic_seed_entry(descriptor_current)
     return descriptor_current, seed_results, new_query
 
 
@@ -1523,6 +1632,36 @@ def update_summary(run: PipelineRun, *, results_dir: Path) -> None:
     summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def export_dataset_snapshot(run: PipelineRun, *, results_dir: Path) -> None:
+    dataset_dir = results_dir / f"test-{run.ean}"
+    ensure_results_dir(dataset_dir)
+    dataset_latest = dataset_dir / "latest.json"
+    dataset_latest.write_text(json.dumps(run.as_dict(), ensure_ascii=False, indent=2), encoding="utf-8")
+
+    dataset_summary_path = dataset_dir / "summary.json"
+    if dataset_summary_path.exists():
+        try:
+            dataset_summary = json.loads(dataset_summary_path.read_text(encoding="utf-8"))
+        except Exception:
+            dataset_summary = {}
+    else:
+        dataset_summary = {}
+    ean_entry = dataset_summary.setdefault(run.ean, {})
+    for res in run.adapter_results:
+        ean_entry[res.adapter] = {
+            "status": res.status,
+            "payload": res.payload,
+            "updated_at": run.finished_at.isoformat(),
+            "duration_seconds": (res.finished_at - res.started_at).total_seconds(),
+            "error": res.error,
+            "store_query": res.env.get("STORE_QUERY"),
+        }
+    if run.finder is not None:
+        ean_entry["_finder"] = run.finder
+    dataset_summary[run.ean] = ean_entry
+    dataset_summary_path.write_text(json.dumps(dataset_summary, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Pipeline MaxiCourses (proof of concept)")
     parser.add_argument("--ean", help="EAN à traiter")
@@ -1741,6 +1880,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     results_dir = Path(args.results_dir)
     update_summary(run, results_dir=results_dir)
     output_path = save_run(run, results_dir=results_dir)
+    export_dataset_snapshot(run, results_dir=results_dir)
     print(f"\nRésultats enregistrés dans {output_path}")
 
     return 0
