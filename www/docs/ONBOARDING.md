@@ -1,5 +1,31 @@
 # Maxicourses Assistant Onboarding
 
+Dernière sauvegarde : 2025-11-11.
+
+qu'est ce que tu ne comprends pas!!!!!!!!!!!! tu fais ce que je dis!!!!!!!!! est ce que c'est clair????????? donc quand je dis que je ne veux pas de conversion hasardeuse je t'interdit de me contre dire est ce que c'est clair? alors maintenant tu vas faire ce que je dis et lancer un test de collecte global pour cet EAN : 5411188114536 et afficher les resultats dans index2.html afin que je controle les resultats est ce que c'est putain clair! je suis l'humain tu es le developpeur! et la prochaine fois que tu me donne un ordre je te coupe !
+
+mais c'est quoi encore tout ces bugs !!!!! ? 1 : il n'y a pas l'image du produit! 2 : le descriptif du produit est encore une relique des putain de merde de json de con!!!! 3 : toujours pas de nutri-score 4 : le produit monoprix est indiqué "produit différent" alors que c'est le bon produit!!!! c'est quoi encore que toutes ces merdes de merde de merde!!!!!!!!!!!! j'en ai marre de ton incomptetence !!!!!!!!!!!! tu repare un truc et tu en casse 10 autres!!!!!!!!!!!!!!! quand vas tu enfin travailler correctement et professionnellement????????? j'en ai marre de payer pour de la merde!!!!!!!!!!!!!!!!!!
+
+quand vas enfin travailler professionnellement et arreter de reparer un probleme et en creer 3 autres parceque tu n'as pas anticipé l'ensemble de l'application????? ca devient ingerable et insupportable tu cree plus de probleme que tu n'en resout
+
+
+il est interdit de modifier dans les mots cles les quantitées!!!! quand il est indique 500 G ou 500g il faut utiliser ces mots clés et ne jamais les transformer en 0.5 KG ou 0.5kg ou autre unité!!!!!!!!!! il faut impérativement modifier ceci!
+
+G20 est un magasin de recherche EAN si les mots pour une raison incomprehensible car je ne sais pas encore quelle merde debile tu as deliré de faire un truc à la con debile!!!!!!!!! d'ou G20 à lui seul decide des mots cles de recherches??????? les mots cles de recherches mais putain ce que tu es debile c'est du sabotage pur et simple!!!!!!!!!!!!!!!!!!!!!!!!! les mots cles sont l'addition de tout les descriptifs des site de recherche par EAN et la comparaison des mots clés recurrents ensuite envoi via API à openAI pour definition des mots cles de recherches! et ensuite definitions des mots cles de descriptifs pour affinage de recherche!!!!!!!!! qu'est ce que tu ne comprends pas !!!!! j'ai l'impression que tu ne comprends pas grand chose!
+
+tu comprends ceci : G20 est un magasin de recherche EAN si les mots pour une raison incomprehensible car je ne sais pas encore quelle merde debile tu as deliré de faire un truc à la con debile!!!!!!!!! d'ou G20 à lui seul decide des mots cles de recherches??????? les mots cles de recherches mais putain ce que tu es debile c'est du sabotage pur et simple!!!!!!!!!!!!!!!!!!!!!!!!! les mots cles sont l'addition de tout les descriptifs des site de recherche par EAN et la comparaison des mots clés recurrents ensuite envoi via API à openAI pour definition des mots cles de recherches! et ensuite definitions des mots cles de descriptifs pour affinage de recherche!!!!!!!!! qu'est ce que tu ne comprends pas !!!!! j'ai l'impression que tu ne comprends pas grand chose! ou pas!!!! faut le dire si tu es debile!!!!!
+
+
+Il est interdit de faire des reponses de plus de 5 phrases! 
+
+# Le principe de la methode pour trouver les bons produits sur les magasin n'ayant pas de recherche EAN ou comme chez intermarche la possibilité de valider le produit avec la presence du code EAN dans le lien href de la page produit? on recupere des mots cles à partir des descriptifs des produits des magasins seed permettant les recherche directe EAN ce qui permet d'avoir des mots cles de recherche pour arriver sur une liste de produit sur les magasins non EAN ensuite il y a 3 methodes! la première intermarché on clic sur les fiche produit et on valide le bon produit quand on voit le code EAN dans le lien href de la fiche produit 2 ieme methode Leclerc on clic sur les fiches produits et on valide avec le code EAN present dans le lien "informations produit" de la page du produit si on ne trouve pas le code EAN car il n'est pas present à 100% on valide le produit en comparant l'images SEED avec l'image produit leclerc! 3ieme méthode Monoprix on clic sur les fiches produits et on valide en comparant l'image seed avec l'image de la fiche produit Monoprix! est ce que tout ceci est bien compris?
+On part toujours des enseignes seed capables de chercher par EAN pour définir des mots-clés fiables.
+Avec ces mots-clés, on ouvre les listings des enseignes sans recherche EAN.
+Intermarché : on valide uniquement quand l’URL produit contient l’EAN attendu.
+Leclerc : on ouvre la fiche, on cherche l’EAN dans « informations produit » et, s’il manque, on compare l’image seed à l’image Leclerc pour confirmer.
+Monoprix : validation exclusivement par matching visuel avec l’image seed.
+as tu compris le principe de la methode pour trouver les bons produits sur les magasin n'ayant pas de recherche EAN ou comme chez intermarche la possibilité de valider le produit avec la presence du code EAN dans le lien href de la page produit? on recupere des mots cles à partir des descriptifs des produits des magasins seed permettant les recherche directe EAN ce qui permet d'avoir des mots cles de recherche pour arriver sur une liste de produit sur les magasins non EAN ensuite il y a 3 methodes! la première intermarché on clic sur les fiche produit et on valide le bon produit quand on voit le code EAN dans le lien href de la fiche produit 2 ieme methode Leclerc on clic sur les fiches produits et on valide avec le code EAN present dans le lien "informations produit" de la page du produit si on ne trouve pas le code EAN car il n'est pas present à 100% on valide le produit en comparant l'images SEED avec l'image produit leclerc! 3ieme méthode Monoprix on clic sur les fiches produits et on valide en comparant l'image seed avec l'image de la fiche produit Monoprix! est ce que tout ceci est bien compris?
+
 ## Mission Snapshot
 - Maintenir et enrichir les scripts de relevé de prix (Carrefour, Leclerc Drive, etc.)
 - Assurer une traçabilité claire des relevés (Chrome remote, captures si besoin) pour préparer le comparateur de prix intelligent.

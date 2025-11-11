@@ -33,7 +33,7 @@ import sys as _sys, os as _os
 _sys.path.append(_os.path.dirname(__file__))
 from scraper.engine import make_context, state_path_for  # noqa: E402
 from collection_mandate import get_method  # noqa: E402
-from seed_catalog import all_seeds, get_seed  # noqa: E402
+from descriptor_store import all_descriptors  # noqa: E402
 try:
     from pipeline.finder import MonoprixAdapter  # type: ignore
 except Exception:  # pragma: no cover - provider optional
@@ -296,7 +296,7 @@ def _seed_search_tokens(descriptor: dict[str, typing.Any]) -> list[str]:
 
     return list(tokens.values())
 # Manual descriptor cache (hardcoded catalog)
-MANUAL_DESCRIPTOR: dict[str, dict] = all_seeds()
+MANUAL_DESCRIPTOR: dict[str, dict] = all_descriptors()
 
 
 @dataclass
@@ -2368,7 +2368,7 @@ async def run() -> Result:
 
     descriptor_entry = MANUAL_DESCRIPTOR.get(EAN) if EAN else None
     if not descriptor_entry:
-        sys.stderr.write(f"[MONOPRIX_DEBUG] ERROR: EAN '{EAN}' not found in seed_catalog.py. Scoring will fail.\n")
+        sys.stderr.write(f"[MONOPRIX_DEBUG] ERROR: EAN '{EAN}' not found in descriptor store. Scoring will fail.\n")
         # Optionnel : on peut décider de s'arrêter ici si le descripteur est essentiel
         # return Result(status="ERROR", note=f"EAN {EAN} not in descriptors")
     else:
