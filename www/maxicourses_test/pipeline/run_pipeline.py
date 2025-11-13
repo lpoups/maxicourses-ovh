@@ -12,7 +12,8 @@ import html
 from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple
+from types import SimpleNamespace
 from urllib.parse import urlparse
 from urllib.request import urlopen, Request
 from zoneinfo import ZoneInfo
@@ -29,6 +30,8 @@ except ImportError:  # pragma: no cover - optional dependency when --image n/a
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 ASSETS_DIR = ROOT_DIR / "pipeline" / "assets"
+AI_LOG_ROOT = ROOT_DIR / "logs" / "refonte_v2" / "runs"
+QUERY_CACHE_PATH = ROOT_DIR / "pipeline" / "query_cache.json"
 
 SIZE_TOKEN_SUFFIXES = ("ml", "cl", "dl", "l", "g", "kg")
 PARIS_TZ = ZoneInfo("Europe/Paris")
@@ -109,6 +112,92 @@ SEED_MAX_LENGTH = 60
 LECLERC_MAX_LENGTH = 40
 LECLERC_MAX_TOKENS = 5
 EAN_REQUIRED_LENGTH = 13
+
+AI_ASSIST_ENABLED: bool = False
+ai_summarize_product_seed = None
+ai_suggest_search_queries = None
+QUERY_CACHE_ADAPTERS = {"monoprix"}
+_QUERY_CACHE: Optional[Dict[str, Any]] = None
+
+
+def _make_ai_log_dir(ean: str) -> Path:
+    timestamp = datetime.now(PARIS_TZ).strftime("%Y%m%d-%H%M%S")
+    safe_ean = "".join(ch for ch in str(ean) if ch.isdigit()) or str(ean)
+    path = AI_LOG_ROOT / f"{timestamp}-{safe_ean}-{os.getpid()}"
+    path.mkdir(parents=True, exist_ok=True)
+    return path
+
+
+def _log_ai_response(log_dir: Optional[Path], slug: str, response: Any, *, extra: Optional[Dict[str, Any]] = None) -> None:
+    if not log_dir or response is None:
+        return
+    payload = {
+        "timestamp": datetime.now(PARIS_TZ).isoformat(),
+        "status": getattr(response, "status", None),
+        "data": getattr(response, "data", None),
+        "error": getattr(response, "error", None),
+        "raw_prompt": getattr(response, "raw_prompt", None),
+        "raw_response": getattr(response, "raw_response", None),
+    }
+    if extra:
+        payload["extra"] = extra
+    try:
+        log_dir.mkdir(parents=True, exist_ok=True)
+        (log_dir / f"{slug}.json").write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    except Exception:
+        pass
+
+
+def _load_query_cache() -> Dict[str, Any]:
+    global _QUERY_CACHE
+    if _QUERY_CACHE is not None:
+        return _QUERY_CACHE
+    if QUERY_CACHE_PATH.exists():
+        try:
+            _QUERY_CACHE = json.loads(QUERY_CACHE_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            _QUERY_CACHE = {}
+    else:
+        _QUERY_CACHE = {}
+    return _QUERY_CACHE
+
+
+def _cached_query_for(adapter: str, ean: str) -> Optional[str]:
+    if adapter not in QUERY_CACHE_ADAPTERS:
+        return None
+    cache = _load_query_cache()
+    entry = cache.get(adapter, {}).get(ean)
+    if isinstance(entry, dict):
+        value = entry.get("query")
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    elif isinstance(entry, str):
+        return entry.strip()
+    return None
+
+
+def _store_cached_query(adapter: str, ean: str, query: Optional[str]) -> None:
+    if adapter not in QUERY_CACHE_ADAPTERS:
+        return
+    if not isinstance(query, str):
+        return
+    cleaned = " ".join(query.split())
+    if not cleaned:
+        return
+    cache = _load_query_cache()
+    adapter_cache = cache.setdefault(adapter, {})
+    adapter_cache[ean] = {
+        "query": cleaned,
+        "updated_at": datetime.now(PARIS_TZ).isoformat(),
+    }
+    try:
+        QUERY_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        QUERY_CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    except Exception:
+        pass
 
 
 def _normalize_seed_token(token: str) -> str:
@@ -442,6 +531,16 @@ if __package__ in (None, ""):
         add_dynamic_seed_entry,
         all_descriptors as descriptor_catalog_all,
     )
+    try:
+        from ai_helpers import (  # type: ignore
+            USE_AI_ASSIST as AI_ASSIST_ENABLED,  # noqa: N812 - keep legacy casing
+            summarize_product_seed as ai_summarize_product_seed,
+            suggest_search_queries as ai_suggest_search_queries,
+        )
+    except Exception:
+        AI_ASSIST_ENABLED = False
+        ai_summarize_product_seed = None
+        ai_suggest_search_queries = None
 else:  # pragma: no cover - executed when package imports are available
     from ..decode_ean import decode_image_to_ean  # type: ignore
     from .models import PipelineRun, RawAdapterResult
@@ -458,6 +557,16 @@ else:  # pragma: no cover - executed when package imports are available
         add_dynamic_seed_entry,
         all_descriptors as descriptor_catalog_all,
     )
+    try:
+        from ..ai_helpers import (  # type: ignore
+            USE_AI_ASSIST as AI_ASSIST_ENABLED,  # noqa: N812 - keep legacy casing
+            summarize_product_seed as ai_summarize_product_seed,
+            suggest_search_queries as ai_suggest_search_queries,
+        )
+    except Exception:
+        AI_ASSIST_ENABLED = False
+        ai_summarize_product_seed = None
+        ai_suggest_search_queries = None
 DEFAULT_RESULTS_DIR = ROOT_DIR / "results"
 MANUAL_DESCRIPTOR_PATH = ROOT_DIR / "manual_descriptors.json"
 DESCRIPTOR_CACHE_PATH = ROOT_DIR / "pipeline" / "descriptor_cache.json"
@@ -1255,6 +1364,214 @@ def descriptor_from_payload(ean: str, adapter: str, payload: Dict[str, Any]) -> 
     return descriptor
 
 
+def _seed_payloads_for_ai(seed_results: Dict[str, "RawAdapterResult"]) -> List[Dict[str, Any]]:
+    entries: List[Dict[str, Any]] = []
+    for res in seed_results.values():
+        if res.status != "OK":
+            continue
+        payload = res.payload if isinstance(res.payload, dict) else None
+        if not payload:
+            continue
+        entry = {
+            "adapter": res.adapter,
+            "status": res.status,
+            "payload": payload,
+        }
+        if res.metadata:
+            entry["metadata"] = res.metadata
+        entries.append(entry)
+    return entries
+
+
+def _apply_ai_summary_to_descriptor(descriptor: Dict[str, Any], summary_payload: Dict[str, Any]) -> bool:
+    updated = False
+    profile = summary_payload.get("profile")
+    if isinstance(profile, dict):
+        descriptor["ai_profile"] = profile
+        profile_brand = profile.get("brand")
+        if profile_brand and (
+            not descriptor.get("brand") or is_generic_brand(descriptor.get("brand"))
+        ):
+            normalized = normalize_brand_candidate(profile_brand)
+            descriptor["brand"] = normalized or profile_brand
+        updated = True
+    keywords = summary_payload.get("keywords")
+    if isinstance(keywords, list):
+        descriptor["ai_keywords"] = [kw for kw in keywords if isinstance(kw, str) and kw.strip()]
+        updated = True
+    primary_keywords = summary_payload.get("primary_keywords")
+    if isinstance(primary_keywords, list) and primary_keywords:
+        descriptor["primary_keywords"] = [
+            " ".join(str(item).split()) for item in primary_keywords if isinstance(item, str)
+        ]
+        updated = True
+    secondary_keywords = summary_payload.get("secondary_keywords")
+    if isinstance(secondary_keywords, list) and secondary_keywords:
+        descriptor["secondary_keywords"] = [
+            " ".join(str(item).split()) for item in secondary_keywords if isinstance(item, str)
+        ]
+        updated = True
+    category = summary_payload.get("category")
+    if isinstance(category, str) and category:
+        descriptor["ai_category"] = category
+        updated = True
+    if updated:
+        descriptor["ai_profile_generated_at_eur"] = datetime.now(PARIS_TZ).isoformat()
+    return updated
+
+
+def run_ai_seed_summary(
+    ean: str,
+    descriptor: Dict[str, Any],
+    seed_results: Dict[str, "RawAdapterResult"],
+    *,
+    log_dir_provider: Callable[[], Optional[Path]],
+) -> Optional[Dict[str, Any]]:
+    if not AI_ASSIST_ENABLED or ai_summarize_product_seed is None:
+        return None
+    seed_payloads = _seed_payloads_for_ai(seed_results)
+    if not seed_payloads:
+        return None
+    context = {
+        "descriptor": descriptor,
+        "ean": ean,
+    }
+    try:
+        response = ai_summarize_product_seed(seed_payloads, context=context)
+    except Exception as exc:  # pragma: no cover - network/runtime errors
+        log_dir = log_dir_provider()
+        inline = SimpleNamespace(
+            status="exception",
+            data={"exception": str(exc)},
+            error=str(exc),
+            raw_prompt=None,
+            raw_response=None,
+        )
+        _log_ai_response(log_dir, "01_seed_summary_error", inline)
+        return None
+    log_dir = log_dir_provider()
+    _log_ai_response(log_dir, "01_seed_summary", response)
+    if response.status != "ok":
+        return None
+    data = response.data or {}
+    if _apply_ai_summary_to_descriptor(descriptor, data):
+        save_manual_descriptor_entry(ean, descriptor)
+    return data
+
+
+def run_ai_store_queries(
+    store: str,
+    descriptor: Dict[str, Any],
+    *,
+    log_dir_provider: Callable[[], Optional[Path]],
+    profile: Optional[Dict[str, Any]] = None,
+    max_queries: int = 5,
+    max_length: int = 30,
+) -> Dict[str, Any]:
+    if not AI_ASSIST_ENABLED or ai_suggest_search_queries is None:
+        return {}
+    ai_profile = profile or descriptor.get("ai_profile")
+    if not isinstance(ai_profile, dict):
+        return {}
+    try:
+        response = ai_suggest_search_queries(
+            ai_profile,
+            descriptor=descriptor,
+            store=store,
+            max_queries=max_queries,
+            max_length=max_length,
+        )
+    except Exception as exc:  # pragma: no cover - network/runtime errors
+        log_dir = log_dir_provider()
+        inline = SimpleNamespace(
+            status="exception",
+            data={"exception": str(exc)},
+            error=str(exc),
+            raw_prompt=None,
+            raw_response=None,
+        )
+        _log_ai_response(log_dir, f"02_queries_{store}_error", inline)
+        return {}
+    log_dir = log_dir_provider()
+    _log_ai_response(log_dir, f"02_queries_{store}", response)
+    if response.status != "ok":
+        return {}
+    return response.data or {}
+
+
+def _apply_store_queries_to_descriptor(
+    descriptor: Dict[str, Any],
+    store: str,
+    queries_payload: Dict[str, Any],
+) -> List[str]:
+    if not queries_payload:
+        return []
+    queries_raw = queries_payload.get("queries")
+    if not isinstance(queries_raw, list):
+        return []
+    cleaned: List[str] = []
+    seen_lower: set[str] = set()
+    for item in queries_raw:
+        if not isinstance(item, str):
+            continue
+        candidate = " ".join(item.split())
+        if not candidate:
+            continue
+        lowered = candidate.lower()
+        if lowered in seen_lower:
+            continue
+        seen_lower.add(lowered)
+        cleaned.append(candidate)
+    if not cleaned:
+        return []
+    descriptor[f"{store}_ai_queries"] = cleaned
+    if store == "leclerc":
+        descriptor["leclerc_queries"] = cleaned
+        descriptor["leclerc_query"] = cleaned[0]
+    else:
+        descriptor[f"{store}_queries"] = cleaned
+        queries_block = descriptor.get("queries")
+        if not isinstance(queries_block, dict):
+            queries_block = {}
+        queries_block[store] = cleaned
+        descriptor["queries"] = queries_block
+    secondary = queries_payload.get("secondary_keywords")
+    if isinstance(secondary, list):
+        descriptor[f"{store}_secondary_keywords"] = [
+            " ".join(str(item).split()) for item in secondary if isinstance(item, str)
+        ]
+    if store == "leclerc" and "primary_keywords" not in descriptor and cleaned:
+        descriptor["primary_keywords"] = cleaned[:5]
+    save_manual_descriptor_entry(str(descriptor.get("ean", "")), descriptor)
+    return cleaned
+
+
+def _merge_keyword_sources(*sources: Optional[Iterable[str]], limit: int = 8) -> List[str]:
+    merged: List[str] = []
+    seen: set[str] = set()
+    for source in sources:
+        if not source:
+            continue
+        if isinstance(source, str):
+            iterable = [source]
+        else:
+            iterable = list(source)  # type: ignore[arg-type]
+        for item in iterable:
+            if not isinstance(item, str):
+                continue
+            candidate = " ".join(item.split())
+            if not candidate:
+                continue
+            lowered = candidate.lower()
+            if lowered in seen:
+                continue
+            seen.add(lowered)
+            merged.append(candidate)
+            if limit and len(merged) >= limit:
+                return merged
+    return merged
+
+
 def _needs_enrichment(descriptor: Dict[str, Any]) -> bool:
     if not isinstance(descriptor, dict):
         return True
@@ -1414,6 +1731,19 @@ def run_adapter(
         env["CDP_URL"] = os.environ["CDP_URL"]
     if proxy:
         env["PROXY"] = proxy
+    if finder_keywords:
+        cleaned_keywords = [
+            " ".join(kw.split())
+            for kw in finder_keywords
+            if isinstance(kw, str) and kw.strip()
+        ]
+        if cleaned_keywords:
+            env["FINDER_KEYWORDS"] = json.dumps(cleaned_keywords, ensure_ascii=False)
+    else:
+        env.pop("FINDER_KEYWORDS", None)
+    if adapter == "monoprix":
+        env.setdefault("MONOPRIX_MAX_TERMS", "3")
+        env.setdefault("MONOPRIX_MAX_PRODUCTS", "4")
     def severity(status: str) -> int:
         status = (status or "").upper()
         if status == "OK":
@@ -1443,6 +1773,10 @@ def run_adapter(
             seen.add(cleaned.lower())
             candidates.append(cleaned)
 
+        cached_query = _cached_query_for(adapter, ean)
+        if cached_query:
+            add_candidate(cached_query)
+
         if finder_keywords:
             for kw in finder_keywords:
                 add_candidate(kw)
@@ -1458,6 +1792,8 @@ def run_adapter(
             if not finder_keywords:
                 fallback = query if query else (ean if adapter_uses_ean_search else None)
             add_candidate(fallback)
+        if adapter == "monoprix" and len(candidates) > 4:
+            candidates = candidates[:4]
         query_candidates = candidates
 
     best_result: Optional[RawAdapterResult] = None
@@ -1547,9 +1883,19 @@ def run_adapter(
             best_result = result
 
         if severity(result.status) >= severity("NO_PRICE"):
+            if result.status == "OK":
+                last_query = result.metadata.get("attempt_query") if isinstance(result.metadata, dict) else None
+                if not last_query:
+                    last_query = candidate_query
+                _store_cached_query(adapter, ean, last_query)
             return result
 
     if best_result is not None:
+        if best_result.status == "OK":
+            last_query = best_result.metadata.get("attempt_query") if isinstance(best_result.metadata, dict) else None
+            if not last_query:
+                last_query = best_result.env.get("QUERY")
+            _store_cached_query(adapter, ean, last_query)
         return best_result
 
     # Fallback: return last attempt result even if none succeeded
@@ -1725,6 +2071,17 @@ def main(argv: Optional[List[str]] = None) -> int:
         print("[WARN] Aucun descriptif manuel pour", ean)
 
     query = build_search_query(ean, descriptor)
+    ai_log_dir: Optional[Path] = None
+
+    def ensure_ai_log_dir() -> Optional[Path]:
+        nonlocal ai_log_dir
+        if ai_log_dir is not None:
+            return ai_log_dir
+        try:
+            ai_log_dir = _make_ai_log_dir(ean)
+        except Exception:
+            ai_log_dir = None
+        return ai_log_dir
 
     started_at = datetime.now(PARIS_TZ)
     adapters = args.adapters or DEFAULT_ADAPTER_ORDER
@@ -1746,11 +2103,32 @@ def main(argv: Optional[List[str]] = None) -> int:
         headed=args.headed,
         proxy=args.proxy,
     )
+    run_ai_seed_summary(
+        ean,
+        descriptor,
+        seed_results,
+        log_dir_provider=ensure_ai_log_dir,
+    )
     descriptor = ensure_brand_from_results(ean, descriptor, list(seed_results.values()))
     descriptor = ensure_nutriscore_from_results(ean, descriptor, list(seed_results.values()))
     query = build_search_query(ean, descriptor)
+    ai_profile_block = descriptor.get("ai_profile") if isinstance(descriptor.get("ai_profile"), dict) else None
+    leclerc_ai_payload = run_ai_store_queries(
+        "leclerc",
+        descriptor,
+        log_dir_provider=ensure_ai_log_dir,
+        profile=ai_profile_block,
+    )
+    leclerc_ai_queries = _apply_store_queries_to_descriptor(descriptor, "leclerc", leclerc_ai_payload)
+    monoprix_ai_payload = run_ai_store_queries(
+        "monoprix",
+        descriptor,
+        log_dir_provider=ensure_ai_log_dir,
+        profile=ai_profile_block,
+    )
+    monoprix_ai_queries = _apply_store_queries_to_descriptor(descriptor, "monoprix", monoprix_ai_payload)
 
-    finder_keywords: List[str] = []
+    heuristic_keywords: List[str] = []
     seed_fp = FinderPipeline()
     for res in seed_results.values():
         if res.status == "OK":
@@ -1764,9 +2142,22 @@ def main(argv: Optional[List[str]] = None) -> int:
         seed_fp.consolidator.add(pd_descriptor)
     if seed_fp.consolidator.sources:
         merged_seed = seed_fp.consolidator.merged()
-        finder_keywords = KeywordGenerator(max_keywords=4).make(merged_seed)
+        heuristic_keywords = KeywordGenerator(max_keywords=4).make(merged_seed)
     elif pd_descriptor:
-        finder_keywords = KeywordGenerator(max_keywords=4).make(pd_descriptor)
+        heuristic_keywords = KeywordGenerator(max_keywords=4).make(pd_descriptor)
+
+    ai_primary_source = descriptor.get("primary_keywords")
+    if isinstance(ai_primary_source, list):
+        ai_primary_keywords = [str(item) for item in ai_primary_source if isinstance(item, (str, int, float))]
+    else:
+        ai_primary_keywords = []
+    default_keywords = _merge_keyword_sources(ai_primary_keywords, heuristic_keywords, limit=8)
+    adapter_keyword_map = {
+        "leclerc": _merge_keyword_sources(leclerc_ai_queries, default_keywords, heuristic_keywords, limit=8),
+        "monoprix": _merge_keyword_sources(monoprix_ai_queries, default_keywords, heuristic_keywords, limit=3),
+    }
+    if not default_keywords:
+        default_keywords = heuristic_keywords
 
     for adapter in adapters:
         print(f"\n=== Adaptateur {adapter} ===")
@@ -1784,6 +2175,9 @@ def main(argv: Optional[List[str]] = None) -> int:
                 adapter_debug.mkdir(parents=True, exist_ok=True)
 
             adapter_query = query
+            keywords_for_adapter = adapter_keyword_map.get(adapter) or default_keywords
+            if not keywords_for_adapter:
+                keywords_for_adapter = heuristic_keywords
             res = run_adapter(
                 adapter,
                 ean,
@@ -1792,7 +2186,7 @@ def main(argv: Optional[List[str]] = None) -> int:
                 proxy=args.proxy,
                 extra_env={"HUMAN_DEBUG_DIR": str(adapter_debug)} if adapter_debug else None,
                 descriptor=descriptor,
-                finder_keywords=finder_keywords,
+                finder_keywords=keywords_for_adapter,
             )
             annotate_adapter_payload(adapter, res.payload, ean=ean)
             results.append(res)
@@ -1806,15 +2200,20 @@ def main(argv: Optional[List[str]] = None) -> int:
     descriptor = ensure_nutriscore_from_results(ean, descriptor, results)
     descriptor = ensure_local_image_asset(ean, descriptor, results)
     if descriptor:
-        leclerc_profile = build_leclerc_search_profile(descriptor)
-        leclerc_queries = leclerc_profile.get("queries") or []
-        if not leclerc_queries:
-            fallback_ean = descriptor.get("ean")
-            if fallback_ean:
-                leclerc_queries = [str(fallback_ean).strip()]
-        if leclerc_queries:
-            descriptor["leclerc_query"] = leclerc_queries[0]
-            descriptor["leclerc_queries"] = leclerc_queries
+        ai_leclerc_cached = descriptor.get("leclerc_ai_queries")
+        if isinstance(ai_leclerc_cached, list) and ai_leclerc_cached:
+            descriptor["leclerc_query"] = ai_leclerc_cached[0]
+            descriptor["leclerc_queries"] = ai_leclerc_cached
+        else:
+            leclerc_profile = build_leclerc_search_profile(descriptor)
+            leclerc_queries = leclerc_profile.get("queries") or []
+            if not leclerc_queries:
+                fallback_ean = descriptor.get("ean")
+                if fallback_ean:
+                    leclerc_queries = [str(fallback_ean).strip()]
+            if leclerc_queries:
+                descriptor["leclerc_query"] = leclerc_queries[0]
+                descriptor["leclerc_queries"] = leclerc_queries
         save_manual_descriptor_entry(ean, descriptor)
 
     finder_block: Optional[Dict[str, Any]] = None

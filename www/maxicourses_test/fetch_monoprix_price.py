@@ -1954,6 +1954,9 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
             extras["image_match"] = image_match
             if image_match:
                 score += 30
+                target_ean = descriptor_entry.get("ean") or EAN
+                if target_ean:
+                    product_result.matched_ean = str(target_ean)
                 sys.stderr.write(f"[MONOPRIX_DEBUG]  - Image match FOUND for '{product_result.title}'.\n")
             else:
                 sys.stderr.write(f"[MONOPRIX_DEBUG]  - No image match for '{product_result.title}'.\n")
@@ -2000,11 +2003,8 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
                     extras.setdefault("missing_core_tokens", missing_core)
                     extras["vetoes"].append("core_token")
 
-            final_plausible = (
-                plausible
-                and image_match
-                and not extras["vetoes"]
-            )
+            # Image match = validation absolue (pas d'EAN côté Monoprix)
+            final_plausible = image_match
 
             if final_plausible:
                 product_result.status = "OK"

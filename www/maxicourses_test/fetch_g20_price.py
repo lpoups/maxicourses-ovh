@@ -84,17 +84,24 @@ def _build_search_url(term: str) -> str:
         return template.replace("{ean}", term).replace("{query}", term)
 
 
-def _select_fragment(html: str, ean: str) -> Optional[str]:
-    pattern = re.compile(
+def _select_fragment(html: str, ean: str) -> tuple[Optional[str], Optional[str]]:
+    pattern_exact = re.compile(
         rf'<div id="product-{re.escape(ean)}" class="item[^"]*">(.*?)<div class="item-actions"',
         re.S,
     )
-    match = pattern.search(html)
+    match = pattern_exact.search(html)
     if match:
-        return match.group(1)
-    # Fallback: take first product block
-    fallback = re.search(r'<div id="product-\d{13}" class="item[^"]*">(.*?)<div class="item-actions"', html, re.S)
-    return fallback.group(1) if fallback else None
+        return match.group(1), ean
+    fallback = re.search(
+        r'<div id="product-(\d{8,14})" class="item[^"]*">(.*?)<div class="item-actions"',
+        html,
+        re.S,
+    )
+    if fallback:
+        fragment = fallback.group(2)
+        actual_ean = fallback.group(1)
+        return fragment, actual_ean
+    return None, None
 
 
 def _parse_with_bs4(html: str, ean: str) -> Optional[Result]:
@@ -127,6 +134,10 @@ def _parse_with_bs4(html: str, ean: str) -> Optional[Result]:
     if image_node and image_node.has_attr("src"):
         image = urljoin(BASE_URL, image_node["src"])
 
+    container_id = container.get("id") or ""
+    id_match = re.search(r"product-(\d{8,14})", container_id)
+    matched_ean = id_match.group(1) if id_match else None
+
     result = Result(
         status="OK" if price_text else "NO_PRICE",
         price=_normalize_price(price_text),
@@ -135,7 +146,7 @@ def _parse_with_bs4(html: str, ean: str) -> Optional[Result]:
         note="G20 Minute",
         unit_price=_normalize_unit(unit_price),
         quantity=_normalize_unit(quantity),
-        matched_ean=ean or None,
+        matched_ean=matched_ean,
         image=image,
     )
     if result.status == "NO_PRICE":
@@ -144,7 +155,7 @@ def _parse_with_bs4(html: str, ean: str) -> Optional[Result]:
 
 
 def _parse_with_regex(html: str, ean: str) -> Optional[Result]:
-    fragment = _select_fragment(html, ean)
+    fragment, actual_ean = _select_fragment(html, ean)
     if fragment is None:
         return None
 
@@ -172,7 +183,7 @@ def _parse_with_regex(html: str, ean: str) -> Optional[Result]:
         note="G20 Minute",
         unit_price=_normalize_unit(unit_price),
         quantity=_normalize_unit(quantity),
-        matched_ean=ean or None,
+        matched_ean=actual_ean,
         image=urljoin(BASE_URL, image) if image else None,
     )
     if result.status == "NO_PRICE":
@@ -225,6 +236,9 @@ def fetch_g20(ean: str, query: str) -> Result:
         parser_result.status = "NO_PRICE"
     if not parser_result.note:
         parser_result.note = "G20 Minute"
+    if ean:
+        if not parser_result.matched_ean or parser_result.matched_ean != ean:
+            return Result(status="NO_RESULTS", note="Non disponible")
 
     return parser_result
 
