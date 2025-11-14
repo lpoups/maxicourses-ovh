@@ -33,6 +33,8 @@ from functools import lru_cache
 
 from datetime import datetime
 from pathlib import Path
+import tempfile
+import uuid
 import re
 import unicodedata
 from urllib.parse import urlparse, urljoin
@@ -598,8 +600,24 @@ async def run_manual_leclerc(
             except Exception:
                 adapter_instance = None
 
+        def _listing_image_from_snippet(snippet: str) -> Optional[str]:
+            if not snippet:
+                return None
+            match = re.search(r'<img[^>]+(?:data-src|src)=["\']([^"\']+)["\']', snippet, flags=re.I)
+            if not match:
+                return None
+            value = match.group(1).strip()
+            if not value:
+                return None
+            if value.startswith("//"):
+                return "https:" + value
+            if value.startswith("/"):
+                return urljoin(store_url, value)
+            return value
+
         for visit_idx, cand in enumerate(candidate_rows[:LECLERC_MAX_PDP]):
             listing_url = urljoin(store_url, cand.get("href", "")) if cand.get("href") else None
+            listing_image = _listing_image_from_snippet(cand.get("snippet", ""))
             candidate_entry: dict = {
                 "listing_index": cand["index"],
                 "listing_label": cand["label"],
@@ -693,27 +711,58 @@ async def run_manual_leclerc(
             candidate_entry["quantity"] = quantity
 
             image_url = None
+            screenshot_path = None
             image_selectors = [
                 "img[itemprop='image']",
                 ".ficheProduit__visuel img",
                 "img[data-testid='medias-img']",
                 ".product-image img",
+                "img[data-src]",
             ]
+            target_locator = None
             for sel in image_selectors:
                 node = page.locator(sel).first
                 try:
                     if await node.count():
-                        src = await node.get_attribute("src")
-                        if src:
-                            image_url = src.strip()
-                            break
+                        target_locator = node
+                        break
                 except Exception:
                     continue
+            if target_locator:
+                try:
+                    tmp_path = Path(tempfile.gettempdir()) / f"leclerc-img-{uuid.uuid4().hex}.png"
+                    await target_locator.screenshot(path=str(tmp_path))
+                    screenshot_path = tmp_path
+                except Exception:
+                    screenshot_path = None
+                try:
+                    for attr in ("src", "data-src", "data-original", "srcset", "data-srcset"):
+                        raw = await target_locator.get_attribute(attr)
+                        if not raw:
+                            continue
+                        raw = raw.strip()
+                        if not raw:
+                            continue
+                        if ("srcset" in attr or "SRCSET" in attr) and " " in raw:
+                            raw = raw.split(" ", 1)[0]
+                        image_url = raw
+                        break
+                except Exception:
+                    image_url = None
+            if not image_url:
+                try:
+                    meta_candidate = await page.locator("meta[property='og:image']").first.get_attribute("content")
+                except Exception:
+                    meta_candidate = None
+                if meta_candidate:
+                    image_url = meta_candidate.strip()
             if image_url:
                 if image_url.startswith("//"):
                     image_url = "https:" + image_url
                 elif image_url.startswith("/"):
                     image_url = urljoin(current_url, image_url)
+            if not image_url:
+                image_url = listing_image
             candidate_entry["image_url"] = image_url
 
             html = ""
@@ -766,17 +815,28 @@ async def run_manual_leclerc(
             )
 
             image_match = False
-            if descriptor_entry and image_url:
-                try:
-                    image_match = descriptor_matches_candidate(
-                        descriptor_entry,
-                        image_url,
-                        ean=ean or descriptor_entry.get("ean"),
-                        threshold=16,
-                    )
-                except Exception:
-                    image_match = False
+            if descriptor_entry:
+                candidate_ref = None
+                if screenshot_path and screenshot_path.exists():
+                    candidate_ref = str(screenshot_path)
+                elif image_url:
+                    candidate_ref = image_url
+                if candidate_ref:
+                    try:
+                        image_match = descriptor_matches_candidate(
+                            descriptor_entry,
+                            candidate_ref,
+                            ean=ean or descriptor_entry.get("ean"),
+                            threshold=16,
+                        )
+                    except Exception:
+                        image_match = False
             candidate_entry["image_match"] = image_match
+            if screenshot_path and screenshot_path.exists():
+                try:
+                    screenshot_path.unlink()
+                except Exception:
+                    pass
 
             if matched_candidate_ean and ean and matched_candidate_ean == ean:
                 candidate_entry["status"] = "MATCHED"

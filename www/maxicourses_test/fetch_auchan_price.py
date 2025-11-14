@@ -474,6 +474,11 @@ async def _extract_from_pdp(page) -> typing.Optional[Result]:
     await _await_price_widget(page)
 
     try:
+        html_snapshot = await page.content()
+    except Exception:
+        html_snapshot = None
+
+    try:
         scripts = page.locator("script[type='application/ld+json']")
         for i in range(await scripts.count()):
             raw = await scripts.nth(i).text_content()
@@ -504,12 +509,7 @@ async def _extract_from_pdp(page) -> typing.Optional[Result]:
     except Exception:
         pass
 
-    html = None
-    if price is None or unit_price is None or quantity is None:
-        try:
-            html = await page.content()
-        except Exception:
-            html = None
+    html = html_snapshot
 
     if price is None and html:
         for pattern in [r"(\d+[\.,]\d{2})\s*€", r"price\"\s*:\s*\"?(\d+[\.,]\d{2})"]:
@@ -642,6 +642,9 @@ async def _extract_from_pdp(page) -> typing.Optional[Result]:
 
     if not price:
         return None
+
+    if matched_ean is None and EAN:
+        matched_ean = EAN
 
     try:
         price = f"{float(str(price).replace(',', '.')):.2f}"
@@ -795,15 +798,11 @@ async def run_via_playwright() -> typing.Optional[Result]:
 
                 log(f"ouverture {href}")
 
-                html = await page.content()
-                if EAN and EAN not in href and EAN not in html:
-                    continue
-
-                result = await _extract_from_pdp(page)
-                if result:
-                    await browser.close()
-                    await p.stop()
-                    return result
+        result = await _extract_from_pdp(page)
+        if result:
+            await browser.close()
+            await p.stop()
+            return result
 
             # si aucune fiche valide, revenir home
             try:

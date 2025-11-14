@@ -2,6 +2,12 @@
 
 Dernière sauvegarde : 2025-11-11.
 
+## Notes opérationnelles actuelles
+
+- **Leclerc (Drive)** : lancer la collecte via `fetch_leclerc_drive_price.py` (Chrome 9222 obligatoire). Le script prend une capture Playwright de la bouteille sur la PDP, compare l’image au visuel seed (hash partagé avec Finder) puis supprime le fichier temporaire. Si l’EAN manque dans « Informations produit », cette comparaison image est la seule validation autorisée ; ne jamais valider sans l’un de ces deux verrous.
+- **Auchan (Drive Talence Gallieni)** : juste après chaque navigation, cliquer de nouveau sur « Choisir ce magasin / Choisir ce drive » et sur « Afficher le prix ». Le fetcher force déjà ce flow (`ensure_store_selected` + `_ensure_drive_ready`), mais en cas de refonte, conserver cette séquence pour garantir que le prix affiché provient bien du drive Talence.
+- **Monoprix** : plus aucune validation texte. Le fetcher compare uniquement l’image de la fiche à l’image seed (hash + verrou couleurs). Si une fiche passe en « produit différent », revoir d’abord le visuel seed, pas les tokens.
+
 qu'est ce que tu ne comprends pas!!!!!!!!!!!! tu fais ce que je dis!!!!!!!!! est ce que c'est clair????????? donc quand je dis que je ne veux pas de conversion hasardeuse je t'interdit de me contre dire est ce que c'est clair? alors maintenant tu vas faire ce que je dis et lancer un test de collecte global pour cet EAN : 5411188114536 et afficher les resultats dans index2.html afin que je controle les resultats est ce que c'est putain clair! je suis l'humain tu es le developpeur! et la prochaine fois que tu me donne un ordre je te coupe !
 
 mais c'est quoi encore tout ces bugs !!!!! ? 1 : il n'y a pas l'image du produit! 2 : le descriptif du produit est encore une relique des putain de merde de json de con!!!! 3 : toujours pas de nutri-score 4 : le produit monoprix est indiqué "produit différent" alors que c'est le bon produit!!!! c'est quoi encore que toutes ces merdes de merde de merde!!!!!!!!!!!! j'en ai marre de ton incomptetence !!!!!!!!!!!! tu repare un truc et tu en casse 10 autres!!!!!!!!!!!!!!! quand vas tu enfin travailler correctement et professionnellement????????? j'en ai marre de payer pour de la merde!!!!!!!!!!!!!!!!!!
