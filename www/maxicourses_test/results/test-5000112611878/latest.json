@@ -1,0 +1,567 @@
+{
+  "ean": "5000112611878",
+  "image_path": null,
+  "started_at": "2025-11-12T14:37:20.430630+01:00",
+  "finished_at": "2025-11-12T14:43:22.712788+01:00",
+  "duration_seconds": 362.282158,
+  "reference": {
+    "title": "Soda  au Cola Zéro Sucres COCA-COLA",
+    "description": "Soda  au Cola Zéro Sucres COCA-COLA",
+    "source": "carrefour_market",
+    "brand": "Cola",
+    "quantity": "1,75 L",
+    "categories": null,
+    "image": "./assets/5000112611878.jpg",
+    "nutriscore_grade": "b",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-b.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,99",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-zero-sucres-coca-cola-5000112611878",
+        "note": null,
+        "unit_price": "1,14 € / L",
+        "quantity": "1,75 L",
+        "title": "Soda  au Cola Zéro Sucres COCA-COLA",
+        "matched_ean": "5000112611878",
+        "image": "https://media.carrefour.fr/medias/b8046eeedb8b4b228a4240ee8ae1bc45/p_540x540/05 000112611878_H1N1_s19.png",
+        "nutriscore_grade": "b",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda  au Cola Zéro Sucres COCA-COLA",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611878",
+          "image_url": "https://media.carrefour.fr/medias/b8046eeedb8b4b228a4240ee8ae1bc45/p_540x540/05 000112611878_H1N1_s19.png",
+          "source": "carrefour_city",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-12T14:37:20.431557+01:00",
+      "finished_at": "2025-11-12T14:37:42.261013+01:00",
+      "duration_seconds": 21.829456,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "5000112611878",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611878"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,90",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-zero-sucres-coca-cola-5000112611878",
+        "note": null,
+        "unit_price": "1,09 € / L",
+        "quantity": "1,75 L",
+        "title": "Soda  au Cola Zéro Sucres COCA-COLA",
+        "matched_ean": "5000112611878",
+        "image": "https://media.carrefour.fr/medias/b8046eeedb8b4b228a4240ee8ae1bc45/p_540x540/05 000112611878_H1N1_s19.png",
+        "nutriscore_grade": "b",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda  au Cola Zéro Sucres COCA-COLA",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611878",
+          "image_url": "https://media.carrefour.fr/medias/b8046eeedb8b4b228a4240ee8ae1bc45/p_540x540/05 000112611878_H1N1_s19.png",
+          "source": "carrefour_market",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-12T14:37:42.265402+01:00",
+      "finished_at": "2025-11-12T14:38:02.392813+01:00",
+      "duration_seconds": 20.127411,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "5000112611878",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611878"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Lormont",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-12T14:38:02.395741+01:00",
+      "finished_at": "2025-11-12T14:38:15.780433+01:00",
+      "duration_seconds": 13.384692,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "5000112611878",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611878"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,74",
+        "title": "Boisson gazeuse aux extraits  végétaux sans sucres",
+        "url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-sans-sucr es/pr-C1211975",
+        "note": "Auchan (CDP)",
+        "unit_price": "0,99 € / L",
+        "quantity": "100 G",
+        "matched_ean": "5000112611878",
+        "image": "https://cdn.auchan.fr/media/A0220180529000502432PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson gazeuse aux extraits  végétaux sans sucres",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "100 G",
+          "qualifiers": [],
+          "ean": "5000112611878",
+          "image_url": "https://cdn.auchan.fr/media/A0220180529000502432PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-12T14:38:15.780815+01:00",
+      "finished_at": "2025-11-12T14:38:35.162643+01:00",
+      "duration_seconds": 19.381828,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "5000112611878",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche '5000112611878'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-sans-sucres/pr-C1211975",
+      "metadata": {
+        "attempt_query": "5000112611878"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-12T14:38:35.164667+01:00",
+      "finished_at": "2025-11-12T14:39:20.401259+01:00",
+      "duration_seconds": 45.236592,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "5000112611878",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='5000112611878'\n[CHRONO_DEBUG] typed=True\n[CHRONO_DEBUG] suggestions-timeout\n[CHRONO_DEBUG] submit-triggered=True\n[CHRONO_DEBUG] URL after search: https://www.chronodrive.com/magasin/le-haillan-422\n[CHRONO_DEBUG] forced search URL https://www.chronodrive.com/magasin/le-haillan-422/recherche?text=5000112611878\n[CHRONO_DEBUG] no product cards; snapshot snippet:\n<!DOCTYPE html><html data-n-head-ssr=\"\" lang=\"fr-FR\" dir=\"ltr\" data-n-head=\"%7B%22lang%22:%7B%22ssr%22:%22fr-FR%22%7D,%22dir%22:%7B%22ssr%22:%22ltr%22%7D%7D\"><head>\n    <meta data-n-head=\"ssr\" charset=\"utf-8\"><meta data-n-head=\"ssr\" name=\"viewport\" content=\"width=device-width,initial-scale=1.0,shrink-to-fit=no\"><meta data-n-head=\"ssr\" data-hid=\"description\" name=\"description\" content=\"\"><meta data-n-head=\"ssr\" name=\"format-detection\" content=\"telephone=no\"><meta data-n-head=\"ssr\" name=\"apple-itunes-app\" content=\"app-id=397935048\"><meta data-n-head=\"ssr\" name=\"google-play-app\" content=\"app-id=com.ikomobi.chronodrive\"><meta data-n-head=\"ssr\" name=\"msapplication-TileColor\" content=\"#ffffff\"><meta data-n-head=\"ssr\" name=\"msapplication-config\" content=\"/favicons/browserconfig.xml\"><meta data-n-",
+      "metadata": {
+        "attempt_query": "5000112611878"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,72",
+        "unit_price": "0,98 € / L",
+        "quantity": "1,75  L",
+        "title": "Soda COCA-COLA sans sucres - Bouteille 1,75L",
+        "url": "https://www.coursesu.com/p/soda-coca-cola-sans-sucres---bouteille-175l/5194370. html",
+        "note": "2025-11-12T13:39:53Z · Super U Eysines",
+        "store": "Super U  Eysines",
+        "matched_ean": "5000112611878",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda COCA-COLA sans sucres - Bouteille 1,75L",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611878",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-12T14:39:20.401568+01:00",
+      "finished_at": "2025-11-12T14:39:53.156869+01:00",
+      "duration_seconds": 32.755301,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "5000112611878",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611878"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,78",
+        "title": "COCA-COLA SANS SUCRES PET 1,75L CONTOUR",
+        "url": "https://www.g20-minute.com/products/5000112611878/coca-cola-sans-sucres-pet-1-75l-contour-5000112611878",
+        "note": "G20 Minute",
+        "unit_price": "1,02 €/L",
+        "quantity": "1,75L",
+        "matched_ean": "5000112611878",
+        "image": "https://www.g20-minute.com/media/cache/product_box_image/47/03/aa35bd6f9dac3c450e743a1e7fb0.jpg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "COCA-COLA SANS SUCRES PET 1,75L CONTOUR",
+          "brand": "COCA-COLA",
+          "kind": "",
+          "qty": "1,75L",
+          "qualifiers": [],
+          "ean": "5000112611878",
+          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/47/03/aa35bd6f9dac3c450e743a1e7fb0.jpg",
+          "source": "g20",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-12T14:39:53.157920+01:00",
+      "finished_at": "2025-11-12T14:39:53.847231+01:00",
+      "duration_seconds": 0.689311,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "5000112611878",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "5000112611878"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "NO_MATCH",
+      "payload": {
+        "status": "NO_MATCH",
+        "title": "Soda Coca-Cola Cherry Bouteille - 1,25L",
+        "price": null,
+        "unit_price": null,
+        "quantity": "",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-109892-Soda-Coca-Cola-Cherry.aspx",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-12T13:40:06Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
+            "product": {
+              "title": "Soda Coca-Cola Original Bouteille - 1,75L",
+              "brand": "Soda",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "5000112611861",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5ba1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5ba1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-109893-Soda-Coca-Cola-Vanille.aspx",
+            "product": {
+              "title": "Soda Coca-Cola Vanille Bouteille - 1,25L",
+              "brand": "Soda",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "5449000267443",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5ba1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5ba1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-109892-Soda-Coca-Cola-Cherry.aspx",
+            "product": {
+              "title": "Soda Coca-Cola Cherry Bouteille - 1,25L",
+              "brand": "Soda",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "5449000267436",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5ba1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5ba1\"></script><script"
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-12T14:39:54.458468+01:00",
+      "finished_at": "2025-11-12T14:40:06.260057+01:00",
+      "duration_seconds": 11.801589,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "Cola Soda Zéro 1.75 L",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Cola Soda Zéro 1.75 L'\n[LECLERC_DEBUG] after home human pause -> 1.35s\n[LECLERC_DEBUG] after focus -> 2.27s\n[LECLERC_DEBUG] results visible -> 3.67s\n[LECLERC_DEBUG] after result pause -> 3.77s",
+      "metadata": {
+        "attempt_query": "Cola Soda Zéro 1.75 L"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/pepsi-pepsi-zéro-sucre-1l/MPX_3859389",
+            "product": {
+              "title": "Pepsi Pepsi Zéro Sucre 1L",
+              "brand": "Cola",
+              "kind": "Soda  au Cola Zéro Sucres COCA-COLA",
+              "qty": "1 L",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/33a8 e013-ce1e-4839-bcbe-3c12ab4409bf/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/monoprix-cola-zero-la-bouteille-de-1-5l/MP X_2638904",
+            "product": {
+              "title": "Monoprix Cola Zero La  Bouteille De 1,5L",
+              "brand": "Cola",
+              "kind": "Soda  au Cola Zéro Sucres  COCA-COLA",
+              "qty": "1,5 L",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a712 fe37-eea4-4671-a0ad-cc2863c3e536/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/breizh-cola-zero-1-5l/MPX_4124454",
+            "product": {
+              "title": "Breizh Cola Zero 1,5L",
+              "brand": "Cola",
+              "kind": "Soda  au Cola Zéro Sucres COCA-COLA",
+              "qty": "1,5 L",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/6a49 a1dd-d297-46e1-b385-d590bf64cc1c/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/schweppes-soda-agrumes-zéro-sucre-1-5l/MPX _6603581",
+            "product": {
+              "title": "Schweppes Soda Agrumes  Zéro Sucre 1,5L",
+              "brand": "Cola",
+              "kind": "Soda  au Cola Zéro Sucres  COCA-COLA",
+              "qty": "1,5 L",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/ec7f 7438-f84c-4766-858f-3fda1cb8c99d/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/schweppes-zéro-agrumes-boisson-gazeuse-le- pack-de-6x33cl/MPX_2335260",
+            "product": {
+              "title": "",
+              "brand": "Cola",
+              "kind": "Soda  au Cola Zéro Sucres COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": ""
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/schweppes-zéro-indian-tonic-la-bouteille-d e-1-5l/MPX_1541182",
+            "product": {
+              "title": "",
+              "brand": "Cola",
+              "kind": "Soda  au Cola Zéro Sucres COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": ""
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-12T14:42:17.185833+01:00",
+      "finished_at": "2025-11-12T14:43:12.861200+01:00",
+      "duration_seconds": 55.675367,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611878",
+        "QUERY": "Cola sucres 1.75 L",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5000112611878'.\n[MONOPRIX_DEBUG] Search terms: ['Cola sucres 1,75 L', 'Cola Zéro', 'Cola Soda']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez']\n[MONOPRIX_DEBUG]  - Term 1/3: 'Cola sucres 1,75 L'\n[MONOPRIX_DEBUG]  - Typing 'Cola sucres 1,75 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Cola%20sucres%201%2C75%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'Cola Zéro'\n[MONOPRIX_DEBUG]  - Typing 'Cola Zéro' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Cola%20Z%C3%A9ro\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 12 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/pepsi-pepsi-zéro-sucre-1l/MPX_3859389\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/33a8e013-ce1e-4839-bcbe-3c12ab4409bf/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/pepsi-pepsi-zéro-sucre-1l/MPX_3859389\n[MONOPRIX_DEBUG][SCORE] - Title: 'Pepsi Pepsi Zéro Sucre 1L' | Brand: 'cola' | Variant(seed/cand)=(None/sans sucre) | Vetoes=['size_out_of_range'] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Pepsi Pepsi Zéro Sucre 1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Pepsi Pepsi Zéro Sucre 1L' | vetoes=['size_out_of_range', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/monoprix-cola-zero-la-bouteille-de-1-5l/MPX_2638904\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a712fe37-eea4-4671-a0ad-cc2863c3e536/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/monoprix-cola-zero-la-bouteille-de-1-5l/MPX_2638904\n[MONOPRIX_DEBUG][SCORE] - Title: 'Monoprix Cola Zero La Bouteille De 1,5L' | Brand: 'cola' | Variant(seed/cand)=(None/sans sucre) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Monoprix Cola Zero La Bouteille De 1,5L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Monoprix Cola Zero La Bouteille De 1,5L' | vetoes=['descriptor_coverage', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/breizh-cola-zero-1-5l/MPX_4124454\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/6a49a1dd-d297-46e1-b385-d590bf64cc1c/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/breizh-cola-zero-1-5l/MPX_4124454\n[MONOPRIX_DEBUG][SCORE] - Title: 'Breizh Cola Zero 1,5L' | Brand: 'cola' | Variant(seed/cand)=(None/sans sucre) | Vetoes=[] | NegHits=[] | Score=10 | Plausible=True\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Breizh Cola Zero 1,5L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Breizh Cola Zero 1,5L' | vetoes=['core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/schweppes-soda-agrumes-zéro-sucre-1-5l/MPX_6603581\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/ec7f7438-f84c-4766-858f-3fda1cb8c99d/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/schweppes-soda-agrumes-zéro-sucre-1-5l/MPX_6603581\n[MONOPRIX_DEBUG][SCORE] - Title: 'Schweppes Soda Agrumes Zéro Sucre 1,5L' | Brand: 'cola' | Variant(seed/cand)=(None/orange) | Vetoes=[] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Schweppes Soda Agrumes Zéro Sucre 1,5L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Schweppes Soda Agrumes Zéro Sucre 1,5L' | vetoes=['image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/schweppes-zéro-agrumes-boisson-gazeuse-le-pack-de-6x33cl/MPX_2335260\n[MONOPRIX_DEBUG] Error parsing product page https://courses.monoprix.fr/products/schweppes-zéro-agrumes-boisson-gazeuse-le-pack-de-6x33cl/MPX_2335260: Page.goto: Target page, context or browser has been closed\nCall log:\n  - navigating to \"https://courses.monoprix.fr/products/schweppes-z%C3%A9ro-agrumes-boisson-gazeuse-le-pack-de-6x33cl/MPX_2335260\", waiting until \"networkidle\"\n\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/schweppes-zéro-agrumes-boisson-gazeuse-le-pack-de-6x33cl/MPX_2335260\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/schweppes-zéro-indian-tonic-la-bouteille-de-1-5l/MPX_1541182\n[MONOPRIX_DEBUG] Error parsing product page https://courses.monoprix.fr/products/schweppes-zéro-indian-tonic-la-bouteille-de-1-5l/MPX_1541182: Page.goto: net::ERR_ABORTED at https://courses.monoprix.fr/products/schweppes-z%C3%A9ro-indian-tonic-la-bouteille-de-1-5l/MPX_1541182\nCall log:\n  - navigating to \"https://courses.monoprix.fr/products/schweppes-z%C3%A9ro-indian-tonic-la-bouteille-de-1-5l/MPX_1541182\", waiting until \"networkidle\"\n\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/schweppes-zéro-indian-tonic-la-bouteille-de-1-5l/MPX_1541182\n[MONOPRIX_DEBUG]  - Best rejected candidate 'Breizh Cola Zero 1,5L' (Score: 40) | vetoes=['core_token']\n[MONOPRIX_DEBUG]  - Term 3/3: 'Cola Soda'\n[MONOPRIX_DEBUG]  - Search simulation failed: Page.goto: net::ERR_ABORTED at https://courses.monoprix.fr/\nCall log:\n  - navigating to \"https://courses.monoprix.fr/\", waiting until \"domcontentloaded\"\n\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=[{'url': 'https://courses.monoprix.fr/products/pepsi-pepsi-zéro-sucre-1l/MPX_3859389', 'status': 'OK_PARTIAL', 'product': {'title': 'Pepsi Pepsi Zéro Sucre 1L', 'brand': 'Cola', 'kind': 'Soda  au Cola Zéro Sucres COCA-COLA', 'qty': '1 L', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/33a8e013-ce1e-4839-bcbe-3c12ab4409bf/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nSoda et Boisson aromatisée\\nColas\\nPepsi Pepsi Zéro Sucre 1L\\n1\\xa0m+\\n1\\xa0mois de garantie de vie du produit\\n1L 1,19\\xa0€ / litre\\n1L\\n(1,19\\xa0€ / litre)\\n1,19\\xa0€\\nAjouter\\nPromotions\\n-60% sur le 2ème produit - Cliquez ici pour composer votre lot\\n-60% sur le 2ème produit - Cliquez ici pour composer votre lot\\nInformations produit\\n\\n\\nDescription Produit\\nPEPSI ZÉRO, UN MAX DE GOÛT, ZÉRO SUCRES : Faites vous plaisir avec Pepsi Zéro, profitez d'une pause fraîcheur unique en mêlant intensité et pétillant, avec son goût légendaire à base d'extraits végétaux, le tout sans sucres et peu calorique.\\n\\n\\nOrigine\\nFrance\\nMarque\\nPEPSI\\nService consommateur\\nPepsiCo France 15 boulevard Charles de Gaulle 92705 Colombes CEDEX\\nConseils d'utilisation\\nServir très frais\\nIngredients\\neau gazéifiée,colorant (caramel au sulfite d'ammonium),édulcorants (aspartame**, acésulfame K),acidifiants (acide phosphorique, acide citrique),correcteur d'acidité (citrate de sodium),arômes (dont extraits végétaux et caféine),**Contient une source de phénylalanine.\\nType d’emballage\\nbouteille\\nProducteur\\nPEPSICO FRANCE 15 BOULEVARD CHARLES DE GAULLE/IMMEUBLE PORTES DE LA DEFENSE//92700/COLOMBES/FRANCE\\nConseil de conservation\\nÀ consommer de préférence avant le : voir sur le bouchon ou le col de la bouteille. Conserver à l'abri du soleil dans un endroit sec et tempéré.\\nAutres informations\\nAvec l'autorisation de PepsiCo, Inc., Purchase N.Y., USA.\\nConseils d'utilisation\\nServir très frais\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\tpour pour 250 ml\\nValeurs Energétique en Kilojoules\\t~ 2 kJ\\t4 kJ\\nValeurs Energétique en Kilocalories\\t~ 0.4 kcal\\t1 kcal\\nValeurs Nutritionnelles\\nSel\\t~ 0.01 g\\t0.02 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'price': '1,19', 'unit_price': '1,19 € / L'}, 'score': 30, 'extras': {'seed_variant': None, 'candidate_variant': 'sans sucre', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': False, 'category_ok': True, 'vetoes': ['size_out_of_range', 'core_token'], 'candidate_quantity': '1 L', 'candidate_size_ratio': 0.42857142857142855, 'descriptor_token_coverage': {'coverage': 0.8, 'matched': ['cola', 'soda', 'sucres', 'zero'], 'missing': ['coca'], 'total': 5}, 'missing_tokens': ['coca'], 'image_match': True, 'final_score': 30, 'plausible_baseline': False, 'missing_core_tokens': ['coca', '1.75l']}}, {'url': 'https://courses.monoprix.fr/products/monoprix-cola-zero-la-bouteille-de-1-5l/MPX_2638904', 'status': 'OK_PARTIAL', 'product': {'title': 'Monoprix Cola Zero La Bouteille De 1,5L', 'brand': 'Cola', 'kind': 'Soda  au Cola Zéro Sucres COCA-COLA', 'qty': '1,5 L', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a712fe37-eea4-4671-a0ad-cc2863c3e536/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nNos sélections\\nInspiration du moment\\n& Barbecue\\nBoissons\\nMonoprix Cola Zero La Bouteille De 1,5L\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\nNutriscore C\\n1.5L 0,30\\xa0€ / litre\\n1.5L\\n(0,30\\xa0€ / litre)\\n0,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nBoisson gazéifiée allégée en sucres à l'arôme naturel avec édulcorant\\nMarque\\nMonoprix\\nService consommateur\\nwww.monoprix.fr/contact\\nIngredients\\nEau gazéifiée, colorant : caramel E150d, acidifiant : acide orthophosphorique, édulcorants : acésulfame K, sucralose, correcteur d'acidité : citrates de sodium, arôme naturel, caféine.\\nProducteur\\nMonoprix Exploitation 14-16 rue Marc Bloch 92116 Clichy Cedex\\nConseil de conservation\\nAvant ouverture, à conserver dans un endroit propre et sec, à l'abri de la chaleur et de la lumière. Après ouverture, à conserver au réfrigérateur et à consommer dans les 3 jours. -\\nConseils d'utilisation\\nServir frais.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\nValeurs Energétique en Kilojoules\\t4 kJ\\nValeurs Energétique en Kilocalories\\t1 kcal\\nValeurs Nutritionnelles\\nGlucides\\t0.2 g\\nDont Sucres\\t0.2 g\\nSel\\t0.02 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'price': '0,45', 'unit_price': '0,30 € / L'}, 'score': 10, 'extras': {'seed_variant': None, 'candidate_variant': 'sans sucre', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['descriptor_coverage', 'image_mismatch', 'core_token'], 'candidate_quantity': '1,5 L', 'candidate_size_ratio': 0.14285714285714285, 'descriptor_token_coverage': {'coverage': 0.6, 'matched': ['cola', 'sucres', 'zero'], 'missing': ['coca', 'soda'], 'total': 5}, 'missing_tokens': ['coca', 'soda'], 'image_match': False, 'final_score': 10, 'plausible_baseline': False, 'missing_core_tokens': ['soda', 'coca', '1.75l']}}, {'url': 'https://courses.monoprix.fr/products/breizh-cola-zero-1-5l/MPX_4124454', 'status': 'OK_PARTIAL', 'product': {'title': 'Breizh Cola Zero 1,5L', 'brand': 'Cola', 'kind': 'Soda  au Cola Zéro Sucres COCA-COLA', 'qty': '1,5 L', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/6a49a1dd-d297-46e1-b385-d590bf64cc1c/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nSoda et Boisson aromatisée\\nColas\\nBreizh Cola Zero 1,5L\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n1.5L 1,10\\xa0€ / litre\\n1.5L\\n(1,10\\xa0€ / litre)\\n1,65\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nBreizh Cola Zero 1,5L\\n\\n\\nOrigine\\nFrance\\nMarque\\nBreizh Cola\\nService consommateur\\nBrasserie Lanccelot 7 La Mine, le Roc-Saint-André 56460 VAL D'OUST France http://www.breizhcola.bzh 02.97.74.74.74 contact@brasserie-lancelot.com\\nConseils d'utilisation\\nAprès ouverture, à conserver au frais et à consommer rapidement\\nIngredients\\n\\nEau ; gaz carbonique ; colorant : E150d ; acidifiants : acide citrique, acide phosphorique et citrate de sodium ; caféine ; arômes naturels de cola et autres arômes naturels ; édulcorants : aspartame et acésulfame K. Contient une source de phénylaline.\\n\\nAllergènes\\nABSENCE D'ALLERGèNES SELON LE RèGLEMENT 1169/2011\\nA propos de la marque\\nCréé en 2002 par deux amis Stéphane Kerdodé et Eric Ollive, Breizh Cola est le premier cola régional à proposer aux consommateurs une vraie alternative française à cette boisson mythique. Des années plus tard, le cola breton est un véritable succès. C’est grâce à sa recette unique, son identité authentiquement bretonne et son ton décalé que Breizh Cola a su se hisser dans le peloton de tête des marques de cola en France.\\nType d’emballage\\nemballé sous film\\nProducteur\\nBRASSERIE LANCELOT SITE DE LA MINE D'OR///56460/LE ROC SAINT ANDRE/FRANCE\\nConseil de conservation\\nA consommer de préférence avant: voir sur la bouteille Après ouverture, à conserver au réfrigérateur et à consommer dans les 2 jours.\\nAutres informations\\nContient une source de phénylalanine\\nConseils d'utilisation\\nAprès ouverture, à conserver au frais et à consommer rapidement\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\nValeurs Energétique en Kilojoules\\t~ 11 kJ\\nValeurs Energétique en Kilocalories\\t~ 3 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 0.1 g\\nGlucides\\t~ 0.3 g\\nDont Sucres\\t~ 0.3 g\\nProtéines\\t~ 0.1 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'price': '1,65', 'unit_price': '1,10 € / L'}, 'score': 40, 'extras': {'seed_variant': None, 'candidate_variant': 'sans sucre', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['core_token'], 'candidate_quantity': '1,5 L', 'candidate_size_ratio': 0.14285714285714285, 'descriptor_token_coverage': {'coverage': 0.8, 'matched': ['cola', 'soda', 'sucres', 'zero'], 'missing': ['coca'], 'total': 5}, 'missing_tokens': ['coca'], 'image_match': True, 'final_score': 40, 'plausible_baseline': True, 'missing_core_tokens': ['coca', '1.75l']}}, {'url': 'https://courses.monoprix.fr/products/schweppes-soda-agrumes-zéro-sucre-1-5l/MPX_6603581', 'status': 'OK_PARTIAL', 'product': {'title': 'Schweppes Soda Agrumes Zéro Sucre 1,5L', 'brand': 'Cola', 'kind': 'Soda  au Cola Zéro Sucres COCA-COLA', 'qty': '1,5 L', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/ec7f7438-f84c-4766-858f-3fda1cb8c99d/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nSoda et Boisson aromatisée\\nBoisson gazeuse aux fruits\\nSchweppes Soda Agrumes Zéro Sucre 1,5L\\n1\\xa0m+\\n1\\xa0mois de garantie de vie du produit\\nNutriscore C\\n1.5L 1,50\\xa0€ / litre\\n1.5L\\n(1,50\\xa0€ / litre)\\n2,25\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nTout le goût irrésistible du Schweppes Agrumes, sans sucres et sans calorie.\\n\\n\\nOrigine\\nFrance\\nMarque\\nSchweppes\\nService consommateur\\nOrangina Schweppes France - Service consommateurs CS 80491 - 13593 Aix - en - Provence Cedex 3 - France\\nIngredients\\nIngrédients: eau gazéifiée, extraits d'orange, acidifiant: acide citrique, édulcorants: acésulfame K et sucralose, conservateur: sorbate de potassium, arômes naturels d'agrumes avec autres arômes naturels, amidon modifié, antioxydant: acide ascorbique, stabilisant: E445.\\nType d’emballage\\nbouteille\\nProducteur\\nORANGINA SCHWEPPES FRANCE 40-52 BOULEVARD DU PARC///92200/NEUILLY SUR SEINE/FRANCE\\nConseil de conservation\\nA conserver à l'abri du soleil et de la chaleur.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\nValeurs Energétique en Kilojoules\\t~ 10 kJ\\nValeurs Energétique en Kilocalories\\t~ 2 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 0.3 g\\nDont Sucres\\t~ 0.3 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'price': '2,25', 'unit_price': '1,50 € / L'}, 'score': 0, 'extras': {'seed_variant': None, 'candidate_variant': 'orange', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['image_mismatch', 'core_token'], 'candidate_quantity': '1,5 L', 'candidate_size_ratio': 0.14285714285714285, 'descriptor_token_coverage': {'coverage': 0.8, 'matched': ['cola', 'soda', 'sucres', 'zero'], 'missing': ['coca'], 'total': 5}, 'missing_tokens': ['coca'], 'image_match': False, 'final_score': 0, 'plausible_baseline': False, 'missing_core_tokens': ['coca', '1.75l']}}, {'url': 'https://courses.monoprix.fr/products/schweppes-zéro-agrumes-boisson-gazeuse-le-pack-de-6x33cl/MPX_2335260', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Cola', 'kind': 'Soda  au Cola Zéro Sucres COCA-COLA', 'qty': '1,75 L', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}, {'url': 'https://courses.monoprix.fr/products/schweppes-zéro-indian-tonic-la-bouteille-de-1-5l/MPX_1541182', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Cola', 'kind': 'Soda  au Cola Zéro Sucres COCA-COLA', 'qty': '1,75 L', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Cola sucres 1.75 L"
+      }
+    }
+  ],
+  "finder": null
+}
