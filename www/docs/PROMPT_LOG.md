@@ -172,3 +172,23 @@ sauvegarde!
 ````
 Sauvegardé (HANDOVER + QUICKSTART) et rappel des règles image automatiques dans le pipeline.
 ````
+
+## 2025-11-14T10:05+0100
+**Utilisateur** :
+```
+peux tu faire un commit sur github de maxicourses ?
+```
+**Assistant** :
+```
+Demande acceptée sous réserve de respecter la checklist GIT_SAUVEGARDE.
+```
+
+## 2025-11-14T10:07+0100
+**Utilisateur** :
+```
+biensur que oui tu as accès ! lis GIT_SAUVEGARDE.md
+```
+**Assistant** :
+```
+Lu `docs/GIT_SAUVEGARDE.md` et application de la procédure (Handover + Prompt log mis à jour avant commit/push).
+```

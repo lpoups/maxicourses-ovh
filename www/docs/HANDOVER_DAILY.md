@@ -103,3 +103,14 @@ Ce mémo remplace l’ancien journal volumineux. Il décrit l’état courant, l
 ### Suites suggérées
 1. Relancer `python3 pipeline/run_pipeline.py --ean <EAN>` pour remettre `results/summary.json` à jour avec les prix Course U validés.
 2. Ajouter captures si besoin (non prises aujourd’hui) pour compléter le dossier de preuves.
+
+## 2025-11-14T10:10 (Europe/Paris) – GPT (Codex CLI)
+
+### Faits marquants
+- `fetch_intermarche_price.py` coupe désormais la recherche après 8 mismatches EAN et marque explicitement le produit comme absent (`_meta.abort_search` avec raison horodatée).
+- `run_pipeline.py` réagit à ce signal pour passer immédiatement à l’enseigne suivante, ce qui évite les boucles infinies et enregistre une note « produit absent ».
+- Ajout du dataset fraise `5411188114536` dans `pipeline/index2.html` + rafraîchissement des JSON `results/test-5411188114536/{latest,summary}.json` pour alimenter la vitrine.
+
+### Suivi / prochaines étapes
+- Confirmer que l’entrée Intermarché « produit absent » reste visible côté front (`pipeline/index2.html`) et qu’aucun autre run n’a supprimé les dumps debug attendus.
+- Si d’autres EAN non trouvés reproduisent le pattern, ajuster le seuil `INTERMARCHE_EAN_MISMATCH_ABORT` et enrichir `docs/ONBOARDING.md` avec la procédure.

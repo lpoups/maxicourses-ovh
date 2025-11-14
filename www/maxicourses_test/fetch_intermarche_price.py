@@ -63,6 +63,7 @@ SKU_LABEL_PATTERN = re.compile(r"\bp\d{5,}\b", flags=re.IGNORECASE)
 CORE_STOPWORDS = {"aux", "au", "de", "du", "des", "la", "le", "les", "et", "en"}
 INTERMARCHE_MAX_PDP = 10
 INTERMARCHE_MAX_RESULTS = 10
+INTERMARCHE_EAN_MISMATCH_ABORT = 8
 
 MANUAL_DESCRIPTOR = all_seeds()
 
@@ -605,6 +606,16 @@ def build_query_plan() -> list[tuple[StageLiteral, str]]:
 
     add(QUERY)
 
+    if isinstance(descriptor, dict):
+        custom_queries = descriptor.get("queries")
+        if isinstance(custom_queries, dict):
+            store_queries = custom_queries.get(TELEMETRY_STORE) or custom_queries.get(
+                "intermarche"
+            )
+            if isinstance(store_queries, (list, tuple)):
+                for candidate in store_queries:
+                    add(candidate)
+
     if not queries:
         descriptor_seed = _descriptor_seed(EAN)
         if descriptor_seed:
@@ -947,14 +958,39 @@ async def run() -> Result:
     nutri_image: typing.Optional[str] = None
 
     finder_candidates: list[dict] = []
+    ean_mismatch_hits = 0
+    abort_search = False
+    abort_reason: typing.Optional[str] = None
 
     def finalize_result(res: Result) -> Result:
-        res._meta = {"supports_keywords": True}
+        meta = res._meta or {}
+        meta["supports_keywords"] = True
+        if abort_search:
+            meta["abort_search"] = True
+            if abort_reason:
+                meta["abort_reason"] = abort_reason
+            meta["ean_mismatch_hits"] = ean_mismatch_hits
+        res._meta = meta
         if finder_candidates:
             res.candidates = finder_candidates
         return res
 
+    def register_ean_mismatch() -> bool:
+        """Increment mismatch counter and request an early abort if threshold exceeded."""
+        nonlocal ean_mismatch_hits, abort_search, abort_reason
+        ean_mismatch_hits += 1
+        if ean_mismatch_hits >= INTERMARCHE_EAN_MISMATCH_ABORT:
+            abort_search = True
+            abort_reason = "too_many_ean_mismatches"
+            if DEBUG_INTERMARCHE:
+                sys.stderr.write(
+                    f"[intermarche] aborting search after {ean_mismatch_hits} EAN mismatches\n"
+                )
+        return abort_search
+
     for stage_label, term in query_plan:
+        if abort_search:
+            break
         stage_matched_ean: typing.Optional[str] = None
         stage_matched_reason: typing.Optional[str] = None
         normalized_term = _normalize_query(term)
@@ -1139,6 +1175,8 @@ async def run() -> Result:
                             search_url=search_url,
                             ean=EAN,
                         )
+                        if register_ean_mismatch():
+                            break
                         continue
                     candidate_entry["status"] = "MATCHED"
                     candidate_entry["reason"] = candidate_reason or "ean_in_url"
@@ -1170,8 +1208,12 @@ async def run() -> Result:
                 if "status" not in candidate_entry:
                     candidate_entry["status"] = "REJECTED"
                 finder_candidates.append(candidate_entry)
+            if abort_search:
+                break
         pdp = matched_href or fallback_href
         if not pdp:
+            if abort_search:
+                break
             continue
         if EAN:
             pdp_ean = extract_ean_from_url(pdp)
@@ -1399,6 +1441,9 @@ async def run() -> Result:
                     search_url=search_url,
                     ean=EAN,
                 )
+                register_ean_mismatch()
+                if abort_search:
+                    break
                 price = None
                 title = None
                 stage_matched_ean = None
@@ -1424,6 +1469,14 @@ async def run() -> Result:
             final_pdp = pdp
             break
 
+    if abort_search:
+        try:
+            metadata = await get_store_metadata(context)
+        except Exception:
+            metadata = None
+        if isinstance(metadata, dict) and not store_label:
+            store_label = metadata.get("decoded_name") or metadata.get("name") or None
+
     if not store_label:
         try:
             metadata = await get_store_metadata(context)
@@ -1434,6 +1487,13 @@ async def run() -> Result:
 
     await browser.close()
     await p.stop()
+    if abort_search and not price and not final_pdp:
+        note = None
+        if store_label:
+            note = f"Intermarché · {store_label} — produit absent"
+        elif abort_reason:
+            note = f"Intermarché — {abort_reason}"
+        return finalize_result(Result(status="NO_RESULTS", note=note, store=store_label))
     if DEBUG_INTERMARCHE:
         sys.stderr.write(
             f"[intermarche] final state price={price} pdp={pdp} final_pdp={final_pdp} matched={final_matched_ean} reason={final_matched_reason}\n"

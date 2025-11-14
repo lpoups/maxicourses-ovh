@@ -1848,6 +1848,14 @@ def run_adapter(
         if proc.returncode != 0 and not error:
             error = f"exit_code={proc.returncode}"
 
+        meta = None
+        if isinstance(payload, dict):
+            raw_meta = payload.get("_meta")
+            if isinstance(raw_meta, dict):
+                meta = raw_meta
+        abort_requested = bool(meta and meta.get("abort_search"))
+        abort_reason = meta.get("abort_reason") if isinstance(meta, dict) else None
+
         result = RawAdapterResult(
             adapter=adapter,
             status=status,
@@ -1878,9 +1886,14 @@ def run_adapter(
                 "attempt_query": candidate_query,
             },
         )
+        if abort_requested and abort_reason:
+            result.metadata["abort_reason"] = abort_reason
 
         if best_result is None or severity(result.status) > severity(best_result.status):
             best_result = result
+
+        if abort_requested:
+            return result
 
         if severity(result.status) >= severity("NO_PRICE"):
             if result.status == "OK":
