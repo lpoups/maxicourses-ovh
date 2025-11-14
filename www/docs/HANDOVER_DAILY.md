@@ -114,3 +114,13 @@ Ce mémo remplace l’ancien journal volumineux. Il décrit l’état courant, l
 ### Suivi / prochaines étapes
 - Confirmer que l’entrée Intermarché « produit absent » reste visible côté front (`pipeline/index2.html`) et qu’aucun autre run n’a supprimé les dumps debug attendus.
 - Si d’autres EAN non trouvés reproduisent le pattern, ajuster le seuil `INTERMARCHE_EAN_MISMATCH_ABORT` et enrichir `docs/ONBOARDING.md` avec la procédure.
+
+## 2025-11-14T11:30 (Europe/Paris) – GPT (Codex CLI)
+
+### Faits marquants
+- Auchan Talence Gallieni : slug forcé (`auchan-drive-supermarche-talence-gallieni`) + clic automatique sur « Choisir ce drive/Afficher le prix » + attente explicite du widget prix → le fetcher retourne à nouveau des JSON `status="OK"` (test sur 5411188118961).
+- Comparateur `pipeline/index2.html` : `resolveDescriptor()` fusionne désormais correctement les méta-données issues des runs (images locales, Nutri/Eco-score, source) sans que le cache seed « unknown » les écrase ; fallback possible via `manual_descriptors.json`.
+
+### Suites suggérées
+- Relancer `run_pipeline.py --ean 5411188119098 --use_finder` pour actualiser `results/summary.json` et valider visuellement que les badges restent corrects dans `index2.html`.
+- Étendre le mécanisme `manual_override` si d’autres fiches doivent forcer un branding ou une image spécifique.

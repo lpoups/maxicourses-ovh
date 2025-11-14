@@ -173,6 +173,16 @@ sauvegarde!
 Sauvegardé (HANDOVER + QUICKSTART) et rappel des règles image automatiques dans le pipeline.
 ````
 
+## 2025-11-14T11:25+0100
+**Utilisateur** :
+```
+maintenant nous allons nous occuper des bugs de index2.html [...]
+```
+**Assistant** :
+```
+Forcé le fetcher Auchan à cliquer “Choisir ce drive/Afficher le prix” et ajouté un merge robuste des métadonnées dans index2.html ; résultats vérifiés via http.server + Playwright.
+```
+
 ## 2025-11-14T10:05+0100
 **Utilisateur** :
 ```

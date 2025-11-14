@@ -1203,6 +1203,7 @@
     const SUMMARY_URL = '../results/summary.json';
     const DESCRIPTORS_ENDPOINT = window.MAXICOURSES_DESCRIPTORS_ENDPOINT || 'http://127.0.0.1:5001/api/descriptors';
     const DESCRIPTOR_CACHE_URL = '../pipeline/descriptor_cache.json';
+    const MANUAL_DESCRIPTOR_FALLBACK_URL = '../manual_descriptors.json';
 
     const MANUAL_COMPARISON = {};
 
@@ -1766,14 +1767,21 @@
     }
 
     async function fetchDescriptorsCatalog(endpoint = DESCRIPTORS_ENDPOINT) {
+      const tryNormalize = async (url) => {
+        if (!url) return {};
+        const payload = await fetchJson(url);
+        return normalizeDescriptorPayload(payload);
+      };
+
       let descriptors = {};
       if (endpoint) {
-        const primaryPayload = await fetchJson(endpoint);
-        descriptors = normalizeDescriptorPayload(primaryPayload);
+        descriptors = await tryNormalize(endpoint);
       }
       if (!descriptors || !Object.keys(descriptors).length) {
-        const cachePayload = await fetchJson(DESCRIPTOR_CACHE_URL);
-        descriptors = normalizeDescriptorPayload(cachePayload);
+        descriptors = await tryNormalize(MANUAL_DESCRIPTOR_FALLBACK_URL);
+      }
+      if (!descriptors || !Object.keys(descriptors).length) {
+        descriptors = await tryNormalize(DESCRIPTOR_CACHE_URL);
       }
       return descriptors || {};
     }
@@ -3087,28 +3095,122 @@
     }
 
     function resolveDescriptor(ean, data, manualDescriptors) {
-      const manual = manualDescriptors?.[ean];
-      if (manual) {
-        return {
-          ean,
-          title: manual.name,
-          name: manual.name,
-          brand: manual.brand,
-          quantity: manual.quantity,
-          categories: manual.categories,
-          image: manual.image,
-          nutriscore_grade: manual.nutriscore_grade,
-          nutriscore_image: manual.nutriscore_image,
-          ecoscore_grade: manual.ecoscore_grade,
-          ecoscore_image: manual.ecoscore_image,
-          nova_group: manual.nova_group,
-          source: manual.source,
-          description: manual.description,
-          note: manual.note || ''
-        };
+      const datasetReference = (data && typeof data.reference === 'object') ? data.reference : {};
+
+      const pickFromAdapters = (extractors) => {
+        if (!data || !Array.isArray(data.adapters)) return null;
+        for (const adapter of data.adapters) {
+          const payload = adapter?.payload;
+          if (!payload || typeof payload !== 'object') continue;
+          for (const extractor of extractors) {
+            try {
+              const value = extractor(payload);
+              if (value) return value;
+            } catch (err) {
+              continue;
+            }
+          }
+        }
+        return null;
+      };
+
+      const descriptor = {
+        ean,
+        title: datasetReference.title || datasetReference.name || '',
+        name: datasetReference.name || datasetReference.title || '',
+        brand: datasetReference.brand || '',
+        quantity: datasetReference.quantity || datasetReference.reference_quantity || '',
+        categories: datasetReference.categories || '',
+        image: datasetReference.image
+          || data?.image_path
+          || pickFromAdapters([
+            (payload) => payload.image_path,
+            (payload) => payload.image,
+            (payload) => payload.product?.image_url,
+            (payload) => payload.product?.image
+          ]),
+        nutriscore_grade: datasetReference.nutriscore_grade || datasetReference.reference_nutriscore_grade,
+        nutriscore_image: datasetReference.nutriscore_image || datasetReference.reference_nutriscore_image,
+        ecoscore_grade: datasetReference.ecoscore_grade,
+        ecoscore_image: datasetReference.ecoscore_image,
+        nova_group: datasetReference.nova_group,
+        source: datasetReference.source,
+        description: datasetReference.description,
+        note: datasetReference.note || '',
+      };
+
+      if (!descriptor.nutriscore_grade) {
+        descriptor.nutriscore_grade = pickFromAdapters([
+          (payload) => payload.nutriscore_grade,
+          (payload) => payload.product?.nutriscore_grade,
+        ]);
       }
-      const descriptor = data?.reference || {};
-      return { ...descriptor, ean };
+      if (!descriptor.nutriscore_image) {
+        descriptor.nutriscore_image = pickFromAdapters([
+          (payload) => payload.nutriscore_image,
+          (payload) => payload.product?.nutriscore_image,
+        ]);
+      }
+      if (!descriptor.ecoscore_grade) {
+        descriptor.ecoscore_grade = pickFromAdapters([
+          (payload) => payload.ecoscore_grade,
+          (payload) => payload.product?.ecoscore_grade,
+        ]);
+      }
+      if (!descriptor.ecoscore_image) {
+        descriptor.ecoscore_image = pickFromAdapters([
+          (payload) => payload.ecoscore_image,
+          (payload) => payload.product?.ecoscore_image,
+        ]);
+      }
+      if (!descriptor.nova_group) {
+        descriptor.nova_group = pickFromAdapters([
+          (payload) => payload.nova_group,
+          (payload) => payload.product?.nova_group,
+        ]);
+      }
+
+      const manual = manualDescriptors?.[ean];
+      if (manual && typeof manual === 'object') {
+        const forceOverride = manual.manual_override === true;
+        const overrideKeys = [
+          'title',
+          'name',
+          'brand',
+          'quantity',
+          'categories',
+          'image',
+          'nutriscore_grade',
+          'nutriscore_image',
+          'ecoscore_grade',
+          'ecoscore_image',
+          'nova_group',
+          'source',
+          'description',
+          'note',
+        ];
+        overrideKeys.forEach((key) => {
+          const value = manual[key];
+          if (value == null) {
+            return;
+          }
+          const current = descriptor[key];
+          if (forceOverride || current == null || current === '' || (typeof current === 'string' && !current.trim())) {
+            descriptor[key] = value;
+          }
+        });
+      }
+
+      if (!descriptor.image) {
+        descriptor.image = data?.reference?.image || data?.image_path || pickFromAdapters([
+          (payload) => payload.image_path,
+          (payload) => payload.image,
+          (payload) => payload.product?.image_url,
+          (payload) => payload.product?.image
+        ]);
+      }
+
+      return descriptor;
     }
 
     function computeLastUpdate(rows) {

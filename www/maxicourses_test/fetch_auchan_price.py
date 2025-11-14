@@ -85,15 +85,27 @@ def _normalize_search_term(term: typing.Optional[str]) -> str:
     return cleaned
 
 
+def _extract_price_value(raw: typing.Optional[str]) -> typing.Optional[str]:
+    if not isinstance(raw, str):
+        return None
+    normalized = raw.replace("\xa0", " ").strip()
+    match = re.search(r"(\d+[\.,]\d{2})", normalized)
+    if not match:
+        return None
+    return match.group(1).replace(",", ".")
+
+
 DEFAULT_STORE_URL = None
 if DESCRIPTOR_ENTRY:
     DEFAULT_STORE_URL = _normalize_url(DESCRIPTOR_ENTRY.get("auchan_store_url"))
 
 STORE_URL = _normalize_url(os.environ.get("AUCHAN_STORE_URL")) or DEFAULT_STORE_URL
+DEFAULT_STORE_SLUG = "auchan-drive-supermarche-talence-gallieni"
 STORE_SLUG = (
     os.environ.get("AUCHAN_STORE_SLUG")
     or (DESCRIPTOR_ENTRY.get("auchan_slug") if DESCRIPTOR_ENTRY else None)
     or _extract_store_slug(STORE_URL)
+    or DEFAULT_STORE_SLUG
 )
 if STORE_SLUG:
     STORE_SLUG = STORE_SLUG.strip("/")
@@ -232,6 +244,7 @@ async def accept_cookies(page) -> None:
         "#didomi-notice-agree-button",
         "#onetrust-accept-btn-handler",
         "button:has-text('Tout accepter')",
+        "button:has-text('Tout autoriser')",
         "button:has-text('Accepter')",
         "button:has-text(\"J'accepte\")",
     ]
@@ -409,12 +422,13 @@ async def _reveal_price_if_needed(page) -> None:
             continue
 
 
-async def _reveal_price_if_needed(page) -> None:
+async def _ensure_drive_ready(page) -> None:
     selectors = [
-        "button:has-text(\"Afficher le prix\")",
-        "button:has-text(\"Voir le prix\")",
-        "button.price-unavailable__button",
-        "button[data-testid='product-price-reveal']",
+        "button:has-text('Choisir ce drive')",
+        "button:has-text('Choisir ce magasin')",
+        "button:has-text('Choisir ce point de retrait')",
+        "button:has-text('Voir ce magasin')",
+        "a:has-text('Choisir ce drive')",
     ]
     for selector in selectors:
         btn = page.locator(selector).first
@@ -423,6 +437,20 @@ async def _reveal_price_if_needed(page) -> None:
                 await btn.click()
                 await page.wait_for_timeout(1200)
                 break
+        except Exception:
+            continue
+
+
+async def _await_price_widget(page) -> None:
+    selectors = [
+        "[data-testid='product-price']",
+        ".product-price",
+    ]
+    for selector in selectors:
+        try:
+            loc = page.locator(selector).first
+            await loc.wait_for(state="visible", timeout=5000)
+            return
         except Exception:
             continue
 
@@ -440,9 +468,10 @@ async def _extract_from_pdp(page) -> typing.Optional[Result]:
     except Exception:
         pass
 
+    await ensure_store_selected(page)
+    await _ensure_drive_ready(page)
     await _reveal_price_if_needed(page)
-
-    await _reveal_price_if_needed(page)
+    await _await_price_widget(page)
 
     try:
         scripts = page.locator("script[type='application/ld+json']")
@@ -487,6 +516,24 @@ async def _extract_from_pdp(page) -> typing.Optional[Result]:
             m = re.search(pattern, html)
             if m:
                 price = m.group(1).replace(',', '.')
+                break
+
+    if price is None:
+        price_selectors = [
+            "[data-testid='product-price']",
+            ".product-price__amount",
+            ".product-price",
+        ]
+        for selector in price_selectors:
+            loc = page.locator(selector).first
+            try:
+                await loc.wait_for(state="visible", timeout=3000)
+                text = await loc.text_content()
+            except Exception:
+                continue
+            value = _extract_price_value(text)
+            if value:
+                price = value
                 break
 
     def _select_quantity_from_html(html_text: str, unit_groups: typing.Sequence[str]) -> typing.Optional[str]:
@@ -570,6 +617,23 @@ async def _extract_from_pdp(page) -> typing.Optional[Result]:
                 value = munit.group(1).replace(',', '.')
                 unit = munit.group(0).split('/')[-1].strip().upper()
                 unit_price = value + f" € / {unit}"
+
+    if unit_price is None:
+        unit_selectors = [
+            "[data-testid='product-unit-price']",
+            ".product-price__second-line",
+        ]
+        for selector in unit_selectors:
+            loc = page.locator(selector).first
+            try:
+                await loc.wait_for(state="visible", timeout=3000)
+                text = await loc.text_content()
+            except Exception:
+                continue
+            normalized = text.replace("\xa0", " ").strip()
+            if "€" in normalized and "/" in normalized:
+                unit_price = normalized
+                break
 
     if html and not image_url:
         m_img = re.search(r'<meta[^>]+property="og:image"[^>]+content="([^"]+)"', html)
