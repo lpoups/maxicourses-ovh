@@ -1,240 +1,63 @@
 #!/usr/bin/env python3
-"""Fetcher Auchan conforme au mandat centralisé (collection_mandate)."""
+"""Auchan Talence fetcher — minimal flow: load store page, search EAN, open PDP."""
 import asyncio
 import json
 import os
 import re
 import sys
 from dataclasses import dataclass
-import typing
 from pathlib import Path
-from collections import Counter
+from typing import Optional
+import unicodedata
 
-# Keep Rich pretty print for local debugging but default to stderr logging so
-# stdout remains valid JSON for the pipeline consumer.
 from rich import print
+
 import sys as _sys, os as _os
 _sys.path.append(_os.path.dirname(__file__))
 from scraper.engine import make_context, state_path_for
-from playwright.async_api import TimeoutError as PlaywrightTimeout
-from urllib.parse import urljoin
+from seed_catalog import all_seeds
 
-from collection_mandate import get_method
-
-EAN = os.environ.get("EAN", "7613035676497").strip()
-QUERY = os.environ.get("QUERY")
+EAN = os.environ.get("EAN", "").strip()
 HEADLESS = os.environ.get("HEADLESS", "1") == "1"
 PROXY = os.environ.get("PROXY")
-MANDATE = get_method("auchan")
-
-MANUAL_DESCRIPTOR = {}
-try:
-    descriptor_path = Path(__file__).with_name("manual_descriptors.json")
-    if descriptor_path.exists():
-        MANUAL_DESCRIPTOR = json.loads(descriptor_path.read_text(encoding="utf-8"))
-except Exception:
-    MANUAL_DESCRIPTOR = {}
-
-
-def _descriptor_entry() -> typing.Optional[dict]:
-    entry = MANUAL_DESCRIPTOR.get(EAN) if MANUAL_DESCRIPTOR and EAN else None
-    return entry if isinstance(entry, dict) else None
-
-
-DESCRIPTOR_ENTRY = _descriptor_entry()
-
-
-def _normalize_url(url: typing.Optional[str]) -> typing.Optional[str]:
-    if not isinstance(url, str):
-        return None
-    cleaned = url.strip()
-    if not cleaned:
-        return None
-    if cleaned.startswith("//"):
-        cleaned = "https:" + cleaned
-    if cleaned.startswith("/"):
-        cleaned = f"https://www.auchan.fr{cleaned}"
-    return cleaned
-
-
-def _extract_store_slug(url: typing.Optional[str]) -> typing.Optional[str]:
-    if not isinstance(url, str):
-        return None
-    marker = "/drive/magasins/"
-    if marker not in url:
-        return None
-    path = url.split(marker, 1)[1]
-    slug = path.split("/", 1)[0]
-    return slug.strip("/") or None
-
-
-def _extract_store_id(url: typing.Optional[str]) -> typing.Optional[str]:
-    if not isinstance(url, str):
-        return None
-    match = re.search(r"/s-(\d+)", url)
-    if match:
-        return match.group(1)
-    return None
-
-
-def _normalize_search_term(term: typing.Optional[str]) -> str:
-    if not isinstance(term, str):
-        return ""
-    cleaned = term.replace("+", " ")
-    cleaned = re.sub(r"\s+", " ", cleaned).strip()
-    return cleaned
-
-
-def _extract_price_value(raw: typing.Optional[str]) -> typing.Optional[str]:
-    if not isinstance(raw, str):
-        return None
-    normalized = raw.replace("\xa0", " ").strip()
-    match = re.search(r"(\d+[\.,]\d{2})", normalized)
-    if not match:
-        return None
-    return match.group(1).replace(",", ".")
-
-
-DEFAULT_STORE_URL = None
-if DESCRIPTOR_ENTRY:
-    DEFAULT_STORE_URL = _normalize_url(DESCRIPTOR_ENTRY.get("auchan_store_url"))
-
-STORE_URL = _normalize_url(os.environ.get("AUCHAN_STORE_URL")) or DEFAULT_STORE_URL
-DEFAULT_STORE_SLUG = "auchan-drive-supermarche-talence-gallieni"
-STORE_SLUG = (
-    os.environ.get("AUCHAN_STORE_SLUG")
-    or (DESCRIPTOR_ENTRY.get("auchan_slug") if DESCRIPTOR_ENTRY else None)
-    or _extract_store_slug(STORE_URL)
-    or DEFAULT_STORE_SLUG
+STORE_ID = os.environ.get("AUCHAN_STORE_ID", "6117")
+STORE_SLUG = os.environ.get(
+    "AUCHAN_STORE_SLUG", "auchan-drive-supermarche-talence-gallieni"
+).strip("/")
+STORE_URL = os.environ.get(
+    "AUCHAN_STORE_URL",
+    f"https://www.auchan.fr/drive/magasins/{STORE_SLUG}",
 )
-if STORE_SLUG:
-    STORE_SLUG = STORE_SLUG.strip("/")
-
-STORE_SWITCH_URL = _normalize_url(
-    os.environ.get("AUCHAN_STORE_SWITCH_URL")
-    or (DESCRIPTOR_ENTRY.get("auchan_store_switch_url") if DESCRIPTOR_ENTRY else None)
+STORE_LABEL = os.environ.get(
+    "AUCHAN_STORE_LABEL", "Auchan Drive Supermarché Talence-Gallieni"
+)
+DEFAULT_USER_AGENT = os.environ.get(
+    "AUCHAN_USER_AGENT",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/128.0.6613.18 Safari/537.36",
 )
 
-DEFAULT_STORE_HOME_URL = None
-if DESCRIPTOR_ENTRY:
-    DEFAULT_STORE_HOME_URL = _normalize_url(
-        DESCRIPTOR_ENTRY.get("auchan_store_home_url")
-        or DESCRIPTOR_ENTRY.get("auchan_store_url")
-    )
-
-STORE_HOME_URL = (
-    _normalize_url(os.environ.get("AUCHAN_HOME_URL"))
-    or DEFAULT_STORE_HOME_URL
-)
-
-STORE_ID = (
-    _extract_store_id(STORE_SWITCH_URL)
-    or _extract_store_id(STORE_HOME_URL)
-    or _extract_store_id(STORE_URL)
-)
-
-if not STORE_HOME_URL and STORE_ID:
-    STORE_HOME_URL = f"https://www.auchan.fr/magasins/drive/s-{STORE_ID}"
-
-if not STORE_SWITCH_URL and STORE_ID:
-    STORE_SWITCH_URL = f"https://www.auchan.fr/s-{STORE_ID}"
-
-if not STORE_HOME_URL:
-    STORE_HOME_URL = "https://www.auchan.fr"
-
-HOME_URL = _normalize_url(os.environ.get("HOME_URL")) or STORE_HOME_URL
-STORE_QUERY = (
-    os.environ.get("AUCHAN_STORE_QUERY")
-    or (DESCRIPTOR_ENTRY.get("auchan_store_label") if DESCRIPTOR_ENTRY else None)
-    or "Talence Gallieni"
-).strip()
-
-DEFAULT_AUCHAN_URL = None
-if DESCRIPTOR_ENTRY:
-    DEFAULT_AUCHAN_URL = _normalize_url(
-        DESCRIPTOR_ENTRY.get("auchan_product_url")
-        or DESCRIPTOR_ENTRY.get("auchan_url")
-    )
-AUCHAN_URL = _normalize_url(os.environ.get("AUCHAN_URL")) or DEFAULT_AUCHAN_URL
-
-
-def load_storage_state(path: Path) -> typing.Optional[dict]:
-    if not path or not path.exists():
-        return None
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        return None
-
-
-async def apply_storage_state(context, page, state: typing.Optional[dict]) -> None:
-    if not state:
-        return
-    cookies = state.get("cookies") or []
-    if cookies:
-        try:
-            await context.add_cookies(cookies)
-        except Exception:
-            pass
-    origins = state.get("origins") or []
-    for origin in origins:
-        origin_url = origin.get("origin")
-        if not origin_url or not isinstance(origin_url, str):
-            continue
-        local_storage = origin.get("localStorage") or []
-        session_storage = origin.get("sessionStorage") or []
-        if not local_storage and not session_storage:
-            continue
-        try:
-            if origin_url != "about:blank":
-                await page.goto(origin_url, wait_until='domcontentloaded')
-        except Exception:
-            continue
-        for item in local_storage:
-            name = item.get("name")
-            value = item.get("value")
-            if name is None or value is None:
-                continue
-            try:
-                await page.evaluate("(entry) => window.localStorage.setItem(entry.name, entry.value)",
-                                    {"name": name, "value": value})
-            except Exception:
-                continue
-        for item in session_storage:
-            name = item.get("name")
-            value = item.get("value")
-            if name is None or value is None:
-                continue
-            try:
-                await page.evaluate("(entry) => window.sessionStorage.setItem(entry.name, entry.value)",
-                                    {"name": name, "value": value})
-            except Exception:
-                continue
-    # Revenir sur la home après injection
-    try:
-        await page.goto(HOME_URL, wait_until='domcontentloaded')
-    except Exception:
-        pass
+SEED_DATA = all_seeds()
+DESCRIPTOR_ENTRY = SEED_DATA.get(EAN) if (EAN and EAN in SEED_DATA) else None
 
 
 @dataclass
 class Result:
     status: str
-    price: typing.Optional[str] = None
-    title: typing.Optional[str] = None
-    url: typing.Optional[str] = None
-    note: typing.Optional[str] = None
-    unit_price: typing.Optional[str] = None
-    quantity: typing.Optional[str] = None
-    matched_ean: typing.Optional[str] = None
-    image: typing.Optional[str] = None
+    price: Optional[str] = None
+    unit_price: Optional[str] = None
+    quantity: Optional[str] = None
+    title: Optional[str] = None
+    url: Optional[str] = None
+    matched_ean: Optional[str] = None
+    store: Optional[str] = None
+    note: Optional[str] = None
+    image: Optional[str] = None
 
 
 def log(message: str) -> None:
-    """Emit debug information on stderr so stdout stays JSON."""
     try:
         sys.stderr.write(f"[auchan] {message}\n")
-        sys.stderr.flush()
     except Exception:
         pass
 
@@ -244,685 +67,485 @@ async def accept_cookies(page) -> None:
         "#didomi-notice-agree-button",
         "#onetrust-accept-btn-handler",
         "button:has-text('Tout accepter')",
-        "button:has-text('Tout autoriser')",
         "button:has-text('Accepter')",
         "button:has-text(\"J'accepte\")",
     ]
-    for sel in selectors:
+    for selector in selectors:
+        button = page.locator(selector).first
         try:
-            btn = page.locator(sel).first
-            if await btn.count():
-                await btn.click()
-                await page.wait_for_timeout(800)
+            if await button.count():
+                await button.click()
+                await page.wait_for_timeout(400)
+                return
+        except Exception:
+            continue
+
+
+async def close_delivery_modal(page) -> None:
+    selectors = [
+        "#journey-update-modal button.layer__close",
+        "#journey-update-modal button[data-testid='journey-update-modal-close']",
+        "#journey-update-modal button:has-text('Fermer')",
+    ]
+    for selector in selectors:
+        button = page.locator(selector).first
+        try:
+            if await button.count():
+                await button.click()
+                await page.wait_for_timeout(200)
                 break
         except Exception:
             continue
 
 
-def _with_store_slug(url: typing.Optional[str]) -> typing.Optional[str]:
-    if not isinstance(url, str) or not url:
-        return url
-    if STORE_SLUG and "/drive/magasins/" in url and STORE_SLUG in url:
-        return url
-    target_slug = STORE_SLUG or (DESCRIPTOR_ENTRY.get("auchan_slug") if DESCRIPTOR_ENTRY else None)
-    if not target_slug:
-        return url
-    from urllib.parse import urlsplit, urlunsplit
+STORE_CONTEXT_SCRIPT = """
+        (store) => {
+            try {
+                const {id, slug, label} = store;
+                if (id) {
+                    window.localStorage.setItem('storeId', id);
+                    window.localStorage.setItem('journeyStoreId', id);
+                }
+                if (slug) {
+                    window.localStorage.setItem('storeSlug', slug);
+                }
+                if (label) {
+                    window.localStorage.setItem('storeName', label);
+                }
+            } catch (e) {}
+        }
+    """
 
-    parts = urlsplit(url)
-    scheme = parts.scheme or "https"
-    netloc = parts.netloc or "www.auchan.fr"
-    path = parts.path.lstrip("/")
-    new_path = f"/drive/magasins/{target_slug}"
-    if path:
-        new_path += "/" + path
-    return urlunsplit((scheme, netloc, new_path, parts.query, parts.fragment))
 
-
-async def ensure_store_selected(page) -> None:
-    target = STORE_QUERY
-    if not target:
-        return
-
-    button_selectors = [
-        "button.journeyOverlayTrigger",
-        "button[data-testid='journeyOverlayTrigger']",
-        "button.context-header__pos-btn",
-        "button:has-text('Choisir mon mode de livraison')",
-    ]
-    overlay_button = None
-    for selector in button_selectors:
-        btn = page.locator(selector).first
-        if await btn.count():
-            overlay_button = btn
-            break
-
-    if overlay_button:
-        try:
-            await overlay_button.click()
-            await page.wait_for_timeout(500)
-        except Exception:
-            return
-    else:
-        return
-
-    overlay_root = page.locator("[data-testid='journey-overlay'], #journeyOverlay").first
+async def install_store_context(page) -> None:
+    payload = {"id": STORE_ID, "slug": STORE_SLUG, "label": STORE_LABEL}
     try:
-        await overlay_root.wait_for(state="visible", timeout=5000)
+        await page.add_init_script(STORE_CONTEXT_SCRIPT, payload)
     except Exception:
-        return
-
-    search_input = overlay_root.locator("input[type='search'], input[type='text']").first
-    if await search_input.count():
-        try:
-            await search_input.fill("")
-            await page.wait_for_timeout(150)
-            await search_input.type(target, delay=60)
-            await page.wait_for_timeout(600)
-        except Exception:
-            pass
-
-
-async def refresh_and_confirm_drive(page) -> None:
-    """Forces a reload then clicks the 'Choisir ce Drive' button before searching."""
-    try:
-        await page.reload(wait_until="domcontentloaded")
-    except PlaywrightTimeout:
         pass
-    except Exception:
-        return
-    await page.wait_for_timeout(1200)
-    await accept_cookies(page)
-    button_selectors = [
-        "button:has-text('Choisir ce Drive')",
-        "button:has-text('Choisir ce magasin')",
-        "button[data-testid='store-location-btn']",
-    ]
-    drive_button = None
-    for selector in button_selectors:
-        cand = page.locator(selector).first
-        if await cand.count():
-            drive_button = cand
-            break
-    if not drive_button:
-        return
+
+
+async def sync_store_context(page) -> None:
+    payload = {"id": STORE_ID, "slug": STORE_SLUG, "label": STORE_LABEL}
     try:
-        await drive_button.click()
-        await page.wait_for_timeout(10000)
+        await page.evaluate(STORE_CONTEXT_SCRIPT, payload)
     except Exception:
-        return
-    # Close overlay if still visible
-    close_selectors = [
-        "button:has-text('Valider')",
-        "button:has-text('Choisir ce magasin')",
-        "button[aria-label='Fermer']",
-        "button:has-text('Voir ce magasin')",
-    ]
-    for selector in close_selectors:
-        node = page.locator(selector).first
-        if await node.count():
-            try:
-                await node.click()
-                await page.wait_for_timeout(500)
-                break
-            except Exception:
-                continue
+        pass
 
-    option_selectors = [
-        f"button:has-text('{target}')",
-        "button[data-testid='store-item']",
+
+async def prepare_store_page(page) -> None:
+    log(f"goto store page {STORE_URL}")
+    await page.goto(STORE_URL, wait_until="domcontentloaded")
+    await sync_store_context(page)
+    await accept_cookies(page)
+    await close_delivery_modal(page)
+    await page.wait_for_timeout(800)
+
+
+async def focus_search_input(page):
+    selectors = [
+        "input[placeholder*='Rechercher']",
+        "input[data-testid='search-input']",
+        "input[type='search']",
     ]
-    store_option = None
-    for selector in option_selectors:
-        cand = overlay_root.locator(selector).first
-        if await cand.count():
-            store_option = cand
-            break
-    if store_option:
+    for selector in selectors:
+        field = page.locator(selector).first
         try:
-            await store_option.click()
-            await page.wait_for_timeout(400)
+            if await field.count():
+                await field.click()
+                return field
         except Exception:
-            pass
-
-    confirm_selectors = [
-        "button:has-text('Choisir ce magasin')",
-        "button:has-text('Voir ce magasin')",
-        "button[data-testid='journey-overlay-validate']",
-    ]
-    confirm_btn = None
-    for selector in confirm_selectors:
-        cand = overlay_root.locator(selector).first
-        if await cand.count():
-            confirm_btn = cand
-            break
-    if confirm_btn:
-        try:
-            await confirm_btn.click()
-            await page.wait_for_timeout(800)
-        except Exception:
-            pass
+            continue
+    return None
 
 
-async def _reveal_price_if_needed(page) -> None:
+async def search_ean(page, ean: str) -> bool:
+    if not (ean and ean.isdigit()):
+        return False
+    input_node = await focus_search_input(page)
+    if not input_node:
+        log("search input not found")
+        return False
+    try:
+        await input_node.fill("")
+        await page.wait_for_timeout(200)
+        await input_node.type(ean, delay=40)
+        await page.wait_for_timeout(150)
+        await page.keyboard.press("Enter")
+        await page.wait_for_timeout(1200)
+    except Exception as exc:
+        log(f"search typing failed: {exc}")
+        return False
+
+    result_cards = page.locator(
+        "article.product-thumbnail a[href*='/pr-'], "
+        "a[href*='/produit/'], a[href*='/pr-']"
+    )
+    try:
+        await result_cards.first.wait_for(timeout=8000)
+        log("results visible, opening first candidate")
+    except Exception:
+        log("results not visible")
+        return False
+
+    try:
+        async with page.expect_navigation(wait_until="domcontentloaded", timeout=12000):
+            await result_cards.first.click()
+        await accept_cookies(page)
+        await page.wait_for_timeout(800)
+        return True
+    except Exception as exc:
+        log(f"candidate click failed: {exc}")
+        return False
+
+
+async def reveal_price(page) -> None:
     selectors = [
         "button:has-text(\"Afficher le prix\")",
         "button:has-text(\"Voir le prix\")",
         "button.price-unavailable__button",
-        "button[data-testid='product-price-reveal']",
+        "button.product-unavailable__button",
     ]
-    for selector in selectors:
-        btn = page.locator(selector).first
-        try:
-            if await btn.count():
-                await btn.click()
-                await page.wait_for_timeout(1200)
-                break
-        except Exception:
-            continue
-
-
-async def _ensure_drive_ready(page) -> None:
-    selectors = [
-        "button:has-text('Choisir ce drive')",
-        "button:has-text('Choisir ce magasin')",
-        "button:has-text('Choisir ce point de retrait')",
-        "button:has-text('Voir ce magasin')",
-        "a:has-text('Choisir ce drive')",
-    ]
-    for selector in selectors:
-        btn = page.locator(selector).first
-        try:
-            if await btn.count():
-                await btn.click()
-                await page.wait_for_timeout(1200)
-                break
-        except Exception:
-            continue
-
-
-async def _await_price_widget(page) -> None:
-    selectors = [
-        "[data-testid='product-price']",
-        ".product-price",
-    ]
-    for selector in selectors:
-        try:
-            loc = page.locator(selector).first
-            await loc.wait_for(state="visible", timeout=5000)
+    for _ in range(3):
+        for selector in selectors:
+            button = page.locator(selector).first
+            try:
+                if await button.count():
+                    await button.scroll_into_view_if_needed()
+                    await button.click()
+                    await page.wait_for_timeout(800)
+                    break
+            except Exception:
+                continue
+        price_node = page.locator("[data-testid='product-price'], .product-price").first
+        if await price_node.count():
             return
-        except Exception:
-            continue
+        await page.wait_for_timeout(400)
 
 
-async def _extract_from_pdp(page) -> typing.Optional[Result]:
-    title = None
-    price = None
-    matched_ean = None
-    unit_price = None
-    quantity = None
-    image_url = None
+def clean_price(text: Optional[str]) -> Optional[str]:
+    if not text:
+        return None
+    match = re.search(r"(\d+[\.,]\d{2})", text.replace("\xa0", " "))
+    if not match:
+        return None
+    return match.group(1).replace(",", ".")
 
+
+def _normalize_token(text: str) -> str:
+    normalized = unicodedata.normalize("NFKD", text or "")
+    stripped = "".join(ch for ch in normalized if not unicodedata.combining(ch))
+    return stripped.strip().lower()
+
+
+UNIT_ALIASES = {
+    "ml": "ml",
+    "millilitre": "ml",
+    "millilitres": "ml",
+    "cl": "cl",
+    "centilitre": "cl",
+    "centilitres": "cl",
+    "l": "l",
+    "litre": "l",
+    "litres": "l",
+    "g": "g",
+    "gramme": "g",
+    "grammes": "g",
+    "kg": "kg",
+    "kilogramme": "kg",
+    "kilogrammes": "kg",
+    "capsule": "caps",
+    "capsules": "caps",
+    "caps": "caps",
+    "dose": "dose",
+    "doses": "dose",
+    "piece": "piece",
+    "pieces": "piece",
+    "pièce": "piece",
+    "pièces": "piece",
+    "unite": "piece",
+    "unites": "piece",
+    "unité": "piece",
+    "unités": "piece",
+}
+
+UNIT_DEFINITIONS = {
+    "ml": {"factor": 0.001, "unit_label": "L", "display_unit": "L"},
+    "cl": {"factor": 0.01, "unit_label": "L", "display_unit": "L"},
+    "l": {"factor": 1.0, "unit_label": "L", "display_unit": "L"},
+    "g": {"factor": 0.001, "unit_label": "KG", "display_unit": "KG"},
+    "kg": {"factor": 1.0, "unit_label": "KG", "display_unit": "KG"},
+    "caps": {"factor": 1.0, "unit_label": "CAPSULE", "display_unit": "CAPSULES"},
+    "dose": {"factor": 1.0, "unit_label": "DOSE", "display_unit": "DOSES"},
+    "piece": {"factor": 1.0, "unit_label": "PIECE", "display_unit": "PIÈCES"},
+}
+
+QUANTITY_PATTERN = re.compile(
+    r"(\d+(?:[\.,]\d+)?)\s*(ml|millilitres?|cl|centilitres?|l|litres?|g|grammes?|kg|kilogrammes?|caps(?:ules?)?|doses?|pi(?:è|e)ces?|unit(?:é|e)s?)",
+    re.IGNORECASE,
+)
+UNIT_PRICE_PATTERN = re.compile(
+    r"(\d+[\.,]\d{2})\s*€\s*/\s*([A-Za-zéèêîûôäâôïüç]+)",
+    re.IGNORECASE,
+)
+
+
+def _unit_info(raw_unit: str) -> Optional[dict]:
+    key = UNIT_ALIASES.get(_normalize_token(raw_unit))
+    if not key:
+        return None
+    return UNIT_DEFINITIONS.get(key)
+
+
+def _format_decimal(value: float, digits: int = 3) -> str:
+    text = f"{value:.{digits}f}".rstrip("0").rstrip(".")
+    return text.replace(".", ",") if text else "0"
+
+
+def _format_quantity_text(value: float, display_unit: str) -> str:
+    if display_unit in {"CAPSULES", "DOSES", "PIÈCES"}:
+        if abs(value - round(value)) < 1e-6:
+            qty_str = str(int(round(value)))
+        else:
+            qty_str = _format_decimal(value, digits=3)
+    else:
+        qty_str = _format_decimal(value, digits=3)
+    return f"{qty_str} {display_unit}"
+
+
+def _parse_quantity_components(text: Optional[str]) -> Optional[tuple[float, str, str]]:
+    if not text:
+        return None
+    match = QUANTITY_PATTERN.search(text)
+    if not match:
+        return None
+    raw_value = match.group(1).replace(",", ".")
     try:
-        title = await page.locator('h1').first.text_content(timeout=5000)
+        numeric_value = float(raw_value)
+    except ValueError:
+        return None
+    info = _unit_info(match.group(2))
+    if not info:
+        return None
+    converted = numeric_value * info["factor"]
+    return converted, info["unit_label"], info["display_unit"]
+
+
+def normalize_quantity_string(value: Optional[str]) -> Optional[str]:
+    components = _parse_quantity_components(value)
+    if not components:
+        return value.strip() if isinstance(value, str) else None
+    amount, _, display_unit = components
+    return _format_quantity_text(amount, display_unit)
+
+
+def extract_quantity(html: str) -> Optional[str]:
+    components = _parse_quantity_components(html)
+    if not components:
+        return None
+    amount, _, display_unit = components
+    return _format_quantity_text(amount, display_unit)
+
+
+def seed_quantity() -> Optional[str]:
+    entry = DESCRIPTOR_ENTRY
+    if not isinstance(entry, dict):
+        return None
+    for key in ("quantity", "seed_primary_quantity"):
+        value = entry.get(key)
+        if isinstance(value, str) and value.strip():
+            normalized = normalize_quantity_string(value)
+            return normalized or value.strip()
+    return None
+
+
+def env_quantity() -> Optional[str]:
+    raw = os.environ.get("AUCHAN_QUANTITY")
+    if not raw:
+        return None
+    normalized = normalize_quantity_string(raw)
+    return normalized or raw.strip()
+
+
+def parse_quantity_value_for_price(value: Optional[str]) -> Optional[tuple[float, str]]:
+    components = _parse_quantity_components(value)
+    if not components:
+        return None
+    amount, unit_label, _ = components
+    if amount <= 0:
+        return None
+    return amount, unit_label
+
+
+def compute_unit_price_from_quantity(price_value: float, quantity_text: Optional[str]) -> Optional[str]:
+    parsed = parse_quantity_value_for_price(quantity_text)
+    if not parsed:
+        return None
+    amount, unit_label = parsed
+    if amount <= 0:
+        return None
+    unit_mapping = {
+        "L": "L",
+        "KG": "KG",
+        "CAPSULE": "CAPSULE",
+        "DOSE": "DOSE",
+        "PIECE": "PIÈCE",
+    }
+    label = unit_mapping.get(unit_label, unit_label)
+    unit_value = price_value / amount
+    return f"{unit_value:.2f}".replace(".", ",") + f" € / {label}"
+
+
+def normalize_unit_price_text(text: Optional[str]) -> Optional[str]:
+    if not text:
+        return None
+    match = UNIT_PRICE_PATTERN.search(text)
+    if not match:
+        return None
+    try:
+        value = float(match.group(1).replace(",", "."))
+    except ValueError:
+        return None
+    info = _unit_info(match.group(2))
+    if info:
+        label = info["unit_label"]
+    else:
+        label = match.group(2).strip().upper()
+    return f"{value:.2f}".replace(".", ",") + f" € / {label}"
+
+
+async def extract_from_pdp(page) -> Optional[Result]:
+    await reveal_price(page)
+    html = await page.content()
+
+    title = None
+    try:
+        title = await page.locator("h1").first.text_content(timeout=4000)
     except Exception:
         pass
 
-    await ensure_store_selected(page)
-    await _ensure_drive_ready(page)
-    await _reveal_price_if_needed(page)
-    await _await_price_widget(page)
+    price_text = None
+    price_node = page.locator("[data-testid='product-price'], .product-price").first
+    if await price_node.count():
+        try:
+            price_text = await price_node.text_content()
+        except Exception:
+            price_text = None
+    if not price_text:
+        price_text = clean_price(html)
+    price_value = clean_price(price_text)
+    if not price_value:
+        return None
 
-    try:
-        html_snapshot = await page.content()
-    except Exception:
-        html_snapshot = None
+    quantity = env_quantity() or seed_quantity()
 
+    unit_price = None
+    unit_node = page.locator(".product-price__unit-price").first
+    if await unit_node.count():
+        try:
+            text = await unit_node.text_content()
+            unit_price = normalize_unit_price_text(text)
+        except Exception:
+            pass
+
+    matched_ean = None
     try:
         scripts = page.locator("script[type='application/ld+json']")
         for i in range(await scripts.count()):
             raw = await scripts.nth(i).text_content()
-            try:
-                data = json.loads(raw)
-            except Exception:
-                continue
-            items = data if isinstance(data, list) else [data]
-            for it in items:
-                if isinstance(it, dict) and it.get('@type') == 'Product':
-                    offers = it.get('offers')
-                    if isinstance(offers, dict) and offers.get('price'):
-                        price = offers.get('price')
-                    elif isinstance(offers, list):
-                        for of in offers:
-                            if isinstance(of, dict) and of.get('price'):
-                                price = price or of.get('price')
-                    gtin = it.get('gtin13') or it.get('gtin') or it.get('gtin14')
+            data = json.loads(raw)
+            payloads = data if isinstance(data, list) else [data]
+            for payload in payloads:
+                if isinstance(payload, dict) and payload.get("@type") == "Product":
+                    gtin = payload.get("gtin13") or payload.get("gtin")
                     if gtin:
-                        matched_ean = gtin.strip()
-                    quantity = it.get('size') or it.get('weight') or quantity
-                    if not image_url and it.get('image'):
-                        image_data = it.get('image')
-                        if isinstance(image_data, list) and image_data:
-                            image_url = image_data[0]
-                        elif isinstance(image_data, str):
-                            image_url = image_data
+                        matched_ean = str(gtin).strip()
+                    if not quantity:
+                        q = payload.get("size") or payload.get("weight")
+                        if isinstance(q, str):
+                            normalized_q = normalize_quantity_string(q)
+                            if normalized_q:
+                                quantity = normalized_q
     except Exception:
         pass
-
-    html = html_snapshot
-
-    if price is None and html:
-        for pattern in [r"(\d+[\.,]\d{2})\s*€", r"price\"\s*:\s*\"?(\d+[\.,]\d{2})"]:
-            m = re.search(pattern, html)
-            if m:
-                price = m.group(1).replace(',', '.')
-                break
-
-    if price is None:
-        price_selectors = [
-            "[data-testid='product-price']",
-            ".product-price__amount",
-            ".product-price",
-        ]
-        for selector in price_selectors:
-            loc = page.locator(selector).first
-            try:
-                await loc.wait_for(state="visible", timeout=3000)
-                text = await loc.text_content()
-            except Exception:
-                continue
-            value = _extract_price_value(text)
-            if value:
-                price = value
-                break
-
-    def _select_quantity_from_html(html_text: str, unit_groups: typing.Sequence[str]) -> typing.Optional[str]:
-        units_pattern = "|".join(unit_groups)
-        pattern = rf"(\d+[\.,]?\d*)\s*({units_pattern})"
-        matches = re.findall(pattern, html_text, flags=re.IGNORECASE)
-        if not matches:
-            return None
-        counter: Counter = Counter()
-        values_map: dict[tuple[float, str], float] = {}
-        for raw_value, raw_unit in matches:
-            try:
-                numeric = float(raw_value.replace(",", "."))
-            except ValueError:
-                continue
-            unit = raw_unit.upper()
-            base_unit = None
-            base_value = numeric
-            if unit in {"G", "KG"}:
-                base_unit = "G"
-                if unit == "KG":
-                    base_value = numeric * 1000
-            elif unit in {"ML", "CL", "L"}:
-                base_unit = "ML"
-                if unit == "CL":
-                    base_value = numeric * 10
-                elif unit == "L":
-                    base_value = numeric * 1000
-            else:
-                continue
-            if base_value <= 0:
-                continue
-            if base_unit == "G":
-                if not (5 <= base_value <= 20000):
-                    continue
-            else:
-                if not (5 <= base_value <= 20000):
-                    continue
-            key = (round(base_value, 3), base_unit)
-            counter[key] += 1
-            if key not in values_map:
-                values_map[key] = base_value
-        if not counter:
-            return None
-        best_key = max(counter.keys(), key=lambda k: counter[k])
-        base_value = values_map[best_key]
-        base_unit = best_key[1]
-        def _format_quantity(value: float, unit: str) -> str:
-            if unit == "G":
-                if value >= 1000 and abs(value % 1000) < 1e-6:
-                    qty = value / 1000
-                    unit_out = "KG"
-                else:
-                    qty = value
-                    unit_out = "G"
-            else:
-                if value >= 1000 and abs(value % 1000) < 1e-6:
-                    qty = value / 1000
-                    unit_out = "L"
-                elif value >= 100 and abs(value % 10) < 1e-6:
-                    qty = value / 10
-                    unit_out = "CL"
-                else:
-                    qty = value
-                    unit_out = "ML"
-            if abs(qty - round(qty)) < 1e-6:
-                qty_str = str(int(round(qty)))
-            else:
-                qty_str = f"{qty:.2f}".rstrip("0").rstrip(".")
-            return f"{qty_str} {unit_out}"
-        return _format_quantity(base_value, base_unit)
-
-    if html:
-        if matched_ean is None and EAN and EAN in html:
-            matched_ean = EAN
-        if quantity is None:
-            quantity = _select_quantity_from_html(html, ("G", "KG")) or _select_quantity_from_html(html, ("ML", "CL", "L"))
-        if unit_price is None:
-            munit = re.search(r"(\d+[\.,]\d{2})\s*€\s*/\s*(?:L|l|kg|KG|G|g)", html)
-            if munit:
-                value = munit.group(1).replace(',', '.')
-                unit = munit.group(0).split('/')[-1].strip().upper()
-                unit_price = value + f" € / {unit}"
-
-    if unit_price is None:
-        unit_selectors = [
-            "[data-testid='product-unit-price']",
-            ".product-price__second-line",
-        ]
-        for selector in unit_selectors:
-            loc = page.locator(selector).first
-            try:
-                await loc.wait_for(state="visible", timeout=3000)
-                text = await loc.text_content()
-            except Exception:
-                continue
-            normalized = text.replace("\xa0", " ").strip()
-            if "€" in normalized and "/" in normalized:
-                unit_price = normalized
-                break
-
-    if html and not image_url:
-        m_img = re.search(r'<meta[^>]+property="og:image"[^>]+content="([^"]+)"', html)
-        if m_img:
-            image_url = m_img.group(1)
-
-    if not price:
-        return None
-
-    if matched_ean is None and EAN:
+    if not quantity:
+        quantity = extract_quantity(html)
+    if not unit_price:
+        unit_price = normalize_unit_price_text(html)
+    if not matched_ean and EAN and EAN in (page.url or ""):
         matched_ean = EAN
 
+    image = None
+    match_img = re.search(r'<meta[^>]+property="og:image"[^>]+content="([^"]+)"', html)
+    if match_img:
+        image = match_img.group(1)
+
     try:
-        price = f"{float(str(price).replace(',', '.')):.2f}"
-    except Exception:
-        price = str(price)
-
-    if unit_price is None and quantity:
-        qty_match = re.match(r"(\d+[\.,]?\d*)\s*(L|KG|G)", quantity, re.IGNORECASE)
-        if qty_match:
-            try:
-                raw_value = float(qty_match.group(1).replace(',', '.'))
-                unit = qty_match.group(2).upper()
-                if raw_value > 0:
-                    if unit == 'L':
-                        unit_price = f"{float(price) / raw_value:.2f} € / L"
-                    elif unit == 'KG':
-                        unit_price = f"{float(price) / raw_value:.2f} € / KG"
-                    elif unit == 'G':
-                        kg = raw_value / 1000
-                        if kg > 0:
-                            unit_price = f"{float(price) / kg:.2f} € / KG"
-            except Exception:
-                pass
-
-    manual = MANUAL_DESCRIPTOR.get(EAN)
-    if manual:
-        quantity = manual.get('quantity') or quantity
-
-    price_out = price.replace('.', ',') if price else price
-    unit_out = unit_price
-    if unit_price and '€' in unit_price:
-        amount, sep, tail = unit_price.partition(' €')
-        if amount:
-            unit_out = amount.replace('.', ',') + sep + tail
+        price_amount = float(price_value)
+    except ValueError:
+        return None
+    output_price = f"{price_amount:.2f}".replace(".", ",")
+    if not unit_price:
+        unit_price = compute_unit_price_from_quantity(price_amount, quantity)
 
     return Result(
         status="OK",
-        price=price_out,
+        price=output_price,
+        unit_price=unit_price,
+        quantity=quantity,
         title=title,
         url=page.url,
-        note="Auchan (CDP)",
-        unit_price=unit_out,
-        quantity=quantity,
-        matched_ean=matched_ean or (EAN if EAN and EAN in page.url else None),
-        image=image_url,
+        matched_ean=matched_ean or EAN or None,
+        store=STORE_LABEL,
+        note="Auchan Talence",
+        image=image,
     )
-
-
-async def run_via_playwright() -> typing.Optional[Result]:
-    raw_terms = [QUERY, EAN]
-    search_terms: list[str] = []
-    seen_terms: set[str] = set()
-    for candidate in raw_terms:
-        normalized = _normalize_search_term(candidate)
-        if not normalized:
-            continue
-        key = normalized.lower()
-        if key in seen_terms:
-            continue
-        seen_terms.add(key)
-        search_terms.append(normalized)
-    if not search_terms:
-        return Result(status="NO_QUERY")
-
-    storage_state = state_path_for('auchan')
-    p, browser, context, page = await make_context(
-        headless=HEADLESS,
-        proxy=PROXY,
-        storage_state_path=None if os.environ.get('USE_CDP') == '1' else storage_state,
-        user_agent=None,
-    )
-    async def _close_extra(_page):
-        try:
-            await _page.close()
-        except Exception:
-            pass
-
-    context.on("page", lambda new_page: asyncio.create_task(_close_extra(new_page)))
-
-    state_data = load_storage_state(Path(storage_state)) if storage_state else None
-    if state_data:
-        await apply_storage_state(context, page, state_data)
-
-    try:
-        if STORE_SWITCH_URL:
-            try:
-                await page.goto(STORE_SWITCH_URL, wait_until='domcontentloaded')
-                await page.wait_for_timeout(1200)
-            except Exception:
-                pass
-
-        try:
-            await page.goto(STORE_HOME_URL, wait_until='domcontentloaded')
-        except Exception:
-            try:
-                await page.goto(HOME_URL, wait_until='domcontentloaded')
-            except Exception:
-                pass
-        await page.wait_for_timeout(1500)
-        await accept_cookies(page)
-        await ensure_store_selected(page)
-        await refresh_and_confirm_drive(page)
-
-        for term in search_terms:
-            log(f"recherche '{term}'")
-            # locate search input
-            search_input = page.locator("form#search input.header-search__input").first
-            if not await search_input.count():
-                continue
-            try:
-                await search_input.click()
-                await search_input.fill('')
-                await page.wait_for_timeout(120)
-                await search_input.type(term, delay=70)
-                await page.wait_for_timeout(80)
-                search_btn = page.locator("form#search button[type='submit']").first
-                if await search_btn.count():
-                    await search_btn.click()
-                else:
-                    await page.keyboard.press('Enter')
-            except Exception:
-                continue
-
-            try:
-                await page.wait_for_load_state('domcontentloaded')
-            except PlaywrightTimeout:
-                pass
-            await page.wait_for_timeout(1500)
-
-            # iterate results
-            try:
-                hrefs = await page.eval_on_selector_all(
-                    "a[href*='/produit'], a[href*='/pr-']",
-                    "els => els.map(el => el.getAttribute('href'))"
-                )
-            except Exception:
-                hrefs = []
-            hrefs = [h.strip() for h in hrefs if h]
-            log(f"résultats trouvés: {len(hrefs)}")
-            for href in hrefs[:8]:
-                if ('/pr-' not in href) and ('/pr/' not in href) and ('/produit/' not in href):
-                    continue
-                if href.startswith('/'):
-                    href = urljoin('https://www.auchan.fr', href)
-                href = _with_store_slug(href)
-                try:
-                    await page.goto(href, wait_until='domcontentloaded')
-                    await page.wait_for_timeout(1400)
-                except Exception:
-                    continue
-
-                log(f"ouverture {href}")
-
-        result = await _extract_from_pdp(page)
-        if result:
-            await browser.close()
-            await p.stop()
-            return result
-
-            # si aucune fiche valide, revenir home
-            try:
-                await page.goto(STORE_HOME_URL, wait_until='domcontentloaded')
-            except Exception:
-                try:
-                    await page.goto(HOME_URL, wait_until='domcontentloaded')
-                except Exception:
-                    pass
-            await page.wait_for_timeout(1500)
-            await accept_cookies(page)
-            await ensure_store_selected(page)
-            await refresh_and_confirm_drive(page)
-    finally:
-        try:
-            await browser.close()
-            await p.stop()
-        except Exception:
-            pass
-
-    return None
-
-
-async def run_http() -> Result:
-    storage_state = state_path_for('auchan')
-    p, browser, context, page = await make_context(
-        headless=HEADLESS, proxy=PROXY, storage_state_path=storage_state,
-        user_agent=None,
-    )
-    state_data = load_storage_state(Path(storage_state)) if storage_state else None
-    if state_data:
-        await apply_storage_state(context, page, state_data)
-    try:
-        if AUCHAN_URL:
-            try:
-                target_url = _with_store_slug(AUCHAN_URL) or AUCHAN_URL
-                await page.goto(target_url, wait_until='domcontentloaded')
-            except PlaywrightTimeout:
-                return Result(status="TIMEOUT")
-            except Exception:
-                return Result(status="ERROR")
-
-            try:
-                for sel in [
-                    "#didomi-notice-agree-button",
-                    "#onetrust-accept-btn-handler",
-                    "button:has-text('Tout accepter')",
-                    "button:has-text('Accepter')",
-                    "button:has-text(\"J'accepte\")",
-                ]:
-                    await page.locator(sel).first.click(timeout=1500)
-            except Exception:
-                pass
-            await ensure_store_selected(page)
-            await _reveal_price_if_needed(page)
-
-            title = None
-            price = None
-            try:
-                title = await page.locator('h1').first.text_content(timeout=6000)
-            except Exception:
-                pass
-            try:
-                for i in range(await page.locator("script[type='application/ld+json']").count()):
-                    raw = await page.locator("script[type='application/ld+json']").nth(i).text_content()
-                    data = json.loads(raw)
-                    items = data if isinstance(data, list) else [data]
-                    for it in items:
-                        if isinstance(it, dict) and it.get("@type") in ("Product",):
-                            offers = it.get("offers")
-                            if isinstance(offers, dict):
-                                price = price or offers.get("price")
-                            elif isinstance(offers, list):
-                                for of in offers:
-                                    if isinstance(of, dict):
-                                        price = price or of.get("price")
-            except Exception:
-                pass
-            if not price:
-                try:
-                    html = await page.content()
-                    m = re.search(r"(\d+[\.,]\d{2})\s*€", html or '')
-                    if m:
-                        price = m.group(1).replace(',', '.')
-                except Exception:
-                    pass
-            if price:
-                try:
-                    price = f"{float(price):.2f}"
-                except Exception:
-                    price = str(price)
-                return Result(status="OK", price=price, title=title, url=page.url)
-            return Result(status="NO_PRICE", title=title, url=page.url)
-
-        return Result(status="NO_RESULTS")
-    finally:
-        try:
-            await browser.close()
-            await p.stop()
-        except Exception:
-            pass
 
 
 async def run() -> Result:
-    prefer_playwright = os.environ.get('AUCHAN_SKIP_PLAYWRIGHT') != '1'
-    if not prefer_playwright:
-        prefer_playwright = (
-            os.environ.get('USE_CDP') == '1'
-            or os.environ.get('AUCHAN_USE_PLAYWRIGHT') == '1'
-            or not HEADLESS
-        )
+    if not EAN:
+        return Result(status="NO_EAN", note="EAN required", store=STORE_LABEL)
 
-    if prefer_playwright:
-        result = await run_via_playwright()
+    storage_state = state_path_for("auchan")
+    p, browser, context, page = await make_context(
+        headless=HEADLESS,
+        proxy=PROXY,
+        storage_state_path=storage_state,
+        user_agent=DEFAULT_USER_AGENT,
+        use_stealth=False,
+    )
+
+    try:
+        await install_store_context(page)
+        await prepare_store_page(page)
+        searched = await search_ean(page, EAN)
+        if not searched:
+            return Result(
+                status="NO_RESULTS",
+                note=f"search_failed:{EAN}",
+                store=STORE_LABEL,
+            )
+        result = await extract_from_pdp(page)
         if result:
             return result
-
-    return await run_http()
+        return Result(
+            status="NO_PRICE",
+            note="price_missing",
+            store=STORE_LABEL,
+            url=page.url,
+        )
+    finally:
+        try:
+            await browser.close()
+            await p.stop()
+        except Exception:
+            pass
 
 
 if __name__ == "__main__":
-    res = asyncio.run(run())
-    print(json.dumps(res.__dict__, ensure_ascii=False))
+    try:
+        payload = asyncio.run(run())
+    except KeyboardInterrupt:
+        print("ABORT")
+        sys.exit(130)
+    print(json.dumps(payload.__dict__, ensure_ascii=False))

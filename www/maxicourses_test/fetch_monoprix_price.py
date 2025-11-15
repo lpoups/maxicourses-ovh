@@ -23,6 +23,7 @@ print("--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---", file=sys.stderr)
 
 from rich import print
 import requests
+from pipeline.image_matching import descriptor_matches_candidate
 
 try:  # Pillow est optionnel mais requis pour le matching visuel
     from PIL import Image  # type: ignore
@@ -306,6 +307,7 @@ class Result:
     title: typing.Optional[str] = None
     url: typing.Optional[str] = None
     note: typing.Optional[str] = None
+    image: typing.Optional[str] = None
     matched_ean: typing.Optional[str] = None
     unit_price: typing.Optional[str] = None
     quantity: typing.Optional[str] = None
@@ -867,63 +869,10 @@ async def _extract_offer_from_json_ld(page: Page) -> typing.Optional[dict[str, t
 
 def _compare_image_with_descriptor(descriptor: dict[str, typing.Any], image_url: typing.Optional[str], *, threshold: int = 16) -> bool:
     current_ean = descriptor.get("ean") or EAN
-    is_debug_ean = current_ean == "3665468000312"
-    if is_debug_ean:
-        sys.stderr.write(f"\n[DEBUG MONOPRIX IMG] EAN: {current_ean}\n")
-        sys.stderr.write(f"[DEBUG MONOPRIX IMG] Comparing Monoprix image: {image_url}\n")
-        sys.stderr.write(f"[DEBUG MONOPRIX IMG] Threshold: {threshold}\n")
-
-    if Image is None or not image_url:
-        if is_debug_ean:
-            sys.stderr.write("[DEBUG MONOPRIX IMG] No image URL or Pillow not installed. Aborting.\n")
+    cleaned = _sanitize_url(image_url)
+    if not cleaned:
         return False
-    reference_hashes: list[int] = []
-    local_path = _descriptor_image_path(descriptor)
-    if local_path:
-        local_hash = _local_image_hash(local_path)
-        if is_debug_ean:
-            sys.stderr.write(f"[DEBUG MONOPRIX IMG] Reference local image: {local_path} -> hash: {local_hash}\n")
-        if local_hash is not None:
-            reference_hashes.append(local_hash)
-
-    for remote_source in _descriptor_remote_images(descriptor):
-        absolute_source = remote_source if remote_source.startswith("http") else urljoin(HOME_URL, remote_source)
-        ref_hash = _remote_image_hash(absolute_source)
-        if is_debug_ean:
-            sys.stderr.write(f"[DEBUG MONOPRIX IMG] Reference remote image: {absolute_source} -> hash: {ref_hash}\n")
-        if ref_hash is not None and ref_hash not in reference_hashes:
-            reference_hashes.append(ref_hash)
-
-    if not reference_hashes:
-        if is_debug_ean:
-            sys.stderr.write("[DEBUG MONOPRIX IMG] No valid reference hashes found.\n")
-        return False
-
-    absolute_url = image_url if image_url.startswith("http") else urljoin(HOME_URL, image_url)
-    remote_hash = _remote_image_hash(absolute_url)
-    if is_debug_ean:
-        sys.stderr.write(f"[DEBUG MONOPRIX IMG] Monoprix image hash: {remote_hash}\n")
-
-    if remote_hash is None:
-        if is_debug_ean:
-            sys.stderr.write("[DEBUG MONOPRIX IMG] Could not hash Monoprix image.\n")
-        return False
-
-    is_match = False
-    for reference in reference_hashes:
-        distance = _hash_distance(reference, remote_hash)
-        if is_debug_ean:
-            sys.stderr.write(f"[DEBUG MONOPRIX IMG] Distance to ref hash {reference}: {distance}\n")
-        if distance <= threshold:
-            is_match = True
-            if is_debug_ean:
-                sys.stderr.write(f"[DEBUG MONOPRIX IMG] Match found! Distance {distance} <= {threshold}\n")
-            break  # Found a match
-
-    if is_debug_ean:
-        sys.stderr.write(f"[DEBUG MONOPRIX IMG] Final decision: {'MATCH' if is_match else 'MISMATCH'}\n\n")
-
-    return is_match
+    return descriptor_matches_candidate(descriptor, cleaned, ean=current_ean, threshold=threshold)
 
 
 async def _image_matches_descriptor_async(descriptor: dict[str, typing.Any], image_url: typing.Optional[str]) -> bool:
@@ -994,6 +943,13 @@ def _prepare_query(term: typing.Optional[str], max_len: int) -> typing.Optional[
         candidate = candidate[:max_len].rstrip()
         
     return candidate if candidate else None
+
+
+def _sanitize_url(value: typing.Optional[str]) -> typing.Optional[str]:
+    if not isinstance(value, str):
+        return None
+    cleaned = re.sub(r"\s+", "", value.strip())
+    return cleaned or None
 
 
 WORD_PATTERN = re.compile(r"[0-9A-Za-zÀ-ÖØ-öø-ÿ]+")
@@ -1728,6 +1684,39 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
     candidate_records: list[dict[str, typing.Any]] = []
     candidate_index: dict[str, dict] = {}
 
+    def _enrich_candidate_entry(
+        entry: dict[str, typing.Any],
+        product_result: Result,
+        score_value: typing.Union[int, float],
+        extras: dict[str, typing.Any],
+    ) -> None:
+        entry["status"] = product_result.status or entry.get("status") or "CHECKED"
+        entry["score"] = float(score_value)
+        product_block = entry.get("product")
+        if not isinstance(product_block, dict):
+            product_block = {}
+            entry["product"] = product_block
+
+        def _set(field: str, value: typing.Optional[str]) -> None:
+            if value:
+                product_block[field] = value
+
+        _set("title", product_result.title)
+        _set("brand", product_block.get("brand") or descriptor_entry.get("brand"))
+        _set("kind", product_block.get("kind") or descriptor_entry.get("seed_primary_name") or descriptor_entry.get("name"))
+        _set("qty", product_result.quantity or product_block.get("qty") or descriptor_entry.get("quantity") or descriptor_entry.get("seed_primary_quantity"))
+        image_value = product_result.note or product_result.image or product_block.get("image_url")
+        if image_value:
+            clean_image = _sanitize_url(image_value)
+            if clean_image:
+                product_block["image_url"] = clean_image
+        _set("raw_text", product_result.raw_text or product_block.get("raw_text"))
+        _set("unit_price", product_result.unit_price)
+        _set("price", product_result.price)
+        if product_result.matched_ean:
+            product_block["ean"] = product_result.matched_ean
+        entry.setdefault("extras", {}).update(extras or {})
+
     for i, term in enumerate(terms):
         sys.stderr.write(f"[MONOPRIX_DEBUG]  - Term {i+1}/{len(terms)}: '{term}'\n")
         
@@ -1965,6 +1954,10 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
             extras["final_score"] = score
             extras["plausible_baseline"] = plausible
 
+            entry = candidate_index.get(product_url)
+            if entry:
+                _enrich_candidate_entry(entry, product_result, score, extras)
+
             core_tokens = descriptor_entry.get("_monoprix_core_tokens")
             if core_tokens is None:
                 core_tokens = _descriptor_core_tokens(descriptor_entry)
@@ -2006,6 +1999,9 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
             # Image match = validation absolue (pas d'EAN côté Monoprix)
             final_plausible = image_match
 
+            has_core_gap = bool(extras.get("missing_core_tokens"))
+            final_plausible = image_match and not has_core_gap
+
             if final_plausible:
                 product_result.status = "OK"
                 product_result.candidates = list(candidate_records)
@@ -2016,20 +2012,6 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
             sys.stderr.write(
                 f"[MONOPRIX_DEBUG]  - Candidate rejected '{product_result.title}' | vetoes={extras['vetoes']}\n"
             )
-
-            entry = candidate_index.get(product_url)
-            if entry:
-                entry["status"] = product_result.status or "CHECKED"
-                entry["score"] = score
-                entry["product"]["title"] = product_result.title or entry["product"]["title"]
-                entry["product"]["qty"] = product_result.quantity or entry["product"]["qty"]
-                entry["product"]["image_url"] = product_result.note or entry["product"]["image_url"]
-                entry["product"]["raw_text"] = product_result.raw_text or entry["product"]["raw_text"]
-                entry.setdefault("extras", {}).update(extras)
-                if product_result.price:
-                    entry["product"]["price"] = product_result.price
-                if product_result.unit_price:
-                    entry["product"]["unit_price"] = product_result.unit_price
 
         if fallback_results:
             fallback_results.sort(key=lambda x: x[0], reverse=True)
@@ -2150,6 +2132,7 @@ async def parse_product_page(
         except Exception:
             body_text = ""
 
+        image_url = _sanitize_url(image_url)
         sys.stderr.write(f"[MONOPRIX_DEBUG] Extracted image URL: {image_url}\n")
 
         return Result(
@@ -2159,7 +2142,8 @@ async def parse_product_page(
             unit_price=unit_price,
             quantity=quantity,
             url=page.url,
-            note=image_url, # Stocke l'URL de l'image dans la note pour vérification
+            note=image_url,
+            image=image_url,
             raw_text=body_text,
         )
     except Exception as e:

@@ -1,26 +1,26 @@
 {
   "ean": "5000112611861",
   "image_path": null,
-  "started_at": "2025-11-04T15:51:48.719895",
-  "finished_at": "2025-11-04T15:58:37.451911",
-  "duration_seconds": 408.732016,
+  "started_at": "2025-11-14T11:20:56.066192+01:00",
+  "finished_at": "2025-11-14T11:26:09.399341+01:00",
+  "duration_seconds": 313.333149,
   "reference": {
     "title": "Soda COCA-COLA Original - Bouteille 1,75L",
     "description": "Soda COCA-COLA Original - Bouteille 1,75L",
-    "source": "courseu",
+    "source": "carrefour_market",
     "brand": "Cola",
     "quantity": "1,75  L",
     "categories": null,
-    "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
-    "nutriscore_grade": "unknown",
+    "image": "./assets/5000112611861.jpg",
+    "nutriscore_grade": "e",
     "nutriscore_score": null,
-    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
     "ecoscore_grade": null,
     "ecoscore_image": null,
     "nova_group": null
   },
   "notes": [
-    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251104-155148"
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251114-112056"
   ],
   "adapters": [
     {
@@ -44,9 +44,9 @@
         },
         "product": {
           "title": "Soda  au Cola Goût Original COCA-COLA",
-          "brand": "",
+          "brand": "Soda",
           "kind": "",
-          "qty": "1.75 l",
+          "qty": "1,75 L",
           "qualifiers": [],
           "ean": "5000112611861",
           "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
@@ -54,9 +54,9 @@
           "raw_text": ""
         }
       },
-      "started_at": "2025-11-04T15:51:48.720446",
-      "finished_at": "2025-11-04T15:52:13.278677",
-      "duration_seconds": 24.558231,
+      "started_at": "2025-11-14T11:20:56.067274+01:00",
+      "finished_at": "2025-11-14T11:21:17.442038+01:00",
+      "duration_seconds": 21.374764,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -89,16 +89,16 @@
         "title": "Soda  au Cola Goût Original COCA-COLA",
         "matched_ean": "5000112611861",
         "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
         "_meta": {
           "supports_ean": true
         },
         "product": {
           "title": "Soda  au Cola Goût Original COCA-COLA",
-          "brand": "",
+          "brand": "Soda",
           "kind": "",
-          "qty": "1.75 l",
+          "qty": "1,75 L",
           "qualifiers": [],
           "ean": "5000112611861",
           "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
@@ -106,9 +106,9 @@
           "raw_text": ""
         }
       },
-      "started_at": "2025-11-04T15:52:13.296263",
-      "finished_at": "2025-11-04T15:52:37.304411",
-      "duration_seconds": 24.008148,
+      "started_at": "2025-11-14T11:21:17.444721+01:00",
+      "finished_at": "2025-11-14T11:21:37.176573+01:00",
+      "duration_seconds": 19.731852,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -147,9 +147,9 @@
           "supports_ean": true
         }
       },
-      "started_at": "2025-11-04T15:52:37.306265",
-      "finished_at": "2025-11-04T15:52:55.989152",
-      "duration_seconds": 18.682887,
+      "started_at": "2025-11-14T11:21:37.177679+01:00",
+      "finished_at": "2025-11-14T11:21:52.916695+01:00",
+      "duration_seconds": 15.739016,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -170,24 +170,35 @@
     },
     {
       "adapter": "auchan",
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
-        "price": null,
-        "title": null,
-        "url": null,
-        "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "matched_ean": null,
-        "image": null,
+        "status": "OK",
+        "price": "2,38",
+        "title": "Boisson gazeuse aux extraits  végétaux goût original",
+        "url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-orig inal/pr-C1211988",
+        "note": "Auchan (CDP)",
+        "unit_price": "1,36 € / L",
+        "quantity": "1,75 L",
+        "matched_ean": "5000112611861",
+        "image": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
         "_meta": {
           "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson gazeuse aux extraits  végétaux goût original",
+          "brand": "Coca-Cola",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": ""
         }
       },
-      "started_at": "2025-11-04T15:52:55.989738",
-      "finished_at": "2025-11-04T15:53:48.827869",
-      "duration_seconds": 52.838131,
+      "started_at": "2025-11-14T11:21:52.917261+01:00",
+      "finished_at": "2025-11-14T11:22:28.072629+01:00",
+      "duration_seconds": 35.155368,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -201,7 +212,7 @@
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "[auchan] ensure_store_selected target=Talence Gallieni\n[auchan] clic CTA magasin via button:has-text('Choisir ce Drive')\n[auchan] CTA magasin cliqué\n[auchan] recherche '5000112611861'\n[auchan] aucun résultat visible après recherche (url=https://www.auchan.fr/recherche?text=5000112611861)\n[auchan] recherche redirect vers https://www.auchan.fr/drive/magasins/auchan-drive-supermarche-talence-gallieni/recherche?text=5000112611861\n[auchan] boutons 'Afficher le prix' trouvés: 0\n[auchan] 0 candidats Auchan identifiés après tri brut\n[auchan] aucun lien produit exploitable trouvé après recherche\n[auchan] aucune fiche ouverte pour ce terme\n[auchan] ensure_store_selected target=Talence Gallieni\n[auchan] clic CTA magasin via button:has-text('Choisir ce Drive')\n[auchan] CTA magasin cliqué",
+      "stderr": "[auchan] recherche '5000112611861'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/drive/magasins/auchan-drive-supermarche-talence-gallieni/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-original/pr-C1211988",
       "metadata": {
         "attempt_query": "5000112611861"
       }
@@ -219,14 +230,16 @@
         "quantity": "1,75 L",
         "store": "Chronodrive Le Haillan",
         "matched_ean": "5000112611861",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltcfe44872100 3a156/nutriscore-e",
         "_meta": {
           "supports_ean": true
         },
         "product": {
           "title": "Boisson gazeuse aux extraits  végétaux COCA-COLA Original",
-          "brand": "",
+          "brand": "Boisson",
           "kind": "",
-          "qty": "1.75 l",
+          "qty": "1,75 L",
           "qualifiers": [],
           "ean": "5000112611861",
           "image_url": null,
@@ -234,9 +247,9 @@
           "raw_text": ""
         }
       },
-      "started_at": "2025-11-04T15:53:48.828436",
-      "finished_at": "2025-11-04T15:53:55.350929",
-      "duration_seconds": 6.522493,
+      "started_at": "2025-11-14T11:22:28.075395+01:00",
+      "finished_at": "2025-11-14T11:22:34.829002+01:00",
+      "duration_seconds": 6.753607,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -260,22 +273,24 @@
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "2,40",
-        "unit_price": "1,37 € / L",
-        "quantity": "1,75  L",
+        "price": "2,37",
+        "unit_price": "1,35 € / L",
+        "quantity": "1,75 L",
         "title": "Soda COCA-COLA Original - Bouteille 1,75L",
         "url": "https://www.coursesu.com/p/soda-coca-cola-original---bouteille-175l/5192990.htm l",
-        "note": "2025-11-04T15:54:03Z · Super U Eysines",
+        "note": "2025-11-15T11:31:34Z · Super U Eysines",
         "store": "Super U  Eysines",
         "matched_ean": "5000112611861",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
         "_meta": {
           "supports_ean": true
         },
         "product": {
           "title": "Soda COCA-COLA Original - Bouteille 1,75L",
-          "brand": "",
+          "brand": "Soda",
           "kind": "",
-          "qty": "1.75 l",
+          "qty": "1,75 L",
           "qualifiers": [],
           "ean": "5000112611861",
           "image_url": null,
@@ -283,9 +298,9 @@
           "raw_text": ""
         }
       },
-      "started_at": "2025-11-04T15:53:55.353551",
-      "finished_at": "2025-11-04T15:54:03.372694",
-      "duration_seconds": 8.019143,
+      "started_at": "2025-11-14T11:22:34.830151+01:00",
+      "finished_at": "2025-11-15T11:32:04.294223Z",
+      "duration_seconds": 33.801085,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -299,37 +314,102 @@
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "[COURSEU_HINT] 5000112611861 -> https://www.coursesu.com/p/soda-coca-cola-original---bouteille-175l/5192990.html",
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Non disponible",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-14T11:23:08.632358+01:00",
+      "finished_at": "2025-11-14T11:23:09.373154+01:00",
+      "duration_seconds": 0.740796,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
       "metadata": {
         "attempt_query": "5000112611861"
       }
     },
     {
       "adapter": "intermarche",
-      "status": "OK",
+      "status": "NO_RESULTS",
       "payload": {
-        "status": "OK",
-        "price": "2,41",
-        "title": "Soda au cola gout original",
-        "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5000112611861",
-        "note": "Intermarché · Super Talence",
-        "matched_ean": "5000112611861",
-        "unit_price": "1,38 € / L",
-        "quantity": "1,75  L",
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Intermarché · Super Talence — produit absent",
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
         "store": "Super Talence",
         "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola/3250390578994",
+            "product": {
+              "title": "Look, une marque IntermarchéSoda au cola",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "3250390578994",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola/3250391459131",
+            "product": {
+              "title": "Look, une marque IntermarchéSoda au cola",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "3250391459131",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
           {
             "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5449000267467",
             "product": {
               "title": "Coca-ColaSoda au cola goût original",
               "brand": "Cola",
               "kind": "Soda au Cola Goût Original COCA-COLA",
-              "qty": "1.75 l",
+              "qty": "1,75 L",
               "qualifiers": [],
               "ean": "5449000267467",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><script  type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_de7ccf30.js\"></sc ript><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MWM3YTYxZDc2MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript async=\"\" src=\"//kwo.eulerian.net/zaZ227.js?2\"></script><script  async=\"\" src=\"https://via.batch.com/v4/bootstrap.min.js\"></script><script  type=\"text/javascript\" async=\"\"  src=\"https://ads-engagement.presage.io/script?site=www.intermarche.com&amp;full _url=https%3A%2F%2Fwww.intermarche.com%2Fproduit%2Fsoda-au-cola-gout-original%2F 5449000267467&amp;src=gtm\"></script><script type=\"text/javascript\" async=\"\" src=\"https://bat.bing.com/bat.js\"></script><script type=\"text/javascript\"  async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=C8PMUHT9481U83L7JH 2G&amp;lib=ttq\"></script><script async=\"\"  src=\"//acdn.adnxs.com/dmp/up/pixie.js\"></script><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:  var(--toastify-color-error);--toastify-container-width:  fit-content;--toastify-toast-width: 320px;--toastify-toast-offset:  16px;--toastify-toast-top: max(var(--toastify-toast-offset),  env(safe-area-inset-top));--toastify-toast-right:  max(var(--toastify-toast-offset), e"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
             }
           },
           {
@@ -338,36 +418,83 @@
               "title": "Coca-ColaSoda au cola goût original",
               "brand": "Cola",
               "kind": "Soda au Cola Goût Original COCA-COLA",
-              "qty": "1.75 l",
+              "qty": "1,75 L",
               "qualifiers": [],
               "ean": "5449000283900",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><script  type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_de7ccf30.js\"></sc ript><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MWM3YTYxZDc2MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript async=\"\" src=\"//kwo.eulerian.net/zaZ227.js?2\"></script><script  async=\"\" src=\"https://via.batch.com/v4/bootstrap.min.js\"></script><script  type=\"text/javascript\" async=\"\"  src=\"https://ads-engagement.presage.io/script?site=www.intermarche.com&amp;full _url=https%3A%2F%2Fwww.intermarche.com%2Fproduit%2Fsoda-au-cola-gout-original%2F 5449000283900&amp;src=gtm\"></script><script type=\"text/javascript\" async=\"\" src=\"https://bat.bing.com/bat.js\"></script><script type=\"text/javascript\"  async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=C8PMUHT9481U83L7JH 2G&amp;lib=ttq\"></script><script async=\"\"  src=\"//acdn.adnxs.com/dmp/up/pixie.js\"></script><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:  var(--toastify-color-error);--toastify-container-width:  fit-content;--toastify-toast-width: 320px;--toastify-toast-offset:  16px;--toastify-toast-top: max(var(--toastify-toast-offset),  env(safe-area-inset-top));--toastify-toast-right:  max(var(--toastify-toast-offset), e"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
             }
           },
           {
-            "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5000112611861",
+            "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5449000267412",
             "product": {
-              "title": "Coca-ColaSoda au cola gout original",
+              "title": "Coca-ColaSoda au cola goût Original",
               "brand": "Cola",
               "kind": "Soda au Cola Goût Original COCA-COLA",
-              "qty": "1.75 l",
+              "qty": "1,75 L",
               "qualifiers": [],
-              "ean": "5000112611861",
+              "ean": "5449000267412",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><script  type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_de7ccf30.js\"></sc ript><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MWM3YTYxZDc2MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><s cript async=\"\" src=\"//kwo.eulerian.net/zaZ227.js?2\"></script><script  async=\"\" src=\"https://via.batch.com/v4/bootstrap.min.js\"></script><script  type=\"text/javascript\" async=\"\"  src=\"https://ads-engagement.presage.io/script?site=www.intermarche.com&amp;full _url=https%3A%2F%2Fwww.intermarche.com%2Fproduit%2Fsoda-au-cola-gout-original%2F 5000112611861&amp;src=gtm\"></script><script type=\"text/javascript\" async=\"\" src=\"https://bat.bing.com/bat.js\"></script><script type=\"text/javascript\"  async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=C8PMUHT9481U83L7JH 2G&amp;lib=ttq\"></script><script async=\"\"  src=\"//acdn.adnxs.com/dmp/up/pixie.js\"></script><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:  var(--toastify-color-error);--toastify-container-width:  fit-content;--toastify-toast-width: 320px;--toastify-toast-offset:  16px;--toastify-toast-top: max(var(--toastify-toast-offset),  env(safe-area-inset-top));--toastify-toast-right:  max(var(--toastify-toast-offset), e"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola/3250390578994",
+            "product": {
+              "title": "Look, une marque IntermarchéSoda au cola",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "3250390578994",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola/3250391459131",
+            "product": {
+              "title": "Look, une marque IntermarchéSoda au cola",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "3250391459131",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5449000267467",
+            "product": {
+              "title": "Coca-ColaSoda au cola goût original",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "5449000267467",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
             }
           }
         ],
         "_meta": {
-          "supports_keywords": true
-        }
+          "supports_keywords": true,
+          "abort_search": true,
+          "abort_reason": "too_many_ean_mismatches",
+          "ean_mismatch_hits": 8
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
       },
-      "started_at": "2025-11-04T15:54:04.372382",
-      "finished_at": "2025-11-04T15:55:16.697388",
-      "duration_seconds": 72.325006,
+      "started_at": "2025-11-14T11:23:09.948376+01:00",
+      "finished_at": "2025-11-14T11:25:31.736055+01:00",
+      "duration_seconds": 141.787679,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -375,8 +502,7 @@
       ],
       "env": {
         "EAN": "5000112611861",
-        "QUERY": "Cola Soda COCA Original Bouteille 1,75 L",
-        "FINDER_KEYWORDS": "[\"Cola coca 1.75 L\", \"Cola coca soda\", \"Cola 1.75 L\", \"Cola gout 1.75 L\"]",
+        "QUERY": "Cola 1.75 L",
         "HOME_URL": "https://www.intermarche.com/accueil",
         "HEADLESS": "0"
       },
@@ -384,8 +510,9 @@
       "error": null,
       "stderr": null,
       "metadata": {
-        "attempt_query": "Cola Soda COCA Original Bouteille 1,75 L",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251104-155148/07-intermarche"
+        "attempt_query": "Cola 1.75 L",
+        "abort_reason": "too_many_ean_mismatches",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251114-112056/08-intermarche"
       }
     },
     {
@@ -400,30 +527,44 @@
         "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
         "matched_ean": "5000112611861",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-04T15:55:25Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-14T10:25:39Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
         "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-3989-Soda-Jeans-Cola.aspx",
+            "product": {
+              "title": "Soda Jean's Cola 2L",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "3564700407721",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bc1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bc1\"></script><script"
+            }
+          },
           {
             "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
             "product": {
               "title": "Soda Coca-Cola Original Bouteille - 1,75L",
               "brand": "Cola",
               "kind": "Soda au Cola Goût Original COCA-COLA",
-              "qty": "1.75 l",
+              "qty": "1,75 L",
               "qualifiers": [],
               "ean": "5000112611861",
               "image_url": null,
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5av1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5av1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script src=\"https://connect.facebook.net/signals/config/252104876580447?v=2.9.240&amp;r=stable&amp;domain=fd12-courses.leclercdrive.fr&amp;hme=12b14309f5cddaa66f2a1780ffdc98e8d9d29d0665941385f2f06853f713f49d&amp;ex_m=90%2C151%2C131%2C19%2C66%2C67%2C124%2C62%2C42%2C125%2C71%2C61%2C138%2C79%2C13%2C89%2C27%2C119%2C111%2C69%2C72%2C118%2C135%2C98%2C140%2C7%2C3%2C4%2C6%2C5%2C2%2C80%2C88%2C141%2C218%2C162%2C56%2C220%2C221%2C49%2C177%2C26%2C68%2C226%2C225%2C165%2C29%2C55%2C8%2C58%2C84%2C85%2C86%2C91%2C115%2C28%2C25%2C117%2C114%2C113%2C132%2C70%2C134%2C133%2C44%2C54%2C108%2C12%2C137%2C39%2C207%2C209%2C172%2C22%2C23%2C24%2C16%2C17%2C38%2C34%2C36%2C35%2C75%2C81%2C83%2C96%2C123%2C126%2C40%2C97%2C20%2C18%2C102%2C63%2C32%2C128%2C127%2C129%2C120%2C21%2C31%2C53%2C95%2C136%2C64%2C15%2C130%2C30%2C187%2C158%2C268%2C205%2C149%2C190%2C183%2C159%2C93%2C116%2C74%2C106%2C48%2C41%2C104%2C105%2C110%2C52%2C14%2C112%2C103%2C59%2C43%2C99%2C47%2C50%2C46%2C87%2C139%2C0%2C109%2C11%2C107%2C9%2C1%2C51%2C82%2C57%2C60%2C101%2C78%2C77%2C45%2C121%2C76%2C73%2C65%2C100%2C92%2C37%2C122%2C33%2C94%2C10%2C142\" async=\"\"></script><script async=\"\" src=\"https://connect.facebook.net/en_US/fbevents.js\"></script><script type=\"text/javascript\" async=\"\" src=\"https://t.contentsquare.net/uxa/5410cd051be75.js\"></script><script type=\"text/javascript\" async=\"\" src=\"https://bat.bing.com/bat.js\"></script><script async=\"\" src=\"https://www.googletagmanager.com/gtm.js?id=GTM-T4SXDX3\"></script><script>\n        window.ddjskey = \"8FE0CF7F8AB30EC588599D8046ED0E\"; window.ddoptions = { ajaxListenerPath: \"leclercdrive\" };\n    </script>\n    \n        <script src=\"https://js.datadome.co/tags.js\" async=\"\"></script>\n    \n    <!-- End Datadome script -->\n    <meta name=\"robots\" content=\"NOINDEX, NOFOLLOW, NOARCHIVE\"><meta http-equiv=\"Content-Type\" content=\"text/html; CHARSET=utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\"><title>\n\tSoda Coca-Cola Original | Bruges | E.Leclerc DRIVE\n</title><script type=\"text/javascript\" language=\"javascript\" src=\"/__js/release/fr/vbNETpWASPUTL/Infomil.ZCWB.WASP.Utilitaires/jsWASP009_GestionnaireClient.js?v=638973190984474296\"></script><link id=\"ctl00_imgFavIcon\" rel=\"icon\" type=\"image/x-icon\" href=\"/_res/release/_img/WCSD201_Commun/favicon.ico?v=638935516660000000\"><link id=\"ctl00_imgFavIcon2\" rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/_res/release/_img/WCSD201_Commun/favicon.ico?v=638935516660000000\"><link id=\"ctl00_imgFavIconIphone\" rel=\"apple-touch-icon\" href=\"/_res/release/_img/WCSD201_Commun/touch-icon-iphone.png?v=638935516660000000\"><link id=\"ctl00_imgFavIconIpad\" rel=\"apple-touch-icon\" sizes=\"76x76\" href=\"/_res/release/_img/WCSD201_Commun/touch-icon-ipad.png?v=638935516660000000\"><link id=\"ctl00_imgFavIconIphoneRetina\" rel=\"apple-touch-icon\" sizes=\"120x120\" href=\"/_res/release/_img/WCSD201_Commun/touch-icon-iphone-retina.png?v=638935516660000000\"><link id=\"ctl00_imgFavIconIpadRetina\" rel=\"apple-touch-icon\" sizes=\"152x152\" href=\"/_res/release/_img/WCSD201_Commun/touch-icon-ipad-retina.png?v=638935516660000000\"><script>\n    dataLayer = [{\"GoogleAnalyticsActif\":\"oui\",\"PixelFacebookActif\":\"oui\",\"MyFeelBackActif\":\"oui\",\"TradeExterneActif\":\"oui\",\"ContentSquareActif\":\"oui\",\"Client_EstConnecte\":\"non\",\"Client_IdExt\":\"\",\"Client_EstClientCarte\":\"\",\"Client_Segment\":\"\",\"Client_Pfg\":\"non\",\"Client_EmailChiffre\":\"\",\"Page_Groupe\":\"courses\",\"Page_Niveau1\":\"rp_boissons\",\"Page_Niveau2\":\"sodas_et_boissons_aux_fruits\",\"Page_Niveau3\":\"colas\",\"Page_Type\":\"fich"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bc1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bc1\"></script><script"
             }
           }
         ]
       },
-      "started_at": "2025-11-04T15:55:16.744209",
-      "finished_at": "2025-11-04T15:55:25.851209",
-      "duration_seconds": 9.107,
+      "started_at": "2025-11-14T11:25:31.740337+01:00",
+      "finished_at": "2025-11-14T11:25:39.478318+01:00",
+      "duration_seconds": 7.737981,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -431,61 +572,97 @@
       ],
       "env": {
         "EAN": "5000112611861",
-        "QUERY": "Cola Soda COCA Original Bouteille 1,75 L",
-        "FINDER_KEYWORDS": "[\"Cola coca 1.75 L\", \"Cola coca soda\", \"Cola 1.75 L\", \"Cola gout 1.75 L\"]",
+        "QUERY": "Cola 1.75 L",
         "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
         "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Cola Soda COCA Original Bouteille 1,75 L'\n[LECLERC_DEBUG] after home human pause -> 2.13s\n[LECLERC_DEBUG] after focus -> 3.61s\n[LECLERC_DEBUG] results visible -> 5.79s\n[LECLERC_DEBUG] after result pause -> 5.89s",
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Cola 1.75 L'\n[LECLERC_DEBUG] after home human pause -> 1.81s\n[LECLERC_DEBUG] after focus -> 2.57s\n[LECLERC_DEBUG] results visible -> 3.89s\n[LECLERC_DEBUG] after result pause -> 3.99s",
       "metadata": {
-        "attempt_query": "Cola Soda COCA Original Bouteille 1,75 L",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251104-155148/08-leclerc"
+        "attempt_query": "Cola 1.75 L",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251114-112056/09-leclerc"
       }
     },
     {
       "adapter": "monoprix",
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
-        "price": null,
-        "title": null,
-        "url": null,
-        "note": null,
-        "matched_ean": null,
-        "unit_price": null,
-        "quantity": null,
+        "status": "OK",
+        "price": "2,65",
+        "title": "Coca-Cola Original 1,75L",
+        "url": "https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f 8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg",
+        "matched_ean": "5000112611861",
+        "unit_price": "1,51 € / L",
+        "quantity": "1,75 L",
         "store": null,
-        "raw_text": null,
-        "extras": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières  commandes\nEN SAVOIR +\nAccueil\nBoissons et Lait\nSoda et Boisson  aromatisée\nColas\nCoca-Cola Original 1,75L\n2 m+\n2 mois de garantie de vie du  produit\n1.75L 1,51 € / litre\n1.75L\n(1,51 € / litre)\n2,65  €\nAjouter\nAttributs produit\nProduit vegan\nInformations  produit\n\n\nDescription Produit\nCréée en 1886, Coca-Cola, la légendaire  boisson pétillante, fait le bonheur de plusieurs générations. Cette boisson  intemporelle et délicieuse a été conçue pour rafraîchir ses consommateurs. Elle  est faite pour être partagée. Installez-vous, détendez-vous et savourez. À  servir bien frais pour un maximum de  plaisir.\n\n\nOrigine\nFrance\nMarque\nCoca-Cola\nService  consommateur\nCoca-Cola Europacific Partners France 9 chemin de Bretagne, CS  80050, 92784 Issy-Les-Moulineaux Cedex 9. coca-cola.fr N° Cristal 09 69 39 29 00 (Appel non surtaxé)\nConseils d'utilisation\nSe boit très frais Ne pas  agiter.\nIngredients\nIngrédients: eau gazéifiée ; sucre ; colorant : E150d ;  acidifiant : acide phosphorique ; arômes naturels ; arôme caféine.\nA propos de  la marque\nCoca-Cola est la boisson pétillante emblématique, créée en 1886 à  Atlanta, en Géorgie, par le Dr John S. Pemberton. Coca-Cola a d’abord été  proposé comme boisson à la fontaine à la pharmacie Jacobs sous forme d’un  mélange de sirop de Coca-Cola et d’eau pétillante, la fameuse recette secrète du Coca-Cola. Au fil des ans, cette boisson pétillante légendaire est devenue  culte. Le Coca-Cola est célèbre non seulement pour son goût irrésistible mais  aussi pour la sensation qu'il procure. Chaque gorgée de cette légendaire boisson pétillante évoque des souvenirs heureux. Aujourd'hui, sa popularité l'a rendu  universel.\nType d’emballage\nbouteille\nProducteur\nCOCA COLA EUROPEAN PARTNERS FRAN 9 CHEMIN DE BRETAGNE///92784/ISSY LES MOULINEAUX CEDEX 9/FRANCE\nConseil de conservation\nConserver à l'abri de la lumière directe du soleil, dans un  endroit frais et sec.,Conserver à l'abri de la lumière directe du soleil, dans  un endroit frais et sec.\nAutres informations\n(None)\nConseils  d'utilisation\nSe boit très frais Ne pas agiter.\nValeurs  nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 ml\tpour  250MLT\nValeurs Energétique en Kilojoules\t~ 180 kJ\t450 kJ\nValeurs Energétique en Kilocalories\t~ 42 kcal\t105 kcal\nValeurs Nutritionnelles\nGlucides\t~ 10.6  g\t27 g\nDont Sucres\t~ 10.6 g\t27 g\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": "original",
+          "candidate_variant": "nature",
+          "negatives_hit": [],
+          "variant_ok": false,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [
+            "variant_mismatch"
+          ],
+          "candidate_quantity": "1,75 L",
+          "candidate_size_ratio": 0.0,
+          "descriptor_token_coverage": {
+            "coverage": 0.7777777777777778,
+            "matched": [
+              "boisson",
+              "bouteille",
+              "coca",
+              "cola",
+              "gout",
+              "original",
+              "soda"
+            ],
+            "missing": [
+              "extraits",
+              "gazeuse"
+            ],
+            "total": 9
+          },
+          "missing_tokens": [
+            "extraits",
+            "gazeuse"
+          ],
+          "image_match": true,
+          "final_score": -105,
+          "plausible_baseline": false
+        },
         "candidates": [
           {
             "url": "https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719",
             "product": {
-              "title": "Coca-Cola Original 1,75L",
+              "title": "",
               "brand": "Cola",
-              "kind": "Soda au Cola Goût Original COCA-COLA",
-              "qty": "1.75 l",
+              "kind": "Soda au  Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
               "qualifiers": [],
               "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f 8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg",
+              "image_url": null,
               "source": "monoprix",
-              "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières  commandes\nEN SAVOIR +\nAccueil\nBoissons et Lait\nSoda et Boisson  aromatisée\nColas\nCoca-Cola Original 1,75L\n2 m+\n2 mois de garantie de vie du  produit\n1.75L 1,51 € / litre\n1.75L\n(1,51 € / litre)\n2,65  €\nAjouter\nAttributs produit\nProduit vegan\nInformations  produit\n\n\nDescription Produit\nCréée en 1886, Coca-Cola, la légendaire  boisson pétillante, fait le bonheur de plusieurs générations. Cette boisson  intemporelle et délicieuse a été conçue pour rafraîchir ses consommateurs. Elle  est faite pour être partagée. Installez-vous, détendez-vous et savourez. À  servir bien frais pour un maximum de  plaisir.\n\n\nOrigine\nFrance\nMarque\nCoca-Cola\nService  consommateur\nCoca-Cola Europacific Partners France 9 chemin de Bretagne, CS  80050, 92784 Issy-Les-Moulineaux Cedex 9. coca-cola.fr N° Cristal 09 69 39 29 00 (Appel non surtaxé)\nConseils d'utilisation\nSe boit très frais Ne pas  agiter.\nIngredients\nIngrédients: eau gazéifiée ; sucre ; colorant : E150d ;  acidifiant : acide phosphorique ; arômes naturels ; arôme caféine.\nA propos de  la marque\nCoca-Cola est la boisson pétillante emblématique, créée en 1886 à  Atlanta, en Géorgie, par le Dr John S. Pemberton. Coca-Cola a d’abord été  proposé comme boisson à la fontaine à la pharmacie Jacobs sous forme d’un  mélange de sirop de Coca-Cola et d’eau pétillante, la fameuse recette secrète du Coca-Cola. Au fil des ans, cette boisson pétillante légendaire est devenue  culte. Le Coca-Cola est célèbre non seulement pour son goût irrésistible mais  aussi pour la sensation qu'il procure. Chaque gorgée de cette légendaire boisson pétillante évoque des souvenirs heureux. Aujourd'hui, sa popularité l'a rendu  universel.\nType d’emballage\nbouteille\nProducteur\nCOCA COLA EUROPEAN PARTNERS FRAN 9 CHEMIN DE BRETAGNE///92784/ISSY LES MOULINEAUX CEDEX 9/FRANCE\nConseil de conservation\nConserver à l'abri de la lumière directe du soleil, dans un  endroit frais et sec.,Conserver à l'abri de la lumière directe du soleil, dans  un endroit frais et sec.\nAutres informations\n(None)\nConseils  d'utilisation\nSe boit très frais Ne pas agiter.\nValeurs  nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 ml\tpour  250MLT\nValeurs Energétique en Kilojoules\t~ 180 kJ\t450 kJ\nValeurs Energétique en Kilocalories\t~ 42 kcal\t105 kcal\nValeurs Nutritionnelles\nGlucides\t~ 10.6  g\t27 g\nDont Sucres\t~ 10.6 g\t27 g\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)"
+              "raw_text": ""
             }
           },
           {
             "url": "https://courses.monoprix.fr/products/coca-cola-sans-sucres-1-75l/MPX_3341722",
             "product": {
-              "title": "Coca-Cola Sans Sucres 1,75L",
+              "title": "",
               "brand": "Cola",
-              "kind": "Soda au Cola Goût Original COCA-COLA",
-              "qty": "1.75 l",
+              "kind": "Soda au  Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
               "qualifiers": [],
               "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9acb c31d-149d-48f2-9df6-f804cd040609/300x300.jpg",
+              "image_url": null,
               "source": "monoprix",
-              "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières  commandes\nEN SAVOIR +\nAccueil\nBoissons et Lait\nSoda et Boisson  aromatisée\nColas\nCoca-Cola Sans Sucres 1,75L\n1 m+\n1 mois de garantie de vie  du produit\nNutriscore B\n1.75L 1,25 € / litre\n1.75L\n(1,25 € / litre)\n2,19  €\nAjouter\nInformations produit\n\n\nDescription Produit\nCoca-Cola Sans  Sucres, le goût légendaire de Coca-Cola, mais sans sucres. Une boisson  pétillante rafraîchissante, qui fait le bonheur de plusieurs générations. Cette  boisson pétillante sans sucres intemporelle et délicieuse a été pensée pour  rafraîchir ses consommateurs. Toujours prête et à portée de main, elle est faite pour être partagée. Installez-vous et détendez-vous. Savourez une gorgée et  libérez les bulles. À servir bien frais pour un maximum de  plaisir.\n\n\nOrigine\nFrance\nMarque\nCoca-Cola Sans Sucres\nService  consommateur\nCoca-Cola Europacific Partners France 9 chemin de Bretagne, CS  80050, 92784 Issy-Les-Moulineaux Cedex 9. coca-cola.fr N° Cristal 09 69 39 29 00 (Appel non surtaxé)\nConseils d'utilisation\nSe boit très frais Ne pas  agiter.\nIngredients\nIngrédients : Ingrédients: eau gazéifiée ; colorant :  E150d ; acidifiant : acide phosphorique ; édulcorants : aspartame, acésulfame-K, glycosides de stéviol produits par voie enzymatique ; arômes naturels ; arôme  caféine ; correcteur d'acidité : citrates de sodium.Contient une source de  phénylalanine.\nA propos de la marque\nCoca-Cola est la boisson pétillante  emblématique, créée en 1886 à Atlanta, en Géorgie, par le Dr John S. Pemberton.  Coca-Cola a d’abord été proposé comme boisson à la fontaine à la pharmacie  Jacobs sous forme d’un mélange de sirop de Coca-Cola et d’eau pétillante, la  fameuse recette secrète du Coca-Cola. Au fil des ans, cette boisson pétillante  légendaire est devenue culte. Le Coca-Cola est célèbre non seulement pour son  goût irrésistible mais aussi pour la sensation qu'il procure. Chaque gorgée de  cette légendaire boisson pétillante évoque des souvenirs heureux. Aujourd'hui,  sa popularité l'a rendu universel.\nType d’emballage\nbouteille;autre  plastique\nProducteur\nCOCA COLA EUROPEAN PARTNERS FRAN 9 CHEMIN DE  BRETAGNE///92784/ISSY LES MOULINEAUX CEDEX 9/FRANCE\nConseil de  conservation\nConserver à l'abri de la lumière directe du soleil, dans un  endroit frais et sec.\nAutres informations\nContient une source de  phénylalanine.\nConseils d'utilisation\nSe boit très frais Ne pas  agiter.\nValeurs nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour  100 ml\tpour 250MLT\nValeurs Energétique en Kilojoules\t~ 1.3 kJ\t3.3  kJ\nValeurs Energétique en Kilocalories\t~ 0.3 kcal\t1 kcal\nValeurs  Nutritionnelles\nSel\t~ 0.01 g\t0.03 g\nNous contacter\n(s’ouvre dans une  nouvelle fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux  cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)"
+              "raw_text": ""
             }
           }
         ],
@@ -493,9 +670,9 @@
           "supports_keywords": true
         }
       },
-      "started_at": "2025-11-04T15:55:25.855621",
-      "finished_at": "2025-11-04T15:56:28.798554",
-      "duration_seconds": 62.942933,
+      "started_at": "2025-11-14T11:25:39.480610+01:00",
+      "finished_at": "2025-11-14T11:26:09.292845+01:00",
+      "duration_seconds": 29.812235,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -503,18 +680,64 @@
       ],
       "env": {
         "EAN": "5000112611861",
-        "QUERY": "Cola Soda COCA Original Bouteille 1,75 L",
-        "FINDER_KEYWORDS": "[\"Cola coca 1.75 L\", \"Cola coca soda\", \"Cola 1.75 L\", \"Cola gout 1.75 L\"]",
+        "QUERY": "Coca-Cola Coca-Cola 1,75L Coca",
         "HOME_URL": "https://courses.monoprix.fr/",
         "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5000112611861'.\n[MONOPRIX_DEBUG] Search terms: ['coca-cola extraits', 'coca-cola 1,75l', 'coca-cola 175cl']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: original | dynamic negatives: ['sans sucre', 'vanille', 'light', 'zero', 'cherry', '2.25l', '1.25l', 'citron', 'framboise', 'pomme', 'orange', 'zéro', 'caffeine', 'caféine', 'promo', 'lot', 'eco', 'maxi', 'format', 'amande', 'coco', 'mangue', 'chocolat', 'rouge', 'squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/3: 'coca-cola extraits'\n[MONOPRIX_DEBUG]  - Typing 'coca-cola extraits' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=coca-cola+extraits\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'coca-cola 1,75l'\n[MONOPRIX_DEBUG]  - Typing 'coca-cola 1,75l' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=coca-cola+1%2C75l\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 2 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719\n[MONOPRIX_DEBUG][SCORE] - Title: 'Coca-Cola Original 1,75L' | Brand: 'cola' | Variant(seed/cand)=(original/nature) | Vetoes=['variant_mismatch'] | NegHits=[] | Score=-135 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Coca-Cola Original 1,75L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Coca-Cola Original 1,75L' | vetoes=['variant_mismatch']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/coca-cola-sans-sucres-1-75l/MPX_3341722\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9acbc31d-149d-48f2-9df6-f804cd040609/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/coca-cola-sans-sucres-1-75l/MPX_3341722\n[MONOPRIX_DEBUG][SCORE] - Title: 'Coca-Cola Sans Sucres 1,75L' | Brand: 'cola' | Variant(seed/cand)=(original/sans sucre) | Vetoes=['neg_token', 'variant_mismatch', 'descriptor_coverage'] | NegHits=['sans sucre'] | Score=-255 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Coca-Cola Sans Sucres 1,75L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Coca-Cola Sans Sucres 1,75L' | vetoes=['neg_token', 'variant_mismatch', 'descriptor_coverage', 'core_token']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'Coca-Cola Original 1,75L' (Score: -105) | vetoes=['variant_mismatch']\n[MONOPRIX_DEBUG]  - Term 3/3: 'coca-cola 175cl'\n[MONOPRIX_DEBUG]  - Typing 'coca-cola 175cl' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=coca-cola+175cl\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 2 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719\n[MONOPRIX_DEBUG][SCORE] - Title: 'Coca-Cola Original 1,75L' | Brand: 'cola' | Variant(seed/cand)=(original/nature) | Vetoes=['variant_mismatch'] | NegHits=[] | Score=-135 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Coca-Cola Original 1,75L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Coca-Cola Original 1,75L' | vetoes=['variant_mismatch']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/coca-cola-sans-sucres-1-75l/MPX_3341722\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9acbc31d-149d-48f2-9df6-f804cd040609/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/coca-cola-sans-sucres-1-75l/MPX_3341722\n[MONOPRIX_DEBUG][SCORE] - Title: 'Coca-Cola Sans Sucres 1,75L' | Brand: 'cola' | Variant(seed/cand)=(original/sans sucre) | Vetoes=['neg_token', 'variant_mismatch', 'descriptor_coverage'] | NegHits=['sans sucre'] | Score=-255 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Coca-Cola Sans Sucres 1,75L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Coca-Cola Sans Sucres 1,75L' | vetoes=['neg_token', 'variant_mismatch', 'descriptor_coverage', 'core_token']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'Coca-Cola Original 1,75L' (Score: -105) | vetoes=['variant_mismatch']\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=[{'url': 'https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719', 'status': 'OK_PARTIAL', 'product': {'title': 'Coca-Cola Original 1,75L', 'brand': 'Cola', 'kind': 'Soda au Cola Goût Original COCA-COLA', 'qty': '1,75 L', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nSoda et Boisson aromatisée\\nColas\\nCoca-Cola Original 1,75L\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n1.75L 1,51\\xa0€ / litre\\n1.75L\\n(1,51\\xa0€ / litre)\\n2,65\\xa0€\\nAjouter\\nAttributs produit\\nProduit vegan\\nInformations produit\\n\\n\\nDescription Produit\\nCréée en 1886, Coca-Cola, la légendaire boisson pétillante, fait le bonheur de plusieurs générations. Cette boisson intemporelle et délicieuse a été conçue pour rafraîchir ses consommateurs. Elle est faite pour être partagée. Installez-vous, détendez-vous et savourez. À servir bien frais pour un maximum de plaisir.\\n\\n\\nOrigine\\nFrance\\nMarque\\nCoca-Cola\\nService consommateur\\nCoca-Cola Europacific Partners France 9 chemin de Bretagne, CS 80050, 92784 Issy-Les-Moulineaux Cedex 9. coca-cola.fr N° Cristal 09 69 39 29 00 (Appel non surtaxé)\\nConseils d'utilisation\\nSe boit très frais Ne pas agiter.\\nIngredients\\nIngrédients: eau gazéifiée ; sucre ; colorant : E150d ; acidifiant : acide phosphorique ; arômes naturels ; arôme caféine.\\nA propos de la marque\\nCoca-Cola est la boisson pétillante emblématique, créée en 1886 à Atlanta, en Géorgie, par le Dr John S. Pemberton. Coca-Cola a d’abord été proposé comme boisson à la fontaine à la pharmacie Jacobs sous forme d’un mélange de sirop de Coca-Cola et d’eau pétillante, la fameuse recette secrète du Coca-Cola. Au fil des ans, cette boisson pétillante légendaire est devenue culte. Le Coca-Cola est célèbre non seulement pour son goût irrésistible mais aussi pour la sensation qu'il procure. Chaque gorgée de cette légendaire boisson pétillante évoque des souvenirs heureux. Aujourd'hui, sa popularité l'a rendu universel.\\nType d’emballage\\nbouteille\\nProducteur\\nCOCA COLA EUROPEAN PARTNERS FRAN 9 CHEMIN DE BRETAGNE///92784/ISSY LES MOULINEAUX CEDEX 9/FRANCE\\nConseil de conservation\\nConserver à l'abri de la lumière directe du soleil, dans un endroit frais et sec.,Conserver à l'abri de la lumière directe du soleil, dans un endroit frais et sec.\\nAutres informations\\n(None)\\nConseils d'utilisation\\nSe boit très frais Ne pas agiter.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\tpour 250MLT\\nValeurs Energétique en Kilojoules\\t~ 180 kJ\\t450 kJ\\nValeurs Energétique en Kilocalories\\t~ 42 kcal\\t105 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 10.6 g\\t27 g\\nDont Sucres\\t~ 10.6 g\\t27 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'price': '2,65', 'unit_price': '1,51 € / L'}, 'score': -105, 'extras': {'seed_variant': 'original', 'candidate_variant': 'nature', 'negatives_hit': [], 'variant_ok': False, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['variant_mismatch'], 'candidate_quantity': '1,75 L', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.7777777777777778, 'matched': ['boisson', 'bouteille', 'coca', 'cola', 'gout', 'original', 'soda'], 'missing': ['extraits', 'gazeuse'], 'total': 9}, 'missing_tokens': ['extraits', 'gazeuse'], 'image_match': True, 'final_score': -105, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/coca-cola-sans-sucres-1-75l/MPX_3341722', 'status': 'OK_PARTIAL', 'product': {'title': 'Coca-Cola Sans Sucres 1,75L', 'brand': 'Cola', 'kind': 'Soda au Cola Goût Original COCA-COLA', 'qty': '1,75 L', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9acbc31d-149d-48f2-9df6-f804cd040609/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nSoda et Boisson aromatisée\\nColas\\nCoca-Cola Sans Sucres 1,75L\\n1\\xa0m+\\n1\\xa0mois de garantie de vie du produit\\nNutriscore B\\n1.75L 1,25\\xa0€ / litre\\n1.75L\\n(1,25\\xa0€ / litre)\\n2,19\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nCoca-Cola Sans Sucres, le goût légendaire de Coca-Cola, mais sans sucres. Une boisson pétillante rafraîchissante, qui fait le bonheur de plusieurs générations. Cette boisson pétillante sans sucres intemporelle et délicieuse a été pensée pour rafraîchir ses consommateurs. Toujours prête et à portée de main, elle est faite pour être partagée. Installez-vous et détendez-vous. Savourez une gorgée et libérez les bulles. À servir bien frais pour un maximum de plaisir.\\n\\n\\nOrigine\\nFrance\\nMarque\\nCoca-Cola Sans Sucres\\nService consommateur\\nCoca-Cola Europacific Partners France 9 chemin de Bretagne, CS 80050, 92784 Issy-Les-Moulineaux Cedex 9. coca-cola.fr N° Cristal 09 69 39 29 00 (Appel non surtaxé)\\nConseils d'utilisation\\nSe boit très frais Ne pas agiter.\\nIngredients\\nIngrédients : Ingrédients: eau gazéifiée ; colorant : E150d ; acidifiant : acide phosphorique ; édulcorants : aspartame, acésulfame-K, glycosides de stéviol produits par voie enzymatique ; arômes naturels ; arôme caféine ; correcteur d'acidité : citrates de sodium.Contient une source de phénylalanine.\\nA propos de la marque\\nCoca-Cola est la boisson pétillante emblématique, créée en 1886 à Atlanta, en Géorgie, par le Dr John S. Pemberton. Coca-Cola a d’abord été proposé comme boisson à la fontaine à la pharmacie Jacobs sous forme d’un mélange de sirop de Coca-Cola et d’eau pétillante, la fameuse recette secrète du Coca-Cola. Au fil des ans, cette boisson pétillante légendaire est devenue culte. Le Coca-Cola est célèbre non seulement pour son goût irrésistible mais aussi pour la sensation qu'il procure. Chaque gorgée de cette légendaire boisson pétillante évoque des souvenirs heureux. Aujourd'hui, sa popularité l'a rendu universel.\\nType d’emballage\\nbouteille;autre plastique\\nProducteur\\nCOCA COLA EUROPEAN PARTNERS FRAN 9 CHEMIN DE BRETAGNE///92784/ISSY LES MOULINEAUX CEDEX 9/FRANCE\\nConseil de conservation\\nConserver à l'abri de la lumière directe du soleil, dans un endroit frais et sec.\\nAutres informations\\nContient une source de phénylalanine.\\nConseils d'utilisation\\nSe boit très frais Ne pas agiter.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\tpour 250MLT\\nValeurs Energétique en Kilojoules\\t~ 1.3 kJ\\t3.3 kJ\\nValeurs Energétique en Kilocalories\\t~ 0.3 kcal\\t1 kcal\\nValeurs Nutritionnelles\\nSel\\t~ 0.01 g\\t0.03 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'price': '2,19', 'unit_price': '1,25 € / L'}, 'score': -225, 'extras': {'seed_variant': 'original', 'candidate_variant': 'sans sucre', 'negatives_hit': ['sans sucre'], 'variant_ok': False, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['neg_token', 'variant_mismatch', 'descriptor_coverage', 'core_token'], 'candidate_quantity': '1,75 L', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.6666666666666666, 'matched': ['boisson', 'bouteille', 'coca', 'cola', 'gout', 'soda'], 'missing': ['extraits', 'gazeuse', 'original'], 'total': 9}, 'missing_tokens': ['extraits', 'gazeuse', 'original'], 'image_match': True, 'final_score': -225, 'plausible_baseline': False, 'missing_core_tokens': ['original']}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5000112611861'.\n[MONOPRIX_DEBUG] Search terms: ['coca-cola extraits', 'coca-cola 1,75l', 'coca-cola 175cl']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: original | dynamic negatives: ['sans sucre', 'vanille', 'light', 'zero', 'cherry', '2.25l', '1.25l', 'citron', 'framboise', 'pomme', 'orange', 'zéro', 'caffeine', 'caféine', 'promo', 'lot', 'eco', 'maxi', 'format', 'amande', 'coco', 'mangue', 'chocolat', 'rouge', 'squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/3: 'coca-cola extraits'\n[MONOPRIX_DEBUG]  - Typing 'coca-cola extraits' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=coca-cola%20extraits\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'coca-cola 1,75l'\n[MONOPRIX_DEBUG]  - Typing 'coca-cola 1,75l' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=coca-cola%201%2C75l\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 2 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719\n[MONOPRIX_DEBUG][SCORE] - Title: 'Coca-Cola Original 1,75L' | Brand: 'cola' | Variant(seed/cand)=(original/nature) | Vetoes=['variant_mismatch'] | NegHits=[] | Score=-135 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Coca-Cola Original 1,75L'.\n[MONOPRIX_DEBUG] Best match (early return): 'Coca-Cola Original 1,75L' (Score: -105)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='2,65', title='Coca-Cola Original 1,75L', url='https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg', matched_ean='5000112611861', unit_price='1,51 € / L', quantity='1,75 L', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nSoda et Boisson aromatisée\\nColas\\nCoca-Cola Original 1,75L\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n1.75L 1,51\\xa0€ / litre\\n1.75L\\n(1,51\\xa0€ / litre)\\n2,65\\xa0€\\nAjouter\\nAttributs produit\\nProduit vegan\\nInformations produit\\n\\n\\nDescription Produit\\nCréée en 1886, Coca-Cola, la légendaire boisson pétillante, fait le bonheur de plusieurs générations. Cette boisson intemporelle et délicieuse a été conçue pour rafraîchir ses consommateurs. Elle est faite pour être partagée. Installez-vous, détendez-vous et savourez. À servir bien frais pour un maximum de plaisir.\\n\\n\\nOrigine\\nFrance\\nMarque\\nCoca-Cola\\nService consommateur\\nCoca-Cola Europacific Partners France 9 chemin de Bretagne, CS 80050, 92784 Issy-Les-Moulineaux Cedex 9. coca-cola.fr N° Cristal 09 69 39 29 00 (Appel non surtaxé)\\nConseils d'utilisation\\nSe boit très frais Ne pas agiter.\\nIngredients\\nIngrédients: eau gazéifiée ; sucre ; colorant : E150d ; acidifiant : acide phosphorique ; arômes naturels ; arôme caféine.\\nA propos de la marque\\nCoca-Cola est la boisson pétillante emblématique, créée en 1886 à Atlanta, en Géorgie, par le Dr John S. Pemberton. Coca-Cola a d’abord été proposé comme boisson à la fontaine à la pharmacie Jacobs sous forme d’un mélange de sirop de Coca-Cola et d’eau pétillante, la fameuse recette secrète du Coca-Cola. Au fil des ans, cette boisson pétillante légendaire est devenue culte. Le Coca-Cola est célèbre non seulement pour son goût irrésistible mais aussi pour la sensation qu'il procure. Chaque gorgée de cette légendaire boisson pétillante évoque des souvenirs heureux. Aujourd'hui, sa popularité l'a rendu universel.\\nType d’emballage\\nbouteille\\nProducteur\\nCOCA COLA EUROPEAN PARTNERS FRAN 9 CHEMIN DE BRETAGNE///92784/ISSY LES MOULINEAUX CEDEX 9/FRANCE\\nConseil de conservation\\nConserver à l'abri de la lumière directe du soleil, dans un endroit frais et sec.,Conserver à l'abri de la lumière directe du soleil, dans un endroit frais et sec.\\nAutres informations\\n(None)\\nConseils d'utilisation\\nSe boit très frais Ne pas agiter.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\tpour 250MLT\\nValeurs Energétique en Kilojoules\\t~ 180 kJ\\t450 kJ\\nValeurs Energétique en Kilocalories\\t~ 42 kcal\\t105 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 10.6 g\\t27 g\\nDont Sucres\\t~ 10.6 g\\t27 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': 'original', 'candidate_variant': 'nature', 'negatives_hit': [], 'variant_ok': False, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['variant_mismatch'], 'candidate_quantity': '1,75 L', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.7777777777777778, 'matched': ['boisson', 'bouteille', 'coca', 'cola', 'gout', 'original', 'soda'], 'missing': ['extraits', 'gazeuse'], 'total': 9}, 'missing_tokens': ['extraits', 'gazeuse'], 'image_match': True, 'final_score': -105, 'plausible_baseline': False}, candidates=[{'url': 'https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Cola', 'kind': 'Soda au Cola Goût Original COCA-COLA', 'qty': '1,75  L', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}, {'url': 'https://courses.monoprix.fr/products/coca-cola-sans-sucres-1-75l/MPX_3341722', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Cola', 'kind': 'Soda au Cola Goût Original COCA-COLA', 'qty': '1,75  L', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
       "metadata": {
-        "attempt_query": "Cola Soda COCA Original Bouteille 1,75 L",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251104-155148/09-monoprix"
+        "attempt_query": "Coca-Cola Coca-Cola 1,75L Coca",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251114-112056/10-monoprix"
       }
+    },
+    {
+      "adapter": "auchan_drive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,38",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-original/pr-C1211988",
+        "note": "Auchan Talence",
+        "unit_price": "1,36 € / L",
+        "quantity": "1,75 L",
+        "title": "Boisson gazeuse aux extraits végétaux goût original",
+        "matched_ean": "5000112611861",
+        "image": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson gazeuse aux extraits végétaux goût original",
+          "brand": "Coca-Cola",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
+          "source": "auchan_drive",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-15T11:09:26.856194Z",
+      "finished_at": "2025-11-15T11:09:33.856194Z",
+      "duration_seconds": 7.0,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "python3",
+        "maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "HEADLESS": "0",
+        "USE_CDP": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {}
     }
   ],
   "finder": null

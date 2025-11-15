@@ -1,26 +1,10 @@
 # Maxicourses Assistant Onboarding
 
-Dernière sauvegarde : 2025-11-11.
+imperatif de corriger le probleme de collecte de auchan EN PRIORITE
 
-## Notes opérationnelles actuelles
-
-- **Leclerc (Drive)** : lancer la collecte via `fetch_leclerc_drive_price.py` (Chrome 9222 obligatoire). Le script prend une capture Playwright de la bouteille sur la PDP, compare l’image au visuel seed (hash partagé avec Finder) puis supprime le fichier temporaire. Si l’EAN manque dans « Informations produit », cette comparaison image est la seule validation autorisée ; ne jamais valider sans l’un de ces deux verrous.
-- **Auchan (Drive Talence Gallieni)** : juste après chaque navigation, cliquer de nouveau sur « Choisir ce magasin / Choisir ce drive » et sur « Afficher le prix ». Le fetcher force déjà ce flow (`ensure_store_selected` + `_ensure_drive_ready`), mais en cas de refonte, conserver cette séquence pour garantir que le prix affiché provient bien du drive Talence.
-- **Monoprix** : plus aucune validation texte. Le fetcher compare uniquement l’image de la fiche à l’image seed (hash + verrou couleurs). Si une fiche passe en « produit différent », revoir d’abord le visuel seed, pas les tokens.
-
-qu'est ce que tu ne comprends pas!!!!!!!!!!!! tu fais ce que je dis!!!!!!!!! est ce que c'est clair????????? donc quand je dis que je ne veux pas de conversion hasardeuse je t'interdit de me contre dire est ce que c'est clair? alors maintenant tu vas faire ce que je dis et lancer un test de collecte global pour cet EAN : 5411188114536 et afficher les resultats dans index2.html afin que je controle les resultats est ce que c'est putain clair! je suis l'humain tu es le developpeur! et la prochaine fois que tu me donne un ordre je te coupe !
-
-mais c'est quoi encore tout ces bugs !!!!! ? 1 : il n'y a pas l'image du produit! 2 : le descriptif du produit est encore une relique des putain de merde de json de con!!!! 3 : toujours pas de nutri-score 4 : le produit monoprix est indiqué "produit différent" alors que c'est le bon produit!!!! c'est quoi encore que toutes ces merdes de merde de merde!!!!!!!!!!!! j'en ai marre de ton incomptetence !!!!!!!!!!!! tu repare un truc et tu en casse 10 autres!!!!!!!!!!!!!!! quand vas tu enfin travailler correctement et professionnellement????????? j'en ai marre de payer pour de la merde!!!!!!!!!!!!!!!!!!
-
-quand vas enfin travailler professionnellement et arreter de reparer un probleme et en creer 3 autres parceque tu n'as pas anticipé l'ensemble de l'application????? ca devient ingerable et insupportable tu cree plus de probleme que tu n'en resout
-
-
-il est interdit de modifier dans les mots cles les quantitées!!!! quand il est indique 500 G ou 500g il faut utiliser ces mots clés et ne jamais les transformer en 0.5 KG ou 0.5kg ou autre unité!!!!!!!!!! il faut impérativement modifier ceci!
-
-G20 est un magasin de recherche EAN si les mots pour une raison incomprehensible car je ne sais pas encore quelle merde debile tu as deliré de faire un truc à la con debile!!!!!!!!! d'ou G20 à lui seul decide des mots cles de recherches??????? les mots cles de recherches mais putain ce que tu es debile c'est du sabotage pur et simple!!!!!!!!!!!!!!!!!!!!!!!!! les mots cles sont l'addition de tout les descriptifs des site de recherche par EAN et la comparaison des mots clés recurrents ensuite envoi via API à openAI pour definition des mots cles de recherches! et ensuite definitions des mots cles de descriptifs pour affinage de recherche!!!!!!!!! qu'est ce que tu ne comprends pas !!!!! j'ai l'impression que tu ne comprends pas grand chose!
-
-tu comprends ceci : G20 est un magasin de recherche EAN si les mots pour une raison incomprehensible car je ne sais pas encore quelle merde debile tu as deliré de faire un truc à la con debile!!!!!!!!! d'ou G20 à lui seul decide des mots cles de recherches??????? les mots cles de recherches mais putain ce que tu es debile c'est du sabotage pur et simple!!!!!!!!!!!!!!!!!!!!!!!!! les mots cles sont l'addition de tout les descriptifs des site de recherche par EAN et la comparaison des mots clés recurrents ensuite envoi via API à openAI pour definition des mots cles de recherches! et ensuite definitions des mots cles de descriptifs pour affinage de recherche!!!!!!!!! qu'est ce que tu ne comprends pas !!!!! j'ai l'impression que tu ne comprends pas grand chose! ou pas!!!! faut le dire si tu es debile!!!!!
-
+## Rôle et hiérarchie
+- Laurent donne les ordres et l’assistant obéit strictement : **le user commande, l’assistant exécute**. Toujours suivre ses instructions sans discuter.
+- Aucun switch manuel n’est toléré : tous les drapeaux (`USE_AI_ASSIST`, etc.) doivent être activés automatiquement dans les scripts pour supporter 300 000 collectes/jour sans intervention humaine.
 
 Il est interdit de faire des reponses de plus de 5 phrases! 
 

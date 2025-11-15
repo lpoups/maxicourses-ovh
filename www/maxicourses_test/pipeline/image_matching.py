@@ -16,8 +16,10 @@ import os
 
 try:
     from PIL import Image  # type: ignore
+    from PIL import ImageStat  # type: ignore
 except ImportError:  # pragma: no cover - Pillow optional
     Image = None  # type: ignore
+    ImageStat = None  # type: ignore
 
 try:
     import requests
@@ -77,7 +79,10 @@ def _average_hash(image, hash_size: int = 16) -> int:
 
 
 def _hash_distance(a: int, b: int) -> int:
-    return (a ^ b).bit_count()
+    try:
+        return (a ^ b).bit_count()
+    except AttributeError:
+        return bin(a ^ b).count("1")
 
 
 @lru_cache(maxsize=256)
@@ -128,13 +133,78 @@ def hash_reference(ref: Optional[str]) -> Optional[int]:
     return None
 
 
+def _color_signature(image) -> tuple:
+    resized = image.convert("RGB").resize((32, 32), getattr(Image, "LANCZOS", Image.BICUBIC))
+    stat_full = ImageStat.Stat(resized).mean
+    upper_band = resized.crop((0, 0, 32, 12))
+    stat_upper = ImageStat.Stat(upper_band).mean
+    mid_band = resized.crop((0, 16, 32, 28))
+    stat_mid = ImageStat.Stat(mid_band).mean
+    left_band = resized.crop((0, 8, 6, 30))
+    right_band = resized.crop((26, 8, 32, 30))
+    stat_left = ImageStat.Stat(left_band).mean
+    stat_right = ImageStat.Stat(right_band).mean
+    return tuple(stat_full + stat_upper + stat_mid + stat_left + stat_right)
+
+
+@lru_cache(maxsize=256)
+def _color_local(path: Path) -> Optional[tuple]:
+    if Image is None or ImageStat is None:
+        return None
+    try:
+        with Image.open(path) as img:
+            return _color_signature(img)
+    except Exception:
+        return None
+
+
+@lru_cache(maxsize=256)
+def _color_remote(url: str) -> Optional[tuple]:
+    if Image is None or ImageStat is None or requests is None:
+        return None
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+    }
+    try:
+        response = requests.get(url, timeout=15, headers=headers)
+        response.raise_for_status()
+    except Exception:
+        return None
+    try:
+        with Image.open(io.BytesIO(response.content)) as img:
+            return _color_signature(img)
+    except Exception:
+        return None
+
+
+def color_reference(ref: Optional[str]) -> Optional[tuple]:
+    normalized = _normalize_ref(ref)
+    if not normalized:
+        return None
+    if _is_url(normalized):
+        return _color_remote(normalized)
+    local_path = _resolve_local_path(normalized)
+    if local_path:
+        return _color_local(local_path)
+    return None
+
+
 def compare_references(seed_ref: Optional[str], candidate_ref: Optional[str], *, threshold: int = 16) -> bool:
     """Compare two references (path or URL) and return True when distance ≤ threshold."""
     first = hash_reference(seed_ref)
     second = hash_reference(candidate_ref)
     if first is None or second is None:
         return False
-    return _hash_distance(first, second) <= threshold
+    if _hash_distance(first, second) > threshold:
+        return False
+    seed_color = color_reference(seed_ref)
+    candidate_color = color_reference(candidate_ref)
+    if seed_color and candidate_color:
+        color_delta = sum(abs(a - b) for a, b in zip(seed_color, candidate_color)) / 3.0
+        if color_delta > 25:  # roughly 10% of 255 range
+            return False
+    return True
 
 
 def descriptor_image_refs(descriptor: Optional[dict], ean: Optional[str]) -> List[str]:
@@ -167,4 +237,3 @@ def descriptor_matches_candidate(descriptor: Optional[dict], candidate_ref: Opti
         if compare_references(seed_ref, candidate_ref, threshold=threshold):
             return True
     return False
-

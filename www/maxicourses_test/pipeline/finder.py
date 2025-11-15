@@ -1,9 +1,10 @@
 # finder.py
 # Étape 1/3 — Scaffold solide et extensible, 100% code “dans le dur”.
 from __future__ import annotations
+import argparse
 from dataclasses import dataclass, field
 from functools import lru_cache
-from typing import List, Dict, Iterable, Optional, Tuple, Protocol, Callable
+from typing import Any, List, Dict, Iterable, Optional, Tuple, Protocol, Callable
 import re
 import os
 import atexit
@@ -13,6 +14,7 @@ except Exception:  # pragma: no cover - Playwright optional
     sync_playwright = None
     PlaywrightTimeoutError = Exception  # type: ignore
 from .text_utils import is_pack_or_bundle
+from descriptor_store import get_descriptor
 HtmlProvider = Callable[[str], Optional[str]]
 ImageCompareProvider = Callable[[Optional[str], Optional[str]], bool]
 PLAYWRIGHT_SINGLETON: Dict[str, Optional[object]] = {
@@ -20,7 +22,34 @@ PLAYWRIGHT_SINGLETON: Dict[str, Optional[object]] = {
     "browser": None,
     "context": None,
 }
-PHASH_CACHE: Dict[str, Optional[int]] = {}
+LECLERC_LISTING_IMAGES: Dict[str, str] = {}
+
+
+def _normalize_leclerc_url_key(url: str) -> str:
+    return url.split("#", 1)[0].strip()
+
+
+def _store_leclerc_listing_image(url: Optional[str], image_url: Optional[str]) -> None:
+    if not url or not image_url:
+        return
+    key = _normalize_leclerc_url_key(url)
+    value = image_url.strip()
+    if not key or not value:
+        return
+    LECLERC_LISTING_IMAGES[key] = value
+    if len(LECLERC_LISTING_IMAGES) > 128:
+        try:
+            LECLERC_LISTING_IMAGES.pop(next(iter(LECLERC_LISTING_IMAGES)))
+        except StopIteration:
+            pass
+
+
+def _lookup_leclerc_listing_image(url: Optional[str]) -> Optional[str]:
+    if not url:
+        return None
+    return LECLERC_LISTING_IMAGES.get(_normalize_leclerc_url_key(url))
+
+
 def _close_playwright() -> None:
     pw = PLAYWRIGHT_SINGLETON.get("playwright")
     browser = PLAYWRIGHT_SINGLETON.get("browser")
@@ -70,121 +99,21 @@ def _ensure_sync_playwright_context():
     PLAYWRIGHT_SINGLETON.update({"playwright": pw, "browser": browser, "context": context})
     atexit.register(_close_playwright)
     return context
-def _phash_js() -> str:
-    return """
-    async (imgUrl) => {
-      const img = new Image();
-      img.crossOrigin = "anonymous";
-      const loaded = new Promise((resolve, reject) => {
-        img.onload = () => resolve();
-        img.onerror = (err) => reject(err);
-      });
-      img.src = imgUrl;
-      await loaded;
-      const size = 32;
-      const smaller = 8;
-      const canvas = document.createElement('canvas');
-      canvas.width = size;
-      canvas.height = size;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0, size, size);
-      let imageData;
-      try {
-        imageData = ctx.getImageData(0, 0, size, size);
-      } catch (err) {
-        return null;
-      }
-      const pixels = imageData.data;
-      const signal = new Array(size);
-      for (let y = 0; y < size; y++) {
-        signal[y] = new Array(size);
-        for (let x = 0; x < size; x++) {
-          const idx = (y * size + x) * 4;
-          const r = pixels[idx];
-          const g = pixels[idx + 1];
-          const b = pixels[idx + 2];
-          signal[y][x] = 0.299 * r + 0.587 * g + 0.114 * b;
-        }
-      }
-      const coeffs = [];
-      for (let v = 0; v < smaller; v++) {
-        for (let u = 0; u < smaller; u++) {
-          let sum = 0;
-          for (let y = 0; y < size; y++) {
-            for (let x = 0; x < size; x++) {
-              sum += signal[y][x] *
-                Math.cos(((2 * x + 1) * u * Math.PI) / (2 * size)) *
-                Math.cos(((2 * y + 1) * v * Math.PI) / (2 * size));
-            }
-          }
-          const cu = u === 0 ? Math.SQRT1_2 : 1;
-          const cv = v === 0 ? Math.SQRT1_2 : 1;
-          const value = 0.25 * cu * cv * sum;
-          coeffs.push(value);
-        }
-      }
-      if (coeffs.length <= 1) {
-        return null;
-      }
-      const rest = coeffs.slice(1);
-      const avg = rest.reduce((acc, val) => acc + val, 0) / rest.length;
-      let hash = 0n;
-      for (let i = 0; i < coeffs.length; i++) {
-        const value = coeffs[i];
-        hash = (hash << 1n) | (value > avg ? 1n : 0n);
-      }
-      return hash.toString();
-    }
-    """
-def _hamming_distance(a: int, b: int) -> int:
-    x = a ^ b
-    count = 0
-    while x:
-        x &= x - 1
-        count += 1
-    return count
-def _compute_phash_sync(url: Optional[str]) -> Optional[int]:
-    if not url:
-        return None
-    cached = PHASH_CACHE.get(url)
-    if cached is not None:
-        return cached
-    context = _ensure_sync_playwright_context()
-    if context is None:
-        PHASH_CACHE[url] = None
-        return None
-    page = None
-    try:
-        page = context.new_page()
-        page.goto("about:blank")
-        script = _phash_js()
-        h_str = page.evaluate(
-            "async ({script, target}) => { const fn = eval(script); return await fn(target); }",
-            {"script": script, "target": url},
-        )
-        value = int(h_str) if h_str is not None else None
-        PHASH_CACHE[url] = value
-        return value
-    except Exception:
-        PHASH_CACHE[url] = None
-        return None
-    finally:
-        if page is not None:
-            try:
-                page.close()
-            except Exception:
-                pass
 def _make_monoprix_image_provider() -> Optional[ImageCompareProvider]:
-    if sync_playwright is None:
+    try:
+        from .image_matching import compare_references
+    except Exception:
         return None
-    if _ensure_sync_playwright_context() is None:
-        return None
-    def _provider(seed_url: Optional[str], cand_url: Optional[str]) -> bool:
-        a = _compute_phash_sync(seed_url)
-        b = _compute_phash_sync(cand_url)
-        if a is None or b is None:
+
+    def _provider(_self, seed_url: Optional[str], cand_url: Optional[str]) -> bool:
+        if not seed_url or not cand_url:
             return False
-        return _hamming_distance(a, b) <= 12
+        clean_seed = re.sub(r"\s+", "", seed_url).strip()
+        clean_cand = re.sub(r"\s+", "", cand_url).strip()
+        if not clean_seed or not clean_cand:
+            return False
+        return compare_references(clean_seed, clean_cand, threshold=16)
+
     return _provider
 def _make_leclerc_html_provider() -> Optional[HtmlProvider]:
     if sync_playwright is None:
@@ -200,7 +129,20 @@ def _make_leclerc_html_provider() -> Optional[HtmlProvider]:
         try:
             page = context.new_page()
             page.goto(url, wait_until="domcontentloaded", timeout=15000)
-            return page.content()
+            try:
+                page.wait_for_load_state("networkidle", timeout=8000)
+            except Exception:
+                pass
+            try:
+                page.wait_for_selector("h1", timeout=12000)
+            except Exception:
+                pass
+            page.wait_for_timeout(600)
+            html = page.content()
+            if html and "datadome" in html.lower():
+                page.wait_for_timeout(1200)
+                html = page.content()
+            return html
         except Exception:
             return None
         finally:
@@ -286,6 +228,22 @@ def _make_leclerc_listing_provider() -> Optional[Callable[[List[str]], List[Tupl
                     snippet_node = card.query_selector(".divWCRS310_Description") or card
                     snippet = _clean_text(snippet_node.inner_text() if snippet_node else "")
                     abs_url = urljoin(page.url, href)
+                    thumb = None
+                    img_node = card.query_selector("img")
+                    if img_node:
+                        for attr in ("data-src", "data-srcset", "src"):
+                            raw = img_node.get_attribute(attr)
+                            if raw and raw.strip():
+                                thumb = raw.strip().split(" ")[0]
+                                break
+                    if thumb:
+                        if thumb.startswith("//"):
+                            thumb = "https:" + thumb
+                        elif thumb.startswith("/"):
+                            thumb = urljoin(page.url, thumb)
+                        elif not thumb.lower().startswith(("http://", "https://")):
+                            thumb = urljoin(page.url, thumb)
+                        _store_leclerc_listing_image(abs_url, thumb)
                     results.append((abs_url, title, snippet))
                     if len(results) >= 10:
                         break
@@ -317,6 +275,44 @@ class ProductDescriptor:
         txt = " ".join([self.title, self.brand, self.kind, self.qty, " ".join(self.qualifiers), self.raw_text])
         txt = re.sub(r"[^a-z0-9àâçéèêëîïôûùüÿœ\s\-\.]", " ", txt.lower())
         return [t for t in re.split(r"\s+", txt) if t]
+
+
+def _descriptor_to_product(payload: Optional[Dict[str, Any]], *, source: str) -> Optional[ProductDescriptor]:
+    if not isinstance(payload, dict):
+        return None
+    canonical = payload.get("canonical") if isinstance(payload.get("canonical"), dict) else {}
+    title = payload.get("name") or payload.get("seed_primary_name") or canonical.get("name_core") or ""
+    brand = payload.get("brand") or canonical.get("brand") or ""
+    qty = payload.get("quantity") or payload.get("seed_primary_quantity") or ""
+    qualifiers = []
+    for key in ("secondary_keywords", "qualifiers"):
+        values = payload.get(key)
+        if isinstance(values, (list, tuple)):
+            for item in values:
+                if isinstance(item, str) and item not in qualifiers:
+                    qualifiers.append(item)
+    image_url = None
+    images = payload.get("images") or canonical.get("images")
+    if isinstance(images, (list, tuple)) and images:
+        image_url = images[0]
+    elif isinstance(payload.get("image"), str):
+        image_url = payload.get("image")
+    raw_parts = []
+    for key in ("description", "seed_query", "note"):
+        value = payload.get(key)
+        if isinstance(value, str) and value.strip():
+            raw_parts.append(value.strip())
+    return ProductDescriptor(
+        title=str(title or ""),
+        brand=str(brand or ""),
+        kind="",
+        qty=str(qty or ""),
+        qualifiers=qualifiers,
+        ean=str(payload.get("ean") or "") or None,
+        image_url=image_url,
+        source=source,
+        raw_text=" \n".join(raw_parts),
+    )
 # ---------- Interfaces Adapters ----------
 class EanSearch(Protocol):
     def search_by_ean(self, ean: str) -> Optional[ProductDescriptor]:
@@ -721,7 +717,8 @@ class CarrefourAdapter:
     can_extract_ean_from_href = False
     # Implémentation réelle à l’étape 2
     def search_by_ean(self, ean: str) -> Optional[ProductDescriptor]:
-        raise NotImplementedError
+        descriptor = get_descriptor(ean)
+        return _descriptor_to_product(descriptor, source="seed")
     def hard_validate(self, src: ProductDescriptor, url: str, pd: ProductDescriptor) -> Optional[float]:
         return None
     def override_threshold(self) -> Optional[float]:
@@ -738,7 +735,8 @@ class AuchanAdapter:
     supports_keywords = False
     can_extract_ean_from_href = False
     def search_by_ean(self, ean: str) -> Optional[ProductDescriptor]:
-        raise NotImplementedError
+        descriptor = get_descriptor(ean)
+        return _descriptor_to_product(descriptor, source="canonical")
     def hard_validate(self, src: ProductDescriptor, url: str, pd: ProductDescriptor) -> Optional[float]:
         return None
     def override_threshold(self) -> Optional[float]:
@@ -801,6 +799,8 @@ class LeclercAdapter:
     supports_ean = False
     supports_keywords = True
     can_extract_ean_from_href = False
+    def _listing_image_for(self, url: str) -> Optional[str]:
+        return _lookup_leclerc_listing_image(url)
     def override_threshold(self) -> Optional[float]:
         return 0.7
     def override_strict_qty(self) -> Optional[bool]:
@@ -1094,32 +1094,6 @@ class FinderPipeline:
                         )
                         continue
                     base_score = self.matcher.score(consolidated, pd)
-                    if base_score < policy.min_text_score:
-                        self.audit.append(
-                            AuditEntry(
-                                adapter=adapter.name,
-                                url=url,
-                                base_score=base_score,
-                                threshold_used=policy.min_text_score,
-                                image_pass=False,
-                                forced=None,
-                                reason="below_text_threshold",
-                            )
-                        )
-                        continue
-                    if policy.requires_ean and not pd.ean:
-                        self.audit.append(
-                            AuditEntry(
-                                adapter=adapter.name,
-                                url=url,
-                                base_score=base_score,
-                                threshold_used=policy.min_text_score,
-                                image_pass=False,
-                                forced=None,
-                                reason="missing_ean_required",
-                            )
-                        )
-                        continue
                     img_pass = True
                     if policy.require_image_lock:
                         img_pass = self.matcher.image_match(
@@ -1140,11 +1114,41 @@ class FinderPipeline:
                                 )
                             )
                             continue
+                    meets_text_threshold = base_score >= policy.min_text_score
+                    if not meets_text_threshold and not (policy.require_image_lock and img_pass):
+                        self.audit.append(
+                            AuditEntry(
+                                adapter=adapter.name,
+                                url=url,
+                                base_score=base_score,
+                                threshold_used=policy.min_text_score,
+                                image_pass=img_pass,
+                                forced=None,
+                                reason="below_text_threshold",
+                            )
+                        )
+                        continue
+                    if policy.requires_ean and not pd.ean:
+                        self.audit.append(
+                            AuditEntry(
+                                adapter=adapter.name,
+                                url=url,
+                                base_score=base_score,
+                                threshold_used=policy.min_text_score,
+                                image_pass=img_pass,
+                                forced=None,
+                                reason="missing_ean_required",
+                            )
+                        )
+                        continue
                     final_score = base_score
                     audit_reason = "generic"
+                    if policy.require_image_lock and img_pass and not meets_text_threshold:
+                        final_score = max(final_score, policy.min_text_score)
+                        audit_reason = "image_override"
                     if adapter.name == "monoprix" and img_pass:
-                        final_score = max(final_score, 0.95)
-                        audit_reason = "mono_text+image"
+                        final_score = max(final_score, 0.995)
+                        audit_reason = "mono_image_override" if audit_reason == "image_override" else "mono_text+image"
                     results.append(MatchResult(adapter=adapter.name, url=url, descriptor=pd, score=final_score))
                     self.audit.append(
                         AuditEntry(
@@ -1185,11 +1189,22 @@ def find_equivalents(ean: str, threshold: float = 0.7) -> Tuple[ProductDescripto
     decision = pipeline.decide(consolidated, candidates, threshold=threshold)
     return consolidated, keywords, candidates, decision
 # ---------- Exécution de test manuelle ----------
-if __name__ == "__main__":
-    # Appel “dans le dur” pour tester la tuyauterie.
-    EAN = "5411188118961"  # exemple
-    consolidated, keywords, candidates, decision = find_equivalents(EAN)
+def _cli() -> None:
+    parser = argparse.ArgumentParser(description="Finder pipeline debug")
+    parser.add_argument("--ean", required=False, help="EAN à analyser (13 chiffres)")
+    parser.add_argument("--threshold", type=float, default=0.7, help="Seuil de matching")
+    parser.add_argument("--dump", action="store_true", help="Affiche les détails")
+    args = parser.parse_args()
+    ean = re.sub(r"\D", "", args.ean or "")
+    if len(ean) != 13:
+        raise SystemExit("[finder] EAN invalide")
+    consolidated, keywords, candidates, decision = find_equivalents(ean, threshold=args.threshold)
     print("[Consolidated]", consolidated)
     print("[Keywords]", keywords)
-    print("[Candidates top 5]", [(c.adapter, round(c.score, 3), c.url) for c in candidates[:5]])
-    print("[Decision]", (decision.adapter, decision.url, round(decision.score, 3)) if decision else None)
+    if args.dump:
+        print("[Candidates top 5]", [(c.adapter, round(c.score, 3), c.url) for c in candidates[:5]])
+        print("[Decision]", (decision.adapter, decision.url, round(decision.score, 3)) if decision else None)
+
+
+if __name__ == "__main__":
+    _cli()

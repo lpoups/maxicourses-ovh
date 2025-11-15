@@ -69,6 +69,9 @@ class LeclercAdapter(_LeclercBase):
         mimg = re.search(r'<img[^>]+class="[^"]*product[^"]*"[^>]+src="([^"]+)"', html, flags=re.I)
         image_url = mimg.group(1) if mimg else None
 
+        if not image_url:
+            image_url = self._listing_image_for(url)
+
         # Utilise les helpers du base class pour trouver le lien “Informations pratiques” puis extraire l’EAN
         ean = None
         info = self.find_info_link(url)

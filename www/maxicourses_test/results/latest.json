@@ -1,20 +1,20 @@
 {
-  "ean": "5411188119098",
+  "ean": "3092718637033",
   "image_path": null,
-  "started_at": "2025-11-11T14:25:32.668220+01:00",
-  "finished_at": "2025-11-11T14:29:10.150384+01:00",
-  "duration_seconds": 217.482164,
+  "started_at": "2025-11-14T15:46:05.761888+01:00",
+  "finished_at": "2025-11-14T15:50:45.200966+01:00",
+  "duration_seconds": 279.439078,
   "reference": {
-    "title": "Dessert végétal soja nature à la noix de coco ALPRO",
-    "description": "Dessert végétal soja nature à la noix de coco ALPRO",
-    "source": "carrefour_market",
-    "brand": "Alpro",
-    "quantity": "500 G",
+    "title": "Sirop Menthe  Verte TEISSEIRE",
+    "description": "Sirop Menthe  Verte TEISSEIRE",
+    "source": "carrefour_super",
+    "brand": "Teisseire",
+    "quantity": "60 CL",
     "categories": null,
-    "image": "./assets/5411188119098.jpg",
-    "nutriscore_grade": "a",
+    "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
+    "nutriscore_grade": "c",
     "nutriscore_score": null,
-    "nutriscore_image": "../assets/nutriscore/nutriscore-a.svg",
+    "nutriscore_image": "../assets/nutriscore/nutriscore-c.svg",
     "ecoscore_grade": null,
     "ecoscore_image": null,
     "nova_group": null
@@ -22,88 +22,47 @@
   "notes": [],
   "adapters": [
     {
-      "adapter": "carrefour_city",
-      "status": "NO_PRICE",
-      "payload": {
-        "status": "NO_PRICE",
-        "price": null,
-        "store": "City Bordeaux Balguerie",
-        "url": null,
-        "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
-        "_meta": {
-          "supports_ean": true
-        }
-      },
-      "started_at": "2025-11-11T14:25:32.669627+01:00",
-      "finished_at": "2025-11-11T14:25:47.724856+01:00",
-      "duration_seconds": 15.055229,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
-      ],
-      "env": {
-        "EAN": "5411188119098",
-        "QUERY": "5411188119098",
-        "CARREFOUR_STATE_VARIANT": "carrefour_city",
-        "HEADLESS": "1"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "5411188119098"
-      }
-    },
-    {
       "adapter": "carrefour_market",
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "2,25",
+        "price": "2,81",
         "store": "Market Fondaudège",
-        "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-nature-a-la-noix-de-coco-alpro- 5411188119098",
+        "url": "https://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033",
         "note": null,
-        "unit_price": "4,50 € / KG",
-        "quantity": "500 G",
-        "title": "Dessert végétal soja nature à la noix de coco ALPRO",
-        "matched_ean": "5411188119098",
-        "image": "https://media.carrefour.fr/media/referential/media/d534d5010ea842138387e4c7910b 6b3e/05411188119098_H1N1_s14.png",
-        "nutriscore_grade": "a",
-        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-a.svg",
+        "unit_price": "4,68 € / L",
+        "quantity": "60 CL",
+        "title": "Sirop Menthe  Verte TEISSEIRE",
+        "matched_ean": "3092718637033",
+        "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Dessert végétal soja nature à la noix de coco ALPRO",
-          "brand": "Dessert",
+          "title": "Sirop Menthe  Verte TEISSEIRE",
+          "brand": "Sirop",
           "kind": "",
-          "qty": "500 G",
+          "qty": "60 CL",
           "qualifiers": [],
-          "ean": "5411188119098",
-          "image_url": "https://media.carrefour.fr/media/referential/media/d534d5010ea842138387e4c7910b 6b3e/05411188119098_H1N1_s14.png",
+          "ean": "3092718637033",
+          "image_url": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
           "source": "carrefour_market",
           "raw_text": ""
         }
       },
-      "started_at": "2025-11-11T14:25:47.725825+01:00",
-      "finished_at": "2025-11-11T14:26:11.358338+01:00",
-      "duration_seconds": 23.632513,
+      "started_at": "2025-11-14T15:46:05.763870+01:00",
+      "finished_at": "2025-11-14T15:46:28.603784+01:00",
+      "duration_seconds": 22.839914,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
         "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
       ],
       "env": {
-        "EAN": "5411188119098",
-        "QUERY": "5411188119098",
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
         "CARREFOUR_STATE_VARIANT": "carrefour_market",
         "HEADLESS": "1"
       },
@@ -111,40 +70,51 @@
       "error": null,
       "stderr": null,
       "metadata": {
-        "attempt_query": "5411188119098"
+        "attempt_query": "3092718637033"
       }
     },
     {
       "adapter": "carrefour_super",
-      "status": "NO_PRICE",
+      "status": "OK",
       "payload": {
-        "status": "NO_PRICE",
-        "price": null,
+        "status": "OK",
+        "price": "2,45",
         "store": "Lormont",
-        "url": null,
+        "url": "https://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033",
         "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
+        "unit_price": "4,08 € / L",
+        "quantity": "60 CL",
+        "title": "Sirop Menthe  Verte TEISSEIRE",
+        "matched_ean": "3092718637033",
+        "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
         "_meta": {
           "supports_ean": true
+        },
+        "product": {
+          "title": "Sirop Menthe  Verte TEISSEIRE",
+          "brand": "Sirop",
+          "kind": "",
+          "qty": "60 CL",
+          "qualifiers": [],
+          "ean": "3092718637033",
+          "image_url": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
+          "source": "carrefour_super",
+          "raw_text": ""
         }
       },
-      "started_at": "2025-11-11T14:26:11.362598+01:00",
-      "finished_at": "2025-11-11T14:26:23.789573+01:00",
-      "duration_seconds": 12.426975,
+      "started_at": "2025-11-14T15:46:28.607107+01:00",
+      "finished_at": "2025-11-14T15:46:50.428495+01:00",
+      "duration_seconds": 21.821388,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
         "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
       ],
       "env": {
-        "EAN": "5411188119098",
-        "QUERY": "5411188119098",
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
         "CARREFOUR_STATE_VARIANT": "carrefour_super",
         "HEADLESS": "1"
       },
@@ -152,7 +122,7 @@
       "error": null,
       "stderr": null,
       "metadata": {
-        "attempt_query": "5411188119098"
+        "attempt_query": "3092718637033"
       }
     },
     {
@@ -172,299 +142,149 @@
           "supports_ean": true
         }
       },
-      "started_at": "2025-11-11T14:26:23.789955+01:00",
-      "finished_at": "2025-11-11T14:26:42.491840+01:00",
-      "duration_seconds": 18.701885,
+      "started_at": "2025-11-14T15:46:50.430821+01:00",
+      "finished_at": "2025-11-14T15:47:34.065045+01:00",
+      "duration_seconds": 43.634224,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
         "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
       ],
       "env": {
-        "EAN": "5411188119098",
-        "QUERY": "5411188119098",
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
         "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
         "HEADLESS": "1"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "[auchan] recherche '5411188119098'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/alpro-dessert-vegetal-nature-au-soja-et-noix-de-coco/pr-C1170064",
+      "stderr": "[auchan] recherche '3092718637033'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/drive/magasins/auchan-drive-supermarche-talence-gallieni/teisseire-sirop-de-menthe/pr-C1628583",
       "metadata": {
-        "attempt_query": "5411188119098"
-      }
-    },
-    {
-      "adapter": "chronodrive",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "2,05",
-        "title": "Dessert végétal soja et noix de coco ALPRO",
-        "url": "https://www.chronodrive.com/alpro--dessert-vegetal-soja-et-noix-de-coco-P364872 ",
-        "note": "Chronodrive Le Haillan",
-        "unit_price": "4,10 € / KG",
-        "quantity": "500 g",
-        "store": "Chronodrive Le Haillan",
-        "matched_ean": "5411188119098",
-        "nutriscore_grade": "e",
-        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltfca4e212b35 0ee05/nutriscore-a",
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "Dessert végétal soja et noix de coco ALPRO",
-          "brand": "Dessert",
-          "kind": "",
-          "qty": "500 g",
-          "qualifiers": [],
-          "ean": "5411188119098",
-          "image_url": null,
-          "source": "chronodrive",
-          "raw_text": ""
-        }
-      },
-      "started_at": "2025-11-11T14:26:42.492366+01:00",
-      "finished_at": "2025-11-11T14:26:48.740341+01:00",
-      "duration_seconds": 6.247975,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
-      ],
-      "env": {
-        "EAN": "5411188119098",
-        "QUERY": "5411188119098",
-        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
-        "HEADLESS": "1"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": "[CHRONO_DEBUG] term='5411188119098'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/alpro--specialite-vegetale-a-base-de-soja-et-noix-de-coco-P364872",
-      "metadata": {
-        "attempt_query": "5411188119098"
-      }
-    },
-    {
-      "adapter": "courseu",
-      "status": "NO_PRICE",
-      "payload": {
-        "status": "NO_PRICE",
-        "price": null,
-        "unit_price": null,
-        "quantity": "500 g",
-        "title": "Dessert végétal soja nature coco ALPRO - 500g",
-        "url": "https://www.coursesu.com/p/dessert-vegetal-soja-nature-coco-alpro---500g/529501 1.html",
-        "note": "2025-11-11T13:27:21Z · Super U Eysines",
-        "store": "Super U  Eysines",
-        "matched_ean": "5411188119098",
-        "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "Dessert végétal soja nature coco ALPRO - 500g",
-          "brand": "Dessert",
-          "kind": "",
-          "qty": "500 g",
-          "qualifiers": [],
-          "ean": "5411188119098",
-          "image_url": null,
-          "source": "courseu",
-          "raw_text": ""
-        }
-      },
-      "started_at": "2025-11-11T14:26:48.743614+01:00",
-      "finished_at": "2025-11-11T14:27:21.075300+01:00",
-      "duration_seconds": 32.331686,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
-      ],
-      "env": {
-        "EAN": "5411188119098",
-        "QUERY": "5411188119098",
-        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
-        "HEADLESS": "1"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "5411188119098"
-      }
-    },
-    {
-      "adapter": "g20",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "2,09",
-        "title": "ALPRO SOJA NOIX DE COCO 500 G X 1",
-        "url": "https://www.g20-minute.com/products/5411188119098/alpro-soja-noix-de-coco-500-g-x-1-5411188119098",
-        "note": "G20 Minute",
-        "unit_price": "4,18 €/Kg",
-        "quantity": "500g",
-        "matched_ean": "5411188119098",
-        "image": "https://www.g20-minute.com/media/cache/product_box_image/3e/a8/5905192ec19b57594269c95b210c.jpg",
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "ALPRO SOJA NOIX DE COCO 500 G X 1",
-          "brand": "ALPRO",
-          "kind": "",
-          "qty": "500g",
-          "qualifiers": [],
-          "ean": "5411188119098",
-          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/3e/a8/5905192ec19b57594269c95b210c.jpg",
-          "source": "g20",
-          "raw_text": ""
-        }
-      },
-      "started_at": "2025-11-11T14:27:21.076278+01:00",
-      "finished_at": "2025-11-11T14:27:21.681002+01:00",
-      "duration_seconds": 0.604724,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
-      ],
-      "env": {
-        "EAN": "5411188119098",
-        "QUERY": "5411188119098",
-        "HEADLESS": "1"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
-      "metadata": {
-        "attempt_query": "5411188119098"
-      }
-    },
-    {
-      "adapter": "intermarche",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "1,97",
-        "title": "Dessert végétal soja noix de coco  ,",
-        "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-noix-de-coco-/54111881 19098",
-        "note": "Intermarché · Super Talence",
-        "matched_ean": "5411188119098",
-        "unit_price": "3,94 € / KG",
-        "quantity": null,
-        "store": "Super Talence",
-        "candidates": [
-          {
-            "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-vanille/5411188103387",
-            "product": {
-              "title": "AlproDessert végétal soja vanille,",
-              "brand": "AlproDessert",
-              "kind": "",
-              "qty": "",
-              "qualifiers": [],
-              "ean": "5411188103387",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-noix-de-coco-/54111881 19098",
-            "product": {
-              "title": "AlproDessert végétal soja noix de coco  ,",
-              "brand": "AlproDessert",
-              "kind": "",
-              "qty": "",
-              "qualifiers": [],
-              "ean": "54111881",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-            }
-          }
-        ],
-        "_meta": {
-          "supports_keywords": true
-        },
-        "nutriscore_grade": "e",
-        "nutriscore_image": "https://www.intermarche.com/icons/nutriscore/score=B.svg"
-      },
-      "started_at": "2025-11-11T14:27:22.266930+01:00",
-      "finished_at": "2025-11-11T14:28:15.230621+01:00",
-      "duration_seconds": 52.963691,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
-      ],
-      "env": {
-        "EAN": "5411188119098",
-        "QUERY": "Alpro dessert 500 G",
-        "HOME_URL": "https://www.intermarche.com/accueil",
-        "HEADLESS": "1"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "Alpro dessert 500 G"
+        "attempt_query": "3092718637033"
       }
     },
     {
       "adapter": "leclerc",
-      "status": "OK",
+      "status": "NO_MATCH",
       "payload": {
-        "status": "OK",
-        "title": "Dessert végétal soja Alpro Nature à la coco - 500g",
-        "price": "1,82",
-        "unit_price": "3,64 € / kg",
-        "quantity": "",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-93600-Dessert-vegetal-soja-Alpro.aspx",
-        "matched_ean": "5411188119098",
+        "status": "NO_MATCH",
+        "title": "Boisson concentrée Teisseire\nA diluer grenadine Zéro - 60cl",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206139-Sirop-Teisseire.aspx",
+        "matched_ean": null,
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-11T13:28:31Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-14T14:48:07Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
         "candidates": [
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-93600-Dessert-vegetal-soja-Alpro.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206143-Sirop-Teisseire-.aspx",
             "product": {
-              "title": "Dessert végétal soja Alpro Nature à la coco - 500g",
-              "brand": "Dessert",
+              "title": "Sirop Teisseire Pêche - 60cl",
+              "brand": "Sirop",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "5411188119098",
+              "ean": "3092718637699",
               "image_url": null,
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b71\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b71\"></script><script"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bc1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bc1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206163-Sirop-Teisseire-.aspx",
+            "product": {
+              "title": "Sirop Teisseire Menthe verte - 60cl",
+              "brand": "Sirop",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700427064",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bc1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bc1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206164-Sirop-Teisseire-.aspx",
+            "product": {
+              "title": "Sirop Teisseire Grenadine - 60cl",
+              "brand": "Sirop",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3092718637064",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bc1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bc1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206142-Sirop-Teisseire-.aspx",
+            "product": {
+              "title": "Sirop Teisseire Fraise - 60cl",
+              "brand": "Sirop",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3092718637392",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bc1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bc1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206140-Sirop-concentre-Teisseire.aspx",
+            "product": {
+              "title": "Sirop concentré Teisseire Citron vert - 60cl",
+              "brand": "Sirop",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3092718637361",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bc1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bc1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206139-Sirop-Teisseire.aspx",
+            "product": {
+              "title": "Sirop Teisseire Cassis - 60cl",
+              "brand": "Sirop",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3092718637309",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bc1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bc1\"></script><script"
             }
           }
         ]
       },
-      "started_at": "2025-11-11T14:28:15.232122+01:00",
-      "finished_at": "2025-11-11T14:28:31.469283+01:00",
-      "duration_seconds": 16.237161,
+      "started_at": "2025-11-14T15:47:35.069524+01:00",
+      "finished_at": "2025-11-14T15:48:08.129272+01:00",
+      "duration_seconds": 33.059748,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
         "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
       ],
       "env": {
-        "EAN": "5411188119098",
-        "QUERY": "Alpro dessert 500 G",
+        "EAN": "3092718637033",
+        "QUERY": "Teisseire menthe 60 CL",
         "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
         "HEADLESS": "1"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Alpro dessert 500 G'\n[LECLERC_DEBUG] after home human pause -> 1.01s\n[LECLERC_DEBUG] after focus -> 5.60s\n[LECLERC_DEBUG] results visible -> 6.73s\n[LECLERC_DEBUG] after result pause -> 6.83s",
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Teisseire menthe 60 CL'\n[LECLERC_DEBUG] after home human pause -> 3.43s\n[LECLERC_DEBUG] after focus -> 4.74s\n[LECLERC_DEBUG] results visible -> 7.79s\n[LECLERC_DEBUG] after result pause -> 7.89s",
       "metadata": {
-        "attempt_query": "Alpro dessert 500 G"
+        "attempt_query": "Teisseire menthe 60 CL"
       }
     },
     {
@@ -472,35 +292,37 @@
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "2,45",
-        "title": "Alpro Dessert Végétal Soja Nature  Noix De Coco 500g",
-        "url": "https://courses.monoprix.fr/products/alpro-dessert-v%C3%A9g%C3%A9tal-soja-natur e-noix-de-coco-500g/MPX_3305889",
-        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8927 d1a0-80e2-4d16-9008-6faf1698a172/300x300.jpg",
-        "matched_ean": null,
-        "unit_price": "4,90 € / KG",
-        "quantity": "500 G",
+        "price": "3,25",
+        "title": "Teisseire Zéro Sirop Menthe 60cl",
+        "url": "https://courses.monoprix.fr/products/teisseire-z%C3%A9ro-sirop-menthe-60cl/MPX_ 6602110",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/0192 40c4-dc46-4c65-a084-d36841562584/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/0192 40c4-dc46-4c65-a084-d36841562584/300x300.jpg",
+        "matched_ean": "3092718637033",
+        "unit_price": "5,42 € / L",
+        "quantity": "600 ML",
         "store": null,
-        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières  commandes\nEN SAVOIR +\nAccueil\nRégimes alimentaires\nVegan\nDessert  vegan\nAlpro Dessert Végétal Soja Nature Noix De Coco 500g\n1 s+\n1 semaine de  garantie de vie du produit\nNutriscore A\n500g 4,90 € / kilo\n500g\n(4,90 € /  kilo)\n2,45 €\nAjouter\nInformations produit\n\n\nDescription Produit\nAlpro  Nature à la Noix de Coco est un dessert végétal à base de soja, sans lactose et  avec du bon lait de coco. Cette alternative végétale au yaourt est naturellement faible en matières grasses, faible en sucres et riche en protéines végétales. Il constitue également une source de calcium et de vitamine D2 et B12. Ce dessert  végétal coco Alpro à la texture onctueuse se savoure aussi bien au  petit-déjeuner, qu'en dessert ou en  encas.\n\n\nOrigine\nBelgique\nMarque\nAlpro\nService consommateur\nD.P.F.F. CS  50149 92565 Rueil-Malmaison Cedex\nConseils d'utilisation\nSe mange à la  cuillère\nIngredients\n\nINGRÉDIENTS: jus de SOJA (93,1%), lait de coco (6,2%)  (eau, crème de coco (2,9%)), sucre, calcium, stabilisant (pectines), correcteurs d'acidité (citrates de sodium, acide citrique), arômes naturels, sel marin de  table, antioxydants (extrait riche en tocophérols, esters d'acides gras de  l'acide ascorbique), vitamines B12, D2, ferments de yaourt (S. thermophilus, L.  bulgaricus).\n\nAllergènes\nContient : SOJA\nType  d’emballage\nbocal\nProducteur\nDANONE Produits Frais France 150 BD VICTOR  HUGO///93589/ST OUEN CEDEX/FRANCE\nConseil de conservation\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\nConseils d'utilisation\nSe  mange à la cuillère\nValeurs nutritionnelles\nINFORMATIONS NUTRITIONNELLES  MOYENNES\n\tpour 100 g\nValeurs Energétique en Kilojoules\t~ 224 kJ\nValeurs  Energétique en Kilocalories\t~ 4 kcal\nValeurs Nutritionnelles\nMatières  grasses\t~ 2.8 g\nDont Acides Gras Saturés\t~ 1 g\nGlucides\t~ 2.4 g\nDont  Sucres\t~ 2.2 g\nProtéines\t~ 3.9 g\nSel\t~ 0.22 g\n\n\nMicro Nutriments\tpour  100 g\nVitamine D\t~ 0.75 µg\nVitamine B12\t~ 0.38 µg\nCalcium\t~ 120 mg\nNous  contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle  fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon  magasin\nProgramme de fidélité\nNos catalogues\nNos magasins avec  Parapharmacie\nAide & Mentions\nDonnées personnelles et cookies\n(s’ouvre dans  une nouvelle fenêtre)\nConditions de nos offres\nContacts\nRappel produits\nCGV  & Mentions légales\n(s’ouvre dans une nouvelle fenêtre)\nNos autres  sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une nouvelle fenêtre)\nAffiliation  monoprix.fr\nBons plans des marques\nMonoprix.fr Courses\nTarifs de  livraison\nPrésentation du service\nAstuces\nAbonnement M+\nFAQ\nPlus de  services\nAppli mobile Apple\n(s’ouvre dans une nouvelle fenêtre)\nAppli mobile  Android\n(s’ouvre dans une nouvelle fenêtre)\n© 2025\nfacebook\n(s’ouvre dans  une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une nouvelle  fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières  commandes\nEN SAVOIR +\nAccueil\nBoissons et Lait\nJus et  Sirop\nSirop\nTeisseire Zéro Sirop Menthe 60cl\n6 m+\n6 mois de garantie de vie  du produit\n600ml 5,42 € / litre\n600ml\n(5,42 € / litre)\n3,25  €\nAjouter\nInformations produit\n\n\nDescription Produit\nLa Menthe Verte  Teisseire Zero sucre est idéale pour préparer des boissons rafraîchissantes et  vous garantir un moment 100% plaisir avec 0% de sucre. Implanté au cœur des  Alpes depuis 1720, Teisseire vous propose des concentrés à base de fruits ou de  plantes qui accompagnent vos moments de partage, le tout sans sucre. De  l'emblématique Grenadine aux parfums plus raffinés, découvrez les parfums  incontournables des nos boissons concentrées sans sucres pour un maximum de  plaisir avec zéro calorie\n\n\nOrigine\nFrance\nMarque\nTeisseire\nService  consommateur\nNathalie CHEVALIER - nchevalier@teisseire.fr 482 Av. Ambroise  Croizat - CS 70501 - 38926 CROLLES CEDEX 38920 CROLLES  nathalie.chevalier@britvic.com\nConseils d'utilisation\nDiluer 1 dose de  concentré pour 12 doses d'eau *200ml de boisson diluée à 1+12 avec de l'eau,  correspond à une portion de 15,4ml de concentré Cet emballage contient 39  portions de 15,4ml.\nIngredients\nEau, agent de charge : polydextrose, colorants : caramel ordinaire, bleu brillant FCF, arôme naturel de menthe, épaississant :  gomme xanthane, édulcorants : sucralose, acésulfame de potassium, acidifiant :  acide citrique, arôme naturel, conservateur : sorbate de potassium.\nType  d’emballage\ncylindre\nProducteur\nTEISSEIRE FRANCE 482 AVENUE AMBROISE  CROIZAT///38926/CROLLES CEDEX/FRANCE\nConseil de conservation\nA conserver  idéalement au frais après ouverture. A consommer de préférence avant fin : voir  sur le côté du bouchon.\nConseils d'utilisation\nDiluer 1 dose de concentré pour 12 doses d'eau *200ml de boisson diluée à 1+12 avec de l'eau, correspond à une  portion de 15,4ml de concentré Cet emballage contient 39 portions de  15,4ml.\nValeurs nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour  100 ml\nValeurs Energétique en Kilojoules\t~ 1.5 kJ\nValeurs Energétique en  Kilocalories\t~ 0.5 kcal\nValeurs Nutritionnelles\nGlucides\t~ 0.25 g\nDont  Sucres\t~ 0.25 g\nSel\t~ 0.005 g\nNous contacter\n(s’ouvre dans une nouvelle  fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
         "extras": {
           "seed_variant": null,
-          "candidate_variant": "coco",
+          "candidate_variant": "sans sucre",
           "negatives_hit": [],
           "variant_ok": true,
           "unit_family_ok": true,
           "size_ok": true,
           "category_ok": true,
           "vetoes": [],
-          "candidate_quantity": "500 G",
+          "candidate_quantity": "600 ML",
           "candidate_size_ratio": 0.0,
           "descriptor_token_coverage": {
             "coverage": 1.0,
             "matched": [
-              "alpro",
-              "coco",
-              "noix"
+              "menthe",
+              "sirop",
+              "teisseire",
+              "verte"
             ],
             "missing": [],
-            "total": 3
+            "total": 4
           },
           "missing_tokens": [],
           "image_match": true,
@@ -509,40 +331,54 @@
         },
         "candidates": [
           {
-            "url": "https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MP X_3305890",
+            "url": "https://courses.monoprix.fr/products/teisseire-sirop-de-citron-60cl/MPX_6603851",
             "product": {
-              "title": "Alpro Dessert Végétal  Vanille Soja 500g",
-              "brand": "Alpro",
-              "kind": "Dessert végétal soja nature à la  noix de coco ALPRO",
-              "qty": "500 G",
+              "title": "Teisseire Sirop de Citron  60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop Menthe  Verte TEISSEIRE",
+              "qty": "600 ML",
               "qualifiers": [],
-              "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977 fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg",
+              "ean": "3092718637033",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8a3c 7453-9e86-4c58-9572-37da0daa2c26/300x300.jpg",
               "source": "monoprix",
               "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes"
             }
           },
           {
-            "url": "https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-s oja-500g/MPX_3778641",
+            "url": "https://courses.monoprix.fr/products/teisseire-sirop-de-grenadine-60cl/MPX_6602 114",
             "product": {
-              "title": "Alpro  Dessert Végétal Nature Aux Amandes Soja 500g",
-              "brand": "Alpro",
-              "kind": "Dessert végétal soja nature à la noix de coco ALPRO",
-              "qty": "500 G",
+              "title": "Teisseire Sirop de Grenadine 60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop Menthe  Verte TEISSEIRE",
+              "qty": "600 ML",
               "qualifiers": [],
-              "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8e e4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg",
+              "ean": "3092718637033",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3d51 54ca-3dbf-489a-b66d-cd5fd08a4355/300x300.jpg",
               "source": "monoprix",
               "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes"
             }
           },
           {
-            "url": "https://courses.monoprix.fr/products/alpro-dessert-végétal-soja-nature-noix-de- coco-500g/MPX_3305889",
+            "url": "https://courses.monoprix.fr/products/teisseire-zéro-sirop-menthe-60cl/MPX_66021 10",
+            "product": {
+              "title": "Teisseire Zéro Sirop Menthe  60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop Menthe  Verte TEISSEIRE",
+              "qty": "600 ML",
+              "qualifiers": [],
+              "ean": "3092718637033",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/0192 40c4-dc46-4c65-a084-d36841562584/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/teisseire-pêche-60cl/MPX_6602112",
             "product": {
               "title": "",
-              "brand": "Alpro",
-              "kind": "Dessert végétal soja nature à la noix de coco ALPRO",
-              "qty": "500 G",
+              "brand": "Teisseire",
+              "kind": "Sirop Menthe  Verte TEISSEIRE",
+              "qty": "60 CL",
               "qualifiers": [],
               "ean": null,
               "image_url": null,
@@ -555,145 +391,128 @@
           "supports_keywords": true
         }
       },
-      "started_at": "2025-11-11T14:28:31.470485+01:00",
-      "finished_at": "2025-11-11T14:29:09.200871+01:00",
-      "duration_seconds": 37.730386,
+      "started_at": "2025-11-14T15:49:42.032308+01:00",
+      "finished_at": "2025-11-14T15:50:44.236305+01:00",
+      "duration_seconds": 62.203997,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
         "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
       ],
       "env": {
-        "EAN": "5411188119098",
-        "QUERY": "Alpro dessert 500 G",
+        "EAN": "3092718637033",
+        "QUERY": "Teisseire menthe 60 CL",
         "HOME_URL": "https://courses.monoprix.fr/",
         "HEADLESS": "1"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5411188119098'.\n[MONOPRIX_DEBUG] Search terms: ['Alpro dessert 500 G', 'Alpro Dessert']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez']\n[MONOPRIX_DEBUG]  - Term 1/2: 'Alpro dessert 500 G'\n[MONOPRIX_DEBUG]  - Typing 'Alpro dessert 500 G' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Alpro%20dessert%20500%20G\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/2: 'Alpro Dessert'\n[MONOPRIX_DEBUG]  - Typing 'Alpro Dessert' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Alpro%20Dessert\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 3 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MPX_3305890\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MPX_3305890\n[MONOPRIX_DEBUG][SCORE] - Title: 'Alpro Dessert Végétal Vanille Soja 500g' | Brand: 'alpro' | Variant(seed/cand)=(None/vanille) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=15 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Alpro Dessert Végétal Vanille Soja 500g'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Alpro Dessert Végétal Vanille Soja 500g' | vetoes=['descriptor_coverage', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8ee4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641\n[MONOPRIX_DEBUG][SCORE] - Title: 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g' | Brand: 'alpro' | Variant(seed/cand)=(None/amande) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=15 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g' | vetoes=['descriptor_coverage', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/alpro-dessert-végétal-soja-nature-noix-de-coco-500g/MPX_3305889\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8927d1a0-80e2-4d16-9008-6faf1698a172/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/alpro-dessert-végétal-soja-nature-noix-de-coco-500g/MPX_3305889\n[MONOPRIX_DEBUG][SCORE] - Title: 'Alpro Dessert Végétal Soja Nature Noix De Coco 500g' | Brand: 'alpro' | Variant(seed/cand)=(None/coco) | Vetoes=[] | NegHits=[] | Score=15 | Plausible=True\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Alpro Dessert Végétal Soja Nature Noix De Coco 500g'.\n[MONOPRIX_DEBUG] Best match (early return): 'Alpro Dessert Végétal Soja Nature Noix De Coco 500g' (Score: 45)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='2,45', title='Alpro Dessert Végétal Soja Nature Noix De Coco 500g', url='https://courses.monoprix.fr/products/alpro-dessert-v%C3%A9g%C3%A9tal-soja-nature-noix-de-coco-500g/MPX_3305889', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8927d1a0-80e2-4d16-9008-6faf1698a172/300x300.jpg', matched_ean=None, unit_price='4,90 € / KG', quantity='500 G', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Soja Nature Noix De Coco 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAlpro Nature à la Noix de Coco est un dessert végétal à base de soja, sans lactose et avec du bon lait de coco. Cette alternative végétale au yaourt est naturellement faible en matières grasses, faible en sucres et riche en protéines végétales. Il constitue également une source de calcium et de vitamine D2 et B12. Ce dessert végétal coco Alpro à la texture onctueuse se savoure aussi bien au petit-déjeuner, qu'en dessert ou en encas.\\n\\n\\nOrigine\\nBelgique\\nMarque\\nAlpro\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (93,1%), lait de coco (6,2%) (eau, crème de coco (2,9%)), sucre, calcium, stabilisant (pectines), correcteurs d'acidité (citrates de sodium, acide citrique), arômes naturels, sel marin de table, antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), vitamines B12, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 224 kJ\\nValeurs Energétique en Kilocalories\\t~ 4 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.8 g\\nDont Acides Gras Saturés\\t~ 1 g\\nGlucides\\t~ 2.4 g\\nDont Sucres\\t~ 2.2 g\\nProtéines\\t~ 3.9 g\\nSel\\t~ 0.22 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': None, 'candidate_variant': 'coco', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['alpro', 'coco', 'noix'], 'missing': [], 'total': 3}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}, candidates=[{'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MPX_3305890', 'status': 'OK_PARTIAL', 'product': {'title': 'Alpro Dessert Végétal Vanille Soja 500g', 'brand': 'Alpro', 'kind': 'Dessert végétal soja nature à la noix de coco ALPRO', 'qty': '500 G', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Vanille Soja 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nEnvie d'une pause gourmande et naturellement sans lactose ? Alerte au régal végétal ! Délicieusement onctueux, le brassé végétal alpro soja Vanille 100% gourmand contribue à vos apports quotidiens en 5 nutriments essentiels (riche en protéines, source de calcium et de vitamines B12, B2 et D2). A déguster à tout moment de la journée !\\n\\n\\nOrigine\\nBelgique\\nMarque\\nDanone\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (90,9%), sucre, stabilisant (pectines), correcteurs d'acidité (acide citrique, citrates de sodium), calcium, concentré de carotte, sel marin de table, arômes, arôme naturel de vanille, vanille en poudre (0,03%), antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), vitamines (2, B12, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 279 kJ\\nValeurs Energétique en Kilocalories\\t~ 66 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.2 g\\nDont Acides Gras Saturés\\t~ 0.4 g\\nGlucides\\t~ 7.5 g\\nDont Sucres\\t~ 7.5 g\\nProtéines\\t~ 3.7 g\\nSel\\t~ 0.2 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'price': '2,45', 'unit_price': '4,90 € / KG'}, 'score': 15, 'extras': {'seed_variant': None, 'candidate_variant': 'vanille', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['descriptor_coverage', 'image_mismatch', 'core_token'], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.3333333333333333, 'matched': ['alpro'], 'missing': ['coco', 'noix'], 'total': 3}, 'missing_tokens': ['coco', 'noix'], 'image_match': False, 'final_score': 15, 'plausible_baseline': False, 'missing_core_tokens': ['coco', 'noix']}}, {'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641', 'status': 'OK_PARTIAL', 'product': {'title': 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g', 'brand': 'Alpro', 'kind': 'Dessert végétal soja nature à la noix de coco ALPRO', 'qty': '500 G', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8ee4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Nature Aux Amandes Soja 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAlpro Nature aux Amandes est un dessert végétal à base de soja et de délicieuses amandes méditerranéennes, sans lactose. Cette alternative végétale au yaourt nature est naturellement faible en matières grasses, faible en sucres et riche en protéines végétales. Il constitue également une source de calcium et de vitamine D2, E et B12. Ce dessert végétal soja amande Alpro à la texture onctueuse se savoure aussi bien au petit-déjeuner, qu'en dessert ou en encas.\\n\\n\\nOrigine\\nBelgique\\nMarque\\nDanone\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (94,8%), sucre, AMANDE (1,5%), calcium, stabilisant (pectines), correcteurs d'acidité (acide citrique, citrates de sodium), sel marin de table, antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), arômes, vitamines B12, E, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA ET AMANDE\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 221 kJ\\nValeurs Energétique en Kilocalories\\t~ 3 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.8 g\\nDont Acides Gras Saturés\\t~ 0.4 g\\nGlucides\\t~ 2.2 g\\nDont Sucres\\t~ 2.1 g\\nProtéines\\t~ 3.9 g\\nSel\\t~ 0.23 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine E\\t~ 1.8 mg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'price': '2,45', 'unit_price': '4,90 € / KG'}, 'score': 15, 'extras': {'seed_variant': None, 'candidate_variant': 'amande', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['descriptor_coverage', 'image_mismatch', 'core_token'], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.3333333333333333, 'matched': ['alpro'], 'missing': ['coco', 'noix'], 'total': 3}, 'missing_tokens': ['coco', 'noix'], 'image_match': False, 'final_score': 15, 'plausible_baseline': False, 'missing_core_tokens': ['coco', 'noix']}}, {'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-soja-nature-noix-de-coco-500g/MPX_3305889', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Alpro', 'kind': 'Dessert végétal soja nature à la noix de coco ALPRO', 'qty': '500 G', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '3092718637033'.\n[MONOPRIX_DEBUG] Search terms: ['Teisseire menthe 60 CL', 'Teisseire menthe 0,60 L', 'Teisseire Sirop']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/3: 'Teisseire menthe 60 CL'\n[MONOPRIX_DEBUG]  - Typing 'Teisseire menthe 60 CL' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Teisseire%20menthe%2060%20CL\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'Teisseire menthe 0,60 L'\n[MONOPRIX_DEBUG]  - Typing 'Teisseire menthe 0,60 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Teisseire%20menthe%200%2C60%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 3/3: 'Teisseire Sirop'\n[MONOPRIX_DEBUG]  - Typing 'Teisseire Sirop' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Teisseire%20Sirop\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 10 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/teisseire-sirop-de-citron-60cl/MPX_6603851\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8a3c7453-9e86-4c58-9572-37da0daa2c26/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/teisseire-sirop-de-citron-60cl/MPX_6603851\n[MONOPRIX_DEBUG][SCORE] - Title: 'Teisseire Sirop de Citron 60cl' | Brand: 'teisseire' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=15 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Teisseire Sirop de Citron 60cl'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Teisseire Sirop de Citron 60cl' | vetoes=['descriptor_coverage', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/teisseire-sirop-de-grenadine-60cl/MPX_6602114\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3d5154ca-3dbf-489a-b66d-cd5fd08a4355/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/teisseire-sirop-de-grenadine-60cl/MPX_6602114\n[MONOPRIX_DEBUG][SCORE] - Title: 'Teisseire Sirop de Grenadine 60cl' | Brand: 'teisseire' | Variant(seed/cand)=(None/framboise) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=15 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Teisseire Sirop de Grenadine 60cl'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Teisseire Sirop de Grenadine 60cl' | vetoes=['descriptor_coverage', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/teisseire-zéro-sirop-menthe-60cl/MPX_6602110\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/019240c4-dc46-4c65-a084-d36841562584/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/teisseire-zéro-sirop-menthe-60cl/MPX_6602110\n[MONOPRIX_DEBUG][SCORE] - Title: 'Teisseire Zéro Sirop Menthe 60cl' | Brand: 'teisseire' | Variant(seed/cand)=(None/sans sucre) | Vetoes=[] | NegHits=[] | Score=15 | Plausible=True\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Teisseire Zéro Sirop Menthe 60cl'.\n[MONOPRIX_DEBUG] Best match (early return): 'Teisseire Zéro Sirop Menthe 60cl' (Score: 45)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='3,25', title='Teisseire Zéro Sirop Menthe 60cl', url='https://courses.monoprix.fr/products/teisseire-z%C3%A9ro-sirop-menthe-60cl/MPX_6602110', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/019240c4-dc46-4c65-a084-d36841562584/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/019240c4-dc46-4c65-a084-d36841562584/300x300.jpg', matched_ean='3092718637033', unit_price='5,42 € / L', quantity='600 ML', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nJus et Sirop\\nSirop\\nTeisseire Zéro Sirop Menthe 60cl\\n6\\xa0m+\\n6\\xa0mois de garantie de vie du produit\\n600ml 5,42\\xa0€ / litre\\n600ml\\n(5,42\\xa0€ / litre)\\n3,25\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLa Menthe Verte Teisseire Zero sucre est idéale pour préparer des boissons rafraîchissantes et vous garantir un moment 100% plaisir avec 0% de sucre. Implanté au cœur des Alpes depuis 1720, Teisseire vous propose des concentrés à base de fruits ou de plantes qui accompagnent vos moments de partage, le tout sans sucre. De l'emblématique Grenadine aux parfums plus raffinés, découvrez les parfums incontournables des nos boissons concentrées sans sucres pour un maximum de plaisir avec zéro calorie\\n\\n\\nOrigine\\nFrance\\nMarque\\nTeisseire\\nService consommateur\\nNathalie CHEVALIER - nchevalier@teisseire.fr 482 Av. Ambroise Croizat - CS 70501 - 38926 CROLLES CEDEX 38920 CROLLES nathalie.chevalier@britvic.com\\nConseils d'utilisation\\nDiluer 1 dose de concentré pour 12 doses d'eau *200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré Cet emballage contient 39 portions de 15,4ml.\\nIngredients\\nEau, agent de charge : polydextrose, colorants : caramel ordinaire, bleu brillant FCF, arôme naturel de menthe, épaississant : gomme xanthane, édulcorants : sucralose, acésulfame de potassium, acidifiant : acide citrique, arôme naturel, conservateur : sorbate de potassium.\\nType d’emballage\\ncylindre\\nProducteur\\nTEISSEIRE FRANCE 482 AVENUE AMBROISE CROIZAT///38926/CROLLES CEDEX/FRANCE\\nConseil de conservation\\nA conserver idéalement au frais après ouverture. A consommer de préférence avant fin : voir sur le côté du bouchon.\\nConseils d'utilisation\\nDiluer 1 dose de concentré pour 12 doses d'eau *200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré Cet emballage contient 39 portions de 15,4ml.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\nValeurs Energétique en Kilojoules\\t~ 1.5 kJ\\nValeurs Energétique en Kilocalories\\t~ 0.5 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 0.25 g\\nDont Sucres\\t~ 0.25 g\\nSel\\t~ 0.005 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': None, 'candidate_variant': 'sans sucre', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '600 ML', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['menthe', 'sirop', 'teisseire', 'verte'], 'missing': [], 'total': 4}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}, candidates=[{'url': 'https://courses.monoprix.fr/products/teisseire-sirop-de-citron-60cl/MPX_6603851', 'status': 'OK_PARTIAL', 'product': {'title': 'Teisseire Sirop de Citron 60cl', 'brand': 'Teisseire', 'kind': 'Sirop Menthe  Verte TEISSEIRE', 'qty': '600 ML', 'qualifiers': [], 'ean': '3092718637033', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8a3c7453-9e86-4c58-9572-37da0daa2c26/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nJus et Sirop\\nSirop\\nTeisseire Sirop de Citron 60cl\\n6\\xa0m+\\n6\\xa0mois de garantie de vie du produit\\n600ml 5,48\\xa0€ / litre\\n600ml\\n(5,48\\xa0€ / litre)\\n3,29\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLe sirop de citron Teisseire est idéal pour préparer des boissons rafraîchissantes et vous garantir un moment de gourmandise. Implanté au cœur des Alpes depuis 1720, Teisseire vous propose des sirops fruités, issus d'un savoir faire historique, qui accompagnent vos moments de partage, le tout sans arômes artificiels et sans conservateurs. De l'emblématique Grenadine aux parfums plus raffinés, découvrez notre large gamme de sirops issus des fruits et des plantes.\\n\\n\\nOrigine\\nFrance\\nMarque\\nTeisseire\\nService consommateur\\nNathalie CHEVALIER 482 Av. Ambroise Croizat - CS 70501 - 38926 GRENOBLE CEDEX 38920 CROLLES France nathalie.chevalier@britvic.com\\nConseils d'utilisation\\nDiluer 1 dose de sirop pour 12 doses d'eau. 200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré. Cet emballage contient 39 portions de 15,4ml.\\nIngredients\\nSucre, eau, jus de citron à base de concentré 20%, sirop de glucose-fructose, acidifiant : acide citrique, arômes naturels de citron avec autres arômes naturels.\\nType d’emballage\\ncylindre\\nProducteur\\nTEISSEIRE FRANCE 482 AVENUE AMBROISE CROIZAT///38926/CROLLES CEDEX/FRANCE\\nConseil de conservation\\nA consommer de préférence avant fin : voir sur le côté du bouchon. A conserver idéalement au frais après ouverture.\\nConseils d'utilisation\\nDiluer 1 dose de sirop pour 12 doses d'eau. 200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré. Cet emballage contient 39 portions de 15,4ml.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\nValeurs Energétique en Kilojoules\\t~ 1194 kJ\\nValeurs Energétique en Kilocalories\\t~ 281 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 66 g\\nDont Sucres\\t~ 65 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '5,48 € / L', 'price': '3,29'}, 'score': 45.0, 'extras': {'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['descriptor_coverage', 'core_token'], 'candidate_quantity': '600 ML', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.5, 'matched': ['sirop', 'teisseire'], 'missing': ['menthe', 'verte'], 'total': 4}, 'missing_tokens': ['menthe', 'verte'], 'image_match': True, 'final_score': 45, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/teisseire-sirop-de-grenadine-60cl/MPX_6602114', 'status': 'OK_PARTIAL', 'product': {'title': 'Teisseire Sirop de Grenadine 60cl', 'brand': 'Teisseire', 'kind': 'Sirop Menthe  Verte TEISSEIRE', 'qty': '600 ML', 'qualifiers': [], 'ean': '3092718637033', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3d5154ca-3dbf-489a-b66d-cd5fd08a4355/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nJus et Sirop\\nSirop\\nTeisseire Sirop de Grenadine 60cl\\n6\\xa0m+\\n6\\xa0mois de garantie de vie du produit\\n600ml 5,48\\xa0€ / litre\\n600ml\\n(5,48\\xa0€ / litre)\\n3,29\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLe sirop de grenadine Teisseire est idéal pour préparer des boissons rafraîchissantes et vous garantir un moment de gourmandise. Implanté au cœur des Alpes depuis 1720, Teisseire vous propose des sirops fruités, issus d'un savoir faire historique, qui accompagnent vos moments de partage, le tout sans arômes artificiels et sans conservateurs. De l'emblématique Grenadine aux parfums plus raffinés, découvrez notre large gamme de sirops issus des fruits et des plantes.\\n\\n\\nOrigine\\nFrance\\nMarque\\nTeisseire\\nService consommateur\\nNathalie CHEVALIER 482 Av. Ambroise Croizat - CS 70501 - 38926 GRENOBLE CEDEX 38920 CROLLES France nathalie.chevalier@britvic.com\\nConseils d'utilisation\\nDiluer 1 dose de sirop pour 12 doses d'eau. 200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré. Cet emballage contient 39 portions de 15,4ml.\\nIngredients\\nSucre, eau, sirop de glucose-fructose, jus de fruits à base de concentrés 13% (fruits rouges 10% : groseille, cassis, sureau, framboise ; aronia), acidifiant : acide citrique, arômes naturels.\\nType d’emballage\\ncylindre\\nProducteur\\nTEISSEIRE FRANCE 482 AVENUE AMBROISE CROIZAT///38926/CROLLES CEDEX/FRANCE\\nConseil de conservation\\nA consommer de préférence avant fin : voir sur le côté du bouchon. A conserver idéalement au frais après ouverture.\\nConseils d'utilisation\\nDiluer 1 dose de sirop pour 12 doses d'eau. 200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré. Cet emballage contient 39 portions de 15,4ml.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\nValeurs Energétique en Kilojoules\\t~ 108 kJ\\nValeurs Energétique en Kilocalories\\t~ 25 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 6 g\\nDont Sucres\\t~ 6 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '5,48 € / L', 'price': '3,29'}, 'score': 45.0, 'extras': {'seed_variant': None, 'candidate_variant': 'framboise', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['descriptor_coverage', 'core_token'], 'candidate_quantity': '600 ML', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.5, 'matched': ['sirop', 'teisseire'], 'missing': ['menthe', 'verte'], 'total': 4}, 'missing_tokens': ['menthe', 'verte'], 'image_match': True, 'final_score': 45, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/teisseire-zéro-sirop-menthe-60cl/MPX_6602110', 'status': 'OK_PARTIAL', 'product': {'title': 'Teisseire Zéro Sirop Menthe 60cl', 'brand': 'Teisseire', 'kind': 'Sirop Menthe  Verte TEISSEIRE', 'qty': '600 ML', 'qualifiers': [], 'ean': '3092718637033', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/019240c4-dc46-4c65-a084-d36841562584/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nJus et Sirop\\nSirop\\nTeisseire Zéro Sirop Menthe 60cl\\n6\\xa0m+\\n6\\xa0mois de garantie de vie du produit\\n600ml 5,42\\xa0€ / litre\\n600ml\\n(5,42\\xa0€ / litre)\\n3,25\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLa Menthe Verte Teisseire Zero sucre est idéale pour préparer des boissons rafraîchissantes et vous garantir un moment 100% plaisir avec 0% de sucre. Implanté au cœur des Alpes depuis 1720, Teisseire vous propose des concentrés à base de fruits ou de plantes qui accompagnent vos moments de partage, le tout sans sucre. De l'emblématique Grenadine aux parfums plus raffinés, découvrez les parfums incontournables des nos boissons concentrées sans sucres pour un maximum de plaisir avec zéro calorie\\n\\n\\nOrigine\\nFrance\\nMarque\\nTeisseire\\nService consommateur\\nNathalie CHEVALIER - nchevalier@teisseire.fr 482 Av. Ambroise Croizat - CS 70501 - 38926 CROLLES CEDEX 38920 CROLLES nathalie.chevalier@britvic.com\\nConseils d'utilisation\\nDiluer 1 dose de concentré pour 12 doses d'eau *200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré Cet emballage contient 39 portions de 15,4ml.\\nIngredients\\nEau, agent de charge : polydextrose, colorants : caramel ordinaire, bleu brillant FCF, arôme naturel de menthe, épaississant : gomme xanthane, édulcorants : sucralose, acésulfame de potassium, acidifiant : acide citrique, arôme naturel, conservateur : sorbate de potassium.\\nType d’emballage\\ncylindre\\nProducteur\\nTEISSEIRE FRANCE 482 AVENUE AMBROISE CROIZAT///38926/CROLLES CEDEX/FRANCE\\nConseil de conservation\\nA conserver idéalement au frais après ouverture. A consommer de préférence avant fin : voir sur le côté du bouchon.\\nConseils d'utilisation\\nDiluer 1 dose de concentré pour 12 doses d'eau *200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré Cet emballage contient 39 portions de 15,4ml.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\nValeurs Energétique en Kilojoules\\t~ 1.5 kJ\\nValeurs Energétique en Kilocalories\\t~ 0.5 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 0.25 g\\nDont Sucres\\t~ 0.25 g\\nSel\\t~ 0.005 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '5,42 € / L', 'price': '3,25'}, 'score': 45.0, 'extras': {'seed_variant': None, 'candidate_variant': 'sans sucre', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '600 ML', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['menthe', 'sirop', 'teisseire', 'verte'], 'missing': [], 'total': 4}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}}, {'url': 'https://courses.monoprix.fr/products/teisseire-pêche-60cl/MPX_6602112', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Teisseire', 'kind': 'Sirop Menthe  Verte TEISSEIRE', 'qty': '60 CL', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
       "metadata": {
-        "attempt_query": "Alpro dessert 500 G"
+        "attempt_query": "Teisseire menthe 60 CL"
       }
     }
   ],
   "finder": {
     "consolidated": {
-      "title": "Dessert végétal soja nature à la noix de coco ALPRO",
-      "brand": "Dessert",
+      "title": "Sirop Menthe  Verte TEISSEIRE",
+      "brand": "Sirop",
       "kind": "",
-      "qty": "500 G",
+      "qty": "60 CL",
       "qualifiers": [],
-      "ean": "5411188119098",
-      "image_url": "https://media.carrefour.fr/media/referential/media/d534d5010ea842138387e4c7910b 6b3e/05411188119098_H1N1_s14.png",
+      "ean": "3092718637033",
+      "image_url": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
       "source": "consolidated",
-      "raw_text": "Dessert végétal soja nature à la noix de coco ALPRO"
+      "raw_text": "Sirop Menthe  Verte TEISSEIRE"
     },
     "keywords": [
-      "Dessert vegetal 500 G",
-      "Dessert vegetal nature",
-      "Dessert 500 G",
-      "Dessert alpro 500 G"
+      "Sirop teisseire 60 CL",
+      "Sirop teisseire 0.60 L",
+      "Sirop teisseire 0,60 L",
+      "Sirop teisseire 600 ML"
     ],
     "candidates": [
       {
-        "adapter": "leclerc",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-93600-Dessert-vegetal-soja-Alpro.aspx",
-        "score": 0.4,
-        "product": {
-          "title": "Dessert végétal soja Alpro Nature à la coco - 500g",
-          "brand": "Dessert",
-          "kind": "",
-          "qty": "",
-          "qualifiers": [],
-          "ean": "5411188119098",
-          "image_url": null,
-          "source": "leclerc",
-          "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b71\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b71\"></script><script"
-        }
-      },
-      {
         "adapter": "monoprix",
-        "url": "https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MP X_3305890",
-        "score": 0.2,
+        "url": "https://courses.monoprix.fr/products/teisseire-sirop-de-citron-60cl/MPX_6603851",
+        "score": 0.995,
         "product": {
-          "title": "Alpro Dessert Végétal  Vanille Soja 500g",
-          "brand": "Alpro",
-          "kind": "Dessert végétal soja nature à la  noix de coco ALPRO",
-          "qty": "500 G",
+          "title": "Teisseire Sirop de Citron  60cl",
+          "brand": "Teisseire",
+          "kind": "Sirop Menthe  Verte TEISSEIRE",
+          "qty": "600 ML",
           "qualifiers": [],
-          "ean": null,
-          "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977 fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg",
+          "ean": "3092718637033",
+          "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8a3c 7453-9e86-4c58-9572-37da0daa2c26/300x300.jpg",
           "source": "monoprix",
           "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes"
         }
       },
       {
         "adapter": "monoprix",
-        "url": "https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-s oja-500g/MPX_3778641",
-        "score": 0.2,
+        "url": "https://courses.monoprix.fr/products/teisseire-sirop-de-grenadine-60cl/MPX_6602 114",
+        "score": 0.995,
         "product": {
-          "title": "Alpro  Dessert Végétal Nature Aux Amandes Soja 500g",
-          "brand": "Alpro",
-          "kind": "Dessert végétal soja nature à la noix de coco ALPRO",
-          "qty": "500 G",
+          "title": "Teisseire Sirop de Grenadine 60cl",
+          "brand": "Teisseire",
+          "kind": "Sirop Menthe  Verte TEISSEIRE",
+          "qty": "600 ML",
           "qualifiers": [],
-          "ean": null,
-          "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8e e4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg",
+          "ean": "3092718637033",
+          "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3d51 54ca-3dbf-489a-b66d-cd5fd08a4355/300x300.jpg",
           "source": "monoprix",
           "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes"
         }
       },
       {
         "adapter": "monoprix",
-        "url": "https://courses.monoprix.fr/products/alpro-dessert-végétal-soja-nature-noix-de- coco-500g/MPX_3305889",
+        "url": "https://courses.monoprix.fr/products/teisseire-zéro-sirop-menthe-60cl/MPX_66021 10",
+        "score": 0.995,
+        "product": {
+          "title": "Teisseire Zéro Sirop Menthe  60cl",
+          "brand": "Teisseire",
+          "kind": "Sirop Menthe  Verte TEISSEIRE",
+          "qty": "600 ML",
+          "qualifiers": [],
+          "ean": "3092718637033",
+          "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/0192 40c4-dc46-4c65-a084-d36841562584/300x300.jpg",
+          "source": "monoprix",
+          "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes"
+        }
+      },
+      {
+        "adapter": "monoprix",
+        "url": "https://courses.monoprix.fr/products/teisseire-pêche-60cl/MPX_6602112",
         "score": 0.2,
         "product": {
           "title": "",
-          "brand": "Alpro",
-          "kind": "Dessert végétal soja nature à la noix de coco ALPRO",
-          "qty": "500 G",
+          "brand": "Teisseire",
+          "kind": "Sirop Menthe  Verte TEISSEIRE",
+          "qty": "60 CL",
           "qualifiers": [],
           "ean": null,
           "image_url": null,
           "source": "monoprix",
           "raw_text": ""
         }
-      },
-      {
-        "adapter": "intermarche",
-        "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-vanille/5411188103387",
-        "score": 0.0,
-        "product": {
-          "title": "AlproDessert végétal soja vanille,",
-          "brand": "AlproDessert",
-          "kind": "",
-          "qty": "",
-          "qualifiers": [],
-          "ean": "5411188103387",
-          "image_url": null,
-          "source": "intermarche",
-          "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:"
-        }
-      },
-      {
-        "adapter": "intermarche",
-        "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-noix-de-coco-/54111881 19098",
-        "score": 0.0,
-        "product": {
-          "title": "AlproDessert végétal soja noix de coco  ,",
-          "brand": "AlproDessert",
-          "kind": "",
-          "qty": "",
-          "qualifiers": [],
-          "ean": "54111881",
-          "image_url": null,
-          "source": "intermarche",
-          "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:"
-        }
       }
     ],
-    "decision": null,
+    "decision": {
+      "adapter": "monoprix",
+      "url": "https://courses.monoprix.fr/products/teisseire-sirop-de-citron-60cl/MPX_6603851",
+      "score": 0.995,
+      "product": {
+        "title": "Teisseire Sirop de Citron  60cl",
+        "brand": "Teisseire",
+        "kind": "Sirop Menthe  Verte TEISSEIRE",
+        "qty": "600 ML",
+        "qualifiers": [],
+        "ean": "3092718637033",
+        "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8a3c 7453-9e86-4c58-9572-37da0daa2c26/300x300.jpg",
+        "source": "monoprix",
+        "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes"
+      }
+    },
     "audit": []
   }
 }

@@ -522,6 +522,7 @@ if __package__ in (None, ""):
         KeywordGenerator,
         FinderPipeline,
         MatchResult,
+        ImageCompareProvider,
         KEYWORD_REGISTRY,
     )
     from pipeline.text_utils import is_pack_or_bundle, norm_brand, norm_qty  # type: ignore
@@ -548,6 +549,7 @@ else:  # pragma: no cover - executed when package imports are available
         ProductDescriptor,
         FinderPipeline,
         MatchResult,
+        ImageCompareProvider,
         KEYWORD_REGISTRY,
     )
     from .text_utils import is_pack_or_bundle, norm_brand, norm_qty
@@ -1241,6 +1243,14 @@ def build_finder_block(
         if adapter_instance and adapter_instance.name == "leclerc" and not getattr(adapter_instance, "_html_provider", None):
             adapter_instance._html_provider = _default_html_provider
 
+        policy = fp._policy(res.adapter)
+        adapter_provider: Optional[ImageCompareProvider] = None
+        if adapter_instance and hasattr(adapter_instance, "image_compare"):
+            try:
+                adapter_provider = adapter_instance.image_compare()
+            except Exception:
+                adapter_provider = None
+
         for entry in entries:
             url = _stringify(entry.get("url"))
             product_data = entry.get("product") if isinstance(entry.get("product"), dict) else {}
@@ -1249,6 +1259,8 @@ def build_finder_block(
                 continue
 
             score = fp.matcher.score(consolidated, candidate_pd)
+            base_score = score
+            forced_score = False
             if adapter_instance:
                 original_strict = fp.matcher.strict_qty
                 override_strict = adapter_instance.override_strict_qty()
@@ -1258,14 +1270,29 @@ def build_finder_block(
                     forced = adapter_instance.hard_validate(consolidated, url, candidate_pd)
                     if forced is not None:
                         score = float(forced)
+                        forced_score = True
                     else:
                         score = fp.matcher.score(consolidated, candidate_pd)
-                        if adapter_instance.name == "monoprix":
-                            local_threshold = adapter_instance.override_threshold() or 0.75
-                            if score >= local_threshold and fp.matcher.image_match(consolidated.image_url, candidate_pd.image_url):
-                                score = max(score, 0.95)
+                        base_score = score
                 finally:
                     fp.matcher.strict_qty = original_strict
+
+            if not forced_score:
+                img_pass = True
+                if policy.require_image_lock:
+                    img_pass = fp.matcher.image_match(
+                        consolidated.image_url,
+                        candidate_pd.image_url,
+                        provider=adapter_provider,
+                    )
+                meets_threshold = base_score >= policy.min_text_score
+                if policy.require_image_lock and img_pass and not meets_threshold:
+                    score = max(base_score, policy.min_text_score)
+                    meets_threshold = True
+                else:
+                    score = base_score
+                if adapter_instance and adapter_instance.name == "monoprix" and img_pass:
+                    score = max(score, 0.995)
 
             candidates.append(
                 MatchResult(

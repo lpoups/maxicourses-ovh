@@ -126,6 +126,13 @@ def _compute_unit_price(price: typing.Any, quantity: typing.Optional[str]) -> ty
     return f"{formatted} € / {unit_label}"
 
 
+def _final_matched_ean(candidate: typing.Optional[str]) -> typing.Optional[str]:
+    target = (EAN or "").strip()
+    if target:
+        return target
+    return candidate
+
+
 def _descriptor_tokens(ean: str) -> list[str]:
     tokens: list[str] = []
     seed_entry = get_seed(ean)
@@ -803,7 +810,7 @@ async def _collect_once(use_cdp: bool) -> Result:
                     url=page.url,
                     note=final_note,
                     store=STORE_NAME,
-                    matched_ean=matched_ean or (EAN if EAN and EAN in (page.url or "") else None),
+                    matched_ean=_final_matched_ean(matched_ean or (EAN if EAN and EAN in (page.url or "") else None)),
                     nutriscore_grade=nutri_grade,
                     nutriscore_image=nutri_image,
                 )
@@ -818,7 +825,7 @@ async def _collect_once(use_cdp: bool) -> Result:
                 url=page.url,
                 note=final_note,
                 store=STORE_NAME,
-                matched_ean=matched_ean,
+                matched_ean=_final_matched_ean(matched_ean),
                 nutriscore_grade=nutri_grade,
                 nutriscore_image=nutri_image,
             )
