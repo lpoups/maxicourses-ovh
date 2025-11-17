@@ -26,7 +26,7 @@ STORE_SLUG = os.environ.get(
 ).strip("/")
 STORE_URL = os.environ.get(
     "AUCHAN_STORE_URL",
-    f"https://www.auchan.fr/drive/magasins/{STORE_SLUG}",
+    f"https://www.auchan.fr/magasins/drive/{STORE_SLUG}/s-{STORE_ID}",
 )
 STORE_LABEL = os.environ.get(
     "AUCHAN_STORE_LABEL", "Auchan Drive Supermarché Talence-Gallieni"
@@ -223,10 +223,23 @@ async def reveal_price(page) -> None:
         await page.wait_for_timeout(400)
 
 
-def clean_price(text: Optional[str]) -> Optional[str]:
+def clean_price(text: Optional[str], *, require_currency: bool = False) -> Optional[str]:
     if not text:
         return None
-    match = re.search(r"(\d+[\.,]\d{2})", text.replace("\xa0", " "))
+    normalized = text.replace("\xa0", " ")
+    if require_currency:
+        currency_patterns = [
+            r"(\d+[\.,]\d{2})\s*(?:€|&euro;)",
+            r"(?:€|&euro;)\s*(\d+[\.,]\d{2})",
+        ]
+        for pattern in currency_patterns:
+            match = re.search(pattern, normalized, flags=re.IGNORECASE)
+            if match:
+                value = match.group(1) or match.group(2)
+                if value:
+                    return value.replace(",", ".")
+        return None
+    match = re.search(r"(\d+[\.,]\d{2})", normalized)
     if not match:
         return None
     return match.group(1).replace(",", ".")
@@ -416,7 +429,17 @@ def normalize_unit_price_text(text: Optional[str]) -> Optional[str]:
 
 async def extract_from_pdp(page) -> Optional[Result]:
     await reveal_price(page)
+    if os.environ.get("AUCHAN_DEBUG") == "1":
+        try:
+            await page.screenshot(path="auchan_debug.png", full_page=True)
+        except Exception:
+            pass
     html = await page.content()
+    if os.environ.get("AUCHAN_DEBUG") == "1":
+        try:
+            Path("auchan_debug.html").write_text(html)
+        except Exception:
+            pass
 
     title = None
     try:
@@ -429,11 +452,22 @@ async def extract_from_pdp(page) -> Optional[Result]:
     if await price_node.count():
         try:
             price_text = await price_node.text_content()
+            if os.environ.get("AUCHAN_DEBUG") == "1" and price_text:
+                snippet = None
+                try:
+                    snippet = await price_node.inner_html()
+                except Exception:
+                    snippet = None
+                log(f"price_text_raw={price_text!r}")
+                if snippet:
+                    log(f"price_node_html={snippet[:200]!r}")
         except Exception:
             price_text = None
     if not price_text:
-        price_text = clean_price(html)
+        price_text = clean_price(html, require_currency=True)
     price_value = clean_price(price_text)
+    if os.environ.get("AUCHAN_DEBUG") == "1":
+        log(f"price_debug text={price_text!r} value={price_value!r}")
     if not price_value:
         return None
 
