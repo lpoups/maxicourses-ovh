@@ -45,8 +45,13 @@
   USE_CDP=1 HEADLESS=0 EAN=<ean> QUERY="<libellé seed ou EAN>" python3 fetch_auchan_price.py
   ```
 - Sert de seed alternatif lorsque Carrefour n’a pas l’EAN ; taper d’abord l’EAN brut, puis réutiliser le descriptif trouvé pour les autres enseignes.
-- **Sélection magasin** : le script charge automatiquement l’état Talence-Gallieni (`state/auchan.json` → `storeReference.id = 6117`). Si un autre drive est requis, mettre à jour ce fichier via Chrome 9222 avant de relancer. Actuellement, le bouton « Choisir ce drive » peut réapparaître sur la PDP : enregistrer un parcours humain (`record_generic_navigation.py`) et rejouer la trace jusqu’à ce que le prix soit visible avant de conclure. Considérer les `NO_RESULTS` Auchan comme un bug ouvert tant que cette trace n’est pas mise à jour.
-- **Slug magasin** : utiliser systématiquement `auchan-drive-supermarche-talence-gallieni`. Après chaque navigation, cliquer « Choisir ce drive »/« Afficher le prix » si les boutons sont présents avant d’extraire le prix.
+- **Sélection magasin** :
+  - L’URL par défaut **doit** rester `https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117`. Tout autre slug ou chemin (`/drive/magasins/...`) casse le chargement.
+  - Lancer `./maxicourses_test/start_chrome_debug.sh` avant la collecte pour garantir la connexion CDP + la persistance du magasin. Sans ce Chrome, Playwright renvoie immédiatement `ECONNREFUSED 9222`.
+  - La state `state/auchan.json` contient `storeReference.id = 6117`. Si un autre drive est imposé, mettre à jour cette state via Chrome 9222 puis relancer le fetcher.
+-  - Le bouton « Choisir ce drive »/« Afficher le prix » réapparaît régulièrement : enregistrer un parcours humain (`record_generic_navigation.py`) et rejouer `traces/auchan-20251104-talence-orangina.jsonl` jusqu’à ce que le widget prix affiche un montant **avec le symbole €**. Le script dispose désormais d’un hook `choose_drive()` qui clique automatiquement sur « Choisir ce drive » et patiente 4 s avant de saisir l’EAN ; si le prix reste vide, vérifier que ce bouton n’a pas changé de texte.
+- **Slug magasin** : utiliser systématiquement `auchan-drive-supermarche-talence-gallieni`. Après chaque navigation, effectuer (ou laisser le script effectuer) les clics « Choisir ce drive » puis « Afficher le prix » si visibles, sinon la page renvoie des faux `NO_PRICE`.
+- **Validation prix** : `clean_price()` ignore maintenant toute valeur dépourvue du symbole `€`. Si le prix n’est pas remonté, vérifier la page manuellement, rafraîchir via Chrome CDP et relancer plutôt que de récupérer un faux montant provenant des CSS.
 
 ## Intermarché
 - **Script** : `maxicourses_test/fetch_intermarche_price.py` (CDP, accepter cookies via script).
@@ -69,10 +74,10 @@
   ```
 - **Logique** :
   - se rendre sur `HOME_URL` (ou `STORE_URL` si un magasin spécifique doit être chargé),
-  - accepter les cookies puis saisir la requête issue du seed (identique à Intermarché),
-  - ouvrir la fiche la plus pertinente et extraire prix TTC, prix unitaire, quantité, URL, magasin.
+  - accepter les cookies puis saisir la requête issue du seed (des magasins acceptant les recherches EAN carrefour market/city/super, auchan, chronodrive, courseu, g20),
+  - ouvrir la fiche la plus pertinente en comparant les descriptifs des magasins seed et extraire prix TTC, prix unitaire, quantité, URL, magasin.
 - **Résultats** : JSON par EAN dans `maxicourses_test/results/test-<EAN>/`, agrégat global `maxicourses_test/results/summary.json`.
-- **Notes** : Monoprix ne supporte pas la recherche EAN ; si aucun résultat n’est trouvé, documenter l’échec avant de passer à Leclerc.
+- **Notes** : Monoprix ne supporte pas la recherche EAN il faut donc impérativement faire du matching d'image afin de s'assurer que nous sommes sur le bon produit; si aucun résultat n’est trouvé, documenter et cloturer la collecte.
 
 ## Chronodrive
 - **Script** : `maxicourses_test/fetch_chronodrive_price.py` (CDP obligatoire).
@@ -112,6 +117,7 @@
 
 ## Gestion des résultats & comparateur
 - Chaque EAN dispose de `results/test-<EAN>/latest.json` et `summary.json`. L’agrégat global `results/summary.json` alimente `pipeline/index2.html`.
+- `pipeline/index2.html` charge désormais `../results/summary.json` (sorties live) avant de retomber sur `pipeline/data/results/summary.json` (snapshot). Ne jamais copier les JSON vers `pipeline/data` pour « débloquer » l’UI : mettre à jour `maxicourses_test/results/*` puis rafraîchir la page suffit.
 - Ajouter un produit dans le comparateur :
   1. Générer ou mettre à jour les JSON `results/test-<EAN>/`.
   2. Compléter l’entrée correspondante dans `seed_catalog.py` (titre, quantité, image locale, Nutri-score si dispo).

@@ -124,3 +124,14 @@ Ce mémo remplace l’ancien journal volumineux. Il décrit l’état courant, l
 ### Suites suggérées
 - Relancer `run_pipeline.py --ean 5411188119098 --use_finder` pour actualiser `results/summary.json` et valider visuellement que les badges restent corrects dans `index2.html`.
 - Étendre le mécanisme `manual_override` si d’autres fiches doivent forcer un branding ou une image spécifique.
+
+## 2025-11-18 – GPT (Codex CLI)
+
+### Faits marquants
+- Auchan Talence : ajout de `choose_drive()` dans `fetch_auchan_price.py` (clic automatique sur « Choisir ce drive » + attente 4 s avant recherche). Test validé avec `USE_CDP=1 HEADLESS=0 EAN=8712100731822 QUERY="8712100731822" python3 fetch_auchan_price.py` → prix 2,65 € chez Auchan Talence.
+- Comparateur `pipeline/index2.html` : `RESULTS_BASE_CANDIDATES` privilégie désormais `../results` avant `./data/results`, ce qui supprime l’ancien cache statique qui bloquait les montées de version (plus besoin de redémarrer `python3 -m http.server` après chaque collecte).
+- Documentation mise à jour (`docs/ONBOARDING.md`, `docs/PRICE_COLLECTION_GUIDE.md`) pour rappeler la procédure Auchan + la nouvelle priorité des JSON côté front.
+
+### Suivi / prochaines étapes
+- Si Auchan retombe en `NO_PRICE`, vérifier que le bouton « Choisir ce drive » n’a pas changé (adapter le sélecteur dans `choose_drive()` si besoin) et rejouer la trace `traces/auchan-20251104-talence-orangina.jsonl` avant collecte.
+- Pour éviter de retomber sur le snapshot statique, laisser `pipeline/data/results` dormir et ne s’en servir qu’en build offline ; la référence reste `maxicourses_test/results/summary.json`.

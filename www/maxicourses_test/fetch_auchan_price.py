@@ -98,6 +98,24 @@ async def close_delivery_modal(page) -> None:
             continue
 
 
+async def choose_drive(page) -> None:
+    selectors = [
+        "button:has-text('Choisir ce Drive')",
+        "button:has-text('Choisir ce drive')",
+        "button[autotrack-event-action='choose_store']",
+    ]
+    for selector in selectors:
+        button = page.locator(selector).first
+        try:
+            if await button.count():
+                await button.scroll_into_view_if_needed()
+                await button.click()
+                await page.wait_for_timeout(4000)
+                return
+        except Exception:
+            continue
+
+
 STORE_CONTEXT_SCRIPT = """
         (store) => {
             try {
@@ -139,6 +157,7 @@ async def prepare_store_page(page) -> None:
     await sync_store_context(page)
     await accept_cookies(page)
     await close_delivery_modal(page)
+    await choose_drive(page)
     await page.wait_for_timeout(800)
 
 

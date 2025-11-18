@@ -1,6 +1,6 @@
 # Maxicourses Assistant Onboarding
 
-imperatif de corriger le probleme de collecte de auchan EN PRIORITE
+imperatif de corriger le probleme de collecte global les mises à jour de collecte ne s'affichent pas dans index2.html
 
 ## Rôle et hiérarchie
 - Laurent donne les ordres et l’assistant obéit strictement : **le user commande, l’assistant exécute**. Toujours suivre ses instructions sans discuter.
@@ -21,6 +21,15 @@ as tu compris le principe de la methode pour trouver les bons produits sur les m
 - Assurer une traçabilité claire des relevés (Chrome remote, captures si besoin) pour préparer le comparateur de prix intelligent.
 - Capitaliser l'historique (décisions, obstacles, artefacts) afin que tout nouvel assistant reprenne le travail sans perte d'information.
 
+## Incidents critiques (2025-11-18)
+- **Auchan Talence** : `fetch_auchan_price.py` déclenche maintenant `choose_drive()` avant chaque recherche. Le script clique sur « Choisir ce drive », attend 4 s pour que Talence Gallieni soit fixé, puis ouvre la fiche et force l’affichage du prix. Si le bouton réapparaît, rejouer la trace `traces/auchan-20251104-talence-orangina.jsonl`, relancer Chrome 9222 et contrôler les logs `[auchan] goto store page … / results visible` avant de relancer la collecte.
+- **Comparateur index2** : la page charge en priorité `../results/summary.json` (données live) et ne s’appuie sur `pipeline/data/results` qu’en secours. Si les prix semblent figés, vérifier que ce répertoire `../results` contient bien les JSON récents et ne pas copier manuellement le snapshot statique : recharger la page suffit dès que `results/summary.json` est mis à jour.
+
+## Redémarrage des services locaux
+- **Chrome debug (port 9222)** : indispensable pour tous les fetchers CDP. Lancer `cd maxicourses_test && ./start_chrome_debug.sh` (laisse la fenêtre Chrome ouverte). Si le profil est corrompu, supprimer `maxicourses_test/.chrome-debug` puis relancer.
+- **API collecte (`server.py`)** : toujours relancer après une modification ou un crash via `cd maxicourses_test && USE_CDP=1 python3 server.py`. Surveille la console et garde la fenêtre ouverte afin de voir les logs Playwright.
+- **Prévisualisation comparateur** : `cd maxicourses_test && python3 -m http.server 8000` . Redémarre ce serveur statique à chaque fois que tu modifies les assets HTML/JSON.
+
 ## Garde-fous immédiats
 - **Gel fetchers existants** : ne toucher sous aucun prétexte aux scripts `fetch_carrefour_price_market.py`, `fetch_carrefour_price_city.py`, `fetch_auchan_price.py`, `fetch_chronodrive_price.py`, `fetch_courseu_price.py`, `fetch_intermarche_price.py`, `fetch_leclerc_drive_price.py`, `fetch_monoprix_price.py` (ni à leurs helpers) tant que Laurent n’a pas validé une modification explicite. Seul le wrapper `fetch_carrefour_price_super.py` peut évoluer sans validation préalable (objectif : sécuriser la collecte Carrefour Super Lormont).
 
@@ -33,7 +42,12 @@ Nous utilison `finder.py` et plus du tout de fichier .json pour definir les mots
 
 //
 - **URGENT PRIORITE : Auchan Talence (2025-11-05)** : 
-Recommencer l'intégralité de la collect AUCHAN car tout a été saccagé par le précendent GPT! il faut repartir de zero! AUCHAN accept la recherche directe via EAN! eventuellement rechercher la sauvegarde de fetch_auchan_price.py datant de avant le 01/11/2025
+Recommencer l'intégralité de la collect AUCHAN car tout a été saccagé par le précendent GPT! il faut repartir de zero! AUCHAN accept la recherche directe via EAN! eventuellement rechercher la sauvegarde de fetch_auchan_price.py datant de avant le 01/11/2025. **Procédure à appliquer pour éviter toute régression slug/prix :**
+  1. Vérifier que `fetch_auchan_price.py` pointe sur le slug `auchan-drive-supermarche-talence-gallieni` et sur l’URL complète `https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117`. Bannir définitivement l’ancien chemin `/drive/magasins/...` qui renvoie « Cannot GET ».
+  2. Lancer Chrome CDP avec `./maxicourses_test/start_chrome_debug.sh` avant de démarrer le fetcher. Sans ce profil la connexion 9222 échoue et le magasin n’est pas mémorisé.
+  3. Toute collecte Auchan doit commencer par `EAN=<ean> python3 maxicourses_test/fetch_auchan_price.py` (HEADLESS=0 en validation) et cliquer sur « Choisir ce drive » / « Afficher le prix ». Si ces boutons reviennent, rejouer la trace `traces/auchan-20251104-talence-orangina.jsonl` et resauvegarder `state/auchan.json`.
+  4. Si la page ne contient aucun symbole `€`, c’est que le widget prix n’a pas chargé : refaire l’ouverture depuis Chrome humain puis relancer le fetcher (ne **jamais** retomber sur les falses positives `Roboto:300,40`).
+  5. Dès qu’un prix Auchan est OK, relancer `python3 maxicourses_test/pipeline/run_pipeline.py --ean <ean>` pour consigner `results/test-<ean>/` et vérifier l’entrée dans `results/summary.json`.
 
 - **Journal 2025-11-06 — Actions récentes**
   - `fetch_auchan_price.py` normalise désormais la quantité collectée : on extrait toutes les mesures (g/ml) et on garde la valeur majoritaire pour éviter les faux `5 L`.

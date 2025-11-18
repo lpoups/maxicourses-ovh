@@ -1088,7 +1088,7 @@
     <div class="masthead__footer">© 2025-2026 MaxiCourses · Powered by OpenCenterAI</div>
   </div>
   <div class="masthead__summary">
-    <p class="masthead__tagline">Collecte automatisée Carrefour City/Market/Super → Auchan → Chronodrive → Leclerc Drive → Intermarché.</p>
+    <p class="masthead__tagline">Collecte automatisée Carrefour City/Market/Super → Auchan → Chronodrive → SuperU → G20 → Monoprix → Leclerc Drive → Intermarché.</p>
     <ul class="masthead__bullets">
       <li>Recherche par EAN brut, descriptif libre ou upload photo.</li>
       <li>Comparateur multi-enseignes en temps réel et suggestions IA.</li>
@@ -1161,54 +1161,63 @@
 <script>
     const EAN_REQUIRED_LENGTH = 13;
 
+    const DATA_BASE = './data';
+    const RESULTS_BASE_CANDIDATES = ['../results', `${DATA_BASE}/results`];
+    const DESCRIPTOR_CACHE_URLS = [`${DATA_BASE}/descriptor_cache.json`, '../pipeline/descriptor_cache.json'];
+    const MANUAL_DESCRIPTOR_FALLBACK_URLS = [`${DATA_BASE}/manual_descriptors.json`, '../manual_descriptors.json'];
+    const SUMMARY_URLS = RESULTS_BASE_CANDIDATES.map((base) => `${base}/summary.json`);
+
+    const buildResultUrls = (ean) => RESULTS_BASE_CANDIDATES.map((base) => `${base}/test-${ean}/latest.json`);
     const PRIMARY_DATASET = {
       ean: '5000112611861',
       heading: 'Comparatif (Coca-Cola 1,75 L)',
-      resultUrl: '../results/test-5000112611861/latest.json'
+      resultUrls: buildResultUrls('5000112611861')
     };
 
     const EXTRA_DATASETS = [
       {
+        ean: '8712100731822',
+        heading: 'Comparatif (Moutarde Savora 385 g)',
+        resultUrls: buildResultUrls('8712100731822')
+      },
+      {
         ean: '3124480200433',
         heading: 'Comparatif (Orangina 1,5 L)',
-        resultUrl: '../results/test-3124480200433/latest.json'
+        resultUrls: buildResultUrls('3124480200433')
       },
       {
         ean: '5411188118961',
         heading: 'Comparatif (Dessert végétal soja nature ALPRO)',
-        resultUrl: '../results/test-5411188118961/latest.json'
+        resultUrls: buildResultUrls('5411188118961')
       },
       {
         ean: '5411188103387',
         heading: 'Comparatif (Dessert végétal soja vanille ALPRO)',
-        resultUrl: '../results/test-5411188103387/latest.json'
+        resultUrls: buildResultUrls('5411188103387')
       },
       {
         ean: '5411188114536',
         heading: 'Comparatif (Dessert végétal soja fraise ALPRO)',
-        resultUrl: '../results/test-5411188114536/latest.json'
+        resultUrls: buildResultUrls('5411188114536')
       },
       {
         ean: '3700260216148',
         heading: 'Comparatif (Croquettes chat stérilisé saumon Ultima)',
-        resultUrl: '../results/test-3700260216148/latest.json'
+        resultUrls: buildResultUrls('3700260216148')
       },
       {
         ean: '3092718637033',
         heading: 'Comparatif (Sirop Menthe Verte TEISSEIRE 60cl)',
-        resultUrl: '../results/test-3092718637033/latest.json'
+        resultUrls: buildResultUrls('3092718637033')
       },
       {
         ean: '3600551132150',
         heading: 'Comparatif (Cadum Crème Douche Surgras Lait d\'amandes)',
-        resultUrl: '../results/test-3600551132150/latest.json'
+        resultUrls: buildResultUrls('3600551132150')
       }
     ];
 
-    const SUMMARY_URL = '../results/summary.json';
     const DESCRIPTORS_ENDPOINT = window.MAXICOURSES_DESCRIPTORS_ENDPOINT || 'http://127.0.0.1:5001/api/descriptors';
-    const DESCRIPTOR_CACHE_URL = '../pipeline/descriptor_cache.json';
-    const MANUAL_DESCRIPTOR_FALLBACK_URL = '../manual_descriptors.json';
 
     const MANUAL_COMPARISON = {};
 
@@ -1328,7 +1337,7 @@
         config = {
           ean,
           heading: `Comparatif (${headingLabel})`,
-          resultUrl: `../results/test-${ean}/latest.json`
+          resultUrls: buildResultUrls(ean)
         };
         EXTRA_DATASETS.push(config);
       } else {
@@ -1336,8 +1345,8 @@
         if (config.heading !== expectedHeading) {
           config.heading = expectedHeading;
         }
-        if (!config.resultUrl) {
-          config.resultUrl = `../results/test-${ean}/latest.json`;
+        if (!config.resultUrls || !config.resultUrls.length) {
+          config.resultUrls = buildResultUrls(ean);
         }
       }
       return config;
@@ -1665,7 +1674,7 @@
     document.addEventListener('DOMContentLoaded', async () => {
       const [manualDescriptors, summary] = await Promise.all([
         fetchDescriptorsCatalog(),
-        fetchJson(withCacheBuster(SUMMARY_URL))
+        fetchFirstAvailable(SUMMARY_URLS)
       ]);
 
       cachedManualDescriptors = manualDescriptors || {};
@@ -1675,9 +1684,10 @@
           removedDatasets.add(ean);
         }
       });
-      cachedSummary = summary || {};
+      const summaryData = summary || {};
+      cachedSummary = summaryData;
 
-      const summaryEans = Object.keys(cachedSummary || {});
+      const summaryEans = Object.keys(summaryData || {});
       for (const ean of summaryEans) {
         if (ean && ean !== PRIMARY_DATASET.ean) {
           ensureDatasetConfig(ean);
@@ -1685,7 +1695,7 @@
       }
 
       const primaryData = await fetchDataset(PRIMARY_DATASET);
-      renderPrimary(primaryData, summary, manualDescriptors);
+      renderPrimary(primaryData, summaryData, manualDescriptors);
 
       for (const config of EXTRA_DATASETS) {
         if (removedDatasets.has(config.ean)) {
@@ -1696,18 +1706,30 @@
           continue;
         }
         const dataset = await fetchDataset(config);
-        renderComparisonSection(config, dataset, summary, manualDescriptors);
+        renderComparisonSection(config, dataset, summaryData, manualDescriptors);
       }
 
-      updatePortfolioDeltaView(summary);
+      updatePortfolioDeltaView(summaryData);
 
       setupEanSearch();
       setupImageUpload();
       bindCtaScroll();
     });
 
+    const getResultUrlCandidates = (config) => {
+      if (!config) return [];
+      if (Array.isArray(config.resultUrls) && config.resultUrls.length) {
+        return config.resultUrls.filter(Boolean);
+      }
+      if (config.resultUrl) {
+        return [config.resultUrl];
+      }
+      return [];
+    };
+
     async function fetchDataset(config, options = {}) {
-      if (!config.resultUrl) {
+      const urlCandidates = getResultUrlCandidates(config);
+      if (!urlCandidates.length) {
         return { data: null };
       }
       const retry = Boolean(options.retry);
@@ -1723,21 +1745,34 @@
       }
 
       let data = null;
-      if (retry) {
-        for (let attempt = 0; attempt < attempts; attempt += 1) {
-          data = await fetchJson(withCacheBuster(config.resultUrl));
-          if (data) break;
-          if (attempt < attempts - 1) {
-            await delay(wait);
+      let resolvedUrl = null;
+      const fetchFromUrl = async (url) => {
+        if (!url) return null;
+        if (retry) {
+          for (let attempt = 0; attempt < attempts; attempt += 1) {
+            const payload = await fetchJson(withCacheBuster(url));
+            if (payload) return payload;
+            if (attempt < attempts - 1) await delay(wait);
           }
+          return null;
         }
-      } else {
-        data = await fetchJson(withCacheBuster(config.resultUrl));
+        return fetchJson(withCacheBuster(url));
+      };
+
+      for (const candidate of urlCandidates) {
+        data = await fetchFromUrl(candidate);
+        if (data) {
+          resolvedUrl = candidate;
+          break;
+        }
       }
       if (config?.ean && data) {
         datasetCache.set(config.ean, data);
       }
-      return { data };
+      if (resolvedUrl) {
+        config._activeResultUrl = resolvedUrl;
+      }
+      return { data: data || null };
     }
 
     async function fetchJson(url) {
@@ -1750,6 +1785,15 @@
         console.warn('fetchJson failed', url, err);
         return null;
       }
+    }
+
+    async function fetchFirstAvailable(urls) {
+      if (!Array.isArray(urls) || !urls.length) return null;
+      for (const url of urls) {
+        const data = await fetchJson(withCacheBuster(url));
+        if (data) return data;
+      }
+      return null;
     }
 
     function normalizeDescriptorPayload(payload) {
@@ -1783,17 +1827,31 @@
         descriptors = await tryNormalize(endpoint);
       }
       if (!descriptors || !Object.keys(descriptors).length) {
-        descriptors = await tryNormalize(MANUAL_DESCRIPTOR_FALLBACK_URL);
+        for (const url of MANUAL_DESCRIPTOR_FALLBACK_URLS) {
+          descriptors = await tryNormalize(url);
+          if (descriptors && Object.keys(descriptors).length) break;
+        }
       }
       if (!descriptors || !Object.keys(descriptors).length) {
-        descriptors = await tryNormalize(DESCRIPTOR_CACHE_URL);
+        for (const url of DESCRIPTOR_CACHE_URLS) {
+          descriptors = await tryNormalize(url);
+          if (descriptors && Object.keys(descriptors).length) break;
+        }
       }
       return descriptors || {};
     }
 
     async function fetchDatasetOnce(config) {
-      if (!config?.resultUrl) return null;
-      return fetchJson(withCacheBuster(config.resultUrl));
+      const urls = getResultUrlCandidates(config);
+      if (!urls.length) return null;
+      for (const url of urls) {
+        const data = await fetchJson(withCacheBuster(url));
+        if (data) {
+          config._activeResultUrl = url;
+          return data;
+        }
+      }
+      return null;
     }
 
     async function waitForDatasetAvailability(ean, config, options = {}) {
@@ -1803,14 +1861,20 @@
       const startedAt = Date.now();
       let attempt = 0;
 
+      const candidates = getResultUrlCandidates(config);
+      if (!candidates.length) return null;
+
       while (Date.now() - startedAt < timeoutMs) {
         attempt += 1;
-        const data = await fetchDatasetOnce(config);
-        if (data && data.adapters) {
-          if (config?.ean) {
-            datasetCache.set(config.ean, data);
+        for (const url of candidates) {
+          const data = await fetchJson(withCacheBuster(url));
+          if (data && data.adapters) {
+            if (config?.ean) {
+              datasetCache.set(config.ean, data);
+            }
+            config._activeResultUrl = url;
+            return data;
           }
-          return data;
         }
         if (onProgress) {
           onProgress({ attempt, elapsedMs: Date.now() - startedAt, ean });
@@ -2363,7 +2427,7 @@
     }
 
     async function reloadSummary() {
-      const summary = await fetchJson(withCacheBuster(SUMMARY_URL));
+      const summary = await fetchFirstAvailable(SUMMARY_URLS);
       cachedSummary = summary || {};
       updatePortfolioDeltaView(cachedSummary);
       return cachedSummary;
