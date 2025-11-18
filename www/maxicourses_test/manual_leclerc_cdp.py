@@ -927,16 +927,27 @@ async def run_manual_leclerc(
 
         normalized_title = _normalize(title or '')
         token_hits = sum(1 for tok in expected_tokens if tok and tok in normalized_title)
-        token_threshold = max(2, len([tok for tok in expected_tokens if tok]) // 2 or 1)
+        filtered_token_count = sum(1 for tok in expected_tokens if tok)
+        token_threshold = max(1, (filtered_token_count + 1) // 2)
 
         status = "OK" if price else "NO_PRICE"
+        equivalent_flag = False
+        difference_note: Optional[str] = None
+        tokens_ok = token_hits >= token_threshold if token_threshold else False
         if ean:
-            if matched_ean != ean:
-                status = "NO_MATCH"
-                price = None
-                unit_price = None
+            if matched_ean and matched_ean != ean:
+                equivalent_flag = True
+                difference_note = f"EAN détecté {matched_ean} différent du seed {ean}"
+            elif matched_ean is None:
+                if tokens_ok:
+                    equivalent_flag = True
+                    difference_note = "EAN introuvable dans la fiche (validation via descriptif seed)."
+                else:
+                    status = "NO_MATCH"
+                    price = None
+                    unit_price = None
         elif matched_ean is None:
-            if not (price and token_hits >= token_threshold):
+            if not tokens_ok:
                 status = "NO_MATCH"
                 price = None
                 unit_price = None
@@ -964,6 +975,13 @@ async def run_manual_leclerc(
         }
         meta = result_payload.setdefault("_meta", {})
         meta["supports_keywords"] = True
+        if equivalent_flag:
+            result_payload["equivalent"] = True
+            if difference_note:
+                result_payload["difference_note"] = difference_note
+                meta["difference_note"] = difference_note
+        else:
+            result_payload["equivalent"] = False
         if finder_candidates:
             result_payload["candidates"] = finder_candidates
         return result_payload

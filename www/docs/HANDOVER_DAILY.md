@@ -135,3 +135,14 @@ Ce mémo remplace l’ancien journal volumineux. Il décrit l’état courant, l
 ### Suivi / prochaines étapes
 - Si Auchan retombe en `NO_PRICE`, vérifier que le bouton « Choisir ce drive » n’a pas changé (adapter le sélecteur dans `choose_drive()` si besoin) et rejouer la trace `traces/auchan-20251104-talence-orangina.jsonl` avant collecte.
 - Pour éviter de retomber sur le snapshot statique, laisser `pipeline/data/results` dormir et ne s’en servir qu’en build offline ; la référence reste `maxicourses_test/results/summary.json`.
+
+## 2025-11-18T19:45 – GPT (Codex CLI)
+
+### Faits marquants
+- Leclerc Drive : `manual_leclerc_cdp.py` accepte désormais les substituts lorsque l’EAN est introuvable. Un candidat validé via les tokens seed est marqué `equivalent=true` avec `difference_note` (« EAN introuvable… »), ce qui évite le statut `NO_MATCH` et déclenche le badge « Produit différent » dans `index2.html`.
+- Front comparateur : `finalizeRow()` détecte les payloads `equivalent`/`difference_note`, applique automatiquement `row.isMismatch` et affiche la note sous le nom du produit. Les badges « Produit différent » se déclenchent donc même si l’EAN n’a pas été remonté par Leclerc.
+- Collecte cible : `USE_CDP=1 HEADLESS=0 python3 pipeline/run_pipeline.py --ean 3092718637033 --headed --adapters leclerc` aboutit à `status="NO_PRICE"` mais `equivalent=true` + `difference_note`. Les fichiers `results/test-3092718637033/{latest,summary}.json` ainsi que `results/summary.json` ont été rafraîchis (badge visible côté front).
+
+### Suivi / prochaines étapes
+- Investiguer la non-remontée du prix sur la fiche « Boisson concentrée Teisseire Menthe verte » (nouveau markup prix ?). En attendant, la collecte passe en `NO_PRICE` mais ne bloque plus le pipeline.
+- Étendre la même logique d’équivalence aux autres fetchers humains si des EAN continuent de disparaître des PDP.

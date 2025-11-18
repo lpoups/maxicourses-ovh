@@ -20,6 +20,7 @@
   ```
 - **Logique** : saisie lente, acceptation OneTrust, sélection du meilleur résultat selon les tokens de la requête, extraction JSON-LD.
 - **Validation** : le script ouvre jusqu’à 10 cartes du listing ; chaque PDP est rejetée si l’EAN récupéré via « Informations pratiques » diffère du seed. Les variantes « sans sucre », « zero/zéro » sont bannies par défaut.
+- **Fallback équivalent** : si l’EAN est absent de la fiche mais que les mots-clés seed correspondent, le fetcher valide désormais le meilleur candidat en `equivalent=true` avec une `difference_note` explicite. `pipeline/index2.html` affiche alors le badge « Produit différent » et la collecte peut se poursuivre au lieu de rester bloquée sur `NO_MATCH`.
 - **Requêtes** : générées automatiquement à partir du seed (marque + fonction/nom + quantité) pour garantir un minimum de trois mots ciblés (« Destop Déboucheur 950 ML » par exemple). Les variantes éventuelles (liquide, original…) sont ajoutées en secondaire, mais la requête principale conserve toujours la structure marque/fonction/quantité.
 - **Traces** : conserver les traces humaines dans `traces/leclerc-*.jsonl` si la navigation change.
 - **Résultats** : JSON par EAN dans `maxicourses_test/results/test-<EAN>/`, agrégat global `maxicourses_test/results/summary.json`.

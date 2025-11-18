@@ -715,6 +715,13 @@
       text-overflow: ellipsis;
       color: #4a5568;
     }
+    .product-cell .product-note {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.72rem;
+      color: #b45309;
+      white-space: normal;
+    }
     .status-ok {
       color: #047857;
       font-weight: 600;
@@ -1290,6 +1297,30 @@
 
     function normalizeEan(value) {
       return (value == null ? '' : String(value)).replace(/[^0-9]/g, '');
+    }
+
+    function extractDifferenceNote(payload) {
+      if (!payload || typeof payload !== 'object') return '';
+      const direct = typeof payload.difference_note === 'string' ? payload.difference_note.trim() : '';
+      if (direct) return direct;
+      const metadata = payload.metadata && typeof payload.metadata === 'object'
+        ? payload.metadata
+        : payload._meta && typeof payload._meta === 'object'
+          ? payload._meta
+          : null;
+      if (metadata && typeof metadata.difference_note === 'string') {
+        const value = metadata.difference_note.trim();
+        if (value) return value;
+      }
+      return '';
+    }
+
+    function payloadIndicatesEquivalent(payload) {
+      if (!payload || typeof payload !== 'object') return false;
+      if (payload.equivalent === true) return true;
+      const status = (payload.status || '').toString().toUpperCase();
+      if (status === 'EQUIVALENT') return true;
+      return false;
     }
 
     function extractDescriptorTokens(descriptor) {
@@ -2824,8 +2855,11 @@
       const descriptorTokens = extractDescriptorTokens(manualDescriptor);
       const tokensWithoutBrand = descriptorTokens.filter((token) => token !== manualBrand);
 
-      let isMismatch = false;
-      if (expectedEanValue) {
+      const differenceNote = extractDifferenceNote(payload);
+      const equivalentFlag = payloadIndicatesEquivalent(payload) || Boolean(differenceNote);
+
+      let isMismatch = Boolean(equivalentFlag);
+      if (!isMismatch && expectedEanValue) {
         if (matchedEanValue && matchedEanValue !== expectedEanValue) {
           isMismatch = true;
         } else if (!matchedEanValue && hasPrice) {
@@ -2856,6 +2890,8 @@
         displayName: DISPLAY_NAMES[row.adapterName] || row.adapterName,
         rawAdapters: Array.from(row.rawAdapters || []),
         quantityText,
+        differenceNote,
+        equivalent: equivalentFlag,
         isMismatch,
       };
     }
@@ -3061,6 +3097,14 @@
           productCell.title = productName;
         }
         productCell.textContent = productName || '—';
+        const differenceNote = row.differenceNote;
+        if (differenceNote) {
+          productCell.title = productName ? `${productName} — ${differenceNote}` : differenceNote;
+          const noteEl = document.createElement('div');
+          noteEl.className = 'product-note';
+          noteEl.textContent = differenceNote;
+          productCell.appendChild(noteEl);
+        }
 
         const statusCell = document.createElement('td');
         statusCell.className = statusClass;
