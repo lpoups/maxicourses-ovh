@@ -203,10 +203,7 @@ GENERIC_TOKENS = {
 DEFAULT_NEGATIVE_PATTERNS = [
     "sans sucre",
     "sans sucres",
-    "zero",
-    "zéro",
-    "cheveux",
-    "turbo",
+    "sans-sucre",
 ]
 
 LECLERC_MAX_PDP = 10
@@ -289,9 +286,16 @@ def _score_card(
     for tok in query_tokens:
         if tok in haystack:
             score += 6
-    for tok in descriptor_tokens:
+    descriptor_core = [tok for tok in descriptor_tokens if len(tok) >= 4]
+    descriptor_hits = 0
+    for tok in descriptor_core:
         if tok in haystack:
-            score += 3
+            score += 8
+            descriptor_hits += 1
+    if descriptor_core:
+        missing = len(descriptor_core) - descriptor_hits
+        if missing > 0:
+            score -= missing * 12
     if 'supremo' in descriptor_tokens and 'supremo' not in haystack:
         score -= 60
     brand_present = False
@@ -422,10 +426,27 @@ async def run_manual_leclerc(
                 token = item.strip().lower()
                 if token not in descriptor_negatives:
                     descriptor_negatives.append(token)
+    descriptor_text = ""
+    if isinstance(descriptor_entry, dict):
+        descriptor_text = " ".join(
+            str(descriptor_entry.get(key) or "")
+            for key in (
+                "seed_primary_name",
+                "name",
+                "description",
+                "seed_primary_quantity",
+            )
+        ).lower()
     for pattern in DEFAULT_NEGATIVE_PATTERNS:
         token = pattern.strip().lower()
-        if token and token not in descriptor_negatives:
+        if not token:
+            continue
+        if token in descriptor_text:
+            continue
+        if token not in descriptor_negatives:
             descriptor_negatives.append(token)
+    if os.environ.get("LECLERC_LOG_NEGATIVES") == "1":
+        sys.stderr.write(f"[LECLERC_DEBUG] negatives={descriptor_negatives}\n")
     expected_pack_count = 1
     if isinstance(descriptor_entry, dict):
         canonical = descriptor_entry.get("canonical")
@@ -482,6 +503,13 @@ async def run_manual_leclerc(
             pass
 
         expected_tokens = [tok.lower() for tok in query.split() if len(tok) > 2]
+        expected_tokens.extend(tok for tok in descriptor_tokens if tok)
+        expected_tokens.extend(tok for tok in brand_tokens if tok)
+        if descriptor_entry and isinstance(descriptor_entry, dict):
+            extra = _tokenize(descriptor_entry.get('seed_primary_name'))
+            extra += _tokenize(descriptor_entry.get('description'))
+            expected_tokens.extend(extra)
+        expected_tokens = list(dict.fromkeys(expected_tokens))
 
         search_field = page.locator("input[id*='rechercheTexte']").first
         await search_field.click()
@@ -583,6 +611,13 @@ async def run_manual_leclerc(
                 return None
             return None
 
+        async def first_match_text(selectors: List[str]) -> Optional[str]:
+            for selector in selectors:
+                value = await text_clean(selector)
+                if value:
+                    return value
+            return None
+
         final_title: Optional[str] = None
         final_price: Optional[str] = None
         final_unit_price: Optional[str] = None
@@ -592,6 +627,8 @@ async def run_manual_leclerc(
         final_image_url: Optional[str] = None
         final_reason: Optional[str] = None
         last_candidate_entry: Optional[dict] = None
+        best_token_candidate: Optional[dict] = None
+        best_token_score: int = -1
 
         adapter_instance = None
         if LeclercAdapter is not None:
@@ -638,7 +675,6 @@ async def run_manual_leclerc(
                 candidate_entry["status"] = "REJECTED"
                 candidate_entry["reason"] = "negative_keyword"
                 finder_candidates.append(candidate_entry)
-                last_candidate_entry = candidate_entry
                 continue
 
             fallback_url = listing_url
@@ -687,28 +723,67 @@ async def run_manual_leclerc(
                 title_raw = await page.locator("h1").first.text_content()
             except Exception:
                 title_raw = None
-            title = " ".join(title_raw.split()) if title_raw else cand["label"]
+            raw_title_for_label = title_raw if title_raw else (cand["label"] or "")
+            title = " ".join(raw_title_for_label.split()) if raw_title_for_label else cand.get("label") or ""
             candidate_entry["title"] = title
 
-            whole = await text_clean(".prix .prix-actuel-partie-entiere, .pWCRS310_PrixUnitairePartieEntiere") or ""
-            decimal = await text_clean(".prix .prix-actuel-partie-decimale, .pWCRS310_PrixUnitairePartieDecimale") or ""
+            blocked_token = None
+            normalized_title_tokens = title.lower() if title else ""
+            if descriptor_negatives and normalized_title_tokens:
+                for token in descriptor_negatives:
+                    if token and token in normalized_title_tokens:
+                        blocked_token = token
+                        break
+            if blocked_token:
+                candidate_entry["status"] = "REJECTED"
+                candidate_entry["reason"] = f"negative_keyword_title:{blocked_token}"
+                finder_candidates.append(candidate_entry)
+                continue
+
+            whole = await first_match_text([
+                ".pWCRS310_PrixPartieEntiere",
+                ".prix .prix-actuel-partie-entiere",
+                ".pWCRS310_PrixUnitairePartieEntiere",
+            ]) or ""
+            decimal = await first_match_text([
+                ".pWCRS310_PrixPartieDecimale",
+                ".prix .prix-actuel-partie-decimale",
+                ".pWCRS310_PrixUnitairePartieDecimale",
+            ]) or ""
             whole_digits = "".join(filter(str.isdigit, whole))
             decimal_digits = "".join(filter(str.isdigit, decimal))[:2]
             price = f"{int(whole_digits)}.{decimal_digits or '00'}" if whole_digits else None
             if price:
                 price = price.replace(".", ",")
-            unit_price = await text_clean(".prix .prix-detail, .pWCRS310_PrixUniteMesure")
+            unit_price = await first_match_text([
+                ".pWCRS310_PrixUniteMesure",
+                ".prix .prix-detail",
+                ".pWCRS310_PrixUnitaire",
+            ])
             quantity = None
             if unit_price and "€" in unit_price:
-                quantity = await text_clean(".spanWCRS310_ContenanceInfo")
+                quantity = await first_match_text([
+                    ".spanWCRS310_ContenanceInfo",
+                    ".ficheProduit__infos--poids",
+                ])
             if not quantity:
-                quantity = await text_clean(".ficheProduit__infos--poids")
+                quantity = await first_match_text([
+                    ".ficheProduit__infos--poids",
+                    ".pWCRS310_ContenanceInfo",
+                ])
             if quantity:
                 quantity = quantity.upper()
 
             candidate_entry["price"] = price
             candidate_entry["unit_price"] = unit_price
             candidate_entry["quantity"] = quantity
+
+            normalized_title_tokens = title.lower() if title else ""
+            token_hits_local = sum(1 for tok in expected_tokens if tok and tok in normalized_title_tokens)
+            candidate_entry["token_hits"] = token_hits_local
+            if price and token_hits_local > best_token_score:
+                best_token_candidate = dict(candidate_entry)
+                best_token_score = token_hits_local
 
             image_url = None
             screenshot_path = None
@@ -866,19 +941,22 @@ async def run_manual_leclerc(
                 final_reason = candidate_entry.get("reason")
                 break
 
-        if final_title is None and last_candidate_entry:
-            final_title = last_candidate_entry.get("title") or last_candidate_entry.get("listing_label")
-        if final_price is None and last_candidate_entry:
-            final_price = last_candidate_entry.get("price")
-        if final_unit_price is None and last_candidate_entry:
-            final_unit_price = last_candidate_entry.get("unit_price")
-        if final_quantity is None and last_candidate_entry:
-            candidate_qty = last_candidate_entry.get("quantity")
-            if not candidate_qty and isinstance(last_candidate_entry.get("product"), dict):
-                candidate_qty = last_candidate_entry["product"].get("qty")
+        fallback_entry = best_token_candidate or last_candidate_entry
+        if final_title is None and fallback_entry:
+            final_title = fallback_entry.get("title") or fallback_entry.get("listing_label")
+        if final_price is None and fallback_entry:
+            final_price = fallback_entry.get("price")
+        if final_unit_price is None and fallback_entry:
+            final_unit_price = fallback_entry.get("unit_price")
+        if final_quantity is None and fallback_entry:
+            candidate_qty = fallback_entry.get("quantity")
+            if not candidate_qty and isinstance(fallback_entry.get("product"), dict):
+                candidate_qty = fallback_entry["product"].get("qty")
             final_quantity = candidate_qty
         if final_url is None:
-            final_url = page.url or (last_candidate_entry.get("url") if last_candidate_entry else None)
+            final_url = page.url or (fallback_entry.get("url") if fallback_entry else None)
+        if final_matched_ean is None and fallback_entry:
+            final_matched_ean = fallback_entry.get("matched_ean")
 
         title = final_title
         price = final_price

@@ -146,3 +146,14 @@ Ce mémo remplace l’ancien journal volumineux. Il décrit l’état courant, l
 ### Suivi / prochaines étapes
 - Investiguer la non-remontée du prix sur la fiche « Boisson concentrée Teisseire Menthe verte » (nouveau markup prix ?). En attendant, la collecte passe en `NO_PRICE` mais ne bloque plus le pipeline.
 - Étendre la même logique d’équivalence aux autres fetchers humains si des EAN continuent de disparaître des PDP.
+
+## 2025-11-19 – GPT (Codex CLI)
+
+### Faits marquants
+- Leclerc Drive : `manual_leclerc_cdp.py` pondère désormais les cartes selon les tokens (marque + fonction + parfum) et rejette automatiquement les variantes « sans sucre » si le seed ne les cite pas. Quand aucun EAN n’est disponible, le script prend la fiche au meilleur `token_hits`, extrait prix/quantité et ajoute `equivalent=true` + `difference_note`. Résultat validé sur 3092718637033 : collecte complète `USE_CDP=1 HEADLESS=0 python3 pipeline/run_pipeline.py --ean 3092718637033 --headed`.
+- Monoprix : `fetch_monoprix_price.py` démarre toujours la recherche avec deux mots (`<marque> <fonction>`) puis ajoute un troisième mot si nécessaire avant de tester la quantité. Test `USE_CDP=1 HEADLESS=0 EAN=3092718637033 python3 fetch_monoprix_price.py` → fiche « Teisseire Menthe verte 60cl » capturée (prix 3,29 €, image match OK).
+- Les fichiers `docs/ONBOARDING.md` et `docs/PRICE_COLLECTION_GUIDE.md` documentent ces procédures afin que les prochains GPT rejouent les mêmes paramètres sans bricoler produit par produit.
+
+### Suivi / prochaines étapes
+- Si Leclerc réintroduit la version standard avec EAN visible, vérifier que `manual_leclerc_cdp.py` remonte automatiquement `matched_ean` (aucune action manuelle à faire). En cas de nouvelles variantes sans sucre légitimes, ajouter le flag dans `seed_catalog.py` pour lever le veto.
+- Pour Monoprix, consigner dans `seed_catalog.py` toute requête supplémentaire nécessaire (ex. parfum spécifique). Relancer périodiquement `run_pipeline.py --ean <EAN>` pour garder `results/summary.json` et `pipeline/index2.html` alignés.

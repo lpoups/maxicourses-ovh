@@ -1359,6 +1359,28 @@ def build_query_terms() -> list[str]:
         descriptor = {}
     seen: set[str] = set()
 
+    def primary_tokens_from_descriptor(data: dict[str, typing.Any]) -> list[str]:
+        raw_fields: list[str] = []
+        for key in ("brand", "seed_primary_name", "name", "description"):
+            value = data.get(key)
+            if isinstance(value, str) and value.strip():
+                raw_fields.append(value)
+        tokens: list[str] = []
+        for field in raw_fields:
+            for chunk in field.split():
+                normalized = _normalize_search_text(chunk)
+                if not normalized:
+                    continue
+                if any(ch.isdigit() for ch in normalized):
+                    continue
+                if normalized in MONOPRIX_UNIT_TOKENS:
+                    continue
+                if normalized in MONOPRIX_GENERIC_STOPWORDS:
+                    continue
+                if normalized not in tokens:
+                    tokens.append(normalized)
+        return tokens
+
     def add(term: typing.Optional[str]) -> None:
         candidate = _prepare_query(term, max_len)
         if not candidate:
@@ -1372,6 +1394,12 @@ def build_query_terms() -> list[str]:
         terms.append(candidate)
         if max_terms > 0 and len(terms) >= max_terms:
             return
+
+    primary_tokens = primary_tokens_from_descriptor(descriptor)
+    if len(primary_tokens) >= 2:
+        add(" ".join(primary_tokens[:2]))
+        if len(primary_tokens) >= 3:
+            add(" ".join(primary_tokens[:3]))
 
     for keyword in FINDER_KEYWORDS:
         add(keyword)

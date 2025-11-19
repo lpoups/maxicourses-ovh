@@ -19,7 +19,7 @@
     python3 manual_leclerc_cdp.py
   ```
 - **Logique** : saisie lente, acceptation OneTrust, sélection du meilleur résultat selon les tokens de la requête, extraction JSON-LD.
-- **Validation** : le script ouvre jusqu’à 10 cartes du listing ; chaque PDP est rejetée si l’EAN récupéré via « Informations pratiques » diffère du seed. Les variantes « sans sucre », « zero/zéro » sont bannies par défaut.
+- **Validation** : le script ouvre jusqu’à 10 cartes du listing ; chaque PDP est rejetée si l’EAN récupéré via « Informations pratiques » diffère du seed. Les variantes « sans sucre », « zero/zéro » sont bannies automatiquement sauf si le seed les mentionne explicitement. Les tokens marque/parfum/fonction issus du seed sont utilisés pour scorer les cartes et la meilleure couverture (« token_hits ») sert de fallback quand aucun EAN n’est remonté.
 - **Fallback équivalent** : si l’EAN est absent de la fiche mais que les mots-clés seed correspondent, le fetcher valide désormais le meilleur candidat en `equivalent=true` avec une `difference_note` explicite. `pipeline/index2.html` affiche alors le badge « Produit différent » et la collecte peut se poursuivre au lieu de rester bloquée sur `NO_MATCH`.
 - **Requêtes** : générées automatiquement à partir du seed (marque + fonction/nom + quantité) pour garantir un minimum de trois mots ciblés (« Destop Déboucheur 950 ML » par exemple). Les variantes éventuelles (liquide, original…) sont ajoutées en secondaire, mais la requête principale conserve toujours la structure marque/fonction/quantité.
 - **Traces** : conserver les traces humaines dans `traces/leclerc-*.jsonl` si la navigation change.
@@ -77,6 +77,7 @@
   - se rendre sur `HOME_URL` (ou `STORE_URL` si un magasin spécifique doit être chargé),
   - accepter les cookies puis saisir la requête issue du seed (des magasins acceptant les recherches EAN carrefour market/city/super, auchan, chronodrive, courseu, g20),
   - ouvrir la fiche la plus pertinente en comparant les descriptifs des magasins seed et extraire prix TTC, prix unitaire, quantité, URL, magasin.
+- **Stratégie de recherche** : pour chaque produit, le fetcher construit automatiquement des requêtes minimalistes (`<marque> <fonction>` puis `<marque> <fonction> <parfum>`). Ces requêtes sans quantité sont testées AVANT les requêtes Finder longues ; si la page renvoie trop de résultats ou aucun, un troisième terme est ajouté et, en dernier recours seulement, la quantité est réintroduite. Documenter toute requête inefficace dans `seed_catalog.py` et dans `docs/HANDOVER_DAILY.md`.
 - **Résultats** : JSON par EAN dans `maxicourses_test/results/test-<EAN>/`, agrégat global `maxicourses_test/results/summary.json`.
 - **Notes** : Monoprix ne supporte pas la recherche EAN il faut donc impérativement faire du matching d'image afin de s'assurer que nous sommes sur le bon produit; si aucun résultat n’est trouvé, documenter et cloturer la collecte.
 
