@@ -1,0 +1,382 @@
+{
+  "ean": "5411188118961",
+  "image_path": null,
+  "started_at": "2025-11-20T16:05:19.916271+01:00",
+  "finished_at": "2025-11-20T16:05:49.635052+01:00",
+  "duration_seconds": 29.718781,
+  "reference": {
+    "title": "Dessert végétal soja nature à l'amande ALPRO - 500g",
+    "description": "Dessert végétal soja nature à l'amande ALPRO - 500g",
+    "source": "carrefour_city",
+    "brand": "Alpro",
+    "quantity": "500  g",
+    "categories": "Pflanzliche Lebensmittel und Getränke, Fermentierte Lebensmittel, en:Dairy substitutes, Desserts, en:Vegan products, Milchfreie Nachtische, Fermentierte Lebensmittel ohne Milch, Pflanzenbasierte Joghurts, Sojajoghurt, Einfacher Soja-Joghurt",
+    "image": "./assets/5411188118961.jpg",
+    "nutriscore_grade": "a",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-a.svg",
+    "ecoscore_grade": "a",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg",
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,57",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-nature-a-l-amande-alpro-5411188 118961",
+        "note": null,
+        "unit_price": "5,14 € / KG",
+        "quantity": "500 G",
+        "title": "Dessert végétal soja nature à l'amande ALPRO",
+        "matched_ean": "5411188118961",
+        "image": "https://media.carrefour.fr/media/referential/media/21c3413019084953b767ba11b37a d886/05411188118961_H1N1_s15.png",
+        "nutriscore_grade": "a",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-a.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Dessert végétal soja nature à l'amande ALPRO",
+          "brand": "Dessert",
+          "kind": "",
+          "qty": "500 G",
+          "qualifiers": [],
+          "ean": "5411188118961",
+          "image_url": "https://media.carrefour.fr/media/referential/media/21c3413019084953b767ba11b37a d886/05411188118961_H1N1_s15.png",
+          "source": "carrefour_city",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-20T16:05:19.917229+01:00",
+      "finished_at": "2025-11-20T16:05:37.808961+01:00",
+      "duration_seconds": 17.891732,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "5411188118961",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188118961"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-20T16:05:37.811974+01:00",
+      "finished_at": "2025-11-20T16:05:43.992964+01:00",
+      "duration_seconds": 6.18099,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "5411188118961",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 25, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9223\n\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price.py\", line 942, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price.py\", line 505, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 28, in make_context\n    raise RuntimeError(f\"Impossible de se connecter à Chrome debug via {cdp_url}: {exc}\") from exc\nRuntimeError: Impossible de se connecter à Chrome debug via http://127.0.0.1:9223: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9223\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 25, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9223\n\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price.py\", line 942, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price.py\", line 505, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 28, in make_context\n    raise RuntimeError(f\"Impossible de se connecter à Chrome debug via {cdp_url}: {exc}\") from exc\nRuntimeError: Impossible de se connecter à Chrome debug via http://127.0.0.1:9223: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9223",
+      "metadata": {
+        "attempt_query": "5411188118961"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-20T16:05:43.993393+01:00",
+      "finished_at": "2025-11-20T16:05:44.882636+01:00",
+      "duration_seconds": 0.889243,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "5411188118961",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 25, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9224\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9224\n\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price.py\", line 942, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price.py\", line 505, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 28, in make_context\n    raise RuntimeError(f\"Impossible de se connecter à Chrome debug via {cdp_url}: {exc}\") from exc\nRuntimeError: Impossible de se connecter à Chrome debug via http://127.0.0.1:9224: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9224\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9224\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 25, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9224\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9224\n\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price.py\", line 942, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_carrefour_price.py\", line 505, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 28, in make_context\n    raise RuntimeError(f\"Impossible de se connecter à Chrome debug via {cdp_url}: {exc}\") from exc\nRuntimeError: Impossible de se connecter à Chrome debug via http://127.0.0.1:9224: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9224\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9224",
+      "metadata": {
+        "attempt_query": "5411188118961"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-20T16:05:44.882878+01:00",
+      "finished_at": "2025-11-20T16:05:45.266619+01:00",
+      "duration_seconds": 0.383741,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "5411188118961",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 25, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9225\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9225\n\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_auchan_price.py\", line 600, in <module>\n    payload = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_auchan_price.py\", line 563, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 28, in make_context\n    raise RuntimeError(f\"Impossible de se connecter à Chrome debug via {cdp_url}: {exc}\") from exc\nRuntimeError: Impossible de se connecter à Chrome debug via http://127.0.0.1:9225: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9225\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9225",
+      "metadata": {
+        "attempt_query": "5411188118961"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-20T16:05:45.266880+01:00",
+      "finished_at": "2025-11-20T16:05:45.633751+01:00",
+      "duration_seconds": 0.366871,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "5411188118961",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 25, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9226\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9226\n\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_chronodrive_price.py\", line 949, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_chronodrive_price.py\", line 635, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 28, in make_context\n    raise RuntimeError(f\"Impossible de se connecter à Chrome debug via {cdp_url}: {exc}\") from exc\nRuntimeError: Impossible de se connecter à Chrome debug via http://127.0.0.1:9226: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9226\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9226",
+      "metadata": {
+        "attempt_query": "5411188118961"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-20T16:05:45.633992+01:00",
+      "finished_at": "2025-11-20T16:05:45.990566+01:00",
+      "duration_seconds": 0.356574,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "5411188118961",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_courseu_price.py\", line 856, in <module>\n    result = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_courseu_price.py\", line 847, in run\n    result = await _collect_once(initial_cdp)\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_courseu_price.py\", line 766, in _collect_once\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/pipeline/engine.py\", line 22, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9227\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9227",
+      "metadata": {
+        "attempt_query": "5411188118961"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,09",
+        "title": "ALPRO SOJA AMANDES 500 G X 1",
+        "url": "https://www.g20-minute.com/products/5411188118961/alpro-soja-amandes-500-g-x-1-5411188118961",
+        "note": "G20 Minute",
+        "unit_price": "4,18 €/Kg",
+        "quantity": "500g",
+        "matched_ean": "5411188118961",
+        "image": "https://www.g20-minute.com/media/cache/product_box_image/41/06/e35c1fccee2ea3e9746da5d29d49.jpg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "ALPRO SOJA AMANDES 500 G X 1",
+          "brand": "ALPRO",
+          "kind": "",
+          "qty": "500g",
+          "qualifiers": [],
+          "ean": "5411188118961",
+          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/41/06/e35c1fccee2ea3e9746da5d29d49.jpg",
+          "source": "g20",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-20T16:05:45.990816+01:00",
+      "finished_at": "2025-11-20T16:05:46.544590+01:00",
+      "duration_seconds": 0.553774,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "5411188118961",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "5411188118961"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-20T16:05:47.123669+01:00",
+      "finished_at": "2025-11-20T16:05:47.603885+01:00",
+      "duration_seconds": 0.480216,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "Alpro 500 G",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 25, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9229\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9229\n\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_intermarche_price.py\", line 1614, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_intermarche_price.py\", line 825, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 28, in make_context\n    raise RuntimeError(f\"Impossible de se connecter à Chrome debug via {cdp_url}: {exc}\") from exc\nRuntimeError: Impossible de se connecter à Chrome debug via http://127.0.0.1:9229: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9229\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9229",
+      "metadata": {
+        "attempt_query": "Alpro 500 G"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-20T16:05:47.125106+01:00",
+      "finished_at": "2025-11-20T16:05:47.630273+01:00",
+      "duration_seconds": 0.505167,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "Alpro 500 G",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Alpro 500 G'\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_leclerc_drive_price.py\", line 57, in <module>\n    payload = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_leclerc_drive_price.py\", line 38, in run\n    result = await run_manual_leclerc(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/manual_leclerc_cdp.py\", line 462, in run_manual_leclerc\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9230\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9230",
+      "metadata": {
+        "attempt_query": "Alpro 500 G"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-20T16:05:47.129943+01:00",
+      "finished_at": "2025-11-20T16:05:47.688815+01:00",
+      "duration_seconds": 0.558872,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "Alpro 500 G",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5411188118961'.\n[MONOPRIX_DEBUG] Search terms: ['Alpro amande', 'Dessert amande Alpro']\n[MONOPRIX_DEBUG] Using storage state: None\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 25, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9231\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9231\n\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_monoprix_price.py\", line 2462, in <module>\n    asyncio.run(_main())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_monoprix_price.py\", line 2456, in _main\n    result = await run()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_monoprix_price.py\", line 2414, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/scraper/engine.py\", line 28, in make_context\n    raise RuntimeError(f\"Impossible de se connecter à Chrome debug via {cdp_url}: {exc}\") from exc\nRuntimeError: Impossible de se connecter à Chrome debug via http://127.0.0.1:9231: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9231\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9231",
+      "metadata": {
+        "attempt_query": "Alpro 500 G"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Dessert végétal soja nature à l'amande ALPRO",
+      "brand": "Dessert",
+      "kind": "",
+      "qty": "500 G",
+      "qualifiers": [],
+      "ean": "5411188118961",
+      "image_url": "https://media.carrefour.fr/media/referential/media/21c3413019084953b767ba11b37a d886/05411188118961_H1N1_s15.png",
+      "source": "consolidated",
+      "raw_text": "Dessert végétal soja nature à l'amande ALPRO - 500g"
+    },
+    "keywords": [
+      "Dessert vegetal 500 G",
+      "Dessert vegetal amande",
+      "Dessert 500 G",
+      "Dessert nature 500 G"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

@@ -9,6 +9,7 @@ import subprocess
 import sys
 import unicodedata
 import html
+import concurrent.futures
 from dataclasses import asdict
 from datetime import datetime
 from pathlib import Path
@@ -683,6 +684,26 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
         },
     },
 }
+
+ADAPTER_CDP_PORTS: Dict[str, int] = {
+    "carrefour_city": int(os.getenv("CDP_PORT_CARREFOUR_CITY", "9222")),
+    "carrefour_market": int(os.getenv("CDP_PORT_CARREFOUR_MARKET", "9223")),
+    "carrefour_super": int(os.getenv("CDP_PORT_CARREFOUR_SUPER", "9224")),
+    "auchan": int(os.getenv("CDP_PORT_AUCHAN", "9225")),
+    "chronodrive": int(os.getenv("CDP_PORT_CHRONODRIVE", "9226")),
+    "courseu": int(os.getenv("CDP_PORT_COURSEU", "9227")),
+    "g20": int(os.getenv("CDP_PORT_G20", "9228")),
+    "intermarche": int(os.getenv("CDP_PORT_INTERMARCHE", "9229")),
+    "leclerc": int(os.getenv("CDP_PORT_LECLERC", "9230")),
+    "monoprix": int(os.getenv("CDP_PORT_MONOPRIX", "9231")),
+}
+
+
+def _cdp_url_for_adapter(adapter: str) -> Optional[str]:
+    port = ADAPTER_CDP_PORTS.get(adapter)
+    if not port:
+        return None
+    return f"http://127.0.0.1:{port}"
 
 EAN_ONLY_ADAPTERS = {
     "carrefour_city",
@@ -1749,6 +1770,10 @@ def run_adapter(
     if callable(configured_env):
         configured_env = configured_env()
     env.update(configured_env or {})
+    if "CDP_URL" not in env:
+        adapter_cdp = _cdp_url_for_adapter(adapter)
+        if adapter_cdp:
+            env["CDP_URL"] = adapter_cdp
     if extra_env:
         env.update(extra_env)
     env["EAN"] = ean
@@ -2199,25 +2224,32 @@ def main(argv: Optional[List[str]] = None) -> int:
     if not default_keywords:
         default_keywords = heuristic_keywords
 
-    for adapter in adapters:
-        print(f"\n=== Adaptateur {adapter} ===")
-        if adapter in seed_results:
-            res = seed_results[adapter]
-            annotate_adapter_payload(adapter, res.payload, ean=ean)
-            results.append(res)
-            print(json.dumps(res.payload, ensure_ascii=False))
-            if res.error:
-                print(f"[WARN] {adapter} -> {res.error}")
-        else:
-            adapter_debug: Optional[Path] = None
-            if debug_root:
-                adapter_debug = debug_root / f"{len(results)+1:02d}-{adapter}"
-                adapter_debug.mkdir(parents=True, exist_ok=True)
+parallel_adapters = os.getenv("PARALLEL_ADAPTERS", "0").lower() in {"1", "true", "yes"}
 
-            adapter_query = query
-            keywords_for_adapter = adapter_keyword_map.get(adapter) or default_keywords
-            if not keywords_for_adapter:
-                keywords_for_adapter = heuristic_keywords
+    def _prepare_adapter(adapter_name: str, index: int):
+        adapter_debug: Optional[Path] = None
+        if debug_root:
+            adapter_debug = debug_root / f"{index:02d}-{adapter_name}"
+            adapter_debug.mkdir(parents=True, exist_ok=True)
+        adapter_query = query
+        keywords_for_adapter = adapter_keyword_map.get(adapter_name) or default_keywords
+        if not keywords_for_adapter:
+            keywords_for_adapter = heuristic_keywords
+        return adapter_debug, adapter_query, keywords_for_adapter
+
+    if not parallel_adapters:
+        for idx, adapter in enumerate(adapters, 1):
+            print(f"\n=== Adaptateur {adapter} ===")
+            if adapter in seed_results:
+                res = seed_results[adapter]
+                annotate_adapter_payload(adapter, res.payload, ean=ean)
+                results.append(res)
+                print(json.dumps(res.payload, ensure_ascii=False))
+                if res.error:
+                    print(f"[WARN] {adapter} -> {res.error}")
+                continue
+
+            adapter_debug, adapter_query, keywords_for_adapter = _prepare_adapter(adapter, len(results)+1)
             res = run_adapter(
                 adapter,
                 ean,
@@ -2235,6 +2267,59 @@ def main(argv: Optional[List[str]] = None) -> int:
                 print(f"[WARN] {adapter} -> {res.error}")
             if adapter_debug:
                 res.metadata["debug_dir"] = str(adapter_debug)
+    else:
+        tasks = []
+        adapter_order = list(adapters)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=len(adapter_order)) as executor:
+            for idx, adapter in enumerate(adapter_order, 1):
+                if adapter in seed_results:
+                    res = seed_results[adapter]
+                    annotate_adapter_payload(adapter, res.payload, ean=ean)
+                    results.append(res)
+                    print(f"\n=== Adaptateur {adapter} ===")
+                    print(json.dumps(res.payload, ensure_ascii=False))
+                    if res.error:
+                        print(f"[WARN] {adapter} -> {res.error}")
+                    continue
+                adapter_debug, adapter_query, keywords_for_adapter = _prepare_adapter(adapter, idx)
+                fut = executor.submit(
+                    run_adapter,
+                    adapter,
+                    ean,
+                    adapter_query,
+                    headless=not args.headed,
+                    proxy=args.proxy,
+                    extra_env={"HUMAN_DEBUG_DIR": str(adapter_debug)} if adapter_debug else None,
+                    descriptor=descriptor,
+                    finder_keywords=keywords_for_adapter,
+                )
+                tasks.append((adapter, adapter_debug, fut))
+
+            for adapter, adapter_debug, fut in tasks:
+                print(f"\n=== Adaptateur {adapter} ===")
+                try:
+                    res = fut.result()
+                except Exception as exc:  # pragma: no cover - defensive
+                    res = RawAdapterResult(
+                        adapter=adapter,
+                        status="ERROR",
+                        payload={"status": "ERROR", "error": str(exc)},
+                        started_at=datetime.now(PARIS_TZ),
+                        finished_at=datetime.now(PARIS_TZ),
+                        script_path=str(ADAPTER_SCRIPTS[adapter]["script"]),
+                        command=[sys.executable, str(ADAPTER_SCRIPTS[adapter]["script"])],
+                        env={},
+                        exit_code=-1,
+                        stdout="",
+                        stderr=str(exc),
+                    )
+                annotate_adapter_payload(adapter, res.payload, ean=ean)
+                results.append(res)
+                print(json.dumps(res.payload, ensure_ascii=False))
+                if res.error:
+                    print(f"[WARN] {adapter} -> {res.error}")
+                if adapter_debug:
+                    res.metadata["debug_dir"] = str(adapter_debug)
 
     descriptor = ensure_brand_from_results(ean, descriptor, results)
     descriptor = ensure_nutriscore_from_results(ean, descriptor, results)
