@@ -76,4 +76,17 @@ DYNAMIC_SEEDS: dict[str, dict] = {'3092718637033': {'brand': 'Teisseire',
                    'seed_primary_name': 'Dessert végétal soja nature à la noix de coco ALPRO',
                    'seed_primary_quantity': '500 G',
                    'seed_query': 'Alpro Dessert végétal soja nature noix coco 500 G',
-                   'source': 'unknown'}}
+                   'source': 'unknown'},
+ '7064343373767': {'brand': 'Pile',
+                   'description': 'Pile Mini 377376 x1',
+                   'ean': '7064343373767',
+                   'leclerc_queries': ['Pile Mini 377376 x1', '7064343373767'],
+                   'leclerc_query': 'Pile Mini 377376 x1',
+                   'name': 'Pile Mini 377376 x1',
+                   'note': '2025-11-17T10:23:42Z · Super U Eysines',
+                   'nutriscore_grade': 'c',
+                   'nutriscore_image': 'https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ '
+                                       'dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png',
+                   'removed': False,
+                   'seed_query': 'Pile Mini',
+                   'source': 'courseu'}}

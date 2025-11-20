@@ -1,0 +1,15 @@
+[Unit]
+Description=Maxicourses Chrome headless (CDP 9222) for %i
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/home/%i/Sites/maxicourses-ovh/www/maxicourses_test
+Environment=DISPLAY=
+ExecStart=/home/%i/Sites/maxicourses-ovh/www/maxicourses_test/start_chrome_debug_headless.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

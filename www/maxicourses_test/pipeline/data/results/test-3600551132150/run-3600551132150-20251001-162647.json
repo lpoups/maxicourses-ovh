@@ -1,0 +1,59 @@
+{
+  "ean": "3600551132150",
+  "image_path": null,
+  "started_at": "2025-10-01T16:25:53.033966",
+  "finished_at": "2025-10-01T16:26:47.608521",
+  "duration_seconds": 54.574555,
+  "reference": {
+    "title": "Gel douche surgras lait d'amandes Cadum",
+    "description": "Gel douche surgras Cadum au lait d'amandes, peau sensible, flacon 450 ml.",
+    "source": "auchan",
+    "brand": "Cadum",
+    "quantity": "Flacon 450 ml",
+    "categories": null,
+    "image": "./assets/cadum-creme-douche.jpg",
+    "nutriscore_grade": null,
+    "nutriscore_score": null,
+    "nutriscore_image": null
+  },
+  "notes": [
+    "Human debug captures dans results/test-3600551132150/debug/run-3600551132150-20251001-162553"
+  ],
+  "adapters": [
+    {
+      "adapter": "chronodrive",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "matched_ean": null
+      },
+      "started_at": "2025-10-01T16:25:53.035198",
+      "finished_at": "2025-10-01T16:26:47.608135",
+      "duration_seconds": 54.572937,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3600551132150",
+        "QUERY": "3600551132150",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "results/test-3600551132150/debug/run-3600551132150-20251001-162553/01-chronodrive"
+      }
+    }
+  ]
+}

@@ -1,0 +1,601 @@
+{
+  "ean": "3665468000329",
+  "image_path": null,
+  "started_at": "2025-11-14T14:06:53.623269+01:00",
+  "finished_at": "2025-11-14T14:11:46.947068+01:00",
+  "duration_seconds": 293.323799,
+  "reference": {
+    "title": "Déboucheur Express Gel Multi-Usages DESTOP",
+    "description": "Déboucheur Express Gel Multi-Usages DESTOP",
+    "source": "carrefour_super",
+    "brand": "Destop",
+    "quantity": "950 ML",
+    "categories": null,
+    "image": "./assets/3665468000329.jpg",
+    "nutriscore_grade": "c",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,80",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/deboucheur-express-gel-multi-usages-destop-366546800 0329",
+        "note": null,
+        "unit_price": "5,05 € / L",
+        "quantity": "950 ML",
+        "title": "Déboucheur Express Gel Multi-Usages DESTOP",
+        "matched_ean": "3665468000329",
+        "image": "https://media.carrefour.fr/medias/50e88981fe8246d4a2cda1b4e136409d/p_540x540/03 665468000329_A1N1_s02.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Déboucheur Express Gel Multi-Usages DESTOP",
+          "brand": "Déboucheur",
+          "kind": "",
+          "qty": "950 ML",
+          "qualifiers": [],
+          "ean": "3665468000329",
+          "image_url": "https://media.carrefour.fr/medias/50e88981fe8246d4a2cda1b4e136409d/p_540x540/03 665468000329_A1N1_s02.jpeg",
+          "source": "carrefour_city",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-14T14:06:53.624062+01:00",
+      "finished_at": "2025-11-14T14:07:16.039983+01:00",
+      "duration_seconds": 22.415921,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "3665468000329",
+        "QUERY": "3665468000329",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3665468000329"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,39",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/deboucheur-express-gel-multi-usages-destop-366546800 0329",
+        "note": null,
+        "unit_price": "4,62 € / L",
+        "quantity": "950 ML",
+        "title": "Déboucheur Express Gel Multi-Usages DESTOP",
+        "matched_ean": "3665468000329",
+        "image": "https://media.carrefour.fr/medias/50e88981fe8246d4a2cda1b4e136409d/p_540x540/03 665468000329_A1N1_s02.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Déboucheur Express Gel Multi-Usages DESTOP",
+          "brand": "Déboucheur",
+          "kind": "",
+          "qty": "950 ML",
+          "qualifiers": [],
+          "ean": "3665468000329",
+          "image_url": "https://media.carrefour.fr/medias/50e88981fe8246d4a2cda1b4e136409d/p_540x540/03 665468000329_A1N1_s02.jpeg",
+          "source": "carrefour_market",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-14T14:07:16.043329+01:00",
+      "finished_at": "2025-11-14T14:07:33.607588+01:00",
+      "duration_seconds": 17.564259,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3665468000329",
+        "QUERY": "3665468000329",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3665468000329"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,39",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/deboucheur-express-gel-multi-usages-destop-366546800 0329",
+        "note": null,
+        "unit_price": "4,62 € / L",
+        "quantity": "950 ML",
+        "title": "Déboucheur Express Gel Multi-Usages DESTOP",
+        "matched_ean": "3665468000329",
+        "image": "https://media.carrefour.fr/medias/50e88981fe8246d4a2cda1b4e136409d/p_540x540/03 665468000329_A1N1_s02.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Déboucheur Express Gel Multi-Usages DESTOP",
+          "brand": "Déboucheur",
+          "kind": "",
+          "qty": "950 ML",
+          "qualifiers": [],
+          "ean": "3665468000329",
+          "image_url": "https://media.carrefour.fr/medias/50e88981fe8246d4a2cda1b4e136409d/p_540x540/03 665468000329_A1N1_s02.jpeg",
+          "source": "carrefour_super",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-14T14:07:33.610048+01:00",
+      "finished_at": "2025-11-14T14:07:54.128110+01:00",
+      "duration_seconds": 20.518062,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3665468000329",
+        "QUERY": "3665468000329",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3665468000329"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,74",
+        "title": "Gel déboucheur canalisations express à la soude",
+        "url": "https://www.auchan.fr/destop-gel-deboucheur-canalisations-express-a-la-soude/pr -C1628938",
+        "note": "Auchan (CDP)",
+        "unit_price": "3,94 € / L",
+        "quantity": "1  L",
+        "matched_ean": "3665468000329",
+        "image": "https://cdn.auchan.fr/media/S010000000403W4PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Gel déboucheur canalisations express à la soude",
+          "brand": "Gel",
+          "kind": "",
+          "qty": "1 L",
+          "qualifiers": [],
+          "ean": "3665468000329",
+          "image_url": "https://cdn.auchan.fr/media/S010000000403W4PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-14T14:07:54.129199+01:00",
+      "finished_at": "2025-11-14T14:08:21.473227+01:00",
+      "duration_seconds": 27.344028,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000329",
+        "QUERY": "3665468000329",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche '3665468000329'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/drive/magasins/auchan-drive-supermarche-talence-gallieni/destop-gel-deboucheur-canalisations-express-a-la-soude/pr-C1628938",
+      "metadata": {
+        "attempt_query": "3665468000329"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,35",
+        "title": "Déboucheur liquide express DESTOP",
+        "url": "https://www.chronodrive.com/destop--deboucheur-liquide-express-P201017",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "4,58 € / L",
+        "quantity": "950  ml",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3665468000329",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Déboucheur liquide express DESTOP",
+          "brand": "Déboucheur",
+          "kind": "",
+          "qty": "950 ml",
+          "qualifiers": [],
+          "ean": "3665468000329",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-14T14:08:21.475597+01:00",
+      "finished_at": "2025-11-14T14:08:27.289468+01:00",
+      "duration_seconds": 5.813871,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000329",
+        "QUERY": "3665468000329",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='3665468000329'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/destop--deboucheur-liquide-express-P201017",
+      "metadata": {
+        "attempt_query": "3665468000329"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,42",
+        "unit_price": "3,60 € / L",
+        "quantity": "950  ml",
+        "title": "Destop déboucheur gel express 950ml",
+        "url": "https://www.coursesu.com/p/destop-deboucheur-gel-express-950ml/3628830.html",
+        "note": "2025-11-14T13:08:57Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "3665468000329",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Destop déboucheur gel express 950ml",
+          "brand": "Destop",
+          "kind": "",
+          "qty": "950 ml",
+          "qualifiers": [],
+          "ean": "3665468000329",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-14T14:08:27.290537+01:00",
+      "finished_at": "2025-11-14T14:08:57.503088+01:00",
+      "duration_seconds": 30.212551,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000329",
+        "QUERY": "3665468000329",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3665468000329"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,60",
+        "title": "Destop Déboucheur Gel Express 950ML",
+        "url": "https://www.g20-minute.com/products/3665468000329/destop-deboucheur-gel-express-950ml-3665468000329",
+        "note": "G20 Minute",
+        "unit_price": "3,79 €/L",
+        "quantity": "95cL",
+        "matched_ean": "3665468000329",
+        "image": "https://www.g20-minute.com/media/cache/product_box_image/68/b0/7f231debf190d196204382c2d05e.jpg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Destop Déboucheur Gel Express 950ML",
+          "brand": "Destop",
+          "kind": "",
+          "qty": "95cL",
+          "qualifiers": [],
+          "ean": "3665468000329",
+          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/68/b0/7f231debf190d196204382c2d05e.jpg",
+          "source": "g20",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-14T14:08:57.504269+01:00",
+      "finished_at": "2025-11-14T14:08:58.556396+01:00",
+      "duration_seconds": 1.052127,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000329",
+        "QUERY": "3665468000329",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "3665468000329"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,39",
+        "title": "Gel déboucheur express",
+        "url": "https://www.intermarche.com/produit/gel-deboucheur-express/3665468000329",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "3665468000329",
+        "unit_price": "4,03 € / L",
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/gel-deboucheur-express/3665468000329",
+            "product": {
+              "title": "DestopGel déboucheur express",
+              "brand": "DestopGel",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3665468000329",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": null
+      },
+      "started_at": "2025-11-14T14:08:59.066582+01:00",
+      "finished_at": "2025-11-14T14:09:44.222559+01:00",
+      "duration_seconds": 45.155977,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000329",
+        "QUERY": "Destop deboucheur 950 ML",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Destop deboucheur 950 ML"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Déboucheur Gel Destop Express - 4 doses - 950ml",
+        "price": "3,05",
+        "unit_price": "3,21 € / l",
+        "quantity": "",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-209860-Deboucheur-Gel-Destop-.aspx",
+        "matched_ean": "3665468000329",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-14T13:09:49Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-209860-Deboucheur-Gel-Destop-.aspx",
+            "product": {
+              "title": "Déboucheur Gel Destop Express - 4 doses - 950ml",
+              "brand": "Déboucheur",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3665468000329",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bc1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bc1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script"
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-14T14:09:44.226247+01:00",
+      "finished_at": "2025-11-14T14:09:49.743888+01:00",
+      "duration_seconds": 5.517641,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000329",
+        "QUERY": "Destop deboucheur 950 ML",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Destop deboucheur 950 ML'\n[LECLERC_DEBUG] after home human pause -> 1.37s\n[LECLERC_DEBUG] after focus -> 2.10s\n[LECLERC_DEBUG] results visible -> 3.66s\n[LECLERC_DEBUG] after result pause -> 3.76s",
+      "metadata": {
+        "attempt_query": "Destop deboucheur 950 ML"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-14T14:09:49.746198+01:00",
+      "finished_at": "2025-11-14T14:10:15.078351+01:00",
+      "duration_seconds": 25.332153,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000329",
+        "QUERY": "Destop deboucheur 950 ML",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '3665468000329'.\n[MONOPRIX_DEBUG] Search terms: ['Destop deboucheur 950 ML', 'Destop deboucheur 0,95 L']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez']\n[MONOPRIX_DEBUG]  - Term 1/2: 'Destop deboucheur 950 ML'\n[MONOPRIX_DEBUG]  - Typing 'Destop deboucheur 950 ML' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Destop%20deboucheur%20950%20ML\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/2: 'Destop deboucheur 0,95 L'\n[MONOPRIX_DEBUG]  - Typing 'Destop deboucheur 0,95 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Destop%20deboucheur%200%2C95%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=None)\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Destop deboucheur 950 ML"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Déboucheur Express Gel Multi-Usages DESTOP",
+      "brand": "Déboucheur",
+      "kind": "",
+      "qty": "950 ML",
+      "qualifiers": [],
+      "ean": "3665468000329",
+      "image_url": "https://media.carrefour.fr/medias/50e88981fe8246d4a2cda1b4e136409d/p_540x540/03 665468000329_A1N1_s02.jpeg",
+      "source": "consolidated",
+      "raw_text": "Déboucheur Express Gel Multi-Usages DESTOP"
+    },
+    "keywords": [
+      "Déboucheur express 950 ML",
+      "Déboucheur express 0.95 L",
+      "Déboucheur express 0,95 L",
+      "Déboucheur express 95 CL"
+    ],
+    "candidates": [
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/gel-deboucheur-express/3665468000329",
+        "score": 1.0,
+        "product": {
+          "title": "DestopGel déboucheur express",
+          "brand": "DestopGel",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "3665468000329",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:"
+        }
+      },
+      {
+        "adapter": "leclerc",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-209860-Deboucheur-Gel-Destop-.aspx",
+        "score": 0.4,
+        "product": {
+          "title": "Déboucheur Gel Destop Express - 4 doses - 950ml",
+          "brand": "Déboucheur",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "3665468000329",
+          "image_url": null,
+          "source": "leclerc",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bc1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bc1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script"
+        }
+      }
+    ],
+    "decision": {
+      "adapter": "intermarche",
+      "url": "https://www.intermarche.com/produit/gel-deboucheur-express/3665468000329",
+      "score": 1.0,
+      "product": {
+        "title": "DestopGel déboucheur express",
+        "brand": "DestopGel",
+        "kind": "",
+        "qty": "",
+        "qualifiers": [],
+        "ean": "3665468000329",
+        "image_url": null,
+        "source": "intermarche",
+        "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:"
+      }
+    },
+    "audit": []
+  }
+}

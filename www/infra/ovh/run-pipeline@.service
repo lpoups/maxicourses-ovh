@@ -1,0 +1,17 @@
+[Unit]
+Description=Maxicourses pipeline run for EAN %i
+After=network.target chrome-debug@maxi.service
+Requires=chrome-debug@maxi.service
+
+[Service]
+Type=oneshot
+User=maxi
+WorkingDirectory=/home/maxi/Sites/maxicourses-ovh/www/maxicourses_test
+Environment=PATH=/home/maxi/Sites/maxicourses-ovh/www/.venv/bin:/usr/bin
+EnvironmentFile=-/home/maxi/.config/maxicourses/env
+Environment=USE_CDP=1
+Environment=CDP_URL=http://127.0.0.1:9222
+ExecStart=/home/maxi/Sites/maxicourses-ovh/www/maxicourses_test/run_pipeline_server.sh %i
+
+[Install]
+WantedBy=multi-user.target

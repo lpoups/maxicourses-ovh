@@ -20,6 +20,18 @@ as tu compris le principe de la methode pour trouver les bons produits sur les m
 - Maintenir et enrichir les scripts de relevé de prix (Carrefour, Leclerc Drive, etc.)
 - Assurer une traçabilité claire des relevés (Chrome remote, captures si besoin) pour préparer le comparateur de prix intelligent.
 - Capitaliser l'historique (décisions, obstacles, artefacts) afin que tout nouvel assistant reprenne le travail sans perte d'information.
+- Migration OVH en standby tant que l’instance locale n’est pas parfaitement stabilisée et sanctuarisée : priorité absolue au bon fonctionnement local.
+- **2025-11-19 – Déploiement OVH** : un VPS Ubuntu 22.04 est prêt (`ubuntu@91.134.133.156` / mot de passe en Handover). Le repo `maxicourses-prod` + venv + Chrome headless sont installés. Les collectes doivent désormais s’exécuter sur ce VPS (Chrome 9222 via `xvfb-run`). Voir `docs/OVH_SERVER_SETUP.md` pour toutes les commandes. Toujours rapatrier les JSON depuis `~/maxicourses-prod/maxicourses_test/results/` avant de pousser vers `www/maxicourses-prod/…` sur le FTP.
+- **Blocages actuels** :
+  - `Leclerc Drive` : DataDome bloque l’IP OVH (voir captures `www/tmp/debug_store.{png,html}`). Tant qu’une solution proxy/tunnel n’est pas mise en place, désactiver Leclerc dans les commandes (`--adapters … monoprix`).
+  - `Carrefour City/Market/Super` : la même IP est désormais classée `CF_BLOCK`. Les scripts retournent `{"status":"CF_BLOCK"}`. Prévoir un fallback (proxy ou récupération manuelle via un navigateur humain).
+  - `Intermarché` : les adaptateurs tournent mais renvoient `NO_RESULTS` (les requêtes IA semblent rejetées, à investiguer).
+- **Procédure de collecte (sans Leclerc)** :
+  1. SSH sur le VPS, démarrer Chrome si besoin (`nohup xvfb-run … google-chrome-stable --remote-debugging-port=9222 …`).
+  2. Pour chaque EAN : `./maxicourses_test/run_pipeline_server.sh <EAN> --adapters carrefour_city carrefour_market carrefour_super auchan chronodrive courseu g20 intermarche monoprix`.
+  3. Récupérer `summary.json` + `test-<EAN>` via SCP, mettre à jour le dépôt local puis uploader vers `/www/maxicourses-prod/maxicourses_test/results/`.
+  4. Rafraîchir `index2.html` (il lit directement `results/summary.json` sur le FTP).
+- Noter toutes les anomalies (CF_BLOCK, DataDome, erreurs Intermarché) dans `docs/HANDOVER_DAILY.md` avec horodatage + captures.
 
 ## Incidents critiques (2025-11-18)
 - **Auchan Talence** : `fetch_auchan_price.py` déclenche maintenant `choose_drive()` avant chaque recherche. Le script clique sur « Choisir ce drive », attend 4 s pour que Talence Gallieni soit fixé, puis ouvre la fiche et force l’affichage du prix. Si le bouton réapparaît, rejouer la trace `traces/auchan-20251104-talence-orangina.jsonl`, relancer Chrome 9222 et contrôler les logs `[auchan] goto store page … / results visible` avant de relancer la collecte.
@@ -84,6 +96,7 @@ Recommencer l'intégralité de la collect AUCHAN car tout a été saccagé par l
   Une fois ce descriptif fiable (titre, quantité) récupéré, l’intégrer dans `seed_catalog.py` et l’utiliser pour enchaîner Intermarché, Leclerc puis Monoprix (qui ne prennent pas l’EAN brut).
 2. **Leclerc Drive** : toute interaction passe par Chrome remote (port 9222) + validation visuelle. `USE_CDP=1`, `HEADLESS=0`. Aucun scraping headless ni requête directe.
 3. **Carrefour** : privilégier Chrome remote pour contourner Cloudflare. Toujours sauvegarder au besoin les captures (`HUMAN_DEBUG_DIR`).
+4. **Images seed** : l’image de référence doit être issue de Carrefour en priorité ; si absente, choisir une autre enseigne seed acceptant l’EAN (Auchan, Chronodrive, Course U). Mettre à jour l’asset local et `seed_catalog.py` avant tout matching (Monoprix/Leclerc/Intermarché) pour éviter les validations sur de mauvais visuels.
 6. **Validation commits** : toujours demander l’accord explicite de l’utilisateur avant tout `git commit` (ou action équivalente).
 7. **Documentation vivante** : mettre à jour les fichiers de handover pour tout changement significatif.
 8. **Requêtes IA** : après chaque seed réussi, lancer `USE_AI_ASSIST=true ./run_ai_pipeline.sh <EAN>` pour générer (OpenAI) des requêtes ≤30 caractères destinées aux enseignes textuelles (Leclerc/Monoprix/Intermarché). Reporter les requêtes validées dans `seed_catalog.py`.

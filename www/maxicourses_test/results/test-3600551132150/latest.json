@@ -1,33 +1,34 @@
 {
   "ean": "3600551132150",
   "image_path": null,
-  "started_at": "2025-10-01T16:49:12.695269",
-  "finished_at": "2025-10-01T16:51:27.326941",
-  "duration_seconds": 134.631672,
+  "started_at": "2025-11-19T22:44:04.981965+01:00",
+  "finished_at": "2025-11-19T22:54:04.691801+01:00",
+  "duration_seconds": 599.709836,
   "reference": {
-    "title": "Gel douche surgras lait d'amandes Cadum 450 ml",
-    "description": "Gel douche surgras Cadum au lait d'amandes, peau sensible, flacon 450 ml.",
-    "source": "auchan",
-    "brand": "Cadum",
-    "quantity": "Flacon 450 ml",
+    "title": "Crème douche surgras lait d'amandes peau nourrie",
+    "description": "Crème douche surgras lait d'amandes peau nourrie",
+    "source": "g20",
+    "brand": "C1746425",
+    "quantity": "5 L",
     "categories": null,
-    "image": "./assets/cadum-creme-douche.jpg",
-    "nutriscore_grade": null,
+    "image": "./assets/3600551132150.jpg",
+    "nutriscore_grade": "unknown",
     "nutriscore_score": null,
-    "nutriscore_image": null
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
   },
-  "notes": [
-    "Human debug captures dans results/test-3600551132150/debug/run-3600551132150-20251001-164912"
-  ],
+  "notes": [],
   "adapters": [
     {
       "adapter": "carrefour_city",
-      "status": "NO_PRICE",
+      "status": "CF_BLOCK",
       "payload": {
-        "status": "NO_PRICE",
+        "status": "CF_BLOCK",
         "price": null,
-        "store": "City Bordeaux Balguerie",
-        "url": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=3600551132150",
         "note": null,
         "unit_price": null,
         "quantity": null,
@@ -35,37 +36,40 @@
         "matched_ean": null,
         "image": null,
         "nutriscore_grade": null,
-        "nutriscore_image": null
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
       },
-      "started_at": "2025-10-01T16:49:12.695864",
-      "finished_at": "2025-10-01T16:49:31.386555",
-      "duration_seconds": 18.690691,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "started_at": "2025-11-19T22:44:04.982866+01:00",
+      "finished_at": "2025-11-19T22:44:12.058763+01:00",
+      "duration_seconds": 7.075897,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_carrefour_price_city.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_carrefour_price_city.py"
       ],
       "env": {
         "EAN": "3600551132150",
         "QUERY": "3600551132150",
         "CARREFOUR_STATE_VARIANT": "carrefour_city",
-        "HEADLESS": "0"
+        "HEADLESS": "1"
       },
       "exit_code": 0,
       "error": null,
       "stderr": null,
       "metadata": {
-        "debug_dir": "results/test-3600551132150/debug/run-3600551132150-20251001-164912/01-carrefour_city"
+        "attempt_query": "3600551132150"
       }
     },
     {
       "adapter": "carrefour_market",
-      "status": "NO_PRICE",
+      "status": "CF_BLOCK",
       "payload": {
-        "status": "NO_PRICE",
+        "status": "CF_BLOCK",
         "price": null,
-        "store": "Market Fondaudège",
-        "url": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=3600551132150",
         "note": null,
         "unit_price": null,
         "quantity": null,
@@ -73,27 +77,71 @@
         "matched_ean": null,
         "image": null,
         "nutriscore_grade": null,
-        "nutriscore_image": null
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
       },
-      "started_at": "2025-10-01T16:49:31.387324",
-      "finished_at": "2025-10-01T16:49:47.346243",
-      "duration_seconds": 15.958919,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "started_at": "2025-11-19T22:44:12.059270+01:00",
+      "finished_at": "2025-11-19T22:44:19.858502+01:00",
+      "duration_seconds": 7.799232,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_carrefour_price_market.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_carrefour_price_market.py"
       ],
       "env": {
         "EAN": "3600551132150",
         "QUERY": "3600551132150",
         "CARREFOUR_STATE_VARIANT": "carrefour_market",
-        "HEADLESS": "0"
+        "HEADLESS": "1"
       },
       "exit_code": 0,
       "error": null,
       "stderr": null,
       "metadata": {
-        "debug_dir": "results/test-3600551132150/debug/run-3600551132150-20251001-164912/02-carrefour_market"
+        "attempt_query": "3600551132150"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "CF_BLOCK",
+      "payload": {
+        "status": "CF_BLOCK",
+        "price": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=3600551132150",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-19T22:44:19.858837+01:00",
+      "finished_at": "2025-11-19T22:44:27.199721+01:00",
+      "duration_seconds": 7.340884,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3600551132150",
+        "QUERY": "3600551132150",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3600551132150"
       }
     },
     {
@@ -102,139 +150,329 @@
       "payload": {
         "status": "OK",
         "price": "3,69",
-        "title": "Crème douche surgras lait d'amandes  peau nourrie",
-        "url": "https://www.auchan.fr/cadum-creme-douche-surgras-lait-d-amandes-peau-nourrie/pr -C1746425",
-        "note": "Auchan (CDP)",
         "unit_price": "8,20 € / L",
-        "quantity": "Flacon 450 ml",
+        "quantity": "5 L",
+        "title": "Crème douche surgras lait d'amandes peau nourrie",
+        "url": "https://www.auchan.fr/cadum-creme-douche-surgras-lait-d-amandes-peau-nourrie/pr -C1746425",
         "matched_ean": "3600551132150",
-        "image": "https://cdn.auchan.fr/media/S01000000040CAYPRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200"
+        "store": "Auchan Drive Supermarché  Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S01000000040CAYPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Crème douche surgras lait d'amandes peau nourrie",
+          "brand": "Crème",
+          "kind": "",
+          "qty": "5 L",
+          "qualifiers": [],
+          "ean": "3600551132150",
+          "image_url": "https://cdn.auchan.fr/media/S01000000040CAYPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": ""
+        }
       },
-      "started_at": "2025-10-01T16:49:47.346940",
-      "finished_at": "2025-10-01T16:50:00.788348",
-      "duration_seconds": 13.441408,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "started_at": "2025-11-19T22:44:27.200006+01:00",
+      "finished_at": "2025-11-19T22:44:44.473775+01:00",
+      "duration_seconds": 17.273769,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_auchan_price.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_auchan_price.py"
       ],
       "env": {
         "EAN": "3600551132150",
         "QUERY": "3600551132150",
-        "HOME_URL": "https://www.auchan.fr",
-        "HEADLESS": "0"
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "[auchan] recherche '3600551132150'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/cadum-creme-douche-surgras-lait-d-amandes-peau-nourrie/pr-C1746425",
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] results visible, opening first candidate",
       "metadata": {
-        "debug_dir": "results/test-3600551132150/debug/run-3600551132150-20251001-164912/03-auchan"
+        "attempt_query": "3600551132150"
       }
     },
     {
       "adapter": "chronodrive",
-      "status": "OK",
+      "status": "NO_RESULTS",
       "payload": {
-        "status": "OK",
-        "price": "3,35",
-        "title": "Crème douche à la crème d'amande  CADUM Surdoux 450 ml",
-        "url": "https://www.chronodrive.com/cadum--surdoux---creme-douche-a-la-creme-damande-P9 4133",
-        "note": "Chronodrive Le Haillan",
-        "unit_price": "7,44 € / L",
-        "quantity": "450 ML",
-        "store": "Chronodrive Le Haillan",
-        "matched_ean": "3600551132082"
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
       },
-      "started_at": "2025-10-01T16:50:00.789677",
-      "finished_at": "2025-10-01T16:50:31.347693",
-      "duration_seconds": 30.558016,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "started_at": "2025-11-19T22:44:44.476965+01:00",
+      "finished_at": "2025-11-19T22:45:56.993996+01:00",
+      "duration_seconds": 72.517031,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_chronodrive_price.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_chronodrive_price.py"
       ],
       "env": {
         "EAN": "3600551132150",
         "QUERY": "3600551132150",
         "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
-        "HEADLESS": "0"
+        "HEADLESS": "1"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": null,
+      "stderr": "[CHRONO_DEBUG] term='3600551132150'\n[CHRONO_DEBUG] typed=False\n[CHRONO_DEBUG] fallback search URL https://www.chronodrive.com/magasin/le-haillan-422/recherche?text=3600551132150\n[CHRONO_DEBUG] URL after search: https://www.chronodrive.com/magasin/le-haillan-422/recherche?text=3600551132150\n[CHRONO_DEBUG] no product cards; snapshot snippet:\n<!DOCTYPE html><html data-n-head-ssr=\"\" lang=\"fr-FR\" dir=\"ltr\" data-n-head=\"%7B%22lang%22:%7B%22ssr%22:%22fr-FR%22%7D,%22dir%22:%7B%22ssr%22:%22ltr%22%7D%7D\"><head>\n    <meta data-n-head=\"ssr\" charset=\"utf-8\"><meta data-n-head=\"ssr\" name=\"viewport\" content=\"width=device-width,initial-scale=1.0,shrink-to-fit=no\"><meta data-n-head=\"ssr\" data-hid=\"description\" name=\"description\" content=\"\"><meta data-n-head=\"ssr\" name=\"format-detection\" content=\"telephone=no\"><meta data-n-head=\"ssr\" name=\"apple-itunes-app\" content=\"app-id=397935048\"><meta data-n-head=\"ssr\" name=\"google-play-app\" content=\"app-id=com.ikomobi.chronodrive\"><meta data-n-head=\"ssr\" name=\"msapplication-TileColor\" content=\"#ffffff\"><meta data-n-head=\"ssr\" name=\"msapplication-config\" content=\"/favicons/browserconfig.xml\"><meta data-n-",
       "metadata": {
-        "debug_dir": "results/test-3600551132150/debug/run-3600551132150-20251001-164912/04-chronodrive"
+        "attempt_query": "3600551132150"
       }
     },
     {
-      "adapter": "leclerc",
+      "adapter": "courseu",
       "status": "OK",
       "payload": {
         "status": "OK",
-        "title": "Gel Douche Sans Savon Bio Cadum Huile d'Amandes Douces - 450ml",
-        "price": "2,62",
-        "unit_price": "5,82 € / l",
-        "quantity": "Flacon 450 ml",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-213606-Gel-Douche-Sans-Savon-Bio-Cadum.aspx",
-        "matched_ean": null,
-        "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-10-01T16:51:09Z · E.Leclerc Drive · Bruges"
+        "price": "2,70",
+        "unit_price": "6,00 € / L",
+        "quantity": "450  ml",
+        "title": "Crème douche surgras lait d'amandes bio CADUM - flacon 450ml",
+        "url": "https://www.coursesu.com/p/creme-douche-surgras-lait-damandes-bio-cadum---flaco n-450ml/5076555.html",
+        "note": "2025-11-19T21:46:36Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "3600551132150",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Crème douche surgras lait d'amandes bio CADUM - flacon 450ml",
+          "brand": "Crème",
+          "kind": "",
+          "qty": "450 ml",
+          "qualifiers": [],
+          "ean": "3600551132150",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
       },
-      "started_at": "2025-10-01T16:50:31.348750",
-      "finished_at": "2025-10-01T16:51:09.246441",
-      "duration_seconds": 37.897691,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "started_at": "2025-11-19T22:45:56.994815+01:00",
+      "finished_at": "2025-11-19T22:46:36.425936+01:00",
+      "duration_seconds": 39.431121,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_courseu_price.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_courseu_price.py"
       ],
       "env": {
         "EAN": "3600551132150",
-        "QUERY": "Cadum gel douche surgras amande 450 ml",
-        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
-        "HEADLESS": "0"
+        "QUERY": "3600551132150",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
       },
       "exit_code": 0,
       "error": null,
       "stderr": null,
       "metadata": {
-        "debug_dir": "results/test-3600551132150/debug/run-3600551132150-20251001-164912/05-leclerc"
+        "attempt_query": "3600551132150"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,19",
+        "title": "CADUM DOUCHE 450ML MILKY AMANDE",
+        "url": "https://www.g20-minute.com/products/3600551132150/cadum-douche-450ml-milky-amande-3600551132150",
+        "note": "G20 Minute",
+        "unit_price": "7,09 €/L",
+        "quantity": "45cL",
+        "matched_ean": "3600551132150",
+        "image": "https://www.g20-minute.com/media/cache/product_box_image/c8/61/9612efb16562be194114205c6f84.jpg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "CADUM DOUCHE 450ML MILKY AMANDE",
+          "brand": "CADUM",
+          "kind": "",
+          "qty": "45cL",
+          "qualifiers": [],
+          "ean": "3600551132150",
+          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/c8/61/9612efb16562be194114205c6f84.jpg",
+          "source": "g20",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-19T22:46:36.428727+01:00",
+      "finished_at": "2025-11-19T22:46:36.939925+01:00",
+      "duration_seconds": 0.511198,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "3600551132150",
+        "QUERY": "3600551132150",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3600551132150"
       }
     },
     {
       "adapter": "intermarche",
-      "status": "OK",
+      "status": "NO_RESULTS",
       "payload": {
-        "status": "OK",
-        "price": "2,39",
-        "title": "Crème douche surgras au lait  d'amandes",
-        "url": "https://www.intermarche.com/produit/creme-douche-surgras-au-lait-d'amandes/3600 551132150",
-        "note": "Intermarché · Super Talence",
-        "matched_ean": "3600551132150",
-        "unit_price": "5,31 € / L",
-        "quantity": "Flacon 450 ml",
-        "store": "Super Talence"
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
       },
-      "started_at": "2025-10-01T16:51:09.249207",
-      "finished_at": "2025-10-01T16:51:27.326506",
-      "duration_seconds": 18.077299,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "started_at": "2025-11-19T22:46:41.005902+01:00",
+      "finished_at": "2025-11-19T22:47:00.357341+01:00",
+      "duration_seconds": 19.351439,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_intermarche_price.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_intermarche_price.py"
       ],
       "env": {
         "EAN": "3600551132150",
-        "QUERY": "Cadum gel douche surgras amande 450 ml",
+        "QUERY": "C1746425 amandes 5 L",
         "HOME_URL": "https://www.intermarche.com/accueil",
-        "HEADLESS": "0"
+        "HEADLESS": "1"
       },
       "exit_code": 0,
       "error": null,
       "stderr": null,
       "metadata": {
-        "debug_dir": "results/test-3600551132150/debug/run-3600551132150-20251001-164912/06-intermarche"
+        "attempt_query": "C1746425 amandes 5 L"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/cadum-crème-douche-peaux-sensibles-probiot ique-400ml/MPX_6602075",
+            "product": {
+              "title": "Cadum  Crème Douche Peaux Sensibles Probiotique 400ml",
+              "brand": "C1746425",
+              "kind": "Crème douche surgras lait d'amandes peau nourrie",
+              "qty": "400 ML",
+              "qualifiers": [],
+              "ean": "3600551132150",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d55e f3ae-8e07-48e4-a76f-c9dac00cc82e/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/so-bio-étic-crème-de-douche-hydratante-au- lait-d-ânesse-bio-650ml/MPX_3171421",
+            "product": {
+              "title": "SO'BiO Étic Crème de Douche Hydratante au lait d'ânesse Bio 650ml",
+              "brand": "C1746425",
+              "kind": "Crème douche surgras lait d'amandes peau nourrie",
+              "qty": "650 ML",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/85fa 6f07-bbdb-4225-8dcf-f9b8aea63560/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/monoprix-crème-de-douche-à-l-amande-douce- 200ml/MPX_4215684",
+            "product": {
+              "title": "Monoprix Crème de Douche à l'amande douce 200ml",
+              "brand": "C1746425",
+              "kind": "Crème douche  surgras lait d'amandes peau nourrie",
+              "qty": "200 ML",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/bfa3 50a2-b042-4c23-b093-fa02a2ee7b3e/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/monoprix-crème-de-douche-à-l-amande-et-au- karité-250ml/MPX_2309614",
+            "product": {
+              "title": "Monoprix Crème De Douche À L'Amande Et Au Karité 250ml",
+              "brand": "C1746425",
+              "kind": "Crème douche surgras lait d'amandes peau nourrie",
+              "qty": "250 ML",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/f6a3 4d37-666d-48d2-9a41-84712dd9c43d/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-19T22:48:29.940781+01:00",
+      "finished_at": "2025-11-19T22:49:52.402100+01:00",
+      "duration_seconds": 82.461319,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "3600551132150",
+        "QUERY": "C1746425 amandes 5 L",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '3600551132150'.\n[MONOPRIX_DEBUG] Search terms: ['creme douche', 'creme douche surgras', 'C1746425 amandes 5 L']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/3: 'creme douche'\n[MONOPRIX_DEBUG]  - Typing 'creme douche' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=creme%20douche\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 50 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/cadum-crème-douche-peaux-sensibles-probiotique-400ml/MPX_6602075\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d55ef3ae-8e07-48e4-a76f-c9dac00cc82e/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/cadum-crème-douche-peaux-sensibles-probiotique-400ml/MPX_6602075\n[MONOPRIX_DEBUG][SCORE] - Title: 'Cadum Crème Douche Peaux Sensibles Probiotique 400ml' | Brand: 'c1746425' | Variant(seed/cand)=(None/coco) | Vetoes=['size_out_of_range', 'descriptor_coverage'] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Cadum Crème Douche Peaux Sensibles Probiotique 400ml'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Cadum Crème Douche Peaux Sensibles Probiotique 400ml' | vetoes=['size_out_of_range', 'descriptor_coverage', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/so-bio-étic-crème-de-douche-hydratante-au-lait-d-ânesse-bio-650ml/MPX_3171421\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/85fa6f07-bbdb-4225-8dcf-f9b8aea63560/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/so-bio-étic-crème-de-douche-hydratante-au-lait-d-ânesse-bio-650ml/MPX_3171421\n[MONOPRIX_DEBUG][SCORE] - Title: 'SO'BiO Étic Crème de Douche Hydratante au lait d'ânesse Bio 650ml' | Brand: 'c1746425' | Variant(seed/cand)=(None/nature) | Vetoes=['size_out_of_range', 'descriptor_coverage'] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'SO'BiO Étic Crème de Douche Hydratante au lait d'ânesse Bio 650ml'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'SO'BiO Étic Crème de Douche Hydratante au lait d'ânesse Bio 650ml' | vetoes=['size_out_of_range', 'descriptor_coverage', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/monoprix-crème-de-douche-à-l-amande-douce-200ml/MPX_4215684\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/bfa350a2-b042-4c23-b093-fa02a2ee7b3e/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/monoprix-crème-de-douche-à-l-amande-douce-200ml/MPX_4215684\n[MONOPRIX_DEBUG][SCORE] - Title: 'Monoprix Crème de Douche à l'amande douce 200ml' | Brand: 'c1746425' | Variant(seed/cand)=(None/amande) | Vetoes=['size_out_of_range', 'descriptor_coverage'] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Monoprix Crème de Douche à l'amande douce 200ml'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Monoprix Crème de Douche à l'amande douce 200ml' | vetoes=['size_out_of_range', 'descriptor_coverage', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/monoprix-crème-de-douche-à-l-amande-et-au-karité-250ml/MPX_2309614\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/f6a34d37-666d-48d2-9a41-84712dd9c43d/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/monoprix-crème-de-douche-à-l-amande-et-au-karité-250ml/MPX_2309614\n[MONOPRIX_DEBUG][SCORE] - Title: 'Monoprix Crème De Douche À L'Amande Et Au Karité 250ml' | Brand: 'c1746425' | Variant(seed/cand)=(None/amande) | Vetoes=['size_out_of_range', 'descriptor_coverage'] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Monoprix Crème De Douche À L'Amande Et Au Karité 250ml'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Monoprix Crème De Douche À L'Amande Et Au Karité 250ml' | vetoes=['size_out_of_range', 'descriptor_coverage', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'Cadum Crème Douche Peaux Sensibles Probiotique 400ml' (Score: 30) | vetoes=['size_out_of_range', 'descriptor_coverage', 'core_token']\n[MONOPRIX_DEBUG]  - Term 2/3: 'creme douche surgras'\n[MONOPRIX_DEBUG]  - Typing 'creme douche surgras' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=creme%20douche%20surgras\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 12 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/para-rogé-cavaillès-gel-douche-crème-de-lait-surgras-réhydratation-200ml/MPX_4282\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4a8f6293-b743-4117-97bd-b1ae109278a6/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/para-rogé-cavaillès-gel-douche-crème-de-lait-surgras-réhydratation-200ml/MPX_4282\n[MONOPRIX_DEBUG][SCORE] - Title: '[Para] Rogé Cavaillès Gel Douche Crème de Lait Surgras Réhydratation 200ml' | Brand: 'c1746425' | Variant(seed/cand)=(None/coco) | Vetoes=['size_out_of_range', 'descriptor_coverage'] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for '[Para] Rogé Cavaillès Gel Douche Crème de Lait Surgras Réhydratation 200ml'.\n[MONOPRIX_DEBUG]  - Candidate rejected '[Para] Rogé Cavaillès Gel Douche Crème de Lait Surgras Réhydratation 200ml' | vetoes=['size_out_of_range', 'descriptor_coverage', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/para-la-roche-posay-lipikar-surgras-crème-lavante-anti-dessèchement-400ml/MPX_1344552\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/c0995a85-2d62-40ed-8470-31483d61e81d/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/para-la-roche-posay-lipikar-surgras-crème-lavante-anti-dessèchement-400ml/MPX_1344552\n[MONOPRIX_DEBUG][SCORE] - Title: '[Para] La Roche-Posay Lipikar surgras crème lavante anti-dessèchement 400ml' | Brand: 'c1746425' | Variant(seed/cand)=(None/coco) | Vetoes=['size_out_of_range', 'descriptor_coverage'] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for '[Para] La Roche-Posay Lipikar surgras crème lavante anti-dessèchement 400ml'.\n[MONOPRIX_DEBUG]  - Candidate rejected '[Para] La Roche-Posay Lipikar surgras crème lavante anti-dessèchement 400ml' | vetoes=['size_out_of_range', 'descriptor_coverage', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/para-la-roche-posay-lipikar-surgras-crème-lavante-anti-dessèchement-750ml/MPX_3563225\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/483033f9-ee15-4dfe-ba8c-fa7a2937fa6c/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/para-la-roche-posay-lipikar-surgras-crème-lavante-anti-dessèchement-750ml/MPX_3563225\n[MONOPRIX_DEBUG][SCORE] - Title: '[Para] La Roche Posay Lipikar Surgras Crème Lavante Anti-Dessèchement 750ml' | Brand: 'c1746425' | Variant(seed/cand)=(None/coco) | Vetoes=['size_out_of_range', 'descriptor_coverage'] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for '[Para] La Roche Posay Lipikar Surgras Crème Lavante Anti-Dessèchement 750ml'.\n[MONOPRIX_DEBUG]  - Candidate rejected '[Para] La Roche Posay Lipikar Surgras Crème Lavante Anti-Dessèchement 750ml' | vetoes=['size_out_of_range', 'descriptor_coverage', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/cadum-crème-douche-surgras-miel-de-fleurs-450ml/MPX_6647044\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/eca9aed4-bf32-497d-b9f2-156579febe56/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/cadum-crème-douche-surgras-miel-de-fleurs-450ml/MPX_6647044\n[MONOPRIX_DEBUG][SCORE] - Title: 'Cadum Crème Douche Surgras Miel de Fleurs 450ml' | Brand: 'c1746425' | Variant(seed/cand)=(None/None) | Vetoes=['size_out_of_range', 'descriptor_coverage'] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Cadum Crème Douche Surgras Miel de Fleurs 450ml'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Cadum Crème Douche Surgras Miel de Fleurs 450ml' | vetoes=['size_out_of_range', 'descriptor_coverage', 'core_token']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'Cadum Crème Douche Surgras Miel de Fleurs 450ml' (Score: 30) | vetoes=['size_out_of_range', 'descriptor_coverage', 'core_token']\n[MONOPRIX_DEBUG]  - Term 3/3: 'C1746425 amandes 5 L'\n[MONOPRIX_DEBUG]  - Typing 'C1746425 amandes 5 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=C1746425%20amandes%205%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, image=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=[{'url': 'https://courses.monoprix.fr/products/cadum-crème-douche-peaux-sensibles-probiotique-400ml/MPX_6602075', 'status': 'OK_PARTIAL', 'product': {'title': 'Cadum Crème Douche Peaux Sensibles Probiotique 400ml', 'brand': 'C1746425', 'kind': \"Crème douche surgras lait d'amandes peau nourrie\", 'qty': '400 ML', 'qualifiers': [], 'ean': '3600551132150', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d55ef3ae-8e07-48e4-a76f-c9dac00cc82e/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l\\'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nPromotions\\nLes promos à ne pas manquer\\nLe 2ème à moins 50%\\nCadum Crème Douche Peaux Sensibles Probiotique 400ml\\n400ml 10,48\\xa0€ / litre\\n400ml\\n(10,48\\xa0€ / litre)\\n4,19\\xa0€\\nAjouter\\nPromotions\\n-50% sur le 2ème produit - Cliquez ici pour composer votre lot\\n-50% sur le 2ème produit - Cliquez ici pour composer votre lot\\nInformations produit\\n\\n\\nDescription Produit\\nCadum Crème Douche Tolérance Hypoallergénique Sans Sulfate aux extraits de probiotique 400ml 24h de confort et de soin pour les peaux sensibles, votre peau est comme apaisée.\\n\\n\\nOrigine\\nPologne\\nMarque\\nCadum\\nService consommateur\\nCentre Conseils Consommateurs Service consommateurs - 30 Rue d\\'Alsace - 92300 LEVALLOIS PERRET 01 71 89 10 40 relationconsommateur@cadum.oaccare.fr\\nIngredients\\n801055 15 - INGREDIENTS: AQUA / WATER - GLYCERIN - COCAMIDOPROPYL BETAINE - SODIUM C14-16 OLEFIN SULFONATE - PARFUM / FRAGRANCE - BIFIDA FERMENT LYSATE - SODIUM HYDROXIDE - GLYCOL DISTEARATE - PRUNUS AMYGDALUS DULCIS OIL / SWEET ALMOND OIL - ACETIC ACID - ACRYLATES COPOLYMER - CITRIC ACID - COCO-BETAINE - LACTIC ACID - PEG-55 PROPYLENE GLYCOL OLEATE - PROPYLENE GLYCOL - SODIUM CHLORIDE - TRIETHYL CITRATE - BENZOIC ACID - SODIUM BENZOATE (F.I.L. Z70027359/1). Les listes d’ingrédients entrant dans la composition des produits de notre marque sont régulièrement mises à jour. Avant d’utiliser un produit de notre marque, vous êtes invités à lire la liste d’ingrédients figurant sur son emballage afin de vous assurer que les ingrédients sont adaptés à votre utilisation personnelle\\nProducteur\\nL\\'OREAL FRANCE SNC 30 RUE D\\'ALSACE 92300LEVALLOIS PERRET\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '10,48 € / L', 'price': '4,19'}, 'score': 30.0, 'extras': {'seed_variant': None, 'candidate_variant': 'coco', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': False, 'category_ok': True, 'vetoes': ['size_out_of_range', 'descriptor_coverage', 'core_token'], 'candidate_quantity': '400 ML', 'candidate_size_ratio': 0.9199999999999999, 'descriptor_token_coverage': {'coverage': 0.5, 'matched': ['creme', 'douche', 'peau'], 'missing': ['amandes', 'nourrie', 'surgras'], 'total': 6}, 'missing_tokens': ['amandes', 'nourrie', 'surgras'], 'image_match': True, 'final_score': 30, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/so-bio-étic-crème-de-douche-hydratante-au-lait-d-ânesse-bio-650ml/MPX_3171421', 'status': 'OK_PARTIAL', 'product': {'title': \"SO'BiO Étic Crème de Douche Hydratante au lait d'ânesse Bio 650ml\", 'brand': 'C1746425', 'kind': \"Crème douche surgras lait d'amandes peau nourrie\", 'qty': '650 ML', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/85fa6f07-bbdb-4225-8dcf-f9b8aea63560/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l\\'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nNos sélections\\nInspiration du moment\\n& Sélection gros formats\\nHygiène et Beauté\\nSO\\'BiO Étic Crème de Douche Hydratante au lait d\\'ânesse Bio 650ml\\n1\\xa0a+\\n1\\xa0an de garantie de vie du produit\\n650ml 12,54\\xa0€ / litre\\n650ml\\n(12,54\\xa0€ / litre)\\n8,15\\xa0€\\nAjouter\\nAttributs produit\\nProduit bio\\nInformations produit\\n\\n\\nDescription Produit\\nLa crème de douche au LAIT D\\'ÂNESSE biologique hydrate tous les types de peaux en douceur grâce à sa formule sans sulfate*. Sans compromettre leur efficacité, la suppression des sulfates rend nos produits d\\'hygiène moins moussants mais d\\'autant plus respectueux de votre peau. Nos douches sont formulées avec des ingrédients végétaux d\\'origine biologique cultivés sans engrais chimiques ni pesticides. COSMOS ORGANIC, certifié par ECOCERT Greenlife. 97% du total des ingédients sont d\\'origine naturelle. 0% sulfate* et huile de palme. + ETHIQUE : - Filière Bio : LEA NATURE SO\\'BiO étic a selectionné du lait d\\'Ânesse biologique provenant d\\'asineries artisanales françaises, dans lesquelles le bien-être des animaux est au coeur des préoccupations. - Fabriqué en France. - 1% for the planet. *Sans tensioactifs sulfatés\\n\\n\\nOrigine\\nFrance\\nMarque\\nSO BIO ETIC\\nService consommateur\\nService Relation Consommateurs 23 AVENUE PAUL LANGEVIN 17180 PERIGNY France contact@leanature.com\\nIngredients\\nIngrédients : AQUA/WATER/EAU Eau purifiée COCAMIDOPROPYL BETAINE agent lavant doux d\\'origine naturelle DECYL GLUCOSIDE agent lavant doux d\\'origine naturelle GLYCERIN hydratant2 SODIUM COCOYL GLUTAMATE agent lavant doux d\\'origine naturelle CALCIUM CITRATE opacifiant d\\'origine minérale BENZYL ALCOHOL conservateur d\\'origine synthétique SODIUM CHLORIDE stabilisant d\\'origine minérale XANTHAN GUM épaississant d\\'origine naturelle DONKEY MILK^5 lait d\\'ânesse bio LACTIC ACID agent d\\'origine naturelle garantissant un pH adapté à la peau PARFUM (FRAGRANCE) 100% d\\'origine naturelle ALOE BARBADENSIS LEAF JUICE POWDER^5 poudre d\\'aloe vera bio équitable SODIUM HYDROXIDE agent d\\'origine naturelle garantissant un pH adapté à la peau LIMONENE allergène issu des plantes, naturellement présent dans le parfum LINALOOL allergène issu des plantes, naturellement présent dans le parfum\\nA propos de la marque\\nSO\\'BiO étic®, éthique, comme son nom l\\'indique.\\nProducteur\\nDISTRINAT SARL AVENUE PAUL LANGEVIN 17180PERIGNY\\nConseils d\\'utilisation\\nAppliquer sur peau mouillée, puis rincer\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '12,54 € / L', 'price': '8,15'}, 'score': 0.0, 'extras': {'seed_variant': None, 'candidate_variant': 'nature', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': False, 'category_ok': True, 'vetoes': ['size_out_of_range', 'descriptor_coverage', 'image_mismatch', 'core_token'], 'candidate_quantity': '650 ML', 'candidate_size_ratio': 0.8699999999999999, 'descriptor_token_coverage': {'coverage': 0.5, 'matched': ['creme', 'douche', 'peau'], 'missing': ['amandes', 'nourrie', 'surgras'], 'total': 6}, 'missing_tokens': ['amandes', 'nourrie', 'surgras'], 'image_match': False, 'final_score': 0, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/monoprix-crème-de-douche-à-l-amande-douce-200ml/MPX_4215684', 'status': 'OK_PARTIAL', 'product': {'title': \"Monoprix Crème de Douche à l'amande douce 200ml\", 'brand': 'C1746425', 'kind': \"Crème douche surgras lait d'amandes peau nourrie\", 'qty': '200 ML', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/bfa350a2-b042-4c23-b093-fa02a2ee7b3e/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l\\'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nHygiène & Beauté\\nSoins du corps\\nGels Douche, Bain et Savons\\nGels douche\\nMonoprix Crème de Douche à l\\'amande douce 200ml\\n1\\xa0a+\\n1\\xa0an de garantie de vie du produit\\n200ml 12,95\\xa0€ / litre\\n200ml\\n(12,95\\xa0€ / litre)\\n2,59\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAvec 97% d\\'ingrédients d\\'origine naturelle, cette crème de douche Monoprix à l\\'extrait d\\'amande douce nettoie votre peau sans l\\'agresser. Sa mousse fine hydrate votre peau et vous garantit une sensation de bien-être. Votre peau est propre, douce, et délicatement parfumée. Contient un extrait d\\'amande douce et un parfum de synthèse amandes douce. Tolérance testée sous contrôle d\\'un dermatologue. Usage quotidien.\\n\\n\\nOrigine\\nFrance\\nMarque\\nMonoprix\\nService consommateur\\nwww.monoprix.fr/contact\\nIngredients\\nAqua, glycerin, lauryl glucoside, cocamidopropyl betaine, sodium cocoyl alaninate, parfum, coco-glucoside, glycol, distearate, citric acid, sodium benzoate, sodium gluconate, prunus amygdalus dulcis fruit extract, potassium sorbate.\\nProducteur\\nHAVEA COMMERCIAL SERVICES PARC D\\'ACTIVITE SUD LOIRE/BOUFFERE//85612/MONTAIGU CEDEX/FRANCE\\nAutres informations\\nEviter le contact avec les yeux. En cas de contact avec les yeux, rincer immédiatement à l\\'eau claire.\\nConseils d\\'utilisation\\nPrélever une noisette de produit, faire mousser sur le corps humide et rincer.\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '12,95 € / L', 'price': '2,59'}, 'score': 0.0, 'extras': {'seed_variant': None, 'candidate_variant': 'amande', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': False, 'category_ok': True, 'vetoes': ['size_out_of_range', 'descriptor_coverage', 'image_mismatch', 'core_token'], 'candidate_quantity': '200 ML', 'candidate_size_ratio': 0.96, 'descriptor_token_coverage': {'coverage': 0.6666666666666666, 'matched': ['amandes', 'creme', 'douche', 'peau'], 'missing': ['nourrie', 'surgras'], 'total': 6}, 'missing_tokens': ['nourrie', 'surgras'], 'image_match': False, 'final_score': 0, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/monoprix-crème-de-douche-à-l-amande-et-au-karité-250ml/MPX_2309614', 'status': 'OK_PARTIAL', 'product': {'title': \"Monoprix Crème De Douche À L'Amande Et Au Karité 250ml\", 'brand': 'C1746425', 'kind': \"Crème douche surgras lait d'amandes peau nourrie\", 'qty': '250 ML', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/f6a34d37-666d-48d2-9a41-84712dd9c43d/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l\\'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nNos sélections\\nInspiration du moment\\n& Frigo vide\\nHygiène et Beauté\\nMonoprix Crème De Douche À L\\'Amande Et Au Karité 250ml\\n250ml 4,16\\xa0€ / litre\\n250ml\\n(4,16\\xa0€ / litre)\\n1,04\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAu dérivé d\\'amande douce, la crème de douche nettoie et hydrate votre peau sans l\\'agresser. Sa mousse onctueuse et son parfum délicat transforment votre douche en un véritable moment de bien-être et de plaisir. Formulée sur une base lavante douce, elle préserve votre peau du dessèchement. Votre peau est hydratée, soyeuse et éclatante.\\n\\n\\nOrigine\\nFrance\\nMarque\\nMonoprix\\nService consommateur\\nwww.monoprix.fr/contact\\nIngredients\\nAqua, sodium laureth sulfate, cocamidopropyl betaine, glycerin, glycol distearate, peg-40 hydrogenated castor oil, parfum, laureth-4, sodium benzoate, sodium chloride, polyquaternium-7, citric acid, peg-60 almond glycerides, butyrospermum parkii butter, formic acid, sodium hydroxide.\\nProducteur\\nMonoprix Exploitation 14-16 rue Marc Bloch 92116 Clichy Cedex\\nAutres informations\\npH neutre pour la peau. Testé sous contrôle dermatologique. Utilisation quotidienne. Usage externe uniquement. Ne pas avaler. Eviter le contact avec les yeux. En cas de contact avec les yeux, rincer immédiatement et abondamment avec de l\\'eau. Pour adultes.\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '4,16 € / L', 'price': '1,04'}, 'score': 0.0, 'extras': {'seed_variant': None, 'candidate_variant': 'amande', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': False, 'category_ok': True, 'vetoes': ['size_out_of_range', 'descriptor_coverage', 'image_mismatch', 'core_token'], 'candidate_quantity': '250 ML', 'candidate_size_ratio': 0.95, 'descriptor_token_coverage': {'coverage': 0.6666666666666666, 'matched': ['amandes', 'creme', 'douche', 'peau'], 'missing': ['nourrie', 'surgras'], 'total': 6}, 'missing_tokens': ['nourrie', 'surgras'], 'image_match': False, 'final_score': 0, 'plausible_baseline': False}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "C1746425 amandes 5 L"
       }
     }
-  ]
+  ],
+  "finder": null
 }

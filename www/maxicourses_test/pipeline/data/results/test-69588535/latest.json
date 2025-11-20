@@ -1,0 +1,235 @@
+{
+  "ean": "69588535",
+  "image_path": null,
+  "started_at": "2025-10-03T12:17:58.250281",
+  "finished_at": "2025-10-03T12:20:40.912313",
+  "duration_seconds": 162.662032,
+  "reference": {
+    "title": "Moutarde aux aromates SAVORA 385 g",
+    "description": "Moutarde aux aromates SAVORA 385 g",
+    "source": "chronodrive",
+    "brand": "Moutarde",
+    "quantity": "385 g",
+    "categories": "en:mustards",
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "c",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-c.svg",
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-69588535/debug/run-69588535-20251003-121758"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-10-03T12:17:58.250755",
+      "finished_at": "2025-10-03T12:18:11.677620",
+      "duration_seconds": 13.426865,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "69588535",
+        "QUERY": "69588535",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {}
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Market Fondaudège",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-10-03T12:18:11.678145",
+      "finished_at": "2025-10-03T12:18:24.060511",
+      "duration_seconds": 12.382366,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "69588535",
+        "QUERY": "69588535",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {}
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Moutarde Savora Amora 385g",
+        "price": "2,33",
+        "unit_price": "6,05 € / kg",
+        "quantity": "385 g",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-39338-Moutarde-Savora-Amora.aspx",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-03T12:20:25Z · E.Leclerc Drive · Bruges"
+      },
+      "started_at": "2025-10-03T12:19:45.813843",
+      "finished_at": "2025-10-03T12:20:25.183199",
+      "duration_seconds": 39.369356,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "69588535",
+        "QUERY": "Moutarde aux aromates SAVORA 385 g",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-69588535/debug/run-69588535-20251003-121758/03-leclerc"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,45",
+        "title": "Spécialité à la moutarde de Dijon  aux 11 épices et aromates",
+        "url": "https://www.intermarche.com/produit/specialite-a-la-moutarde-de-dijon-aux-11-ep ices-et-aromates/8712100731822",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": null,
+        "unit_price": "6,36 € / KG",
+        "quantity": "385 g",
+        "store": "Super Talence"
+      },
+      "started_at": "2025-10-03T12:20:25.184193",
+      "finished_at": "2025-10-03T12:20:40.909988",
+      "duration_seconds": 15.725795,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "69588535",
+        "QUERY": "Moutarde aromates SAVORA g 385 g",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-69588535/debug/run-69588535-20251003-121758/04-intermarche"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null
+      },
+      "started_at": "2025-10-03T12:18:24.061126",
+      "finished_at": "2025-10-03T12:19:01.093567",
+      "duration_seconds": 37.032441,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "69588535",
+        "QUERY": "69588535",
+        "HOME_URL": "https://www.auchan.fr",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche '69588535'\n[auchan] résultats trouvés: 2\n[auchan] recherche '69588535'\n[auchan] résultats trouvés: 2",
+      "metadata": {}
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,69",
+        "title": "Moutarde aux aromates SAVORA 385 g",
+        "url": "https://www.chronodrive.com/savora--moutarde-aux-aromates-P16609",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "Prix au kg ou au litre : 6,99 € / KG",
+        "quantity": "385 g",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": null
+      },
+      "started_at": "2025-10-03T12:19:01.094254",
+      "finished_at": "2025-10-03T12:19:45.810783",
+      "duration_seconds": 44.716529,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "69588535",
+        "QUERY": "69588535",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {}
+    }
+  ]
+}

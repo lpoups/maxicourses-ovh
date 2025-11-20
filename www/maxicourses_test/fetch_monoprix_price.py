@@ -867,7 +867,7 @@ async def _extract_offer_from_json_ld(page: Page) -> typing.Optional[dict[str, t
     return None
 
 
-def _compare_image_with_descriptor(descriptor: dict[str, typing.Any], image_url: typing.Optional[str], *, threshold: int = 16) -> bool:
+def _compare_image_with_descriptor(descriptor: dict[str, typing.Any], image_url: typing.Optional[str], *, threshold: int = 24) -> bool:
     current_ean = descriptor.get("ean") or EAN
     cleaned = _sanitize_url(image_url)
     if not cleaned:

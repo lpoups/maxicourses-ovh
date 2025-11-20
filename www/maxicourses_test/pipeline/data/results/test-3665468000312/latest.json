@@ -1,0 +1,233 @@
+{
+  "ean": "3665468000312",
+  "image_path": null,
+  "started_at": "2025-11-14T12:40:49.465605+01:00",
+  "finished_at": "2025-11-14T12:41:43.954843+01:00",
+  "duration_seconds": 54.489238,
+  "reference": {
+    "title": "Déboucheur liquide destop flacon 950ml",
+    "description": "Déboucheur liquide destop flacon 950ml",
+    "source": "auchan",
+    "brand": "Destop",
+    "quantity": "950 ml",
+    "categories": null,
+    "image": "./assets/3665468000312.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,02",
+        "title": "Gel déboucheur de canalisations à la soude",
+        "url": "https://www.auchan.fr/destop-gel-deboucheur-de-canalisations-a-la-soude/pr-C162 8937",
+        "note": "Auchan (CDP)",
+        "unit_price": "4,23 € / L",
+        "quantity": "405 G",
+        "matched_ean": "3665468000312",
+        "image": "https://cdn.auchan.fr/media/S010000000403W3PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Gel déboucheur de canalisations à la soude",
+          "brand": "Gel",
+          "kind": "",
+          "qty": "405 G",
+          "qualifiers": [],
+          "ean": "3665468000312",
+          "image_url": "https://cdn.auchan.fr/media/S010000000403W3PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-14T12:40:49.466827+01:00",
+      "finished_at": "2025-11-14T12:41:21.430909+01:00",
+      "duration_seconds": 31.964082,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000312",
+        "QUERY": "3665468000312",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche '3665468000312'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/drive/magasins/auchan-drive-supermarche-talence-gallieni/destop-gel-deboucheur-de-canalisations-a-la-soude/pr-C1628937",
+      "metadata": {
+        "attempt_query": "3665468000312"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,99",
+        "title": "Destop Déboucheur Gel Express  950ml",
+        "url": "https://courses.monoprix.fr/products/destop-d%C3%A9boucheur-gel-express-950ml/M PX_6612349",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/6a86 b9de-d391-4c0f-9d33-eed084a91d0b/300x300.jpg",
+        "matched_ean": "3665468000312",
+        "unit_price": "5,25 € / L",
+        "quantity": "950 ML",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières  commandes\nEN SAVOIR +\nAccueil\nEntretien & Nettoyage\nSalle de bain, WC et  Déboucheur\nDéboucheur\nDestop Déboucheur Gel Express 950ml\n950ml 5,25 € /  litre\n950ml\n(5,25 € / litre)\n4,99 €\nAjouter\nInformations  produit\n\n\nDescription Produit\nLe Déboucheur Express a été spécialement conçu pour agir rapidement. Son gel épais traverse l'eau sagnante pour attaquer  directement le bouchon en profondeur. Il est adapté à tous types de  canalisations (douches, éviers, WC…). Faites confiance à Destop, la marque N°1  des déboucheurs*. *Destop marque N°1 des ventes volume du marché Déboucheurs -  GMS - France - Cumul annuel mobile P11 2022 (source  Nielsen)\n\n\nOrigine\nPologne\nMarque\nDestop\nService consommateur\nRB HYGIENE HOME FRANCE SAS 38 RUE VICTOR BASCH, CS11018, 91300 MASSY 01 69 93 17 00  euconsumercarefr@rb.com\nIngredients\n\nContient de l’hydroxyde de sodium. Moins de 5% d'agent de surface cationiques.\n\nProducteur\nRB HYGIENE HOME FRANCE 38  RUE VICTOR BASCH///91300/MASSY/FRANCE\nAutres informations\nSGH05 - Corrosif.  SGH09 - Dangereux pour l'environnement. Nocif pour les organismes aquatiques,  entraîne des effets néfastes à long terme. Peut être corrosif pour les métaux.  Provoque des lésions oculaires graves. Provoque des brûlures de la peau et des  lésions oculaires graves. Très toxique pour les organismes aquatiques\nConseils  d'utilisation\nDéboucher avec précaution et sans comprimer le flacon. Verser  doucement un 1/2 flacon (0,5 L) même s’il y a de l’eau stagnante (pour WC et  grosses canalisations toute la bouteille). Reboucher le flacon immédiatement  après usage. Ne pas ajouter d'eau bouillante.\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux  cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": null,
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [
+            "descriptor_coverage",
+            "core_token"
+          ],
+          "candidate_quantity": "950 ML",
+          "candidate_size_ratio": 0.0,
+          "descriptor_token_coverage": {
+            "coverage": 0.6666666666666666,
+            "matched": [
+              "deboucheur",
+              "destop"
+            ],
+            "missing": [
+              "liquide"
+            ],
+            "total": 3
+          },
+          "missing_tokens": [
+            "liquide"
+          ],
+          "image_match": true,
+          "final_score": 45,
+          "plausible_baseline": false,
+          "missing_core_tokens": [
+            "liquide"
+          ]
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/destop-déboucheur-gel-express-950ml/MPX_66 12349",
+            "product": {
+              "title": "",
+              "brand": "Destop",
+              "kind": "Déboucheur Liquide Multi-Usages DESTOP",
+              "qty": "950 ml",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": ""
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/destop-déboucheur-liquide-original-950ml/M PX_6612348",
+            "product": {
+              "title": "",
+              "brand": "Destop",
+              "kind": "Déboucheur Liquide Multi-Usages DESTOP",
+              "qty": "950 ml",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": ""
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-14T12:41:22.454483+01:00",
+      "finished_at": "2025-11-14T12:41:43.825312+01:00",
+      "duration_seconds": 21.370829,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000312",
+        "QUERY": "Destop 950 ML",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '3665468000312'.\n[MONOPRIX_DEBUG] Search terms: ['Destop déboucheur', 'Destop deboucheur 950 ml', 'Destop gel deboucheur']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/3: 'Destop déboucheur'\n[MONOPRIX_DEBUG]  - Typing 'Destop déboucheur' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Destop%20d%C3%A9boucheur\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 2 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/destop-déboucheur-gel-express-950ml/MPX_6612349\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/6a86b9de-d391-4c0f-9d33-eed084a91d0b/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/destop-déboucheur-gel-express-950ml/MPX_6612349\n[MONOPRIX_DEBUG][SCORE] - Title: 'Destop Déboucheur Gel Express 950ml' | Brand: 'destop' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=15 | Plausible=False\n\n[DEBUG MONOPRIX IMG] EAN: 3665468000312\n[DEBUG MONOPRIX IMG] Comparing Monoprix image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/6a86b9de-d391-4c0f-9d33-eed084a91d0b/300x300.jpg\n[DEBUG MONOPRIX IMG] Threshold: 16\n[DEBUG MONOPRIX IMG] Reference local image: /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/pipeline/assets/3665468000312.jpg -> hash: 112230071202641144687721147429115450608466988529040961227193853493730009415295\n[DEBUG MONOPRIX IMG] Monoprix image hash: 112230071202641144687721147429116164232310683012425101331129429779283137527423\n[DEBUG MONOPRIX IMG] Distance to ref hash 112230071202641144687721147429115450608466988529040961227193853493730009415295: 4\n[DEBUG MONOPRIX IMG] Match found! Distance 4 <= 16\n[DEBUG MONOPRIX IMG] Final decision: MATCH\n\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Destop Déboucheur Gel Express 950ml'.\n[MONOPRIX_DEBUG] Best match (early return): 'Destop Déboucheur Gel Express 950ml' (Score: 45)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='4,99', title='Destop Déboucheur Gel Express 950ml', url='https://courses.monoprix.fr/products/destop-d%C3%A9boucheur-gel-express-950ml/MPX_6612349', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/6a86b9de-d391-4c0f-9d33-eed084a91d0b/300x300.jpg', matched_ean='3665468000312', unit_price='5,25 € / L', quantity='950 ML', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-AUTOMNE25Jusqu'à 40€ offerts* sur vos 2 premières commandes\\nEN SAVOIR +\\nAccueil\\nEntretien & Nettoyage\\nSalle de bain, WC et Déboucheur\\nDéboucheur\\nDestop Déboucheur Gel Express 950ml\\n950ml 5,25\\xa0€ / litre\\n950ml\\n(5,25\\xa0€ / litre)\\n4,99\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLe Déboucheur Express a été spécialement conçu pour agir rapidement. Son gel épais traverse l'eau sagnante pour attaquer directement le bouchon en profondeur. Il est adapté à tous types de canalisations (douches, éviers, WC…). Faites confiance à Destop, la marque N°1 des déboucheurs*. *Destop marque N°1 des ventes volume du marché Déboucheurs - GMS - France - Cumul annuel mobile P11 2022 (source Nielsen)\\n\\n\\nOrigine\\nPologne\\nMarque\\nDestop\\nService consommateur\\nRB HYGIENE HOME FRANCE SAS 38 RUE VICTOR BASCH, CS11018, 91300 MASSY 01 69 93 17 00 euconsumercarefr@rb.com\\nIngredients\\n\\nContient de l’hydroxyde de sodium. Moins de 5% d'agent de surface cationiques.\\n\\nProducteur\\nRB HYGIENE HOME FRANCE 38 RUE VICTOR BASCH///91300/MASSY/FRANCE\\nAutres informations\\nSGH05 - Corrosif. SGH09 - Dangereux pour l'environnement. Nocif pour les organismes aquatiques, entraîne des effets néfastes à long terme. Peut être corrosif pour les métaux. Provoque des lésions oculaires graves. Provoque des brûlures de la peau et des lésions oculaires graves. Très toxique pour les organismes aquatiques\\nConseils d'utilisation\\nDéboucher avec précaution et sans comprimer le flacon. Verser doucement un 1/2 flacon (0,5 L) même s’il y a de l’eau stagnante (pour WC et grosses canalisations toute la bouteille). Reboucher le flacon immédiatement après usage. Ne pas ajouter d'eau bouillante.\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['descriptor_coverage', 'core_token'], 'candidate_quantity': '950 ML', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.6666666666666666, 'matched': ['deboucheur', 'destop'], 'missing': ['liquide'], 'total': 3}, 'missing_tokens': ['liquide'], 'image_match': True, 'final_score': 45, 'plausible_baseline': False, 'missing_core_tokens': ['liquide']}, candidates=[{'url': 'https://courses.monoprix.fr/products/destop-déboucheur-gel-express-950ml/MPX_6612349', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Destop', 'kind': 'Déboucheur Liquide Multi-Usages DESTOP', 'qty': '950 ml', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}, {'url': 'https://courses.monoprix.fr/products/destop-déboucheur-liquide-original-950ml/MPX_6612348', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Destop', 'kind': 'Déboucheur Liquide Multi-Usages DESTOP', 'qty': '950 ml', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Destop 950 ML"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Gel déboucheur de canalisations à la soude",
+      "brand": "Gel",
+      "kind": "",
+      "qty": "405 G",
+      "qualifiers": [],
+      "ean": "3665468000312",
+      "image_url": "https://cdn.auchan.fr/media/S010000000403W3PRIMARY_1200x1200/B2CD/",
+      "source": "consolidated",
+      "raw_text": "Déboucheur liquide destop flacon 950ml"
+    },
+    "keywords": [
+      "Gel canalisations 405 G",
+      "Gel canalisations deboucheur",
+      "Gel 405 G",
+      "Gel soude 405 G"
+    ],
+    "candidates": [
+      {
+        "adapter": "monoprix",
+        "url": "https://courses.monoprix.fr/products/destop-déboucheur-gel-express-950ml/MPX_66 12349",
+        "score": 0.0,
+        "product": {
+          "title": "",
+          "brand": "Destop",
+          "kind": "Déboucheur Liquide Multi-Usages DESTOP",
+          "qty": "950 ml",
+          "qualifiers": [],
+          "ean": null,
+          "image_url": null,
+          "source": "monoprix",
+          "raw_text": ""
+        }
+      },
+      {
+        "adapter": "monoprix",
+        "url": "https://courses.monoprix.fr/products/destop-déboucheur-liquide-original-950ml/M PX_6612348",
+        "score": 0.0,
+        "product": {
+          "title": "",
+          "brand": "Destop",
+          "kind": "Déboucheur Liquide Multi-Usages DESTOP",
+          "qty": "950 ml",
+          "qualifiers": [],
+          "ean": null,
+          "image_url": null,
+          "source": "monoprix",
+          "raw_text": ""
+        }
+      }
+    ],
+    "decision": null,
+    "audit": []
+  }
+}

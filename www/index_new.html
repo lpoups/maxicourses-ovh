@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Maxicourses · Investor Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <script>
+    if (window.location && window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #010616;
+      --layer: rgba(4, 9, 29, 0.88);
+      --card: rgba(7, 14, 32, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f4f6ff;
+      --muted: #9fa9ce;
+      --primary: #7dfdff;
+      --secondary: #7a5bff;
+      --accent: #ff5af1;
+      --shadow: 0 30px 120px rgba(3, 7, 29, 0.55);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 18% 22%, rgba(125, 253, 255, 0.35), transparent 45%),
+                  radial-gradient(circle at 82% 0%, rgba(255, 90, 241, 0.4), transparent 55%),
+                  radial-gradient(circle at 60% 80%, rgba(100, 91, 255, 0.25), transparent 50%),
+                  linear-gradient(160deg, #03071c, #050f2d 55%, #04091c);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .orb {
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.35;
+      z-index: 0;
+      pointer-events: none;
+      animation: float 18s ease-in-out infinite;
+    }
+    .orb.one { background: #7dfdff; top: 8%; left: -140px; }
+    .orb.two { background: #ff5af1; bottom: 4%; right: -160px; animation-duration: 24s; }
+
+    @keyframes float {
+      0% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(70px, -40px, 0) scale(1.05); }
+      100% { transform: translate3d(0, 0, 0); }
+    }
+
+    main { position: relative; z-index: 1; }
+
+    nav.top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px clamp(4vw, 6vw, 120px) 16px;
+    }
+    nav.top-nav .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo-chip {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 78px;
+      height: 78px;
+      border-radius: 24px;
+      background: radial-gradient(circle at 30% 30%, rgba(125, 253, 255, 0.95), rgba(86, 102, 255, 0.9));
+      box-shadow: 0 26px 55px rgba(5, 12, 40, 0.55);
+      overflow: hidden;
+    }
+    .logo-chip .spark {
+      position: absolute;
+      width: 140%;
+      height: 140%;
+      background: conic-gradient(from 0deg, rgba(255, 255, 255, 0.2), transparent 45%, rgba(255, 255, 255, 0.15));
+      animation: spin 10s linear infinite;
+      opacity: 0.45;
+      mix-blend-mode: screen;
+    }
+    .logo-chip .letter {
+      position: relative;
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      color: #020818;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .wordmark {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .wordmark .brand-name {
+      font-weight: 700;
+      letter-spacing: 0.38em;
+      font-size: 0.95rem;
+    }
+    .wordmark .brand-tagline {
+      text-transform: uppercase;
+      font-size: 0.62rem;
+      letter-spacing: 0.4em;
+      color: var(--muted);
+    }
+    nav.top-nav .links { display: flex; gap: 20px; align-items: center; }
+    nav.top-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+    nav.top-nav a:hover { color: var(--primary); }
+    nav.top-nav .cta-link {
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      color: #040c1d;
+      font-weight: 700;
+      box-shadow: 0 20px 45px rgba(125, 253, 255, 0.28);
+    }
+
+    header.hero {
+      padding: clamp(40px, 8vw, 120px) clamp(4vw, 7vw, 120px) 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-text .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.8rem;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+    .hero-text h1 {
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      line-height: 1.1;
+      margin: 0 0 18px;
+    }
+    .hero-text p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 640px;
+    }
+    .hero-microcopy {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 18px;
+    }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 24px; }
+    .hero-ctas a {
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 22px;
+      padding: 16px 26px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .hero-ctas a.primary {
+      background: linear-gradient(120deg, #a5feea, var(--primary));
+      color: #04101f;
+      box-shadow: 0 20px 45px rgba(125, 253, 255, 0.3);
+    }
+    .hero-ctas a.secondary {
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--text);
+    }
+    .hero-ctas a:hover { transform: translateY(-2px); }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-tags span {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--primary);
+      font-size: 0.85rem;
+    }
+
+    .value-grid {
+      padding: 10px clamp(4vw, 7vw, 120px) 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .value-card {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 24px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 25px 60px rgba(3, 7, 24, 0.45);
+    }
+    .value-card.highlight {
+      background: linear-gradient(135deg, #ffb347, #ffcc33);
+      color: #1e1b12;
+      box-shadow: 0 30px 80px rgba(255, 179, 71, 0.45);
+      border-color: rgba(255,255,255,0.15);
+    }
+    .value-card.highlight p { color: #1e1b12; }
+    .value-card h4 { margin: 0 0 8px; font-size: 1.2rem; }
+    .value-card p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+    .hero-visual {
+      position: relative;
+      background: var(--card);
+      border-radius: 34px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(130deg, rgba(125, 253, 255, 0.22), transparent 40%);
+      z-index: 0;
+    }
+    .hero-visual-content { position: relative; z-index: 1; display: grid; gap: 22px; }
+    .hero-metric {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(5, 9, 23, 0.65);
+    }
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      pointer-events: none;
+    }
+    .hero-visual .glow {
+      position: absolute;
+      top: 30%;
+      left: 60%;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(125, 253, 255, 0.45), transparent 60%);
+      filter: blur(40px);
+      animation: pulse 6s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+      50% { transform: translate(-40%, -60%) scale(1.2); opacity: 0.8; }
+      100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+    }
+    .hero-metric small { text-transform: uppercase; letter-spacing: 0.2em; color: var(--muted); }
+    .hero-metric strong { font-size: 2rem; display: block; }
+    .hero-panels {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      gap: 16px;
+    }
+    .hero-panels img {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    section.stats {
+      padding: 20px clamp(4vw, 7vw, 120px) 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 18px;
+      padding: 18px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 40px rgba(1, 4, 15, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(125, 253, 255, 0.12), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .stat-card:hover::after { opacity: 1; }
+    .stat-card span { display: block; color: var(--muted); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.18em; margin-bottom: 6px; }
+    .stat-card strong { font-size: 1.6rem; }
+
+    .enseigne-band {
+      padding: 12px clamp(2vw, 5vw, 70px);
+      margin: 8px clamp(2vw, 4vw, 60px) 18px;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 15px 45px rgba(2, 6, 24, 0.25);
+    }
+    .logo-marquee {
+      overflow: hidden;
+      position: relative;
+      padding: 2px 0;
+    }
+    .logo-track {
+      display: flex;
+      gap: 28px;
+      animation: marquee 25s linear infinite;
+      width: max-content;
+      align-items: center;
+    }
+    .logo-track img {
+      height: 30px;
+      filter: drop-shadow(0 4px 8px rgba(15, 23, 42, 0.2));
+      display: block;
+    }
+    .logo-disclaimer {
+      margin: 4px auto 0;
+      max-width: 720px;
+      text-align: center;
+      font-size: 0.68rem;
+      color: #6c728d;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    .business-model {
+      padding: 30px clamp(4vw, 7vw, 120px);
+      color: #fff;
+    }
+    .business-model h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2.2rem, 3vw, 3.2rem);
+    }
+    .business-model p.lead {
+      margin: 0 0 22px;
+      color: rgba(255,255,255,0.75);
+      max-width: 820px;
+    }
+    .business-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+    }
+    .business-card-box {
+      background: rgba(9, 12, 30, 0.72);
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 20px 55px rgba(3,7,22,0.5);
+    }
+    .business-card-box h3 { margin-top: 0; font-size: 1.5rem; }
+    .business-card-box p { color: rgba(255,255,255,0.78); }
+    .business-list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 16px;
+      color: rgba(255,255,255,0.72);
+    }
+    .business-list li { margin-bottom: 6px; }
+    .brand-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .brand-chip {
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #06122c;
+      background: rgba(255,255,255,0.92);
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .story-grid {
+      padding: 60px clamp(4vw, 7vw, 120px);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .story-card {
+      background: var(--layer);
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .story-card span { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; color: var(--primary); }
+    .story-card h3 { margin: 0; font-size: 1.3rem; }
+    .story-card p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+    .problem-grid {
+      padding: 10px clamp(4vw, 7vw, 120px) 70px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .problem-card {
+      background: rgba(4, 9, 29, 0.82);
+      border-radius: 26px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .problem-card h4 { margin: 0 0 14px; }
+    .problem-card p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+    section.demo-pulse { padding: 70px clamp(4vw, 7vw, 120px); }
+    .section-head { margin-bottom: 30px; display: flex; flex-direction: column; gap: 12px; }
+    .section-head h2 { margin: 0; font-size: clamp(2rem, 3vw, 3rem); }
+    .section-head p { margin: 0; color: var(--muted); max-width: 780px; }
+
+    .slider {
+      background: rgba(3, 7, 24, 0.8);
+      border-radius: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .slider::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 80% 20%, rgba(255, 90, 241, 0.12), transparent 55%);
+    }
+    .slider-track { display: flex; transition: transform 0.9s cubic-bezier(.6,.01,.22,.99); }
+    .shot {
+      flex: 0 0 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: clamp(30px, 6vw, 70px);
+      align-items: center;
+      position: relative;
+    }
+    .shot::before {
+      content: attr(data-step);
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.05);
+    }
+    .shot-image img {
+      width: 100%;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.55);
+    }
+    .shot-copy h3 { margin: 0 0 12px; font-size: 1.6rem; }
+    .shot-copy p { margin: 0 0 16px; color: rgba(255, 255, 255, 0.8); line-height: 1.7; }
+    .shot-copy .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .shot-copy .tags span {
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .slider-nav { display: flex; justify-content: center; gap: 12px; padding: 0 0 30px; }
+    .slider-nav button {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .slider-nav button[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); transform: scale(1.2); }
+
+    .tech-block {
+      padding: 30px clamp(4vw, 7vw, 120px) 70px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .tech-card {
+      background: rgba(5, 12, 30, 0.8);
+      border-radius: 28px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow);
+    }
+    .tech-card h3 { margin-top: 0; font-size: 1.8rem; }
+    .tech-card p { color: var(--muted); line-height: 1.7; }
+
+    section.features {
+      padding: 30px clamp(4vw, 7vw, 120px) 70px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+    .feature-card {
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(5, 12, 30, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 25px 60px rgba(2, 6, 24, 0.45);
+    }
+    .feature-card h4 { margin: 0 0 10px; }
+    .feature-card p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+    section.business {
+      padding: 20px clamp(4vw, 7vw, 120px) 70px;
+    }
+    section.business .section-head { margin-bottom: 20px; }
+    section.business p { color: var(--muted); }
+
+    section.data-value {
+      padding: 30px clamp(4vw, 7vw, 120px) 70px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+    .data-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 25px 60px rgba(2, 6, 24, 0.45);
+    }
+    .data-card h4 { margin: 0 0 10px; }
+    .data-card p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+    section.impact {
+      padding: 40px clamp(4vw, 7vw, 120px) 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+    .impact-card {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .impact-card h4 { margin: 0 0 8px; font-size: 1.4rem; }
+    .impact-card p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+    section.usecases {
+      padding: 20px clamp(4vw, 7vw, 120px) 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 26px;
+    }
+    .usecase-card {
+      padding: 26px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(3, 8, 24, 0.75);
+    }
+    .usecase-card h5 { margin: 0 0 12px; font-size: 1.3rem; }
+    .usecase-card p { margin: 0; color: var(--muted); line-height: 1.6; }
+
+    .closing-cta {
+      padding: 80px clamp(4vw, 7vw, 120px);
+      text-align: center;
+    }
+    .closing-cta .cta-card {
+      background: linear-gradient(135deg, rgba(125, 253, 255, 0.15), rgba(122, 91, 255, 0.35));
+      border-radius: 32px;
+      padding: clamp(30px, 6vw, 70px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 30px 80px rgba(5, 18, 50, 0.55);
+    }
+    .closing-cta h3 { margin: 0 0 18px; font-size: clamp(2rem, 3vw, 3.2rem); }
+    .closing-cta p { margin: 0 auto 26px; max-width: 780px; color: #041129; font-weight: 600; }
+    .closing-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 30px;
+      border-radius: 999px;
+      background: #050e2b;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .ai-flow {
+      position: relative;
+      margin: 45px clamp(4vw, 7vw, 120px);
+      padding: 40px clamp(4vw, 7vw, 120px) 46px;
+      border-radius: 42px;
+      background: radial-gradient(circle at 12% 0%, rgba(255,196,111,0.24), transparent 55%), radial-gradient(circle at 90% 20%, rgba(120,118,255,0.18), transparent 50%), rgba(4, 8, 28, 0.94);
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 40px 130px rgba(2, 6, 22, 0.78);
+      color: #fff;
+      overflow: hidden;
+    }
+    .ai-flow::before,
+    .ai-flow::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.14), transparent 60%);
+      filter: blur(80px);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .ai-flow::before { top: -180px; left: -120px; }
+    .ai-flow::after { bottom: -240px; right: -80px; }
+    .flow-header {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .flow-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, #ffb16c, #ff70b3, #8dd2ff);
+      color: #04081c;
+      box-shadow: 0 8px 25px rgba(255, 177, 108, 0.35);
+    }
+    .flow-header h3 {
+      margin: 0;
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+    }
+    .flow-header p {
+      margin: 0;
+      max-width: 820px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.5;
+    }
+    .flow-impact {
+      position: relative;
+      z-index: 2;
+      margin-top: 18px;
+      padding: 18px 24px;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.3);
+    }
+    .flow-impact strong { color: #fff3d7; }
+    .flow-stage {
+      position: relative;
+      min-height: 560px;
+      margin: 34px 0 30px;
+      border-radius: 36px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(135deg, rgba(6, 10, 31, 0.9), rgba(1, 2, 8, 0.85));
+      overflow: hidden;
+    }
+    .flow-stage::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 45% 50%, rgba(255,255,255,0.08), transparent 60%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .flow-stage canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .flow-node {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      transform: translate(-50%, -50%);
+      width: var(--node-width, clamp(140px, 15vw, 200px));
+      padding: 12px 14px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(11, 16, 36, 0.92);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
+      z-index: 2;
+    }
+    .flow-node.store {
+      background: rgba(13, 18, 45, 0.9);
+      --node-width: clamp(128px, 13vw, 175px);
+      font-size: 0.78rem;
+    }
+    .node-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .node-header img {
+      height: 22px;
+      width: auto;
+      filter: drop-shadow(0 5px 18px rgba(0,0,0,0.45));
+    }
+    .logo-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .logo-cluster img {
+      height: 20px;
+    }
+    .spark-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(255,255,255,0.08);
+      padding: 2px 8px;
+      border-radius: 999px;
+      color: rgba(255,255,255,0.75);
+    }
+    .browser-sparks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 12px;
+    }
+    .browser-sparks span {
+      width: 12px;
+      height: 9px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, #6ce2ff, #a5f3ff);
+      opacity: 0.35;
+      animation: spark 2.8s ease-in-out infinite;
+    }
+    .browser-sparks span:nth-child(odd) {
+      background: linear-gradient(135deg, #ff90e1, #ffc371);
+      animation-delay: 0.6s;
+    }
+    .price-ping {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 10px;
+    }
+    .price-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+    }
+    .price-chip.good {
+      background: rgba(79, 255, 188, 0.2);
+      color: #45ffb0;
+      border: 1px solid rgba(69,255,176,0.5);
+    }
+    .price-chip.bad {
+      background: rgba(255, 94, 135, 0.18);
+      color: #ff749b;
+      border: 1px solid rgba(255,116,155,0.35);
+    }
+    .ai-core {
+      background: rgba(19, 23, 60, 0.95);
+    }
+    .ai-core h4,
+    .maxi-core h4,
+    .flow-node.output h4 {
+      margin: 0;
+      font-size: 1rem;
+    }
+    .ai-core p { margin: 6px 0 10px; color: rgba(255,255,255,0.78); font-size: 0.86rem; }
+    .ai-core .ai-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .ai-core .ai-icons span {
+      font-size: 0.65rem;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .maxi-core {
+      background: linear-gradient(135deg, rgba(122,167,255,0.25), rgba(255,128,197,0.25));
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fbfbff;
+    }
+    .maxi-core .maxi-logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .maxi-core .maxi-logo::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6ce1ff, #f993ff);
+      box-shadow: 0 0 20px rgba(255,255,255,0.4);
+    }
+    .maxi-core p {
+      margin: 8px 0 0;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.86rem;
+    }
+    .flow-node.output {
+      background: rgba(255,255,255,0.04);
+    }
+    .flow-node.output.consumer { border-color: rgba(90,255,188,0.4); }
+    .flow-node.output.pro { border-color: rgba(255,146,196,0.35); }
+    .flow-node.output p {
+      margin: 6px 0 12px;
+      color: rgba(255,255,255,0.75);
+    }
+    .price-feed {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .price-feed li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.72);
+    }
+    .price-feed .product {
+      font-weight: 600;
+      color: #fff;
+    }
+    .price-feed .context {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.48);
+    }
+    .flow-legend {
+      position: relative;
+      z-index: 2;
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .flow-legend span {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.6);
+    }
+    .ai-flow .timeline {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .ai-step {
+      background: rgba(255,255,255,0.04);
+      border-radius: 22px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 15px 45px rgba(3,6,22,0.4);
+    }
+    .ai-step h3 { margin: 0 0 8px; font-size: 1.2rem; }
+    .ai-step p { margin: 0; color: rgba(255,255,255,0.75); }
+    @keyframes spark {
+      0% { transform: translateY(0) scale(0.9); opacity: 0.3; }
+      45% { transform: translateY(-6px) scale(1.05); opacity: 1; }
+      100% { transform: translateY(0) scale(0.9); opacity: 0.3; }
+    }
+    @media (max-width: 900px) {
+      .ai-flow {
+        padding: 32px 24px;
+      }
+      .flow-stage {
+        min-height: auto;
+        padding: 20px;
+      }
+      .flow-stage canvas {
+        display: none;
+      }
+      .flow-node {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        margin-bottom: 18px;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px 50px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .funding-call {
+      padding: 70px clamp(4vw, 7vw, 120px);
+      text-align: center;
+      background: linear-gradient(120deg, rgba(117, 244, 253, 0.25), rgba(255, 90, 241, 0.35), rgba(122, 91, 255, 0.35));
+      border-radius: 42px;
+      margin: 40px clamp(4vw, 7vw, 120px);
+      box-shadow: 0 35px 90px rgba(4, 9, 32, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+    .funding-call::after, .funding-call::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.45), transparent 60%);
+      filter: blur(40px);
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .funding-call::after { top: -30px; left: -60px; }
+    .funding-call::before { bottom: -40px; right: -30px; }
+    .funding-call h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+    }
+    .funding-call-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .funding-call p {
+      margin: 0 auto 16px;
+      max-width: 860px;
+      color: #061026;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+    .funding-call strong { color: #020d26; }
+    .funding-call .icons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+    }
+    .funding-call .cta-link {
+      background: #011533;
+      color: #fff;
+      padding: 14px 36px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      box-shadow: 0 18px 55px rgba(1,11,30,0.45);
+      cursor: pointer;
+      border: none;
+    }
+    .funding-call .cta-link.secondary {
+      background: transparent;
+      color: #011533;
+      border: 1px solid rgba(1,21,51,0.6);
+      box-shadow: none;
+    }
+    .funding-call .cta-link:hover {
+      background: #03224d;
+    }
+    .contact-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(2,5,17,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 999;
+    }
+    .contact-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-card {
+      background: linear-gradient(135deg, rgba(8,12,30,0.95), rgba(3,7,20,0.98));
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+      width: min(480px, 90vw);
+      padding: 26px;
+      color: #fff;
+      position: relative;
+    }
+    .modal-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.5rem;
+    }
+    .modal-card p {
+      margin: 0 0 18px;
+      color: rgba(255,255,255,0.75);
+    }
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.08);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .modal-card form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .modal-card .form-feedback {
+      min-height: 18px;
+      font-size: 0.82rem;
+    }
+    .modal-card .form-feedback.success { color: #56f8d2; }
+    .modal-card .form-feedback.error { color: #ff9bb3; }
+    .modal-card label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .modal-card input,
+    .modal-card textarea {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(2,6,18,0.8);
+      color: #fff;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+    .modal-card textarea { min-height: 110px; resize: vertical; }
+    .modal-card button[type="submit"] {
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      background: linear-gradient(120deg, #6ef0ff, #ff7ce3);
+      color: #020614;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+    .modal-card button[type="submit"]:hover {
+      filter: brightness(1.05);
+    }
+    .funding-call .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      padding: 16px 32px;
+      border-radius: 999px;
+      background: #050e2b;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    @media (max-width: 960px) {
+      nav.top-nav { flex-direction: column; gap: 18px; }
+      nav.top-nav .links { flex-wrap: wrap; justify-content: center; }
+      .logo-track { animation-duration: 35s; }
+      .hero-panels { grid-template-columns: 1fr; }
+      .shot { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <nav class="top-nav">
+    <div class="brand">
+      <div class="logo-chip" aria-hidden="true">
+        <span class="spark"></span>
+        <span class="letter">M</span>
+      </div>
+      <div class="wordmark">
+        <span class="brand-name">MAXICOURSES</span>
+        <span class="brand-tagline">Retail intelligence</span>
+      </div>
+    </div>
+    <div class="links">
+      <a href="javascript:void(0)" data-scroll-target="live-demo">Démo écrans</a>
+      <a href="#story">Narration</a>
+      <a href="#tech">Stack IA</a>
+      <a href="#impact">Impact</a>
+      <a href="maxicourses-prod/maxicourses_test/pipeline/index2.html" rel="noopener">Vue produit live</a>
+      <a class="cta-link" href="mailto:invest@maxicourses.fr">invest@maxicourses.fr</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="funding-call" style="margin-top:40px;">
+      <div class="icons">🤖 ⚙️ 💡 🚀</div>
+      <h1>Levée d’amorçage : 200 K€ pour Maxicourses !</h1>
+      <p>Maxicourses.fr est développé par OpenCenterAI. Nous lançons notre levée d’amorçage et ouvrons <strong>10 % du capital</strong> (1 000 actions à <strong>200 € l'action</strong>). Objectif : financer l’industrialisation des collectes, accélérer notre IA multi-enseignes et commercialiser nos API B2B.</p>
+      <p>Rejoignez l’aventure et construisez avec nous la plateforme anti-inflation et shrinkflation tracker référente.</p>
+      <div class="funding-call-actions">
+        <button class="cta-link" type="button" id="contact-trigger">Contactez-nous</button>
+        <a class="cta-link secondary" href="pres_collect_maxicourses.mp4" target="_blank" rel="noopener">Voir la vidéo de démonstration</a>
+      </div>
+    </section>
+    <div class="contact-modal" id="contact-modal" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+        <button class="modal-close" type="button" aria-label="Fermer" id="contact-close">✕</button>
+        <h3 id="contact-title">Parlons financement</h3>
+        <p>Laissez-nous vos coordonnées pour que nous répondions à toutes vos questions.</p>
+        <form id="contact-form">
+          <label for="contact-lastname">Nom</label>
+          <input id="contact-lastname" name="lastname" type="text" required autocomplete="family-name"/>
+          <label for="contact-firstname">Prénom</label>
+          <input id="contact-firstname" name="firstname" type="text" required autocomplete="given-name"/>
+          <label for="contact-phone">Numéro de téléphone</label>
+          <input id="contact-phone" name="phone" type="tel" required autocomplete="tel"/>
+          <label for="contact-message">Votre message</label>
+          <textarea id="contact-message" name="message" required></textarea>
+          <div class="form-feedback" id="contact-feedback" aria-live="polite"></div>
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+    </div>
+        <section class="ai-flow" id="ai-flow">
+      <div class="flow-header">
+        <span class="flow-badge">Collecte humaine par IA</span>
+        <h3>Des navigateurs éphémères pilotés par IA nourrissent Maxicourses en continu</h3>
+        <p>Nous simulons des centaines de milliers d’internautes en générant des navigateurs jetables qui se connectent à chaque enseigne, scrollent et capturent toutes les informations utiles : prix, formats, stocks, visuels, mentions légales, nutri-score, eco-score, niveau de transformation.</p>
+      </div>
+      <div class="flow-impact">
+        <p>Maxicourses a développé une technologie propriétaire capable de créer des centaines. de milliers de navigateurs éphémères pilotés par IA qui naviguent comme des humains sur tous les sites marchands français afin d'en extraire toutes les données utiles. Les flux convergent ensuite dans notre moteur Maxicourses pour être triés : <strong>afin d'extraire les prix du plus cher au moins cher, détection shrinkflation, placé des alerte de prix promo ou alerte augmentaion, scoring de pertinence afin d'orienter vers des marques distributeur</strong>. Les IA les plus avancées (OpenAI, Gemini, Claude, Mistral AI) orchestrent ce tri temps réel pour notre application grand public B2C (Web et Smartphone)et nos API professionnels B2B.</p>
+      </div>
+      <div class="flow-stage" id="ai-stage">
+        <canvas id="ai-flow-canvas" aria-hidden="true"></canvas>
+
+        <div class="flow-node store" id="store-leclerc" data-node="store-leclerc" data-store="leclerc" aria-label="Navigateurs IA E.Leclerc" style="--x: 13%; --y: 16%;">
+          <div class="node-header">
+            <img src="maxicourses-prod/maxicourses_test/assets/logos/leclerc.png" alt="E.Leclerc"/>
+            <span class="spark-label">IA Maxicourses</span>
+          </div>
+          <div class="browser-sparks">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="price-ping">
+            <span class="price-chip good">1,79 €</span>
+            <span class="price-chip bad">2,49 €</span>
+          </div>
+        </div>
+
+        <div class="flow-node store" id="store-carrefour" data-node="store-carrefour" data-store="carrefour" aria-label="Navigateurs IA Carrefour" style="--x: 32%; --y: 10%;">
+          <div class="node-header">
+            <div class="logo-cluster" aria-label="Univers Carrefour">
+              <img src="maxicourses-prod/maxicourses_test/assets/logos/carrefour.png" alt="Carrefour"/>
+              <img src="maxicourses-prod/maxicourses_test/assets/logos/carrefour_market.png" alt="Carrefour Market"/>
+              <img src="maxicourses-prod/maxicourses_test/assets/logos/carrefour_city.png" alt="Carrefour City"/>
+              <img src="maxicourses-prod/maxicourses_test/assets/logos/carrefour_super.png" alt="Carrefour Super"/>
+            </div>
+            <span class="spark-label">IA Maxicourses</span>
+          </div>
+          <div class="browser-sparks">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="price-ping">
+            <span class="price-chip good">-8%</span>
+            <span class="price-chip bad">3,19 €</span>
+          </div>
+        </div>
+
+        <div class="flow-node store" id="store-auchan" data-node="store-auchan" data-store="auchan" aria-label="Navigateurs IA Auchan" style="--x: 16%; --y: 42%;">
+          <div class="node-header">
+            <img src="maxicourses-prod/maxicourses_test/assets/logos/auchan.png" alt="Auchan"/>
+            <span class="spark-label">IA Maxicourses</span>
+          </div>
+          <div class="browser-sparks">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="price-ping">
+            <span class="price-chip bad">+4%</span>
+            <span class="price-chip good">2,05 €</span>
+          </div>
+        </div>
+
+        <div class="flow-node store" id="store-intermarche" data-node="store-intermarche" data-store="intermarche" aria-label="Navigateurs IA Intermarché" style="--x: 34%; --y: 50%;">
+          <div class="node-header">
+            <img src="maxicourses-prod/maxicourses_test/assets/logos/intermarche.png" alt="Intermarché"/>
+            <span class="spark-label">IA Maxicourses</span>
+          </div>
+          <div class="browser-sparks">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="price-ping">
+            <span class="price-chip good">Promo -15%</span>
+            <span class="price-chip bad">3,80 €</span>
+          </div>
+        </div>
+
+        <div class="flow-node store" id="store-monoprix" data-node="store-monoprix" data-store="monoprix" aria-label="Navigateurs IA Monoprix" style="--x: 18%; --y: 82%;">
+          <div class="node-header">
+            <img src="maxicourses-prod/maxicourses_test/assets/logos/monoprix.png" alt="Monoprix"/>
+            <span class="spark-label">IA Maxicourses</span>
+          </div>
+          <div class="browser-sparks">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="price-ping">
+            <span class="price-chip bad">5,90 €</span>
+            <span class="price-chip good">Alert -12%</span>
+          </div>
+        </div>
+
+        <div class="flow-node store" id="store-chronodrive" data-node="store-chronodrive" data-store="chronodrive" aria-label="Navigateurs IA Chronodrive" style="--x: 36%; --y: 76%;">
+          <div class="node-header">
+            <img src="maxicourses-prod/maxicourses_test/assets/logos/chronodrive.png" alt="Chronodrive"/>
+            <span class="spark-label">IA Maxicourses</span>
+          </div>
+          <div class="browser-sparks">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="price-ping">
+            <span class="price-chip good">1,15 €</span>
+            <span class="price-chip bad">Rupture</span>
+          </div>
+        </div>
+
+        <div class="flow-node store" id="store-courseu" data-node="store-courseu" data-store="courseu" aria-label="Navigateurs IA Course U" style="--x: 28%; --y: 64%;">
+          <div class="node-header">
+            <img src="maxicourses-prod/maxicourses_test/assets/logos/courseu.png" alt="Course U"/>
+            <span class="spark-label">IA Maxicourses</span>
+          </div>
+          <div class="browser-sparks">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="price-ping">
+            <span class="price-chip good">2,19 €</span>
+            <span class="price-chip bad">+5%</span>
+          </div>
+        </div>
+
+        <div class="flow-node store" id="store-g20" data-node="store-g20" data-store="g20" aria-label="Navigateurs IA G20" style="--x: 40%; --y: 28%;">
+          <div class="node-header">
+            <img src="maxicourses-prod/maxicourses_test/assets/logos/g20.png" alt="G20"/>
+            <span class="spark-label">IA Maxicourses</span>
+          </div>
+          <div class="browser-sparks">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="price-ping">
+            <span class="price-chip good">Promo -10%</span>
+            <span class="price-chip bad">2,79 €</span>
+          </div>
+        </div>
+
+        <div class="flow-node ai-core" id="ai-core" data-node="ai-core" style="--x: 57%; --y: 40%; --node-width: clamp(220px, 25vw, 270px);">
+          <h4>IA stratège</h4>
+          <p>Normalise, détecte les prix rouges/prix verts, comprend les contextes promos et signale la shrinkflation.</p>
+          <div class="ai-icons">
+            <span>OpenAI</span>
+            <span>Gemini</span>
+            <span>Claude</span>
+            <span>MistralAI</span>
+          </div>
+        </div>
+
+        <div class="flow-node maxi-core" id="maxi-core" data-node="maxi-core" style="--x: 72%; --y: 50%; --node-width: clamp(220px, 24vw, 270px);">
+          <div class="maxi-logo">Maxicourses Core</div>
+          <p>Classement instantané, matching produits, scoring de pertinence, préparation des APIs JSON/CSV et dashboards.</p>
+        </div>
+
+        <div class="flow-node output consumer" id="output-consumer" data-node="output-consumer" style="--x: 87%; --y: 28%; --node-width: clamp(190px, 20vw, 240px);">
+          <h4>App consommateurs</h4>
+          <p>Menus anti-inflation, paniers IA, alertes « prix verts ».</p>
+          <ul class="price-feed" data-feed="consumer">
+            <li><span class="product">Pâtes complètes</span><span class="price-chip good">1,39 €</span></li>
+            <li><span class="product">Lait Bio 1L</span><span class="price-chip good">0,95 €</span></li>
+            <li><span class="product">Huile Colza</span><span class="price-chip good">-12%</span></li>
+          </ul>
+        </div>
+
+        <div class="flow-node output pro" id="output-pro" data-node="output-pro" style="--x: 87%; --y: 72%; --node-width: clamp(190px, 20vw, 240px);">
+          <h4>Dashboards professionnels</h4>
+          <p>Alertes prix rouges, repérage shrinkflation, APIs veille concurrence.</p>
+          <ul class="price-feed" data-feed="pro">
+            <li><span class="product">Soda 1,75L</span><span class="price-chip bad">+7%</span></li>
+            <li><span class="product">Lessive 2L</span><span class="price-chip bad">+0,90 €</span></li>
+            <li><span class="product">Céréales vrac</span><span class="price-chip good">-5%</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline">
+        <article class="ai-step">
+          <h3>1 · Navigateurs éphémères</h3>
+          <p>Maxicourses Nav lance des navigateurs jetables pour chaque magasin : connexion, recherche, capture, preuve d’écran.</p>
+        </article>
+        <article class="ai-step">
+          <h3>2 · IA multi-modèles</h3>
+          <p>OpenAI, Gemini, Claude et MistralAI détectent la shrinkflation, classent les produits, identifient les prix rouges/prix verts.</p>
+        </article>
+        <article class="ai-step">
+          <h3>3 · Hub Maxicourses</h3>
+          <p>Fusion, historisation, scoring de pertinence, tagging « produit différent », calcul prix au litre/kg.</p>
+        </article>
+        <article class="ai-step">
+          <h3>4 · Restitution</h3>
+          <p>App gratuite pour les consommateurs, APIs/exports pour retailers, industriels, fintechs et spécialistes pricing.</p>
+        </article>
+      </div>
+    </section>
+
+    <header class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Intelligence prix temps réel</p>
+        <h1>Maxicourses : révolutionnez vos achats avec l’intelligence artificielle</h1>
+        <p>Votre allié contre l’inflation et la shrinkflation. Maxicourses capte en continu des centaines de milliers de prix sur toutes les enseignes françaises (E.Leclerc, Auchan, Carrefour, Intermarché, Monoprix, Super U, Chronodrive, G20…). L’app restera toujours gratuite : notre valeur vient de la data enrichie que nous collectons, anonymisons et activons comme le font Meta, Google ou OpenAI.</p>
+        <p class="hero-microcopy">500 000+ produits suivis, 5M+ mises à jour quotidiennes, app smartphone gratuite financée par la donnée et API B2B « plug-and-play ».</p>
+        <div class="hero-ctas">
+          <a class="primary" href="mailto:invest@maxicourses.fr">Investissez dans l’avenir du retail</a>
+          <a class="secondary" href="#tech">Voir comment ça marche</a>
+        </div>
+        <div class="hero-tags">
+          <span>Shrinkflation radar</span>
+          <span>Menus &amp; budgets IA</span>
+          <span>Podium multi-enseignes</span>
+          <span>API temps réel</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <span class="glow" aria-hidden="true"></span>
+        <div class="hero-visual-content">
+          <div class="hero-metric">
+            <small>Collectes quotidiennes</small>
+            <strong>300 000+</strong>
+            <p>Scripts Maxicourses Nav multi-enseignes (drive + marketplace) et stockage HTML/JSON/screenshots pour audit.</p>
+          </div>
+          <div class="hero-metric">
+            <small>API temps réel</small>
+            <strong>5M+ MAJ</strong>
+            <p>Calcul des prix au litre/kg, scoring de compétitivité et alertes shrinkflation &lt; 24h.</p>
+          </div>
+          <div class="hero-panels">
+            <img src="img_invest/slide-coca-synthese.png" alt="Synthèse multi-enseignes"/>
+            <img src="img_invest/slide-alpro-amande.png" alt="Finder IA"/>
+            <img src="img_invest/slide-orangina.png" alt="Produit différent"/>
+            <img src="img_invest/slide-destop.png" alt="Podium enseignes"/>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="business-model" id="business">
+      <h2>Deux leviers business pour monétiser Maxicourses</h2>
+      <div class="business-grid">
+        <article class="business-card-box">
+          <h3>Modèle #1 · App gratuite &amp; publicité IA</h3>
+          <p>Notre IA détecte les intentions d’achat et active des campagnes ultra ciblées pour banques, assurances, opérateurs, streamers et marketplaces.</p>
+          <ul class="business-list">
+            <li>Formats natifs, régies automatiques, attribution temps réel.</li>
+            <li>Segmentations par budget, régime, panier, intentions.</li>
+            <li>App 100 % gratuite pour les consommateurs.</li>
+          </ul>
+          <div class="brand-row">
+            <span class="brand-chip">Boursobank</span>
+            <span class="brand-chip">Revolut</span>
+            <span class="brand-chip">Hello Bank!</span>
+            <span class="brand-chip">Fortuneo</span>
+            <span class="brand-chip">AXA</span>
+            <span class="brand-chip">Orange</span>
+            <span class="brand-chip">Free</span>
+            <span class="brand-chip">Bouygues</span>
+            <span class="brand-chip">Netflix</span>
+            <span class="brand-chip">Amazon</span>
+            <span class="brand-chip">Leboncoin</span>
+            <span class="brand-chip">Vinted</span>
+            <span class="brand-chip">Coinbase</span>
+            <span class="brand-chip">Kraken</span>
+          </div>
+        </article>
+        <article class="business-card-box">
+          <h3>Modèle #2 · Veilles prix &amp; API</h3>
+          <p>Nous vendons nos collectes multi-enseignes sous forme d’API temps réel, dashboards premium et exports historiques aux pros de la grande conso.</p>
+          <ul class="business-list">
+            <li>Centrales d’achat, industriels, data providers, fintechs.</li>
+            <li>Suivi granularité prix, shrinkflation, podium enseignes.</li>
+            <li>Accès SaaS + services d’accompagnement.</li>
+          </ul>
+          <div class="brand-row">
+            <span class="brand-chip">E.Leclerc</span>
+            <span class="brand-chip">Auchan</span>
+            <span class="brand-chip">Carrefour</span>
+            <span class="brand-chip">Monoprix</span>
+            <span class="brand-chip">Super U</span>
+            <span class="brand-chip">Intermarché</span>
+            <span class="brand-chip">Chronodrive</span>
+            <span class="brand-chip">G20</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="value-grid">
+      <article class="value-card">
+        <h4>Comparer toutes les enseignes</h4>
+        <p>Collecte EAN + mots-clés IA pour scruter Leclerc, Auchan, Carrefour, Intermarché, Monoprix, Super U, Chronodrive, G20 et consorts en temps réel.</p>
+      </article>
+      <article class="value-card">
+        <h4>Détecter les dérives</h4>
+        <p>Shrinkflation, promos, écarts au litre/kg : l’IA génère alertes et résumés actionnables pour les retailers, industriels et investisseurs.</p>
+      </article>
+      <article class="value-card highlight">
+        <h4>Collecte humaine par IA</h4>
+        <p>Aucun scraping : Maxicourses génère des centaines de milliers de navigateurs éphémères pilotés par IA qui surfent comme de vrais utilisateurs pour capturer les prix.</p>
+      </article>
+      <article class="value-card">
+        <h4>Monétiser la data</h4>
+        <p>L’utilisateur reste gratuit ; la data agrégée nourrit publicité contextuelle et offres B2B/API pour tout l’écosystème grande conso.</p>
+      </article>
+      <article class="value-card">
+        <h4>Menus & budgets IA</h4>
+        <p>Menus par régime, budgets foyers, anticipation consommation et listes auto pour délivrer du pouvoir d’achat tangible.</p>
+      </article>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card"><span>Prix produits suivis</span><strong data-stat-target="500000" data-stat-suffix="+">0</strong></article>
+      <article class="stat-card"><span>Mises à jour / jour</span><strong data-stat-target="5000000" data-stat-suffix="+">0</strong></article>
+      <article class="stat-card"><span>Enseignes couvertes</span><strong data-stat-target="10" data-stat-suffix="+">0</strong></article>
+      <article class="stat-card"><span>Gain panier moyen</span><strong>-8 à -15 %</strong></article>
+      <article class="stat-card"><span>Détection shrinkflation</span><strong>&lt; 24 h</strong></article>
+    </section>
+
+    <section class="enseigne-band">
+      <div class="logo-marquee">
+        <div class="logo-track">
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/leclerc.png" alt="E.Leclerc"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/auchan.png" alt="Auchan"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/carrefour.png" alt="Carrefour"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/carrefour_market.png" alt="Carrefour Market"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/carrefour_city.png" alt="Carrefour City"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/carrefour_super.png" alt="Carrefour Super"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/intermarche.png" alt="Intermarché"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/monoprix.png" alt="Monoprix"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/courseu.png" alt="Super U - U"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/chronodrive.png" alt="Chronodrive"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/g20.png" alt="G20"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/leclerc.png" alt="E.Leclerc"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/auchan.png" alt="Auchan"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/carrefour.png" alt="Carrefour"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/carrefour_market.png" alt="Carrefour Market"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/carrefour_city.png" alt="Carrefour City"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/carrefour_super.png" alt="Carrefour Super"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/intermarche.png" alt="Intermarché"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/monoprix.png" alt="Monoprix"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/courseu.png" alt="Super U - U"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/chronodrive.png" alt="Chronodrive"/>
+          <img src="maxicourses-prod/maxicourses_test/assets/logos/g20.png" alt="G20"/>
+        </div>
+      </div>
+      <p class="logo-disclaimer">Chaque logo appartient à son propriétaire et n’est utilisé ici que pour faciliter la compréhension du fonctionnement de Maxicourses.fr.</p>
+    </section>
+
+    <section class="story-grid" id="story">
+      <article class="story-card"><span>Introduction</span><h3>Retail intelligence prête à scaler</h3><p>Maxicourses industrialise la collecte, la normalisation et la restitution des prix pour offrir aux enseignes et investisseurs une nouvelle couche de décision anti-inflation.</p></article>
+      <article class="story-card"><span>Problématique</span><h3>Inflation &amp; shrinkflation brouillent les signaux</h3><p>Les prix augmentent, les grammages diminuent et les consommateurs perdent confiance. Les équipes pricing n’ont pas d’outil temps réel pour réagir.</p></article>
+      <article class="story-card"><span>Solution</span><h3>Une IA qui observe tout</h3><p>Collectes multi-enseignes, détection shrinkflation, menus IA, budgets foyers, API B2B : tout est orchestré pour comparer, alerter et recommander.</p></article>
+      <article class="story-card"><span>Impact</span><h3>Décisions chiffrées pour la grande conso</h3><p>Podiums enseignes, scoring de compétitivité, anticipation de consommation, intégration directe dans les outils retailers &amp; CPG.</p></article>
+    </section>
+
+    <section class="problem-grid">
+      <article class="problem-card"><h4>Inflation ressentie</h4><p>Les prix varient plusieurs fois par semaine. Maxicourses historise chaque mouvement, calcule les prix unitaires et expose les deltas par enseigne.</p></article>
+      <article class="problem-card"><h4>Shrinkflation masquée</h4><p>Détection automatique des changements de format, packs relookés, pertes de grammes/doses et communication vers les utilisateurs et retailers.</p></article>
+      <article class="problem-card"><h4>Choix consommateurs explosés</h4><p>L’IA construit des menus selon régime, budget et foyer, propose une liste optimisée par enseigne et garantit la qualité équivalente la moins chère.</p></article>
+    </section>
+
+    <section class="demo-pulse" id="live-demo">
+      <div class="section-head">
+        <h2>Cas d’usage live · dashboard temps réel</h2>
+        <p>Captures issues de la stack Maxicourses : synthèses prix, Finder propulsé par les IA les plus avancées (OpenAI, Gemini, Claude, MistralAI), validation « produit différent », podium enseignes, collectes Maxicourses Nav complètes.</p>
+      </div>
+      <div class="slider" aria-live="polite">
+        <div class="slider-track" id="slider-track">
+      <article class="shot" aria-label="Synthèse Coca-Cola" data-step="01">
+            <div class="shot-image"><img src="img_invest/slide-coca-synthese.png" alt="Synthèse Coca-Cola"/></div>
+            <div class="shot-copy"><h3>Synthèse Coca-Cola</h3><p>Comparaison instantanée des prix au litre sur toutes les enseignes, suivi des promos, détection des écarts anormaux et opportunités de repositionnement.</p><div class="tags"><span>Anti-inflation</span><span>Alertes delta</span></div></div>
+          </article>
+          <article class="shot" aria-label="Analyse Alpro" data-step="02">
+            <div class="shot-image"><img src="img_invest/slide-alpro-amande.png" alt="Analyse Alpro"/></div>
+            <div class="shot-copy"><h3>Analyse Alpro · Finder + IA avancée</h3><p>Vision unifiée des alternatives végétales, comparaison par format et enseigne, identification des segments sous-exploités et génération de requêtes IA par OpenAI, Gemini, Claude ou MistralAI.</p><div class="tags"><span>Finder</span><span>OpenAI · Gemini · Claude · MistralAI</span></div></div>
+          </article>
+      <article class="shot" aria-label="Orangina produit différent" data-step="03">
+            <div class="shot-image"><img src="img_invest/slide-orangina.png" alt="Orangina produit différent"/></div>
+            <div class="shot-copy"><h3>Orangina · Produit différent</h3><p>Cartographie prix, alertes sur les changements de conditionnement, suivi promo et impact sur le prix moyen au litre.</p><div class="tags"><span>Qualité data</span><span>Shrinkflation</span></div></div>
+          </article>
+      <article class="shot" aria-label="Dashboard Destop" data-step="04">
+            <div class="shot-image"><img src="img_invest/slide-destop.png" alt="Dashboard Destop"/></div>
+            <div class="shot-copy"><h3>Podium enseignes · Destop</h3><p>Suivi des produits d’entretien, analyse des hausses discrètes et arbitrage marques nationales vs MDD pour optimiser la marge.</p><div class="tags"><span>Benchmark</span><span>Revenue mgmt</span></div></div>
+          </article>
+      <article class="shot" aria-label="Collecte Maxicourses Nav" data-step="05">
+            <div class="shot-image"><img src="img_invest/slide-collector.png" alt="Collecte Maxicourses Nav"/></div>
+            <div class="shot-copy"><h3>Collectes Maxicourses Nav Auchan Talence</h3><p>Parcours complet : sélection drive, recherche EAN, validation prix, sauvegarde HTML/screenshot/JSON pour audit.</p><div class="tags"><span>Automation</span><span>Audit trail</span></div></div>
+          </article>
+        </div>
+        <div class="slider-nav" id="slider-nav" aria-label="Navigation slider"></div>
+      </div>
+    </section>
+
+    <section class="tech-block" id="tech">
+      <article class="tech-card"><h3>Technologie</h3><p>Pipeline data industrialisé : Maxicourses Nav headless, extraction HTML + screenshots, OCR/Computer Vision, LLM de pointe (OpenAI, Gemini, Claude, MistralAI) pour générer mots-clés et décisions. Normalisation cross-enseignes, calcul automatique des prix au litre/kg, tagging produit différent, journaux d’audit exportables.</p></article>
+      <article class="tech-card"><h3>API B2B</h3><p>Endpoint temps réel pour retailers, CPG, fintech : scoring de compétitivité, recommandations de repositionnement, génération de paniers optimisés, scénarios prix/marge. Intégration plug-and-play dans apps drive, fidélité, couponing ou outils internes.</p></article>
+      <article class="tech-card"><h3>Automatisation totale</h3><p>Sélection magasin, recherche EAN, validation visuelle, textualisation par les IA leaders (OpenAI, Gemini, Claude, MistralAI) : chaque collecte produit un dossier complet (HTML, captures, JSON, prix/quantité). Règles menus IA, budgets foyers et anticipations de consommation s’appuient sur ces data pour livrer une expérience anti-inflation clé en main.</p></article>
+    </section>
+
+    <section class="features">
+      <article class="feature-card"><h4>Radar prix temps réel</h4><p>Collecte continue, harmonisation des formats, calcul automatique des prix au litre/kg, historisation millimétrée.</p></article>
+      <article class="feature-card"><h4>Shrinkflation sous stéroïdes</h4><p>Détection instantanée des changements de grammage, packs relookés et hausses cachées. Alertes envoyées en &lt;24 h.</p></article>
+      <article class="feature-card"><h4>Menus &amp; paniers IA</h4><p>Menus et listes selon régime, budget, préférences et taille du foyer avec suivi calorique.</p></article>
+      <article class="feature-card"><h4>Benchmark concurrentiel</h4><p>Vue synthétique par marque/SKU : positionnement prix vs concurrents, écarts unitaires, opportunités.</p></article>
+      <article class="feature-card"><h4>API temps réel</h4><p>Exposez l’intelligence prix Maxicourses dans vos apps retail, négo fournisseurs, services anti-inflation.</p></article>
+      <article class="feature-card"><h4>Infra prête à scaler</h4><p>Architecture cloud-native pour passer de la France à l’Europe sans réécrire la stack.</p></article>
+    </section>
+
+    <section class="business">
+      <div class="section-head">
+        <h2>Business model</h2>
+        <p>L’app smartphone Maxicourses reste gratuite : notre actif principal est la donnée comportementale et prix que nous collectons en continu. Comme Meta, Google ou OpenAI, nous créons de la valeur en agrégeant et activant ces signaux. Le B2C est financé par une publicité ultra-ciblée (banque, assurance, crédit, box, streaming, gaming, promotions enseignes, abonnement mobile, informatique, Black Friday, Cyber Monday, Noël, bijoux, etc.) synchronisée avec les intentions détectées.</p>
+      </div>
+      <div class="problem-grid">
+        <article class="problem-card"><h4>B2C gratuit</h4><p>Formats natifs et recommandations partenaires basés sur les paniers, régimes et budgets observés. L’utilisateur gagne du pouvoir d’achat, nous collectons des insights commerciaux.</p></article>
+        <article class="problem-card"><h4>B2B API &amp; dashboards</h4><p>Abonnements retailers/CPG donnant accès aux données live, modules shrinkflation, alertes pricing et exports auditables.</p></article>
+        <article class="problem-card"><h4>Insights premium</h4><p>Packages data pour consultants, banques, assureurs ou acteurs financiers souhaitant monitorer la grande conso française en quasi temps réel.</p></article>
+      </div>
+    </section>
+
+    <section class="data-value">
+      <article class="data-card"><h4>Data ownership</h4><p>Chaque collecte Maxicourses Nav génère HTML, capture, JSON, prix/quantité et contexte magasin. Ces données sont anonymisées, versionnées et deviennent un actif stratégique comparable aux graphes de Meta ou Google.</p></article>
+      <article class="data-card"><h4>Activation intelligente</h4><p>L’IA détecte intentions d’achat, régimes, budgets, événements saisonniers et déclenche des recommandations personnalisées pour les marques, assureurs, banques ou opérateurs télécom.</p></article>
+      <article class="data-card"><h4>Protection & confiance</h4><p>Consentement clair, opt-in RGPD, stockage chiffré. Les insights sont délivrés de façon agrégée aux partenaires B2B, l’utilisateur reste aux commandes de ses préférences.</p></article>
+    </section>
+
+    <section class="impact" id="impact">
+      <article class="impact-card"><h4>Budget maîtrisé</h4><p>-8 à -15 % sur le panier moyen grâce aux recommandations multi-enseignes et menus IA.</p></article>
+      <article class="impact-card"><h4>Alertes shrinkflation</h4><p>Signal en moins de 24 h lorsqu’un format change ou qu’un prix au litre dérape.</p></article>
+      <article class="impact-card"><h4>Transparence réglementaire</h4><p>Journal d’audit complet (HTML, captures, JSON, prix/qty) pour chaque collecte, partageable avec autorités ou partenaires.</p></article>
+      <article class="impact-card"><h4>Couverture exhaustive</h4><p>Centaines de milliers de références suivies quotidiennement sur toutes les enseignes françaises.</p></article>
+    </section>
+
+    <section class="usecases">
+      <article class="usecase-card"><h5>Retailers &amp; drives</h5><p>Alimenter les apps drive avec des prix transparents, paniers optimisés et menus personnalisés. Ajuster le pricing en temps réel et détecter la shrinkflation avant les médias.</p></article>
+      <article class="usecase-card"><h5>Industriels &amp; CPG</h5><p>Suivre le positionnement de chaque SKU par enseigne, mesurer l’impact promo, détecter les mouvements concurrents et préparer les négos.</p></article>
+      <article class="usecase-card"><h5>Fintech &amp; apps grand public</h5><p>Intégrer l’API Maxicourses pour offrir un budget alimentaire intelligent : alertes inflation ressentie, recommandations d’enseignes et paniers respectant le budget.</p></article>
+      <article class="usecase-card"><h5>Consulting &amp; data providers</h5><p>Enrichir prévisions et études avec une granularité prix inédite : historiques détaillés, comparaisons multi-enseignes, signaux faibles par catégorie.</p></article>
+    </section>
+
+    <section class="closing-cta">
+      <div class="cta-card">
+        <h3>Rejoignez la révolution du retail data avec Maxicourses.</h3>
+        <p>Nous ouvrons la plateforme aux investisseurs et partenaires stratégiques. Accédez au deck complet, à la roadmap et aux besoins de financement sur demande.</p>
+        <a href="mailto:invest@maxicourses.fr">Parler investissement · invest@maxicourses.fr</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> OpencenterAI - Maxicourses by OpencenterAI · Contact : invest@maxicourses.fr
+  </footer>
+
+  <script>
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+
+    document.querySelectorAll('[data-scroll-target]').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        const targetId = link.getAttribute('data-scroll-target');
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({behavior: 'smooth'});
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+      });
+    });
+
+    const stats = document.querySelectorAll('[data-stat-target]');
+    stats.forEach(stat => {
+      const target = Number(stat.dataset.statTarget || 0);
+      const suffix = stat.dataset.statSuffix || '';
+      if (!target) { return; }
+      const duration = 2000;
+      const start = performance.now();
+      const step = now => {
+        const progress = Math.min((now - start) / duration, 1);
+        stat.textContent = Math.round(progress * target).toLocaleString('fr-FR') + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+
+    const track = document.getElementById('slider-track');
+    const slides = Array.from(track.children);
+    const nav = document.getElementById('slider-nav');
+    let sliderIndex = 0;
+    let sliderTimer;
+
+    const goToSlide = index => {
+      sliderIndex = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${sliderIndex * 100}%)`;
+      Array.from(nav.children).forEach((dot, i) => dot.setAttribute('aria-pressed', i === sliderIndex));
+      clearInterval(sliderTimer);
+      sliderTimer = setInterval(() => goToSlide(sliderIndex + 1), 7000);
+    };
+
+    slides.forEach((_, idx) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('aria-label', `Voir le slide ${idx + 1}`);
+      btn.setAttribute('aria-pressed', idx === 0);
+      btn.addEventListener('click', () => goToSlide(idx));
+      nav.appendChild(btn);
+    });
+
+    goToSlide(0);
+
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+    const contactModal = document.getElementById('contact-modal');
+    const contactTrigger = document.getElementById('contact-trigger');
+    const contactClose = document.getElementById('contact-close');
+    const contactForm = document.getElementById('contact-form');
+    const toggleContactModal = show => {
+      if (!contactModal) return;
+      contactModal.classList.toggle('active', show);
+      contactModal.setAttribute('aria-hidden', show ? 'false' : 'true');
+    };
+    if (contactTrigger) {
+      contactTrigger.addEventListener('click', () => toggleContactModal(true));
+    }
+    if (contactClose) {
+      contactClose.addEventListener('click', () => toggleContactModal(false));
+    }
+    if (contactModal) {
+      contactModal.addEventListener('click', evt => {
+        if (evt.target === contactModal) toggleContactModal(false);
+      });
+    }
+    document.addEventListener('keydown', evt => {
+      if (evt.key === 'Escape') toggleContactModal(false);
+    });
+    if (contactForm) {
+      contactForm.addEventListener('submit', async evt => {
+        evt.preventDefault();
+        const formData = new FormData(contactForm);
+        const payload = {
+          lastname: formData.get('lastname')?.toString().trim() || '',
+          firstname: formData.get('firstname')?.toString().trim() || '',
+          phone: formData.get('phone')?.toString().trim() || '',
+          message: formData.get('message')?.toString().trim() || ''
+        };
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const feedbackEl = document.getElementById('contact-feedback');
+        const showFeedback = (text, type) => {
+          if (!feedbackEl) return;
+          feedbackEl.textContent = text;
+          feedbackEl.classList.remove('success', 'error');
+          if (type) feedbackEl.classList.add(type);
+        };
+        if (!payload.lastname || !payload.firstname || !payload.phone || !payload.message) {
+          showFeedback('Merci de remplir tous les champs.', 'error');
+          return;
+        }
+        submitBtn.disabled = true;
+        const originalLabel = submitBtn.textContent;
+        submitBtn.textContent = 'Envoi...';
+        showFeedback('', '');
+        try {
+          const response = await fetch('contact.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok || result.status !== 'ok') {
+            throw new Error(result.message || 'Erreur serveur');
+          }
+          showFeedback('Message envoyé. Nous revenons vers vous rapidement.', 'success');
+          contactForm.reset();
+          setTimeout(() => toggleContactModal(false), 1200);
+        } catch (error) {
+          showFeedback(error.message || 'Impossible d\'envoyer votre message pour le moment.', 'error');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        }
+      });
+    }
+
+    const flowStage = document.getElementById('ai-stage');
+    const flowCanvas = document.getElementById('ai-flow-canvas');
+    if (flowStage && flowCanvas) {
+      const ctx = flowCanvas.getContext('2d');
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      const nodes = {};
+      const nodeElements = Array.from(flowStage.querySelectorAll('[data-node]'));
+      const storeChips = {};
+      const sourceIds = ['store-leclerc', 'store-carrefour', 'store-auchan', 'store-intermarche', 'store-monoprix', 'store-chronodrive', 'store-courseu', 'store-g20'];
+      const outputIds = ['output-consumer', 'output-pro'];
+      const feedEls = {
+        consumer: flowStage.querySelector('[data-feed="consumer"]'),
+        pro: flowStage.querySelector('[data-feed="pro"]')
+      };
+      const feedState = { consumer: [], pro: [] };
+      const productPool = ['Pâtes complètes', 'Huile colza', 'Yaourt grec', 'Soda 1,75L', 'Biscuits kids', 'Café moulu', 'Lait Bio', 'Riz basmati', 'Lessive 2L', 'Compote pomme', 'Gel douche', 'Céréales vrac', 'Soupe fraîche', 'Granola premium', 'Coca-Cola', 'Orangina', 'Alpro amande', 'Tomates grappe', 'Destop', 'Miel de fleurs'];
+      const defaultCatalog = productPool;
+      const storeCatalog = {
+        leclerc: ['Coca-Cola', 'Pâtes complètes', 'Miel de fleurs', 'Biscuits kids', 'Soupe fraîche'],
+        carrefour: ['Orangina', 'Alpro amande', 'Destop', 'Riz basmati', 'Lessive 2L'],
+        auchan: ['Tomates grappe', 'Coca-Cola', 'Café moulu', 'Yaourt grec', 'Huile colza'],
+        intermarché: ['Pâtes complètes', 'Lait Bio', 'Soda 1,75L', 'Compote pomme', 'Gel douche'],
+        monoprix: ['Alpro amande', 'Granola premium', 'Miel de fleurs', 'Tomates grappe'],
+        chronodrive: ['Destop', 'Huile colza', 'Lessive 2L', 'Soda 1,75L'],
+        courseu: ['Pâtes complètes', 'Coca-Cola', 'Tomates grappe', 'Biscuits kids'],
+        g20: ['Orangina', 'Miel de fleurs', 'Riz basmati', 'Soupe fraîche']
+      };
+      const packets = [];
+      const connections = [];
+      const mediaQuery = window.matchMedia('(max-width: 900px)');
+      const state = { width: 0, height: 0, isMobile: mediaQuery.matches };
+      let lastTime = 0;
+
+      nodeElements.forEach(el => {
+        if (!el.classList.contains('store')) return;
+        const storeKey = el.dataset.store;
+        if (!storeKey) return;
+        const chips = Array.from(el.querySelectorAll('.price-ping .price-chip'));
+        if (chips.length) storeChips[storeKey] = chips;
+      });
+
+      const buildConnections = () => {
+        connections.length = 0;
+        sourceIds.forEach(id => {
+          if (nodes[id] && nodes['ai-core']) connections.push([id, 'ai-core']);
+        });
+        if (nodes['ai-core'] && nodes['maxi-core']) {
+          connections.push(['ai-core', 'maxi-core']);
+        }
+        outputIds.forEach(id => {
+          if (nodes['maxi-core'] && nodes[id]) connections.push(['maxi-core', id]);
+        });
+      };
+
+      const randomProduct = store => {
+        const catalog = storeCatalog[store] || defaultCatalog;
+        return catalog[Math.floor(Math.random() * catalog.length)];
+      };
+
+      const createSignal = (store, tone) => {
+        const product = randomProduct(store);
+        const variant = Math.random();
+        let value;
+        if (tone === 'good') {
+          if (variant < 0.4) value = `${(Math.random() * 2 + 0.8).toFixed(2).replace('.', ',')} €`;
+          else if (variant < 0.8) value = `Promo -${(Math.random() * 12 + 4).toFixed(0)}%`;
+          else value = 'Stock OK';
+        } else {
+          if (variant < 0.5) value = `+${(Math.random() * 2 + 0.3).toFixed(2).replace('.', ',')} €`;
+          else if (variant < 0.85) value = `+${(Math.random() * 14 + 4).toFixed(0)}%`;
+          else value = 'Rupture';
+        }
+        return {
+          tone,
+          text: `${product} · ${value}`
+        };
+      };
+
+      const updateStoreSignals = () => {
+        Object.entries(storeChips).forEach(([store, chips]) => {
+          chips.forEach((chip, idx) => {
+            const tone = idx % 2 === 0 ? 'good' : 'bad';
+            const signal = createSignal(store, tone);
+            chip.classList.toggle('good', tone === 'good');
+            chip.classList.toggle('bad', tone === 'bad');
+            chip.textContent = signal.text;
+          });
+        });
+      };
+
+      const renderFeed = key => {
+        const el = feedEls[key];
+        if (!el) return;
+        el.innerHTML = '';
+        feedState[key].forEach(item => {
+          const li = document.createElement('li');
+          const nameSpan = document.createElement('span');
+          nameSpan.className = 'product';
+          nameSpan.textContent = item.product;
+          const priceSpan = document.createElement('span');
+          priceSpan.className = `price-chip ${item.tone === 'good' ? 'good' : 'bad'}`;
+          priceSpan.textContent = item.value;
+          li.append(nameSpan, priceSpan);
+          el.appendChild(li);
+        });
+      };
+
+      const pushFeedEntry = (key, item) => {
+        const limit = 4;
+        feedState[key] = [item, ...feedState[key]].slice(0, limit);
+        renderFeed(key);
+      };
+
+      const hydrateInitialFeed = () => {
+        Object.entries(feedEls).forEach(([key, el]) => {
+          if (!el) return;
+          const items = [];
+          el.querySelectorAll('li').forEach(li => {
+            const product = li.querySelector('.product')?.textContent?.trim();
+            const chip = li.querySelector('.price-chip');
+            const value = chip?.textContent?.trim() || '';
+            const tone = chip?.classList.contains('bad') ? 'bad' : 'good';
+            if (product && value) items.push({ product, value, tone });
+          });
+          feedState[key] = items.slice(0, 4);
+          renderFeed(key);
+        });
+      };
+
+      const updateGeometry = () => {
+        if (state.isMobile) {
+          packets.length = 0;
+          ctx.clearRect(0, 0, flowCanvas.width, flowCanvas.height);
+          return;
+        }
+        const stageRect = flowStage.getBoundingClientRect();
+        state.width = stageRect.width;
+        state.height = stageRect.height;
+        const dpr = window.devicePixelRatio || 1;
+        flowCanvas.width = state.width * dpr;
+        flowCanvas.height = state.height * dpr;
+        flowCanvas.style.width = `${state.width}px`;
+        flowCanvas.style.height = `${state.height}px`;
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(dpr, dpr);
+        nodeElements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          nodes[el.dataset.node] = {
+            x: rect.left - stageRect.left + rect.width / 2,
+            y: rect.top - stageRect.top + rect.height / 2
+          };
+        });
+        buildConnections();
+      };
+
+      const spawnPacket = () => {
+        if (!nodes['ai-core'] || !nodes['maxi-core']) return;
+        const source = sourceIds[Math.floor(Math.random() * sourceIds.length)];
+        const target = outputIds[Math.floor(Math.random() * outputIds.length)];
+        const tone = Math.random() > 0.45 ? 'good' : 'bad';
+        const product = productPool[Math.floor(Math.random() * productPool.length)];
+        const goodValue = (Math.random() * 3 + 0.4).toFixed(2).replace('.', ',');
+        const badDelta = (Math.random() * 1.8 + 0.2).toFixed(2).replace('.', ',');
+        const valueLabel = tone === 'good' ? `${goodValue} €` : `+${badDelta} €`;
+        const text = `${product} · ${valueLabel}`;
+        packets.push({
+          path: [source, 'ai-core', 'maxi-core', target],
+          progress: 0,
+          speed: 0.00035 + Math.random() * 0.00055,
+          tone,
+          text,
+          product,
+          value: valueLabel,
+          target
+        });
+        if (packets.length > 90) packets.splice(0, packets.length - 90);
+      };
+
+      const handlePacketArrival = packet => {
+        const key = packet.target === 'output-consumer' ? 'consumer' : packet.target === 'output-pro' ? 'pro' : null;
+        if (!key) return;
+        pushFeedEntry(key, {
+          product: packet.product,
+          value: packet.value,
+          tone: packet.tone
+        });
+      };
+
+      const getPoint = (path, progress) => {
+        if (!path.length) return null;
+        const segments = path.length - 1;
+        if (segments <= 0) return nodes[path[0]] || null;
+        const segProgress = progress * segments;
+        const index = Math.min(Math.floor(segProgress), segments - 1);
+        const localT = segProgress - index;
+        const from = nodes[path[index]];
+        const to = nodes[path[index + 1]];
+        if (!from || !to) return null;
+        return {
+          x: from.x + (to.x - from.x) * localT,
+          y: from.y + (to.y - from.y) * localT
+        };
+      };
+
+      const drawConnection = (fromId, toId) => {
+        const from = nodes[fromId];
+        const to = nodes[toId];
+        if (!from || !to) return;
+        const gradient = ctx.createLinearGradient(from.x, from.y, to.x, to.y);
+        gradient.addColorStop(0, 'rgba(102, 244, 255, 0.35)');
+        gradient.addColorStop(1, 'rgba(255, 122, 205, 0.3)');
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        ctx.moveTo(from.x, from.y);
+        ctx.lineTo(to.x, to.y);
+        ctx.stroke();
+      };
+
+      const drawPacket = packet => {
+        const point = getPoint(packet.path, packet.progress);
+        if (!point) return;
+        ctx.font = '600 11px "Inter", sans-serif';
+        const textWidth = ctx.measureText(packet.text).width;
+        const tagWidth = textWidth + 26;
+        const tagHeight = 26;
+        const x = point.x - tagWidth / 2;
+        const y = point.y - tagHeight / 2;
+        const fill = packet.tone === 'good' ? 'rgba(69,255,176,0.92)' : 'rgba(255,116,155,0.95)';
+        ctx.fillStyle = fill;
+        ctx.beginPath();
+        ctx.roundRect(x, y, tagWidth, tagHeight, 14);
+        ctx.fill();
+        ctx.fillStyle = packet.tone === 'good' ? '#042917' : '#2a0712';
+        ctx.fillText(packet.text, x + 12, y + 17);
+      };
+
+      const loop = now => {
+        requestAnimationFrame(loop);
+        if (state.isMobile) {
+          lastTime = now;
+          return;
+        }
+        const delta = now - (lastTime || now);
+        lastTime = now;
+        ctx.clearRect(0, 0, state.width, state.height);
+        connections.forEach(([from, to]) => drawConnection(from, to));
+        for (let i = packets.length - 1; i >= 0; i--) {
+          const packet = packets[i];
+          packet.progress += packet.speed * (delta || 16);
+          if (packet.progress >= 1) {
+            handlePacketArrival(packet);
+            packets.splice(i, 1);
+            continue;
+          }
+          drawPacket(packet);
+        }
+      };
+
+      const handleMediaChange = () => {
+        state.isMobile = mediaQuery.matches;
+        updateGeometry();
+      };
+
+      const handleResize = () => {
+        updateGeometry();
+      };
+
+      hydrateInitialFeed();
+      updateStoreSignals();
+      updateGeometry();
+      spawnPacket();
+      spawnPacket();
+      requestAnimationFrame(loop);
+      const spawnInterval = setInterval(() => {
+        if (!state.isMobile) spawnPacket();
+      }, 260);
+      const storeInterval = setInterval(updateStoreSignals, 1900);
+
+      if (mediaQuery.addEventListener) {
+        mediaQuery.addEventListener('change', handleMediaChange);
+      } else if (mediaQuery.addListener) {
+        mediaQuery.addListener(handleMediaChange);
+      }
+      window.addEventListener('resize', handleResize, { passive: true });
+    }
+  </script>
+</body>
+</html>

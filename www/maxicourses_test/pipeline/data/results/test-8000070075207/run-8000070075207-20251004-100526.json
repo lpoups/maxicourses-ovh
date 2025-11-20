@@ -1,0 +1,245 @@
+{
+  "ean": "8000070075207",
+  "image_path": null,
+  "started_at": "2025-10-04T09:58:16.566230",
+  "finished_at": "2025-10-04T10:05:26.312339",
+  "duration_seconds": 429.746109,
+  "reference": {
+    "title": "Capsules de café allongé CARTE NOIRE L'Iconique 30 capsules",
+    "description": "Capsules de café allongé CARTE NOIRE L'Iconique 30 capsules",
+    "source": "chronodrive",
+    "brand": "Capsules",
+    "quantity": "30 capsules",
+    "categories": "en:coffees",
+    "image": "./assets/8000070075207.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "unknown",
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8000070075207/debug/run-8000070075207-20251004-095816"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-10-04T09:58:16.566820",
+      "finished_at": "2025-10-04T09:58:33.182465",
+      "duration_seconds": 16.615645,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "8000070075207",
+        "QUERY": "8000070075207",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8000070075207"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "10,91",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-l-iconique-100-arabica-intensite-8-com patible-nespresso-carte-noire-8000070075207",
+        "note": null,
+        "unit_price": "0,36  € / L",
+        "quantity": "30 L",
+        "title": "Café Capsules L'Iconique 100% Arabica  Intensité 8 Compatible Nespresso CARTE NOIRE",
+        "matched_ean": "8000070075207",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-10-04T09:58:33.182855",
+      "finished_at": "2025-10-04T09:58:50.626676",
+      "duration_seconds": 17.443821,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "8000070075207",
+        "QUERY": "8000070075207",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8000070075207"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Pain de mie nature Epi d'Or Sans croute - 500g",
+        "price": "1,39",
+        "unit_price": "2,78 € / kg",
+        "quantity": "8 TRC",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24500-Pain-de-mie-nature-Epi-dOr.aspx",
+        "matched_ean": "8000070075207",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-10-04T10:05:08Z · E.Leclerc Drive · Bruges"
+      },
+      "started_at": "2025-10-04T10:04:36.596648",
+      "finished_at": "2025-10-04T10:05:08.326459",
+      "duration_seconds": 31.729811,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "8000070075207",
+        "QUERY": "8000070075207",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8000070075207",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8000070075207/debug/run-8000070075207-20251004-095816/03-leclerc"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,75",
+        "title": "Capsules de café compatibles  Nespresso L'Iconique 100% arabica",
+        "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-l'ic onique-100%25-arabica/8000070075207",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "8000070075207",
+        "unit_price": "56,38 € / KG",
+        "quantity": "30  capsules",
+        "store": "Super Talence"
+      },
+      "started_at": "2025-10-04T10:05:08.327832",
+      "finished_at": "2025-10-04T10:05:25.711033",
+      "duration_seconds": 17.383201,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "8000070075207",
+        "QUERY": "Capsules café allongé CARTE NOIRE L'Iconique 30 capsules",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Capsules café allongé CARTE NOIRE L'Iconique 30 capsules",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8000070075207/debug/run-8000070075207-20251004-095816/04-intermarche"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,51",
+        "title": "Capsules de café l'Iconique café  long arôme intense 100% Arabica compatibles Nespresso",
+        "url": "https://www.auchan.fr/carte-noire-capsules-de-cafe-l-iconique-cafe-long-arome-i ntense-100-arabica-compatibles-nespresso/pr-C1814348",
+        "note": "Auchan (CDP)",
+        "unit_price": "56,61 € / KG",
+        "quantity": "30 L",
+        "matched_ean": "8000070075207",
+        "image": "https://cdn.auchan.fr/media/S010000000413HZPRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200"
+      },
+      "started_at": "2025-10-04T09:58:50.629704",
+      "finished_at": "2025-10-04T09:59:03.839573",
+      "duration_seconds": 13.209869,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8000070075207",
+        "QUERY": "8000070075207",
+        "HOME_URL": "https://www.auchan.fr",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche '8000070075207'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/carte-noire-capsules-de-cafe-l-iconique-cafe-long-arome-intense-100-arabica-compatibles-nespresso/pr-C1814348",
+      "metadata": {
+        "attempt_query": "8000070075207"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,39",
+        "title": "Capsules de café allongé CARTE NOIRE L'Iconique 30 capsules",
+        "url": "https://www.chronodrive.com/carte-noire--liconique---capsules-de-cafe-allonge-P 564180",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "Prix au kg ou au litre : 55,89 € / KG",
+        "quantity": "30 capsules",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "8000070075207"
+      },
+      "started_at": "2025-10-04T09:59:03.841084",
+      "finished_at": "2025-10-04T09:59:14.855589",
+      "duration_seconds": 11.014505,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "8000070075207",
+        "QUERY": "8000070075207",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8000070075207"
+      }
+    }
+  ]
+}

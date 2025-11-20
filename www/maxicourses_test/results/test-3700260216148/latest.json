@@ -1,63 +1,478 @@
 {
   "ean": "3700260216148",
   "image_path": null,
-  "started_at": "2025-10-03T15:59:00.717911",
-  "finished_at": "2025-10-03T16:05:41.039921",
-  "duration_seconds": 400.32201,
+  "started_at": "2025-11-19T21:58:29.020584+01:00",
+  "finished_at": "2025-11-19T22:20:24.689049+01:00",
+  "duration_seconds": 1315.668465,
   "reference": {
-    "title": "Croquettes pour chat stérilisé saumon Ultima 1,5 kg",
-    "description": "Croquettes pour chat stérilisé saumon Ultima 1,5 kg",
-    "source": "carrefour_market",
-    "brand": "Ultima",
-    "quantity": "1,5 kg",
-    "categories": "Alimentation pour chats",
+    "title": "Croquettes au saumon pour chat stérilisé",
+    "description": "Croquettes au saumon pour chat stérilisé",
+    "source": "g20",
+    "brand": "Croquettes",
+    "quantity": "5  L",
+    "categories": null,
     "image": "./assets/3700260216148.jpg",
-    "nutriscore_grade": "unknown",
+    "nutriscore_grade": "c",
     "nutriscore_score": null,
     "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
     "ecoscore_grade": null,
     "ecoscore_image": null,
     "nova_group": null
   },
-  "notes": [
-    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-3700260216148-20251003-155900"
-  ],
+  "notes": [],
   "adapters": [
     {
-      "adapter": "leclerc",
-      "status": "NO_MATCH",
+      "adapter": "carrefour_city",
+      "status": "CF_BLOCK",
       "payload": {
-        "status": "NO_MATCH",
-        "title": "Croquettes chat Ultima Stérilisé - Saumon - 3kg",
+        "status": "CF_BLOCK",
         "price": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=3700260216148",
+        "note": null,
         "unit_price": null,
-        "quantity": "1,5 kg",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-48258-Croquettes-chat-Ultima.aspx",
+        "quantity": null,
+        "title": null,
         "matched_ean": null,
-        "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-10-03T16:01:03Z · E.Leclerc Drive · Bruges"
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
       },
-      "started_at": "2025-10-03T16:00:00.594331",
-      "finished_at": "2025-10-03T16:01:03.763920",
-      "duration_seconds": 63.169589,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "started_at": "2025-11-19T21:58:29.021587+01:00",
+      "finished_at": "2025-11-19T21:58:35.339797+01:00",
+      "duration_seconds": 6.31821,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_carrefour_price_city.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_carrefour_price_city.py"
       ],
       "env": {
         "EAN": "3700260216148",
-        "QUERY": "Ultima 1,5 KG",
-        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
-        "HEADLESS": "0"
+        "QUERY": "3700260216148",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
       },
       "exit_code": 0,
       "error": null,
       "stderr": null,
       "metadata": {
-        "attempt_query": "Ultima 1,5 KG",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-3700260216148-20251003-155900/01-leclerc"
+        "attempt_query": "3700260216148"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "CF_BLOCK",
+      "payload": {
+        "status": "CF_BLOCK",
+        "price": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=3700260216148",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-19T21:58:35.340123+01:00",
+      "finished_at": "2025-11-19T21:58:41.612088+01:00",
+      "duration_seconds": 6.271965,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3700260216148",
+        "QUERY": "3700260216148",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3700260216148"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "CF_BLOCK",
+      "payload": {
+        "status": "CF_BLOCK",
+        "price": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=3700260216148",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-19T21:58:41.612780+01:00",
+      "finished_at": "2025-11-19T21:58:47.534089+01:00",
+      "duration_seconds": 5.921309,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3700260216148",
+        "QUERY": "3700260216148",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3700260216148"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "7,55",
+        "unit_price": "5,03 € / KG",
+        "quantity": "5  L",
+        "title": "Croquettes au saumon pour chat stérilisé",
+        "url": "https://www.auchan.fr/ultima-croquettes-au-saumon-pour-chat-sterilise/pr-C11872 63",
+        "matched_ean": "3700260216148",
+        "store": "Auchan Drive Supermarché  Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/A0220080612000538201PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Croquettes au saumon pour chat stérilisé",
+          "brand": "Croquettes",
+          "kind": "",
+          "qty": "5 L",
+          "qualifiers": [],
+          "ean": "3700260216148",
+          "image_url": "https://cdn.auchan.fr/media/A0220080612000538201PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-19T21:58:47.534708+01:00",
+      "finished_at": "2025-11-19T21:59:03.265056+01:00",
+      "duration_seconds": 15.730348,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3700260216148",
+        "QUERY": "3700260216148",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] results visible, opening first candidate",
+      "metadata": {
+        "attempt_query": "3700260216148"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-19T21:59:03.269665+01:00",
+      "finished_at": "2025-11-19T22:00:15.251514+01:00",
+      "duration_seconds": 71.981849,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3700260216148",
+        "QUERY": "3700260216148",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='3700260216148'\n[CHRONO_DEBUG] typed=False\n[CHRONO_DEBUG] fallback search URL https://www.chronodrive.com/magasin/le-haillan-422/recherche?text=3700260216148\n[CHRONO_DEBUG] URL after search: https://www.chronodrive.com/magasin/le-haillan-422/recherche?text=3700260216148\n[CHRONO_DEBUG] no product cards; snapshot snippet:\n<!DOCTYPE html><html data-n-head-ssr=\"\" lang=\"fr-FR\" dir=\"ltr\" data-n-head=\"%7B%22lang%22:%7B%22ssr%22:%22fr-FR%22%7D,%22dir%22:%7B%22ssr%22:%22ltr%22%7D%7D\"><head>\n    <meta data-n-head=\"ssr\" charset=\"utf-8\"><meta data-n-head=\"ssr\" name=\"viewport\" content=\"width=device-width,initial-scale=1.0,shrink-to-fit=no\"><meta data-n-head=\"ssr\" data-hid=\"description\" name=\"description\" content=\"\"><meta data-n-head=\"ssr\" name=\"format-detection\" content=\"telephone=no\"><meta data-n-head=\"ssr\" name=\"apple-itunes-app\" content=\"app-id=397935048\"><meta data-n-head=\"ssr\" name=\"google-play-app\" content=\"app-id=com.ikomobi.chronodrive\"><meta data-n-head=\"ssr\" name=\"msapplication-TileColor\" content=\"#ffffff\"><meta data-n-head=\"ssr\" name=\"msapplication-config\" content=\"/favicons/browserconfig.xml\"><meta data-n-",
+      "metadata": {
+        "attempt_query": "3700260216148"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "7,01",
+        "unit_price": "4,67 € / KG",
+        "quantity": "1,5  kg",
+        "title": "Croquettes pour chat stérilisés au saumon ULTIMA, 1,5kg",
+        "url": "https://www.coursesu.com/p/croquettes-pour-chat-sterilises-au-saumon-ultima-15k g/5663068.html",
+        "note": "2025-11-19T21:00:50Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "3700260216148",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Croquettes pour chat stérilisés au saumon ULTIMA, 1,5kg",
+          "brand": "Croquettes",
+          "kind": "",
+          "qty": "1,5 kg",
+          "qualifiers": [],
+          "ean": "3700260216148",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-19T22:00:15.252321+01:00",
+      "finished_at": "2025-11-19T22:00:50.865915+01:00",
+      "duration_seconds": 35.613594,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3700260216148",
+        "QUERY": "3700260216148",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3700260216148"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "6,67",
+        "title": "ULTIMA croquettes Chat Stérilisé Adulte Saumon 1,5kg",
+        "url": "https://www.g20-minute.com/products/3700260216148/ultima-croquettes-chat-sterilise-adulte-saumon-1-5kg-3700260216148",
+        "note": "G20 Minute",
+        "unit_price": "4,45 €/Kg",
+        "quantity": "1,5kg",
+        "matched_ean": "3700260216148",
+        "image": "https://www.g20-minute.com/media/cache/product_box_image/36/e5/fe4c7ff79e755da825cdac27bf1d.jpg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "ULTIMA croquettes Chat Stérilisé Adulte Saumon 1,5kg",
+          "brand": "ULTIMA",
+          "kind": "",
+          "qty": "1,5kg",
+          "qualifiers": [],
+          "ean": "3700260216148",
+          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/36/e5/fe4c7ff79e755da825cdac27bf1d.jpg",
+          "source": "g20",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-19T22:00:50.867850+01:00",
+      "finished_at": "2025-11-19T22:00:51.331945+01:00",
+      "duration_seconds": 0.464095,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "3700260216148",
+        "QUERY": "3700260216148",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3700260216148"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-11-19T22:00:54.384218+01:00",
+      "finished_at": "2025-11-19T22:03:12.259091+01:00",
+      "duration_seconds": 137.874873,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3700260216148",
+        "QUERY": "Croquettes sterilise 5 L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Croquettes sterilise 5 L"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/purina-one-chat-adulte-croquettes-au-saumo n-et-aux-céréales-1-5kg/MPX_953769",
+            "product": {
+              "title": "Purina One Chat Adulte Croquettes Au Saumon Et Aux Céréales 1,5kg",
+              "brand": "Croquettes",
+              "kind": "Croquettes au saumon pour chat stérilisé",
+              "qty": "1,5 KG",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9e39 8675-4ffa-4c38-8b43-ae2a3dbcdb63/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/perfect-fit-croquettes-saumon-frais-chat-a dulte-1-stérilisé-1-4kg/MPX_6640542",
+            "product": {
+              "title": "Perfect Fit Croquettes saumon frais chat adulte 1+ stérilisé 1.4kg",
+              "brand": "Croquettes",
+              "kind": "Croquettes au saumon pour chat stérilisé",
+              "qty": "1,4 KG",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3f82 f761-9dd1-4f11-a7da-b70eab8bc0d6/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/purina-one-croquettes-chat-adulte-au-saumo n-et-céréales-450g/MPX_655607",
+            "product": {
+              "title": "Purina One Croquettes Chat Adulte au saumon et céréales 450g",
+              "brand": "Croquettes",
+              "kind": "Croquettes au saumon pour chat stérilisé",
+              "qty": "450 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/7e3a 419d-1c31-4e2e-bdce-5ecf26b8a1f7/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/friskies-croquettes-au-saumon-et-aux-légum es-1-5kg-chat-adulte/MPX_6730097",
+            "product": {
+              "title": "Friskies Croquettes au Saumon et aux Légumes - 1,5kg - Chat Adulte",
+              "brand": "Croquettes",
+              "kind": "Croquettes au saumon pour chat stérilisé",
+              "qty": "1,5 KG",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/1d2f 1468-0681-4924-81d2-199663d3d7fc/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-19T22:15:09.745242+01:00",
+      "finished_at": "2025-11-19T22:16:29.003203+01:00",
+      "duration_seconds": 79.257961,
+      "script_path": "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-prod/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-prod/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "3700260216148",
+        "QUERY": "Croquettes sterilise 5 L",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '3700260216148'.\n[MONOPRIX_DEBUG] Search terms: ['croquettes saumon', 'croquettes saumon chat', 'Croquettes sterilise 5 L']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/3: 'croquettes saumon'\n[MONOPRIX_DEBUG]  - Typing 'croquettes saumon' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=croquettes%20saumon\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 14 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/purina-one-chat-adulte-croquettes-au-saumon-et-aux-céréales-1-5kg/MPX_953769\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9e398675-4ffa-4c38-8b43-ae2a3dbcdb63/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/purina-one-chat-adulte-croquettes-au-saumon-et-aux-céréales-1-5kg/MPX_953769\n[MONOPRIX_DEBUG][SCORE] - Title: 'Purina One Chat Adulte Croquettes Au Saumon Et Aux Céréales 1,5kg' | Brand: 'croquettes' | Variant(seed/cand)=(None/None) | Vetoes=['unit_family'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Purina One Chat Adulte Croquettes Au Saumon Et Aux Céréales 1,5kg'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Purina One Chat Adulte Croquettes Au Saumon Et Aux Céréales 1,5kg' | vetoes=['unit_family', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perfect-fit-croquettes-saumon-frais-chat-adulte-1-stérilisé-1-4kg/MPX_6640542\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3f82f761-9dd1-4f11-a7da-b70eab8bc0d6/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perfect-fit-croquettes-saumon-frais-chat-adulte-1-stérilisé-1-4kg/MPX_6640542\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perfect Fit Croquettes saumon frais chat adulte 1+ stérilisé 1.4kg' | Brand: 'croquettes' | Variant(seed/cand)=(None/None) | Vetoes=['unit_family'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Perfect Fit Croquettes saumon frais chat adulte 1+ stérilisé 1.4kg'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perfect Fit Croquettes saumon frais chat adulte 1+ stérilisé 1.4kg' | vetoes=['unit_family', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/purina-one-croquettes-chat-adulte-au-saumon-et-céréales-450g/MPX_655607\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/7e3a419d-1c31-4e2e-bdce-5ecf26b8a1f7/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/purina-one-croquettes-chat-adulte-au-saumon-et-céréales-450g/MPX_655607\n[MONOPRIX_DEBUG][SCORE] - Title: 'Purina One Croquettes Chat Adulte au saumon et céréales 450g' | Brand: 'croquettes' | Variant(seed/cand)=(None/None) | Vetoes=['unit_family'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Purina One Croquettes Chat Adulte au saumon et céréales 450g'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Purina One Croquettes Chat Adulte au saumon et céréales 450g' | vetoes=['unit_family', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/friskies-croquettes-au-saumon-et-aux-légumes-1-5kg-chat-adulte/MPX_6730097\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/1d2f1468-0681-4924-81d2-199663d3d7fc/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/friskies-croquettes-au-saumon-et-aux-légumes-1-5kg-chat-adulte/MPX_6730097\n[MONOPRIX_DEBUG][SCORE] - Title: 'Friskies Croquettes au Saumon et aux Légumes - 1,5kg - Chat Adulte' | Brand: 'croquettes' | Variant(seed/cand)=(None/None) | Vetoes=['unit_family'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Friskies Croquettes au Saumon et aux Légumes - 1,5kg - Chat Adulte'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Friskies Croquettes au Saumon et aux Légumes - 1,5kg - Chat Adulte' | vetoes=['unit_family', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'Purina One Chat Adulte Croquettes Au Saumon Et Aux Céréales 1,5kg' (Score: 10) | vetoes=['unit_family', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Term 2/3: 'croquettes saumon chat'\n[MONOPRIX_DEBUG]  - Typing 'croquettes saumon chat' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=croquettes%20saumon%20chat\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 13 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/purina-one-croquettes-chat-adulte-au-saumon-et-céréales-450g/MPX_655607\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/7e3a419d-1c31-4e2e-bdce-5ecf26b8a1f7/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/purina-one-croquettes-chat-adulte-au-saumon-et-céréales-450g/MPX_655607\n[MONOPRIX_DEBUG][SCORE] - Title: 'Purina One Croquettes Chat Adulte au saumon et céréales 450g' | Brand: 'croquettes' | Variant(seed/cand)=(None/None) | Vetoes=['unit_family'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Purina One Croquettes Chat Adulte au saumon et céréales 450g'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Purina One Croquettes Chat Adulte au saumon et céréales 450g' | vetoes=['unit_family', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perfect-fit-croquettes-saumon-frais-chat-adulte-1-stérilisé-1-4kg/MPX_6640542\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3f82f761-9dd1-4f11-a7da-b70eab8bc0d6/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perfect-fit-croquettes-saumon-frais-chat-adulte-1-stérilisé-1-4kg/MPX_6640542\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perfect Fit Croquettes saumon frais chat adulte 1+ stérilisé 1.4kg' | Brand: 'croquettes' | Variant(seed/cand)=(None/None) | Vetoes=['unit_family'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Perfect Fit Croquettes saumon frais chat adulte 1+ stérilisé 1.4kg'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perfect Fit Croquettes saumon frais chat adulte 1+ stérilisé 1.4kg' | vetoes=['unit_family', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/purina-one-chat-adulte-croquettes-au-saumon-et-aux-céréales-1-5kg/MPX_953769\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9e398675-4ffa-4c38-8b43-ae2a3dbcdb63/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/purina-one-chat-adulte-croquettes-au-saumon-et-aux-céréales-1-5kg/MPX_953769\n[MONOPRIX_DEBUG][SCORE] - Title: 'Purina One Chat Adulte Croquettes Au Saumon Et Aux Céréales 1,5kg' | Brand: 'croquettes' | Variant(seed/cand)=(None/None) | Vetoes=['unit_family'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Purina One Chat Adulte Croquettes Au Saumon Et Aux Céréales 1,5kg'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Purina One Chat Adulte Croquettes Au Saumon Et Aux Céréales 1,5kg' | vetoes=['unit_family', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/friskies-croquettes-au-saumon-et-aux-légumes-1-5kg-chat-adulte/MPX_6730097\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/1d2f1468-0681-4924-81d2-199663d3d7fc/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/friskies-croquettes-au-saumon-et-aux-légumes-1-5kg-chat-adulte/MPX_6730097\n[MONOPRIX_DEBUG][SCORE] - Title: 'Friskies Croquettes au Saumon et aux Légumes - 1,5kg - Chat Adulte' | Brand: 'croquettes' | Variant(seed/cand)=(None/None) | Vetoes=['unit_family'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Friskies Croquettes au Saumon et aux Légumes - 1,5kg - Chat Adulte'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Friskies Croquettes au Saumon et aux Légumes - 1,5kg - Chat Adulte' | vetoes=['unit_family', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'Purina One Croquettes Chat Adulte au saumon et céréales 450g' (Score: 10) | vetoes=['unit_family', 'image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Term 3/3: 'Croquettes sterilise 5 L'\n[MONOPRIX_DEBUG]  - Typing 'Croquettes sterilise 5 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Croquettes%20sterilise%205%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, image=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=[{'url': 'https://courses.monoprix.fr/products/purina-one-chat-adulte-croquettes-au-saumon-et-aux-céréales-1-5kg/MPX_953769', 'status': 'OK_PARTIAL', 'product': {'title': 'Purina One Chat Adulte Croquettes Au Saumon Et Aux Céréales 1,5kg', 'brand': 'Croquettes', 'kind': 'Croquettes au saumon pour chat stérilisé', 'qty': '1,5 KG', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9e398675-4ffa-4c38-8b43-ae2a3dbcdb63/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l\\'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nAnimaux\\nChat\\nCroquettes\\nAdultes\\nPurina One Chat Adulte Croquettes Au Saumon Et Aux Céréales 1,5kg\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n1.5kg 5,63\\xa0€ / kilo\\n1.5kg\\n(5,63\\xa0€ / kilo)\\n8,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nPURINA ONE Adulte est une recette nutritionnellement adaptée aux besoins des chats âgés de 1 an et plus.Avoir un microbiome intestinal équilibré est essentiel pour la bonne santé de votre chat, car il a un impact direct sur son système immunitaire. Le microbiome est un écosystème contenant des trillions de micro-organismes qui vivent dans l\\'intestin et sont uniques à chaque chat. L\\'équilibre des micro-organismes est important pour soutenir la bonne santé digestive, le système immunitaire et le bien-être général de votre chat. PURINA ONE BIFENSIS est une formule nutritionnelle unique contenant des bactéries fonctionnelles bénéfiques, les Lactobacillus. Scientifiquement prouvée, leur action renforce le système immunitaire de votre chat de l\\'intérieur et contribue ainsi à protéger son microbiome intestinal. PURINA ONE BIFENSIS contient des ingrédients de haute qualité, dont un prébiotique : la chicorée. Celle-ci nourrit les bonnes bactéries de l\\'intestin, afin d\\'améliorer le microbiome intestinal de votre chat pour le maintenir en bonne santé. Une digestion saine, un système immunitaire fort et un pelage brillant, constatez des résultats visibles sur la santé de votre chat aujourd\\'hui et demain.\\n\\n\\nOrigine\\nFrance\\nMarque\\nPURINA\\nService consommateur\\nNESTLE PURINA PETCARE FRANCE SAS 7 boulevard Pierre Carle - 77186 08 10 63 41 51\\nIngredients\\nComposition: Saumon (17%) (dont tête, arête, chair), Protéines de volaille déshydratées, Blé (16%), Maïs, Farine de soja, Gluten de blé, Graisses animales, Farine de protéines de maïs, Racine de chicorée séchée (2%), Gruau de maïs, Pulpe de betterave déshydratée, Substances minérales, Hydrolysat (avec ajout de 0,025% de poudre de Lactobacillus Delbrueckii et Fermentum traitée thermiquement), Levures.\\nProducteur\\nNESTLE PURINA PETCARE COM.OPE.FR. 92130ISSY LES MOULINEAUX\\nConseils d\\'utilisation\\nMode d\\'emploi : Les rations journalières recommandées doivent être ajustées selon les conditions climatiques, le niveau d\\'activité du chat et sa condition physique. Si vous nourrissez votre chat pour la 1ère fois avec PURINA ONE®, nous vous recommandons d\\'effectuer une transition : introduisez progressivement les croquettes dans son alimentation habituelle, sur une période de 7 jours, pour laisser son système digestif s\\'adapter au changement. L\\'eau favorise la bonne élimination des déchets de l\\'organisme. Plus votre animal boira, plus ses urines seront diluées, ce qui aidera à limiter la formation de calculs urinaires. Soyez donc particulièrement vigilant en veillant à laisser un bol d\\'eau propre et fraîche toujours à sa disposition.\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '5,63 € / KG', 'price': '8,45'}, 'score': 10.0, 'extras': {'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': False, 'size_ok': True, 'category_ok': True, 'vetoes': ['unit_family', 'image_mismatch', 'core_token'], 'candidate_quantity': '1,5 KG', 'descriptor_token_coverage': {'coverage': 0.8, 'matched': ['chat', 'croquettes', 'pour', 'saumon'], 'missing': ['sterilise'], 'total': 5}, 'missing_tokens': ['sterilise'], 'image_match': False, 'final_score': 10, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/perfect-fit-croquettes-saumon-frais-chat-adulte-1-stérilisé-1-4kg/MPX_6640542', 'status': 'OK_PARTIAL', 'product': {'title': 'Perfect Fit Croquettes saumon frais chat adulte 1+ stérilisé 1.4kg', 'brand': 'Croquettes', 'kind': 'Croquettes au saumon pour chat stérilisé', 'qty': '1,4 KG', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3f82f761-9dd1-4f11-a7da-b70eab8bc0d6/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l\\'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nAnimaux\\nChat\\nCroquettes\\nAdultes\\nPerfect Fit Croquettes saumon frais chat adulte 1+ stérilisé 1.4kg\\n6\\xa0m+\\n6\\xa0mois de garantie de vie du produit\\n1.4kg 6,07\\xa0€ / kilo\\n1.4kg\\n(6,07\\xa0€ / kilo)\\n8,50\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAliment complet pour chats adultes stérilisés - Riche en Saumon frais. Développées avec les vétérinaires et les nutritionnistes du centre de WALTHAM™, les croquettes Perfect Fit™ combinent 5 bénéfices qui répondent à 5 des besoins les plus communs à tous les chats, quel que soit leur âge ou leur style de vie, dans sa formule unique Perfect Fit™ Total 5 : Aide au maintien des défenses naturelles; Aide au bon fonctionnement urinaire; Bonne digestion; Peau et pelage sains; Maintien du poids de forme & condition physique. Cela avec des prebiotiques naturels pour aider à maintenir le microbiome intestinal. Chaque délicieuse recette de Perfect Fit™ contient une formule unique, qui contribue au bon fonctionnement de l\\'ensemble de l\\'organisme de votre chat et apporte des bénéfices supplémentaires, spécifiquement adaptés à leur âge ou à leur style de vie. Et pour un plaisir garanti, nos produits sont élaborés avec des ingrédients de haute qualité !\\n\\n\\nOrigine\\nAllemagne\\nMarque\\nPerfect fit\\nService consommateur\\nMars PF France CS 20001 45550 St - Denis - de - lHôtel France NCristal 0 969 390 260(appel non surtaxé)\\nIngredients\\nComposition: viandes et sous-produits animaux, blé, maïs, poissons et sous-produits de poissons (dont saumon frais 14%), extraits de protéines végétales, huiles et graisses, sous-produits d\\'origine végétale, substances minérales, levures (dont levure de bière naturelle 0.2%).\\nA propos de la marque\\nPour maintenir une relation épanouie avec votre chat lorsqu\\'il est heureux, en bonne santé et plein de vitalité, nous faisons tout notre possible pour l\\'aider à conserver sa jeunesse d\\'esprit tout au long de sa vie. C\\'est pourquoi nous avons développé une gamme de croquettes et sachets fraîcheur de haute nutrition qui offre à votre chat stérilisé une nutrition pour une vie en bonne santé, quelque soit son âge ou son style de vie. Développé avec nos vétérinaires et nos nutritionnistes en alimentation animale du centre de WALTHAM™- Principale référence mondiale pour la nutrition et le bien-être des animaux de compagnie, Perfect Fit™ combine 5 bénéfices qui répondent à 5 des besoins les plus communs à tous les chats, quel que soit leur âge ou leur style de vie, dans sa formule unique Perfect Fit™ Total 5.\\nProducteur\\nMARS PF FRANCE SAS BOULEVARD DES CHENATS 45550ST DENIS DE L HOTEL\\nAutres informations\\nA utiliser de préférence avant le, numéro de lot, numéro d\\'identification usine: voir au dos de l\\'emballage.\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '6,07 € / KG', 'price': '8,50'}, 'score': 10.0, 'extras': {'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': False, 'size_ok': True, 'category_ok': True, 'vetoes': ['unit_family', 'image_mismatch', 'core_token'], 'candidate_quantity': '1,4 KG', 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['chat', 'croquettes', 'pour', 'saumon', 'sterilise'], 'missing': [], 'total': 5}, 'missing_tokens': [], 'image_match': False, 'final_score': 10, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/purina-one-croquettes-chat-adulte-au-saumon-et-céréales-450g/MPX_655607', 'status': 'OK_PARTIAL', 'product': {'title': 'Purina One Croquettes Chat Adulte au saumon et céréales 450g', 'brand': 'Croquettes', 'kind': 'Croquettes au saumon pour chat stérilisé', 'qty': '450 G', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/7e3a419d-1c31-4e2e-bdce-5ecf26b8a1f7/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l\\'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nAnimaux\\nChat\\nCroquettes\\nAdultes\\nPurina One Croquettes Chat Adulte au saumon et céréales 450g\\n6\\xa0m+\\n6\\xa0mois de garantie de vie du produit\\n450g 7,44\\xa0€ / kilo\\n450g\\n(7,44\\xa0€ / kilo)\\n3,35\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nPURINA ONE Adulte est une recette nutritionnellement adaptée aux besoins des chats âgés de 1 an et plus.Avoir un microbiome intestinal équilibré est essentiel pour la bonne santé de votre chat, car il a un impact direct sur son système immunitaire. Le microbiome est un écosystème contenant des trillions de micro-organismes qui vivent dans l\\'intestin et sont uniques à chaque chat. L\\'équilibre des micro-organismes est important pour soutenir la bonne santé digestive, le système immunitaire et le bien-être général de votre chat. PURINA ONE BIFENSIS est une formule nutritionnelle unique contenant des bactéries fonctionnelles bénéfiques, les Lactobacillus. Scientifiquement prouvée, leur action renforce le système immunitaire de votre chat de l\\'intérieur et contribue ainsi à protéger son microbiome intestinal. PURINA ONE BIFENSIS contient des ingrédients de haute qualité, dont un prébiotique : la chicorée. Celle-ci nourrit les bonnes bactéries de l\\'intestin, afin d\\'améliorer le microbiome intestinal de votre chat pour le maintenir en bonne santé. Une digestion saine, un système immunitaire fort et un pelage brillant, constatez des résultats visibles sur la santé de votre chat aujourd\\'hui et demain.\\n\\n\\nOrigine\\nFrance\\nMarque\\nPURINA\\nService consommateur\\nNestlé Purina Petcare Commercial Operations France 34-40 rue Guynemer - 92130 Issy-les-Moulineaux 08 10 63 41 51\\nIngredients\\nComposition: Saumon (17%) (dont tête, arête, chair), Protéines de volaille déshydratées, Blé (16%), Maïs, Farine de soja, Gluten de blé, Graisses animales, Farine de protéines de maïs, Racine de chicorée séchée (2%), Gruau de maïs, Pulpe de betterave déshydratée, Substances minérales, Hydrolysat (avec ajout de 0,025% de poudre de Lactobacillus Delbrueckii et Fermentum traitée thermiquement), Levures.\\nProducteur\\nNESTLE PURINA PETCARE COMMERCIAL 7 BOULEVARD PIERRE CARLE///77186/NOISIEL/FRANCE\\nConseils d\\'utilisation\\nMode d\\'emploi : Les rations journalières recommandées doivent être ajustées selon les conditions climatiques, le niveau d\\'activité du chat et sa condition physique. Si vous nourrissez votre chat pour la 1ère fois avec PURINA ONE®, nous vous recommandons d\\'effectuer une transition : introduisez progressivement les croquettes dans son alimentation habituelle, sur une période de 7 jours, pour laisser son système digestif s\\'adapter au changement. L\\'eau favorise la bonne élimination des déchets de l\\'organisme. Plus votre animal boira, plus ses urines seront diluées, ce qui aidera à limiter la formation de calculs urinaires. Soyez donc particulièrement vigilant en veillant à laisser un bol d\\'eau propre et fraîche toujours à sa disposition.\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '7,44 € / KG', 'price': '3,35'}, 'score': 10.0, 'extras': {'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': False, 'size_ok': True, 'category_ok': True, 'vetoes': ['unit_family', 'image_mismatch', 'core_token'], 'candidate_quantity': '450 G', 'descriptor_token_coverage': {'coverage': 0.8, 'matched': ['chat', 'croquettes', 'pour', 'saumon'], 'missing': ['sterilise'], 'total': 5}, 'missing_tokens': ['sterilise'], 'image_match': False, 'final_score': 10, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/friskies-croquettes-au-saumon-et-aux-légumes-1-5kg-chat-adulte/MPX_6730097', 'status': 'OK_PARTIAL', 'product': {'title': 'Friskies Croquettes au Saumon et aux Légumes - 1,5kg - Chat Adulte', 'brand': 'Croquettes', 'kind': 'Croquettes au saumon pour chat stérilisé', 'qty': '1,5 KG', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/1d2f1468-0681-4924-81d2-199663d3d7fc/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l\\'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nAnimaux\\nChat\\nCroquettes\\nAdultes\\nFriskies Croquettes au Saumon et aux Légumes - 1,5kg - Chat Adulte\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n1.5kg 3,99\\xa0€ / kilo\\n1.5kg\\n(3,99\\xa0€ / kilo)\\n5,99\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLes 5 Promesses FRISKIES®. Depuis le jour où vous avez accueilli votre chat chez vous, vous avez pris un engagement. La promesse de prendre soin de lui, de bien le nourrir et de l\\'aider à vivre une vie heureuse et saine pour le plus grand bonheur de votre foyer. Avec plus de 50 ans d\\'expertise, FRISKIES® nourrit depuis des générations des chats heureux et en bonne santé grâce à une alimentation savoureuse et de qualité. C\\'est une grande responsabilité. Tout comme vous, chez FRISKIES®, nous tenons nos engagements et 5 promesses nous tiennent à cœur : - Nutrition : une savoureuse recette 100% complète et équilibrée, élaborée avec un mélange de protéines animales et de protéines végétales - Qualité : des centaines de contrôles quotidiens sont effectués tout au long de notre processus de production - Expertise : tous nos produits sont développés par les nutritionnistes Purina - Traçabilité : nos recettes sont préparées avec des ingrédients de haute qualité, rigoureusement sélectionnés provenant de fournisseurs de confiance - Notre engagement 2025 : Nous nous engageons à rendre nos emballages 100% recyclables ou réutilisables d\\'ici 2025 Toutes les recettes FRISKIES® sont sans colorants, arômes et conservateurs artificiels.\\n\\n\\nOrigine\\nFrance\\nMarque\\nPURINA\\nService consommateur\\nNestlé Purina Petcare Commercial Operations France 34-40 rue Guynemer 92130 Issy-les-Moulineaux 08 10 63 41 51 www.purina.fr\\nIngredients\\nComposition: Céréales, Viandes et sous-produits animaux, Extraits de protéines végétales, Huiles et graisses, Poissons et sous-produits de poissons (4% de saumon dans les croquettes en forme de poisson*), Sous-produits d\\'origine végétale, Substances minérales, Levures, Légumes (0,6% de légumes séchés équivalent à 4% de légumes réhydratés dans les croquettes en forme de tripode**), . *Contenu total dans le produit: 3% de saumon **Contenu total dans le produit: 1% de légumes réhydratés type: 75% de croquettes en forme de poisson; 25% de croquettes en forme de tripode.\\nProducteur\\nNESTLE PURINA PETCARE COMMERCIAL 7 BOULEVARD PIERRE CARLE///77186/NOISIEL/FRANCE\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '3,99 € / KG', 'price': '5,99'}, 'score': 10.0, 'extras': {'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': False, 'size_ok': True, 'category_ok': True, 'vetoes': ['unit_family', 'image_mismatch', 'core_token'], 'candidate_quantity': '1,5 KG', 'descriptor_token_coverage': {'coverage': 0.8, 'matched': ['chat', 'croquettes', 'pour', 'saumon'], 'missing': ['sterilise'], 'total': 5}, 'missing_tokens': ['sterilise'], 'image_match': False, 'final_score': 10, 'plausible_baseline': False}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Croquettes sterilise 5 L"
       }
     }
-  ]
+  ],
+  "finder": null
 }

@@ -24,6 +24,7 @@
 - **Requêtes** : générées automatiquement à partir du seed (marque + fonction/nom + quantité) pour garantir un minimum de trois mots ciblés (« Destop Déboucheur 950 ML » par exemple). Les variantes éventuelles (liquide, original…) sont ajoutées en secondaire, mais la requête principale conserve toujours la structure marque/fonction/quantité.
 - **Traces** : conserver les traces humaines dans `traces/leclerc-*.jsonl` si la navigation change.
 - **Résultats** : JSON par EAN dans `maxicourses_test/results/test-<EAN>/`, agrégat global `maxicourses_test/results/summary.json`.
+- **Statut OVH (nov. 2025)** : la navigation vers `fd12-courses.leclercdrive.fr` tombe sur la page DataDome (voir `www/tmp/debug_store.{png,html}`). Tant que l’IP OVH reste bloquée, retirer Leclerc des pipelines (`--adapters … monoprix`) et documenter toute tentative de contournement (proxy résidentiel, tunnel SSH vers un navigateur humain, résolution manuelle du captcha + `save_state_from_cdp.py leclercdrive`).
 
 ## Carrefour (City / Market)
 - **Scripts** :
@@ -38,6 +39,7 @@
   ```
 - **Sorties** : le JSON indique explicitement le magasin (`store`). Si le libellé retourné n’est pas celui attendu, rejouer la trace puis relancer le script.
 - **IDs magasins (cookie `FRONTAL_STORE`)** : City Bordeaux Balguerie = `800041`, Market Fondaudège = `1911`. Les wrappers injectent ces valeurs automatiquement ; vérifier/mettre à jour si un autre drive est utilisé.
+- **Statut OVH** : sur le VPS, Carrefour répond désormais `CF_BLOCK` (Cloudflare). Lancer ces fetchs depuis un poste local ou via un proxy résidentiel tant que l’IP serveur reste black-listée, et consigner chaque tentative dans `docs/HANDOVER_DAILY.md`.
 
 ## Auchan
 - **Script** : `maxicourses_test/fetch_auchan_price.py` (CDP + seed humain `traces/auchan-20240922-clean.jsonl`, nouvelle trace EAN `traces/auchan-20251104-talence-orangina.jsonl`).
@@ -63,6 +65,7 @@
 - **Notes** : attendre que le prix apparaisse (commutateur rafraîchissement automatique). Sauvegarder `store` (ex. « Intermarché · Bordeaux Talence (drive) »).
 - **Validation** : chaque fiche produit Intermarché expose l’EAN 13 chiffres dans l’URL (`.../produit/<slug>-<EAN>`). Le fetcher extrait systématiquement cet EAN et confirme qu’il correspond à la valeur recherchée avant de retourner un prix ; si l’EAN diffère ou est absent, la fiche est rejetée et le candidat suivant est testé.
 - **Sélection magasin** : la state `state/intermarche.json` capture actuellement le drive Hyper Cestas (`store_id_itm = 01047`). Mettre à jour ce fichier via Chrome 9222 si un autre point de vente est requis avant relance.
+- **Statut OVH** : l’adaptateur tourne mais renvoie majoritairement `NO_RESULTS` (aucune carte validée). Vérifier manuellement la SERP via Chrome 9222, ajuster les requêtes Finder/`seed_catalog.py` et noter toute observation dans le Handover.
 
 ## Monoprix (courses.monoprix.fr)
 - **Script** : `maxicourses_test/fetch_monoprix_price.py` (CDP obligatoire, recherche par descriptif uniquement).
@@ -138,6 +141,12 @@
 - Termes interdits dans les primaires : `stérilisé`, `adulte`, `promo`, `lot`, `pack`, `xN`, etc. Ils restent autorisés en secondaires pour filtrer.
 - Toute fiche seed avec `matched_ean` vide ou différent est ignorée et consignée dans `docs/SEED_RULES.md` (« Faire ceci = erreur »).
 - Avant chaque run, relire `docs/SEED_RULES.md` pour appliquer la bonne méthode (contenu déjà validé, mots à bannir, variantes attendues).
+
+## Suivi urgent (OVH, nov. 2025)
+- **Leclerc Drive** : DataDome bloque l’IP. Mettre en place un proxy résidentiel ou une session humaine (VNC) pour passer le captcha, enregistrer l’état et relancer `manual_leclerc_cdp.py`.
+- **Carrefour City/Market/Super** : Cloudflare renvoie `CF_BLOCK`. Collecter ces enseignes depuis un poste local le temps d’obtenir une IP approuvée.
+- **Intermarché** : enquête à poursuivre (les requêtes IA produisent `NO_RESULTS`). Vérifier les SERP dans Chrome 9222, ajuster `seed_catalog`/`finder` et documenter toutes les pistes.
+- **Pipeline VPS** : toujours activer le venv (`. .venv/bin/activate`), s’assurer que `zxing-cpp` est installé et que Chrome 9222 tourne (`nohup xvfb-run ...`). Copier systématiquement les JSON depuis le VPS vers le FTP (`www/maxicourses-prod/maxicourses_test/results/`) pour alimenter `index2.html`.
 
 ## Documentation à lire impérativement
 1. `docs/PROMPT_BOOTSTRAP.md` – check-list initiale et ton attendu.

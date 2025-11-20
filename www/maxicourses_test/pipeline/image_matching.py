@@ -37,7 +37,10 @@ def _normalize_ref(ref: Optional[str]) -> Optional[str]:
     if not isinstance(ref, str):
         return None
     cleaned = html.unescape(ref).strip()
-    return cleaned or None
+    if not cleaned:
+        return None
+    compact = cleaned.replace(" ", "")
+    return compact if compact else None
 
 
 def _is_url(ref: str) -> bool:
@@ -78,6 +81,27 @@ def _average_hash(image, hash_size: int = 16) -> int:
     return bits
 
 
+def _center_crop(image, fraction: float = 0.7):
+    """Crop the central square region to focus on the product itself."""
+    if fraction <= 0 or fraction > 1:
+        return image
+    w, h = image.size
+    side = max(4, int(min(w, h) * fraction))
+    if side >= min(w, h):
+        return image
+    left = (w - side) // 2
+    top = (h - side) // 2
+    return image.crop((left, top, left + side, top + side))
+
+
+def _hash_variants(image) -> List[int]:
+    base = _average_hash(image)
+    cropped = _center_crop(image)
+    if cropped is image:
+        return [base]
+    return [base, _average_hash(cropped)]
+
+
 def _hash_distance(a: int, b: int) -> int:
     try:
         return (a ^ b).bit_count()
@@ -86,20 +110,20 @@ def _hash_distance(a: int, b: int) -> int:
 
 
 @lru_cache(maxsize=256)
-def _hash_local(path: Path) -> Optional[int]:
+def _hash_local(path: Path) -> List[int]:
     if Image is None:
-        return None
+        return []
     try:
         with Image.open(path) as img:
-            return _average_hash(img)
+            return _hash_variants(img)
     except Exception:
-        return None
+        return []
 
 
 @lru_cache(maxsize=256)
-def _hash_remote(url: str) -> Optional[int]:
+def _hash_remote(url: str) -> List[int]:
     if Image is None or requests is None:
-        return None
+        return []
     headers = {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
@@ -108,29 +132,31 @@ def _hash_remote(url: str) -> Optional[int]:
         response = requests.get(url, timeout=15, headers=headers)
         response.raise_for_status()
     except Exception:
-        return None
+        return []
     try:
         with Image.open(io.BytesIO(response.content)) as img:
-            return _average_hash(img)
+            return _hash_variants(img)
     except Exception:
-        return None
+        return []
 
 
 def hash_reference(ref: Optional[str]) -> Optional[int]:
-    """Return the perceptual hash for a reference string or None.
+    """Return the primary perceptual hash for a reference string or None."""
+    variants = hash_reference_variants(ref)
+    return variants[0] if variants else None
 
-    The reference can be either a relative path (e.g. ``./assets/xxx.jpg``)
-    or a remote HTTP(S) URL.
-    """
+
+def hash_reference_variants(ref: Optional[str]) -> List[int]:
+    """Return both full-frame and center-crop hashes for a reference (paths or URLs)."""
     normalized = _normalize_ref(ref)
     if not normalized:
-        return None
+        return []
     if _is_url(normalized):
         return _hash_remote(normalized)
     local_path = _resolve_local_path(normalized)
     if local_path:
         return _hash_local(local_path)
-    return None
+    return []
 
 
 def _color_signature(image) -> tuple:
@@ -148,20 +174,23 @@ def _color_signature(image) -> tuple:
 
 
 @lru_cache(maxsize=256)
-def _color_local(path: Path) -> Optional[tuple]:
+def _color_local(path: Path) -> List[tuple]:
     if Image is None or ImageStat is None:
-        return None
+        return []
     try:
         with Image.open(path) as img:
-            return _color_signature(img)
+            cropped = _center_crop(img)
+            if cropped is img:
+                return [_color_signature(img)]
+            return [_color_signature(img), _color_signature(cropped)]
     except Exception:
-        return None
+        return []
 
 
 @lru_cache(maxsize=256)
-def _color_remote(url: str) -> Optional[tuple]:
+def _color_remote(url: str) -> List[tuple]:
     if Image is None or ImageStat is None or requests is None:
-        return None
+        return []
     headers = {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
@@ -170,39 +199,57 @@ def _color_remote(url: str) -> Optional[tuple]:
         response = requests.get(url, timeout=15, headers=headers)
         response.raise_for_status()
     except Exception:
-        return None
+        return []
     try:
         with Image.open(io.BytesIO(response.content)) as img:
-            return _color_signature(img)
+            cropped = _center_crop(img)
+            if cropped is img:
+                return [_color_signature(img)]
+            return [_color_signature(img), _color_signature(cropped)]
     except Exception:
-        return None
+        return []
 
 
 def color_reference(ref: Optional[str]) -> Optional[tuple]:
+    variants = color_reference_variants(ref)
+    return variants[0] if variants else None
+
+
+def color_reference_variants(ref: Optional[str]) -> List[tuple]:
     normalized = _normalize_ref(ref)
     if not normalized:
-        return None
+        return []
     if _is_url(normalized):
         return _color_remote(normalized)
     local_path = _resolve_local_path(normalized)
     if local_path:
         return _color_local(local_path)
-    return None
+    return []
 
 
 def compare_references(seed_ref: Optional[str], candidate_ref: Optional[str], *, threshold: int = 16) -> bool:
-    """Compare two references (path or URL) and return True when distance ≤ threshold."""
-    first = hash_reference(seed_ref)
-    second = hash_reference(candidate_ref)
-    if first is None or second is None:
+    """Compare two references (path or URL) and return True when distance ≤ threshold.
+
+    We hash both the full frame and a center crop to focus on the actual product,
+    then take the best (minimal) distance. Color signatures are also compared
+    on the closest match to avoid background/edge noise.
+    """
+    seed_hashes = hash_reference_variants(seed_ref)
+    candidate_hashes = hash_reference_variants(candidate_ref)
+    if not seed_hashes or not candidate_hashes:
         return False
-    if _hash_distance(first, second) > threshold:
+
+    min_distance = min(_hash_distance(s, c) for s in seed_hashes for c in candidate_hashes)
+    if min_distance > threshold:
         return False
-    seed_color = color_reference(seed_ref)
-    candidate_color = color_reference(candidate_ref)
-    if seed_color and candidate_color:
-        color_delta = sum(abs(a - b) for a, b in zip(seed_color, candidate_color)) / 3.0
-        if color_delta > 25:  # roughly 10% of 255 range
+
+    seed_colors = color_reference_variants(seed_ref)
+    candidate_colors = color_reference_variants(candidate_ref)
+    if seed_colors and candidate_colors:
+        min_color_delta = min(
+            sum(abs(a - b) for a, b in zip(sc, cc)) / 3.0 for sc in seed_colors for cc in candidate_colors
+        )
+        if min_color_delta > 25:  # roughly 10% of 255 range
             return False
     return True
 

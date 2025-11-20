@@ -1,0 +1,694 @@
+{
+  "ean": "8700216698191",
+  "image_path": null,
+  "started_at": "2025-11-08T12:24:47.535826+01:00",
+  "finished_at": "2025-11-08T12:32:23.803478+01:00",
+  "duration_seconds": 456.267652,
+  "reference": {
+    "title": "Enceinte portable  bluetooth Charge 5 noir - T'NB",
+    "description": "Enceinte portable  bluetooth Charge 5 noir - T'NB",
+    "source": "courseu",
+    "brand": "Ariel",
+    "quantity": "21 capsules",
+    "categories": null,
+    "image": "./assets/8700216698191.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8700216698191/debug/run-8700216698191-20251108-122447"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-08T12:24:47.537015+01:00",
+      "finished_at": "2025-11-08T12:25:00.692460+01:00",
+      "duration_seconds": 13.155445,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "8700216698191",
+        "QUERY": "8700216698191",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8700216698191"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Market Fondaudège",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-08T12:25:00.693040+01:00",
+      "finished_at": "2025-11-08T12:25:16.655585+01:00",
+      "duration_seconds": 15.962545,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "8700216698191",
+        "QUERY": "8700216698191",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8700216698191"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "15,89",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/lessive-capsules-original-ariel-8700216698191",
+        "note": null,
+        "unit_price": "20,84 € / KG",
+        "quantity": null,
+        "title": "Lessive capsules Original ARIEL",
+        "matched_ean": "8700216698191",
+        "image": "https://media.carrefour.fr/medias/ca83b4cf1e00423ba84773d176439613/p_540x540/08700216698191_C1N1_s12.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Lessive capsules Original ARIEL",
+          "brand": "Lessive",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8700216698191",
+          "image_url": "https://media.carrefour.fr/medias/ca83b4cf1e00423ba84773d176439613/p_540x540/08700216698191_C1N1_s12.png",
+          "source": "carrefour_super",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-08T12:25:16.656125+01:00",
+      "finished_at": "2025-11-08T12:25:35.449962+01:00",
+      "duration_seconds": 18.793837,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "8700216698191",
+        "QUERY": "8700216698191",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8700216698191"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "15,89",
+        "title": "Grandiose Pods Lessive capsules original 1=2",
+        "url": "https://www.auchan.fr/ariel-grandiose-pods-lessive-capsules-original-1-2/pr-C1827061",
+        "note": "Auchan  (CDP)",
+        "unit_price": "20,85 € / KG",
+        "quantity": "762.3 G",
+        "matched_ean": "8700216698191",
+        "image": "https://cdn.auchan.fr/media/S01000000041CCQPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Grandiose Pods Lessive capsules original 1=2",
+          "brand": "Grandiose",
+          "kind": "",
+          "qty": "0.762 kg",
+          "qualifiers": [],
+          "ean": "8700216698191",
+          "image_url": "https://cdn.auchan.fr/media/S01000000041CCQPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-08T12:25:35.451765+01:00",
+      "finished_at": "2025-11-08T12:25:53.729973+01:00",
+      "duration_seconds": 18.278208,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8700216698191",
+        "QUERY": "8700216698191",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] recherche '8700216698191'\n[auchan] résultats trouvés: 3\n[auchan] ouverture https://www.auchan.fr/ariel-grandiose-pods-lessive-capsules-original-1-2/pr-C1827061",
+      "metadata": {
+        "attempt_query": "8700216698191"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "15,89",
+        "title": "Lessive capsule détachante et anti-odeur ARIEL Grandiose",
+        "url": "https://www.chronodrive.com/ariel--grandiose---lessive-capsule-detachante-et-anti-odeur-P368964",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": " 0,76 € / Pièce",
+        "quantity": "21 capsules",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "8700216698191",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Lessive capsule détachante et anti-odeur ARIEL Grandiose",
+          "brand": "Lessive",
+          "kind": "",
+          "qty": "21 capsules",
+          "qualifiers": [],
+          "ean": "8700216698191",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-08T12:25:53.731681+01:00",
+      "finished_at": "2025-11-08T12:26:00.086209+01:00",
+      "duration_seconds": 6.354528,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "8700216698191",
+        "QUERY": "8700216698191",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='8700216698191'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/ariel--grandiose---lessive-capsule-detachante-et-anti-odeur-P368964",
+      "metadata": {
+        "attempt_query": "8700216698191"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "99,99",
+        "unit_price": null,
+        "quantity": null,
+        "title": "Enceinte portable  bluetooth Charge 5 noir - T'NB",
+        "url": "https://www.coursesu.com/p/enceinte-portable-bluetooth-charge-5-noir---tnb/2253634.html",
+        "note": "2025-11-08T11:26:33Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "6925281982088",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Enceinte portable  bluetooth Charge 5 noir - T'NB",
+          "brand": "Enceinte",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "6925281982088",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-08T12:26:00.088588+01:00",
+      "finished_at": "2025-11-08T12:26:33.612760+01:00",
+      "duration_seconds": 33.524172,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "8700216698191",
+        "QUERY": "8700216698191",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8700216698191"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-08T12:26:33.613805+01:00",
+      "finished_at": "2025-11-08T12:26:34.303052+01:00",
+      "duration_seconds": 0.689247,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "8700216698191",
+        "QUERY": "8700216698191",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "8700216698191"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "title": null,
+        "url": "https://www.intermarche.com/produit/3en1-pods-lessive-en-capsules-original/8700216636322",
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/3en1-pods-lessive-en-capsules-original/8700216636322",
+            "product": {
+              "title": "Ariel3en1 Pods - lessive en capsules - Original",
+              "brand": "Ariel3en1",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8700216636322",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></script><script  type=\"text/javascript\" src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><script"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/3en1-pods-lessive-en-capsules-original/8700216648301",
+            "product": {
+              "title": "Ariel3en1 Pods - Lessive en Capsules - Original",
+              "brand": "Ariel3en1",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8700216648301",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></script><script  type=\"text/javascript\" src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><script"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/3en1-pods-lessive-en-capsules-alpine/8700216684118",
+            "product": {
+              "title": "Ariel3en1 Pods - lessive en capsules - Alpine",
+              "brand": "Ariel3en1",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8700216684118",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></script><script  type=\"text/javascript\" src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><script"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/3en1-pods-lessive-en-capsules-original/8700216648783",
+            "product": {
+              "title": "Ariel3en1 Pods - lessive en capsules - Original",
+              "brand": "Ariel3en1",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8700216648783",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></script><script  type=\"text/javascript\" src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><script"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/grandiose-lessive-liquide-en-capsules-original/8700216698009",
+            "product": {
+              "title": "ArielGrandiose - Lessive liquide en capsules - original",
+              "brand": "ArielGrandiose",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8700216698009",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></script><script  type=\"text/javascript\" src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><script"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/4en1-pods-lessive-en-capsules-+ultra-detachant/8700216648356",
+            "product": {
+              "title": "Ariel4en1 Pods - lessive en capsules +Ultra détachant",
+              "brand": "Ariel4en1",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8700216648356",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\"  src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\" async=\"\"></script><script  type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></script><script  type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><script"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/4en1-pods-lessive-en-capsules-+-touch-of-lenor/8700216648462",
+            "product": {
+              "title": "Ariel4en1 Pods - lessive en capsules + Touch Of Lenor",
+              "brand": "Ariel4en1",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8700216648462",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></script><script  type=\"text/javascript\" src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><script"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/grandiose-pods-lessive-liquide-en-capsules-fraicheur-alpine/870021669 7842",
+            "product": {
+              "title": "ArielGrandiose Pods - lessive liquide en capsules - Fraîcheur  Alpine",
+              "brand": "ArielGrandiose",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "870021669",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><script  type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></script><script  type=\"text/javascript\" src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><script"
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/3en1-pods-lessive-en-capsules-alpine/8700216684057",
+            "product": {
+              "title": "Ariel3en1 Pods - lessive en capsules - Alpine",
+              "brand": "Ariel3en1",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8700216684057",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/identify_974b9887.js\"></script><script  type=\"text/javascript\" src=\"https://cdn.us.heap-api.com/v5/heapjs-static/5.3.4/core/heap.js\"  async=\"\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://analytics.tiktok.com/i18n/pixel/static/main.MTQwMDFhOTU1MQ.js\"  data-id=\"C8PMUHT9481U83L7JH2G\"></script><script type=\"text/javascript\" async=\"\"  src=\"https://cdn.us.heap-api.com/config/4082422619/heap_config.js\"></script><script"
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-08T12:26:34.818248+01:00",
+      "finished_at": "2025-11-08T12:29:10.104006+01:00",
+      "duration_seconds": 155.285758,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "8700216698191",
+        "QUERY": "Ariel bluetooth 21 CAPSULES",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Ariel bluetooth 21 CAPSULES",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8700216698191/debug/run-8700216698191-20251108-122447/08-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "NO_MATCH",
+      "payload": {
+        "status": "NO_MATCH",
+        "title": "Café moulu Plantation Tradition - 250g",
+        "price": null,
+        "unit_price": null,
+        "quantity": "",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-3151-Cafe-moulu-Plantation-.aspx",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-08T11:29:25Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-40329-Chocolat-en-poudre-Equador.aspx",
+            "product": {
+              "title": "Chocolat en poudre Equador Pur Cacao non sucré - 250g",
+              "brand": "Chocolat",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700814581",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b50\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b50\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24163-Infusion-Tisea-Tilleul-Citron.aspx",
+            "product": {
+              "title": "Infusion Tiséa Tilleul Citron 25 sachets 34g",
+              "brand": "Infusion",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700595640",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b50\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b50\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-239-Soupe-Veloute-Regal-Soupe.aspx",
+            "product": {
+              "title": "Soupe Velouté Régal Soupe 10 légumes - 1L",
+              "brand": "Soupe",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700434437",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b50\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b50\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-13678-Croutons-salade-Epi-dOr.aspx",
+            "product": {
+              "title": "Croûtons salade Epi d'Or Ail et fines herbes - 60g",
+              "brand": "Croûtons",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700434482",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b50\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b50\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24164-The-vert-Briley.aspx",
+            "product": {
+              "title": "Thé vert Briley 32.5g",
+              "brand": "Thé",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700591178",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b50\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b50\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-15288-Mouchoirs-blancs-4-plis-Caresse.aspx",
+            "product": {
+              "title": "Mouchoirs blancs 4 plis Caresse Mini étuis x15",
+              "brand": "Mouchoirs",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700330470",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b50\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b50\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-3151-Cafe-moulu-Plantation-.aspx",
+            "product": {
+              "title": "Café moulu Plantation Tradition - 250g",
+              "brand": "Café",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700010426",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5b50\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5b50\"></script><script"
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-08T12:29:10.108415+01:00",
+      "finished_at": "2025-11-08T12:29:25.366548+01:00",
+      "duration_seconds": 15.258133,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "8700216698191",
+        "QUERY": "Ariel bluetooth 21 CAPSULES",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Ariel bluetooth 21 CAPSULES'\n[LECLERC_DEBUG] after home human pause -> 1.42s\n[LECLERC_DEBUG] after focus -> 5.38s\n[LECLERC_DEBUG] results visible -> 6.42s\n[LECLERC_DEBUG] after result pause -> 6.52s",
+      "metadata": {
+        "attempt_query": "Ariel bluetooth 21 CAPSULES",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8700216698191/debug/run-8700216698191-20251108-122447/09-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-08T12:31:00.744767+01:00",
+      "finished_at": "2025-11-08T12:31:15.098458+01:00",
+      "duration_seconds": 14.353691,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "8700216698191",
+        "QUERY": "Ariel bluetooth 21 CAPSULES",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] ERROR: EAN '8700216698191' not found in seed_catalog.py. Scoring will fail.\n[MONOPRIX_DEBUG] Search terms: ['Ariel bluetooth 21 CAPSULES']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez']\n[MONOPRIX_DEBUG]  - Term 1/1: 'Ariel bluetooth 21 CAPSULES'\n[MONOPRIX_DEBUG]  - Typing 'Ariel bluetooth 21 CAPSULES' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Ariel%20bluetooth%2021%20CAPSULES\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=None)\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Ariel bluetooth 21 CAPSULES",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8700216698191/debug/run-8700216698191-20251108-122447/10-monoprix"
+      }
+    }
+  ],
+  "finder": null
+}

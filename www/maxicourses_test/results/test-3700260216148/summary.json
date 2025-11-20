@@ -1,33 +1,12 @@
 {
   "3700260216148": {
     "carrefour_market": {
-      "status": "OK",
+      "status": "CF_BLOCK",
       "payload": {
-        "status": "OK",
-        "price": "7,25",
-        "store": "Market Fondaudège",
-        "url": "https://www.carrefour.fr/p/croquettes-pour-chat-adulte-sterilise-saumon-ultima- 3700260216148?anchor=pdp-customers-reviews",
-        "note": null,
-        "unit_price": "4,83 € / KG",
-        "quantity": "1,5 KG",
-        "title": "Croquettes Pour Chat Adulte Stérilisé  Saumon ULTIMA",
-        "matched_ean": "3700260216148",
-        "image": "https://media.carrefour.fr/medias/fe01039c5b52420b806541e234deca7c/p_540x540/03 700260216148_H1N1_s01.png",
-        "nutriscore_grade": null,
-        "nutriscore_image": null
-      },
-      "updated_at": "2025-10-09T00:59:05.595791",
-      "duration_seconds": 49.516421,
-      "error": null,
-      "store_query": null
-    },
-    "carrefour_city": {
-      "status": "NO_PRICE",
-      "payload": {
-        "status": "NO_PRICE",
+        "status": "CF_BLOCK",
         "price": null,
-        "store": "City Bordeaux Balguerie",
-        "url": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=3700260216148",
         "note": null,
         "unit_price": null,
         "quantity": null,
@@ -35,10 +14,37 @@
         "matched_ean": null,
         "image": null,
         "nutriscore_grade": null,
-        "nutriscore_image": null
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
       },
-      "updated_at": "2025-10-09T00:59:05.595791",
-      "duration_seconds": 25.674999,
+      "updated_at": "2025-11-19T22:20:24.689049+01:00",
+      "duration_seconds": 6.271965,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_city": {
+      "status": "CF_BLOCK",
+      "payload": {
+        "status": "CF_BLOCK",
+        "price": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=3700260216148",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-11-19T22:20:24.689049+01:00",
+      "duration_seconds": 6.31821,
       "error": null,
       "store_query": null
     },
@@ -47,34 +53,54 @@
       "payload": {
         "status": "OK",
         "price": "7,55",
-        "title": "Croquettes au saumon pour chat  stérilisé",
-        "url": "https://www.auchan.fr/ultima-croquettes-au-saumon-pour-chat-sterilise/pr-C11872 63",
-        "note": "Auchan (CDP)",
         "unit_price": "5,03 € / KG",
-        "quantity": "1,5 KG",
+        "quantity": "5  L",
+        "title": "Croquettes au saumon pour chat stérilisé",
+        "url": "https://www.auchan.fr/ultima-croquettes-au-saumon-pour-chat-sterilise/pr-C11872 63",
         "matched_ean": "3700260216148",
-        "image": "https://cdn.auchan.fr/media/A0220080612000538201PRIMARY_1200x1200/B2CD/"
+        "store": "Auchan Drive Supermarché  Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/A0220080612000538201PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Croquettes au saumon pour chat stérilisé",
+          "brand": "Croquettes",
+          "kind": "",
+          "qty": "5 L",
+          "qualifiers": [],
+          "ean": "3700260216148",
+          "image_url": "https://cdn.auchan.fr/media/A0220080612000538201PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": ""
+        }
       },
-      "updated_at": "2025-10-09T00:59:05.595791",
-      "duration_seconds": 20.667887,
+      "updated_at": "2025-11-19T22:20:24.689049+01:00",
+      "duration_seconds": 15.730348,
       "error": null,
       "store_query": null
     },
     "chronodrive": {
-      "status": "REJECTED",
+      "status": "NO_RESULTS",
       "payload": {
-        "status": "OK",
-        "price": "7,65",
-        "title": "Croquettes pour chats adultes  stérilisés au poulet et orge ULTIMA 1.5 kg",
-        "url": "https://www.chronodrive.com/ultima--croquettes-pour-chats-adultes-sterilises-au -poulet-et-orge-P45449",
-        "note": "Chronodrive Le Haillan",
-        "unit_price": "5,10 € / KG",
-        "quantity": "1.5 kg",
-        "store": "Chronodrive Le Haillan",
-        "matched_ean": null
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
       },
-      "updated_at": "2025-10-09T00:59:05.595791",
-      "duration_seconds": 37.563759,
+      "updated_at": "2025-11-19T22:20:24.689049+01:00",
+      "duration_seconds": 71.981849,
       "error": null,
       "store_query": null
     },
@@ -89,10 +115,188 @@
         "matched_ean": null,
         "unit_price": null,
         "quantity": null,
-        "store": null
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
       },
-      "updated_at": "2025-10-09T00:59:05.595791",
-      "duration_seconds": 14.548388,
+      "updated_at": "2025-11-19T22:20:24.689049+01:00",
+      "duration_seconds": 137.874873,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_super": {
+      "status": "CF_BLOCK",
+      "payload": {
+        "status": "CF_BLOCK",
+        "price": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=3700260216148",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-11-19T22:20:24.689049+01:00",
+      "duration_seconds": 5.921309,
+      "error": null,
+      "store_query": null
+    },
+    "courseu": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "7,01",
+        "unit_price": "4,67 € / KG",
+        "quantity": "1,5  kg",
+        "title": "Croquettes pour chat stérilisés au saumon ULTIMA, 1,5kg",
+        "url": "https://www.coursesu.com/p/croquettes-pour-chat-sterilises-au-saumon-ultima-15k g/5663068.html",
+        "note": "2025-11-19T21:00:50Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "3700260216148",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Croquettes pour chat stérilisés au saumon ULTIMA, 1,5kg",
+          "brand": "Croquettes",
+          "kind": "",
+          "qty": "1,5 kg",
+          "qualifiers": [],
+          "ean": "3700260216148",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
+      },
+      "updated_at": "2025-11-19T22:20:24.689049+01:00",
+      "duration_seconds": 35.613594,
+      "error": null,
+      "store_query": null
+    },
+    "g20": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "6,67",
+        "title": "ULTIMA croquettes Chat Stérilisé Adulte Saumon 1,5kg",
+        "url": "https://www.g20-minute.com/products/3700260216148/ultima-croquettes-chat-sterilise-adulte-saumon-1-5kg-3700260216148",
+        "note": "G20 Minute",
+        "unit_price": "4,45 €/Kg",
+        "quantity": "1,5kg",
+        "matched_ean": "3700260216148",
+        "image": "https://www.g20-minute.com/media/cache/product_box_image/36/e5/fe4c7ff79e755da825cdac27bf1d.jpg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "ULTIMA croquettes Chat Stérilisé Adulte Saumon 1,5kg",
+          "brand": "ULTIMA",
+          "kind": "",
+          "qty": "1,5kg",
+          "qualifiers": [],
+          "ean": "3700260216148",
+          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/36/e5/fe4c7ff79e755da825cdac27bf1d.jpg",
+          "source": "g20",
+          "raw_text": ""
+        }
+      },
+      "updated_at": "2025-11-19T22:20:24.689049+01:00",
+      "duration_seconds": 0.464095,
+      "error": null,
+      "store_query": null
+    },
+    "monoprix": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/purina-one-chat-adulte-croquettes-au-saumo n-et-aux-céréales-1-5kg/MPX_953769",
+            "product": {
+              "title": "Purina One Chat Adulte Croquettes Au Saumon Et Aux Céréales 1,5kg",
+              "brand": "Croquettes",
+              "kind": "Croquettes au saumon pour chat stérilisé",
+              "qty": "1,5 KG",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9e39 8675-4ffa-4c38-8b43-ae2a3dbcdb63/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/perfect-fit-croquettes-saumon-frais-chat-a dulte-1-stérilisé-1-4kg/MPX_6640542",
+            "product": {
+              "title": "Perfect Fit Croquettes saumon frais chat adulte 1+ stérilisé 1.4kg",
+              "brand": "Croquettes",
+              "kind": "Croquettes au saumon pour chat stérilisé",
+              "qty": "1,4 KG",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3f82 f761-9dd1-4f11-a7da-b70eab8bc0d6/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/purina-one-croquettes-chat-adulte-au-saumo n-et-céréales-450g/MPX_655607",
+            "product": {
+              "title": "Purina One Croquettes Chat Adulte au saumon et céréales 450g",
+              "brand": "Croquettes",
+              "kind": "Croquettes au saumon pour chat stérilisé",
+              "qty": "450 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/7e3a 419d-1c31-4e2e-bdce-5ecf26b8a1f7/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/friskies-croquettes-au-saumon-et-aux-légum es-1-5kg-chat-adulte/MPX_6730097",
+            "product": {
+              "title": "Friskies Croquettes au Saumon et aux Légumes - 1,5kg - Chat Adulte",
+              "brand": "Croquettes",
+              "kind": "Croquettes au saumon pour chat stérilisé",
+              "qty": "1,5 KG",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/1d2f 1468-0681-4924-81d2-199663d3d7fc/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "updated_at": "2025-11-19T22:20:24.689049+01:00",
+      "duration_seconds": 79.257961,
       "error": null,
       "store_query": null
     }

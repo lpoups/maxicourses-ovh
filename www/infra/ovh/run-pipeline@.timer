@@ -1,0 +1,11 @@
+[Unit]
+Description=Schedule Maxicourses pipeline for EAN %i
+
+[Timer]
+OnCalendar=hourly
+RandomizedDelaySec=120
+Persistent=true
+Unit=run-pipeline@%i.service
+
+[Install]
+WantedBy=timers.target

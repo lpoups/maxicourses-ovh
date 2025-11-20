@@ -1,12 +1,12 @@
 {
   "3600551132150": {
     "carrefour_city": {
-      "status": "NO_PRICE",
+      "status": "CF_BLOCK",
       "payload": {
-        "status": "NO_PRICE",
+        "status": "CF_BLOCK",
         "price": null,
-        "store": "City Bordeaux Balguerie",
-        "url": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=3600551132150",
         "note": null,
         "unit_price": null,
         "quantity": null,
@@ -14,20 +14,23 @@
         "matched_ean": null,
         "image": null,
         "nutriscore_grade": null,
-        "nutriscore_image": null
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
       },
-      "updated_at": "2025-10-01T16:49:31.386555",
-      "duration_seconds": 18.690691,
+      "updated_at": "2025-11-19T22:54:04.691801+01:00",
+      "duration_seconds": 7.075897,
       "error": null,
       "store_query": null
     },
     "carrefour_market": {
-      "status": "NO_PRICE",
+      "status": "CF_BLOCK",
       "payload": {
-        "status": "NO_PRICE",
+        "status": "CF_BLOCK",
         "price": null,
-        "store": "Market Fondaudège",
-        "url": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=3600551132150",
         "note": null,
         "unit_price": null,
         "quantity": null,
@@ -35,10 +38,13 @@
         "matched_ean": null,
         "image": null,
         "nutriscore_grade": null,
-        "nutriscore_image": null
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
       },
-      "updated_at": "2025-10-01T16:49:47.346243",
-      "duration_seconds": 15.958919,
+      "updated_at": "2025-11-19T22:54:04.691801+01:00",
+      "duration_seconds": 7.799232,
       "error": null,
       "store_query": null
     },
@@ -47,34 +53,54 @@
       "payload": {
         "status": "OK",
         "price": "3,69",
-        "title": "Crème douche surgras lait d'amandes  peau nourrie",
-        "url": "https://www.auchan.fr/cadum-creme-douche-surgras-lait-d-amandes-peau-nourrie/pr -C1746425",
-        "note": "Auchan (CDP)",
         "unit_price": "8,20 € / L",
-        "quantity": "Flacon 450 ml",
+        "quantity": "5 L",
+        "title": "Crème douche surgras lait d'amandes peau nourrie",
+        "url": "https://www.auchan.fr/cadum-creme-douche-surgras-lait-d-amandes-peau-nourrie/pr -C1746425",
         "matched_ean": "3600551132150",
-        "image": "https://cdn.auchan.fr/media/S01000000040CAYPRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200"
+        "store": "Auchan Drive Supermarché  Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S01000000040CAYPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Crème douche surgras lait d'amandes peau nourrie",
+          "brand": "Crème",
+          "kind": "",
+          "qty": "5 L",
+          "qualifiers": [],
+          "ean": "3600551132150",
+          "image_url": "https://cdn.auchan.fr/media/S01000000040CAYPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": ""
+        }
       },
-      "updated_at": "2025-10-01T16:50:00.788348",
-      "duration_seconds": 13.441408,
+      "updated_at": "2025-11-19T22:54:04.691801+01:00",
+      "duration_seconds": 17.273769,
       "error": null,
       "store_query": null
     },
     "chronodrive": {
-      "status": "OK",
+      "status": "NO_RESULTS",
       "payload": {
-        "status": "OK",
-        "price": "3,35",
-        "title": "Crème douche à la crème d'amande  CADUM Surdoux 450 ml",
-        "url": "https://www.chronodrive.com/cadum--surdoux---creme-douche-a-la-creme-damande-P9 4133",
-        "note": "Chronodrive Le Haillan",
-        "unit_price": "7,44 € / L",
-        "quantity": "450 ML",
-        "store": "Chronodrive Le Haillan",
-        "matched_ean": "3600551132082"
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
       },
-      "updated_at": "2025-10-01T16:50:31.347693",
-      "duration_seconds": 30.558016,
+      "updated_at": "2025-11-19T22:54:04.691801+01:00",
+      "duration_seconds": 72.517031,
       "error": null,
       "store_query": null
     },
@@ -97,20 +123,198 @@
       "store_query": null
     },
     "intermarche": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-11-19T22:54:04.691801+01:00",
+      "duration_seconds": 19.351439,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_super": {
+      "status": "CF_BLOCK",
+      "payload": {
+        "status": "CF_BLOCK",
+        "price": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=3600551132150",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-11-19T22:54:04.691801+01:00",
+      "duration_seconds": 7.340884,
+      "error": null,
+      "store_query": null
+    },
+    "courseu": {
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "2,39",
-        "title": "Crème douche surgras au lait  d'amandes",
-        "url": "https://www.intermarche.com/produit/creme-douche-surgras-au-lait-d'amandes/3600 551132150",
-        "note": "Intermarché · Super Talence",
+        "price": "2,70",
+        "unit_price": "6,00 € / L",
+        "quantity": "450  ml",
+        "title": "Crème douche surgras lait d'amandes bio CADUM - flacon 450ml",
+        "url": "https://www.coursesu.com/p/creme-douche-surgras-lait-damandes-bio-cadum---flaco n-450ml/5076555.html",
+        "note": "2025-11-19T21:46:36Z · Super U Eysines",
+        "store": "Super U Eysines",
         "matched_ean": "3600551132150",
-        "unit_price": "5,31 € / L",
-        "quantity": "Flacon 450 ml",
-        "store": "Super Talence"
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Crème douche surgras lait d'amandes bio CADUM - flacon 450ml",
+          "brand": "Crème",
+          "kind": "",
+          "qty": "450 ml",
+          "qualifiers": [],
+          "ean": "3600551132150",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
       },
-      "updated_at": "2025-10-01T16:51:27.326506",
-      "duration_seconds": 18.077299,
+      "updated_at": "2025-11-19T22:54:04.691801+01:00",
+      "duration_seconds": 39.431121,
+      "error": null,
+      "store_query": null
+    },
+    "g20": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,19",
+        "title": "CADUM DOUCHE 450ML MILKY AMANDE",
+        "url": "https://www.g20-minute.com/products/3600551132150/cadum-douche-450ml-milky-amande-3600551132150",
+        "note": "G20 Minute",
+        "unit_price": "7,09 €/L",
+        "quantity": "45cL",
+        "matched_ean": "3600551132150",
+        "image": "https://www.g20-minute.com/media/cache/product_box_image/c8/61/9612efb16562be194114205c6f84.jpg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "CADUM DOUCHE 450ML MILKY AMANDE",
+          "brand": "CADUM",
+          "kind": "",
+          "qty": "45cL",
+          "qualifiers": [],
+          "ean": "3600551132150",
+          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/c8/61/9612efb16562be194114205c6f84.jpg",
+          "source": "g20",
+          "raw_text": ""
+        }
+      },
+      "updated_at": "2025-11-19T22:54:04.691801+01:00",
+      "duration_seconds": 0.511198,
+      "error": null,
+      "store_query": null
+    },
+    "monoprix": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/cadum-crème-douche-peaux-sensibles-probiot ique-400ml/MPX_6602075",
+            "product": {
+              "title": "Cadum  Crème Douche Peaux Sensibles Probiotique 400ml",
+              "brand": "C1746425",
+              "kind": "Crème douche surgras lait d'amandes peau nourrie",
+              "qty": "400 ML",
+              "qualifiers": [],
+              "ean": "3600551132150",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d55e f3ae-8e07-48e4-a76f-c9dac00cc82e/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/so-bio-étic-crème-de-douche-hydratante-au- lait-d-ânesse-bio-650ml/MPX_3171421",
+            "product": {
+              "title": "SO'BiO Étic Crème de Douche Hydratante au lait d'ânesse Bio 650ml",
+              "brand": "C1746425",
+              "kind": "Crème douche surgras lait d'amandes peau nourrie",
+              "qty": "650 ML",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/85fa 6f07-bbdb-4225-8dcf-f9b8aea63560/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/monoprix-crème-de-douche-à-l-amande-douce- 200ml/MPX_4215684",
+            "product": {
+              "title": "Monoprix Crème de Douche à l'amande douce 200ml",
+              "brand": "C1746425",
+              "kind": "Crème douche  surgras lait d'amandes peau nourrie",
+              "qty": "200 ML",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/bfa3 50a2-b042-4c23-b093-fa02a2ee7b3e/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/monoprix-crème-de-douche-à-l-amande-et-au- karité-250ml/MPX_2309614",
+            "product": {
+              "title": "Monoprix Crème De Douche À L'Amande Et Au Karité 250ml",
+              "brand": "C1746425",
+              "kind": "Crème douche surgras lait d'amandes peau nourrie",
+              "qty": "250 ML",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/f6a3 4d37-666d-48d2-9a41-84712dd9c43d/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "updated_at": "2025-11-19T22:54:04.691801+01:00",
+      "duration_seconds": 82.461319,
       "error": null,
       "store_query": null
     }
