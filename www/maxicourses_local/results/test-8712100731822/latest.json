@@ -1,0 +1,118 @@
+{
+  "ean": "8712100731822",
+  "image_path": null,
+  "started_at": "2025-11-20T15:12:10.408775+01:00",
+  "finished_at": "2025-11-20T15:13:02.619868+01:00",
+  "duration_seconds": 52.211093,
+  "reference": {
+    "title": "Moutarde aux aromates SAVORA 385 g",
+    "description": "Moutarde aux aromates SAVORA 385 g",
+    "source": "chronodrive",
+    "brand": "Savora",
+    "quantity": "385  g",
+    "categories": "Condiments, Sauces, Moutardes, en:groceries, Spécialité à la Moutarde",
+    "image": "./assets/8712100731822.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
+    "ecoscore_grade": "b",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
+    "nova_group": "3"
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Moutarde Savora Amora 385g",
+        "price": "2,28",
+        "unit_price": "5,92 € / kg",
+        "quantity": "385  g",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-39338-Moutarde-Savora-Amora.aspx",
+        "matched_ean": "8712100731822",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-20T14:12:47Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-39338-Moutarde-Savora-Amora.aspx",
+            "product": {
+              "title": "Moutarde Savora Amora 385g",
+              "brand": "Savora",
+              "kind": "Moutarde Epices & Amorates Savora AMORA",
+              "qty": "385 g",
+              "qualifiers": [],
+              "ean": "8712100731822",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2775685&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1h1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1h1\"></script><script"
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-20T15:12:11.204431+01:00",
+      "finished_at": "2025-11-20T15:12:47.304747+01:00",
+      "duration_seconds": 36.100316,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_local/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "8712100731822",
+        "QUERY": "Savora 385 G",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Savora 385 G'\n[LECLERC_DEBUG] after home human pause -> 1.91s\n[LECLERC_DEBUG] after focus -> 2.40s\n[LECLERC_DEBUG] results visible -> 3.79s\n[LECLERC_DEBUG] after result pause -> 3.89s",
+      "metadata": {
+        "attempt_query": "Savora 385 G"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Moutarde aux aromates SAVORA 385 g",
+      "brand": "Savora",
+      "kind": "",
+      "qty": "385 g",
+      "qualifiers": [],
+      "ean": "8712100731822",
+      "image_url": "./assets/8712100731822.jpg",
+      "source": "consolidated",
+      "raw_text": "Moutarde aux aromates SAVORA 385 g"
+    },
+    "keywords": [
+      "Savora aromates 385 G",
+      "Savora aromates moutarde",
+      "Savora 385 G"
+    ],
+    "candidates": [
+      {
+        "adapter": "leclerc",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-39338-Moutarde-Savora-Amora.aspx",
+        "score": 0.6,
+        "product": {
+          "title": "Moutarde Savora Amora 385g",
+          "brand": "Savora",
+          "kind": "Moutarde Epices & Amorates Savora AMORA",
+          "qty": "385 g",
+          "qualifiers": [],
+          "ean": "76788862",
+          "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2775685&amp;use=l&amp;cat=p&amp;typeid=i",
+          "source": "leclerc",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1h1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1h1\"></script><script"
+        }
+      }
+    ],
+    "decision": null,
+    "audit": []
+  }
+}

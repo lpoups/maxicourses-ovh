@@ -1,0 +1,3518 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>MaxiCourses – Liste de course</title>
+<link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet"/>
+<style>
+    :root {
+      color-scheme: light dark;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 24px;
+      background: radial-gradient(circle at 10% 20%, #eef2ff 0%, #f5f7ff 35%, #f8fafc 100%);
+      color: #111;
+      line-height: 1.5;
+    }
+    header {
+      margin-bottom: 28px;
+    }
+    .masthead {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 22px 28px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #dfe9ff 0%, #f4f7ff 50%, #ffffff 100%);
+      border: 1px solid rgba(37, 99, 235, 0.12);
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.17);
+    }
+    .masthead__hero {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: stretch;
+      flex-wrap: nowrap;
+    }
+    .masthead__left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex: 1 1 420px;
+      min-width: 320px;
+      padding: 20px 22px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #f7f9ff 0%, #ffffff 85%);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 0 0 auto;
+      padding: 18px 22px;
+      border-radius: 22px;
+      background: linear-gradient(120deg, #071f54 0%, #1141a8 100%);
+      box-shadow: 0 16px 32px rgba(7, 25, 84, 0.35);
+    }
+    .brand__text {
+      color: #eef4ff;
+    }
+    .brand__text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    h1 {
+      font-size: 1.95rem;
+      margin: 0;
+      letter-spacing: -0.01em;
+      color: #0f172a;
+    }
+    .brand h1 {
+      color: #eef4ff;
+    }
+    .brand__subtitle {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #bfd1ff;
+      font-weight: 600;
+    }
+    .masthead__summary {
+      flex: 1 1 460px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      color: #0f172a;
+      min-width: 340px;
+      max-width: 540px;
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(233,244,255,0.95) 100%);
+      border: 1px solid rgba(15, 23, 42, 0.05);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.1);
+    }
+    .masthead__delta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(16,185,129,0.15), rgba(187,247,208,0.55));
+      border: 1px solid rgba(13, 148, 136, 0.25);
+      box-shadow: 0 18px 30px rgba(5, 150, 105, 0.25);
+    }
+    .masthead__delta-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #047857;
+      font-weight: 700;
+    }
+    .masthead__delta-values {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: baseline;
+    }
+    .masthead__delta-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: #064e3b;
+      letter-spacing: -0.015em;
+    }
+    .masthead__delta-percent {
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+      letter-spacing: -0.015em;
+      transition: background 120ms ease, color 120ms ease;
+    }
+    .masthead__delta-percent--gain {
+      background: rgba(22, 163, 74, 0.18);
+      color: #166534;
+    }
+    .masthead__delta-percent--loss {
+      background: rgba(248, 113, 113, 0.25);
+      color: #b91c1c;
+    }
+    .masthead__delta-caption {
+      font-size: 0.88rem;
+      color: #0f172a;
+    }
+    .masthead__tagline {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1d2544;
+    }
+    .masthead__bullets {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 0.9rem;
+      color: #1f2937;
+    }
+    .masthead__bullets li {
+      margin-bottom: 4px;
+    }
+    .masthead__cta-button {
+      align-self: flex-start;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      box-shadow: 0 16px 30px rgba(37, 99, 235, 0.3);
+      transition: transform 120ms ease, box-shadow 120ms ease;
+    }
+    .masthead__cta-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 38px rgba(37, 99, 235, 0.35);
+    }
+    .masthead__forms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: stretch;
+      width: 100%;
+    }
+    .masthead__forms > form {
+      flex: 1 1 280px;
+      min-width: 0;
+      max-width: none;
+    }
+    .masthead__footer {
+      font-size: 0.82rem;
+      color: #1e3a8a;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 960px) {
+      .masthead__hero {
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+      .masthead__left,
+      .masthead__summary {
+        flex: 1 1 100%;
+        max-width: none;
+        min-width: 0;
+      }
+      .masthead__forms {
+        flex-wrap: wrap;
+      }
+    .masthead__forms > form {
+      flex: 1 1 100%;
+    }
+    }
+
+    .card-elevated {
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+    }
+    .card-elevated:hover {
+      box-shadow: 0 22px 40px rgba(15, 23, 42, 0.14);
+      border-color: rgba(37, 99, 235, 0.18);
+    }
+
+    .brand img {
+      height: 52px;
+      width: auto;
+      border-radius: 12px;
+      background: linear-gradient(180deg,#071F54 0%,#0B2F78 100%);
+      padding: 6px 10px;
+      box-shadow: 0 6px 18px rgba(7,31,84,0.28);
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    .ean-search,
+    .image-search {
+      flex: 1 1 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-radius: 20px;
+      padding: 18px 20px;
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+    }
+    .ean-search {
+      background: linear-gradient(160deg, #ffffff 0%, #eef2ff 100%);
+      border-color: rgba(59, 130, 246, 0.18);
+    }
+    .ean-search label {
+      font-size: 0.75rem;
+      color: #1d4ed8;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .ean-search__controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .ean-search__input {
+      flex: 1 1 auto;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 0.9rem;
+      transition: all 150ms ease;
+      color: #1f2937;
+      box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.05);
+    }
+    .ean-search__input:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+      background: #fff;
+    }
+    .ean-search__button {
+      flex: 0 0 auto;
+      padding: 11px 22px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 120ms ease, box-shadow 120ms ease;
+      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.28);
+    }
+    .ean-search__button:hover:not([disabled]) {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 36px rgba(37, 99, 235, 0.35);
+    }
+    .ean-search__button[disabled] {
+      opacity: 0.7;
+      cursor: wait;
+    }
+    .ean-search__status {
+      font-size: 0.72rem;
+      color: #475569;
+      min-height: 1.1em;
+    }
+    .ean-search__status[data-status="error"] {
+      color: #b91c1c;
+    }
+    .ean-search__status[data-status="success"] {
+      color: #15803d;
+    }
+    .image-search {
+      background: linear-gradient(160deg, #ffffff 0%, #ecfdf5 100%);
+      border-color: rgba(16, 185, 129, 0.25);
+    }
+    .image-search label {
+      font-size: 0.75rem;
+      color: #0f766e;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .image-search__controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .image-search__input[type="file"] {
+      flex: 1 1 auto;
+      font-size: 0.8rem;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px dashed rgba(13, 148, 136, 0.45);
+      background: rgba(240, 253, 250, 0.85);
+      transition: all 150ms ease;
+    }
+    .image-search__button {
+      flex: 0 0 auto;
+      padding: 11px 20px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 120ms ease, box-shadow 120ms ease;
+      box-shadow: 0 16px 32px rgba(13, 148, 136, 0.28);
+    }
+    .image-search__button:hover:not([disabled]) {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 36px rgba(13, 148, 136, 0.34);
+    }
+    .image-search__button[disabled] {
+      opacity: 0.7;
+      cursor: wait;
+    }
+    .image-search__status {
+      font-size: 0.72rem;
+      color: #475569;
+      min-height: 1.1em;
+    }
+    .image-search__status[data-status="error"] {
+      color: #b91c1c;
+    }
+    .image-search__status[data-status="success"] {
+      color: #15803d;
+    }
+    .descriptor {
+      margin-bottom: 24px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.12);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .product-card--compact {
+      padding: 12px;
+      gap: 14px;
+    }
+    .product-media {
+      flex: 0 0 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-card--compact .product-media {
+      flex-basis: 64px;
+    }
+    .product-thumb {
+      width: 72px;
+      height: 72px;
+      border-radius: 14px;
+      background: #f3f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .product-card--compact .product-thumb {
+      width: 64px;
+      height: 64px;
+    }
+    .product-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .product-thumb__placeholder {
+      font-size: 0.85rem;
+      color: #8891aa;
+      padding: 12px;
+      text-align: center;
+    }
+    .product-body {
+      flex: 1 1 260px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 16px;
+    }
+    .product-info {
+      flex: 1 1 260px;
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-start;
+    }
+    .product-summary {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.7rem;
+    }
+    .product-summary span {
+      background: #eef2ff;
+      color: #4338ca;
+      padding: 1px 8px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+    }
+    .product-meta-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex: 0 0 auto;
+      margin-left: auto;
+    }
+    .product-action-button {
+      font-size: 0.68rem;
+      color: #1d4ed8;
+      background: rgba(37,99,235,0.08);
+      border: 1px solid rgba(37,99,235,0.35);
+      border-radius: 999px;
+      padding: 3px 10px;
+      cursor: pointer;
+      transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+    }
+    .product-action-button:hover:enabled {
+      background: rgba(37,99,235,0.18);
+    }
+    .product-action-button[disabled] {
+      opacity: 0.6;
+      cursor: wait;
+    }
+    .product-action-button--error {
+      color: #dc2626;
+      border-color: rgba(220,38,38,0.55);
+      background: rgba(248, 113, 113, 0.18);
+    }
+    .product-action-button--success {
+      color: #15803d;
+      border-color: rgba(34,197,94,0.55);
+      background: rgba(34,197,94,0.16);
+    }
+    .product-action-button--danger {
+      color: #fff;
+      border-color: rgba(220,38,38,0.8);
+      background: linear-gradient(135deg, rgba(220,38,38,0.96), rgba(185,28,28,0.92));
+      box-shadow: 0 8px 18px rgba(220, 38, 38, 0.25);
+    }
+    .product-action-button--danger:hover:enabled {
+      background: linear-gradient(135deg, rgba(185,28,28,0.98), rgba(153,27,27,0.94));
+      border-color: rgba(153,27,27,0.85);
+      color: #fff;
+    }
+    .product-preview-link {
+      font-size: 0.68rem;
+      color: #2563eb;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid rgba(37,99,235,0.3);
+      border-radius: 999px;
+      padding: 2px 6px;
+    }
+    .product-preview-link:hover {
+      background: rgba(37,99,235,0.08);
+    }
+    .product-nutri {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .product-nutri img {
+      height: 28px;
+    }
+    .product-card--compact .product-nutri img {
+      height: 24px;
+    }
+    .product-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .product-badge--eco {
+      background: #e0f2f1;
+      color: #047857;
+    }
+    .product-badge--nova {
+      background: #fff7ed;
+      color: #9a3412;
+    }
+    .product-brand {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+    }
+    .product-title {
+      margin: 0;
+      font-size: 1.25rem;
+      color: #0f172a;
+    }
+    .product-card--compact .product-title {
+      font-size: 1.05rem;
+    }
+    .product-details {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      margin: 0;
+      align-self: center;
+      justify-content: center;
+    }
+    .product-details div {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .product-details dt {
+      margin: 0;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #94a3b8;
+    }
+    .product-details dd {
+      margin: 0;
+      font-size: 0.78rem;
+      color: #0f172a;
+    }
+    .product-map {
+      flex: 0 0 220px;
+      height: 180px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.12);
+      overflow: hidden;
+      position: relative;
+    }
+    .product-card--compact .product-map {
+      flex-basis: 200px;
+      height: 165px;
+    }
+    .product-map__canvas {
+      position: absolute;
+      inset: 0;
+    }
+    .product-map__label {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      font-size: 11px;
+      color: #475569;
+      background: rgba(255,255,255,0.9);
+      padding: 4px 10px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.18);
+    }
+    .product-map--static .leaflet-container,
+    .product-map--static .leaflet-pane,
+    .product-map--static .leaflet-control-container {
+      pointer-events: none !important;
+    }
+    .product-map--static .leaflet-control-container {
+      display: none;
+    }
+    .product-map--modal {
+      width: 560px;
+      height: 360px;
+      margin: 0;
+    }
+    .product-map__label--modal {
+      font-size: 13px;
+      padding: 6px 12px;
+    }
+    .map-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(4px);
+    }
+    .map-modal[hidden] {
+      display: none;
+    }
+    .map-modal__backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15,23,42,0.45);
+    }
+    .map-modal__content {
+      position: relative;
+      background: transparent;
+      padding: 0;
+      border-radius: 20px;
+      box-shadow: 0 24px 60px rgba(15,23,42,0.35);
+      overflow: hidden;
+      z-index: 1001;
+    }
+    .map-modal__close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.9);
+      color: #1f2937;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(15,23,42,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .map-modal__close:hover {
+      background: #fff;
+    }
+    body.modal-open {
+      overflow: hidden;
+    }
+    #primary-map,
+    #map-modal {
+      display: none !important;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+      font-size: 0.82rem;
+      margin-bottom: 18px;
+    }
+    thead {
+      background: #e2e8f0;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      color: #475569;
+    }
+    th, td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+    td:first-child, th:first-child {
+      white-space: nowrap;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .product-cell {
+      max-width: 240px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #4a5568;
+    }
+    .product-cell .product-note {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.72rem;
+      color: #b45309;
+      white-space: normal;
+    }
+    .status-ok {
+      color: #047857;
+      font-weight: 600;
+    }
+    .status-error {
+      color: #b91c1c;
+      font-weight: 600;
+    }
+    .status-warn {
+      color: #b45309;
+      font-weight: 600;
+    }
+    .price {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .meta-cell {
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+    .meta-sub {
+      display: block;
+      font-size: 0.7rem;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+    .table-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .table-logo img {
+      height: 24px;
+      width: auto;
+      display: block;
+    }
+    .table-logo__label {
+      font-size: 0.7rem;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .table-collect-button {
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.25);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .table-collect-button:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.3);
+    }
+    .table-collect-button:disabled {
+      opacity: 0.55;
+      cursor: progress;
+      box-shadow: none;
+    }
+    .table-collect-button--success {
+      background: linear-gradient(135deg, #059669, #10b981);
+      box-shadow: 0 12px 24px rgba(16, 185, 129, 0.3);
+    }
+    .table-collect-button--error {
+      background: linear-gradient(135deg, #dc2626, #f97316);
+      box-shadow: 0 12px 24px rgba(220, 38, 38, 0.3);
+    }
+    .price-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 6px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .price-badge--best {
+      background: rgba(6,95,70,0.14);
+      color: #065f46;
+    }
+    .price-badge--worst {
+      background: rgba(220,38,38,0.12);
+      color: #b91c1c;
+    }
+    .best-price-banner {
+      margin: 0 0 18px;
+      padding: 12px 16px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #0f1f4b 0%, #1d4ed8 65%, #2563eb 100%);
+      color: #f8fafc;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      row-gap: 6px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 18px 30px rgba(37, 99, 235, 0.25);
+    }
+    .best-price-banner::before {
+      content: '★';
+      font-size: 1rem;
+      margin-right: 4px;
+      color: #fde68a;
+    }
+    .best-price-banner__item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.15);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .best-price-banner__label {
+      text-transform: uppercase;
+      font-size: 0.66rem;
+      letter-spacing: 0.08em;
+      color: rgba(248,250,252,0.85);
+    }
+    .best-price-banner__value {
+      font-size: 1.05rem;
+      color: #fff;
+      font-weight: 600;
+    }
+    .best-price-banner__store {
+      font-size: 0.78rem;
+      color: rgba(248,250,252,0.85);
+    }
+    .best-price-banner__item--best {
+      background: linear-gradient(135deg, #16ff84, #0dbc5f);
+      color: #022c22;
+      box-shadow: 0 8px 18px rgba(22, 255, 132, 0.35);
+    }
+    .best-price-banner__item--worst {
+      background: linear-gradient(135deg, #ff4d4d, #d61f1f);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(255, 77, 77, 0.35);
+    }
+    .best-price-banner__item--delta {
+      background: linear-gradient(120deg, #f97316 0%, #fb923c 70%, #fdba74 100%);
+      color: #fff7ed;
+      box-shadow: 0 10px 18px rgba(249, 115, 22, 0.35);
+      flex: 1 1 auto;
+      justify-content: center;
+      min-width: 220px;
+      position: relative;
+      padding-left: 32px;
+    }
+    .best-price-banner__item--delta::before {
+      content: 'Δ';
+      position: absolute;
+      left: 12px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+    }
+    .best-price-banner__item--worst .best-price-banner__value {
+      color: #fff;
+    }
+    .best-price-banner__item--delta .best-price-banner__value {
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .best-price-banner__item--worst .best-price-banner__label {
+      color: rgba(255,255,255,0.9);
+    }
+    .best-price-banner__item--best .best-price-banner__label {
+      color: rgba(240,253,244,0.9);
+    }
+    .best-price-banner__item--delta .best-price-banner__label {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.72rem;
+    }
+    .stores-summary {
+      margin: 48px 0 32px;
+      padding: 24px 28px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(37,99,235,0.04));
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: 0 26px 48px rgba(15, 23, 42, 0.12);
+    }
+    .stores-summary__title {
+      margin: 0 0 16px;
+      font-size: 1.2rem;
+      color: #0f172a;
+    }
+    .stores-summary__subtitle {
+      margin: -8px 0 20px;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    .stores-summary__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .stores-summary__item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(226,232,240,0.8);
+    }
+    .stores-summary__logo {
+      width: 72px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,0.25);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .stores-summary__logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .stores-summary__logo--placeholder {
+      background: linear-gradient(135deg, #e0e7ff, #f1f5f9);
+      color: #1d4ed8;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .stores-summary__rank {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      color: #fff;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+    .stores-summary__details {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stores-summary__price--range {
+      font-size: 0.85rem;
+    }
+    .stores-summary__name {
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .stores-summary__meta {
+      font-size: 0.85rem;
+      color: #475569;
+    }
+    .stores-summary__prices {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: right;
+    }
+    .stores-summary__price {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .stores-summary__price--muted {
+      color: #64748b;
+      font-weight: 500;
+    }
+    .notes {
+      font-size: 0.9rem;
+      color: #475569;
+      white-space: pre-line;
+      margin-bottom: 32px;
+    }
+    .notes[hidden] {
+      display: none;
+    }
+    .link {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    .link:hover {
+      text-decoration: underline;
+    }
+    .product-block {
+      margin-top: 32px;
+    }
+    .product-block h2 {
+      margin: 0 0 14px;
+      font-size: 1.25rem;
+      color: #0f172a;
+    }
+    #primary-section.product-block {
+      margin-top: 0;
+    }
+    .best-offer td {
+      background: #f0fdf4;
+    }
+    .worst-offer td {
+      background: #fef2f2;
+    }
+    .row-mismatch td {
+      background: #ffedd5;
+    }
+    .price-badge--alert {
+      background: rgba(249, 115, 22, 0.18);
+      color: #b45309;
+    }
+    .price-badge--alert::before {
+      content: '\26A0';
+      font-size: 0.78rem;
+      margin-right: 4px;
+    }
+    .empty-state {
+      font-size: 0.95rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+<header class="masthead">
+<div class="masthead__hero">
+  <div class="masthead__left">
+    <div class="brand">
+      <img alt="MaxiCourses" src="../assets/logo_blanc_maxicourses.png"/>
+      <div class="brand__text">
+        <h1>Liste de course</h1>
+        <p class="brand__subtitle">Comparateur multi-enseignes en temps réel et suggestions IA</p>
+      </div>
+    </div>
+    <div class="masthead__forms">
+      <form class="ean-search card-elevated" id="ean-search-form" novalidate="">
+        <label for="ean-search-input">Collecte multi-enseignes</label>
+        <div class="ean-search__controls">
+          <input class="ean-search__input" id="ean-search-input" inputmode="numeric" name="ean" pattern="\d{13}" placeholder="Saisir un EAN (13 chiffres)…" required="" type="text"/>
+          <button class="ean-search__button" type="submit">Collecter</button>
+        </div>
+        <p class="ean-search__status" data-role="search-status"></p>
+      </form>
+      <form class="image-search card-elevated" id="image-upload-form" novalidate="">
+        <label for="image-upload-input">Collecte via photo de code-barres</label>
+        <div class="image-search__controls">
+          <input accept="image/*" class="image-search__input" id="image-upload-input" name="image" required="" type="file"/>
+          <button class="image-search__button" type="submit">Uploader</button>
+        </div>
+        <p class="image-search__status" data-role="image-status"></p>
+      </form>
+    </div>
+    <div class="masthead__footer">© 2025-2026 MaxiCourses · Powered by OpenCenterAI</div>
+  </div>
+  <div class="masthead__summary">
+    <p class="masthead__tagline">Collecte automatisée Carrefour City/Market/Super → Auchan → Chronodrive → SuperU → G20 → Monoprix → Leclerc Drive → Intermarché.</p>
+    <ul class="masthead__bullets">
+      <li>Recherche par EAN brut, descriptif libre ou upload photo.</li>
+      <li>Comparateur multi-enseignes en temps réel et suggestions IA.</li>
+    </ul>
+    <div class="masthead__delta" id="portfolio-delta" hidden>
+      <span class="masthead__delta-label">Économie potentielle sur le panier</span>
+      <div class="masthead__delta-values">
+        <span class="masthead__delta-value" data-role="delta-value">—</span>
+        <span class="masthead__delta-percent" data-role="delta-percent">—%</span>
+        <span class="masthead__delta-caption" data-role="delta-caption"></span>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="descriptor product-block" hidden="" id="primary-section"></section>
+<template id="product-card-template">
+<div class="product-card">
+<div class="product-media">
+<div class="product-thumb">
+<div class="product-thumb__placeholder">Image indisponible</div>
+</div>
+</div>
+<div class="product-body">
+<div class="product-info">
+<div class="product-summary">
+<span class="product-summary__quantity" data-role="quantity" hidden=""></span>
+<span class="product-summary__category" data-role="category" hidden=""></span>
+</div>
+<div class="product-details product-details--inline">
+<div>
+<dt>EAN</dt>
+<dd data-role="ean">—</dd>
+</div>
+<div>
+<dt>Source</dt>
+<dd data-role="source">—</dd>
+</div>
+</div>
+<div class="product-brand" data-role="brand" hidden=""></div>
+<h3 class="product-title" data-role="title"></h3>
+</div>
+<div class="product-meta-actions">
+<a class="product-preview-link" data-role="preview" hidden="" rel="noopener" target="_blank">Voir image</a>
+<div class="product-nutri" data-role="nutri"></div>
+</div>
+</div>
+<div class="product-map product-map--static" data-role="map" hidden="">
+<div class="product-map__canvas" data-role="map-canvas"></div>
+<div class="product-map__label" data-role="map-label">Bordeaux Métropole</div>
+</div>
+</div>
+</template>
+<div class="map-modal" hidden="" id="map-modal">
+<div class="map-modal__backdrop" data-close-map=""></div>
+<div class="map-modal__content">
+<button aria-label="Fermer la carte" class="map-modal__close" data-close-map="" type="button">×</button>
+<div class="product-map product-map--modal" id="store-map-modal">
+<div class="product-map__canvas" id="store-map-modal-canvas"></div>
+<div class="product-map__label product-map__label--modal">Bordeaux Métropole</div>
+</div>
+</div>
+</div>
+<div id="comparisons"></div>
+<section class="stores-summary" hidden="" id="stores-summary">
+  <h2 class="stores-summary__title">Enseignes les plus avantageuses</h2>
+  <p class="stores-summary__subtitle" data-role="stores-summary-subtitle"></p>
+  <ol class="stores-summary__list" data-role="stores-summary-list"></ol>
+</section>
+<script crossorigin="" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    const EAN_REQUIRED_LENGTH = 13;
+
+    const DATA_BASE = './data';
+    const RESULTS_BASE_CANDIDATES = ['../results', `${DATA_BASE}/results`];
+    const DESCRIPTOR_CACHE_URLS = [`${DATA_BASE}/descriptor_cache.json`, '../pipeline/descriptor_cache.json'];
+    const MANUAL_DESCRIPTOR_FALLBACK_URLS = [`${DATA_BASE}/manual_descriptors.json`, '../manual_descriptors.json'];
+    const SUMMARY_URLS = RESULTS_BASE_CANDIDATES.map((base) => `${base}/summary.json`);
+
+    const buildResultUrls = (ean) => RESULTS_BASE_CANDIDATES.map((base) => `${base}/test-${ean}/latest.json`);
+    const PRIMARY_DATASET = {
+      ean: '5000112611861',
+      heading: 'Comparatif (Coca-Cola 1,75 L)',
+      resultUrls: buildResultUrls('5000112611861')
+    };
+
+    const EXTRA_DATASETS = [
+      {
+        ean: '8712100731822',
+        heading: 'Comparatif (Moutarde Savora 385 g)',
+        resultUrls: buildResultUrls('8712100731822')
+      },
+      {
+        ean: '3124480200433',
+        heading: 'Comparatif (Orangina 1,5 L)',
+        resultUrls: buildResultUrls('3124480200433')
+      },
+      {
+        ean: '5411188118961',
+        heading: 'Comparatif (Dessert végétal soja nature ALPRO)',
+        resultUrls: buildResultUrls('5411188118961')
+      },
+      {
+        ean: '5411188103387',
+        heading: 'Comparatif (Dessert végétal soja vanille ALPRO)',
+        resultUrls: buildResultUrls('5411188103387')
+      },
+      {
+        ean: '5411188114536',
+        heading: 'Comparatif (Dessert végétal soja fraise ALPRO)',
+        resultUrls: buildResultUrls('5411188114536')
+      },
+      {
+        ean: '3700260216148',
+        heading: 'Comparatif (Croquettes chat stérilisé saumon Ultima)',
+        resultUrls: buildResultUrls('3700260216148')
+      },
+      {
+        ean: '3092718637033',
+        heading: 'Comparatif (Sirop Menthe Verte TEISSEIRE 60cl)',
+        resultUrls: buildResultUrls('3092718637033')
+      },
+      {
+        ean: '3600551132150',
+        heading: 'Comparatif (Cadum Crème Douche Surgras Lait d\'amandes)',
+        resultUrls: buildResultUrls('3600551132150')
+      }
+    ];
+
+    const DESCRIPTORS_ENDPOINT = window.MAXICOURSES_DESCRIPTORS_ENDPOINT || 'http://127.0.0.1:5001/api/descriptors';
+
+    const MANUAL_COMPARISON = {};
+
+    const REFRESH_ENDPOINT = window.MAXICOURSES_REFRESH_ENDPOINT || 'http://127.0.0.1:5001/api/collect';
+    const REMOVE_ENDPOINT = window.MAXICOURSES_REMOVE_ENDPOINT || REFRESH_ENDPOINT.replace(/collect(\/?$)/, 'remove');
+    const CURRENCY_FORMATTER = new Intl.NumberFormat('fr-FR', {
+      style: 'currency',
+      currency: 'EUR',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    let cachedSummary = {};
+    let cachedManualDescriptors = {};
+    const datasetCache = new Map();
+    const removedDatasets = new Set();
+    const cheapestDatasets = new Map();
+
+    const LOGO_BASE = new URL('../assets/logos/', window.location.href).href;
+    const LOGOS = {
+      carrefour: 'carrefour.png',
+      carrefour_city: 'carrefour_city.png',
+      carrefour_market: 'carrefour_market.png',
+      carrefour_super: 'carrefour.png',
+      leclerc: 'leclerc.png',
+      leclerc_drive: 'leclerc.png',
+      intermarche: 'intermarche.png',
+      auchan: 'auchan.png',
+      chronodrive: 'chronodrive.png',
+      monoprix: 'monoprix.png',
+      courseu: 'courseu.png',
+      g20: 'g20.png'
+    };
+
+    const DISPLAY_NAMES = {
+      carrefour: 'Carrefour',
+      carrefour_city: 'Carrefour City',
+      carrefour_market: 'Carrefour Market',
+      carrefour_super: 'Carrefour Super',
+      leclerc: 'E.Leclerc Drive',
+      leclerc_drive: 'E.Leclerc Drive',
+      intermarche: 'Intermarché',
+      auchan: 'Auchan',
+      chronodrive: 'Chronodrive',
+      monoprix: 'Monoprix',
+      courseu: 'Super U Eysines',
+      g20: 'G20 Minute'
+    };
+
+    const GENERIC_DESCRIPTOR_TOKENS = new Set([
+      'dessert',
+      'desserts',
+      'vegetal',
+      'vegetaux',
+      'vegan',
+      'soja',
+      'produit',
+      'produits',
+      'yaourt',
+      'yaourts',
+      'boisson',
+      'boissons',
+      'lait',
+      'laitier',
+      'laitiers',
+      'g',
+      'kg',
+      'ml',
+      'l'
+    ]);
+
+    function normalizeEan(value) {
+      return (value == null ? '' : String(value)).replace(/[^0-9]/g, '');
+    }
+
+    function extractDifferenceNote(payload) {
+      if (!payload || typeof payload !== 'object') return '';
+      const direct = typeof payload.difference_note === 'string' ? payload.difference_note.trim() : '';
+      if (direct) return direct;
+      const metadata = payload.metadata && typeof payload.metadata === 'object'
+        ? payload.metadata
+        : payload._meta && typeof payload._meta === 'object'
+          ? payload._meta
+          : null;
+      if (metadata && typeof metadata.difference_note === 'string') {
+        const value = metadata.difference_note.trim();
+        if (value) return value;
+      }
+      return '';
+    }
+
+    function payloadIndicatesEquivalent(payload) {
+      if (!payload || typeof payload !== 'object') return false;
+      if (payload.equivalent === true) return true;
+      const status = (payload.status || '').toString().toUpperCase();
+      if (status === 'EQUIVALENT') return true;
+      return false;
+    }
+
+    function extractDescriptorTokens(descriptor) {
+      if (!descriptor) return [];
+      const combined = [descriptor.name, descriptor.title, descriptor.description]
+        .filter(Boolean)
+        .join(' ')
+        .toLowerCase();
+      if (!combined) return [];
+      const tokens = combined
+        .split(/[^a-z0-9]+/)
+        .map((token) => token.trim())
+        .filter((token) => token && token.length >= 4 && !GENERIC_DESCRIPTOR_TOKENS.has(token));
+      return Array.from(new Set(tokens));
+    }
+
+    function descriptorLabelFromCache(ean) {
+      if (!ean) return null;
+      const descriptor = cachedManualDescriptors?.[ean];
+      if (!descriptor) return null;
+      const candidates = [
+        descriptor.name,
+        descriptor.title,
+        [descriptor.brand, descriptor.quantity].filter(Boolean).join(' '),
+        descriptor.brand,
+      ];
+      for (const candidate of candidates) {
+        if (candidate && String(candidate).trim()) {
+          return String(candidate).trim();
+        }
+      }
+      return null;
+    }
+
+    function ensureDatasetConfig(ean) {
+      if (!ean) {
+        return null;
+      }
+      if (ean === PRIMARY_DATASET.ean) {
+        return PRIMARY_DATASET;
+      }
+      const headingLabel = descriptorLabelFromCache(ean) || `EAN ${ean}`;
+      let config = EXTRA_DATASETS.find((entry) => entry.ean === ean);
+      if (!config) {
+        config = {
+          ean,
+          heading: `Comparatif (${headingLabel})`,
+          resultUrls: buildResultUrls(ean)
+        };
+        EXTRA_DATASETS.push(config);
+      } else {
+        const expectedHeading = `Comparatif (${headingLabel})`;
+        if (config.heading !== expectedHeading) {
+          config.heading = expectedHeading;
+        }
+        if (!config.resultUrls || !config.resultUrls.length) {
+          config.resultUrls = buildResultUrls(ean);
+        }
+      }
+      return config;
+    }
+
+    function resetSearchStatus(statusEl) {
+      if (!statusEl) return;
+      statusEl.textContent = '';
+      statusEl.dataset.status = '';
+    }
+
+    function setupEanSearch() {
+      const form = document.getElementById('ean-search-form');
+      if (!form) return;
+
+      const input = form.querySelector('#ean-search-input');
+      const button = form.querySelector('.ean-search__button');
+      const statusEl = form.querySelector('[data-role="search-status"]');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!input || !button) return;
+
+        let ean = (input.value || '').replace(/\D+/g, '').trim();
+        input.value = ean;
+        resetSearchStatus(statusEl);
+
+        if (!ean || ean.length !== EAN_REQUIRED_LENGTH) {
+          if (statusEl) {
+            statusEl.textContent = `EAN invalide (${EAN_REQUIRED_LENGTH} chiffres requis).`;
+            statusEl.dataset.status = 'error';
+          }
+          input.focus();
+          return;
+        }
+
+        button.disabled = true;
+        if (statusEl) {
+          statusEl.textContent = 'Collecte en cours…';
+          statusEl.dataset.status = '';
+        }
+
+        try {
+          const response = await fetch(REFRESH_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ean })
+          });
+
+          let payload = null;
+          try {
+            payload = await response.json();
+          } catch (err) {
+            payload = null;
+          }
+
+          if (!response.ok) {
+            if (payload?.error === 'ean_format_invalid') {
+              throw new Error(payload?.message || `EAN invalide (${EAN_REQUIRED_LENGTH} chiffres requis).`);
+            }
+            const details = payload?.message || payload?.error || '';
+            throw new Error(details || `HTTP ${response.status}`);
+          }
+
+          let resolvedEan = (payload?.ean || ean || '').replace(/\D+/g, '').trim();
+          if (!resolvedEan) {
+            throw new Error('EAN introuvable après collecte.');
+          }
+          ean = resolvedEan;
+          input.value = resolvedEan;
+
+          if (payload?.descriptor && typeof payload.descriptor === 'object') {
+            cachedManualDescriptors = { ...(cachedManualDescriptors || {}) };
+            cachedManualDescriptors[resolvedEan] = {
+              ...payload.descriptor,
+              ean: resolvedEan,
+            };
+          }
+
+          if (payload?.summary && typeof payload.summary === 'object') {
+            cachedSummary = { ...(cachedSummary || {}) };
+            cachedSummary[resolvedEan] = payload.summary;
+          }
+
+          let primedDataset = null;
+          if (payload?.latest && typeof payload.latest === 'object') {
+            primedDataset = payload.latest;
+            if (primedDataset.adapters) {
+              datasetCache.set(resolvedEan, primedDataset);
+            }
+          }
+
+          let config = ensureDatasetConfig(resolvedEan);
+          if (config && primedDataset?.adapters) {
+            datasetCache.set(resolvedEan, primedDataset);
+          }
+
+          if (config) {
+            let waitResult = primedDataset && primedDataset.adapters ? primedDataset : null;
+            if (!waitResult) {
+              waitResult = await waitForDatasetAvailability(resolvedEan, config, {
+                timeoutMs: 420000,
+                intervalMs: 4000,
+                onProgress: ({ elapsedMs }) => {
+                  if (statusEl) {
+                    const seconds = Math.round(elapsedMs / 1000);
+                    statusEl.textContent = `Collecte en cours… (${seconds}s)`;
+                    statusEl.dataset.status = '';
+                  }
+                }
+              });
+            }
+            if (!waitResult) {
+              throw new Error('Collecte en cours. Veuillez patienter quelques instants puis rafraîchir.');
+            }
+
+            datasetCache.set(resolvedEan, waitResult);
+            await Promise.all([reloadSummary(), reloadManualDescriptors()]);
+            config = ensureDatasetConfig(resolvedEan) || config;
+            removedDatasets.delete(resolvedEan);
+            await reloadDataset(resolvedEan, config, { retry: true, attempts: 3, delayMs: 1000 });
+            focusOnDataset(resolvedEan);
+          } else {
+            await Promise.all([reloadSummary(), reloadManualDescriptors()]);
+          }
+
+          if (statusEl) {
+            statusEl.textContent = `Collecte terminée (EAN ${resolvedEan}).`;
+            statusEl.dataset.status = 'success';
+          }
+        } catch (error) {
+          console.error('Collecte EAN échouée', error);
+          if (statusEl) {
+            const message = String(error?.message || '').toLowerCase();
+            if (message.includes('failed to fetch') || message.includes('network')) {
+              statusEl.textContent = 'Serveur de collecte indisponible. Lancez "USE_CDP=1 python3 server.py" dans maxicourses_test, puis réessayez.';
+            } else {
+              statusEl.textContent = error?.message || 'Erreur pendant la collecte.';
+            }
+            statusEl.dataset.status = 'error';
+          }
+        } finally {
+          button.disabled = false;
+          setTimeout(() => {
+            resetSearchStatus(statusEl);
+          }, 4000);
+        }
+      });
+    }
+
+    function setupImageUpload() {
+      const form = document.getElementById('image-upload-form');
+      if (!form) return;
+
+      const input = form.querySelector('#image-upload-input');
+      const button = form.querySelector('.image-search__button');
+      const statusEl = form.querySelector('[data-role="image-status"]');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!input || !button) return;
+
+        const file = input.files && input.files[0];
+        resetSearchStatus(statusEl);
+
+        if (!file) {
+          if (statusEl) {
+            statusEl.textContent = 'Sélectionnez une image de code-barres.';
+            statusEl.dataset.status = 'error';
+          }
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', file);
+
+        button.disabled = true;
+        if (statusEl) {
+          statusEl.textContent = 'Analyse de l’image…';
+          statusEl.dataset.status = '';
+        }
+
+        try {
+          const response = await fetch(REFRESH_ENDPOINT, {
+            method: 'POST',
+            body: formData
+          });
+
+          let payload = null;
+          try {
+            payload = await response.json();
+          } catch (err) {
+            payload = null;
+          }
+
+          if (!response.ok) {
+            const details = payload?.message || payload?.error || '';
+            throw new Error(details || `HTTP ${response.status}`);
+          }
+
+          const resolvedEan = (payload?.ean || '').replace(/\D+/g, '').trim();
+          if (!resolvedEan) {
+            throw new Error('EAN introuvable après décodage.');
+          }
+          if (resolvedEan.length !== EAN_REQUIRED_LENGTH) {
+            throw new Error(`EAN invalide (${EAN_REQUIRED_LENGTH} chiffres requis).`);
+          }
+
+          if (payload?.descriptor && typeof payload.descriptor === 'object') {
+            cachedManualDescriptors = { ...(cachedManualDescriptors || {}) };
+            cachedManualDescriptors[resolvedEan] = {
+              ...payload.descriptor,
+              ean: resolvedEan,
+            };
+          }
+
+          if (payload?.summary && typeof payload.summary === 'object') {
+            cachedSummary = { ...(cachedSummary || {}) };
+            cachedSummary[resolvedEan] = payload.summary;
+          }
+
+          let primedDataset = null;
+          if (payload?.latest && typeof payload.latest === 'object') {
+            primedDataset = payload.latest;
+            if (primedDataset.adapters) {
+              datasetCache.set(resolvedEan, primedDataset);
+            }
+          }
+
+          let config = ensureDatasetConfig(resolvedEan);
+          if (config && primedDataset?.adapters) {
+            datasetCache.set(resolvedEan, primedDataset);
+          }
+
+          if (config) {
+            let waitResult = primedDataset && primedDataset.adapters ? primedDataset : null;
+            if (!waitResult) {
+              waitResult = await waitForDatasetAvailability(resolvedEan, config, {
+                timeoutMs: 420000,
+                intervalMs: 4000,
+                onProgress: ({ elapsedMs }) => {
+                  if (statusEl) {
+                    const seconds = Math.round(elapsedMs / 1000);
+                    statusEl.textContent = `Collecte en cours… (${seconds}s)`;
+                    statusEl.dataset.status = '';
+                  }
+                }
+              });
+            }
+            if (!waitResult) {
+              throw new Error('Collecte en cours. Veuillez patienter quelques instants puis rafraîchir.');
+            }
+
+            datasetCache.set(resolvedEan, waitResult);
+            await Promise.all([reloadSummary(), reloadManualDescriptors()]);
+            config = ensureDatasetConfig(resolvedEan) || config;
+            removedDatasets.delete(resolvedEan);
+            await reloadDataset(resolvedEan, config, { retry: true, attempts: 3, delayMs: 1000 });
+            focusOnDataset(resolvedEan);
+          } else {
+            await Promise.all([reloadSummary(), reloadManualDescriptors()]);
+          }
+
+          if (statusEl) {
+            statusEl.textContent = `Collecte terminée (EAN ${resolvedEan}).`;
+            statusEl.dataset.status = 'success';
+          }
+          input.value = '';
+          form.reset();
+        } catch (error) {
+          console.error('Collecte image échouée', error);
+          if (statusEl) {
+            statusEl.textContent = error?.message || 'Erreur pendant la collecte.';
+            statusEl.dataset.status = 'error';
+          }
+        } finally {
+          button.disabled = false;
+          setTimeout(() => {
+            resetSearchStatus(statusEl);
+          }, 4000);
+        }
+      });
+    }
+
+    function bindCtaScroll() {
+      const button = document.querySelector('.masthead__cta-button');
+      if (!button) return;
+      button.addEventListener('click', () => {
+        const targetSelector = button.dataset.scrollTarget || '#ean-search-form';
+        const target = document.querySelector(targetSelector);
+        if (!target || typeof target.scrollIntoView !== 'function') {
+          return;
+        }
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const input = target.querySelector('input');
+        if (input) {
+          setTimeout(() => input.focus(), 400);
+        }
+      });
+    }
+
+    function delay(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    const STORE_LOCATIONS = {
+      carrefour_city: { lat: 44.8573603, lon: -0.568063, label: 'Carrefour City · Bordeaux Balguerie' },
+      carrefour_market: { lat: 44.8488597, lon: -0.5839625, label: 'Carrefour Market · Fondaudège' },
+      carrefour_super: { lat: 44.867007, lon: -0.516348, label: 'Carrefour Super · Lormont' },
+      leclerc_drive: { lat: 44.8461492, lon: -0.5792079, label: 'E.Leclerc Relais · Bordeaux Fondaudège' },
+      intermarche: { lat: 44.8066547, lon: -0.5750164, label: 'Intermarché · Talence Toulouse' },
+      auchan: { lat: 44.806195, lon: -0.5910973, label: 'Auchan Supermarché · Talence' },
+      chronodrive: { lat: 44.8589595, lon: -0.6768561, label: 'Chronodrive · Bordeaux Magudas' }
+    };
+
+    const FALLBACK_NUTRI_IMAGES = {
+      a: '../assets/nutriscore/nutriscore-a.svg',
+      b: '../assets/nutriscore/nutriscore-b.svg',
+      c: '../assets/nutriscore/nutriscore-c.svg',
+      d: '../assets/nutriscore/nutriscore-d.svg',
+      e: '../assets/nutriscore/nutriscore-e.svg',
+      unknown: '../assets/nutriscore/nutriscore-unknown.svg'
+    };
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const [manualDescriptors, summary] = await Promise.all([
+        fetchDescriptorsCatalog(),
+        fetchFirstAvailable(SUMMARY_URLS)
+      ]);
+
+      cachedManualDescriptors = manualDescriptors || {};
+      removedDatasets.clear();
+      Object.entries(cachedManualDescriptors).forEach(([ean, descriptor]) => {
+        if (descriptor && descriptor.removed) {
+          removedDatasets.add(ean);
+        }
+      });
+      const summaryData = summary || {};
+      cachedSummary = summaryData;
+
+      const summaryEans = Object.keys(summaryData || {});
+      for (const ean of summaryEans) {
+        if (ean && ean !== PRIMARY_DATASET.ean) {
+          ensureDatasetConfig(ean);
+        }
+      }
+
+      const primaryData = await fetchDataset(PRIMARY_DATASET);
+      renderPrimary(primaryData, summaryData, manualDescriptors);
+
+      for (const config of EXTRA_DATASETS) {
+        if (removedDatasets.has(config.ean)) {
+          const section = document.getElementById(`comparison-${config.ean}`);
+          if (section) {
+            section.remove();
+          }
+          continue;
+        }
+        const dataset = await fetchDataset(config);
+        renderComparisonSection(config, dataset, summaryData, manualDescriptors);
+      }
+
+      updatePortfolioDeltaView(summaryData);
+
+      setupEanSearch();
+      setupImageUpload();
+      bindCtaScroll();
+    });
+
+    const getResultUrlCandidates = (config) => {
+      if (!config) return [];
+      if (Array.isArray(config.resultUrls) && config.resultUrls.length) {
+        return config.resultUrls.filter(Boolean);
+      }
+      if (config.resultUrl) {
+        return [config.resultUrl];
+      }
+      return [];
+    };
+
+    async function fetchDataset(config, options = {}) {
+      const urlCandidates = getResultUrlCandidates(config);
+      if (!urlCandidates.length) {
+        return { data: null };
+      }
+      const retry = Boolean(options.retry);
+      const attempts = Number.isInteger(options.attempts) ? options.attempts : 5;
+      const wait = Number.isInteger(options.delayMs) ? options.delayMs : 1500;
+
+      if (config?.ean && datasetCache.has(config.ean)) {
+        const cachedValue = datasetCache.get(config.ean);
+        datasetCache.delete(config.ean);
+        if (cachedValue) {
+          return { data: cachedValue };
+        }
+      }
+
+      let data = null;
+      let resolvedUrl = null;
+      const fetchFromUrl = async (url) => {
+        if (!url) return null;
+        if (retry) {
+          for (let attempt = 0; attempt < attempts; attempt += 1) {
+            const payload = await fetchJson(withCacheBuster(url));
+            if (payload) return payload;
+            if (attempt < attempts - 1) await delay(wait);
+          }
+          return null;
+        }
+        return fetchJson(withCacheBuster(url));
+      };
+
+      for (const candidate of urlCandidates) {
+        data = await fetchFromUrl(candidate);
+        if (data) {
+          resolvedUrl = candidate;
+          break;
+        }
+      }
+      if (config?.ean && data) {
+        datasetCache.set(config.ean, data);
+      }
+      if (resolvedUrl) {
+        config._activeResultUrl = resolvedUrl;
+      }
+      return { data: data || null };
+    }
+
+    async function fetchJson(url) {
+      if (!url) return null;
+      try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) return null;
+        return await res.json();
+      } catch (err) {
+        console.warn('fetchJson failed', url, err);
+        return null;
+      }
+    }
+
+    async function fetchFirstAvailable(urls) {
+      if (!Array.isArray(urls) || !urls.length) return null;
+      for (const url of urls) {
+        const data = await fetchJson(withCacheBuster(url));
+        if (data) return data;
+      }
+      return null;
+    }
+
+    function normalizeDescriptorPayload(payload) {
+      if (!payload || typeof payload !== 'object') {
+        return {};
+      }
+      if (payload.descriptors && typeof payload.descriptors === 'object') {
+        return payload.descriptors;
+      }
+      if (payload.descriptor && typeof payload.descriptor === 'object') {
+        const single = payload.descriptor;
+        if (single.ean) {
+          return { [single.ean]: single };
+        }
+      }
+      if (!Array.isArray(payload)) {
+        return payload;
+      }
+      return {};
+    }
+
+    async function fetchDescriptorsCatalog(endpoint = DESCRIPTORS_ENDPOINT) {
+      const tryNormalize = async (url) => {
+        if (!url) return {};
+        const payload = await fetchJson(url);
+        return normalizeDescriptorPayload(payload);
+      };
+
+      let descriptors = {};
+      if (endpoint) {
+        descriptors = await tryNormalize(endpoint);
+      }
+      if (!descriptors || !Object.keys(descriptors).length) {
+        for (const url of MANUAL_DESCRIPTOR_FALLBACK_URLS) {
+          descriptors = await tryNormalize(url);
+          if (descriptors && Object.keys(descriptors).length) break;
+        }
+      }
+      if (!descriptors || !Object.keys(descriptors).length) {
+        for (const url of DESCRIPTOR_CACHE_URLS) {
+          descriptors = await tryNormalize(url);
+          if (descriptors && Object.keys(descriptors).length) break;
+        }
+      }
+      return descriptors || {};
+    }
+
+    async function fetchDatasetOnce(config) {
+      const urls = getResultUrlCandidates(config);
+      if (!urls.length) return null;
+      for (const url of urls) {
+        const data = await fetchJson(withCacheBuster(url));
+        if (data) {
+          config._activeResultUrl = url;
+          return data;
+        }
+      }
+      return null;
+    }
+
+    async function waitForDatasetAvailability(ean, config, options = {}) {
+      const timeoutMs = Number.isInteger(options.timeoutMs) ? options.timeoutMs : 420000;
+      const intervalMs = Number.isInteger(options.intervalMs) ? options.intervalMs : 4000;
+      const onProgress = typeof options.onProgress === 'function' ? options.onProgress : null;
+      const startedAt = Date.now();
+      let attempt = 0;
+
+      const candidates = getResultUrlCandidates(config);
+      if (!candidates.length) return null;
+
+      while (Date.now() - startedAt < timeoutMs) {
+        attempt += 1;
+        for (const url of candidates) {
+          const data = await fetchJson(withCacheBuster(url));
+          if (data && data.adapters) {
+            if (config?.ean) {
+              datasetCache.set(config.ean, data);
+            }
+            config._activeResultUrl = url;
+            return data;
+          }
+        }
+        if (onProgress) {
+          onProgress({ attempt, elapsedMs: Date.now() - startedAt, ean });
+        }
+        await delay(intervalMs);
+      }
+
+      return null;
+    }
+
+    function withCacheBuster(url) {
+      const sep = url.includes('?') ? '&' : '?';
+      return `${url}${sep}_=${Date.now()}`;
+    }
+
+    function createProductCard(descriptor, options = {}) {
+      const template = document.getElementById('product-card-template');
+      if (!template) return null;
+      const root = template.content.firstElementChild.cloneNode(true);
+      if (options.compact) {
+        root.classList.add('product-card--compact');
+      }
+
+      const datasetData = options.dataset || null;
+      const datasetConfig = options.datasetConfig || null;
+      const ean = options.ean || descriptor.ean || null;
+      if (ean) {
+        root.dataset.ean = ean;
+      }
+
+      let titleEl = root.querySelector('[data-role="title"]');
+      if (options.headingLevel && options.headingLevel !== 3) {
+        const headingTag = `h${options.headingLevel}`;
+        const replacement = document.createElement(headingTag);
+        replacement.className = titleEl.className;
+        replacement.dataset.role = 'title';
+        titleEl.replaceWith(replacement);
+        titleEl = replacement;
+      }
+
+      const brandEl = root.querySelector('[data-role="brand"]');
+      if (descriptor.brand) {
+        brandEl.textContent = descriptor.brand;
+        brandEl.hidden = false;
+      } else {
+        brandEl.hidden = true;
+      }
+
+      titleEl.textContent = descriptor.title || descriptor.name || 'Produit';
+
+      const qtyEl = root.querySelector('[data-role="quantity"]');
+      if (descriptor.quantity) {
+        qtyEl.textContent = descriptor.quantity;
+        qtyEl.hidden = false;
+      } else {
+        qtyEl.hidden = true;
+      }
+
+      const catEl = root.querySelector('[data-role="category"]');
+      if (descriptor.categories) {
+        catEl.textContent = extractCategory(descriptor.categories);
+        catEl.hidden = false;
+      } else {
+        catEl.hidden = true;
+      }
+
+      const previewLink = root.querySelector('[data-role="preview"]');
+      const summaryEl = root.querySelector('.product-summary');
+      const metaActions = root.querySelector('.product-meta-actions');
+      let refreshButton = null;
+      let removeButton = null;
+
+      const eanEl = root.querySelector('[data-role="ean"]');
+      eanEl.textContent = descriptor.ean || '—';
+
+      const sourceEl = root.querySelector('[data-role="source"]');
+      sourceEl.textContent = descriptor.source || '—';
+
+      const thumbEl = root.querySelector('.product-thumb');
+      thumbEl.innerHTML = '';
+      const imageSrc = descriptor.image ? toAbsolute(descriptor.image) : '';
+      if (imageSrc) {
+        const img = document.createElement('img');
+        img.src = imageSrc;
+        img.alt = descriptor.title || descriptor.name || '';
+        thumbEl.appendChild(img);
+      } else {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'product-thumb__placeholder';
+        placeholder.textContent = 'Image indisponible';
+        thumbEl.appendChild(placeholder);
+      }
+
+      if (previewLink) {
+        let previewUrl = options.previewUrl || null;
+        if (!previewUrl && datasetData) {
+          previewUrl = datasetData.image_path
+            || datasetData.reference?.image
+            || (datasetData.adapters || []).reduce((acc, adapter) => acc || adapter?.payload?.image_path || adapter?.payload?.image || null, null);
+        }
+        if (!previewUrl && descriptor.image) {
+          previewUrl = descriptor.image;
+        }
+        if (previewUrl) {
+          previewLink.href = toAbsolute(previewUrl);
+          previewLink.hidden = false;
+        } else {
+          previewLink.hidden = true;
+        }
+      }
+
+      if (metaActions && ean) {
+        removeButton = document.createElement('button');
+        removeButton.type = 'button';
+        removeButton.className = 'product-action-button product-action-button--danger';
+        removeButton.textContent = 'Retirer de la liste';
+        removeButton.addEventListener('click', () => {
+          handleRemoveClick({ ean, datasetConfig, card: root, descriptor });
+        });
+        metaActions.appendChild(removeButton);
+
+        refreshButton = document.createElement('button');
+        refreshButton.type = 'button';
+        refreshButton.className = 'product-action-button';
+        refreshButton.textContent = 'Relancer la collecte';
+        refreshButton.addEventListener('click', () => {
+          handleRefreshClick({ ean, datasetConfig, button: refreshButton });
+        });
+        metaActions.appendChild(refreshButton);
+      }
+
+      const nutriEl = root.querySelector('[data-role="nutri"]');
+      nutriEl.innerHTML = '';
+      const nutriGradeRaw = descriptor.nutriscore_grade;
+      const normalizedNutriGrade = (nutriGradeRaw || '').toLowerCase();
+      const localNutri = FALLBACK_NUTRI_IMAGES[normalizedNutriGrade] || FALLBACK_NUTRI_IMAGES.unknown;
+      const rawNutriSrc = descriptor.nutriscore_image
+        ? toAbsolute(descriptor.nutriscore_image)
+        : (localNutri ? toAbsolute(localNutri) : null);
+      const nutriImg = rawNutriSrc ? withCacheBuster(rawNutriSrc) : null;
+      if (nutriImg) {
+        const img = document.createElement('img');
+        img.src = nutriImg;
+        img.alt = nutriGradeRaw ? `Nutri-score ${nutriGradeRaw.toUpperCase()}` : 'Nutri-score';
+        nutriEl.appendChild(img);
+      } else if (nutriGradeRaw) {
+        nutriEl.textContent = nutriGradeRaw.toUpperCase();
+      }
+
+      const ecoGradeRaw = descriptor.ecoscore_grade || '';
+      const ecoLetter = ['a', 'b', 'c', 'd', 'e'].includes(ecoGradeRaw.toLowerCase())
+        ? ecoGradeRaw.toUpperCase()
+        : null;
+      if (ecoLetter) {
+        const ecoBadge = document.createElement('span');
+        ecoBadge.className = 'product-badge product-badge--eco';
+        ecoBadge.textContent = `Eco ${ecoLetter}`;
+        nutriEl.appendChild(ecoBadge);
+      }
+
+      const novaValue = descriptor.nova_group ? String(descriptor.nova_group).trim() : '';
+      if (novaValue) {
+        const novaBadge = document.createElement('span');
+        novaBadge.className = 'product-badge product-badge--nova';
+        novaBadge.textContent = `NOVA ${novaValue}`;
+        nutriEl.appendChild(novaBadge);
+      }
+
+      const hasSummary = !qtyEl.hidden || !catEl.hidden;
+      const hasNutri = nutriEl.childNodes.length > 0;
+      const hasPreview = previewLink && !previewLink.hidden;
+      const hasRefresh = !!refreshButton;
+      const hasRemove = !!removeButton;
+      if (summaryEl) {
+        summaryEl.style.display = hasSummary ? 'inline-flex' : 'none';
+      }
+      if (metaActions) {
+        metaActions.style.display = (hasNutri || hasPreview || hasRefresh || hasRemove) ? 'inline-flex' : 'none';
+      }
+
+      const mapEl = root.querySelector('[data-role="map"]');
+      const mapCanvas = root.querySelector('[data-role="map-canvas"]');
+      const mapLabel = root.querySelector('[data-role="map-label"]');
+      let mapRefs = null;
+      if (options.map) {
+        const labelText = options.map.label || descriptor.map_label || '';
+        if (labelText) {
+          mapLabel.textContent = labelText;
+        }
+        mapEl.hidden = false;
+        if (options.map.idPrefix) {
+          mapEl.id = `${options.map.idPrefix}-map`;
+          mapCanvas.id = `${options.map.idPrefix}-map-canvas`;
+        }
+        mapRefs = { container: mapEl, canvas: mapCanvas, label: mapLabel };
+      } else {
+        mapEl.remove();
+      }
+
+      return { element: root, map: mapRefs };
+    }
+
+    function renderProductBlock(target, {
+      heading,
+      descriptor,
+      rows = [],
+      best,
+      worst,
+      datasetData = null,
+      cardOptions = {}
+    }) {
+      if (!target || !descriptor) return { card: null };
+      target.innerHTML = '';
+      target.hidden = false;
+      target.classList.add('product-block');
+
+      if (heading) {
+        const headingEl = document.createElement('h2');
+        headingEl.textContent = heading;
+        target.appendChild(headingEl);
+      }
+
+      const cardOptionsWithContext = { ...(cardOptions || {}), dataset: datasetData };
+      if (!cardOptionsWithContext.ean && descriptor.ean) {
+        cardOptionsWithContext.ean = descriptor.ean;
+      }
+      const card = createProductCard(descriptor, cardOptionsWithContext);
+      if (card) {
+        target.appendChild(card.element);
+      }
+
+      if (best || worst) {
+        const banner = document.createElement('div');
+        banner.className = 'best-price-banner';
+
+        const makeItem = (label, value, store, options = {}) => {
+          if (!value) return '';
+          const variantClass = options.variant ? ` best-price-banner__item--${options.variant}` : '';
+          return `
+            <span class="best-price-banner__item${variantClass}">
+              <span class="best-price-banner__label">${escapeHtml(label)}</span>
+              <span class="best-price-banner__value">${escapeHtml(String(value))}</span>
+              ${store ? `<span class="best-price-banner__store">${escapeHtml(store)}</span>` : ''}
+            </span>
+          `;
+        };
+
+        const segments = [];
+        if (best) {
+          segments.push(makeItem('Moins cher', best.priceLabel, best.store, { variant: 'best' }));
+        }
+        if (worst) {
+          segments.push(makeItem('Plus cher', worst.priceLabel, worst.store, { variant: 'worst' }));
+        }
+        if (best && worst && Number.isFinite(best.value) && Number.isFinite(worst.value)) {
+          const deltaValue = Math.max(0, worst.value - best.value);
+          const diffParts = [formatCurrency(deltaValue)];
+          const percentValue = best.value > 0 ? (deltaValue / best.value) * 100 : null;
+          if (percentValue !== null && Number.isFinite(percentValue)) {
+            diffParts.push(formatPercent(percentValue));
+          }
+          segments.push(makeItem('Écart', diffParts.join(' · '), null, { variant: 'delta' }));
+        }
+
+        banner.innerHTML = segments.filter(Boolean).join('');
+        target.appendChild(banner);
+      }
+
+      if (rows.length) {
+        const worstValue = worst?.value;
+        const table = document.createElement('table');
+        table.innerHTML = `
+          <thead>
+            <tr>
+              <th>Enseigne</th>
+              <th>Produit</th>
+              <th>Statut</th>
+              <th>Prix pack</th>
+              <th>Prix / unité</th>
+              <th>Collecte précédente</th>
+              <th>Magasin / Note</th>
+              <th>Maj</th>
+              <th>Collecte</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        `;
+        renderTable(
+          table.querySelector('tbody'),
+          rows,
+          best?.value,
+          worstValue,
+          {
+            ean: cardOptionsWithContext.ean || descriptor.ean || null,
+            datasetConfig: cardOptionsWithContext.datasetConfig || null,
+          }
+        );
+        target.appendChild(table);
+      } else {
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.textContent = 'Aucune donnée collectée pour le moment.';
+        target.appendChild(empty);
+      }
+
+      return { card };
+    }
+
+    function renderPrimary(dataset, summary, manualDescriptors) {
+      const section = document.getElementById('primary-section');
+      if (removedDatasets.has(PRIMARY_DATASET.ean)) {
+        renderRemovalPlaceholder(section);
+        updateCheapestDatasetEntry(PRIMARY_DATASET.ean, null);
+        return;
+      }
+
+      const summaryBlock = summary?.[PRIMARY_DATASET.ean] || null;
+      const rows = buildRows(PRIMARY_DATASET.ean, dataset.data, summaryBlock, manualDescriptors);
+
+      const descriptor = resolveDescriptor(PRIMARY_DATASET.ean, dataset.data, manualDescriptors);
+      const best = pickBestPrice(rows);
+      const worst = pickWorstPrice(rows);
+      const previewUrl = dataset?.data?.image_path
+        ? dataset.data.image_path.replace(/^.*www\//, '../')
+        : null;
+
+      const datasetData = dataset?.data || null;
+      const { card } = renderProductBlock(section, {
+        heading: null,
+        descriptor,
+        rows,
+        best,
+        worst,
+        datasetData,
+        cardOptions: { compact: true, headingLevel: 2, previewUrl, ean: PRIMARY_DATASET.ean, datasetConfig: PRIMARY_DATASET }
+      });
+      updateCheapestDatasetEntry(PRIMARY_DATASET.ean, best);
+
+      if (card && card.map) {
+        renderMapMarkers(rows);
+        setupMapModal();
+      }
+    }
+
+    function renderComparisonSection(config, dataset, summary, manualDescriptors) {
+      const container = document.getElementById('comparisons');
+      let section = document.getElementById(`comparison-${config.ean}`);
+      if (removedDatasets.has(config.ean)) {
+        if (section) {
+          section.remove();
+        }
+        updateCheapestDatasetEntry(config.ean, null);
+        return;
+      }
+      if (!section) {
+        section = document.createElement('section');
+        section.className = 'product-block';
+        section.id = `comparison-${config.ean}`;
+        container.appendChild(section);
+      }
+      const summaryBlock = summary?.[config.ean] || null;
+      const rows = buildRows(config.ean, dataset.data, summaryBlock, manualDescriptors);
+
+      const descriptor = resolveDescriptor(config.ean, dataset.data, manualDescriptors);
+      const best = pickBestPrice(rows);
+      const worst = pickWorstPrice(rows);
+      const previewUrl = dataset?.data?.image_path
+        ? dataset.data.image_path.replace(/^.*www\//, '../')
+        : null;
+
+      const datasetData = dataset?.data || null;
+      renderProductBlock(section, {
+        heading: null,
+        descriptor,
+        rows,
+        best,
+        worst,
+        datasetData,
+        cardOptions: { compact: true, previewUrl, ean: config.ean, datasetConfig: config }
+      });
+      updateCheapestDatasetEntry(config.ean, best);
+    }
+
+    function updateCheapestDatasetEntry(ean, entry) {
+      if (!ean) return;
+      if (entry && entry.store) {
+        const enriched = decorateBestPriceEntry(entry);
+        cheapestDatasets.set(ean, enriched);
+      } else {
+        cheapestDatasets.delete(ean);
+      }
+      refreshCheapestSummary();
+    }
+
+    function decorateBestPriceEntry(entry) {
+      const adapterKey = normalizeAdapterName(entry.adapterName || '');
+      const label = entry.displayName
+        || DISPLAY_NAMES[adapterKey]
+        || (entry.store ? entry.store.replace(/\s+-.*$/, '').trim() : 'Enseigne inconnue');
+      const logoUrl = adapterKey ? logoFor(adapterKey) : null;
+      const storeRaw = (entry.store || '').trim();
+      let location = '';
+      if (storeRaw && label) {
+        const normalizedLabel = label.toLowerCase();
+        const normalizedStore = storeRaw.toLowerCase();
+        if (normalizedStore.startsWith(normalizedLabel)) {
+          location = storeRaw.slice(label.length).replace(/^[-–·, ]+/, '').trim();
+        }
+      }
+      if (!location && storeRaw && storeRaw.toLowerCase() !== label.toLowerCase()) {
+        location = storeRaw;
+      }
+      return {
+        ...entry,
+        adapterKey,
+        label,
+        logo: logoUrl,
+        location,
+        store: storeRaw || label,
+      };
+    }
+
+    function refreshCheapestSummary() {
+      const container = document.getElementById('stores-summary');
+      if (!container) return;
+      const list = container.querySelector('[data-role="stores-summary-list"]');
+      if (!list) return;
+      const subtitle = container.querySelector('[data-role="stores-summary-subtitle"]');
+
+      if (!cheapestDatasets.size) {
+        list.innerHTML = '';
+        if (subtitle) subtitle.textContent = '';
+        container.hidden = true;
+        return;
+      }
+
+      const aggregates = new Map();
+      cheapestDatasets.forEach((entry) => {
+        const key = entry.adapterKey || entry.label || entry.store || entry.value;
+        const label = entry.label || entry.store || 'Enseigne inconnue';
+        const current = aggregates.get(key) || {
+          key,
+          label,
+          logo: entry.logo || null,
+          count: 0,
+          total: 0,
+          best: null,
+          worst: null,
+          examplePrice: entry.priceLabel || '',
+          locationExample: entry.location || ''
+        };
+        current.count += 1;
+        if (Number.isFinite(entry.value)) {
+          current.total += entry.value;
+          const context = formatStoreContext(entry);
+          if (!current.best || entry.value < current.best.value) {
+            current.best = {
+              value: entry.value,
+              priceLabel: entry.priceLabel || formatCurrency(entry.value),
+              context,
+            };
+          }
+          if (!current.worst || entry.value > current.worst.value) {
+            current.worst = {
+              value: entry.value,
+              priceLabel: entry.priceLabel || formatCurrency(entry.value),
+              context,
+            };
+          }
+        }
+        if (!current.examplePrice && entry.priceLabel) {
+          current.examplePrice = entry.priceLabel;
+        }
+        if (!current.locationExample && entry.location) {
+          current.locationExample = entry.location;
+        }
+        aggregates.set(key, current);
+      });
+
+      const rows = Array.from(aggregates.values()).sort((a, b) => {
+        if (b.count !== a.count) return b.count - a.count;
+        const avgA = a.count && Number.isFinite(a.total) ? a.total / a.count : Number.POSITIVE_INFINITY;
+        const avgB = b.count && Number.isFinite(b.total) ? b.total / b.count : Number.POSITIVE_INFINITY;
+        return avgA - avgB;
+      });
+
+      list.innerHTML = '';
+      rows.slice(0, 5).forEach((stat, index) => {
+        const avg = stat.count && Number.isFinite(stat.total) ? stat.total / stat.count : null;
+        const logoHtml = stat.logo
+          ? `<span class="stores-summary__logo"><img src="${escapeHtml(stat.logo)}" alt="${escapeHtml(stat.label)}" /></span>`
+          : `<span class="stores-summary__logo stores-summary__logo--placeholder">${escapeHtml((stat.label || '?').charAt(0) || '•')}</span>`;
+        const metaParts = [
+          `${stat.count} produit${stat.count > 1 ? 's' : ''} gagnant${stat.count > 1 ? 's' : ''}`
+        ];
+        if (Number.isFinite(avg)) {
+          metaParts.push(`prix moyen ${formatCurrency(avg)}`);
+        } else if (stat.examplePrice) {
+          metaParts.push(stat.examplePrice);
+        }
+        if (stat.locationExample) {
+          metaParts.push(stat.locationExample);
+        }
+        const item = document.createElement('li');
+        item.className = 'stores-summary__item';
+        item.innerHTML = `
+          <span class="stores-summary__rank">TOP ${index + 1}</span>
+          ${logoHtml}
+          <div class="stores-summary__details">
+            <span class="stores-summary__name">${escapeHtml(stat.label)}</span>
+            <span class="stores-summary__meta">${metaParts.join(' · ')}</span>
+          </div>
+          <div class="stores-summary__prices">
+            ${stat.best ? `<span class="stores-summary__price">Moins cher ${escapeHtml(stat.best.priceLabel)}${stat.best.context ? ` · ${escapeHtml(stat.best.context)}` : ''}</span>` : ''}
+            ${stat.worst && stat.worst.value > stat.best?.value ? `<span class="stores-summary__price stores-summary__price--muted">Plus cher ${escapeHtml(stat.worst.priceLabel)}${stat.worst.context ? ` · ${escapeHtml(stat.worst.context)}` : ''}</span>` : ''}
+          </div>
+        `;
+        list.appendChild(item);
+      });
+
+      if (subtitle) {
+        subtitle.textContent = `${cheapestDatasets.size} produit${cheapestDatasets.size > 1 ? 's' : ''} comparé${cheapestDatasets.size > 1 ? 's' : ''} · ${rows.length} enseigne${rows.length > 1 ? 's' : ''} gagnante${rows.length > 1 ? 's' : ''}`;
+      }
+
+      container.hidden = rows.length === 0;
+    }
+
+    function formatStoreContext(entry) {
+      if (!entry) return '';
+      const store = (entry.store || '').trim();
+      if (store) return store;
+      const parts = [];
+      if (entry.label) parts.push(entry.label);
+      if (entry.location) parts.push(entry.location);
+      return parts.join(' · ');
+    }
+
+    function resolveDatasetContext(ean) {
+      if (!ean) {
+        return { config: null, type: null };
+      }
+      if (ean === PRIMARY_DATASET.ean) {
+        return { config: PRIMARY_DATASET, type: 'primary' };
+      }
+      const extra = EXTRA_DATASETS.find((entry) => entry.ean === ean);
+      if (extra) {
+        return { config: extra, type: 'extra' };
+      }
+      return { config: null, type: null };
+    }
+
+    async function reloadSummary() {
+      const summary = await fetchFirstAvailable(SUMMARY_URLS);
+      cachedSummary = summary || {};
+      updatePortfolioDeltaView(cachedSummary);
+      return cachedSummary;
+    }
+
+    async function reloadManualDescriptors() {
+      const descriptors = await fetchDescriptorsCatalog();
+      cachedManualDescriptors = descriptors || {};
+      removedDatasets.clear();
+      Object.entries(cachedManualDescriptors).forEach(([ean, descriptor]) => {
+        if (descriptor && descriptor.removed) {
+          removedDatasets.add(ean);
+        }
+      });
+      return cachedManualDescriptors;
+    }
+
+    async function reloadDataset(ean, configOverride, fetchOptions = {}) {
+      const context = resolveDatasetContext(ean);
+      const config = configOverride || context.config;
+      if (!config || !config.ean) {
+        console.warn('Aucun dataset config pour', ean);
+        return null;
+      }
+      if (removedDatasets.has(config.ean)) {
+        if (config.ean === PRIMARY_DATASET.ean) {
+          renderRemovalPlaceholder(document.getElementById('primary-section'));
+        } else {
+          const section = document.getElementById(`comparison-${config.ean}`);
+          if (section) {
+            section.remove();
+          }
+        }
+        updatePortfolioDeltaView(cachedSummary);
+        return null;
+      }
+      const dataset = await fetchDataset(config, fetchOptions);
+      if (config.ean === PRIMARY_DATASET.ean) {
+        renderPrimary(dataset, cachedSummary, cachedManualDescriptors);
+      } else {
+        renderComparisonSection(config, dataset, cachedSummary, cachedManualDescriptors);
+      }
+      return dataset;
+    }
+
+    function focusOnDataset(ean, options = {}) {
+      if (!ean) {
+        return;
+      }
+      const targetId = ean === PRIMARY_DATASET.ean ? 'primary-section' : `comparison-${ean}`;
+      const element = document.getElementById(targetId);
+      if (!element || typeof element.scrollIntoView !== 'function') {
+        return;
+      }
+      const behavior = options.behavior || 'smooth';
+      const block = options.block || 'start';
+      try {
+        element.scrollIntoView({ behavior, block });
+      } catch (err) {
+        element.scrollIntoView();
+      }
+    }
+
+    function computePortfolioDelta(summary) {
+      let bestTotal = 0;
+      let worstTotal = 0;
+      let counted = 0;
+
+      Object.entries(summary || {}).forEach(([eanKey, stores]) => {
+        if (removedDatasets.has(eanKey)) {
+          return;
+        }
+        if (!stores || typeof stores !== 'object') {
+          return;
+        }
+        let best = Infinity;
+        let worst = -Infinity;
+        let hasPrice = false;
+
+        Object.values(stores).forEach((entry) => {
+          const price = parsePriceValue(entry?.payload?.price);
+          if (!Number.isFinite(price)) {
+            return;
+          }
+          hasPrice = true;
+          if (price < best) best = price;
+          if (price > worst) worst = price;
+        });
+
+        if (hasPrice && Number.isFinite(best) && Number.isFinite(worst) && worst >= best) {
+          bestTotal += best;
+          worstTotal += worst;
+          counted += 1;
+        }
+      });
+
+      const delta = Math.max(0, worstTotal - bestTotal);
+      const percent = bestTotal > 0 ? - (delta / bestTotal) * 100 : 0;
+      return { bestTotal, worstTotal, delta, percent, counted };
+    }
+
+    function updatePortfolioDeltaView(summary) {
+      const container = document.getElementById('portfolio-delta');
+      if (!container) return;
+      const valueEl = container.querySelector('[data-role="delta-value"]');
+      const percentEl = container.querySelector('[data-role="delta-percent"]');
+      const captionEl = container.querySelector('[data-role="delta-caption"]');
+
+      const { bestTotal, worstTotal, delta, percent, counted } = computePortfolioDelta(summary);
+
+      if (!counted || !Number.isFinite(bestTotal) || !Number.isFinite(worstTotal)) {
+        container.hidden = true;
+        return;
+      }
+
+      if (valueEl) {
+        valueEl.textContent = formatCurrency(delta);
+      }
+      if (percentEl) {
+        const formattedPercent = formatPercent(percent);
+        percentEl.textContent = formattedPercent;
+        const isZero = formattedPercent === '0 %';
+        percentEl.hidden = isZero;
+        percentEl.classList.remove('masthead__delta-percent--gain', 'masthead__delta-percent--loss');
+        if (!isZero) {
+          percentEl.classList.add(percent < 0 ? 'masthead__delta-percent--loss' : 'masthead__delta-percent--gain');
+        }
+      }
+      if (captionEl) {
+        captionEl.textContent = `Panier min ${formatCurrency(bestTotal)} · Panier max ${formatCurrency(worstTotal)} (${counted} produit${counted > 1 ? 's' : ''})`;
+      }
+      container.hidden = false;
+    }
+
+    function renderRemovalPlaceholder(section) {
+      if (!section) {
+        return;
+      }
+      section.innerHTML = '';
+      section.hidden = false;
+      section.classList.add('product-block');
+      const message = document.createElement('div');
+      message.className = 'empty-state';
+      message.textContent = 'Produit retiré de la liste.';
+      section.appendChild(message);
+    }
+
+    async function handleRemoveClick({ ean, datasetConfig, card, descriptor }) {
+      if (!ean || !card) {
+        return;
+      }
+      const productLabel = (descriptor?.title || descriptor?.name || '').trim() || `EAN ${ean}`;
+      const confirmation = window.confirm(`Retirer "${productLabel}" de la liste ?`);
+      if (!confirmation) {
+        return;
+      }
+      try {
+        const response = await fetch(REMOVE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ean }),
+        });
+        let payload = null;
+        try {
+          payload = await response.json();
+        } catch (err) {
+          payload = null;
+        }
+        if (!response.ok) {
+          const message = payload?.message || payload?.error || `HTTP ${response.status}`;
+          throw new Error(message);
+        }
+
+        removedDatasets.add(ean);
+        datasetCache.delete(ean);
+        updateCheapestDatasetEntry(ean, null);
+
+        if (payload?.descriptor) {
+          cachedManualDescriptors = {
+            ...(cachedManualDescriptors || {}),
+            [ean]: payload.descriptor,
+          };
+        } else if (cachedManualDescriptors && cachedManualDescriptors[ean]) {
+          cachedManualDescriptors = {
+            ...cachedManualDescriptors,
+            [ean]: { ...cachedManualDescriptors[ean], removed: true },
+          };
+        }
+
+        if (cachedSummary && cachedSummary[ean]) {
+          const updated = { ...cachedSummary };
+          delete updated[ean];
+          cachedSummary = updated;
+        }
+
+        const section = card.closest('.product-block');
+        if (datasetConfig && datasetConfig.ean === PRIMARY_DATASET.ean) {
+          renderRemovalPlaceholder(section || document.getElementById('primary-section'));
+        } else if (section) {
+          section.remove();
+        } else {
+          card.remove();
+        }
+
+        await reloadSummary();
+        await reloadManualDescriptors();
+        updatePortfolioDeltaView(cachedSummary);
+      } catch (error) {
+        console.error('Suppression fiche échouée', error);
+        window.alert(`Suppression impossible : ${error?.message || 'consultez la console'}`);
+      }
+    }
+
+    async function handleRefreshClick({ ean, datasetConfig, button }) {
+      if (!ean || !button) {
+        return;
+      }
+      removedDatasets.delete(ean);
+      const originalLabel = button.textContent;
+      button.disabled = true;
+      button.classList.remove('product-action-button--error', 'product-action-button--success');
+      button.textContent = 'Collecte en cours…';
+
+      try {
+        const response = await fetch(REFRESH_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ean }),
+        });
+        if (!response.ok) {
+          let details = '';
+          try {
+            const body = await response.json();
+            details = body?.message || body?.error || '';
+          } catch (err) {
+            // ignore parsing errors
+          }
+          throw new Error(details || `HTTP ${response.status}`);
+        }
+        await reloadSummary();
+        await reloadDataset(ean, datasetConfig || null);
+        button.classList.add('product-action-button--success');
+        button.textContent = 'Mis à jour';
+      } catch (error) {
+        console.error('Relance collecte échouée', error);
+        button.classList.add('product-action-button--error');
+        button.textContent = 'Erreur collecte';
+      } finally {
+        setTimeout(() => {
+          button.classList.remove('product-action-button--error', 'product-action-button--success');
+          button.textContent = originalLabel;
+          button.disabled = false;
+        }, 1800);
+      }
+    }
+
+    async function handleAdapterCollect({ ean, adapter, datasetConfig, button }) {
+      const normalizedAdapter = normalizeAdapterName(adapter);
+      if (!ean || !normalizedAdapter || !button) {
+        return;
+      }
+
+      const originalLabel = button.textContent || 'Collecter';
+      button.disabled = true;
+      button.classList.remove('table-collect-button--error', 'table-collect-button--success');
+      button.textContent = 'Collecte…';
+
+      try {
+        const response = await fetch(REFRESH_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ean, adapters: [normalizedAdapter] }),
+        });
+        if (!response.ok) {
+          let details = '';
+          try {
+            const body = await response.json();
+            details = body?.message || body?.error || '';
+          } catch (err) {
+            // ignore JSON errors
+          }
+          throw new Error(details || `HTTP ${response.status}`);
+        }
+
+        await reloadSummary();
+        await reloadDataset(ean, datasetConfig || null);
+        button.classList.add('table-collect-button--success');
+        button.textContent = 'OK';
+      } catch (error) {
+        console.error('Collecte magasin échouée', error);
+        button.classList.add('table-collect-button--error');
+        button.textContent = 'Erreur';
+      } finally {
+        setTimeout(() => {
+          button.classList.remove('table-collect-button--error', 'table-collect-button--success');
+          button.textContent = originalLabel;
+          button.disabled = false;
+        }, 1800);
+      }
+    }
+
+    function buildRows(ean, data, summaryBlock, manualDescriptors) {
+      const map = new Map();
+      if (summaryBlock) {
+        Object.entries(summaryBlock).forEach(([adapter, entry]) => {
+          if (!adapter || adapter === '_finder') {
+            return;
+          }
+          upsertRow(map, adapter, {
+            payload: entry.payload || {},
+            status: entry.status,
+            updatedAt: entry.updated_at,
+            error: entry.error,
+            storeQuery: entry.store_query
+          });
+        });
+      }
+      (data?.adapters || []).forEach((adapterEntry) => {
+        upsertRow(map, adapterEntry.adapter, {
+          payload: adapterEntry.payload || {},
+          status: adapterEntry.status,
+          updatedAt: adapterEntry.finished_at,
+          error: adapterEntry.error,
+          storeQuery: adapterEntry.store_query
+        });
+      });
+
+      applyManualFallbacks(map, ean);
+
+      const manualDescriptor = manualDescriptors?.[ean] || null;
+      const manualQuantity = manualDescriptor?.quantity || '';
+
+      return Array.from(map.values())
+        .map((row) => finalizeRow(row, manualQuantity, manualDescriptor, ean))
+        .sort((a, b) => {
+          if (a.priceValue === b.priceValue) {
+            return (a.displayName || '').localeCompare(b.displayName || '');
+          }
+          return a.priceValue - b.priceValue;
+        });
+    }
+
+    function upsertRow(map, adapterName, entry) {
+      if (!adapterName || adapterName === '_finder') {
+        return;
+      }
+      const base = normalizeAdapterName(adapterName);
+      let row = map.get(base);
+      if (!row) {
+        row = {
+          adapterName: base,
+          rawAdapters: new Set(),
+          payload: {},
+          status: '',
+          updatedAt: null,
+          error: null,
+          storeQuery: null,
+          previous: null
+        };
+      }
+      row.rawAdapters.add(adapterName);
+      row.status = entry.status || row.status;
+      row.updatedAt = entry.updatedAt || row.updatedAt;
+      row.error = entry.error || row.error;
+      row.storeQuery = entry.storeQuery || row.storeQuery;
+      row.payload = mergePayloads(row.payload, entry.payload || {});
+      if (entry.previous && !row.previous) {
+        const previousPayload = entry.previous.payload ? { ...entry.previous.payload } : entry.previous.payload;
+        row.previous = {
+          status: entry.previous.status || null,
+          updated_at: entry.previous.updated_at || null,
+          payload: previousPayload || {},
+          error: entry.previous.error || null,
+          store_query: entry.previous.store_query || null,
+        };
+      }
+      map.set(base, row);
+    }
+
+    function finalizeRow(row, manualQuantity, manualDescriptor, expectedEan) {
+      const payload = row.payload ? { ...row.payload } : {};
+      const quantityText = payload.quantity || manualQuantity || '';
+      const priceValue = parsePriceValue(payload.price);
+      const hasPrice = Number.isFinite(priceValue);
+      const previousSnapshot = row.previous || null;
+      const previousPayload = previousSnapshot?.payload || null;
+      const previousPriceRaw = previousPayload ? previousPayload.price : null;
+      const previousPriceValue = parsePriceValue(previousPriceRaw);
+      const previousUpdatedAt = previousSnapshot?.updated_at || null;
+      const expectedEanValue = normalizeEan(expectedEan);
+      const matchedEanValue = normalizeEan(payload.matched_ean);
+      const productTitle = (payload.title || '').toLowerCase();
+      const manualBrand = (manualDescriptor?.brand || '').toLowerCase();
+      const descriptorTokens = extractDescriptorTokens(manualDescriptor);
+      const tokensWithoutBrand = descriptorTokens.filter((token) => token !== manualBrand);
+
+      const differenceNote = extractDifferenceNote(payload);
+      const equivalentFlag = payloadIndicatesEquivalent(payload) || Boolean(differenceNote);
+
+      let isMismatch = Boolean(equivalentFlag);
+      if (!isMismatch && expectedEanValue) {
+        if (matchedEanValue && matchedEanValue !== expectedEanValue) {
+          isMismatch = true;
+        } else if (!matchedEanValue && hasPrice) {
+          const brandFound = manualBrand ? productTitle.includes(manualBrand) : true;
+          const tokenFound = tokensWithoutBrand.length
+            ? tokensWithoutBrand.some((token) => productTitle.includes(token))
+            : true;
+          if (!brandFound || !tokenFound) {
+            isMismatch = true;
+          }
+        }
+      }
+
+      return {
+        ean: expectedEanValue || null,
+        adapterName: row.adapterName,
+        payload,
+        status: row.status,
+        updatedAt: row.updatedAt,
+        error: row.error,
+        storeQuery: row.storeQuery,
+        priceValue,
+        previous: previousSnapshot,
+        previousPayload,
+        previousPriceRaw,
+        previousPriceValue,
+        previousUpdatedAt,
+        displayName: DISPLAY_NAMES[row.adapterName] || row.adapterName,
+        rawAdapters: Array.from(row.rawAdapters || []),
+        quantityText,
+        differenceNote,
+        equivalent: equivalentFlag,
+        isMismatch,
+      };
+    }
+
+    function applyManualFallbacks(map, ean) {
+      const entries = MANUAL_COMPARISON[ean];
+      if (!entries || !entries.length) return;
+      entries.forEach((entry) => {
+        const base = normalizeAdapterName(entry.adapter);
+        const existing = map.get(base);
+        const hasPrice = existing && existing.payload && existing.payload.price;
+        if (existing && hasPrice) {
+          return;
+        }
+        upsertRow(map, entry.adapter, {
+          payload: entry.payload || {},
+          status: entry.status,
+          updatedAt: entry.updated_at,
+          error: entry.error || null,
+          storeQuery: entry.store_query || null
+        });
+      });
+    }
+
+    const MAP_CENTER = [44.8468, -0.583];
+    const mapInstances = {};
+    const markerGroups = {};
+    let latestRows = [];
+    let mapModalSetup = false;
+    let mapModalHandlers = null;
+
+    const ensureLeaflet = () => typeof L !== 'undefined';
+
+    function ensureMap(canvasId, interactive) {
+      if (!ensureLeaflet()) return null;
+      let map = mapInstances[canvasId];
+      if (!map) {
+        map = L.map(canvasId, {
+          center: MAP_CENTER,
+          zoom: interactive ? 12 : 11,
+          zoomControl: interactive
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+        if (!interactive) {
+          map.dragging.disable();
+          map.touchZoom.disable();
+          map.scrollWheelZoom.disable();
+          map.doubleClickZoom.disable();
+          map.boxZoom.disable();
+          map.keyboard.disable();
+          if (map.zoomControl) {
+            map.zoomControl.remove();
+          }
+        }
+        markerGroups[canvasId] = L.layerGroup().addTo(map);
+        mapInstances[canvasId] = map;
+      } else {
+        markerGroups[canvasId].clearLayers();
+        map.setView(MAP_CENTER, interactive ? 12 : 11);
+      }
+      return map;
+    }
+
+    function addMarkersToMap(canvasId, rows, scale, interactive) {
+      const map = ensureMap(canvasId, interactive);
+      if (!map) return;
+      const group = markerGroups[canvasId];
+      group.clearLayers();
+      const bounds = [];
+
+      rows.forEach((row) => {
+        const location = STORE_LOCATIONS[row.adapterName];
+        if (!location) return;
+        const logoSrc = logoFor(row.adapterName, row.rawAdapters || []);
+        const displayName = row.displayName || DISPLAY_NAMES[row.adapterName] || row.adapterName;
+        const icon = createMarkerIcon(displayName, logoSrc);
+        const marker = L.marker([location.lat, location.lon], { icon });
+        if (interactive) {
+          const tooltip = location.label || displayName;
+          marker.bindTooltip(tooltip, { direction: 'top', offset: [0, -6] });
+          marker.bindPopup(formatLocationTooltip(location) || displayName, { closeButton: false, offset: [0, -12 * scale] });
+        }
+        group.addLayer(marker);
+        bounds.push([location.lat, location.lon]);
+      });
+
+      if (bounds.length) {
+        map.fitBounds(bounds, { padding: [28, 28] });
+        if (!interactive) {
+          map.once('moveend', () => {
+            if (map.getZoom() > 13) {
+              map.setZoom(13);
+            }
+          });
+        } else {
+          setTimeout(() => map.invalidateSize(), 160);
+        }
+      }
+    }
+
+    function renderMapMarkers(rows) {
+      latestRows = rows;
+      addMarkersToMap('primary-map-canvas', rows, 0.85, false);
+      addMarkersToMap('store-map-modal-canvas', rows, 1.1, true);
+      const hasLocations = rows.some((row) => STORE_LOCATIONS[row.adapterName]);
+      const mapContainer = document.getElementById('primary-map');
+      if (mapContainer) {
+        mapContainer.hidden = !hasLocations;
+      }
+    }
+
+    function setupMapModal() {
+      const modal = document.getElementById('map-modal');
+      const mapEl = document.getElementById('primary-map');
+      if (!modal || !mapEl) return;
+
+      if (!mapModalSetup) {
+        const closeElements = modal.querySelectorAll('[data-close-map]');
+
+        const closeModal = () => {
+          modal.hidden = true;
+          document.body.classList.remove('modal-open');
+        };
+
+        const openModal = () => {
+          modal.hidden = false;
+          document.body.classList.add('modal-open');
+          renderMapMarkers(latestRows);
+          setTimeout(() => {
+            const modalMap = mapInstances['store-map-modal-canvas'];
+            if (modalMap) {
+              modalMap.invalidateSize();
+            }
+          }, 200);
+        };
+
+        closeElements.forEach((el) => el.addEventListener('click', closeModal));
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && !modal.hidden) {
+            closeModal();
+          }
+        });
+
+        mapModalHandlers = { openModal, closeModal };
+        mapModalSetup = true;
+      }
+
+      if (mapModalHandlers && mapEl.dataset.modalBound !== '1') {
+        mapEl.addEventListener('click', mapModalHandlers.openModal);
+        mapEl.dataset.modalBound = '1';
+      }
+    }
+
+    function formatLocationTooltip(location) {
+      const lines = [location.label];
+      if (location.address) {
+        lines.push(location.address);
+      }
+      return lines.filter(Boolean).map((line) => escapeHtml(line)).join('<br />');
+    }
+
+    function renderTable(tbody, rows, bestValue, worstValue, options = {}) {
+      const tableEan = options?.ean || null;
+      const datasetConfig = options?.datasetConfig || null;
+      tbody.innerHTML = '';
+      rows.forEach((row) => {
+        const payload = row.payload || {};
+        const priceText = formatPrice(payload.price);
+        const unitPrice = payload.unit_price || payload.price_unit || payload.price_per_unit || '';
+        const displayName = DISPLAY_NAMES[row.adapterName] || row.adapterName;
+        const suffix = suffixLabel(row.adapterName);
+        let store = payload.store || payload.note || row.storeQuery || '';
+        if (row.adapterName === 'monoprix' || row.adapterName === 'courseu') {
+          store = displayName;
+        } else if (store && /^https?:\/\//i.test(store)) {
+          store = '';
+        }
+        const productName = cleanProductName(payload.product_name || payload.title || '');
+        const updatedLabel = row.updatedAt ? formatDateTime(row.updatedAt) : '—';
+        const { label: statusLabel, className: statusClass } = formatStatus(row.status);
+        const logoSrc = logoFor(row.adapterName, row.rawAdapters);
+        const isBest = Number.isFinite(bestValue) && Number.isFinite(row.priceValue) && Math.abs(row.priceValue - bestValue) < 0.001;
+        const isWorst = Number.isFinite(worstValue) && Number.isFinite(row.priceValue) && Math.abs(row.priceValue - worstValue) < 0.001 && (!Number.isFinite(bestValue) || Math.abs(worstValue - bestValue) > 0.001);
+
+        const tr = document.createElement('tr');
+        if (isBest) tr.classList.add('best-offer');
+        if (isWorst) tr.classList.add('worst-offer');
+        if (row.isMismatch) tr.classList.add('row-mismatch');
+
+        const nameCell = document.createElement('td');
+        if (logoSrc) {
+          nameCell.innerHTML = `<div class="table-logo"><img src="${logoSrc}" alt="${escapeHtml(displayName)}" />${suffix ? `<span class="table-logo__label">${escapeHtml(suffix)}</span>` : ''}</div>`;
+        } else {
+          nameCell.textContent = displayName;
+        }
+
+        const productCell = document.createElement('td');
+        productCell.className = 'product-cell';
+        if (productName) {
+          productCell.title = productName;
+        }
+        productCell.textContent = productName || '—';
+        const differenceNote = row.differenceNote;
+        if (differenceNote) {
+          productCell.title = productName ? `${productName} — ${differenceNote}` : differenceNote;
+          const noteEl = document.createElement('div');
+          noteEl.className = 'product-note';
+          noteEl.textContent = differenceNote;
+          productCell.appendChild(noteEl);
+        }
+
+        const statusCell = document.createElement('td');
+        statusCell.className = statusClass;
+        statusCell.textContent = statusLabel;
+
+        const priceCell = document.createElement('td');
+        priceCell.className = 'price';
+        if (priceText) {
+          const badges = [];
+          if (row.isMismatch) {
+            badges.push('<span class="price-badge price-badge--alert" title="Produit détecté comme différent du seed">Produit différent</span>');
+          }
+          if (isBest) {
+            badges.push('<span class="price-badge price-badge--best">TOP PRIX</span>');
+          } else if (isWorst) {
+            badges.push('<span class="price-badge price-badge--worst">PLUS CHER</span>');
+          }
+          priceCell.innerHTML = `${escapeHtml(priceText)}${badges.join('')}`;
+        } else {
+          priceCell.textContent = '—';
+        }
+
+        const unitCell = document.createElement('td');
+        unitCell.textContent = unitPrice || '—';
+
+        const previousCell = document.createElement('td');
+        previousCell.className = 'meta-cell';
+        const previousPriceText = formatPrice(row.previousPriceRaw);
+        const previousDateLabel = row.previousUpdatedAt ? formatDateTime(row.previousUpdatedAt) : '';
+        if (previousPriceText || previousDateLabel) {
+          const parts = [];
+          if (previousPriceText) {
+            parts.push(`<span>${escapeHtml(previousPriceText)}</span>`);
+          }
+          if (previousDateLabel) {
+            parts.push(`<span class="meta-sub">${escapeHtml(previousDateLabel)}</span>`);
+          }
+          previousCell.innerHTML = parts.join('');
+        } else {
+          previousCell.textContent = '—';
+        }
+
+        const storeCell = document.createElement('td');
+        storeCell.textContent = store || '—';
+
+        const updatedCell = document.createElement('td');
+        updatedCell.className = 'meta-cell';
+        updatedCell.textContent = updatedLabel;
+
+        const actionsCell = document.createElement('td');
+        const effectiveEan = tableEan || row.ean || null;
+        if (effectiveEan && row.adapterName) {
+          const collectButton = document.createElement('button');
+          collectButton.type = 'button';
+          collectButton.className = 'table-collect-button';
+          collectButton.textContent = 'Collecter';
+          collectButton.addEventListener('click', () => {
+            handleAdapterCollect({
+              ean: effectiveEan,
+              adapter: row.adapterName,
+              datasetConfig,
+              button: collectButton,
+            });
+          });
+          actionsCell.appendChild(collectButton);
+        }
+        if (payload.url) {
+          const link = document.createElement('a');
+          link.className = 'link';
+          link.href = payload.url;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.textContent = 'Voir fiche';
+          link.style.display = 'block';
+          link.style.marginTop = '6px';
+          actionsCell.appendChild(link);
+        }
+        if (!actionsCell.childNodes.length) {
+          actionsCell.textContent = '—';
+        }
+
+        tr.appendChild(nameCell);
+        tr.appendChild(productCell);
+        tr.appendChild(statusCell);
+        tr.appendChild(priceCell);
+        tr.appendChild(unitCell);
+        tr.appendChild(previousCell);
+        tr.appendChild(storeCell);
+        tr.appendChild(updatedCell);
+        tr.appendChild(actionsCell);
+
+        if (row.error && !row.priceValue) {
+          const err = document.createElement('div');
+          err.className = 'notes';
+          err.textContent = row.error;
+          actionsCell.appendChild(err);
+        }
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function resolveDescriptor(ean, data, manualDescriptors) {
+      const datasetReference = (data && typeof data.reference === 'object') ? data.reference : {};
+
+      const pickFromAdapters = (extractors) => {
+        if (!data || !Array.isArray(data.adapters)) return null;
+        for (const adapter of data.adapters) {
+          const payload = adapter?.payload;
+          if (!payload || typeof payload !== 'object') continue;
+          for (const extractor of extractors) {
+            try {
+              const value = extractor(payload);
+              if (value) return value;
+            } catch (err) {
+              continue;
+            }
+          }
+        }
+        return null;
+      };
+
+      const descriptor = {
+        ean,
+        title: datasetReference.title || datasetReference.name || '',
+        name: datasetReference.name || datasetReference.title || '',
+        brand: datasetReference.brand || '',
+        quantity: datasetReference.quantity || datasetReference.reference_quantity || '',
+        categories: datasetReference.categories || '',
+        image: datasetReference.image
+          || data?.image_path
+          || pickFromAdapters([
+            (payload) => payload.image_path,
+            (payload) => payload.image,
+            (payload) => payload.product?.image_url,
+            (payload) => payload.product?.image
+          ]),
+        nutriscore_grade: datasetReference.nutriscore_grade || datasetReference.reference_nutriscore_grade,
+        nutriscore_image: datasetReference.nutriscore_image || datasetReference.reference_nutriscore_image,
+        ecoscore_grade: datasetReference.ecoscore_grade,
+        ecoscore_image: datasetReference.ecoscore_image,
+        nova_group: datasetReference.nova_group,
+        source: datasetReference.source,
+        description: datasetReference.description,
+        note: datasetReference.note || '',
+      };
+
+      if (!descriptor.nutriscore_grade) {
+        descriptor.nutriscore_grade = pickFromAdapters([
+          (payload) => payload.nutriscore_grade,
+          (payload) => payload.product?.nutriscore_grade,
+        ]);
+      }
+      if (!descriptor.nutriscore_image) {
+        descriptor.nutriscore_image = pickFromAdapters([
+          (payload) => payload.nutriscore_image,
+          (payload) => payload.product?.nutriscore_image,
+        ]);
+      }
+      if (!descriptor.ecoscore_grade) {
+        descriptor.ecoscore_grade = pickFromAdapters([
+          (payload) => payload.ecoscore_grade,
+          (payload) => payload.product?.ecoscore_grade,
+        ]);
+      }
+      if (!descriptor.ecoscore_image) {
+        descriptor.ecoscore_image = pickFromAdapters([
+          (payload) => payload.ecoscore_image,
+          (payload) => payload.product?.ecoscore_image,
+        ]);
+      }
+      if (!descriptor.nova_group) {
+        descriptor.nova_group = pickFromAdapters([
+          (payload) => payload.nova_group,
+          (payload) => payload.product?.nova_group,
+        ]);
+      }
+
+      const manual = manualDescriptors?.[ean];
+      if (manual && typeof manual === 'object') {
+        const forceOverride = manual.manual_override === true;
+        const overrideKeys = [
+          'title',
+          'name',
+          'brand',
+          'quantity',
+          'categories',
+          'image',
+          'nutriscore_grade',
+          'nutriscore_image',
+          'ecoscore_grade',
+          'ecoscore_image',
+          'nova_group',
+          'source',
+          'description',
+          'note',
+        ];
+        overrideKeys.forEach((key) => {
+          const value = manual[key];
+          if (value == null) {
+            return;
+          }
+          const current = descriptor[key];
+          if (forceOverride || current == null || current === '' || (typeof current === 'string' && !current.trim())) {
+            descriptor[key] = value;
+          }
+        });
+      }
+
+      if (!descriptor.image) {
+        descriptor.image = data?.reference?.image || data?.image_path || pickFromAdapters([
+          (payload) => payload.image_path,
+          (payload) => payload.image,
+          (payload) => payload.product?.image_url,
+          (payload) => payload.product?.image
+        ]);
+      }
+
+      return descriptor;
+    }
+
+    function computeLastUpdate(rows) {
+      let max = null;
+      rows.forEach((row) => {
+        if (row.updatedAt && (!max || new Date(row.updatedAt) > new Date(max))) {
+          max = row.updatedAt;
+        }
+      });
+      return max;
+    }
+
+    function pickBestPrice(rows) {
+      const priced = rows.filter((row) => Number.isFinite(row.priceValue));
+      if (!priced.length) return null;
+      let best = priced[0];
+      for (const row of priced.slice(1)) {
+        if (row.priceValue < best.priceValue) {
+          best = row;
+        }
+      }
+      const payload = best.payload || {};
+      return {
+        value: best.priceValue,
+        priceLabel: formatPrice(payload.price) || `${best.priceValue.toFixed(2)} €`,
+        store: payload.store || best.displayName || DISPLAY_NAMES[best.adapterName] || best.adapterName,
+        adapterName: best.adapterName,
+        displayName: best.displayName || DISPLAY_NAMES[best.adapterName] || best.adapterName
+      };
+    }
+
+    function pickWorstPrice(rows) {
+      const priced = rows.filter((row) => Number.isFinite(row.priceValue));
+      if (!priced.length) return null;
+      let worst = priced[0];
+      for (const row of priced.slice(1)) {
+        if (row.priceValue > worst.priceValue) {
+          worst = row;
+        }
+      }
+      const payload = worst.payload || {};
+      return {
+        value: worst.priceValue,
+        priceLabel: formatPrice(payload.price) || `${worst.priceValue.toFixed(2)} €`,
+        store: payload.store || worst.displayName || DISPLAY_NAMES[worst.adapterName] || worst.adapterName,
+        adapterName: worst.adapterName,
+        displayName: worst.displayName || DISPLAY_NAMES[worst.adapterName] || worst.adapterName
+      };
+    }
+
+    function createMarkerIcon(displayName, logoSrc) {
+      const width = 88;
+      const height = 48;
+      const paddingY = 10;
+      const paddingX = 12;
+      const safeName = escapeHtml(displayName || '');
+      let innerHtml;
+      if (logoSrc) {
+        innerHtml = `<img src="${logoSrc}" alt="${safeName}" style="width:100%;height:100%;object-fit:contain;"/>`;
+      } else {
+        const fallback = safeName.charAt(0) || '•';
+        innerHtml = `<span style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:1.1rem;font-weight:600;color:#1f2937;">${fallback}</span>`;
+      }
+      const wrapperStyle = `width:${width}px;height:${height}px;padding:${paddingY}px ${paddingX}px;border-radius:${Math.round(height)}px;background:rgba(255,255,255,0.95);border:1px solid rgba(15,23,42,0.12);box-shadow:0 12px 28px rgba(15,23,42,0.22);box-sizing:border-box;`;
+      return L.divIcon({
+        className: 'map-logo-icon',
+        html: `<div style="${wrapperStyle}">${innerHtml}</div>`,
+        iconSize: [width, height],
+        iconAnchor: [width / 2, height / 2]
+      });
+    }
+
+    function mergePayloads(current, incoming) {
+      const result = { ...current };
+      Object.entries(incoming || {}).forEach(([key, value]) => {
+        if (value === null || value === undefined || value === '') return;
+        result[key] = value;
+      });
+      return result;
+    }
+
+    function parsePriceValue(value) {
+      if (value === null || value === undefined || value === '') return Number.POSITIVE_INFINITY;
+      const normalized = String(value).replace(/[^0-9,\.]/g, '').replace(',', '.');
+      const num = parseFloat(normalized);
+      return Number.isFinite(num) ? num : Number.POSITIVE_INFINITY;
+    }
+
+    function formatPrice(value) {
+      if (!value) return '';
+      const trimmed = String(value).trim();
+      if (!trimmed) return '';
+      return trimmed.includes('€') ? trimmed : `${trimmed} €`;
+    }
+
+    function formatCurrency(value) {
+      if (!Number.isFinite(value)) return '—';
+      try {
+        return CURRENCY_FORMATTER.format(value);
+      } catch (err) {
+        return `${value.toFixed(2)} €`;
+      }
+    }
+
+    function formatPercent(value) {
+      if (!Number.isFinite(value)) return '—%';
+      if (value === 0) return '0 %';
+      const absolute = Math.abs(value);
+      const formatted = `${absolute >= 10 ? absolute.toFixed(0) : absolute.toFixed(1)} %`;
+      if (value < 0) {
+        return `−${formatted}`; // U+2212 for a clean minus symbol
+      }
+      return `+${formatted}`;
+    }
+
+    function formatDateTime(iso) {
+      if (!iso) return '—';
+      const date = new Date(iso);
+      if (Number.isNaN(date.getTime())) return iso;
+      return date.toLocaleString('fr-FR');
+    }
+
+    function formatStatus(status) {
+      const upper = (status || '').toUpperCase();
+      if (upper === 'OK') return { label: 'dispo', className: 'status-ok' };
+      if (upper === 'NON DISPONIBLE' || upper === 'INDISPONIBLE' || upper === 'NO_RESULTS' || upper === 'NO_PRICE' || upper === 'NO_MATCH') {
+        return { label: 'non dispo', className: 'status-error' };
+      }
+      if (!upper) return { label: 'inconnu', className: 'status-warn' };
+      return { label: upper.replace(/_/g, ' ').toLowerCase(), className: 'status-warn' };
+    }
+
+    function normalizeAdapterName(name) {
+      return (name || '').replace(/_manual$/, '');
+    }
+
+    function logoFor(adapterName, rawAdapters = []) {
+      const key = normalizeAdapterName(adapterName);
+      if (LOGOS[key]) return `${LOGO_BASE}${LOGOS[key]}`;
+      for (const candidate of rawAdapters) {
+        const normalized = normalizeAdapterName(candidate);
+        if (LOGOS[normalized]) {
+          return `${LOGO_BASE}${LOGOS[normalized]}`;
+        }
+      }
+      return null;
+    }
+
+    function suffixLabel(adapterName) {
+      const key = normalizeAdapterName(adapterName).toLowerCase();
+      if (!key.startsWith('carrefour')) return '';
+      if (key.includes('market')) return 'Market';
+      if (key.includes('city')) return 'City';
+      if (key.includes('express')) return 'Express';
+      if (key.includes('contact')) return 'Contact';
+      if (key.includes('super')) return 'Super';
+      return '';
+    }
+
+    function cleanProductName(value) {
+      if (!value) return '';
+      return String(value).replace(/\s+/g, ' ').trim();
+    }
+
+    function toAbsolute(path) {
+      if (!path) return '';
+      if (String(path).startsWith('data:')) return path;
+      try {
+        return new URL(path, window.location.href).href;
+      } catch (err) {
+        return path;
+      }
+    }
+
+    function escapeHtml(value) {
+      if (value == null) return '';
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function extractCategory(raw) {
+      if (!raw) return '';
+      const parts = String(raw).split(',').map((part) => part.trim()).filter(Boolean);
+      return parts.length ? parts[parts.length - 1] : raw;
+    }
+  </script>
+</body>
+</html>
