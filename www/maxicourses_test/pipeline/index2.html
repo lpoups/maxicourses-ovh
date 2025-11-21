@@ -20,6 +20,30 @@
     header {
       margin-bottom: 28px;
     }
+    .alert {
+      padding: 14px 18px;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .alert--warning {
+      background: rgba(250, 204, 21, 0.18);
+      border: 1px solid rgba(161, 98, 7, 0.35);
+      color: #713f12;
+      box-shadow: 0 8px 18px rgba(161, 98, 7, 0.12);
+    }
+    .alert svg {
+      width: 20px;
+      height: 20px;
+      flex: none;
+      fill: currentColor;
+    }
+    .alert[hidden] {
+      display: none !important;
+    }
     .masthead {
       display: flex;
       flex-direction: column;
@@ -1064,6 +1088,26 @@
   </style>
 </head>
 <body>
+<script>
+  (function enforceHttpPreview() {
+    const allowHttpsEverywhere = window.MAXICOURSES_ALLOW_HTTPS === true;
+    const hostname = window.location.hostname || '';
+    const isLocalHost = /^localhost$/i.test(hostname) || hostname === '127.0.0.1';
+    if (allowHttpsEverywhere || !isLocalHost) {
+      return;
+    }
+    if (window.location.protocol === 'https:') {
+      const httpUrl = `http://${window.location.host}${window.location.pathname}${window.location.search}${window.location.hash}`;
+      window.location.replace(httpUrl);
+    }
+  })();
+</script>
+<div class="alert alert--warning" id="server-warning" hidden="">
+  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2Zm1 14h-2v-2h2v2Zm0-4h-2V7h2v5Z"></path></svg>
+  <span>
+    Serveur de collecte injoignable. Lancez <code>USE_CDP=1 python3 server.py</code> dans <code>maxicourses_test</code> puis rechargez cette page.
+  </span>
+</div>
 <header class="masthead">
 <div class="masthead__hero">
   <div class="masthead__left">
@@ -1169,7 +1213,24 @@
     const EAN_REQUIRED_LENGTH = 13;
 
     const DATA_BASE = './data';
-    const RESULTS_BASE_CANDIDATES = ['../results', `${DATA_BASE}/results`];
+    function computeResultsBaseCandidates() {
+      const bases = [];
+      if (Array.isArray(window.MAXICOURSES_RESULTS_BASES)) {
+        window.MAXICOURSES_RESULTS_BASES.forEach((entry) => {
+          if (entry && typeof entry === 'string') {
+            bases.push(entry.trim());
+          }
+        });
+      } else if (typeof window.MAXICOURSES_RESULTS_BASE === 'string' && window.MAXICOURSES_RESULTS_BASE.trim()) {
+        bases.push(window.MAXICOURSES_RESULTS_BASE.trim());
+      }
+      if (window.location && window.location.protocol === 'file:') {
+        bases.push('http://127.0.0.1:5001/results');
+      }
+      bases.push('../results', `${DATA_BASE}/results`);
+      return Array.from(new Set(bases.filter(Boolean)));
+    }
+    const RESULTS_BASE_CANDIDATES = computeResultsBaseCandidates();
     const DESCRIPTOR_CACHE_URLS = [`${DATA_BASE}/descriptor_cache.json`, '../pipeline/descriptor_cache.json'];
     const MANUAL_DESCRIPTOR_FALLBACK_URLS = [`${DATA_BASE}/manual_descriptors.json`, '../manual_descriptors.json'];
     const SUMMARY_URLS = RESULTS_BASE_CANDIDATES.map((base) => `${base}/summary.json`);
@@ -1297,6 +1358,21 @@
 
     function normalizeEan(value) {
       return (value == null ? '' : String(value)).replace(/[^0-9]/g, '');
+    }
+
+    function setServerWarningVisible(visible) {
+      const el = document.getElementById('server-warning');
+      if (!el) return;
+      el.hidden = !visible;
+    }
+
+    function flagServerStatusFromError(error) {
+      const message = String(error?.message || error || '').toLowerCase();
+      const offline = message.includes('failed to fetch') || message.includes('network');
+      if (offline) {
+        setServerWarningVisible(true);
+      }
+      return offline;
     }
 
     function extractDifferenceNote(payload) {
@@ -1504,12 +1580,14 @@
             await Promise.all([reloadSummary(), reloadManualDescriptors()]);
           }
 
+          setServerWarningVisible(false);
           if (statusEl) {
             statusEl.textContent = `Collecte terminée (EAN ${resolvedEan}).`;
             statusEl.dataset.status = 'success';
           }
         } catch (error) {
           console.error('Collecte EAN échouée', error);
+          flagServerStatusFromError(error);
           if (statusEl) {
             const message = String(error?.message || '').toLowerCase();
             if (message.includes('failed to fetch') || message.includes('network')) {
@@ -1641,6 +1719,7 @@
             await Promise.all([reloadSummary(), reloadManualDescriptors()]);
           }
 
+          setServerWarningVisible(false);
           if (statusEl) {
             statusEl.textContent = `Collecte terminée (EAN ${resolvedEan}).`;
             statusEl.dataset.status = 'success';
@@ -1649,6 +1728,7 @@
           form.reset();
         } catch (error) {
           console.error('Collecte image échouée', error);
+          flagServerStatusFromError(error);
           if (statusEl) {
             statusEl.textContent = error?.message || 'Erreur pendant la collecte.';
             statusEl.dataset.status = 'error';
@@ -1703,6 +1783,7 @@
     };
 
     document.addEventListener('DOMContentLoaded', async () => {
+      setServerWarningVisible(false);
       const [manualDescriptors, summary] = await Promise.all([
         fetchDescriptorsCatalog(),
         fetchFirstAvailable(SUMMARY_URLS)
@@ -2700,10 +2781,12 @@
         }
         await reloadSummary();
         await reloadDataset(ean, datasetConfig || null);
+        setServerWarningVisible(false);
         button.classList.add('product-action-button--success');
         button.textContent = 'Mis à jour';
       } catch (error) {
         console.error('Relance collecte échouée', error);
+        flagServerStatusFromError(error);
         button.classList.add('product-action-button--error');
         button.textContent = 'Erreur collecte';
       } finally {
@@ -2745,10 +2828,12 @@
 
         await reloadSummary();
         await reloadDataset(ean, datasetConfig || null);
+        setServerWarningVisible(false);
         button.classList.add('table-collect-button--success');
         button.textContent = 'OK';
       } catch (error) {
         console.error('Collecte magasin échouée', error);
+        flagServerStatusFromError(error);
         button.classList.add('table-collect-button--error');
         button.textContent = 'Erreur';
       } finally {

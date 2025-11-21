@@ -1599,6 +1599,62 @@ def _merge_keyword_sources(*sources: Optional[Iterable[str]], limit: int = 8) ->
     return merged
 
 
+def build_leclerc_seed_keywords(descriptor: Dict[str, Any]) -> List[str]:
+    def norm(value: Any) -> str:
+        if value is None:
+            return ""
+        candidate = " ".join(str(value).split())
+        return candidate.strip()
+
+    keywords: List[str] = []
+    seen: set[str] = set()
+
+    def push(value: Any) -> None:
+        candidate = norm(value)
+        if not candidate:
+            return
+        lowered = candidate.lower()
+        if lowered in seen:
+            return
+        seen.add(lowered)
+        keywords.append(candidate)
+
+    seed_name = descriptor.get("seed_primary_name") or descriptor.get("name") or descriptor.get("description")
+    quantity = descriptor.get("seed_primary_quantity") or descriptor.get("quantity")
+    seed_query = descriptor.get("seed_query")
+    canonical = descriptor.get("canonical") if isinstance(descriptor.get("canonical"), dict) else {}
+    brand = canonical.get("brand") if isinstance(canonical, dict) else None
+    variant = canonical.get("variant") if isinstance(canonical, dict) else None
+    if not brand:
+        brand = descriptor.get("brand")
+    if not variant:
+        variant = descriptor.get("variant")
+
+    base_name = norm(seed_name)
+    base_qty = norm(quantity)
+    brand_norm = norm(brand)
+    variant_norm = norm(variant)
+
+    if base_name and base_qty:
+        push(f"{base_name} {base_qty}")
+    if seed_query:
+        push(seed_query)
+    if base_name:
+        push(base_name)
+    if brand_norm and variant_norm and base_qty:
+        push(f"{brand_norm} {variant_norm} {base_qty}")
+    if brand_norm and base_qty:
+        push(f"{brand_norm} {base_qty}")
+    if brand_norm and variant_norm:
+        push(f"{brand_norm} {variant_norm}")
+    if brand_norm:
+        push(brand_norm)
+    ean_value = descriptor.get("ean")
+    if ean_value:
+        push(str(ean_value))
+    return keywords
+
+
 def _needs_enrichment(descriptor: Dict[str, Any]) -> bool:
     if not isinstance(descriptor, dict):
         return True
@@ -2192,8 +2248,14 @@ def main(argv: Optional[List[str]] = None) -> int:
     else:
         ai_primary_keywords = []
     default_keywords = _merge_keyword_sources(ai_primary_keywords, heuristic_keywords, limit=8)
+    leclerc_seed_keywords = build_leclerc_seed_keywords(descriptor)
     adapter_keyword_map = {
-        "leclerc": _merge_keyword_sources(leclerc_ai_queries, default_keywords, heuristic_keywords, limit=8),
+        "leclerc": leclerc_seed_keywords or _merge_keyword_sources(
+            leclerc_ai_queries,
+            default_keywords,
+            heuristic_keywords,
+            limit=8,
+        ),
         "monoprix": _merge_keyword_sources(monoprix_ai_queries, default_keywords, heuristic_keywords, limit=3),
     }
     if not default_keywords:

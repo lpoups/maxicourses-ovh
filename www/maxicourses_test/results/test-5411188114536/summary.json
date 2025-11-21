@@ -1,12 +1,12 @@
 {
   "5411188114536": {
     "carrefour_city": {
-      "status": "CF_BLOCK",
+      "status": "NO_PRICE",
       "payload": {
-        "status": "CF_BLOCK",
+        "status": "NO_PRICE",
         "price": null,
-        "store": null,
-        "url": "https://www.carrefour.fr/s?q=5411188114536",
+        "store": "City Bordeaux Balguerie",
+        "url": null,
         "note": null,
         "unit_price": null,
         "quantity": null,
@@ -19,56 +19,78 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-19T21:57:53.583837+01:00",
-      "duration_seconds": 5.173929,
+      "updated_at": "2025-11-21T11:14:33.100420+01:00",
+      "duration_seconds": 15.446642,
       "error": null,
       "store_query": null
     },
     "carrefour_market": {
-      "status": "CF_BLOCK",
+      "status": "OK",
       "payload": {
-        "status": "CF_BLOCK",
-        "price": null,
-        "store": null,
-        "url": "https://www.carrefour.fr/s?q=5411188114536",
+        "status": "OK",
+        "price": "2,25",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-fraise-alpro-5411188114536",
         "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
+        "unit_price": "4,50 € / KG",
+        "quantity": "500 G",
+        "title": "Dessert végétal soja fraise ALPRO",
+        "matched_ean": "5411188114536",
+        "image": "https://media.carrefour.fr/media/referential/media/64bd7df311b04bdd8ac62274a8f5 143b/05411188114536_H1N1_s04.png",
+        "nutriscore_grade": "b",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
         "_meta": {
           "supports_ean": true
+        },
+        "product": {
+          "title": "Dessert végétal soja fraise ALPRO",
+          "brand": "Dessert",
+          "kind": "",
+          "qty": "500 G",
+          "qualifiers": [],
+          "ean": "5411188114536",
+          "image_url": "https://media.carrefour.fr/media/referential/media/64bd7df311b04bdd8ac62274a8f5 143b/05411188114536_H1N1_s04.png",
+          "source": "carrefour_market",
+          "raw_text": ""
         }
       },
-      "updated_at": "2025-11-19T21:57:53.583837+01:00",
-      "duration_seconds": 5.174588,
+      "updated_at": "2025-11-21T11:14:33.100420+01:00",
+      "duration_seconds": 21.636694,
       "error": null,
       "store_query": null
     },
     "carrefour_super": {
-      "status": "CF_BLOCK",
+      "status": "OK",
       "payload": {
-        "status": "CF_BLOCK",
-        "price": null,
-        "store": null,
-        "url": "https://www.carrefour.fr/s?q=5411188114536",
+        "status": "OK",
+        "price": "1,99",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-fraise-alpro-5411188114536",
         "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
+        "unit_price": "3,98 € / KG",
+        "quantity": "500 G",
+        "title": "Dessert végétal soja fraise ALPRO",
+        "matched_ean": "5411188114536",
+        "image": "https://media.carrefour.fr/media/referential/media/64bd7df311b04bdd8ac62274a8f5 143b/05411188114536_H1N1_s04.png",
+        "nutriscore_grade": "b",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
         "_meta": {
           "supports_ean": true
+        },
+        "product": {
+          "title": "Dessert végétal soja fraise ALPRO",
+          "brand": "Dessert",
+          "kind": "",
+          "qty": "500 G",
+          "qualifiers": [],
+          "ean": "5411188114536",
+          "image_url": "https://media.carrefour.fr/media/referential/media/64bd7df311b04bdd8ac62274a8f5 143b/05411188114536_H1N1_s04.png",
+          "source": "carrefour_super",
+          "raw_text": ""
         }
       },
-      "updated_at": "2025-11-19T21:57:53.583837+01:00",
-      "duration_seconds": 6.124256,
+      "updated_at": "2025-11-21T11:14:33.100420+01:00",
+      "duration_seconds": 18.985019,
       "error": null,
       "store_query": null
     },
@@ -89,8 +111,8 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-19T21:57:53.583837+01:00",
-      "duration_seconds": 20.53061,
+      "updated_at": "2025-11-21T11:14:33.100420+01:00",
+      "duration_seconds": 24.235233,
       "error": null,
       "store_query": null
     },
@@ -123,8 +145,8 @@
           "raw_text": ""
         }
       },
-      "updated_at": "2025-11-19T21:57:53.583837+01:00",
-      "duration_seconds": 10.049957,
+      "updated_at": "2025-11-21T11:14:33.100420+01:00",
+      "duration_seconds": 5.890713,
       "error": null,
       "store_query": null
     },
@@ -137,7 +159,7 @@
         "quantity": null,
         "title": "Commission pour la rémunération de la copie privée",
         "url": "https://www.culture.gouv.fr/nous-connaitre/organisation-du-ministere/commission -pour-la-remuneration-de-la-copie-privee",
-        "note": "2025-11-19T20:37:26Z · Super U Eysines",
+        "note": "2025-11-21T10:09:53Z · Super U Eysines",
         "store": "Super U Eysines",
         "matched_ean": "5411188114536",
         "nutriscore_grade": null,
@@ -157,8 +179,8 @@
           "raw_text": ""
         }
       },
-      "updated_at": "2025-11-19T21:57:53.583837+01:00",
-      "duration_seconds": 157.384971,
+      "updated_at": "2025-11-21T11:14:33.100420+01:00",
+      "duration_seconds": 62.644319,
       "error": null,
       "store_query": null
     },
@@ -189,8 +211,8 @@
           "raw_text": ""
         }
       },
-      "updated_at": "2025-11-19T21:57:53.583837+01:00",
-      "duration_seconds": 0.465249,
+      "updated_at": "2025-11-21T11:14:33.100420+01:00",
+      "duration_seconds": 0.646738,
       "error": null,
       "store_query": null
     },
@@ -201,20 +223,136 @@
         "price": null,
         "title": null,
         "url": null,
-        "note": null,
+        "note": "Intermarché · Super Talence — produit absent",
         "matched_ean": null,
         "unit_price": null,
         "quantity": null,
-        "store": null,
-        "candidates": [],
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/boisson-vegetale-lait-d'amande-grillee-sans -sucres/5411188112709",
+            "product": {
+              "title": "AlproBoisson végétale lait d'amande grillée, sans sucres",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188112709",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/confiture-extra-de-fraises/3250390105220",
+            "product": {
+              "title": "Paquito, une marque  IntermarchéConfiture extra de fraises",
+              "brand": "Alpro",
+              "kind": "Dessert  végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "3250390105220",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/boisson-vegetale-a-l'avoine/5411188115366",
+            "product": {
+              "title": "AlproBoisson végétale à l'avoine",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188115366",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/biscuits-kanoe-fraise/3250392332587",
+            "product": {
+              "title": "Chabrior, une marque  IntermarchéBiscuits Kanoë fraise",
+              "brand": "Alpro",
+              "kind": "Dessert végétal  soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "3250392332587",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-vanille/5411188103387",
+            "product": {
+              "title": "AlproDessert végétal soja vanille,",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188103387",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/boisson-vegetale-lait-d'amande-grillee-/541 1188110835",
+            "product": {
+              "title": "AlproBoisson végétale  lait d'amande grillée ,",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "1188110835",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/boisson-vegetale-noisette/5411188110842",
+            "product": {
+              "title": "AlproBoisson végétale noisette",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188110842",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-noix-de-coco-/54111881 19098",
+            "product": {
+              "title": "AlproDessert végétal soja noix de coco  ,",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "54111881",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          }
+        ],
         "_meta": {
-          "supports_keywords": true
+          "supports_keywords": true,
+          "abort_search": true,
+          "abort_reason": "too_many_ean_mismatches",
+          "ean_mismatch_hits": 8
         },
         "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-11-19T21:57:53.583837+01:00",
-      "duration_seconds": 192.158407,
+      "updated_at": "2025-11-21T11:14:33.100420+01:00",
+      "duration_seconds": 127.139088,
       "error": null,
       "store_query": null
     },
@@ -225,14 +363,15 @@
         "title": "Dessert végétal Alpro Fraise - 500g",
         "price": "1,79",
         "unit_price": "3,58 € / kg",
-        "quantity": "500 g",
+        "quantity": "500  g",
         "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-211095-Dessert-vegetal-Alpro.aspx",
         "matched_ean": "5411188114536",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-18T17:14:38Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-21T10:14:15Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
+        "equivalent": false,
         "candidates": [
           {
             "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-93600-Dessert-vegetal-soja-Alpro.aspx",
@@ -245,7 +384,7 @@
               "ean": "5411188119098",
               "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2976080&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5be1h1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5be1h1\"></script><script"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
             }
           },
           {
@@ -259,7 +398,7 @@
               "ean": "5411188103387",
               "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2977672&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5be1h1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5be1h1\"></script><script"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
             }
           },
           {
@@ -273,7 +412,7 @@
               "ean": "5411188118961",
               "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2977684&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5be1h1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5be1h1\"></script><script"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
             }
           },
           {
@@ -287,13 +426,13 @@
               "ean": "5411188114536",
               "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2976071&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5be1h1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5be1h1\"></script><script"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
             }
           }
         ]
       },
-      "updated_at": "2025-11-18T18:14:55.271270+01:00",
-      "duration_seconds": 128.826547,
+      "updated_at": "2025-11-21T11:14:33.100420+01:00",
+      "duration_seconds": 134.224812,
       "error": null,
       "store_query": null
     },
@@ -356,8 +495,8 @@
           "supports_keywords": true
         }
       },
-      "updated_at": "2025-11-19T21:57:53.583837+01:00",
-      "duration_seconds": 20.368582,
+      "updated_at": "2025-11-21T11:14:33.100420+01:00",
+      "duration_seconds": 17.065493,
       "error": null,
       "store_query": null
     }

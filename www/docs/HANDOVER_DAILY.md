@@ -57,7 +57,6 @@ Ce mémo remplace l’ancien journal volumineux. Il décrit l’état courant, l
 - Les requêtes gagnantes sont désormais consignées directement dans `seed_catalog.py` (le fichier `manual_descriptors.json` ne sert plus qu'aux hints Course U).
 - Destop 950 ml (EAN 3665468000312) validé après ajout de l’asset Monoprix (`pipeline/assets/3665468000312.jpg`) et extension des stopwords (`multi`, `usages`, `flacon`). Run : `maxicourses_test/results/run-3665468000312-20251101-113240.json`.
 - Rappel : toute fiche Monoprix impose désormais un visuel référent dans `pipeline/assets/<EAN>.jpg`; sans cela le matching image bloque la collecte.
-
 ### Points ouverts
 - Éventuellement réduire `MONOPRIX_MAX_TERMS` (actuel 12) si la nouvelle shortlist suffit partout ; pour l’instant laisser par défaut.
 - Les variantes sucrées (cookie, mangue…) restent couvertes par la liste négative (`negatives.monoprix`) mais la revue complète des seeds textuels est encore à faire.
@@ -157,3 +156,13 @@ Ce mémo remplace l’ancien journal volumineux. Il décrit l’état courant, l
 ### Suivi / prochaines étapes
 - Si Leclerc réintroduit la version standard avec EAN visible, vérifier que `manual_leclerc_cdp.py` remonte automatiquement `matched_ean` (aucune action manuelle à faire). En cas de nouvelles variantes sans sucre légitimes, ajouter le flag dans `seed_catalog.py` pour lever le veto.
 - Pour Monoprix, consigner dans `seed_catalog.py` toute requête supplémentaire nécessaire (ex. parfum spécifique). Relancer périodiquement `run_pipeline.py --ean <EAN>` pour garder `results/summary.json` et `pipeline/index2.html` alignés.
+
+## 2025-11-20 – GPT (Codex CLI)
+
+### Correctifs
+- `pipeline/index2.html` détecte désormais automatiquement si l’API locale (`server.py`) n’est pas lancée. Un bandeau d’alerte s’affiche dès le chargement quand l’`OPTIONS` sur `/api/collect` échoue, avec l’instruction explicite : `cd maxicourses_test && USE_CDP=1 python3 server.py`.
+- Mise à jour du CORS (`GET` autorisé) afin de permettre ce ping automatique et toute future consultation.
+- L’alerte est masquée dès que le serveur répond : relancez simplement `server.py` puis rafraîchissez la page.
+
+### Suivi
+- Garder cette vérification lors des prochains refactors front (V2) afin d’éviter toute nouvelle séance de debug « page vide » lorsque l’API locale est arrêtée.

@@ -102,18 +102,28 @@ async def choose_drive(page) -> None:
     selectors = [
         "button:has-text('Choisir ce Drive')",
         "button:has-text('Choisir ce drive')",
+        "button:has-text('Choisir ce magasin')",
+        "button:has-text('Afficher le prix')",
+        "button:has-text('Afficher les prix')",
         "button[autotrack-event-action='choose_store']",
+        "button[data-testid*='choose-drive']",
     ]
+    found = False
     for selector in selectors:
         button = page.locator(selector).first
         try:
             if await button.count():
+                log(f"click selector {selector}")
                 await button.scroll_into_view_if_needed()
                 await button.click()
                 await page.wait_for_timeout(4000)
-                return
+                found = True
+                break
         except Exception:
             continue
+    if not found:
+        log("choose_drive: no store button detected")
+    await sync_store_context(page)
 
 
 STORE_CONTEXT_SCRIPT = """

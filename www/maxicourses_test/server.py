@@ -15,7 +15,7 @@ from typing import Any, Dict, Optional, Set
 from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
 
-from flask import Flask, jsonify, request
+from flask import Flask, abort, jsonify, request, send_from_directory
 
 from decode_ean import decode_image_to_ean
 from descriptor_store import (
@@ -28,7 +28,8 @@ from descriptor_store import (
 
 ROOT = Path(__file__).resolve().parent
 PIPELINE_SCRIPT = ROOT / "pipeline" / "run_pipeline.py"
-GLOBAL_SUMMARY_PATH = ROOT / "results" / "summary.json"
+RESULTS_ROOT = ROOT / "results"
+GLOBAL_SUMMARY_PATH = RESULTS_ROOT / "summary.json"
 OPENFOODFACTS_ENDPOINT = "https://world.openfoodfacts.org/api/v2/product/{ean}.json"
 OFF_TIMEOUT_SECONDS = 10
 EAN_REQUIRED_LENGTH = 13
@@ -280,7 +281,7 @@ def build_seed_query(ean: str, descriptor: Dict[str, Any]) -> str:
 
 
 def results_dir_for(ean: str) -> Path:
-    return ROOT / "results" / f"test-{ean}"
+    return RESULTS_ROOT / f"test-{ean}"
 
 
 def purge_results(ean: str) -> None:
@@ -290,9 +291,8 @@ def purge_results(ean: str) -> None:
             shutil.rmtree(dataset_dir)
         except Exception:
             pass
-    results_root = ROOT / "results"
-    if results_root.exists():
-        for run_file in results_root.glob(f"run-{ean}-*.json"):
+    if RESULTS_ROOT.exists():
+        for run_file in RESULTS_ROOT.glob(f"run-{ean}-*.json"):
             try:
                 run_file.unlink()
             except Exception:
@@ -387,9 +387,9 @@ app = Flask(__name__)
 
 @app.after_request
 def add_cors_headers(response):
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
-    response.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
     return response
 
 
@@ -617,6 +617,21 @@ def api_remove():
             "descriptor": descriptor,
         }
     )
+
+
+@app.get("/results/<path:subpath>")
+def serve_results(subpath: str):
+    safe_root = RESULTS_ROOT.resolve()
+    try:
+        target = (safe_root / subpath).resolve()
+    except Exception:
+        abort(404)
+    if not str(target).startswith(str(safe_root)):
+        abort(404)
+    if not target.exists() or target.is_dir():
+        abort(404)
+    relative = target.relative_to(safe_root)
+    return send_from_directory(safe_root, str(relative))
 
 
 @app.get("/")
