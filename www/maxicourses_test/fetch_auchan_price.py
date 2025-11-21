@@ -191,30 +191,45 @@ async def focus_search_input(page):
 async def search_ean(page, ean: str) -> bool:
     if not (ean and ean.isdigit()):
         return False
-    input_node = await focus_search_input(page)
-    if not input_node:
-        log("search input not found")
-        return False
-    try:
-        await input_node.fill("")
-        await page.wait_for_timeout(200)
-        await input_node.type(ean, delay=40)
-        await page.wait_for_timeout(150)
-        await page.keyboard.press("Enter")
-        await page.wait_for_timeout(1200)
-    except Exception as exc:
-        log(f"search typing failed: {exc}")
-        return False
-
     result_cards = page.locator(
         "article.product-thumbnail a[href*='/pr-'], "
         "a[href*='/produit/'], a[href*='/pr-']"
     )
-    try:
-        await result_cards.first.wait_for(timeout=8000)
-        log("results visible, opening first candidate")
-    except Exception:
-        log("results not visible")
+
+    for attempt in range(2):
+        if attempt == 0:
+            input_node = await focus_search_input(page)
+            if not input_node:
+                log("search input not found")
+                continue
+            try:
+                await input_node.fill("")
+                await page.wait_for_timeout(200)
+                await input_node.type(ean, delay=40)
+                await page.wait_for_timeout(150)
+                await page.keyboard.press("Enter")
+                await page.wait_for_timeout(1200)
+            except Exception as exc:
+                log(f"search typing failed: {exc}")
+                continue
+        else:
+            search_url = f"https://www.auchan.fr/recherche?text={ean}"
+            log(f"falling back to search page {search_url}")
+            try:
+                await page.goto(search_url, wait_until="domcontentloaded", timeout=18000)
+                await accept_cookies(page)
+                await page.wait_for_timeout(1200)
+            except Exception as exc:
+                log(f"search page fallback failed: {exc}")
+                return False
+
+        try:
+            await result_cards.first.wait_for(timeout=8000)
+            log("results visible, opening first candidate")
+            break
+        except Exception:
+            log("results not visible")
+    else:
         return False
 
     try:

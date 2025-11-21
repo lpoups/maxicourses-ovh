@@ -28,7 +28,7 @@ as tu compris le principe de la methode pour trouver les bons produits sur les m
   - `Intermarché` : les adaptateurs tournent mais renvoient `NO_RESULTS` (les requêtes IA semblent rejetées, à investiguer).
 - **Procédure de collecte (sans Leclerc)** :
   1. SSH sur le VPS, démarrer Chrome si besoin (`nohup xvfb-run … google-chrome-stable --remote-debugging-port=9222 …`).
-  2. Pour chaque EAN : `./maxicourses_test/run_pipeline_server.sh <EAN> --adapters carrefour_city carrefour_market carrefour_super auchan chronodrive courseu g20 intermarche monoprix`.
+ 2. Pour chaque EAN : `./maxicourses_test/run_pipeline_server.sh <EAN> --adapters carrefour_city carrefour_market carrefour_super auchan chronodrive courseu g20 casino intermarche monoprix`.
   3. Récupérer `summary.json` + `test-<EAN>` via SCP, mettre à jour le dépôt local puis uploader vers `/www/maxicourses-prod/maxicourses_test/results/`.
   4. Rafraîchir `index2.html` (il lit directement `results/summary.json` sur le FTP).
 - Noter toutes les anomalies (CF_BLOCK, DataDome, erreurs Intermarché) dans `docs/HANDOVER_DAILY.md` avec horodatage + captures.
@@ -46,7 +46,7 @@ as tu compris le principe de la methode pour trouver les bons produits sur les m
 - **Prévisualisation comparateur** : `cd maxicourses_test && python3 -m http.server 8000` . Redémarre ce serveur statique à chaque fois que tu modifies les assets HTML/JSON.
 
 ## Garde-fous immédiats
-- **Gel fetchers existants** : ne toucher sous aucun prétexte aux scripts `fetch_carrefour_price_market.py`, `fetch_carrefour_price_city.py`, `fetch_auchan_price.py`, `fetch_chronodrive_price.py`, `fetch_courseu_price.py`, `fetch_intermarche_price.py`, `fetch_leclerc_drive_price.py`, `fetch_monoprix_price.py` (ni à leurs helpers) tant que Laurent n’a pas validé une modification explicite. Seul le wrapper `fetch_carrefour_price_super.py` peut évoluer sans validation préalable (objectif : sécuriser la collecte Carrefour Super Lormont).
+- **Gel fetchers existants** : ne toucher sous aucun prétexte aux scripts `fetch_carrefour_price_market.py`, `fetch_carrefour_price_city.py`, `fetch_auchan_price.py`, `fetch_chronodrive_price.py`, `fetch_courseu_price.py`, `fetch_casino_price.py`, `fetch_intermarche_price.py`, `fetch_leclerc_drive_price.py`, `fetch_monoprix_price.py` (ni à leurs helpers) tant que Laurent n’a pas validé une modification explicite. Seul le wrapper `fetch_carrefour_price_super.py` peut évoluer sans validation préalable (objectif : sécuriser la collecte Carrefour Super Lormont).
 
 - Les requêtes humaines doivent etre tapé avec des espaces (`"coca cola 1,75 l"`) ; bannir les `+` quels que soient les magasins (le fait d'ajouter de "+" force des mots clés et augment la quantité de resultats sur certain magasins).
 
@@ -92,7 +92,9 @@ Recommencer l'intégralité de la collect AUCHAN car tout a été saccagé par l
    - Carrefour Market d’abord, puis Carrefour City (via les wrappers CDP),
    - ensuite Auchan,
    - puis Chronodrive,
-   - et Course U (Super U Eysines).
+   - Course U (Super U Eysines),
+   - G20 Minute (recherche EAN possible, mais conserver le descriptif seed pour les tokens),
+   - Casino Shop (Bègles) une fois les requêtes Finder définies.
   Une fois ce descriptif fiable (titre, quantité) récupéré, l’intégrer dans `seed_catalog.py` et l’utiliser pour enchaîner Intermarché, Leclerc puis Monoprix (qui ne prennent pas l’EAN brut).
 2. **Leclerc Drive** : toute interaction passe par Chrome remote (port 9222) + validation visuelle. `USE_CDP=1`, `HEADLESS=0`. Aucun scraping headless ni requête directe.
 3. **Carrefour** : privilégier Chrome remote pour contourner Cloudflare. Toujours sauvegarder au besoin les captures (`HUMAN_DEBUG_DIR`).

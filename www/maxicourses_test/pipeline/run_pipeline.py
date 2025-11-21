@@ -682,6 +682,18 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
             "G20_BASE_URL": os.getenv("G20_BASE_URL", "https://www.g20-minute.com"),
         },
     },
+    "casino": {
+        "script": ROOT_DIR / "fetch_casino_price.py",
+        "env": lambda: {
+            "CASINO_STORE_CODE": os.getenv("CASINO_STORE_CODE", "TZ193"),
+            "CASINO_STORE_SLUG": os.getenv("CASINO_STORE_SLUG", "casino-shop-33130"),
+            "CASINO_STORE_LABEL": os.getenv("CASINO_STORE_LABEL", "Casino Shop · Bègles Pruniers"),
+            "CASINO_STORE_URL": os.getenv(
+                "CASINO_STORE_URL",
+                "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+            ),
+        },
+    },
 }
 
 EAN_ONLY_ADAPTERS = {
@@ -702,6 +714,7 @@ DEFAULT_ADAPTER_ORDER = [
     "chronodrive",
     "courseu",
     "g20",
+    "casino",
     "intermarche",
     "leclerc",
     "monoprix",

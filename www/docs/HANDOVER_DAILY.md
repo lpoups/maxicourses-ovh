@@ -166,3 +166,30 @@ Ce mémo remplace l’ancien journal volumineux. Il décrit l’état courant, l
 
 ### Suivi
 - Garder cette vérification lors des prochains refactors front (V2) afin d’éviter toute nouvelle séance de debug « page vide » lorsque l’API locale est arrêtée.
+
+## 2025-11-21 – GPT (Codex CLI)
+
+### Problèmes résolus
+- **Bannière « serveur injoignable »** : le front cache désormais le bandeau par défaut, ne l’affiche qu’en cas d’erreur réseau réelle et, côté Safari, un `hidden` force `display:none`. La redirection automatique HTTPS → HTTP n’est appliquée qu’en local (`localhost`/`127.0.0.1`), ce qui évite les rafraîchissements infinis sur l’instance OVH encore en HTTPS.
+- **Auchan Talence** : `fetch_auchan_price.py` clic désormais sur toutes les variantes de boutons (« Choisir ce drive », « Choisir ce magasin », « Afficher le prix ») et resynchronise le contexte magasin après chaque clic. Test concluants (`EAN=5000112611861`) → prix 2,38 € Talence récupéré systématiquement.
+- **Leclerc keywords** : `run_pipeline.py` construit les requêtes strictement à partir du seed (marque + variante + quantité + EAN). Les requêtes IA ne peuvent plus générer de termes génériques, ce qui évite les « Jean’s Cola » et force l’adaptateur Leclerc à coller au produit seed. Collecte complète confirmée sur `5000112611861`.
+
+### À surveiller / restant à faire
+- **Instance OVH** : `server.py` n’est pas encore lancé côté VPS, donc l’UI prod reste en lecture seule. Dès que le backend sera actif, vérifier que l’alerte reste silencieuse et qu’aucune redirection ne se déclenche.
+- **Nouvelle enseigne Casino Bègles** : préciser la méthode de collecte pour `https://www.mescoursesdeproximite.com/` (magasin CASINO SHOPPING · Allée des Pruniers, Bègles). Le logo `maxicourses_test/assets/logos/casino.png` est prêt ; reste à script-er le fetcher + l’intégration pipeline/index2.html.
+- **Priorité carburants** : lancer une passe sur la récupération automatique des prix carburants pour toutes les enseignes qui distribuent du fuel (ou pour les stations proches des magasins déjà suivis) afin d’enrichir le comparateur.
+  - API publique : `https://donnees.roulez-eco.fr/opendata/instantane` (ZIP → XML complet, rafraîchi toutes les ~10 min).
+  - Formats alternatifs (portail Opendatasoft/data.gouv.fr) : JSON, CSV, GeoJSON.
+  - Carburants couverts : Gazole (B7), SP95 (E5), SP98 (E5), SP95-E10 (E10), GPLc, E85.
+
+## 2025-11-21T14:25 – GPT (Codex CLI)
+
+### Faits marquants
+- Nouvelle collecte **Casino Shop Bègles** : ajout du fetcher HTTP `maxicourses_test/fetch_casino_price.py`. Le script interroge la page `/recherche/TZ193?produit_recherche=<query>`, parcourt les cartes et valide uniquement les PDP dont le JSON-LD (`gtin13`) correspond à l’EAN. Prix TTC et €/L/€/kg sont repris du listing ; le magasin est figé sur « Casino Shop · Bègles Pruniers ».
+- Intégration pipeline/UI : `run_pipeline.py` connaît l’adaptateur `casino` (ordre par défaut après `g20`), `index2.html` expose le logo `assets/logos/casino.png`, une entrée `DISPLAY_NAMES` dédiée et le point GPS (lat 44.814814, lon -0.550976) pour la carte. Les docs `ENSEIGNES`, `PRICE_COLLECTION_GUIDE`, `ONBOARDING`, `PRICE_COMPARATOR_PLAN` et `HANDOVER` décrivent la procédure.
+- Test rapide : `cd maxicourses_test && python3 pipeline/run_pipeline.py --ean 5449000131836 --adapters casino` — renvoie `NO_RESULTS` sur la requête EAN brute (normal), les requêtes Finder courtes (`coca cola sans sucre 50cl`, etc.) retournent bien `status="OK"` avec `matched_ean=5449000131836`.
+
+### Suites / TODO
+1. Alimenter `finder.py` / `seed_catalog.py` avec des requêtes ciblées pour Casino dès qu’un nouveau produit est ajouté (marque + parfum + format) afin que le pipeline ne retombe plus sur le fallback EAN vide.
+2. Étendre la surveillance `_meta` (`supports_keywords=true`) pour suivre les requêtes testées et documenter toute anomalie dans ce journal.
+3. Ajouter de vraies collectes Casino dans `results/test-<EAN>/` puis rafraîchir `results/summary.json` pour valider le rendu `index2.html` (logos/cartes).

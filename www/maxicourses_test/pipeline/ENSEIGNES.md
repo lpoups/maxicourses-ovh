@@ -32,6 +32,13 @@ Objectif : sécuriser l'extraction des prix pack + prix unitaire + descriptif po
 - Parcours : accepter cookies (Onetrust) → barre recherche → fiche produit → vérifier section "Prix au litre".
 - Validation : `title` et `price` pack, et extraction parallèle du prix unitaire.
 
+## Casino Shop (Bègles)
+- Fetcher HTTP (`fetch_casino_price.py`) qui interroge directement `https://www.mescoursesdeproximite.com/recherche/<STORE_CODE>?produit_recherche=<query>`.
+- Les requêtes proviennent du seed Finder (marque + parfum). La recherche 100 % EAN ne renvoie rien : il faut donc utiliser les tokens Carrefour/Auchan pour frapper le listing texte.
+- Chaque carte ouvre ensuite sa PDP et le script lit le JSON-LD (`gtin13`) pour confirmer l’EAN (`gtin13`) avant de remonter un prix. Les prix pack/unitaires sont ceux du listing (span `montserratsemibold` + `montserratlight`).
+- Variables principales : `CASINO_STORE_CODE=TZ193`, `CASINO_STORE_SLUG=casino-shop-33130`, `CASINO_STORE_LABEL="Casino Shop · Bègles Pruniers"`. Adapter ces valeurs si un autre magasin est ciblé et mettre à jour le Handover.
+- Statut `NO_RESULTS` attendu quand aucune carte ne correspond aux tokens ; `NO_MATCH` si aucune PDP ne remonte l’EAN demandé.
+
 ### Procédure de test
 1. Lancer `pipeline/run_pipeline.py --ean <EAN> --adapters <enseigne>` en `--headed` pour observer.
 2. Ajuster le script de l'enseigne (cookies, sélection magasin, selectors) jusqu'à statut `OK` with price + unit.
