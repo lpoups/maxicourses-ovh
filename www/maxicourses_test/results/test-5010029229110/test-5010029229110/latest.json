@@ -1,0 +1,752 @@
+{
+  "ean": "5010029229110",
+  "image_path": null,
+  "started_at": "2025-11-23T13:15:28.324529+01:00",
+  "finished_at": "2025-11-23T13:29:00.829838+01:00",
+  "duration_seconds": 812.505309,
+  "reference": {
+    "title": "Céréales Crispy Minis Chocolat WEETABIX",
+    "description": "Céréales Crispy Minis Chocolat WEETABIX",
+    "source": "carrefour_super",
+    "brand": "Weetabix",
+    "quantity": "500 G",
+    "categories": null,
+    "image": "./assets/5010029229110.jpg",
+    "nutriscore_grade": "c",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-c.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5010029229110/debug/run-5010029229110-20251123-131528"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-23T13:15:28.325622+01:00",
+      "finished_at": "2025-11-23T13:15:42.729595+01:00",
+      "duration_seconds": 14.403973,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,11",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/cereales-crispy-minis-chocolat-weetabix-501002922911 0",
+        "note": null,
+        "unit_price": "8,22 € / KG",
+        "quantity": "500 G",
+        "title": "Céréales Crispy Minis Chocolat WEETABIX",
+        "matched_ean": "5010029229110",
+        "image": "https://media.carrefour.fr/medias/1284e06cc1f24f188a2ac748b5e6eaaa/p_540x540/05 010029229110_A1L1_s04.png",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-c.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Céréales Crispy Minis Chocolat WEETABIX",
+          "brand": "Céréales",
+          "kind": "",
+          "qty": "500 G",
+          "qualifiers": [],
+          "ean": "5010029229110",
+          "image_url": "https://media.carrefour.fr/medias/1284e06cc1f24f188a2ac748b5e6eaaa/p_540x540/05 010029229110_A1L1_s04.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-23T13:15:42.730504+01:00",
+      "finished_at": "2025-11-23T13:16:04.251969+01:00",
+      "duration_seconds": 21.521465,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,39",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/cereales-crispy-minis-chocolat-weetabix-501002922911 0",
+        "note": null,
+        "unit_price": "6,78 € / KG",
+        "quantity": "500 G",
+        "title": "Céréales Crispy Minis Chocolat WEETABIX",
+        "matched_ean": "5010029229110",
+        "image": "https://media.carrefour.fr/medias/1284e06cc1f24f188a2ac748b5e6eaaa/p_540x540/05 010029229110_A1L1_s04.png",
+        "nutriscore_grade": "a",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-a.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Céréales Crispy Minis Chocolat WEETABIX",
+          "brand": "Céréales",
+          "kind": "",
+          "qty": "500 G",
+          "qualifiers": [],
+          "ean": "5010029229110",
+          "image_url": "https://media.carrefour.fr/medias/1284e06cc1f24f188a2ac748b5e6eaaa/p_540x540/05 010029229110_A1L1_s04.png",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-23T13:16:04.257454+01:00",
+      "finished_at": "2025-11-23T13:16:23.793730+01:00",
+      "duration_seconds": 19.536276,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "matched_ean": null,
+        "store": "Auchan Drive  Supermarché Talence-Gallieni",
+        "note": "search_failed:5010029229110",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-23T13:16:23.797129+01:00",
+      "finished_at": "2025-11-23T13:16:50.444814+01:00",
+      "duration_seconds": 26.647685,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results not visible\n[auchan] falling back to search page https://www.auchan.fr/recherche?text=5010029229110\n[auchan] results not visible",
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,59",
+        "title": "Céréales au chocolat WEETABIX Crispy Minis",
+        "url": "https://www.chronodrive.com/weetabix--crispy-minis---cereales-au-chocolat-P5306 56",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "9,18 € / KG",
+        "quantity": "500 g",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "5010029229110",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt54b93afee7e e77aa/nutriscore-b",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Céréales au chocolat WEETABIX Crispy Minis",
+          "brand": "Céréales",
+          "kind": "",
+          "qty": "500 g",
+          "qualifiers": [],
+          "ean": "5010029229110",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-23T13:16:50.445459+01:00",
+      "finished_at": "2025-11-23T13:16:57.638254+01:00",
+      "duration_seconds": 7.192795,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='5010029229110'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/weetabix--crispy-minis---cereales-au-chocolat-P530656",
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,58",
+        "unit_price": "7,16 € / KG",
+        "quantity": "500  g",
+        "title": "Céréales Crispy Minis Choco WEETABIX, 500g",
+        "url": "https://www.coursesu.com/p/cereales-crispy-minis-choco-weetabix-500g/4410714.ht ml",
+        "note": "2025-11-23T12:17:42Z · Super U Eysines",
+        "store": "Super U  Eysines",
+        "matched_ean": "5010029229110",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Céréales Crispy Minis Choco WEETABIX, 500g",
+          "brand": "Céréales",
+          "kind": "",
+          "qty": "500 g",
+          "qualifiers": [],
+          "ean": "5010029229110",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-23T13:16:57.642469+01:00",
+      "finished_at": "2025-11-23T13:17:42.715184+01:00",
+      "duration_seconds": 45.072715,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,99",
+        "title": "WEETABIX Crispy Minis Choco 500g",
+        "url": "https://www.g20-minute.com/products/5010029229110/weetabix-crispy-minis-choco-500g-5010029229110",
+        "note": "G20 Minute",
+        "unit_price": "7,98 €/Kg",
+        "quantity": "500g",
+        "matched_ean": "5010029229110",
+        "image": "https://www.g20-minute.com/media/cache/product_box_image/15/f3/2e7e757212440afb2301e0eca197.jpg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "WEETABIX Crispy Minis Choco 500g",
+          "brand": "WEETABIX",
+          "kind": "",
+          "qty": "500g",
+          "qualifiers": [],
+          "ean": "5010029229110",
+          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/15/f3/2e7e757212440afb2301e0eca197.jpg",
+          "source": "g20",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-23T13:17:42.719455+01:00",
+      "finished_at": "2025-11-23T13:17:43.390140+01:00",
+      "duration_seconds": 0.670685,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=5010029229110",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "5010029229110",
+          "timestamp": "2025-11-23T12:17:44.090201+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-23T13:17:43.934311+01:00",
+      "finished_at": "2025-11-23T13:17:44.980619+01:00",
+      "duration_seconds": 1.046308,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5010029229110",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5010029229110/debug/run-5010029229110-20251123-131528/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=5010029229110",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "5010029229110",
+          "timestamp": "2025-11-23T12:17:51.605822+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-23T13:17:51.452653+01:00",
+      "finished_at": "2025-11-23T13:17:52.189750+01:00",
+      "duration_seconds": 0.737097,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5010029229110",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5010029229110/debug/run-5010029229110-20251123-131528/09-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Intermarché · Super Talence — produit absent",
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/cookie-crisp-cereales-gout-biscuit-pepites- saveur-chocolat/3387390326574",
+            "product": {
+              "title": "NestléCookie Crisp - Céréales goût biscuit pépites saveur chocolat",
+              "brand": "NestléCookie",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3387390326574",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/cereales-cricachoc-chocolat-noisette/325039 2383862",
+            "product": {
+              "title": "Chabrior,  une marque IntermarchéCéréales CricaChoc chocolat noisette",
+              "brand": "Chabrior,",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3250392383862",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/golden-grahams-cereales/3387390339505",
+            "product": {
+              "title": "NestléGolden Grahams - Céréales",
+              "brand": "NestléGolden",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3387390339505",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/cereales-billes-o'-cacao/3250393444425",
+            "product": {
+              "title": "Chabrior, une marque  IntermarchéCéréales Billes O' cacao",
+              "brand": "Chabrior,",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3250393444425",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/chocapic-cereales-chocolat/7613035449626",
+            "product": {
+              "title": "NestléChocapic - Céréales chocolat",
+              "brand": "NestléChocapic",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "7613035449626",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/tresor-cereales-gout-chocolat-noisettes/505 0083535079",
+            "product": {
+              "title": "Kellogg'sTrésor -  Céréales goût chocolat noisettes",
+              "brand": "Kellogg'sTrésor",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "0083535079",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/cereales-crica-choc'-chocolat-noisette/3250 391727414",
+            "product": {
+              "title": "Chabrior, une marque IntermarchéCéréales Crica Choc' chocolat noisette",
+              "brand": "Chabrior,",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "391727414",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/chocapic-cereales-chocolat/3387390123210",
+            "product": {
+              "title": "NestléChocapic - Céréales chocolat",
+              "brand": "NestléChocapic",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3387390123210",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true,
+          "abort_search": true,
+          "abort_reason": "too_many_ean_mismatches",
+          "ean_mismatch_hits": 8
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-11-23T13:19:47.778347+01:00",
+      "finished_at": "2025-11-23T13:21:52.526239+01:00",
+      "duration_seconds": 124.747892,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "Weetabix cereales 500 G",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Weetabix cereales 500 G",
+        "abort_reason": "too_many_ean_mismatches",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5010029229110/debug/run-5010029229110-20251123-131528/10-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "NO_MATCH",
+      "payload": {
+        "status": "NO_MATCH",
+        "title": "Soupe Mouliné Régal Soupe 10 légumes variés - 1L",
+        "price": null,
+        "unit_price": null,
+        "quantity": "500 G",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-241-Soupe-Mouline-Regal-Soupe.aspx",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-23T12:22:44Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-241-Soupe-Mouline-Regal-Soupe.aspx",
+            "product": {
+              "title": "Soupe Mouliné Régal Soupe 10 légumes variés - 1L",
+              "brand": "Weetabix",
+              "kind": "Céréales Crispy Minis Chocolat WEETABIX",
+              "qty": "500 G",
+              "qualifiers": [],
+              "ean": "3564700434437",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2607353&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-23T13:21:52.530661+01:00",
+      "finished_at": "2025-11-23T13:22:44.332792+01:00",
+      "duration_seconds": 51.802131,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "Weetabix Céréales 500 G",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=False | delays => human:200ms result:300ms pdp:300ms type:[8,18] query:'Weetabix Céréales 500 G'\n[LECLERC_DEBUG] after home human pause -> 1.67s\n[LECLERC_DEBUG] Page source saved to /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/leclerc_debug_source.html\n[LECLERC_DEBUG] Screenshot saved to /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/leclerc_debug_screenshot.png\n[LECLERC_DEBUG] attempt #1 with query 'Weetabix Céréales 500 G'\n[LECLERC_DEBUG] results visible -> 7.04s (query='Weetabix Céréales 500 G')\n[LECLERC_DEBUG] after result pause -> 7.34s\n[LECLERC_DEBUG] too many results, refining with 'Weetabix Céréales 500 G crispy'\n[LECLERC_DEBUG] attempt #2 with query 'Weetabix Céréales 500 G crispy'\n[LECLERC_DEBUG] results visible -> 10.97s (query='Weetabix Céréales 500 G crispy')\n[LECLERC_DEBUG] after result pause -> 11.26s",
+      "metadata": {
+        "attempt_query": "Weetabix Céréales 500 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5010029229110/debug/run-5010029229110-20251123-131528/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,29",
+        "title": "Weetabix Crispy Minis Choco 500g",
+        "url": "https://courses.monoprix.fr/products/weetabix-crispy-minis-choco-500g/MPX_66405 17",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9655 bef2-e0e1-4313-8f95-b668c3857111/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9655 bef2-e0e1-4313-8f95-b668c3857111/300x300.jpg",
+        "matched_ean": "5010029229110",
+        "unit_price": "8,58 € / KG",
+        "quantity": "500 G",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nCalendrier de l'avent\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nEpicerie Sucrée\nCéréale et  Barre\nEnfant et Ado\nWeetabix Crispy Minis Choco 500g\n2 m+\n2 mois de garantie de vie du produit\n500g 8,58 € / kilo\n500g\n(8,58 € / kilo)\n4,29  €\nAjouter\nInformations produit\n\n\nDescription Produit\nDélicieuses et  croustillantes bouchées de blé complet enrichies de pépites de chocolat qui font l'unanimité au petit-déjeuner. Elles peuvent aussi être consommées en snacking.  Riches en fibres ce produit est nutriscore  A.\n\n\nOrigine\nRoyaume-Uni\nMarque\nWeetabix\nService consommateur\nPIETERCIL  INTERCO BP 30266 73375 LE BOURGET DU LAC CEDEX France\nConseils d'utilisation\nà grignoter nature, ou en accompagnement avec lait , fromage  blanc\nIngredients\n\nBLÉ complet (89%), chocolat noir (12%) (sucre, pâte de  cacao, beurre de cacao, émulsifiant: lécithine de SOJA, arôme), sucre, sel,  arômes, fer, niacine, thiamine (vitamine B1), riboflavine (vitamine B2), acide  folique, vitamine D.\n\nAllergènes\nBlé, Soja, Ne convient pas non plus aux  personnes souffrant d’allergies aux arachides, aux fruits à coques et au  lait.\nType d’emballage\nboîte\nProducteur\nPIETERCIL INTERCO SAS SAVOIE  TECHNOLAC 73370LE BOURGET DU LAC\nConseil de conservation\nBien referner le  sachet intérieur après chaque usage. A conserver au sec, à l'abri des odeurs et  du froid\nConseils d'utilisation\nà grignoter nature, ou en accompagnement avec  lait , fromage blanc\nValeurs nutritionnelles\nINFORMATIONS NUTRITIONNELLES  MOYENNES\n\tpour 100 g\tpour Pour 40g\nValeurs Energétique en Kilojoules\t~ 1629 kJ\t652 kJ\nValeurs Energétique en Kilocalories\t~ 386 kcal\t154 kcal\nValeurs  Nutritionnelles\nMatières grasses\t~ 5.1 g\t2 g\nDont Acides Gras Saturés\t~ 2.3 g\t0.9 g\nGlucides\t~ 70 g\t28 g\nDont Sucres\t~ 17 g\t6.8 g\nProtéines\t~ 10  g\t4 g\nSel\t~ 0.16 g\t0.08 g\nFibre\t~ 10 g\t\n\n\nMicro Nutriments\tpour 100  g\nFibres alimentaires\t~ 10 g\nVitamine D\t~ 4.3 µg\nThiamine\t~ 0.94  mg\nRiboflavine\t~ 1.2 mg\nNiacine\t~ 14 mg\nAcide folique\t~ 170 µg\nFer\t~ 12  mg\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une  nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos  magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos  magasins avec Parapharmacie\nAide & Mentions\nDonnées personnelles et  cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": "chocolat",
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [],
+          "candidate_quantity": "500 G",
+          "image_match": true,
+          "final_score": 30,
+          "plausible_baseline": false
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/weetabix-crispy-minis-choco-500g/MPX_66405 17",
+            "product": {
+              "title": "Weetabix Crispy Minis Choco  500g",
+              "brand": "Weetabix",
+              "kind": "",
+              "qty": "500 G",
+              "qualifiers": [],
+              "ean": "5010029229110",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9655 bef2-e0e1-4313-8f95-b668c3857111/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-23T13:28:28.957593+01:00",
+      "finished_at": "2025-11-23T13:29:00.703279+01:00",
+      "duration_seconds": 31.745686,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5010029229110'.\n[MONOPRIX_DEBUG] Search terms: ['Weetabix cereales 500 G', 'Weetabix cereales chocolat']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/2: 'Weetabix cereales 500 G'\n[MONOPRIX_DEBUG]  - Typing 'Weetabix cereales 500 G' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Weetabix%20cereales%20500%20G\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/2: 'Weetabix cereales chocolat'\n[MONOPRIX_DEBUG]  - Typing 'Weetabix cereales chocolat' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Weetabix%20cereales%20chocolat\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 2 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/weetabix-crispy-minis-choco-500g/MPX_6640517\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9655bef2-e0e1-4313-8f95-b668c3857111/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/weetabix-crispy-minis-choco-500g/MPX_6640517\n[MONOPRIX_DEBUG][SCORE] - Title: 'Weetabix Crispy Minis Choco 500g' | Brand: '' | Variant(seed/cand)=(None/chocolat) | Vetoes=[] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Weetabix Crispy Minis Choco 500g'.\n[MONOPRIX_DEBUG] Best match (early return): 'Weetabix Crispy Minis Choco 500g' (Score: 30)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='4,29', title='Weetabix Crispy Minis Choco 500g', url='https://courses.monoprix.fr/products/weetabix-crispy-minis-choco-500g/MPX_6640517', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9655bef2-e0e1-4313-8f95-b668c3857111/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9655bef2-e0e1-4313-8f95-b668c3857111/300x300.jpg', matched_ean='5010029229110', unit_price='8,58 € / KG', quantity='500 G', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEpicerie Sucrée\\nCéréale et Barre\\nEnfant et Ado\\nWeetabix Crispy Minis Choco 500g\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n500g 8,58\\xa0€ / kilo\\n500g\\n(8,58\\xa0€ / kilo)\\n4,29\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nDélicieuses et croustillantes bouchées de blé complet enrichies de pépites de chocolat qui font l'unanimité au petit-déjeuner. Elles peuvent aussi être consommées en snacking. Riches en fibres ce produit est nutriscore A.\\n\\n\\nOrigine\\nRoyaume-Uni\\nMarque\\nWeetabix\\nService consommateur\\nPIETERCIL INTERCO BP 30266 73375 LE BOURGET DU LAC CEDEX France\\nConseils d'utilisation\\nà grignoter nature, ou en accompagnement avec lait , fromage blanc\\nIngredients\\n\\nBLÉ complet (89%), chocolat noir (12%) (sucre, pâte de cacao, beurre de cacao, émulsifiant: lécithine de SOJA, arôme), sucre, sel, arômes, fer, niacine, thiamine (vitamine B1), riboflavine (vitamine B2), acide folique, vitamine D.\\n\\nAllergènes\\nBlé, Soja, Ne convient pas non plus aux personnes souffrant d’allergies aux arachides, aux fruits à coques et au lait.\\nType d’emballage\\nboîte\\nProducteur\\nPIETERCIL INTERCO SAS SAVOIE TECHNOLAC 73370LE BOURGET DU LAC\\nConseil de conservation\\nBien referner le sachet intérieur après chaque usage. A conserver au sec, à l'abri des odeurs et du froid\\nConseils d'utilisation\\nà grignoter nature, ou en accompagnement avec lait , fromage blanc\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\tpour Pour 40g\\nValeurs Energétique en Kilojoules\\t~ 1629 kJ\\t652 kJ\\nValeurs Energétique en Kilocalories\\t~ 386 kcal\\t154 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 5.1 g\\t2 g\\nDont Acides Gras Saturés\\t~ 2.3 g\\t0.9 g\\nGlucides\\t~ 70 g\\t28 g\\nDont Sucres\\t~ 17 g\\t6.8 g\\nProtéines\\t~ 10 g\\t4 g\\nSel\\t~ 0.16 g\\t0.08 g\\nFibre\\t~ 10 g\\t\\n\\n\\nMicro Nutriments\\tpour 100 g\\nFibres alimentaires\\t~ 10 g\\nVitamine D\\t~ 4.3 µg\\nThiamine\\t~ 0.94 mg\\nRiboflavine\\t~ 1.2 mg\\nNiacine\\t~ 14 mg\\nAcide folique\\t~ 170 µg\\nFer\\t~ 12 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': None, 'candidate_variant': 'chocolat', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '500 G', 'image_match': True, 'final_score': 30, 'plausible_baseline': False}, candidates=[{'url': 'https://courses.monoprix.fr/products/weetabix-crispy-minis-choco-500g/MPX_6640517', 'status': 'OK_PARTIAL', 'product': {'title': 'Weetabix Crispy Minis Choco 500g', 'brand': '', 'kind': '', 'qty': '500 G', 'qualifiers': [], 'ean': '5010029229110', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9655bef2-e0e1-4313-8f95-b668c3857111/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEpicerie Sucrée\\nCéréale et Barre\\nEnfant et Ado\\nWeetabix Crispy Minis Choco 500g\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n500g 8,58\\xa0€ / kilo\\n500g\\n(8,58\\xa0€ / kilo)\\n4,29\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nDélicieuses et croustillantes bouchées de blé complet enrichies de pépites de chocolat qui font l'unanimité au petit-déjeuner. Elles peuvent aussi être consommées en snacking. Riches en fibres ce produit est nutriscore A.\\n\\n\\nOrigine\\nRoyaume-Uni\\nMarque\\nWeetabix\\nService consommateur\\nPIETERCIL INTERCO BP 30266 73375 LE BOURGET DU LAC CEDEX France\\nConseils d'utilisation\\nà grignoter nature, ou en accompagnement avec lait , fromage blanc\\nIngredients\\n\\nBLÉ complet (89%), chocolat noir (12%) (sucre, pâte de cacao, beurre de cacao, émulsifiant: lécithine de SOJA, arôme), sucre, sel, arômes, fer, niacine, thiamine (vitamine B1), riboflavine (vitamine B2), acide folique, vitamine D.\\n\\nAllergènes\\nBlé, Soja, Ne convient pas non plus aux personnes souffrant d’allergies aux arachides, aux fruits à coques et au lait.\\nType d’emballage\\nboîte\\nProducteur\\nPIETERCIL INTERCO SAS SAVOIE TECHNOLAC 73370LE BOURGET DU LAC\\nConseil de conservation\\nBien referner le sachet intérieur après chaque usage. A conserver au sec, à l'abri des odeurs et du froid\\nConseils d'utilisation\\nà grignoter nature, ou en accompagnement avec lait , fromage blanc\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\tpour Pour 40g\\nValeurs Energétique en Kilojoules\\t~ 1629 kJ\\t652 kJ\\nValeurs Energétique en Kilocalories\\t~ 386 kcal\\t154 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 5.1 g\\t2 g\\nDont Acides Gras Saturés\\t~ 2.3 g\\t0.9 g\\nGlucides\\t~ 70 g\\t28 g\\nDont Sucres\\t~ 17 g\\t6.8 g\\nProtéines\\t~ 10 g\\t4 g\\nSel\\t~ 0.16 g\\t0.08 g\\nFibre\\t~ 10 g\\t\\n\\n\\nMicro Nutriments\\tpour 100 g\\nFibres alimentaires\\t~ 10 g\\nVitamine D\\t~ 4.3 µg\\nThiamine\\t~ 0.94 mg\\nRiboflavine\\t~ 1.2 mg\\nNiacine\\t~ 14 mg\\nAcide folique\\t~ 170 µg\\nFer\\t~ 12 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '8,58 € / KG', 'price': '4,29'}, 'score': 30.0, 'extras': {'seed_variant': None, 'candidate_variant': 'chocolat', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '500 G', 'image_match': True, 'final_score': 30, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/weetabix-céréales-petit-déjeuner-oreo-o-s-350g/MPX_5991472', 'status': 'PENDING', 'product': {'title': '', 'brand': '', 'kind': '', 'qty': '', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "5010029229110",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5010029229110/debug/run-5010029229110-20251123-131528/12-monoprix"
+      }
+    }
+  ],
+  "finder": null
+}

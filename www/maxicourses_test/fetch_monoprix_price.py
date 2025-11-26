@@ -56,26 +56,36 @@ IMAGE_HASH_CACHE: dict[Path, int] = {}
 REMOTE_HASH_CACHE: dict[str, int] = {}
 
 
-def _parse_finder_keywords() -> list[str]:
-    raw = os.environ.get("FINDER_KEYWORDS")
-    if not raw:
-        return []
-    try:
-        data = json.loads(raw)
-        if isinstance(data, list):
-            result: list[str] = []
-            for item in data:
-                if isinstance(item, str):
-                    cleaned = item.strip()
-                    if cleaned:
-                        result.append(cleaned)
-            return result
-    except json.JSONDecodeError:
-        pass
-    return [chunk.strip() for chunk in raw.split(",") if chunk.strip()]
+def _derive_keywords_from_descriptor(descriptor: dict[str, typing.Any]) -> list[str]:
+    """Derive a small set of fallback keywords purely en Python (pas de JSON/env)."""
+    keywords: list[str] = []
+    seen: set[str] = set()
 
+    def add(value: typing.Optional[str]) -> None:
+        if not isinstance(value, str):
+            return
+        cleaned = " ".join(value.split())
+        if not cleaned:
+            return
+        lowered = cleaned.lower()
+        if lowered in seen:
+            return
+        seen.add(lowered)
+        keywords.append(cleaned)
 
-FINDER_KEYWORDS = _parse_finder_keywords()
+    brand = descriptor.get("brand")
+    seed_name = descriptor.get("seed_primary_name") or descriptor.get("name") or descriptor.get("description")
+    qty = descriptor.get("quantity") or descriptor.get("seed_primary_quantity")
+
+    if brand and seed_name:
+        add(f"{brand} {seed_name}")
+    if brand and qty:
+        add(f"{brand} {qty}")
+    if seed_name:
+        add(seed_name)
+    if brand:
+        add(brand)
+    return keywords
 
 
 def _looks_like_ean(term: typing.Optional[str]) -> bool:
@@ -296,8 +306,15 @@ def _seed_search_tokens(descriptor: dict[str, typing.Any]) -> list[str]:
                 add_token(token)
 
     return list(tokens.values())
-# Manual descriptor cache (hardcoded catalog)
-MANUAL_DESCRIPTOR: dict[str, dict] = all_descriptors()
+# Descriptors uniquement depuis seed_catalog/descriptor_store
+def _load_descriptors() -> dict[str, dict]:
+    try:
+        return all_descriptors()
+    except Exception:
+        return {}
+
+MANUAL_DESCRIPTOR: dict[str, dict] = _load_descriptors()
+FINDER_KEYWORDS: list[str] = []  # gardé pour compat, mais non rempli par JSON/env
 
 
 @dataclass
@@ -324,9 +341,12 @@ def tokens_for(value: typing.Optional[str]) -> list[str]:
 
 
 def normalize_space(value: typing.Optional[str]) -> typing.Optional[str]:
-    if not value:
+    if value is None:
         return None
-    return re.sub(r"\s+", " ", value).strip()
+    try:
+        return re.sub(r"\s+", " ", str(value)).strip()
+    except Exception:
+        return None
 
 
 def _descriptor_validation_tokens(descriptor: dict[str, typing.Any]) -> list[str]:
@@ -477,6 +497,12 @@ def _collect_monoprix_negatives(descriptor: dict[str, typing.Any], seed_variant:
         for token in packaging_bans:
             if token not in descriptor_tokens:
                 negatives.append(token)
+
+    seed_text = " ".join(
+        str(descriptor.get(k) or "") for k in ("seed_primary_name", "name", "description")
+    ).lower()
+    if "sans sucre" not in seed_text and "sans sucres" not in seed_text:
+        negatives.extend(["sans sucre", "sans sucres", "0 sucre", "zero sucre"])
 
     return list(dict.fromkeys(negatives))
 
@@ -872,7 +898,24 @@ def _compare_image_with_descriptor(descriptor: dict[str, typing.Any], image_url:
     cleaned = _sanitize_url(image_url)
     if not cleaned:
         return False
-    return descriptor_matches_candidate(descriptor, cleaned, ean=current_ean, threshold=threshold)
+
+    descriptor_copy = dict(descriptor)
+    img = descriptor_copy.get("image")
+    if isinstance(img, str) and img.strip():
+        path = Path(img.strip())
+        if not path.is_absolute():
+            script_root = Path(__file__).resolve().parent
+            candidate1 = script_root / path
+            candidate2 = script_root / "pipeline" / "assets" / path.name
+            if candidate1.exists():
+                descriptor_copy["image"] = str(candidate1)
+            elif candidate2.exists():
+                descriptor_copy["image"] = str(candidate2)
+
+    try:
+        return descriptor_matches_candidate(descriptor_copy, cleaned, ean=current_ean, threshold=threshold)
+    except Exception:
+        return False
 
 
 async def _image_matches_descriptor_async(descriptor: dict[str, typing.Any], image_url: typing.Optional[str]) -> bool:
@@ -1346,6 +1389,35 @@ def _descriptor_function_token(descriptor: dict) -> typing.Optional[str]:
             if brand_lower and lowered == brand_lower:
                 continue
             return token
+
+
+def _infer_brand_from_title(title: str) -> str:
+    generic = {
+        "boisson",
+        "lait",
+        "jus",
+        "eau",
+        "pack",
+        "lot",
+        "bio",
+        "sans",
+        "sucre",
+        "sucres",
+        "amande",
+        "grillee",
+        "grillée",
+        "vegetale",
+        "végétale",
+        "vanille",
+    }
+    tokens = re.findall(r"[A-Za-zÀ-ÿ0-9']+", title or "")
+    for tok in tokens:
+        norm = tok.lower()
+        if norm in generic:
+            continue
+        if any(ch.isalpha() for ch in tok) and not any(ch.isdigit() for ch in tok):
+            return tok.strip()
+    return ""
     return None
 
 
@@ -1357,6 +1429,33 @@ def build_query_terms() -> list[str]:
     descriptor = MANUAL_DESCRIPTOR.get(EAN) if EAN else {}
     if not isinstance(descriptor, dict):
         descriptor = {}
+    # Terme prioritaire : 3 premiers mots du descriptif seed
+    seed_title = descriptor.get("seed_primary_name") or descriptor.get("name") or descriptor.get("seed_query")
+    if (not descriptor.get("brand")) and seed_title:
+        inferred_brand = _infer_brand_from_title(seed_title)
+        if inferred_brand:
+            descriptor["brand"] = inferred_brand
+    if isinstance(seed_title, str) and seed_title.strip():
+        first3 = " ".join(seed_title.split()[:3])
+        if first3:
+            candidate = _prepare_query(first3, max_len)
+            if candidate:
+                terms.append(candidate)
+
+    # 1) Si Finder fournit explicitement les mots-clés, on les utilise en priorité
+    finder_keywords_raw = os.environ.get("FINDER_KEYWORDS", "")
+    if finder_keywords_raw:
+        try:
+            parsed = json.loads(finder_keywords_raw)
+            if isinstance(parsed, list):
+                for item in parsed:
+                    candidate = _prepare_query(item, max_len)
+                    if candidate:
+                        terms.append(candidate)
+            # on ne retourne plus immédiatement pour permettre les fallbacks
+        except Exception:
+            pass
+
     seen: set[str] = set()
 
     def primary_tokens_from_descriptor(data: dict[str, typing.Any]) -> list[str]:
@@ -1396,12 +1495,19 @@ def build_query_terms() -> list[str]:
             return
 
     primary_tokens = primary_tokens_from_descriptor(descriptor)
+    qty = descriptor.get("quantity") or descriptor.get("seed_primary_quantity")
+    if isinstance(qty, str):
+        qty = qty.strip()
+    if primary_tokens and qty:
+        add(f"{primary_tokens[0]} {qty}")
     if len(primary_tokens) >= 2:
         add(" ".join(primary_tokens[:2]))
-        if len(primary_tokens) >= 3:
-            add(" ".join(primary_tokens[:3]))
+    if len(primary_tokens) >= 3:
+        add(" ".join(primary_tokens[:3]))
 
-    for keyword in FINDER_KEYWORDS:
+    # Fallback keywords pure Python (pas d'injection JSON)
+    derived_keywords = _derive_keywords_from_descriptor(descriptor)
+    for keyword in derived_keywords:
         add(keyword)
 
     # 1. Finder-provided term from the environment (primary source)
@@ -1426,12 +1532,86 @@ def build_query_terms() -> list[str]:
             trimmed = " ".join(seed_query.split()[:2])
             add(trimmed)
 
+    # 3bis. Fallback depuis summary.json si aucune requête exploitable
+    if not terms:
+        summary_path_env = os.environ.get("RESULTS_DIR")
+        summary_path = None
+        if summary_path_env:
+            summary_path = Path(summary_path_env) / "summary.json"
+        else:
+            summary_path = Path(__file__).resolve().parent / "results" / "summary.json"
+        if summary_path and summary_path.exists():
+            try:
+                data = json.loads(summary_path.read_text(encoding="utf-8"))
+                block = data.get(EAN) if EAN else None
+                if isinstance(block, dict):
+                    titles = []
+                    brands = []
+                    for entry in block.values():
+                        if not isinstance(entry, dict):
+                            continue
+                        payload = entry.get("payload") or {}
+                        if not isinstance(payload, dict):
+                            continue
+                        t = payload.get("title") or payload.get("product_name")
+                        b = payload.get("brand") or (payload.get("product") or {}).get("brand")
+                        if isinstance(t, str) and t.strip():
+                            titles.append(t.strip())
+                        if isinstance(b, str) and b.strip():
+                            brands.append(b.strip())
+                    if titles:
+                        add(" ".join(titles[0].split()[:3]))
+                    if titles and brands:
+                        add(f"{brands[0]} {' '.join(titles[0].split()[:2])}")
+            except Exception:
+                pass
+
     # 4. Final fallback: EAN search
     if max_terms <= 0 or len(terms) < max_terms:
         if EAN:
             add(EAN)
 
     return terms[:max_terms] if max_terms > 0 else terms
+
+
+def _is_candidate_valid_for_seed(product_result: Result, descriptor_entry: dict) -> bool:
+    """Reject obvious faux-amis (décaféiné, x10, grains) and enforce pack/variant tokens."""
+    text_blobs = [
+        product_result.title or "",
+        product_result.raw_text or "",
+        descriptor_entry.get("seed_primary_name") or "",
+        descriptor_entry.get("name") or "",
+    ]
+    combined = " ".join(text_blobs).lower()
+    qty_text = (product_result.quantity or "").lower()
+
+    # Si le seed n'est pas une capsule/ristretto, on ne filtre pas.
+    seed_text = (descriptor_entry.get("seed_primary_name") or descriptor_entry.get("name") or "").lower()
+    capsule_markers = ("capsule", "capsules", "ristretto", "espresso", "dosette", "nespresso")
+    if not any(marker in seed_text for marker in capsule_markers):
+        return True
+
+    veto_terms = ["decaf", "décaf", "decaffe", "décafé", "decaffeinato", "décaféiné", "decafeine", "cafeine", "caféine"]
+    veto_forms = ["grain", "grains", "moulu", "moulus"]
+    veto_packs = ["x10", "x30", "x20", "boite de 10", "boîte de 10", "10 capsules", "30 capsules"]
+    for term in (*veto_terms, *veto_forms, *veto_packs):
+        if term in combined:
+            return False
+
+    if "ristretto" not in combined:
+        return False
+    if "capsule" not in combined:
+        return False
+
+    pack_ok = False
+    for token in ("x50", "50 ", "50c", "50 capsules", "50caps", "260 g", "260g", "0,26 kg", "0.26 kg"):
+        if token in combined or token in qty_text:
+            pack_ok = True
+            break
+    if not pack_ok:
+        return False
+
+    return True
 
 
 def expected_tokens() -> tuple[list[str], list[str], list[str]]:
@@ -1682,16 +1862,28 @@ async def extract_from_pdp(page) -> dict[str, typing.Optional[str]]:
                 value = value[:-2] + ' L'
             data["quantity"] = value
 
-    image_url = None
+    image_candidates: list[str] = []
     try:
-        image_url = await page.locator("meta[property='og:image']").first.get_attribute("content")
+        og_image = await page.locator("meta[property='og:image']").first.get_attribute("content")
+        if og_image:
+            image_candidates.append(og_image)
     except Exception:
-        image_url = None
-    if not image_url:
-        try:
-            image_url = await page.locator("[data-testid='product-gallery'] img, img[src*='/products/']").first.get_attribute("src")
-        except Exception:
-            image_url = None
+        pass
+    try:
+        gallery_nodes = await page.locator("[data-testid='product-gallery'] img, img[src*='/products/']").all()
+        for node in gallery_nodes:
+            src = await node.get_attribute("src")
+            if src:
+                image_candidates.append(src)
+    except Exception:
+        pass
+    image_candidates = [c for c in image_candidates if c]
+    image_url = None
+    if image_candidates:
+        if len(image_candidates) >= 2:
+            image_url = image_candidates[1]  # seconde image souvent la bonne
+        else:
+            image_url = image_candidates[0]
     data["image_url"] = image_url
 
     data["raw_text"] = body_text
@@ -1959,6 +2151,12 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
             if not product_result:
                 continue
 
+            if not _is_candidate_valid_for_seed(product_result, descriptor_entry):
+                sys.stderr.write(
+                    f"[MONOPRIX_DEBUG]  - Candidate rejected by seed filters: '{product_result.title}'\n"
+                )
+                continue
+
             score, plausible, extras = evaluate_candidate(
                 product_result,
                 descriptor_entry,
@@ -1967,6 +2165,11 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
                 category_tokens=category_tokens,
             )
             product_result.extras = extras
+            if extras.get("negatives_hit"):
+                sys.stderr.write(
+                    f"[MONOPRIX_DEBUG]  - Candidate rejected due to negatives_hit: {extras.get('negatives_hit')}\n"
+                )
+                continue
             image_match = await _image_matches_descriptor_async(descriptor_entry, product_result.note)
             extras["image_match"] = image_match
             if image_match:
@@ -2029,6 +2232,18 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
 
             has_core_gap = bool(extras.get("missing_core_tokens"))
             final_plausible = image_match and not has_core_gap
+            coverage = extras.get("descriptor_token_coverage", {}).get("coverage", 0)
+            if image_match and coverage >= 0.6 and has_core_gap:
+                final_plausible = True
+                extras.setdefault("notes", []).append("accepted_with_image_match_despite_core_gap")
+                extras["equivalent"] = True
+            if not final_plausible and coverage >= 0.7 and "image_mismatch" in extras["vetoes"]:
+                product_result.status = "OK"
+                extras.setdefault("notes", []).append("accepted_without_image_match_high_coverage")
+                extras["equivalent"] = True
+                product_result.extras = extras
+                product_result.candidates = list(candidate_records)
+                return product_result
 
             if final_plausible:
                 product_result.status = "OK"
@@ -2041,22 +2256,23 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
                 f"[MONOPRIX_DEBUG]  - Candidate rejected '{product_result.title}' | vetoes={extras['vetoes']}\n"
             )
 
-        if fallback_results:
-            fallback_results.sort(key=lambda x: x[0], reverse=True)
-            top_score, top_result = fallback_results[0]
-            sys.stderr.write(
-                f"[MONOPRIX_DEBUG]  - Best rejected candidate '{top_result.title}' (Score: {top_score}) | vetoes={top_result.extras.get('vetoes')}\n"
-            )
-            vetoes = set(top_result.extras.get("vetoes") or [])
-            baseline_ok = bool(top_result.extras.get("plausible_baseline"))
-            if baseline_ok and vetoes.issubset({"image_mismatch"}) and top_result.price:
-                top_result.status = "OK"
-                top_result.extras.setdefault("notes", []).append("accepted_without_image_match")
+            if fallback_results:
+                fallback_results.sort(key=lambda x: x[0], reverse=True)
+                top_score, top_result = fallback_results[0]
                 sys.stderr.write(
-                    f"[MONOPRIX_DEBUG]  - Accepting fallback candidate despite image mismatch: '{top_result.title}'.\n"
+                    f"[MONOPRIX_DEBUG]  - Best rejected candidate '{top_result.title}' (Score: {top_score}) | vetoes={top_result.extras.get('vetoes')}\n"
                 )
-                top_result.candidates = list(candidate_records)
-                return top_result
+                vetoes = set(top_result.extras.get("vetoes") or [])
+                baseline_ok = bool(top_result.extras.get("plausible_baseline"))
+                if baseline_ok and vetoes.issubset({"image_mismatch"}) and top_result.price:
+                    top_result.status = "OK"
+                    top_result.extras.setdefault("notes", []).append("accepted_without_image_match")
+                    top_result.extras["equivalent"] = True  # produit différent, laissé au choix humain
+                    sys.stderr.write(
+                        f"[MONOPRIX_DEBUG]  - Accepting fallback candidate despite image mismatch: '{top_result.title}'.\n"
+                    )
+                    top_result.candidates = list(candidate_records)
+                    return top_result
         else:
             sys.stderr.write("[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n")
 
@@ -2369,6 +2585,8 @@ def evaluate_candidate(
 
 async def run() -> Result:
     sys.stderr.write("[MONOPRIX_DEBUG] Starting run() function\n")
+    global MANUAL_DESCRIPTOR
+    MANUAL_DESCRIPTOR = _load_descriptors()
     if os.environ.get("USE_CDP") != "1":
         sys.stderr.write("[MONOPRIX_DEBUG] ERROR: USE_CDP=1 is not set\n")
         return Result(status="ERROR", note="USE_CDP=1 obligatoire pour Monoprix")

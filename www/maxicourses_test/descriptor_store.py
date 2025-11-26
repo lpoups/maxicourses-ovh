@@ -9,13 +9,11 @@ import threading
 from pathlib import Path
 from typing import Any, Dict, Optional, Set
 
-import importlib.util
 import pprint
 
 from seed_catalog import all_seeds, get_seed
 
 STATE_PATH = Path(__file__).resolve().parent / "state" / "descriptor_removed.txt"
-DYNAMIC_SEED_PATH = Path(__file__).resolve().parent / "dynamic_seed_catalog.py"
 MANUAL_DESCRIPTOR_PATH = Path(__file__).resolve().parent / "manual_descriptors.json"
 _REMOVED_CACHE: Optional[Set[str]] = None
 _LOCK = threading.Lock()
@@ -56,27 +54,12 @@ def _write_removed_set(items: Set[str]) -> None:
 
 
 def _load_dynamic_seeds() -> Dict[str, Dict[str, Any]]:
-    if not DYNAMIC_SEED_PATH.exists():
-        return {}
-    spec = importlib.util.spec_from_file_location("dynamic_seed_catalog", DYNAMIC_SEED_PATH)
-    if spec is None or spec.loader is None:
-        return {}
-    module = importlib.util.module_from_spec(spec)
-    try:
-        spec.loader.exec_module(module)  # type: ignore[attr-defined]
-    except Exception:
-        return {}
-    data = getattr(module, "DYNAMIC_SEEDS", {})
-    if not isinstance(data, dict):
-        return {}
-    return copy.deepcopy(data)
+    return {}
 
 
 def _write_dynamic_seeds(data: Dict[str, Dict[str, Any]]) -> None:
-    DYNAMIC_SEED_PATH.parent.mkdir(parents=True, exist_ok=True)
-    header = "# Auto-generated dynamic seeds. Do not edit manually.\nfrom __future__ import annotations\n\nDYNAMIC_SEEDS: dict[str, dict] = "
-    body = pprint.pformat(data, width=120, sort_dicts=True)
-    DYNAMIC_SEED_PATH.write_text(header + body + "\n", encoding="utf-8")
+    # Dynamic seeds disabled
+    return
 
 
 def _load_manual_descriptors() -> Dict[str, Dict[str, Any]]:
@@ -155,9 +138,5 @@ def removed_eans() -> Set[str]:
 
 
 def add_dynamic_seed_entry(entry: Dict[str, Any]) -> None:
-    key = _normalize_ean(entry.get("ean"))
-    if not key:
-        return
-    data = _load_dynamic_seeds()
-    data[key] = copy.deepcopy(entry)
-    _write_dynamic_seeds(data)
+    # Dynamic seeds disabled
+    return

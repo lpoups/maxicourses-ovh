@@ -39,6 +39,11 @@ Objectif : sécuriser l'extraction des prix pack + prix unitaire + descriptif po
 - Variables principales : `CASINO_STORE_CODE=TZ193`, `CASINO_STORE_SLUG=casino-shop-33130`, `CASINO_STORE_LABEL="Casino Shop · Bègles Pruniers"`. Adapter ces valeurs si un autre magasin est ciblé et mettre à jour le Handover.
 - Statut `NO_RESULTS` attendu quand aucune carte ne correspond aux tokens ; `NO_MATCH` si aucune PDP ne remonte l’EAN demandé.
 
+## Spar Super Saint-Médard
+- Même fetcher HTTP (`fetch_casino_price.py`) mais avec `CASINO_STORE_CODE=TL832`, `CASINO_STORE_SLUG="spar-33160"`, `CASINO_STORE_LABEL="Spar Super · Saint-Médard-en-Jalles"`.
+- Les requêtes Finder `queries['spar']` doivent rester courtes (marque + volume) pour limiter les lots « format promo ». On ne valide la fiche que lorsque le JSON-LD retourne le bon `gtin13`.
+- En cas d’absence de résultats, vérifier que la requête utilisée apparaît bien dans `seed_catalog.py` (sinon l’ajouter) et relancer le fetcher.
+
 ### Procédure de test
 1. Lancer `pipeline/run_pipeline.py --ean <EAN> --adapters <enseigne>` en `--headed` pour observer.
 2. Ajuster le script de l'enseigne (cookies, sélection magasin, selectors) jusqu'à statut `OK` with price + unit.

@@ -1,0 +1,211 @@
+{
+  "ean": "8711000705094",
+  "image_path": null,
+  "started_at": "2025-11-24T11:06:30.740581+01:00",
+  "finished_at": "2025-11-24T11:07:43.280678+01:00",
+  "duration_seconds": 72.540097,
+  "reference": {
+    "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "description": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "source": "unknown",
+    "brand": "Or",
+    "quantity": "50 L",
+    "categories": null,
+    "image": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-d.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "14,70",
+        "title": "Capsules de café compatibles  Nespresso Ristretto Intensité 11",
+        "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-rist retto-intensite-11/8711000705094",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "8711000705094",
+        "unit_price": "59,33 € / KG",
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-forz a-intensite-9/8711000705032",
+            "product": {
+              "title": "L'OrCapsules de café compatibles Nespresso Forza Intensité 9",
+              "brand": "L'OrCapsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000705032",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-deli zioso-intensite-5/8711000705001",
+            "product": {
+              "title": "L'OrCapsules de café compatibles Nespresso Delizioso Intensité 5",
+              "brand": "L'OrCapsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000705001",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-rist retto-intensite-11/8711000705094",
+            "product": {
+              "title": "L'OrCapsules de café compatibles Nespresso Ristretto  Intensité 11",
+              "brand": "L'OrCapsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000705094",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": null
+      },
+      "started_at": "2025-11-24T11:06:31.394065+01:00",
+      "finished_at": "2025-11-24T11:07:43.046376+01:00",
+      "duration_seconds": 71.652311,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "Or nespresso 50 L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Or nespresso 50 L"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+      "brand": "Or",
+      "kind": "",
+      "qty": "50 L",
+      "qualifiers": [],
+      "ean": "8711000705094",
+      "image_url": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+      "source": "consolidated",
+      "raw_text": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Or nespresso 50 L",
+      "Or nespresso 50.00 L",
+      "Or nespresso 50,00 L",
+      "Or nespresso 5000 CL"
+    ],
+    "candidates": [
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-rist retto-intensite-11/8711000705094",
+        "score": 1.0,
+        "product": {
+          "title": "L'OrCapsules de café compatibles Nespresso Ristretto  Intensité 11",
+          "brand": "L'OrCapsules",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-forz a-intensite-9/8711000705032",
+        "score": 0.0,
+        "product": {
+          "title": "L'OrCapsules de café compatibles Nespresso Forza Intensité 9",
+          "brand": "L'OrCapsules",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000705032",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-deli zioso-intensite-5/8711000705001",
+        "score": 0.0,
+        "product": {
+          "title": "L'OrCapsules de café compatibles Nespresso Delizioso Intensité 5",
+          "brand": "L'OrCapsules",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000705001",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      }
+    ],
+    "decision": {
+      "adapter": "intermarche",
+      "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-rist retto-intensite-11/8711000705094",
+      "score": 1.0,
+      "product": {
+        "title": "L'OrCapsules de café compatibles Nespresso Ristretto  Intensité 11",
+        "brand": "L'OrCapsules",
+        "kind": "",
+        "qty": "",
+        "qualifiers": [],
+        "ean": "8711000705094",
+        "image_url": null,
+        "source": "intermarche",
+        "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:",
+        "seed_query": "",
+        "leclerc_queries": []
+      }
+    },
+    "audit": []
+  }
+}

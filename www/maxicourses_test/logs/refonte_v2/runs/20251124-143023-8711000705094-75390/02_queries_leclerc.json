@@ -1,0 +1,39 @@
+{
+  "timestamp": "2025-11-24T14:30:25.450830+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "L'OR L'OR 50CAPSULES L'OR café",
+      "L'OR capsules ristretto 50",
+      "L'OR café ristretto 50",
+      "L'OR ristretto intensite 11",
+      "L'OR capsules nespresso 50"
+    ],
+    "secondary_keywords": [
+      "l",
+      "or",
+      "café",
+      "capsules",
+      "ristretto",
+      "intensité",
+      "11",
+      "compatible",
+      "nespresso",
+      "50capsules",
+      "50"
+    ],
+    "category": "generic",
+    "raw": {
+      "queries": [
+        "LOR capsules ristretto 50",
+        "LOR café ristretto 50",
+        "LOR ristretto intensite 11",
+        "LOR capsules nespresso 50",
+        "LOR espresso ristretto 50"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"ean\": \"8711000705094\",\n    \"brand\": \"L'OR\",\n    \"name\": \"Café capsules ristretto intensité 11 compatibles Nespresso\",\n    \"quantity\": \"50 capsules (≈260 g)\",\n    \"description\": \"Capsules de café ristretto L'OR Espresso, intensité 11, compatibles avec les machines Nespresso (hors Vertuo). Conditionnement x50, café moulu en capsules aluminium.\",\n    \"categories\": [\n      \"Boissons\",\n      \"Café\",\n      \"Capsules compatibles Nespresso\",\n      \"Café ristretto\"\n    ],\n    \"nutriscore_grade\": \"c\",\n    \"image\": \"https://cdn.auchan.fr/media/S010000000406DZPRIMARY_1200x1200/B2CD/\"\n  },\n  \"descriptor\": {\n    \"ean\": \"8711000705094\",\n    \"brand\": \"L'Or\",\n    \"image\": \"https://cdn.auchan.fr/media/S010000000406DZPRIMARY_1200x1200/B2CD/\",\n    \"leclerc_queries\": [\n      \"L'Or Café 50 CAPSULES\",\n      \"L'Or Café Capsules 50 CAPSULES\",\n      \"L'Or 50 CAPSULES\",\n      \"Café Capsules 50 CAPSULES\"\n    ],\n    \"leclerc_query\": \"L'Or Café 50 CAPSULES\",\n    \"name\": \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\",\n    \"primary_keywords\": [\n      \"L'OR L'OR 50CAPSULES L'OR café\",\n      \"L'OR café ristretto 50\",\n      \"L'OR capsules ristretto 50\",\n      \"L'OR espresso ristretto 50\",\n      \"L'OR café Nespresso 50\"\n    ],\n    \"quantity\": \"50 L\",\n    \"seed_primary_name\": \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\",\n    \"seed_primary_quantity\": \"50 capsules\",\n    \"seed_query\": \"L'Or Café Capsules Ristretto Intensité Compatible Nespresso\",\n    \"source\": \"carrefour_super\",\n    \"note\": \"Collecte seed via carrefour_market\",\n    \"removed\": false,\n    \"description\": \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\",\n    \"nutriscore_grade\": \"d\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-d.svg\",\n    \"ai_profile\": {\n      \"ean\": \"8711000705094\",\n      \"brand\": \"L'OR\",\n      \"name\": \"Café capsules ristretto intensité 11 compatibles Nespresso\",\n      \"quantity\": \"50 capsules (≈260 g)\",\n      \"description\": \"Capsules de café ristretto L'OR Espresso, intensité 11, compatibles avec les machines Nespresso (hors Vertuo). Conditionnement x50, café moulu en capsules aluminium.\",\n      \"categories\": [\n        \"Boissons\",\n        \"Café\",\n        \"Capsules compatibles Nespresso\",\n        \"Café ristretto\"\n      ],\n      \"nutriscore_grade\": \"c\",\n      \"image\": \"https://cdn.auchan.fr/media/S010000000406DZPRIMARY_1200x1200/B2CD/\"\n    },\n    \"ai_keywords\": [\n      \"L'OR café ristretto 50\",\n      \"L'OR capsules ristretto 50\",\n      \"L'OR espresso ristretto 50\",\n      \"L'OR café Nespresso 50\",\n      \"L'OR capsules café 260g\",\n      \"L'OR ristretto intensité 11\"\n    ],\n    \"secondary_keywords\": [\n      \"l\",\n      \"or\",\n      \"café\",\n      \"capsules\",\n      \"ristretto\",\n      \"intensité\",\n      \"11\",\n      \"compatible\",\n      \"nespresso\",\n      \"50capsules\",\n      \"50\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-11-24T14:30:23.313854+01:00\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CfQw34l4gd5beybn6TPq6MGOPQWYv\", \"object\": \"chat.completion\", \"created\": 1763991023, \"model\": \"gpt-5.1-2025-11-13\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\\"queries\\\":[\\\"LOR capsules ristretto 50\\\",\\\"LOR café ristretto 50\\\",\\\"LOR ristretto intensite 11\\\",\\\"LOR capsules nespresso 50\\\",\\\"LOR espresso ristretto 50\\\"]}\", \"refusal\": null, \"annotations\": []}, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1038, \"completion_tokens\": 54, \"total_tokens\": 1092, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": null}"
+}

@@ -76,6 +76,11 @@
         "Hipro fraise framboise",
         "Hipro framboise",
         "Hipro yaourt"
+      ],
+      "casino": [
+        "hipro fraise",
+        "hipro boisson 300g",
+        "hipro yaourt boire"
       ]
     },
     "courseu_url": "https://www.coursesu.com/p/yaourt-a-boire-fraise-framboise-proteine-0mg-hipro---300g/3722232.html",
@@ -196,6 +201,11 @@
       "monoprix": [
         "lune de miel",
         "lune de miel fleurs"
+      ],
+      "casino": [
+        "miel lune de miel 500g",
+        "miel fleurs 500g",
+        "miel squeeze 500g"
       ]
     },
     "removed": false,
@@ -209,6 +219,48 @@
     "seed_primary_quantity": "500 G",
     "seed_query": "Miel fleurs liquide LUNE 500 g",
     "source": "courseu"
+  },
+  "3092718637033": {
+    "auchan_url": "https://www.auchan.fr/teisseire-sirop-de-menthe/pr-C1628583",
+    "brand": "Teisseire",
+    "canonical": {
+      "brand": "Teisseire",
+      "ean": "3092718637033",
+      "features": [],
+      "flavor_color": "menthe",
+      "form": "sirop",
+      "images": [
+        "https://cdn.auchan.fr/media/S01000000028624PRIMARY_1200x1200/B2CD/"
+      ],
+      "line": null,
+      "name_core": "Sirop menthe verte",
+      "normalized_signature": "3092718637033 teisseire sirop menthe verte 0.6l",
+      "pack_count": null,
+      "size_unit": "l",
+      "size_value": 0.6,
+      "variant": "verte"
+    },
+    "description": "Sirop menthe verte TEISSEIRE – 60 CL",
+    "ean": "3092718637033",
+    "image": "./assets/3092718637033.jpg",
+    "leclerc_queries": [
+      "Sirop Menthe 60 CL",
+      "Teisseire Menthe 60 CL",
+      "Sirop Menthe Teisseire 60 CL",
+      "Menthe Teisseire 60 CL",
+      "3092718637033"
+    ],
+    "leclerc_query": "Sirop Menthe 60 CL",
+    "name": "Sirop menthe verte TEISSEIRE – 60 CL",
+    "primary_keywords": [
+      "Sirop Menthe 60 CL"
+    ],
+    "quantity": "60 CL",
+    "seed_primary_name": "Sirop menthe verte TEISSEIRE",
+    "seed_primary_quantity": "60 CL",
+    "seed_query": "Sirop Menthe 60 CL",
+    "source": "carrefour",
+    "removed": false
   },
   "3124480200433": {
     "auchan_slug": "auchan-drive-supermarche-talence-gallieni",
@@ -302,6 +354,11 @@
       ],
       "monoprix": [
         "Orangina 1.5L"
+      ],
+      "casino": [
+        "orangina 1.5l",
+        "orangina soda 1,5 l",
+        "orangina pulpe 1.5"
       ]
     },
     "removed": false,
@@ -361,13 +418,7 @@
     "image": "./assets/3665468000312.jpg",
     "leclerc_queries": [
       "Destop 950 ML",
-      "Destop Déboucheur 950 ML",
-      "Destop Déboucheur Liquide 950 ML",
-      "Déboucheur Liquide 950 ML",
-      "Destop Liquide 950 ML",
-      "Destop Déboucheur liquide flacon 950 ml",
-      "Déboucheur Liquide Multi-Usages DESTOP",
-      "Déboucheur liquide destop flacon 950ml",
+      "Déboucheur liquide Destop 950 ml",
       "3665468000312"
     ],
     "leclerc_query": "Destop 950 ML",
@@ -379,6 +430,18 @@
       "Destop 950 ML"
     ],
     "quantity": "950 ml",
+    "queries": {
+      "monoprix": [
+        "Destop déboucheur 950 ml",
+        "Destop liquide 950 ml",
+        "Destop deboucheur"
+      ],
+      "casino": [
+        "destop 950 ml",
+        "destop deboucheur 950",
+        "deboucheur liquide destop"
+      ]
+    },
     "removed": false,
     "secondary_keywords": [
       "Liquide",
@@ -391,6 +454,80 @@
     "seed_primary_quantity": "950 ML",
     "seed_query": "Destop Déboucheur liquide flacon 950 ml",
     "source": "courseu"
+  },
+  "3174660031913": {
+    "brand": "Béghin Say",
+    "description": "Sucre en poudre extra fin Béghin Say 1 kg",
+    "ean": "3174660031913",
+    "image": "https://cdn.auchan.fr/media/A0219970930000360781PRIMARY_1200x1200/B2CD/",
+    "leclerc_queries": [
+      "Beghin Say 1 KG",
+      "Beghin Say Sucre 1 KG",
+      "Beghin Say Sucre Poudre 1 KG",
+      "Sucre Poudre 1 KG",
+      "Sucre Poudre Extra Fin Béghin Say",
+      "3174660031913"
+    ],
+    "leclerc_query": "Beghin Say 1 KG",
+    "name": "Sucre en poudre extra fin Béghin Say 1 kg",
+    "nutriscore_grade": "e",
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
+    "primary_keywords": [
+      "Beghin Say 1 KG"
+    ],
+    "quantity": "1 KG",
+    "seed_primary_name": "Sucre poudre extra fin Béghin Say",
+    "seed_primary_quantity": "1 KG",
+    "seed_query": "Beghin Say sucre poudre extra fin 1 kg",
+    "source": "carrefour_market",
+    "removed": false
+  },
+  "3665468000329": {
+    "brand": "Destop",
+    "description": "Déboucheur express gel multi-usages Destop 950ml",
+    "ean": "3665468000329",
+    "image": "./assets/3665468000329.jpg",
+    "leclerc_queries": [
+      "Destop gel 950 ML",
+      "Destop Express 950 ML",
+      "Destop Déboucheur gel 950 ML",
+      "Déboucheur gel 950 ML",
+      "Destop gel multi usages",
+      "3665468000329"
+    ],
+    "leclerc_query": "Destop gel 950 ML",
+    "name": "Déboucheur express gel multi-usages Destop 950ml",
+    "note": "2025-11-14T12:15:00Z · Carrefour seed",
+    "nutriscore_grade": "unknown",
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "primary_keywords": [
+      "Destop gel 950 ML"
+    ],
+    "quantity": "950 ml",
+    "queries": {
+      "monoprix": [
+        "Destop express 950 ml",
+        "Destop deboucheur gel 950 ml",
+        "Destop gel multi usages"
+      ],
+      "casino": [
+        "destop gel 950 ml",
+        "destop express 950",
+        "deboucheur gel destop"
+      ]
+    },
+    "removed": false,
+    "secondary_keywords": [
+      "Gel",
+      "Express",
+      "Multi",
+      "Usages",
+      "950 ML"
+    ],
+    "seed_primary_name": "Déboucheur Express Gel Multi-Usages DESTOP",
+    "seed_primary_quantity": "950 ML",
+    "seed_query": "Destop gel express 950 ml",
+    "source": "carrefour_market"
   },
   "3665468402529": {
     "ean": "3665468402529",
@@ -531,6 +668,11 @@
         "coca-cola 175cl",
         "coca-cola extraits 1,75l",
         "coca-cola extraits 175cl"
+      ],
+      "casino": [
+        "coca cola 1,75l",
+        "coca cola original 1.75",
+        "soda coca 1,75l"
       ]
     },
     "removed": false,
@@ -628,6 +770,11 @@
       "monoprix": [
         "Alpro fraise",
         "Alpro dessert"
+      ],
+      "casino": [
+        "alpro fraise 500g",
+        "dessert vegetal fraise",
+        "alpro dessert 500g"
       ]
     },
     "removed": false,
@@ -685,6 +832,11 @@
       "monoprix": [
         "Alpro amande",
         "Dessert amande Alpro"
+      ],
+      "casino": [
+        "alpro amande 500g",
+        "alpro dessert amande",
+        "dessert vegetal amande"
       ]
     },
     "removed": false,
@@ -828,6 +980,11 @@
       "monoprix": [
         "savora moutarde",
         "savora moutarde 385g"
+      ],
+      "casino": [
+        "savora 385g",
+        "moutarde savora",
+        "savora aromates"
       ]
     },
     "removed": false,
@@ -842,32 +999,5 @@
     "seed_primary_quantity": "385 G",
     "seed_query": "Savora Moutarde aromates g 385 g",
     "source": "chronodrive"
-  },
-  "5411188119098": {
-    "brand": "Alpro",
-    "description": "Dessert végétal soja nature à la noix de coco ALPRO",
-    "ean": "5411188119098",
-    "image": "https://media.carrefour.fr/media/referential/media/d534d5010ea842138387e4c7910b 6b3e/05411188119098_H1N1_s14.png",
-    "leclerc_queries": [
-      "Alpro 500 G",
-      "Alpro Dessert 500 G",
-      "Alpro Dessert végétal 500 G",
-      "Dessert végétal 500 G",
-      "Alpro végétal 500 G",
-      "Alpro Dessert végétal soja nature noix coco 500 G",
-      "Dessert végétal soja nature à la noix de coco ALPRO",
-      "5411188119098"
-    ],
-    "leclerc_query": "Alpro 500 G",
-    "name": "Dessert végétal soja nature à la noix de coco ALPRO",
-    "note": "Collecte seed via carrefour_market",
-    "nutriscore_grade": "e",
-    "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltfca4e212b35 0ee05/nutriscore-a",
-    "quantity": "500 G",
-    "removed": false,
-    "seed_primary_name": "Dessert végétal soja nature à la noix de coco ALPRO",
-    "seed_primary_quantity": "500 G",
-    "seed_query": "Alpro Dessert végétal soja nature noix coco 500 G",
-    "source": "unknown"
   }
 }

@@ -34,6 +34,7 @@ OPENFOODFACTS_ENDPOINT = "https://world.openfoodfacts.org/api/v2/product/{ean}.j
 OFF_TIMEOUT_SECONDS = 10
 EAN_REQUIRED_LENGTH = 13
 UPLOADS_DIR = ROOT.parent / "uploads_ean"
+PIPELINE_TIMEOUT_SECONDS = int(os.getenv("PIPELINE_TIMEOUT_SECONDS", "900"))
 
 STOPWORDS = {
     "a",
@@ -367,7 +368,9 @@ def run_pipeline_collect(
         cmd.extend(["--proxy", proxy])
 
     env = os.environ.copy()
-    env.setdefault("USE_CDP", "1")
+    env["USE_CDP"] = "1"
+    env["LECLERC_MAX_DURATION_S"] = "45"
+    env["LECLERC_FAST_MODE"] = "1"
     if extra_env:
         env.update(extra_env)
 
@@ -377,7 +380,7 @@ def run_pipeline_collect(
         env=env,
         capture_output=True,
         text=True,
-        timeout=60 * 8,
+        timeout=PIPELINE_TIMEOUT_SECONDS,
     )
     return proc
 
@@ -502,6 +505,8 @@ def api_collect():
             "chronodrive",
             "courseu",
             "g20",
+            "casino",
+            "spar",
             "intermarche",
             "leclerc",
             "monoprix",
@@ -522,8 +527,6 @@ def api_collect():
             "uploaded_image_path": str(stored_path) if stored_path else None,
         }
         return jsonify(response_payload)
-
-    purge_results(ean)
 
     proc = run_pipeline_collect(
         ean=ean,

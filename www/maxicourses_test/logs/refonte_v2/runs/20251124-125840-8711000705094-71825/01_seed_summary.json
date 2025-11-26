@@ -1,0 +1,68 @@
+{
+  "timestamp": "2025-11-24T12:58:40.292090+01:00",
+  "status": "ok",
+  "data": {
+    "profile": {
+      "ean": "8711000705094",
+      "brand": "L'OR",
+      "name": "Capsules de café Ristretto n°11 compatibles Nespresso",
+      "quantity": "50 capsules",
+      "category": "Café / Capsules compatibles Nespresso",
+      "description": "Capsules de café Ristretto L'OR Espresso, intensité 11, compatibles avec les machines Nespresso (hors Vertuo). Étui de 50 capsules.",
+      "nutriscore_grade": "E",
+      "image_url": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087d53d/08711000705094_H1N1_s09.png"
+    },
+    "keywords": [
+      "L'OR café ristretto 50",
+      "L'OR capsules ristretto 50",
+      "L'OR espresso ristretto 50",
+      "L'OR café nespresso 50",
+      "L'OR capsules café 50",
+      "L'OR ristretto intensité 11"
+    ],
+    "primary_keywords": [
+      "L'OR L'OR 50CAPSULES L'OR café",
+      "L'OR café ristretto 50",
+      "L'OR capsules ristretto 50",
+      "L'OR espresso ristretto 50",
+      "L'OR café nespresso 50"
+    ],
+    "secondary_keywords": [
+      "l",
+      "or",
+      "café",
+      "capsules",
+      "ristretto",
+      "intensité",
+      "11",
+      "compatible",
+      "nespresso",
+      "50capsules",
+      "50"
+    ],
+    "category": "generic",
+    "raw": {
+      "profile": {
+        "ean": "8711000705094",
+        "brand": "L'OR",
+        "name": "Capsules de café Ristretto n°11 compatibles Nespresso",
+        "quantity": "50 capsules",
+        "category": "Café / Capsules compatibles Nespresso",
+        "description": "Capsules de café Ristretto L'OR Espresso, intensité 11, compatibles avec les machines Nespresso (hors Vertuo). Étui de 50 capsules.",
+        "nutriscore_grade": "E",
+        "image_url": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087d53d/08711000705094_H1N1_s09.png"
+      },
+      "keywords": [
+        "L'OR café ristretto 50",
+        "L'OR capsules ristretto 50",
+        "L'OR espresso ristretto 50",
+        "L'OR café nespresso 50",
+        "L'OR capsules café 50",
+        "L'OR ristretto intensité 11"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"seeds\": [\n    {\n      \"adapter\": \"carrefour_market\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"15,29\",\n        \"store\": \"Market Fondaudège\",\n        \"url\": \"https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000705094\",\n        \"note\": null,\n        \"unit_price\": \"58,81 € / KG\",\n        \"quantity\": \"50 L\",\n        \"title\": \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\",\n        \"matched_ean\": \"8711000705094\",\n        \"image\": \"https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png\",\n        \"nutriscore_grade\": \"d\",\n        \"nutriscore_image\": \"https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg\",\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\",\n          \"brand\": \"Café\",\n          \"kind\": \"\",\n          \"qty\": \"50 L\",\n          \"qualifiers\": [],\n          \"ean\": \"8711000705094\",\n          \"image_url\": \"https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png\",\n          \"source\": \"carrefour_market\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"8711000705094\"\n      }\n    },\n    {\n      \"adapter\": \"carrefour_super\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"14,59\",\n        \"store\": \"Lormont\",\n        \"url\": \"https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000705094\",\n        \"note\": null,\n        \"unit_price\": \"56,12 € / KG\",\n        \"quantity\": \"50 L\",\n        \"title\": \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\",\n        \"matched_ean\": \"8711000705094\",\n        \"image\": \"https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png\",\n        \"nutriscore_grade\": \"d\",\n        \"nutriscore_image\": \"https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg\",\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\",\n          \"brand\": \"Café\",\n          \"kind\": \"\",\n          \"qty\": \"50 L\",\n          \"qualifiers\": [],\n          \"ean\": \"8711000705094\",\n          \"image_url\": \"https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png\",\n          \"source\": \"carrefour_super\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"8711000705094\"\n      }\n    },\n    {\n      \"adapter\": \"auchan\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"16,09\",\n        \"unit_price\": null,\n        \"quantity\": null,\n        \"title\": \"Capsules de café ristretto intensité 11 compatibles Nespresso\",\n        \"url\": \"https://www.auchan.fr/l-or-espresso-capsules-de-cafe-ristretto-intensite-11-com patibles-nespresso/pr-C1676041\",\n        \"matched_ean\": \"8711000705094\",\n        \"store\": \"Auchan Drive Supermarché Talence-Gallieni\",\n        \"note\": \"Auchan Talence\",\n        \"image\": null,\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Capsules de café ristretto intensité 11 compatibles Nespresso\",\n          \"brand\": \"Capsules\",\n          \"kind\": \"\",\n          \"qty\": \"\",\n          \"qualifiers\": [],\n          \"ean\": \"8711000705094\",\n          \"image_url\": null,\n          \"source\": \"auchan\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"8711000705094\"\n      }\n    },\n    {\n      \"adapter\": \"chronodrive\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"15,55\",\n        \"title\": \"Capsules de café ristretto N°11  L'OR Espresso\",\n        \"url\": \"https://www.chronodrive.com/lor--espresso---capsules-de-cafe-ristretto-n11-P524 548\",\n        \"note\": \"Chronodrive Le Haillan\",\n        \"unit_price\": \"59,81 € / KG\",\n        \"quantity\": \"50 capsules\",\n        \"store\": \"Chronodrive Le Haillan\",\n        \"matched_ean\": \"8711000705094\",\n        \"nutriscore_grade\": \"e\",\n        \"nutriscore_image\": null,\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Capsules de café ristretto N°11  L'OR Espresso\",\n          \"brand\": \"Capsules\",\n          \"kind\": \"\",\n          \"qty\": \"50 capsules\",\n          \"qualifiers\": [],\n          \"ean\": \"8711000705094\",\n          \"image_url\": null,\n          \"source\": \"chronodrive\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"8711000705094\"\n      }\n    }\n  ],\n  \"context\": {\n    \"descriptor\": {\n      \"ean\": \"8711000705094\",\n      \"source\": \"carrefour_super\",\n      \"note\": \"Collecte seed via carrefour_market\",\n      \"removed\": false,\n      \"seed_query\": \"Café Capsules Ristretto Intensité Compatible Nespresso L'OR\",\n      \"name\": \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\",\n      \"quantity\": \"50 L\",\n      \"image\": \"https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png\",\n      \"description\": \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\",\n      \"brand\": \"Or\",\n      \"nutriscore_grade\": \"e\",\n      \"nutriscore_image\": \"https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg\",\n      \"leclerc_query\": \"Or Café 50 L\",\n      \"leclerc_queries\": [\n        \"Or Café 50 L\",\n        \"Or Café Capsules 50 L\",\n        \"Or 50 L\",\n        \"Café Capsules 50 L\"\n      ],\n      \"seed_primary_name\": \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\",\n      \"seed_primary_quantity\": \"50 L\"\n    },\n    \"ean\": \"8711000705094\"\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CfPVGFjOXK1nXoPNPuMYZp0DvorKf\", \"object\": \"chat.completion\", \"created\": 1763985518, \"model\": \"gpt-5.1-2025-11-13\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"profile\\\": {\\n    \\\"ean\\\": \\\"8711000705094\\\",\\n    \\\"brand\\\": \\\"L'OR\\\",\\n    \\\"name\\\": \\\"Capsules de café Ristretto n°11 compatibles Nespresso\\\",\\n    \\\"quantity\\\": \\\"50 capsules\\\",\\n    \\\"category\\\": \\\"Café / Capsules compatibles Nespresso\\\",\\n    \\\"description\\\": \\\"Capsules de café Ristretto L'OR Espresso, intensité 11, compatibles avec les machines Nespresso (hors Vertuo). Étui de 50 capsules.\\\",\\n    \\\"nutriscore_grade\\\": \\\"E\\\",\\n    \\\"image_url\\\": \\\"https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087d53d/08711000705094_H1N1_s09.png\\\"\\n  },\\n  \\\"keywords\\\": [\\n    \\\"L'OR café ristretto 50\\\",\\n    \\\"L'OR capsules ristretto 50\\\",\\n    \\\"L'OR espresso ristretto 50\\\",\\n    \\\"L'OR café nespresso 50\\\",\\n    \\\"L'OR capsules café 50\\\",\\n    \\\"L'OR ristretto intensité 11\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1842, \"completion_tokens\": 248, \"total_tokens\": 2090, \"prompt_tokens_details\": {\"cached_tokens\": 1408, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": null}"
+}

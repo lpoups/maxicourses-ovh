@@ -1,0 +1,63 @@
+{
+  "ean": "5411188110835",
+  "image_path": "./assets/5411188110835.jpg",
+  "started_at": "2025-11-25T17:16:40.113970+01:00",
+  "finished_at": "2025-11-25T17:16:40.113970+01:00",
+  "duration_seconds": 0.0,
+  "reference": {
+    "title": "Boisson végétale amande grillée ALPRO",
+    "description": null,
+    "source": "carrefour",
+    "brand": "Alpro",
+    "quantity": "1 L",
+    "categories": null,
+    "image": "./assets/5411188110835.jpg",
+    "nutriscore_grade": null,
+    "nutriscore_score": null,
+    "nutriscore_image": null,
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "leclerc",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "title": "Boisson végétale amande grillée ALPRO",
+        "price": null,
+        "unit_price": null,
+        "quantity": "1 L",
+        "url": null,
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-25T16:16:40+00:00Z · Produit absent (seulement avoine/soja/coco)",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "difference_note": "Produit introuvable sur ce drive (seulement avoine/soja/coco)",
+        "candidates": []
+      },
+      "started_at": "2025-11-25T17:16:40.113970+01:00",
+      "finished_at": "2025-11-25T17:16:40.113970+01:00",
+      "duration_seconds": 0.0,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/manual_ingest",
+      "command": [
+        "manual_ingest"
+      ],
+      "env": {
+        "EAN": "5411188110835"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "auto_ingest": true
+      }
+    }
+  ],
+  "finder": null
+}

@@ -1,0 +1,714 @@
+{
+  "ean": "5411188110835",
+  "image_path": null,
+  "started_at": "2025-11-26T14:08:03.896439+01:00",
+  "finished_at": "2025-11-26T14:08:08.986726+01:00",
+  "duration_seconds": 5.090287,
+  "reference": {
+    "title": "Boisson végétale amande grillée ALPRO 1 L",
+    "description": null,
+    "source": "carrefour",
+    "brand": "Alpro",
+    "quantity": "1 L",
+    "categories": null,
+    "image": "./assets/5411188110835.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188110835/debug/run-5411188110835-20251126-140803"
+  ],
+  "adapters": [
+    {
+      "adapter": "leclerc",
+      "status": "ERROR",
+      "payload": {
+        "status": "ERROR",
+        "error": "no_leclerc_tab",
+        "message": "Ouvrez un onglet Leclerc dans Chrome (9222) avant de lancer la collecte.",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-26T14:08:04.749694+01:00",
+      "finished_at": "2025-11-26T14:08:05.465495+01:00",
+      "duration_seconds": 0.715801,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "Alpro Boisson 1 L",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:50ms pdp:50ms type:[5,18] query:'Alpro Boisson 1 L'",
+      "metadata": {
+        "attempt_query": "Alpro Boisson 1 L",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188110835/debug/run-5411188110835-20251126-140803/01-leclerc"
+      }
+    },
+    {
+      "adapter": "carrefour_city",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,80",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/boisson-vegetale-amande-grillee-alpro-5411188110835",
+        "note": null,
+        "unit_price": "2,76 € / L",
+        "quantity": "1 L",
+        "title": "Boisson Végétale Amande Grillée ALPRO",
+        "matched_ean": "5411188110835",
+        "image": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cb aa48/05411188110835_H1N1_s28.png",
+        "nutriscore_grade": "b",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson Végétale Amande Grillée ALPRO",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1 L",
+          "qualifiers": [],
+          "ean": "5411188110835",
+          "image_url": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cb aa48/05411188110835_H1N1_s28.png",
+          "source": "carrefour_city",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-25T20:16:26.195365+01:00",
+      "finished_at": "2025-11-25T20:16:50.260667+01:00",
+      "duration_seconds": 24.065302,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "5411188110835",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188110835"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,39",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/boisson-vegetale-amande-grillee-alpro-5411188110835",
+        "note": null,
+        "unit_price": "2,36 € / L",
+        "quantity": "1 L",
+        "title": "Boisson Végétale Amande Grillée ALPRO",
+        "matched_ean": "5411188110835",
+        "image": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cb aa48/05411188110835_H1N1_s28.png",
+        "nutriscore_grade": "b",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson Végétale Amande Grillée ALPRO",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1 L",
+          "qualifiers": [],
+          "ean": "5411188110835",
+          "image_url": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cb aa48/05411188110835_H1N1_s28.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-25T20:16:50.264457+01:00",
+      "finished_at": "2025-11-25T20:17:15.535622+01:00",
+      "duration_seconds": 25.271165,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "5411188110835",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188110835"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,19",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/boisson-vegetale-amande-grillee-alpro-5411188110835",
+        "note": null,
+        "unit_price": "2,16 € / L",
+        "quantity": "1 L",
+        "title": "Boisson Végétale Amande Grillée ALPRO",
+        "matched_ean": "5411188110835",
+        "image": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cb aa48/05411188110835_H1N1_s28.png",
+        "nutriscore_grade": "b",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson Végétale Amande Grillée ALPRO",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1 L",
+          "qualifiers": [],
+          "ean": "5411188110835",
+          "image_url": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cb aa48/05411188110835_H1N1_s28.png",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-25T20:17:15.538196+01:00",
+      "finished_at": "2025-11-25T20:17:36.695732+01:00",
+      "duration_seconds": 21.157536,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "5411188110835",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188110835"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,47",
+        "unit_price": "2,47 € / L",
+        "quantity": "1 L",
+        "title": "Boisson végétale à l'amande grillée de Méditerranée",
+        "url": "https://www.auchan.fr/alpro-boisson-vegetale-a-l-amande-grillee-de-mediterranee /pr-C1174752",
+        "matched_ean": "5411188110835",
+        "store": "Auchan Drive  Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/A0220150715000861311PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson végétale à l'amande grillée de Méditerranée",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1 L",
+          "qualifiers": [],
+          "ean": "5411188110835",
+          "image_url": "https://cdn.auchan.fr/media/A0220150715000861311PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-25T20:17:36.698949+01:00",
+      "finished_at": "2025-11-25T20:17:50.865034+01:00",
+      "duration_seconds": 14.166085,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "5411188110835",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results visible, opening first candidate",
+      "metadata": {
+        "attempt_query": "5411188110835"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,39",
+        "title": "Boisson végétale au lait d'amande  grillée ALPRO",
+        "url": "https://www.chronodrive.com/alpro--boisson-vegetale-au-lait-damande-grillee-P18 9149",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "2,39 € / L",
+        "quantity": "1 L",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "5411188110835",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt54b93afee7e e77aa/nutriscore-b",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson végétale au lait d'amande  grillée ALPRO",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1 L",
+          "qualifiers": [],
+          "ean": "5411188110835",
+          "image_url": "./assets/5411188110835.jpg",
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-25T20:17:50.866445+01:00",
+      "finished_at": "2025-11-25T20:17:58.921443+01:00",
+      "duration_seconds": 8.054998,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "5411188110835",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='5411188110835'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/alpro--boisson-vegetale-au-lait-damande-grillee-P189149",
+      "metadata": {
+        "attempt_query": "5411188110835"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,25",
+        "unit_price": "2,25 € / L",
+        "quantity": "1 l",
+        "title": "Boisson végétale lait d'amande grillée ALPRO -brique 1l",
+        "url": "https://www.coursesu.com/p/boisson-vegetale-lait-damande-grillee-alpro--brique- 1l/6153828.html",
+        "note": "2025-11-25T19:18:30Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "5411188110835",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson végétale lait d'amande grillée ALPRO -brique 1l",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1 l",
+          "qualifiers": [],
+          "ean": "5411188110835",
+          "image_url": "./assets/5411188110835.jpg",
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-25T20:17:58.929882+01:00",
+      "finished_at": "2025-11-25T20:18:30.418091+01:00",
+      "duration_seconds": 31.488209,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "5411188110835",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188110835"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,19",
+        "title": "ALPRO DRINK AMANDES 1 L",
+        "url": "https://www.g20-minute.com/products/5411188110835/alpro-drink-amandes-1-l-5411188110835",
+        "note": "G20 Minute",
+        "unit_price": "2,19 €/L",
+        "quantity": "1L",
+        "matched_ean": "5411188110835",
+        "image": "https://www.g20-minute.com/media/cache/product_box_image/67/56/c131338b08231dc5871cb501e1d4.jpg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "ALPRO DRINK AMANDES 1 L",
+          "brand": "ALPRO",
+          "kind": "",
+          "qty": "1L",
+          "qualifiers": [],
+          "ean": "5411188110835",
+          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/67/56/c131338b08231dc5871cb501e1d4.jpg",
+          "source": "g20",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-25T20:18:30.419785+01:00",
+      "finished_at": "2025-11-25T20:18:31.212867+01:00",
+      "duration_seconds": 0.793082,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "5411188110835",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "5411188110835"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=5411188110835",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "5411188110835",
+          "timestamp": "2025-11-25T19:19:00.409452+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-25T20:19:00.246987+01:00",
+      "finished_at": "2025-11-25T20:19:01.424409+01:00",
+      "duration_seconds": 1.177422,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "5411188110835",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188110835"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=5411188110835",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "5411188110835",
+          "timestamp": "2025-11-25T19:19:11.340756+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-25T20:19:11.189450+01:00",
+      "finished_at": "2025-11-25T20:19:12.351583+01:00",
+      "duration_seconds": 1.162133,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "5411188110835",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188110835"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,36",
+        "title": "Boisson végétale lait d'amande  grillée ,",
+        "url": "https://www.intermarche.com/produit/boisson-vegetale-lait-d'amande-grillee-/541 1188110835",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "5411188110835",
+        "unit_price": "2,36 € / L",
+        "quantity": "1 L",
+        "store": "Super  Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/boisson-vegetale-lait-d'amande-grillee-sans -sucres/5411188112709",
+            "product": {
+              "title": "AlproBoisson végétale lait d'amande grillée, sans sucres",
+              "brand": "Alpro",
+              "kind": "Boisson végétale amande grillée ALPRO",
+              "qty": "1 L",
+              "qualifiers": [],
+              "ean": "5411188112709",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/boisson-vegetale-lait-d'amande-grillee-/541 1188110835",
+            "product": {
+              "title": "AlproBoisson végétale  lait d'amande grillée ,",
+              "brand": "Alpro",
+              "kind": "Boisson végétale amande  grillée ALPRO",
+              "qty": "1 L",
+              "qualifiers": [],
+              "ean": "1188110835",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://www.intermarche.com/icons/nutriscore/score=B.svg"
+      },
+      "started_at": "2025-11-25T20:19:12.352021+01:00",
+      "finished_at": "2025-11-25T20:20:02.469253+01:00",
+      "duration_seconds": 50.117232,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "Alpro amande 1 L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Alpro amande 1 L"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,89",
+        "title": "Alpro Boisson Végétale Lait D'Amande Grillée 1L",
+        "url": "https://courses.monoprix.fr/products/alpro-boisson-v%C3%A9g%C3%A9tale-lait-d-am ande-grill%C3%A9e-1l/MPX_2650633",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5820 0ebe-01b7-4236-8865-57f1061fe209/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5820 0ebe-01b7-4236-8865-57f1061fe209/300x300.jpg",
+        "matched_ean": "5411188110835",
+        "unit_price": "2,89 € / L",
+        "quantity": "1 L",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nBoissons et Lait\nBoisson  végétale\nBoisson végétale ambiante\nAlpro Boisson Végétale Lait D'Amande  Grillée 1L\n2 m+\n2 mois de garantie de vie du produit\nNutriscore B\n1L 2,89 €  / litre\n1L\n(2,89 € / litre)\n2,89 €\nAjouter\nInformations  produit\n\n\nDescription Produit\nAlpro Lait d'Amande Grillée est une  alternative végétale au lait, sans lactose. Cette délicieuse boisson végétale à  base d'amandes méditerranéennes grillées est fabriquée en France. Naturellement  faible en matières grasses, ce lait d'amande constitue une source de calcium et  de vitamine D, B2, B12 et E. Le lait d'amande grillée Alpro est à déguster seul, avec vos céréales au petit-déjeuner ou comme ingrédient dans vos recettes  sucrées ou salées.\n\n\nOrigine\nBelgique\nMarque\nAlpro\nService  consommateur\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\nConseils  d'utilisation\nA boire\nIngredients\neau, sucre, amande (Espagne) (2,3%),  calcium, sel marin de table, stabilisants (farine de graines de caroube, gomme  gellane), émulsifiant (lécithines), vitamines (B2, B12, D2,  E).\nAllergènes\nContient : AMANDE\nType d’emballage\nbocal\nProducteur\nDANONE  PRODUITS FRAIS FRANCE SAS 17 RUE DES DEUX GARES 92565RUEIL MALMAISON\nConseil de conservation\nAprès ouverture, conserver au réfrigérateur entre +1°C et +7°C et  à consommer dans les 5 jours.\nConseils d'utilisation\nA boire\nValeurs  nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 g\nValeurs  Energétique en Kilojoules\t~ 108 kJ\nValeurs Energétique en Kilocalories\t~ 26  kcal\nValeurs Nutritionnelles\nMatières grasses\t~ 1.1 g\nDont Acides Gras  Saturés\t~ 0.1 g\nGlucides\t~ 3.1 g\nDont Sucres\t~ 3.1 g\nProtéines\t~ 0.4  g\nSel\t~ 0.14 g\nFibre\t~ 0.3 g\n\n\nMicro Nutriments\tpour 100 g\nFibres  alimentaires\t~ 0.3 g\nVitamine D\t~ 0.75 µg\nVitamine E\t~ 1.8 mg\nVitamine  B12\t~ 0.38 µg\nCalcium\t~ 120 mg\nNous contacter\n(s’ouvre dans une nouvelle  fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": "amande",
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [],
+          "candidate_quantity": "1 L",
+          "candidate_size_ratio": 0.0,
+          "descriptor_token_coverage": {
+            "coverage": 1.0,
+            "matched": [
+              "alpro",
+              "amande",
+              "boisson",
+              "grillee",
+              "vegetale"
+            ],
+            "missing": [],
+            "total": 5
+          },
+          "missing_tokens": [],
+          "image_match": true,
+          "final_score": 45,
+          "plausible_baseline": true
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/alpro-boisson-végétale-lait-d-amande-grill ée-sans-sucres-1l/MPX_2975470",
+            "product": {
+              "title": "",
+              "brand": "Alpro",
+              "kind": "Boisson végétale amande grillée ALPRO",
+              "qty": "1 L",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/alpro-boisson-végétale-lait-d-amande-grill ée-1l/MPX_2650633",
+            "product": {
+              "title": "Alpro Boisson  Végétale Lait D'Amande Grillée 1L",
+              "brand": "Alpro",
+              "kind": "Boisson végétale  amande grillée ALPRO",
+              "qty": "1 L",
+              "qualifiers": [],
+              "ean": "5411188110835",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5820 0ebe-01b7-4236-8865-57f1061fe209/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/alpro-boisson-végétale-lait-d-amande-vanil le-1l/MPX_4056193",
+            "product": {
+              "title": "",
+              "brand": "Alpro",
+              "kind": "Boisson végétale amande grillée ALPRO",
+              "qty": "1 L",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-25T20:20:03.290090+01:00",
+      "finished_at": "2025-11-25T20:20:30.749937+01:00",
+      "duration_seconds": 27.459847,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "5411188110835",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5411188110835'.\n[MONOPRIX_DEBUG] Search terms: ['Boisson végétale amande', 'Alpro amande 1 L', 'Alpro vegetale 1 L']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/3: 'Boisson végétale amande'\n[MONOPRIX_DEBUG]  - Typing 'Boisson végétale amande' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Boisson%20v%C3%A9g%C3%A9tale%20amande\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 3 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/alpro-boisson-végétale-lait-d-amande-grillée-sans-sucres-1l/MPX_2975470\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/f8a50830-b045-4df9-ae13-afd0f751c619/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/alpro-boisson-végétale-lait-d-amande-grillée-sans-sucres-1l/MPX_2975470\n[MONOPRIX_DEBUG][SCORE] - Title: 'Alpro Boisson Végétale Lait D'amande Grillée Sans Sucres 1L' | Brand: 'alpro' | Variant(seed/cand)=(None/amande) | Vetoes=['neg_token'] | NegHits=['sans sucre'] | Score=-105 | Plausible=False\n[MONOPRIX_DEBUG]  - Candidate rejected due to negatives_hit: ['sans sucre']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/alpro-boisson-végétale-lait-d-amande-grillée-1l/MPX_2650633\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/58200ebe-01b7-4236-8865-57f1061fe209/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/alpro-boisson-végétale-lait-d-amande-grillée-1l/MPX_2650633\n[MONOPRIX_DEBUG][SCORE] - Title: 'Alpro Boisson Végétale Lait D'Amande Grillée 1L' | Brand: 'alpro' | Variant(seed/cand)=(None/amande) | Vetoes=[] | NegHits=[] | Score=15 | Plausible=True\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Alpro Boisson Végétale Lait D'Amande Grillée 1L'.\n[MONOPRIX_DEBUG] Best match (early return): 'Alpro Boisson Végétale Lait D'Amande Grillée 1L' (Score: 45)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='2,89', title=\"Alpro Boisson Végétale Lait D'Amande Grillée 1L\", url='https://courses.monoprix.fr/products/alpro-boisson-v%C3%A9g%C3%A9tale-lait-d-amande-grill%C3%A9e-1l/MPX_2650633', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/58200ebe-01b7-4236-8865-57f1061fe209/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/58200ebe-01b7-4236-8865-57f1061fe209/300x300.jpg', matched_ean='5411188110835', unit_price='2,89 € / L', quantity='1 L', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nBoisson végétale\\nBoisson végétale ambiante\\nAlpro Boisson Végétale Lait D'Amande Grillée 1L\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\nNutriscore B\\n1L 2,89\\xa0€ / litre\\n1L\\n(2,89\\xa0€ / litre)\\n2,89\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAlpro Lait d'Amande Grillée est une alternative végétale au lait, sans lactose. Cette délicieuse boisson végétale à base d'amandes méditerranéennes grillées est fabriquée en France. Naturellement faible en matières grasses, ce lait d'amande constitue une source de calcium et de vitamine D, B2, B12 et E. Le lait d'amande grillée Alpro est à déguster seul, avec vos céréales au petit-déjeuner ou comme ingrédient dans vos recettes sucrées ou salées.\\n\\n\\nOrigine\\nBelgique\\nMarque\\nAlpro\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d'utilisation\\nA boire\\nIngredients\\neau, sucre, amande (Espagne) (2,3%), calcium, sel marin de table, stabilisants (farine de graines de caroube, gomme gellane), émulsifiant (lécithines), vitamines (B2, B12, D2, E).\\nAllergènes\\nContient : AMANDE\\nType d’emballage\\nbocal\\nProducteur\\nDANONE PRODUITS FRAIS FRANCE SAS 17 RUE DES DEUX GARES 92565RUEIL MALMAISON\\nConseil de conservation\\nAprès ouverture, conserver au réfrigérateur entre +1°C et +7°C et à consommer dans les 5 jours.\\nConseils d'utilisation\\nA boire\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 108 kJ\\nValeurs Energétique en Kilocalories\\t~ 26 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 1.1 g\\nDont Acides Gras Saturés\\t~ 0.1 g\\nGlucides\\t~ 3.1 g\\nDont Sucres\\t~ 3.1 g\\nProtéines\\t~ 0.4 g\\nSel\\t~ 0.14 g\\nFibre\\t~ 0.3 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nFibres alimentaires\\t~ 0.3 g\\nVitamine D\\t~ 0.75 µg\\nVitamine E\\t~ 1.8 mg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': None, 'candidate_variant': 'amande', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '1 L', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['alpro', 'amande', 'boisson', 'grillee', 'vegetale'], 'missing': [], 'total': 5}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}, candidates=[{'url': 'https://courses.monoprix.fr/products/alpro-boisson-végétale-lait-d-amande-grillée-sans-sucres-1l/MPX_2975470', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Alpro', 'kind': 'Boisson végétale amande grillée ALPRO', 'qty': '1 L', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}, {'url': 'https://courses.monoprix.fr/products/alpro-boisson-végétale-lait-d-amande-grillée-1l/MPX_2650633', 'status': 'OK_PARTIAL', 'product': {'title': \"Alpro Boisson Végétale Lait D'Amande Grillée 1L\", 'brand': 'Alpro', 'kind': 'Boisson végétale amande grillée ALPRO', 'qty': '1 L', 'qualifiers': [], 'ean': '5411188110835', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/58200ebe-01b7-4236-8865-57f1061fe209/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nBoisson végétale\\nBoisson végétale ambiante\\nAlpro Boisson Végétale Lait D'Amande Grillée 1L\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\nNutriscore B\\n1L 2,89\\xa0€ / litre\\n1L\\n(2,89\\xa0€ / litre)\\n2,89\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAlpro Lait d'Amande Grillée est une alternative végétale au lait, sans lactose. Cette délicieuse boisson végétale à base d'amandes méditerranéennes grillées est fabriquée en France. Naturellement faible en matières grasses, ce lait d'amande constitue une source de calcium et de vitamine D, B2, B12 et E. Le lait d'amande grillée Alpro est à déguster seul, avec vos céréales au petit-déjeuner ou comme ingrédient dans vos recettes sucrées ou salées.\\n\\n\\nOrigine\\nBelgique\\nMarque\\nAlpro\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d'utilisation\\nA boire\\nIngredients\\neau, sucre, amande (Espagne) (2,3%), calcium, sel marin de table, stabilisants (farine de graines de caroube, gomme gellane), émulsifiant (lécithines), vitamines (B2, B12, D2, E).\\nAllergènes\\nContient : AMANDE\\nType d’emballage\\nbocal\\nProducteur\\nDANONE PRODUITS FRAIS FRANCE SAS 17 RUE DES DEUX GARES 92565RUEIL MALMAISON\\nConseil de conservation\\nAprès ouverture, conserver au réfrigérateur entre +1°C et +7°C et à consommer dans les 5 jours.\\nConseils d'utilisation\\nA boire\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 108 kJ\\nValeurs Energétique en Kilocalories\\t~ 26 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 1.1 g\\nDont Acides Gras Saturés\\t~ 0.1 g\\nGlucides\\t~ 3.1 g\\nDont Sucres\\t~ 3.1 g\\nProtéines\\t~ 0.4 g\\nSel\\t~ 0.14 g\\nFibre\\t~ 0.3 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nFibres alimentaires\\t~ 0.3 g\\nVitamine D\\t~ 0.75 µg\\nVitamine E\\t~ 1.8 mg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '2,89 € / L', 'price': '2,89'}, 'score': 45.0, 'extras': {'seed_variant': None, 'candidate_variant': 'amande', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '1 L', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['alpro', 'amande', 'boisson', 'grillee', 'vegetale'], 'missing': [], 'total': 5}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}}, {'url': 'https://courses.monoprix.fr/products/alpro-boisson-végétale-lait-d-amande-vanille-1l/MPX_4056193', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Alpro', 'kind': 'Boisson végétale amande grillée ALPRO', 'qty': '1 L', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "5411188110835"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Boisson végétale amande grillée ALPRO 1 L",
+      "brand": "Alpro",
+      "kind": "",
+      "qty": "1 L",
+      "qualifiers": [],
+      "ean": "5411188110835",
+      "image_url": "./assets/5411188110835.jpg",
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

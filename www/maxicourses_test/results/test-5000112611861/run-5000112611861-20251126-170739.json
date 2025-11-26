@@ -1,0 +1,79 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-11-26T17:07:21.059952+01:00",
+  "finished_at": "2025-11-26T17:07:39.252312+01:00",
+  "duration_seconds": 18.19236,
+  "reference": {
+    "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "description": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "source": "courseu",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": null,
+    "image": "./assets/5000112611861.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251126-170721"
+  ],
+  "adapters": [
+    {
+      "adapter": "leclerc",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "query": "Cola Soda 1.75 L",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-26T17:07:21.957247+01:00",
+      "finished_at": "2025-11-26T17:07:25.322505+01:00",
+      "duration_seconds": 3.365258,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "Cola Soda 1.75 L",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:50ms pdp:50ms type:[5,18] query:'Cola Soda 1.75 L'\n[LECLERC_DEBUG] Reusing existing Leclerc tab: https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx\n[LECLERC_DEBUG] after home human pause -> 1.03s\n[LECLERC_DEBUG] Page source saved to /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/leclerc_debug_source.html\n[LECLERC_DEBUG] Screenshot saved to /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/leclerc_debug_screenshot.png\n\n[LECLERC_DEBUG] 🔍 _find_search_field CALL #1 @ 3.06s\n[LECLERC_DEBUG] Searching with 12 selectors\n[LECLERC_DEBUG] Entering selector loop...\n[LECLERC_DEBUG] Loop iteration 0, selector='#inputWRSL301_rechercheTexte'\n[LECLERC_DEBUG] Creating locator for '#inputWRSL301_rechercheTexte'...\n[LECLERC_DEBUG] Getting count for '#inputWRSL301_rechercheTexte'...\n[LECLERC_DEBUG] Selector #0 '#inputWRSL301_rechercheTexte': count=1\n[LECLERC_DEBUG] ✅ Search field VISIBLE with selector '#inputWRSL301_rechercheTexte'\n[LECLERC_DEBUG] attempt #1 with query 'Cola Soda 1.75 L'\n\n[LECLERC_DEBUG] 🔍 _find_search_field CALL #2 @ 3.09s\n[LECLERC_DEBUG] Searching with 12 selectors\n[LECLERC_DEBUG] Entering selector loop...\n[LECLERC_DEBUG] Loop iteration 0, selector='#inputWRSL301_rechercheTexte'\n[LECLERC_DEBUG] Creating locator for '#inputWRSL301_rechercheTexte'...\n[LECLERC_DEBUG] Getting count for '#inputWRSL301_rechercheTexte'...\n[LECLERC_DEBUG] Loop iteration 1, selector='input.inpWRSL301_TextBox_Rechercher'\n[LECLERC_DEBUG] Creating locator for 'input.inpWRSL301_TextBox_Rechercher'...\n[LECLERC_DEBUG] Getting count for 'input.inpWRSL301_TextBox_Rechercher'...\n[LECLERC_DEBUG] Loop iteration 2, selector='input[id*='rechercheTexte']'\n[LECLERC_DEBUG] Creating locator for 'input[id*='rechercheTexte']'...\n[LECLERC_DEBUG] Getting count for 'input[id*='rechercheTexte']'...\n[LECLERC_DEBUG] Loop iteration 3, selector='input[name*='rechercheTexte']'\n[LECLERC_DEBUG] Creating locator for 'input[name*='rechercheTexte']'...\n[LECLERC_DEBUG] Getting count for 'input[name*='rechercheTexte']'...\n[LECLERC_DEBUG] Loop iteration 4, selector='input[name*='recherche']'\n[LECLERC_DEBUG] Creating locator for 'input[name*='recherche']'...\n[LECLERC_DEBUG] Getting count for 'input[name*='recherche']'...\n[LECLERC_DEBUG] Loop iteration 5, selector='input[type='search']'\n[LECLERC_DEBUG] Creating locator for 'input[type='search']'...\n[LECLERC_DEBUG] Getting count for 'input[type='search']'...\n[LECLERC_DEBUG] Loop iteration 6, selector='input[placeholder*='Rechercher']'\n[LECLERC_DEBUG] Creating locator for 'input[placeholder*='Rechercher']'...\n[LECLERC_DEBUG] Getting count for 'input[placeholder*='Rechercher']'...\n[LECLERC_DEBUG] Loop iteration 7, selector='input[placeholder*='produit']'\n[LECLERC_DEBUG] Creating locator for 'input[placeholder*='produit']'...\n[LECLERC_DEBUG] Getting count for 'input[placeholder*='produit']'...\n[LECLERC_DEBUG] Loop iteration 8, selector='input[aria-label*='Rechercher']'\n[LECLERC_DEBUG] Creating locator for 'input[aria-label*='Rechercher']'...\n[LECLERC_DEBUG] Getting count for 'input[aria-label*='Rechercher']'...\n[LECLERC_DEBUG] Loop iteration 9, selector='input[aria-label*='produit']'\n[LECLERC_DEBUG] Creating locator for 'input[aria-label*='produit']'...\n[LECLERC_DEBUG] Getting count for 'input[aria-label*='produit']'...\n[LECLERC_DEBUG] Loop iteration 10, selector='#search-input'\n[LECLERC_DEBUG] Creating locator for '#search-input'...\n[LECLERC_DEBUG] Getting count for '#search-input'...\n[LECLERC_DEBUG] Loop iteration 11, selector='form[action*='recherche'] input'\n[LECLERC_DEBUG] Creating locator for 'form[action*='recherche'] input'...\n[LECLERC_DEBUG] Getting count for 'form[action*='recherche'] input'...\n[LECLERC_DEBUG] Search field not found for query 'Cola Soda 1.75 L'\n[LECLERC_DEBUG] attempt #2 with query 'Cola Soda Goût 1.75 L'\n\n[LECLERC_DEBUG] 🔍 _find_search_field CALL #3 @ 3.10s\n[LECLERC_DEBUG] Searching with 12 selectors\n[LECLERC_DEBUG] Entering selector loop...\n[LECLERC_DEBUG] Loop iteration 0, selector='#inputWRSL301_rechercheTexte'\n[LECLERC_DEBUG] Creating locator for '#inputWRSL301_rechercheTexte'...\n[LECLERC_DEBUG] Getting count for '#inputWRSL301_rechercheTexte'...\n[LECLERC_DEBUG] Loop iteration 1, selector='input.inpWRSL301_TextBox_Rechercher'\n[LECLERC_DEBUG] Creating locator for 'input.inpWRSL301_TextBox_Rechercher'...\n[LECLERC_DEBUG] Getting count for 'input.inpWRSL301_TextBox_Rechercher'...\n[LECLERC_DEBUG] Loop iteration 2, selector='input[id*='rechercheTexte']'\n[LECLERC_DEBUG] Creating locator for 'input[id*='rechercheTexte']'...\n[LECLERC_DEBUG] Getting count for 'input[id*='rechercheTexte']'...\n[LECLERC_DEBUG] Loop iteration 3, selector='input[name*='rechercheTexte']'\n[LECLERC_DEBUG] Creating locator for 'input[name*='rechercheTexte']'...\n[LECLERC_DEBUG] Getting count for 'input[name*='rechercheTexte']'...\n[LECLERC_DEBUG] Loop iteration 4, selector='input[name*='recherche']'\n[LECLERC_DEBUG] Creating locator for 'input[name*='recherche']'...\n[LECLERC_DEBUG] Getting count for 'input[name*='recherche']'...\n[LECLERC_DEBUG] Loop iteration 5, selector='input[type='search']'\n[LECLERC_DEBUG] Creating locator for 'input[type='search']'...\n[LECLERC_DEBUG] Getting count for 'input[type='search']'...\n[LECLERC_DEBUG] Loop iteration 6, selector='input[placeholder*='Rechercher']'\n[LECLERC_DEBUG] Creating locator for 'input[placeholder*='Rechercher']'...\n[LECLERC_DEBUG] Getting count for 'input[placeholder*='Rechercher']'...\n[LECLERC_DEBUG] Loop iteration 7, selector='input[placeholder*='produit']'\n[LECLERC_DEBUG] Creating locator for 'input[placeholder*='produit']'...\n[LECLERC_DEBUG] Getting count for 'input[placeholder*='produit']'...\n[LECLERC_DEBUG] Loop iteration 8, selector='input[aria-label*='Rechercher']'\n[LECLERC_DEBUG] Creating locator for 'input[aria-label*='Rechercher']'...\n[LECLERC_DEBUG] Getting count for 'input[aria-label*='Rechercher']'...\n[LECLERC_DEBUG] Loop iteration 9, selector='input[aria-label*='produit']'\n[LECLERC_DEBUG] Creating locator for 'input[aria-label*='produit']'...\n[LECLERC_DEBUG] Getting count for 'input[aria-label*='produit']'...\n[LECLERC_DEBUG] Loop iteration 10, selector='#search-input'\n[LECLERC_DEBUG] Creating locator for '#search-input'...\n[LECLERC_DEBUG] Getting count for '#search-input'...\n[LECLERC_DEBUG] Loop iteration 11, selector='form[action*='recherche'] input'\n[LECLERC_DEBUG] Creating locator for 'form[action*='recherche'] input'...\n[LECLERC_DEBUG] Getting count for 'form[action*='recherche'] input'...\n[LECLERC_DEBUG] Search field not found for query 'Cola Soda Goût 1.75 L'\n[LECLERC_DEBUG] attempt #3 with query 'Cola 1.75 L'\n\n[LECLERC_DEBUG] 🔍 _find_search_field CALL #4 @ 3.10s\n[LECLERC_DEBUG] Searching with 12 selectors\n[LECLERC_DEBUG] Entering selector loop...\n[LECLERC_DEBUG] Loop iteration 0, selector='#inputWRSL301_rechercheTexte'\n[LECLERC_DEBUG] Creating locator for '#inputWRSL301_rechercheTexte'...\n[LECLERC_DEBUG] Getting count for '#inputWRSL301_rechercheTexte'...\n[LECLERC_DEBUG] Loop iteration 1, selector='input.inpWRSL301_TextBox_Rechercher'\n[LECLERC_DEBUG] Creating locator for 'input.inpWRSL301_TextBox_Rechercher'...\n[LECLERC_DEBUG] Getting count for 'input.inpWRSL301_TextBox_Rechercher'...\n[LECLERC_DEBUG] Loop iteration 2, selector='input[id*='rechercheTexte']'\n[LECLERC_DEBUG] Creating locator for 'input[id*='rechercheTexte']'...\n[LECLERC_DEBUG] Getting count for 'input[id*='rechercheTexte']'...\n[LECLERC_DEBUG] Loop iteration 3, selector='input[name*='rechercheTexte']'\n[LECLERC_DEBUG] Creating locator for 'input[name*='rechercheTexte']'...\n[LECLERC_DEBUG] Getting count for 'input[name*='rechercheTexte']'...\n[LECLERC_DEBUG] Loop iteration 4, selector='input[name*='recherche']'\n[LECLERC_DEBUG] Creating locator for 'input[name*='recherche']'...\n[LECLERC_DEBUG] Getting count for 'input[name*='recherche']'...\n[LECLERC_DEBUG] Loop iteration 5, selector='input[type='search']'\n[LECLERC_DEBUG] Creating locator for 'input[type='search']'...\n[LECLERC_DEBUG] Getting count for 'input[type='search']'...\n[LECLERC_DEBUG] Loop iteration 6, selector='input[placeholder*='Rechercher']'\n[LECLERC_DEBUG] Creating locator for 'input[placeholder*='Rechercher']'...\n[LECLERC_DEBUG] Getting count for 'input[placeholder*='Rechercher']'...\n[LECLERC_DEBUG] Loop iteration 7, selector='input[placeholder*='produit']'\n[LECLERC_DEBUG] Creating locator for 'input[placeholder*='produit']'...\n[LECLERC_DEBUG] Getting count for 'input[placeholder*='produit']'...\n[LECLERC_DEBUG] Loop iteration 8, selector='input[aria-label*='Rechercher']'\n[LECLERC_DEBUG] Creating locator for 'input[aria-label*='Rechercher']'...\n[LECLERC_DEBUG] Getting count for 'input[aria-label*='Rechercher']'...\n[LECLERC_DEBUG] Loop iteration 9, selector='input[aria-label*='produit']'\n[LECLERC_DEBUG] Creating locator for 'input[aria-label*='produit']'...\n[LECLERC_DEBUG] Getting count for 'input[aria-label*='produit']'...\n[LECLERC_DEBUG] Loop iteration 10, selector='#search-input'\n[LECLERC_DEBUG] Creating locator for '#search-input'...\n[LECLERC_DEBUG] Getting count for '#search-input'...\n[LECLERC_DEBUG] Loop iteration 11, selector='form[action*='recherche'] input'\n[LECLERC_DEBUG] Creating locator for 'form[action*='recherche'] input'...\n[LECLERC_DEBUG] Getting count for 'form[action*='recherche'] input'...\n[LECLERC_DEBUG] Search field not found for query 'Cola 1.75 L'\n[LECLERC_DEBUG] attempt #4 with query 'Soda Goût 1.75 L'\n\n[LECLERC_DEBUG] 🔍 _find_search_field CALL #5 @ 3.10s\n[LECLERC_DEBUG] Searching with 12 selectors\n[LECLERC_DEBUG] Entering selector loop...\n[LECLERC_DEBUG] Loop iteration 0, selector='#inputWRSL301_rechercheTexte'\n[LECLERC_DEBUG] Creating locator for '#inputWRSL301_rechercheTexte'...\n[LECLERC_DEBUG] Getting count for '#inputWRSL301_rechercheTexte'...\n[LECLERC_DEBUG] Loop iteration 1, selector='input.inpWRSL301_TextBox_Rechercher'\n[LECLERC_DEBUG] Creating locator for 'input.inpWRSL301_TextBox_Rechercher'...\n[LECLERC_DEBUG] Getting count for 'input.inpWRSL301_TextBox_Rechercher'...\n[LECLERC_DEBUG] Loop iteration 2, selector='input[id*='rechercheTexte']'\n[LECLERC_DEBUG] Creating locator for 'input[id*='rechercheTexte']'...\n[LECLERC_DEBUG] Getting count for 'input[id*='rechercheTexte']'...\n[LECLERC_DEBUG] Loop iteration 3, selector='input[name*='rechercheTexte']'\n[LECLERC_DEBUG] Creating locator for 'input[name*='rechercheTexte']'...\n[LECLERC_DEBUG] Getting count for 'input[name*='rechercheTexte']'...\n[LECLERC_DEBUG] Loop iteration 4, selector='input[name*='recherche']'\n[LECLERC_DEBUG] Creating locator for 'input[name*='recherche']'...\n[LECLERC_DEBUG] Getting count for 'input[name*='recherche']'...\n[LECLERC_DEBUG] Loop iteration 5, selector='input[type='search']'\n[LECLERC_DEBUG] Creating locator for 'input[type='search']'...\n[LECLERC_DEBUG] Getting count for 'input[type='search']'...\n[LECLERC_DEBUG] Loop iteration 6, selector='input[placeholder*='Rechercher']'\n[LECLERC_DEBUG] Creating locator for 'input[placeholder*='Rechercher']'...\n[LECLERC_DEBUG] Getting count for 'input[placeholder*='Rechercher']'...\n[LECLERC_DEBUG] Loop iteration 7, selector='input[placeholder*='produit']'\n[LECLERC_DEBUG] Creating locator for 'input[placeholder*='produit']'...\n[LECLERC_DEBUG] Getting count for 'input[placeholder*='produit']'...\n[LECLERC_DEBUG] Loop iteration 8, selector='input[aria-label*='Rechercher']'\n[LECLERC_DEBUG] Creating locator for 'input[aria-label*='Rechercher']'...\n[LECLERC_DEBUG] Getting count for 'input[aria-label*='Rechercher']'...\n[LECLERC_DEBUG] Loop iteration 9, selector='input[aria-label*='produit']'\n[LECLERC_DEBUG] Creating locator for 'input[aria-label*='produit']'...\n[LECLERC_DEBUG] Getting count for 'input[aria-label*='produit']'...\n[LECLERC_DEBUG] Loop iteration 10, selector='#search-input'\n[LECLERC_DEBUG] Creating locator for '#search-input'...\n[LECLERC_DEBUG] Getting count for '#search-input'...\n[LECLERC_DEBUG] Loop iteration 11, selector='form[action*='recherche'] input'\n[LECLERC_DEBUG] Creating locator for 'form[action*='recherche'] input'...\n[LECLERC_DEBUG] Getting count for 'form[action*='recherche'] input'...\n[LECLERC_DEBUG] Search field not found for query 'Soda Goût 1.75 L'\n[LECLERC_DEBUG] no cards after 3.11s",
+      "metadata": {
+        "attempt_query": "Cola Soda 1.75 L",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251126-170721/01-leclerc"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "brand": "Cola",
+      "kind": "",
+      "qty": "1,75 L",
+      "qualifiers": [],
+      "ean": "5000112611861",
+      "image_url": "./assets/5000112611861.jpg",
+      "source": "consolidated",
+      "raw_text": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

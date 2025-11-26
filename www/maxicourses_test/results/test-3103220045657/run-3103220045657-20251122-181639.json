@@ -1,0 +1,750 @@
+{
+  "ean": "3103220045657",
+  "image_path": null,
+  "started_at": "2025-11-22T18:08:00.917577+01:00",
+  "finished_at": "2025-11-22T18:16:39.021611+01:00",
+  "duration_seconds": 518.104034,
+  "reference": {
+    "title": "Bonbons  Tirlibibi HARIBO",
+    "description": "Bonbons  Tirlibibi HARIBO",
+    "source": "carrefour_super",
+    "brand": "Haribo",
+    "quantity": "750 G",
+    "categories": null,
+    "image": "./assets/3103220045657.jpg",
+    "nutriscore_grade": "c",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-c.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251122-180800"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-22T18:08:00.918767+01:00",
+      "finished_at": "2025-11-22T18:08:15.188755+01:00",
+      "duration_seconds": 14.269988,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3103220045657"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,78",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/bonbons-tirlibibi-haribo-3103220045657",
+        "note": null,
+        "unit_price": "7,71 € / KG",
+        "quantity": "750 G",
+        "title": "Bonbons  Tirlibibi HARIBO",
+        "matched_ean": "3103220045657",
+        "image": "https://media.carrefour.fr/medias/4fdc4b02be1b4448ab912d063f1abb93/p_540x540/03 103220045657_C1N1_s02.jpeg",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Bonbons  Tirlibibi HARIBO",
+          "brand": "Bonbons",
+          "kind": "",
+          "qty": "750 G",
+          "qualifiers": [],
+          "ean": "3103220045657",
+          "image_url": "https://media.carrefour.fr/medias/4fdc4b02be1b4448ab912d063f1abb93/p_540x540/03 103220045657_C1N1_s02.jpeg",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-22T18:08:15.189751+01:00",
+      "finished_at": "2025-11-22T18:08:37.038476+01:00",
+      "duration_seconds": 21.848725,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3103220045657"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,35",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/bonbons-tirlibibi-haribo-3103220045657",
+        "note": null,
+        "unit_price": "7,13 € / KG",
+        "quantity": "750 G",
+        "title": "Bonbons  Tirlibibi HARIBO",
+        "matched_ean": "3103220045657",
+        "image": "https://media.carrefour.fr/medias/4fdc4b02be1b4448ab912d063f1abb93/p_540x540/03 103220045657_C1N1_s02.jpeg",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Bonbons  Tirlibibi HARIBO",
+          "brand": "Bonbons",
+          "kind": "",
+          "qty": "750 G",
+          "qualifiers": [],
+          "ean": "3103220045657",
+          "image_url": "https://media.carrefour.fr/medias/4fdc4b02be1b4448ab912d063f1abb93/p_540x540/03 103220045657_C1N1_s02.jpeg",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-22T18:08:37.040589+01:00",
+      "finished_at": "2025-11-22T18:08:55.539960+01:00",
+      "duration_seconds": 18.499371,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3103220045657"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,94",
+        "unit_price": "6,59 € / KG",
+        "quantity": "0,006 KG",
+        "title": "Bonbons gélifiés Trilibibi",
+        "url": "https://www.auchan.fr/haribo-bonbons-gelifies-trilibibi/pr-C1792349",
+        "matched_ean": "3103220045657",
+        "store": "Auchan Drive Supermarché  Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S01000000040Q5EPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Bonbons gélifiés Trilibibi",
+          "brand": "Bonbons",
+          "kind": "",
+          "qty": "0,006 KG",
+          "qualifiers": [],
+          "ean": "3103220045657",
+          "image_url": "https://cdn.auchan.fr/media/S01000000040Q5EPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-22T18:08:55.542046+01:00",
+      "finished_at": "2025-11-22T18:09:06.524351+01:00",
+      "duration_seconds": 10.982305,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results visible, opening first candidate",
+      "metadata": {
+        "attempt_query": "3103220045657"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,19",
+        "title": "Assortiment de bonbons gélifiés  aromatisés HARIBO Tirlibibi",
+        "url": "https://www.chronodrive.com/haribo--tirlibibi---assortiment-de-bonbons-gelifies -aromatises-P208155",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "6,92 € /  KG",
+        "quantity": "750 g",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3103220045657",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Assortiment de bonbons gélifiés  aromatisés HARIBO Tirlibibi",
+          "brand": "Assortiment",
+          "kind": "",
+          "qty": "750 g",
+          "qualifiers": [],
+          "ean": "3103220045657",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-22T18:09:06.526761+01:00",
+      "finished_at": "2025-11-22T18:09:12.876452+01:00",
+      "duration_seconds": 6.349691,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='3103220045657'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/haribo--tirlibibi---assortiment-de-bonbons-gelifies-P208155",
+      "metadata": {
+        "attempt_query": "3103220045657"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,77",
+        "unit_price": "6,36 € / KG",
+        "quantity": "750  g",
+        "title": "Bonbon Tirlibibi HARIBO, boîte 750g",
+        "url": "https://www.coursesu.com/p/bonbon-tirlibibi-haribo-boite-750g/3531232.html",
+        "note": "2025-11-22T17:09:46Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "3103220045657",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Bonbon Tirlibibi HARIBO, boîte 750g",
+          "brand": "Bonbon",
+          "kind": "",
+          "qty": "750 g",
+          "qualifiers": [],
+          "ean": "3103220045657",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-22T18:09:12.877612+01:00",
+      "finished_at": "2025-11-22T18:09:46.344660+01:00",
+      "duration_seconds": 33.467048,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3103220045657"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Non disponible",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-22T18:09:46.345831+01:00",
+      "finished_at": "2025-11-22T18:09:46.901479+01:00",
+      "duration_seconds": 0.555648,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "3103220045657"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Haribo%20tirlibibi%20750%20G",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Haribo tirlibibi 750 G",
+          "timestamp": "2025-11-22T17:09:47.663292+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-22T18:09:47.493802+01:00",
+      "finished_at": "2025-11-22T18:09:48.365638+01:00",
+      "duration_seconds": 0.871836,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "Haribo tirlibibi 750 G",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Haribo tirlibibi 750 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251122-180800/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Haribo%20tirlibibi%20750%20G",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Haribo tirlibibi 750 G",
+          "timestamp": "2025-11-22T17:09:50.671535+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-22T18:09:50.532175+01:00",
+      "finished_at": "2025-11-22T18:09:51.167657+01:00",
+      "duration_seconds": 0.635482,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "Haribo tirlibibi 750 G",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Haribo tirlibibi 750 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251122-180800/09-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,91",
+        "title": "Bonbons assortiment Tirlibibi",
+        "url": "https://www.intermarche.com/produit/bonbons-assortiment-tirlibibi/3103220045657 ",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "3103220045657",
+        "unit_price": "6,55 € / KG",
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/bonbons-assortiment-tirlibibi/3103220045657",
+            "product": {
+              "title": "HariboBonbons assortiment Tirlibibi",
+              "brand": "HariboBonbons",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3103220045657",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": null
+      },
+      "started_at": "2025-11-22T18:09:53.409509+01:00",
+      "finished_at": "2025-11-22T18:10:40.158976+01:00",
+      "duration_seconds": 46.749467,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "Haribo tirlibibi 750 G",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Haribo tirlibibi 750 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251122-180800/10-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Dragibus Soft Haribo Sachet bonbons - 300g",
+        "price": "1,35",
+        "unit_price": "4,50 € / kg",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/recherche.aspx?TexteRecherche=haribo%20750%20g",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-22T17:16:07Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true,
+          "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed)."
+        },
+        "equivalent": true,
+        "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed).",
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-163143-Dragibus-Soft-Haribo.aspx",
+            "product": {
+              "title": "Dragibus Soft Haribo Sachet bonbons - 300g",
+              "brand": "Dragibus",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3103220048658",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2806123&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-163145-Dragibus-Original-Haribo.aspx",
+            "product": {
+              "title": "Dragibus Original Haribo Multipack bonbons - 250g",
+              "brand": "Dragibus",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3103220048672",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2984943&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-76211-Lours-dor-Haribo.aspx",
+            "product": {
+              "title": "L'ours d'or Haribo Sachet bonbons - 300g",
+              "brand": "L'ours",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3103220009802",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2805201&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-104092-Tagada-Zip-Fraicheur-Haribo.aspx",
+            "product": {
+              "title": "Tagada Zip Fraîcheur Haribo Sachet bonbons - 220g",
+              "brand": "Tagada",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3103220044544",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2802359&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-97060-Tagada-Haribo.aspx",
+            "product": {
+              "title": "Tagada Haribo Sachet bonbons - 400g",
+              "brand": "Tagada",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3103220033371",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2801854&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-135444-Croco-Baby--30-de-sucre-Haribo.aspx",
+            "product": {
+              "title": "Croco Baby -30% de sucre Haribo Sachet bonbons - 165g",
+              "brand": "Croco",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3103220045626",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2806111&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-3517-Bonbons-Haribo.aspx",
+            "product": {
+              "title": "Bonbons Haribo Réglisse Carensac - 250g",
+              "brand": "Bonbons",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3103220009819",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2982405&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-49828-Happy-Life-Haribo.aspx",
+            "product": {
+              "title": "Happy Life Haribo Sachet bonbons - 275g",
+              "brand": "Happy",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3103220034804",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2803577&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-22T18:10:40.160629+01:00",
+      "finished_at": "2025-11-22T18:16:07.766690+01:00",
+      "duration_seconds": 327.606061,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "Haribo 750 G",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Haribo 750 G'\n[LECLERC_DEBUG] after home human pause -> 1.36s\n[LECLERC_DEBUG] attempt #1 with query 'Haribo 750 G'\n[LECLERC_DEBUG] after focus -> 2.16s\n[LECLERC_DEBUG] results visible -> 3.59s (query='Haribo 750 G')\n[LECLERC_DEBUG] after result pause -> 3.69s",
+      "metadata": {
+        "attempt_query": "Haribo 750 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251122-180800/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,29",
+        "title": "Haribo Assortiment De Bonbons  Tirlibibi 750g",
+        "url": "https://courses.monoprix.fr/products/haribo-assortiment-de-bonbons-tirlibibi-75 0g/MPX_808231",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/2db8 2f8b-0591-4805-8739-7ad2dbc7deec/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/2db8 2f8b-0591-4805-8739-7ad2dbc7deec/300x300.jpg",
+        "matched_ean": "3103220045657",
+        "unit_price": "7,05 € / KG",
+        "quantity": "750 G",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nCalendrier de l'avent\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nEpicerie Sucrée\nChocolat et  Confiserie\nBonbon\nHaribo Assortiment De Bonbons Tirlibibi 750g\n2 m+\n2 mois  de garantie de vie du produit\n750g 7,05 € / kilo\n750g\n(7,05 € / kilo)\n5,29  €\nAjouter\nInformations produit\n\n\nDescription Produit\nDe la réglisse, des  gélifiés, des dragéifiés… Les bonbons Tirlibibi forment un vrac incontournable  que chaque amateur de réglisse connaît  !\n\n\nOrigine\nFrance\nMarque\nHaribo\nService consommateur\nHARIBO 67,  boulevard du Capitaine Gèze - 13014 MARSEILLE\nConseils  d'utilisation\nconsommation en l'état\nIngredients\nIngrédients: sirop de  glucose; sucre; sirop de sucre mélassé; farine de BLÉ; dextrose; amidon;  gélatine; extrait de réglisse; graisse de palme; maltodextrine; acidifiant:  acide citrique; sel; arôme; huile de tournesol; concentrés de fruits et de  plantes: carthame, spiruline, pomme, radis, cassis, citron, betterave rouge;  colorants: curcumine, lutéine, anthocyanes; agent d'enrobage: cire d'abeille  blanche et jaune. Tenir à l'abri de la chaleur et de l'humidité. Peut contenir  des traces de lait.\nAllergènes\nblé\nType  d’emballage\nboîte\nProducteur\nHARIBO 67 BD DU CAPITAINE  GEZE///13014/MARSEILLE/FRANCE\nConseil de conservation\nstockage\nAutres  informations\naucune\nConseils d'utilisation\nconsommation en l'état\nValeurs  nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 g\tEn % des  AJR\nValeurs Energétique en Kilojoules\t~ 1470 kJ\t4 %\nValeurs Energétique en  Kilocalories\t~ 346 kcal\t4 %\nValeurs Nutritionnelles\nMatières grasses\t~ 1.6  g\t1 %\nDont Acides Gras Saturés\t~ 0.8 g\t1 %\nGlucides\t~ 78 g\t7 %\nDont  Sucres\t~ 51 g\t14 %\nProtéines\t~ 4.4 g\t2 %\nSel\t~ 0.58 g\t2 %\nNous  contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle  fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon  magasin\nProgramme de fidélité\nNos catalogues\nNos magasins avec  Parapharmacie\nAide & Mentions\nDonnées personnelles et cookies\n(s’ouvre dans  une nouvelle fenêtre)\nConditions de nos offres\nContacts\nRappel produits\nCGV  & Mentions légales\n(s’ouvre dans une nouvelle fenêtre)\nNos autres  sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une nouvelle fenêtre)\nAffiliation  monoprix.fr\nBons plans des marques\nMonoprix.fr Courses\nTarifs de  livraison\nPrésentation du service\nAstuces\nAbonnement M+\nFAQ\nPlus de  services\nAppli mobile Apple\n(s’ouvre dans une nouvelle fenêtre)\nAppli mobile  Android\n(s’ouvre dans une nouvelle fenêtre)\n© 2025\nfacebook\n(s’ouvre dans  une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une nouvelle  fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": "chocolat",
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [],
+          "candidate_quantity": "750 G",
+          "image_match": true,
+          "final_score": 30,
+          "plausible_baseline": false
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/haribo-assortiment-de-bonbons-tirlibibi-75 0g/MPX_808231",
+            "product": {
+              "title": "Haribo Assortiment De Bonbons Tirlibibi 750g",
+              "brand": "Haribo",
+              "kind": "",
+              "qty": "750 G",
+              "qualifiers": [],
+              "ean": "3103220045657",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/2db8 2f8b-0591-4805-8739-7ad2dbc7deec/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-22T18:16:07.772063+01:00",
+      "finished_at": "2025-11-22T18:16:38.784292+01:00",
+      "duration_seconds": 31.012229,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "Haribo tirlibibi 750 G",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] ERROR: EAN '3103220045657' not found in descriptor store. Scoring will fail.\n[MONOPRIX_DEBUG] Search terms: ['Haribo tirlibibi 750 G', 'Haribo tirlibibi bonbons', 'Haribo 750 G']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez']\n[MONOPRIX_DEBUG]  - Term 1/3: 'Haribo tirlibibi 750 G'\n[MONOPRIX_DEBUG]  - Typing 'Haribo tirlibibi 750 G' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Haribo%20tirlibibi%20750%20G\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'Haribo tirlibibi bonbons'\n[MONOPRIX_DEBUG]  - Typing 'Haribo tirlibibi bonbons' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Haribo%20tirlibibi%20bonbons\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 1 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/haribo-assortiment-de-bonbons-tirlibibi-750g/MPX_808231\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/2db82f8b-0591-4805-8739-7ad2dbc7deec/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/haribo-assortiment-de-bonbons-tirlibibi-750g/MPX_808231\n[MONOPRIX_DEBUG][SCORE] - Title: 'Haribo Assortiment De Bonbons Tirlibibi 750g' | Brand: '' | Variant(seed/cand)=(None/chocolat) | Vetoes=[] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Haribo Assortiment De Bonbons Tirlibibi 750g'.\n[MONOPRIX_DEBUG] Best match (early return): 'Haribo Assortiment De Bonbons Tirlibibi 750g' (Score: 30)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='5,29', title='Haribo Assortiment De Bonbons Tirlibibi 750g', url='https://courses.monoprix.fr/products/haribo-assortiment-de-bonbons-tirlibibi-750g/MPX_808231', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/2db82f8b-0591-4805-8739-7ad2dbc7deec/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/2db82f8b-0591-4805-8739-7ad2dbc7deec/300x300.jpg', matched_ean='3103220045657', unit_price='7,05 € / KG', quantity='750 G', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEpicerie Sucrée\\nChocolat et Confiserie\\nBonbon\\nHaribo Assortiment De Bonbons Tirlibibi 750g\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n750g 7,05\\xa0€ / kilo\\n750g\\n(7,05\\xa0€ / kilo)\\n5,29\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nDe la réglisse, des gélifiés, des dragéifiés… Les\\xa0bonbons Tirlibibi\\xa0forment un vrac incontournable que chaque amateur de réglisse connaît !\\n\\n\\nOrigine\\nFrance\\nMarque\\nHaribo\\nService consommateur\\nHARIBO 67, boulevard du Capitaine Gèze - 13014 MARSEILLE\\nConseils d'utilisation\\nconsommation en l'état\\nIngredients\\nIngrédients: sirop de glucose; sucre; sirop de sucre mélassé; farine de BLÉ; dextrose; amidon; gélatine; extrait de réglisse; graisse de palme; maltodextrine; acidifiant: acide citrique; sel; arôme; huile de tournesol; concentrés de fruits et de plantes: carthame, spiruline, pomme, radis, cassis, citron, betterave rouge; colorants: curcumine, lutéine, anthocyanes; agent d'enrobage: cire d'abeille blanche et jaune. Tenir à l'abri de la chaleur et de l'humidité. Peut contenir des traces de lait.\\nAllergènes\\nblé\\nType d’emballage\\nboîte\\nProducteur\\nHARIBO 67 BD DU CAPITAINE GEZE///13014/MARSEILLE/FRANCE\\nConseil de conservation\\nstockage\\nAutres informations\\naucune\\nConseils d'utilisation\\nconsommation en l'état\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\tEn % des AJR\\nValeurs Energétique en Kilojoules\\t~ 1470 kJ\\t4 %\\nValeurs Energétique en Kilocalories\\t~ 346 kcal\\t4 %\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 1.6 g\\t1 %\\nDont Acides Gras Saturés\\t~ 0.8 g\\t1 %\\nGlucides\\t~ 78 g\\t7 %\\nDont Sucres\\t~ 51 g\\t14 %\\nProtéines\\t~ 4.4 g\\t2 %\\nSel\\t~ 0.58 g\\t2 %\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': None, 'candidate_variant': 'chocolat', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '750 G', 'image_match': True, 'final_score': 30, 'plausible_baseline': False}, candidates=[{'url': 'https://courses.monoprix.fr/products/haribo-assortiment-de-bonbons-tirlibibi-750g/MPX_808231', 'status': 'OK_PARTIAL', 'product': {'title': 'Haribo Assortiment De Bonbons Tirlibibi 750g', 'brand': '', 'kind': '', 'qty': '750 G', 'qualifiers': [], 'ean': '3103220045657', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/2db82f8b-0591-4805-8739-7ad2dbc7deec/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEpicerie Sucrée\\nChocolat et Confiserie\\nBonbon\\nHaribo Assortiment De Bonbons Tirlibibi 750g\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n750g 7,05\\xa0€ / kilo\\n750g\\n(7,05\\xa0€ / kilo)\\n5,29\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nDe la réglisse, des gélifiés, des dragéifiés… Les\\xa0bonbons Tirlibibi\\xa0forment un vrac incontournable que chaque amateur de réglisse connaît !\\n\\n\\nOrigine\\nFrance\\nMarque\\nHaribo\\nService consommateur\\nHARIBO 67, boulevard du Capitaine Gèze - 13014 MARSEILLE\\nConseils d'utilisation\\nconsommation en l'état\\nIngredients\\nIngrédients: sirop de glucose; sucre; sirop de sucre mélassé; farine de BLÉ; dextrose; amidon; gélatine; extrait de réglisse; graisse de palme; maltodextrine; acidifiant: acide citrique; sel; arôme; huile de tournesol; concentrés de fruits et de plantes: carthame, spiruline, pomme, radis, cassis, citron, betterave rouge; colorants: curcumine, lutéine, anthocyanes; agent d'enrobage: cire d'abeille blanche et jaune. Tenir à l'abri de la chaleur et de l'humidité. Peut contenir des traces de lait.\\nAllergènes\\nblé\\nType d’emballage\\nboîte\\nProducteur\\nHARIBO 67 BD DU CAPITAINE GEZE///13014/MARSEILLE/FRANCE\\nConseil de conservation\\nstockage\\nAutres informations\\naucune\\nConseils d'utilisation\\nconsommation en l'état\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\tEn % des AJR\\nValeurs Energétique en Kilojoules\\t~ 1470 kJ\\t4 %\\nValeurs Energétique en Kilocalories\\t~ 346 kcal\\t4 %\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 1.6 g\\t1 %\\nDont Acides Gras Saturés\\t~ 0.8 g\\t1 %\\nGlucides\\t~ 78 g\\t7 %\\nDont Sucres\\t~ 51 g\\t14 %\\nProtéines\\t~ 4.4 g\\t2 %\\nSel\\t~ 0.58 g\\t2 %\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '7,05 € / KG', 'price': '5,29'}, 'score': 30.0, 'extras': {'seed_variant': None, 'candidate_variant': 'chocolat', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '750 G', 'image_match': True, 'final_score': 30, 'plausible_baseline': False}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Haribo tirlibibi 750 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251122-180800/12-monoprix"
+      }
+    }
+  ],
+  "finder": null
+}

@@ -59,6 +59,8 @@ GENERIC_BRAND_TERMS = {
     "yaourts",
     "dessert",
     "desserts",
+    "bonbon",
+    "bonbons",
     "boisson",
     "boissons",
     "proteine",
@@ -444,12 +446,16 @@ def build_leclerc_search_profile(descriptor: Dict[str, Any]) -> Dict[str, List[s
         return cleaned
 
     candidate_sequences: List[List[str]] = []
-    if brand_token and quantity_token:
-        candidate_sequences.append([brand_token, quantity_token])
+    # Priorité 1: Marque + Fonction (Nom) + Quantité (ex: Haribo Tirlibibi 750g)
     if brand_token and function_token and quantity_token:
         candidate_sequences.append([brand_token, function_token, quantity_token])
         if variant_token:
             candidate_sequences.append([brand_token, function_token, variant_token, quantity_token])
+    
+    # Priorité 2: Marque + Quantité (ex: Haribo 750g) - plus large
+    if brand_token and quantity_token:
+        candidate_sequences.append([brand_token, quantity_token])
+
     if brand_token and function_token:
         candidate_sequences.append([brand_token, function_token])
     if function_token and quantity_token:
@@ -458,8 +464,6 @@ def build_leclerc_search_profile(descriptor: Dict[str, Any]) -> Dict[str, List[s
             seq.append(variant_token)
         seq.append(quantity_token)
         candidate_sequences.append(seq)
-    if brand_token and variant_token and quantity_token:
-        candidate_sequences.append([brand_token, variant_token, quantity_token])
 
     for sequence in candidate_sequences:
         query = _compose_query_from_tokens(sequence)
@@ -469,30 +473,33 @@ def build_leclerc_search_profile(descriptor: Dict[str, Any]) -> Dict[str, List[s
                 primary_query = added
 
     # fallback using broader descriptor information
-    for source in (
-        descriptor.get("seed_query"),
-        descriptor.get("seed_primary_name"),
-        descriptor.get("name"),
-        descriptor.get("description"),
-    ):
-        if isinstance(source, str):
-            add_query(source)
-
-    fallback = descriptor.get("ean")
-    if fallback:
-        fallback_value = str(fallback).strip()
-        if fallback_value:
-            add_query(fallback_value, enforce_words=False)
-
+    # Si aucune séquence stricte n'a été générée, on utilise le nom ou le seed_query
     if not queries:
-        fallback_value = str(descriptor.get("ean") or "").strip()
-        if fallback_value:
-            queries.append(fallback_value)
+        for source in (
+            descriptor.get("seed_query"),
+            descriptor.get("seed_primary_name"),
+            descriptor.get("name"),
+            descriptor.get("description"),
+        ):
+            if isinstance(source, str):
+                add_query(source)
 
-    # Primary keywords: ensure at least one trimmed query respecting store length
-    if primary_query is None:
+    # REMOVED: Do not add EAN as a search query for Leclerc
+    # fallback = descriptor.get("ean")
+    # if fallback:
+    #     fallback_value = str(fallback).strip()
+    #     if fallback_value:
+    #         add_query(fallback_value, enforce_words=False)
+
+    # REMOVED: Do not add EAN as a search query for Leclerc (residual fallback)
+    # if not queries:
+    #     fallback_value = str(descriptor.get("ean") or "").strip()
+    #     if fallback_value:
+    #         queries.append(fallback_value)
+
+    if primary_query is None and queries:
         primary_query = next((q for q in queries if _qualify_query(q)), queries[0])
-    trimmed_primary = _trim_for_store(primary_query)
+    trimmed_primary = _trim_for_store(primary_query or "")
     primary_keywords = [trimmed_primary] if trimmed_primary else []
 
     secondary_keywords: List[str] = []
@@ -570,7 +577,6 @@ else:  # pragma: no cover - executed when package imports are available
         ai_summarize_product_seed = None
         ai_suggest_search_queries = None
 DEFAULT_RESULTS_DIR = ROOT_DIR / "results"
-MANUAL_DESCRIPTOR_PATH = ROOT_DIR / "manual_descriptors.json"
 DESCRIPTOR_CACHE_PATH = ROOT_DIR / "pipeline" / "descriptor_cache.json"
 ALLOWED_MANUAL_DESCRIPTOR_FIELDS = {
     "ean",
@@ -694,6 +700,20 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
             ),
         },
     },
+    "spar": {
+        "script": ROOT_DIR / "fetch_casino_price.py",
+        "env": lambda: {
+            "CASINO_STORE_CODE": os.getenv("SPAR_STORE_CODE", "TL832"),
+            "CASINO_STORE_SLUG": os.getenv("SPAR_STORE_SLUG", "spar-33160"),
+            "CASINO_STORE_LABEL": os.getenv(
+                "SPAR_STORE_LABEL", "Spar Super · Saint-Médard-en-Jalles"
+            ),
+            "CASINO_STORE_URL": os.getenv(
+                "SPAR_STORE_URL",
+                "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+            ),
+        },
+    },
 }
 
 EAN_ONLY_ADAPTERS = {
@@ -715,6 +735,7 @@ DEFAULT_ADAPTER_ORDER = [
     "courseu",
     "g20",
     "casino",
+    "spar",
     "intermarche",
     "leclerc",
     "monoprix",
@@ -753,7 +774,12 @@ def refresh_descriptor_cache() -> None:
 
 
 def load_manual_descriptor(ean: str) -> Optional[Dict[str, Any]]:
-    return None
+    # Legacy shim: always use descriptor_store (seed_catalog) as source of truth.
+    sanitized = sanitize_ean(ean)
+    if not sanitized:
+        return None
+    descriptor = get_seed_descriptor(sanitized)
+    return descriptor if descriptor else None
 
 
 def fetch_manual_descriptor(ean: str) -> Optional[Dict[str, Any]]:
@@ -762,12 +788,16 @@ def fetch_manual_descriptor(ean: str) -> Optional[Dict[str, Any]]:
 
 
 def load_all_descriptors() -> Dict[str, Dict[str, Any]]:
-    return {}
+    # Mirror descriptor_store catalog (seeds only).
+    try:
+        return descriptor_catalog_all()
+    except Exception:
+        return {}
 
 
 def save_manual_descriptor_entry(ean: str, entry: Dict[str, Any]) -> None:
+    # No-op: manual descriptors file is deprecated; rely on seed_catalog/descriptor_store.
     return
-    refresh_descriptor_cache()
 
 
 def merge_descriptor(base: Optional[Dict[str, Any]], updates: Dict[str, Any]) -> Dict[str, Any]:
@@ -834,6 +864,30 @@ def is_generic_brand(value: Any) -> bool:
     return lowered in GENERIC_BRAND_TERMS
 
 
+def _parse_quantity_number(qty: Optional[str]) -> Optional[float]:
+    if not isinstance(qty, str):
+        return None
+    text = qty.lower().replace(",", ".")
+    match = re.search(r"(\d+(?:\.\d+)?)", text)
+    if not match:
+        return None
+    try:
+        return float(match.group(1))
+    except Exception:
+        return None
+
+
+def _token_coverage(candidate: str, reference: str, limit: int = 8) -> float:
+    def tokens(txt: str) -> List[str]:
+        return [t for t in re.split(r"[^a-z0-9]+", txt.lower()) if t and len(t) > 2]
+    ref_tokens = tokens(reference)[:limit]
+    cand_tokens = set(tokens(candidate))
+    if not ref_tokens:
+        return 0.0
+    hits = sum(1 for t in ref_tokens if t in cand_tokens)
+    return hits / len(ref_tokens)
+
+
 def infer_brand_from_title(title: Any) -> Optional[str]:
     if not isinstance(title, str):
         return None
@@ -897,18 +951,33 @@ def ensure_brand_from_results(
             return updated
         return descriptor
 
-    candidate: Optional[str] = None
+    def _brand_score(status: str, adapter: str) -> int:
+        status_rank = {
+            "OK": 4,
+            "NO_PRICE": 3,
+            "NO_RESULTS": 2,
+            "NO_MATCH": 1,
+        }.get((status or "").upper(), 0)
+        adapter_bonus = 1 if adapter in {"carrefour_city", "carrefour_market", "carrefour_super", "monoprix"} else 0
+        return status_rank * 10 + adapter_bonus
+
+    best: Optional[tuple[int, str]] = None
     for res in adapter_results:
         if not isinstance(res, RawAdapterResult):
             continue
         payload = res.payload or {}
         candidate = infer_brand_from_payload(payload)
-        if candidate and not is_generic_brand(candidate):
-            break
+        if not candidate or is_generic_brand(candidate):
+            continue
+        if len(candidate.strip()) < 3:
+            # Avoid short stop-words like "La" picked from noisy titles
+            continue
+        score = _brand_score(res.status, res.adapter)
+        if best is None or score > best[0]:
+            best = (score, candidate)
 
-    if not candidate:
-        candidate = infer_brand_from_title(descriptor.get("name"))
-    if not candidate or is_generic_brand(candidate):
+    candidate = best[1] if best else infer_brand_from_title(descriptor.get("name"))
+    if not candidate or is_generic_brand(candidate) or len(candidate.strip()) < 3:
         return descriptor
 
     updated = dict(descriptor)
@@ -1142,6 +1211,14 @@ def annotate_adapter_payload(adapter: str, payload: Dict[str, Any], *, ean: str)
         if product:
             if not product.ean:
                 product.ean = ean
+            # Fallback image: use descriptor image if adapter does not provide one
+            if not product.image_url:
+                descriptor = get_seed_descriptor(ean)
+                img = None
+                if isinstance(descriptor, dict):
+                    img = descriptor.get("image")
+                if img:
+                    product.image_url = img
             payload["product"] = asdict(product)
         return
 
@@ -1648,12 +1725,18 @@ def build_leclerc_seed_keywords(descriptor: Dict[str, Any]) -> List[str]:
     brand_norm = norm(brand)
     variant_norm = norm(variant)
 
-    if base_name and base_qty:
-        push(f"{base_name} {base_qty}")
+    # Prioritise curated/AI queries if they already exist on the descriptor
+    leclerc_manual_query = descriptor.get("leclerc_query")
+    leclerc_manual_queries = descriptor.get("leclerc_queries")
+    if isinstance(leclerc_manual_query, str):
+        push(leclerc_manual_query)
+    if isinstance(leclerc_manual_queries, list):
+        for item in leclerc_manual_queries:
+            push(item)
     if seed_query:
         push(seed_query)
-    if base_name:
-        push(base_name)
+
+    # Brand-centric combinations yield the most reliable results, so push them first
     if brand_norm and variant_norm and base_qty:
         push(f"{brand_norm} {variant_norm} {base_qty}")
     if brand_norm and base_qty:
@@ -1662,6 +1745,13 @@ def build_leclerc_seed_keywords(descriptor: Dict[str, Any]) -> List[str]:
         push(f"{brand_norm} {variant_norm}")
     if brand_norm:
         push(brand_norm)
+
+    # Fallback to more generic names once brand-focused attempts are stored
+    if base_name and base_qty:
+        push(f"{base_name} {base_qty}")
+    if base_name:
+        push(base_name)
+
     ean_value = descriptor.get("ean")
     if ean_value:
         push(str(ean_value))
@@ -1827,6 +1917,11 @@ def run_adapter(
         env["CDP_URL"] = os.environ["CDP_URL"]
     if proxy:
         env["PROXY"] = proxy
+    if descriptor and adapter not in EAN_ONLY_ADAPTERS:
+        try:
+            env["DESCRIPTOR_JSON"] = json.dumps(descriptor, ensure_ascii=False)
+        except Exception:
+            pass
     if finder_keywords:
         cleaned_keywords = [
             " ".join(kw.split())
@@ -1840,6 +1935,8 @@ def run_adapter(
     if adapter == "monoprix":
         env.setdefault("MONOPRIX_MAX_TERMS", "3")
         env.setdefault("MONOPRIX_MAX_PRODUCTS", "4")
+    # Avoid polluting results/summary when adapters are invoked from the pipeline.
+    env.setdefault("WRITE_RESULTS", "0")
     def severity(status: str) -> int:
         status = (status or "").upper()
         if status == "OK":
@@ -1873,42 +1970,123 @@ def run_adapter(
         if cached_query:
             add_candidate(cached_query)
 
+        descriptor_leclerc_queries: List[str] = []
+        if adapter == "leclerc" and descriptor:
+            primary_leclerc = descriptor.get("leclerc_query")
+            if isinstance(primary_leclerc, str):
+                descriptor_leclerc_queries.append(primary_leclerc)
+            leclerc_list = descriptor.get("leclerc_queries")
+            if isinstance(leclerc_list, list):
+                for item in leclerc_list:
+                    if isinstance(item, str):
+                        descriptor_leclerc_queries.append(item)
+
+        # Priorité absolue aux requêtes Leclerc spécifiques
+        if adapter == "leclerc":
+            if descriptor_leclerc_queries:
+                for leclerc_kw in descriptor_leclerc_queries:
+                    add_candidate(leclerc_kw)
+            # ELSE: On ne fait RIEN. Si pas de mots-clés Leclerc, on ne fallback PAS sur 'query' (qui est souvent l'EAN).
+            # Cela évite de chercher "310322..." sur Leclerc.
+
         if finder_keywords:
             for kw in finder_keywords:
                 add_candidate(kw)
+
         if adapter != "leclerc":
             add_candidate(query)
-        if descriptor and adapter != "leclerc":
-            seed_q = descriptor.get("seed_query")
-            add_candidate(seed_q)
+
+        if descriptor:
+            if adapter != "leclerc":
+                seed_q = descriptor.get("seed_query")
+                add_candidate(seed_q)
         if adapter_uses_ean_search:
             add_candidate(ean)
+
         if not candidates:
             fallback = None
             if not finder_keywords:
-                fallback = query if query else (ean if adapter_uses_ean_search else None)
+                # Si on n'a rien trouvé, on fallback sur 'query' SAUF pour Leclerc
+                # Pour Leclerc, 'query' est souvent l'EAN, et on ne veut PAS chercher l'EAN.
+                if adapter != "leclerc":
+                    fallback = query if query else (ean if adapter_uses_ean_search else None)
             add_candidate(fallback)
         if adapter == "monoprix" and len(candidates) > 4:
             candidates = candidates[:4]
         query_candidates = candidates
 
     best_result: Optional[RawAdapterResult] = None
-    for candidate_query in query_candidates:
+    adapter_timeout_s = int(os.getenv("ADAPTER_TIMEOUT_S", "90"))
+    # Per-adapter overrides to avoid blocking the whole pipeline when one store is slow.
+    per_adapter_timeout_env = {
+        "leclerc": ("LECLERC_TIMEOUT_S", 120),
+        "chronodrive": ("CHRONO_TIMEOUT_S", adapter_timeout_s),
+    }
+    if adapter in per_adapter_timeout_env:
+        env_key, default_override = per_adapter_timeout_env[adapter]
+        adapter_timeout_s = int(os.getenv(env_key, str(default_override)))
+    for candidate_query_idx, candidate_query in enumerate(query_candidates):
         local_env = env.copy()
         if adapter in EAN_ONLY_ADAPTERS:
             local_env["QUERY"] = ean
         else:
             local_env["QUERY"] = candidate_query
+        if adapter == "leclerc":
+            local_env.setdefault("LECLERC_NO_DELAY", "1")
 
         command = [sys.executable, str(script_path)]
         started_at = datetime.now(PARIS_TZ)
-        proc = subprocess.run(
-            command,
-            env=local_env,
-            capture_output=True,
-            text=True,
-            cwd=str(ROOT_DIR),
-        )
+        try:
+            proc = subprocess.run(
+                command,
+                env=local_env,
+                capture_output=True,
+                text=True,
+                cwd=str(ROOT_DIR),
+                timeout=adapter_timeout_s,
+            )
+        except subprocess.TimeoutExpired as exc:
+            finished_at = datetime.now(PARIS_TZ)
+            raw_stdout = exc.stdout if hasattr(exc, "stdout") else ""
+            raw_stderr = exc.stderr if hasattr(exc, "stderr") else ""
+            if isinstance(raw_stdout, bytes):
+                raw_stdout = raw_stdout.decode(errors="ignore")
+            if isinstance(raw_stderr, bytes):
+                raw_stderr = raw_stderr.decode(errors="ignore")
+            stdout = (raw_stdout or "").strip()
+            stderr = (raw_stderr or "").strip()
+            timeout_error = f"timeout_after_{adapter_timeout_s}s"
+            return RawAdapterResult(
+                adapter=adapter,
+                status="TIMEOUT",
+                payload={"status": "TIMEOUT", "error": timeout_error},
+                started_at=started_at,
+                finished_at=finished_at,
+                script_path=str(script_path),
+                command=command,
+                env={
+                    k: local_env.get(k, "")
+                    for k in [
+                        "EAN",
+                        "QUERY",
+                        "STORE_QUERY",
+                        "STORE_URL",
+                        "HOME_URL",
+                        "CARREFOUR_STATE_VARIANT",
+                        "HEADLESS",
+                        "PROXY",
+                    ]
+                    if local_env.get(k) is not None
+                },
+                exit_code=-1,
+                stdout=stdout,
+                stderr=stderr,
+                error=timeout_error,
+                metadata={
+                    "attempt_query": candidate_query,
+                    "timeout_s": adapter_timeout_s,
+                },
+            )
         finished_at = datetime.now(PARIS_TZ)
         stdout = proc.stdout.strip()
         stderr = proc.stderr.strip() if proc.stderr else None
@@ -1982,6 +2160,40 @@ def run_adapter(
                 "attempt_query": candidate_query,
             },
         )
+
+        found_ean = payload.get("matched_ean") or payload.get("ean")
+        # Si on a trouvé un EAN et qu'il est différent de celui cherché, on continue
+        # Pour Leclerc, on exige un EAN valide si on veut s'arrêter (sauf si dernier candidat)
+        ean_mismatch = False
+        if found_ean and str(found_ean).strip() != str(ean).strip():
+            ean_mismatch = True
+        elif not found_ean and adapter == "leclerc":
+            # Si Leclerc ne renvoie pas d'EAN mais qu'on a un statut OK, on s'arrête quand même
+            if result.status != "OK":
+                ean_mismatch = True
+
+        if ean_mismatch and candidate_query_idx < len(query_candidates) - 1:
+            # On loggue l'échec partiel mais on ne s'arrête pas
+            if best_result is None or severity(result.status) > severity(best_result.status):
+                best_result = result
+            continue
+
+        # Fallback: si pas d'EAN mais titre proche du descriptif, marquer équivalent
+        if not found_ean and isinstance(payload, dict) and descriptor:
+            title = payload.get("title") or payload.get("name") or ""
+            ref_title = descriptor.get("name") or descriptor.get("seed_primary_name") or descriptor.get("seed_query") or ""
+            coverage = _token_coverage(title, ref_title, limit=8)
+            qty_ref = _parse_quantity_number(descriptor.get("quantity") or descriptor.get("seed_primary_quantity"))
+            qty_candidate = _parse_quantity_number(payload.get("quantity"))
+            qty_ok = True
+            if qty_ref is not None and qty_candidate is not None:
+                # ref 50 capsules vs 10 => reject si < 60% de la quantité
+                qty_ok = qty_candidate >= 0.6 * qty_ref
+            if coverage >= 0.6 and qty_ok:
+                payload["equivalent"] = True
+                payload.setdefault("difference_note", "Match sans EAN (couverture mots-clés)")
+                payload.setdefault("matched_ean", None)
+
         if abort_requested and abort_reason:
             result.metadata["abort_reason"] = abort_reason
 
@@ -2038,11 +2250,35 @@ def save_run(run: PipelineRun, *, results_dir: Path) -> Path:
     timestamp = run.finished_at.strftime("%Y%m%d-%H%M%S")
     fname = f"run-{run.ean}-{timestamp}.json"
     full_path = results_dir / fname
-    with full_path.open("w", encoding="utf-8") as fh:
-        json.dump(run.as_dict(), fh, ensure_ascii=False, indent=2)
+    run_dict = run.as_dict()
+
     latest_path = results_dir / "latest.json"
-    with latest_path.open("w", encoding="utf-8") as fh:
-        json.dump(run.as_dict(), fh, ensure_ascii=False, indent=2)
+    merged_latest = run_dict
+    if latest_path.exists():
+        try:
+            existing = json.loads(latest_path.read_text(encoding="utf-8"))
+        except Exception:
+            existing = None
+        if isinstance(existing, dict) and existing.get("ean") == run.ean:
+            # merge adapters: keep existing ones not rerun, replace/insert new ones
+            existing_adapters = {a.get("adapter"): a for a in existing.get("adapters", []) if isinstance(a, dict)}
+            for new_entry in run_dict.get("adapters", []):
+                name = new_entry.get("adapter")
+                if name:
+                    existing_adapters[name] = new_entry
+            merged_adapters = list(existing_adapters.values())
+            merged_latest = existing
+            merged_latest["adapters"] = merged_adapters
+            merged_latest["finished_at"] = run.finished_at.isoformat()
+            merged_latest["started_at"] = run.started_at.isoformat()
+            merged_latest["duration_seconds"] = (run.finished_at - run.started_at).total_seconds()
+            merged_latest["finder"] = run_dict.get("finder")
+            merged_latest["reference"] = run_dict.get("reference")
+            merged_latest["notes"] = run_dict.get("notes", [])
+
+    with full_path.open("w", encoding="utf-8") as fh:
+        json.dump(run_dict, fh, ensure_ascii=False, indent=2)
+    latest_path.write_text(json.dumps(merged_latest, ensure_ascii=False, indent=2), encoding="utf-8")
     return full_path
 
 
@@ -2127,7 +2363,7 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser.add_argument("--results-dir", default=str(DEFAULT_RESULTS_DIR), help="Répertoire de sortie pour les JSON")
     parser.add_argument("--human", action="store_true", help="Active un mode debug humain (screenshots, timings)" )
     parser.add_argument("--human-debug-root", help="Répertoire parent pour stocker les captures du mode humain")
-    parser.add_argument("--use_finder", action="store_true", help="Active le post-traitement Finder")
+    parser.add_argument("--use_finder", action="store_true", default=True, help="Active le post-traitement Finder (activé par défaut)")
     parser.add_argument("--finder_threshold", type=float, default=0.7, help="Seuil de décision Finder")
     return parser.parse_args(argv)
 
@@ -2262,13 +2498,15 @@ def main(argv: Optional[List[str]] = None) -> int:
         ai_primary_keywords = []
     default_keywords = _merge_keyword_sources(ai_primary_keywords, heuristic_keywords, limit=8)
     leclerc_seed_keywords = build_leclerc_seed_keywords(descriptor)
+    leclerc_keywords = _merge_keyword_sources(
+        leclerc_ai_queries,
+        leclerc_seed_keywords,
+        default_keywords,
+        heuristic_keywords,
+        limit=8,
+    )
     adapter_keyword_map = {
-        "leclerc": leclerc_seed_keywords or _merge_keyword_sources(
-            leclerc_ai_queries,
-            default_keywords,
-            heuristic_keywords,
-            limit=8,
-        ),
+        "leclerc": leclerc_keywords or leclerc_seed_keywords or default_keywords or heuristic_keywords,
         "monoprix": _merge_keyword_sources(monoprix_ai_queries, default_keywords, heuristic_keywords, limit=3),
     }
     if not default_keywords:

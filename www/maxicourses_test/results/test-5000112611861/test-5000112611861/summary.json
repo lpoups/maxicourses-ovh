@@ -30,8 +30,8 @@
           "raw_text": ""
         }
       },
-      "updated_at": "2025-11-20T17:55:20.548563+01:00",
-      "duration_seconds": 21.382726,
+      "updated_at": "2025-11-21T15:18:26.836624+01:00",
+      "duration_seconds": 21.866667,
       "error": null,
       "store_query": null
     },
@@ -65,8 +65,8 @@
           "raw_text": ""
         }
       },
-      "updated_at": "2025-11-20T17:55:20.548563+01:00",
-      "duration_seconds": 21.528471,
+      "updated_at": "2025-11-21T15:18:26.836624+01:00",
+      "duration_seconds": 22.107395,
       "error": null,
       "store_query": null
     },
@@ -100,8 +100,8 @@
           "raw_text": ""
         }
       },
-      "updated_at": "2025-11-20T17:55:20.548563+01:00",
-      "duration_seconds": 18.752292,
+      "updated_at": "2025-11-21T15:18:26.836624+01:00",
+      "duration_seconds": 19.256822,
       "error": null,
       "store_query": null
     },
@@ -130,11 +130,13 @@
           "ean": "5000112611861",
           "image_url": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
           "source": "auchan",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-20T17:55:20.548563+01:00",
-      "duration_seconds": 11.387691,
+      "updated_at": "2025-11-26T15:00:43.498895+01:00",
+      "duration_seconds": 12.4114,
       "error": null,
       "store_query": null
     },
@@ -167,8 +169,8 @@
           "raw_text": ""
         }
       },
-      "updated_at": "2025-11-20T17:55:20.548563+01:00",
-      "duration_seconds": 6.558654,
+      "updated_at": "2025-11-21T15:18:26.836624+01:00",
+      "duration_seconds": 7.378575,
       "error": null,
       "store_query": null
     },
@@ -181,7 +183,7 @@
         "quantity": "1,75  L",
         "title": "Soda COCA-COLA Original - Bouteille 1,75L",
         "url": "https://www.coursesu.com/p/soda-coca-cola-original---bouteille-175l/5192990.htm l",
-        "note": "2025-11-20T16:52:35Z · Super U Eysines",
+        "note": "2025-11-21T14:14:53Z · Super U Eysines",
         "store": "Super U  Eysines",
         "matched_ean": "5000112611861",
         "nutriscore_grade": "c",
@@ -201,8 +203,8 @@
           "raw_text": ""
         }
       },
-      "updated_at": "2025-11-20T17:55:20.548563+01:00",
-      "duration_seconds": 32.617261,
+      "updated_at": "2025-11-21T15:18:26.836624+01:00",
+      "duration_seconds": 30.487273,
       "error": null,
       "store_query": null
     },
@@ -222,22 +224,22 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-20T17:55:20.548563+01:00",
-      "duration_seconds": 0.837916,
+      "updated_at": "2025-11-21T15:18:26.836624+01:00",
+      "duration_seconds": 1.886754,
       "error": null,
       "store_query": null
     },
     "intermarche": {
-      "status": "OK",
+      "status": "NO_RESULTS",
       "payload": {
-        "status": "OK",
-        "price": "2,41",
-        "title": "Soda au cola gout original",
-        "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5000112611861",
-        "note": "Intermarché · Super Talence",
-        "matched_ean": "5000112611861",
-        "unit_price": "1,38 € / L",
-        "quantity": "1,75  L",
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Intermarché · Super Talence — produit absent",
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
         "store": "Super Talence",
         "candidates": [
           {
@@ -297,14 +299,56 @@
             }
           },
           {
-            "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5000112611861",
+            "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5449000267412",
             "product": {
-              "title": "Coca-ColaSoda au cola gout original",
+              "title": "Coca-ColaSoda au cola goût Original",
               "brand": "Cola",
               "kind": "Soda au Cola Goût Original COCA-COLA",
               "qty": "1,75 L",
               "qualifiers": [],
-              "ean": "5000112611861",
+              "ean": "5449000267412",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5449000267467",
+            "product": {
+              "title": "Coca-ColaSoda au cola goût original",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "5449000267467",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola/3250390578994",
+            "product": {
+              "title": "Look, une marque IntermarchéSoda au cola",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "3250390578994",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5449000283900",
+            "product": {
+              "title": "Coca-ColaSoda au cola goût original",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "5449000283900",
               "image_url": null,
               "source": "intermarche",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
@@ -312,13 +356,16 @@
           }
         ],
         "_meta": {
-          "supports_keywords": true
+          "supports_keywords": true,
+          "abort_search": true,
+          "abort_reason": "too_many_ean_mismatches",
+          "ean_mismatch_hits": 8
         },
-        "nutriscore_grade": "e",
+        "nutriscore_grade": null,
         "nutriscore_image": null
       },
-      "updated_at": "2025-11-20T17:55:20.548563+01:00",
-      "duration_seconds": 95.359605,
+      "updated_at": "2025-11-21T15:18:26.836624+01:00",
+      "duration_seconds": 140.698365,
       "error": null,
       "store_query": null
     },
@@ -326,14 +373,14 @@
       "status": "OK",
       "payload": {
         "status": "OK",
-        "title": "Soda Jean's Cola 2L",
-        "price": "1,50",
-        "unit_price": "0,75 € / l",
+        "title": "Soda Coca-Cola Original Bouteille - 1,75L",
+        "price": "2,37",
+        "unit_price": "1,35 € / l",
         "quantity": "1,75  L",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-3989-Soda-Jeans-Cola.aspx",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
         "matched_ean": "5000112611861",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-20T16:54:47Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-26T16:51:41Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
@@ -350,13 +397,47 @@
               "ean": "3564700407721",
               "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2699423&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-657-Soda-Jeans-Cola-allege.aspx",
+            "product": {
+              "title": "Soda Jean's Cola allégé Bouteille - 1,5L",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "3564700002711",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2874681&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
+            "product": {
+              "title": "Soda Coca-Cola Original Bouteille - 1,75L",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "5000112611861",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2971745&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ]
       },
-      "updated_at": "2025-11-20T17:55:20.548563+01:00",
-      "duration_seconds": 35.4528,
+      "updated_at": "2025-11-26T17:52:27.443493+01:00",
+      "duration_seconds": 24.279629,
       "error": null,
       "store_query": null
     },
@@ -446,10 +527,13 @@
           "supports_keywords": true
         }
       },
-      "updated_at": "2025-11-20T17:55:20.548563+01:00",
-      "duration_seconds": 33.03646,
+      "updated_at": "2025-11-21T15:18:26.836624+01:00",
+      "duration_seconds": 32.496148,
       "error": null,
       "store_query": null
+    },
+    "_finder": {
+      "error": "'FinderPipeline' object has no attribute 'decide'"
     }
   }
 }

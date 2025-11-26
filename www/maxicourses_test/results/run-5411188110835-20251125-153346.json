@@ -1,0 +1,71 @@
+{
+  "ean": "5411188110835",
+  "image_path": null,
+  "started_at": "2025-11-25T15:33:45.339242+01:00",
+  "finished_at": "2025-11-25T15:33:46.243534+01:00",
+  "duration_seconds": 0.904292,
+  "reference": {
+    "title": null,
+    "description": null,
+    "source": "unknown",
+    "brand": null,
+    "quantity": null,
+    "categories": null,
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5411188110835-20251125-153345"
+  ],
+  "adapters": [
+    {
+      "adapter": "monoprix",
+      "status": "NO_QUERY",
+      "payload": {
+        "status": "NO_QUERY",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-25T15:33:45.962296+01:00",
+      "finished_at": "2025-11-25T15:33:46.243099+01:00",
+      "duration_seconds": 0.280803,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "5411188110835",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] NO_QUERY: build_query_terms() returned no terms",
+      "metadata": {
+        "attempt_query": "5411188110835",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/debug/run-5411188110835-20251125-153345/01-monoprix"
+      }
+    }
+  ],
+  "finder": null
+}

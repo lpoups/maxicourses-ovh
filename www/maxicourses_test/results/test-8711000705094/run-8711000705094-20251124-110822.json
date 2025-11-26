@@ -1,0 +1,101 @@
+{
+  "ean": "8711000705094",
+  "image_path": null,
+  "started_at": "2025-11-24T11:08:05.959901+01:00",
+  "finished_at": "2025-11-24T11:08:22.690655+01:00",
+  "duration_seconds": 16.730754,
+  "reference": {
+    "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "description": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "source": "auchan",
+    "brand": "Or",
+    "quantity": "50 L",
+    "categories": null,
+    "image": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-d.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "16,09",
+        "unit_price": null,
+        "quantity": null,
+        "title": "Capsules de café ristretto intensité 11 compatibles Nespresso",
+        "url": "https://www.auchan.fr/l-or-espresso-capsules-de-cafe-ristretto-intensite-11-com patibles-nespresso/pr-C1676041",
+        "matched_ean": "8711000705094",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café ristretto intensité 11 compatibles Nespresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": null,
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-24T11:08:05.960861+01:00",
+      "finished_at": "2025-11-24T11:08:21.943818+01:00",
+      "duration_seconds": 15.982957,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results visible, opening first candidate",
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Capsules de café ristretto intensité 11 compatibles Nespresso",
+      "brand": "Capsules",
+      "kind": "",
+      "qty": "50 L",
+      "qualifiers": [],
+      "ean": "8711000705094",
+      "image_url": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+      "source": "consolidated",
+      "raw_text": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Capsules nespresso 50 L",
+      "Capsules nespresso 50.00 L",
+      "Capsules nespresso 50,00 L",
+      "Capsules nespresso 5000 CL"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

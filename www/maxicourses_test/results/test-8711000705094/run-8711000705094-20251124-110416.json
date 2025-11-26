@@ -1,0 +1,102 @@
+{
+  "ean": "8711000705094",
+  "image_path": null,
+  "started_at": "2025-11-24T11:03:41.485129+01:00",
+  "finished_at": "2025-11-24T11:04:16.400846+01:00",
+  "duration_seconds": 34.915717,
+  "reference": {
+    "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "description": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "source": "courseu",
+    "brand": "Or",
+    "quantity": "260 g",
+    "categories": null,
+    "image": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+    "nutriscore_grade": "c",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "14,13",
+        "unit_price": "54,35 € / KG",
+        "quantity": "260 g",
+        "title": "Café Capsules L'OR RISTRETTO N°11 - compatible NESPRESSO -  x50",
+        "url": "https://www.coursesu.com/p/cafe-capsules-lor-ristretto-n11---compatible-nespres so---x50/3946455.html",
+        "note": "2025-11-24T10:04:15Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "8711000705094",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules L'OR RISTRETTO N°11 - compatible NESPRESSO -  x50",
+          "brand": "Café",
+          "kind": "",
+          "qty": "260 g",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-24T11:03:41.485988+01:00",
+      "finished_at": "2025-11-24T11:04:15.768153+01:00",
+      "duration_seconds": 34.282165,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Café Capsules L'OR RISTRETTO N°11 - compatible NESPRESSO -  x50",
+      "brand": "Café",
+      "kind": "",
+      "qty": "260 g",
+      "qualifiers": [],
+      "ean": "8711000705094",
+      "image_url": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+      "source": "consolidated",
+      "raw_text": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Café nespresso 260 G",
+      "Café nespresso ristretto",
+      "Café 260 G",
+      "Café capsules 260 G"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

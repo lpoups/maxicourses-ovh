@@ -190,6 +190,16 @@ Ce mémo remplace l’ancien journal volumineux. Il décrit l’état courant, l
 - Test rapide : `cd maxicourses_test && python3 pipeline/run_pipeline.py --ean 5449000131836 --adapters casino` — renvoie `NO_RESULTS` sur la requête EAN brute (normal), les requêtes Finder courtes (`coca cola sans sucre 50cl`, etc.) retournent bien `status="OK"` avec `matched_ean=5449000131836`.
 
 ### Suites / TODO
-1. Alimenter `finder.py` / `seed_catalog.py` avec des requêtes ciblées pour Casino dès qu’un nouveau produit est ajouté (marque + parfum + format) afin que le pipeline ne retombe plus sur le fallback EAN vide.
+1. Alimenter `finder.py` / `seed_catalog.py` avec des requêtes ciblées pour Casino et Spar dès qu’un nouveau produit est ajouté (marque + parfum + format) afin que le pipeline ne retombe plus sur le fallback EAN vide.
 2. Étendre la surveillance `_meta` (`supports_keywords=true`) pour suivre les requêtes testées et documenter toute anomalie dans ce journal.
-3. Ajouter de vraies collectes Casino dans `results/test-<EAN>/` puis rafraîchir `results/summary.json` pour valider le rendu `index2.html` (logos/cartes).
+3. Ajouter de vraies collectes Casino/Spar dans `results/test-<EAN>/` puis rafraîchir `results/summary.json` pour valider le rendu `index2.html` (logos/cartes).
+
+## 2025-11-21T16:00 – GPT (Codex CLI)
+
+### Faits marquants
+- Intégration **Spar Super Saint-Médard-en-Jalles** (mescoursesdeproximite.com) : nouvel adaptateur `spar` dans `run_pipeline.py` réutilisant `fetch_casino_price.py` mais avec le store code `TL832`. `index2.html` embarque le logo `assets/logos/spar.png`, un label dédié et la géolocalisation (lat 44.894404, lon -0.715413).
+- `seed_catalog.py` fournit désormais les requêtes Finder `casino` + `spar` pour tous les EAN pilotes (Coca 1,75 L, Destop, Hipro, Lune de Miel, Alpro, Orangina, Savora), ce qui évite les recherches EAN qui renvoient 0 résultat sur mescoursesdeproximite.com.
+- Documentation mise à jour (`ONBOARDING`, `PRICE_COLLECTION_GUIDE`, `PRICE_COMPARATOR_PLAN`, `pipeline/ENSEIGNES.md`) pour préciser la procédure Spar et rappeler que les deux enseignes partagent le même fetcher HTTP.
+
+### Suivi
+- Lors des prochaines collectes globales, vérifier que `run_pipeline.py` enchaîne bien `... g20 -> casino -> spar ...` et que `results/summary.json` remonte les deux magasins. Si Spar tombe en `NO_RESULTS`, ajuster les requêtes `queries['spar']` dans `seed_catalog.py`.

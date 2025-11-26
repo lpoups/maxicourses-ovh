@@ -1,0 +1,679 @@
+{
+  "ean": "8711000705094",
+  "image_path": null,
+  "started_at": "2025-11-24T14:57:51.788015+01:00",
+  "finished_at": "2025-11-24T15:04:07.823050+01:00",
+  "duration_seconds": 376.035035,
+  "reference": {
+    "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "description": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "source": "carrefour_super",
+    "brand": "L'Or",
+    "quantity": "50 L",
+    "categories": null,
+    "image": "./assets/8711000705094.jpg",
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-d.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-24T14:57:51.788867+01:00",
+      "finished_at": "2025-11-24T14:58:09.487910+01:00",
+      "duration_seconds": 17.699043,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "15,29",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000705094",
+        "note": null,
+        "unit_price": "58,81 € / KG",
+        "quantity": "50 L",
+        "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+        "matched_ean": "8711000705094",
+        "image": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+        "nutriscore_grade": "d",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "50 L",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-24T14:58:09.489708+01:00",
+      "finished_at": "2025-11-24T14:58:33.134895+01:00",
+      "duration_seconds": 23.645187,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "14,59",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000705094",
+        "note": null,
+        "unit_price": "56,12 € / KG",
+        "quantity": "50 L",
+        "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+        "matched_ean": "8711000705094",
+        "image": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+        "nutriscore_grade": "d",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "50 L",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-24T14:58:33.137882+01:00",
+      "finished_at": "2025-11-24T14:58:52.214501+01:00",
+      "duration_seconds": 19.076619,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "16,09",
+        "unit_price": "61,88 € / KG",
+        "quantity": "50 CAPSULES",
+        "title": "Capsules de café ristretto intensité 11 compatibles  Nespresso",
+        "url": "https://www.auchan.fr/l-or-espresso-capsules-de-cafe-ristretto-intensite-11-com patibles-nespresso/pr-C1676041",
+        "matched_ean": "8711000705094",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S010000000406DZPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café ristretto intensité 11 compatibles  Nespresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "50 CAPSULES",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": "https://cdn.auchan.fr/media/S010000000406DZPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-24T14:58:52.215849+01:00",
+      "finished_at": "2025-11-24T14:59:04.540172+01:00",
+      "duration_seconds": 12.324323,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results visible, opening first candidate",
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "15,55",
+        "title": "Capsules de café ristretto N°11  L'OR Espresso",
+        "url": "https://www.chronodrive.com/lor--espresso---capsules-de-cafe-ristretto-n11-P524 548",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "59,81 € / KG",
+        "quantity": "50 capsules",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "8711000705094",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café ristretto N°11  L'OR Espresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "50 capsules",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-24T14:59:04.542939+01:00",
+      "finished_at": "2025-11-24T14:59:12.973537+01:00",
+      "duration_seconds": 8.430598,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='8711000705094'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/lor--capsules-de-cafe-expresso-ristretto-P524548",
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "14,13",
+        "unit_price": "54,35 € / KG",
+        "quantity": "260 g",
+        "title": "Café Capsules L'OR RISTRETTO N°11 - compatible NESPRESSO -  x50",
+        "url": "https://www.coursesu.com/p/cafe-capsules-lor-ristretto-n11---compatible-nespres so---x50/3946455.html",
+        "note": "2025-11-24T13:59:47Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "8711000705094",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules L'OR RISTRETTO N°11 - compatible NESPRESSO -  x50",
+          "brand": "Café",
+          "kind": "",
+          "qty": "260 g",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-24T14:59:12.976961+01:00",
+      "finished_at": "2025-11-24T14:59:47.806371+01:00",
+      "duration_seconds": 34.82941,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Non disponible",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-24T14:59:47.809076+01:00",
+      "finished_at": "2025-11-24T14:59:48.530875+01:00",
+      "duration_seconds": 0.721799,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_60s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-24T14:59:59.894096+01:00",
+      "finished_at": "2025-11-24T15:00:59.938645+01:00",
+      "duration_seconds": 60.044549,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "L'OR L'OR 50CAPSULES L'OR café",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_60s",
+      "stderr": "",
+      "metadata": {
+        "attempt_query": "L'OR L'OR 50CAPSULES L'OR café",
+        "timeout_s": 60
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_60s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-24T15:00:59.941772+01:00",
+      "finished_at": "2025-11-24T15:01:59.978791+01:00",
+      "duration_seconds": 60.037019,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "L'OR L'OR 50CAPSULES L'OR café",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_60s",
+      "stderr": "",
+      "metadata": {
+        "attempt_query": "L'OR L'OR 50CAPSULES L'OR café",
+        "timeout_s": 60
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_60s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-24T15:01:59.980512+01:00",
+      "finished_at": "2025-11-24T15:02:59.993482+01:00",
+      "duration_seconds": 60.01297,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "L'OR L'OR 50CAPSULES L'OR café",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_60s",
+      "stderr": "",
+      "metadata": {
+        "attempt_query": "L'OR L'OR 50CAPSULES L'OR café",
+        "timeout_s": 60
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_45s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-24T15:02:59.996263+01:00",
+      "finished_at": "2025-11-24T15:03:45.010898+01:00",
+      "duration_seconds": 45.014635,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "L'OR L'OR 50CAPSULES L'OR café",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_45s",
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=False | delays => human:200ms result:300ms pdp:300ms type:[8,18] query:'L'OR L'OR 50CAPSULES L'OR café'\n[LECLERC_DEBUG] after home human pause -> 2.15s\n[LECLERC_DEBUG] Page source saved to /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/leclerc_debug_source.html\n[LECLERC_DEBUG] Screenshot saved to /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/leclerc_debug_screenshot.png\n[LECLERC_DEBUG] attempt #1 with query 'L'OR L'OR 50CAPSULES L'OR café'\n[LECLERC_DEBUG] results visible -> 8.28s (query='L'OR L'OR 50CAPSULES L'OR café')\n[LECLERC_DEBUG] after result pause -> 8.54s\n[LECLERC_DEBUG] too many results, refining with 'L'OR L'OR 50CAPSULES L'OR café capsules'\n[LECLERC_DEBUG] attempt #2 with query 'L'OR L'OR 50CAPSULES L'OR café capsules'\n[LECLERC_DEBUG] results visible -> 12.86s (query='L'OR L'OR 50CAPSULES L'OR café capsules')\n[LECLERC_DEBUG] after result pause -> 13.21s\n[LECLERC_DEBUG] too many results, refining with 'L'OR L'OR 50CAPSULES L'OR café capsules'\n[LECLERC_DEBUG] attempt #3 with query 'L'OR café ristretto 50'\n[LECLERC_DEBUG] results visible -> 16.51s (query='L'OR café ristretto 50')\n[LECLERC_DEBUG] after result pause -> 16.76s",
+      "metadata": {
+        "attempt_query": "L'OR L'OR 50CAPSULES L'OR café",
+        "timeout_s": 45
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "11,85",
+        "title": "L'Or Café en grains Espresso Forza  intense et corsé 500g",
+        "url": "https://courses.monoprix.fr/products/l-or-caf%C3%A9-en-grains-espresso-forza-in tense-et-cors%C3%A9-500g/MPX_3292050",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/f163 28fc-28f6-4ed9-8695-eb164932ea83/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/f163 28fc-28f6-4ed9-8695-eb164932ea83/300x300.jpg",
+        "matched_ean": null,
+        "unit_price": "23,70 € / KG",
+        "quantity": "500 G",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nEpicerie Sucrée\nCafé, Thé et Boisson  chaude\nCafé\nGrains\nL'Or Café en grains Espresso Forza intense et corsé  500g\n2 m+\n2 mois de garantie de vie du produit\n500g 23,70 € /  kilo\n500g\n(23,70 € / kilo)\n11,85 €\nAjouter\nPromotions\n-50% sur le 2ème  produit - Cliquez ici pour composer votre lot\n-50% sur le 2ème produit -  Cliquez ici pour composer votre lot\nInformations produit\n\n\nDescription  Produit\nLa puissance d'un expresso pur, massif, complexe au goût intense et  corsé, illuminé par sa délicate mousse ambrée. Les amateurs apprécient sa  torréfaction forte et ses notes gourmandes de chocolat et de fruits jaunes.  Grains de café grand cru. Sachet de 500 grammes. Niveau d'intensité 9. Un café  100% certifié Rainforest Alliance, qui contribue à améliorer les conditions  sociales et environnementales au sein des plantations de café. Ces grains à  moudre sont compatibles avec une machine à expresso automatique type broyeur, ou un moulin traditionnel. Parfumé, riche et aromatique, les amateurs apprécient la qualité et le goût du café en grain L'OR. Sans doute le meilleur café du monde.  Que vous aimiez le déguster au format ristretto, espresso ou allongé, à la  maison ou au travail, ce café d'exception réveillera vos  sens.\n\n\nOrigine\nPologne\nMarque\nL'Or\nService consommateur\nService  Consommateur JDE Numero Cristal 09 69 32 96 61\nConseils d'utilisation\nLe café  en grains à moudre est idéal pour les machines à expresso automatiques ou pour  les moulins traditionnels manuels ou électriques. Après avoir moulu votre café  en grains, vous pouvez aussi l'utiliser dans tous types de  cafetières.\nIngredients\nIngrédients : Café\nA propos de la marque\nCréé en  France en 1992, L’OR a toujours eu pour ambition de proposer sans doute le  meilleur café au monde. Chaque tasse de café L’OR raconte une histoire  fascinante. Grâce à la passion et au savoir-faire de ses Maîtres torréfacteurs,  L'OR a élaboré des cafés de grande qualité en révélant le profil aromatique des  meilleurs grains. Suivez vos sens et laissez-vous envahir par l'intensité de ses arômes. Expresso ou allongé, en grain, moulu ou en capsule, en format familial  ou individuel… il y a tant de manières de déguster un café L'OR.\nType  d’emballage\nPaquet\nProducteur\nJACOBS DOUWE EGBERTS FR SAS 79 BOULEVARD SAINT  GERMAIN///75006/PARIS/FRANCE\nConseil de conservation\nConserver ces grains de  café de préférence dans un endroit sec et à température ambiante.\nConseils  d'utilisation\nLe café en grains à moudre est idéal pour les machines à expresso automatiques ou pour les moulins traditionnels manuels ou électriques. Après  avoir moulu votre café en grains, vous pouvez aussi l'utiliser dans tous types  de cafetières.\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre  dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos  magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos  magasins avec Parapharmacie\nAide & Mentions\nDonnées personnelles et  cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": "chocolat",
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [
+            "image_mismatch",
+            "core_token"
+          ],
+          "candidate_quantity": "500 G",
+          "descriptor_token_coverage": {
+            "coverage": 0.8333333333333334,
+            "matched": [
+              "cafe",
+              "capsules",
+              "compatible",
+              "intensite",
+              "ristretto"
+            ],
+            "missing": [
+              "nespresso"
+            ],
+            "total": 6
+          },
+          "missing_tokens": [
+            "nespresso"
+          ],
+          "image_match": false,
+          "final_score": 10,
+          "plausible_baseline": true,
+          "missing_core_tokens": [
+            "nespresso"
+          ],
+          "notes": [
+            "accepted_without_image_match_high_coverage"
+          ],
+          "equivalent": true
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/l-or-café-en-grains-espresso-forza-intense -et-corsé-500g/MPX_3292050",
+            "product": {
+              "title": "L'Or  Café en grains Espresso Forza intense et corsé 500g",
+              "brand": "L'Or",
+              "kind": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+              "qty": "500 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/f163 28fc-28f6-4ed9-8695-eb164932ea83/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/l-or-ristretto-café-grains-500g/MPX_602192 8",
+            "product": {
+              "title": "",
+              "brand": "L'Or",
+              "kind": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+              "qty": "50 capsules",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-24T15:03:45.017835+01:00",
+      "finished_at": "2025-11-24T15:04:05.320247+01:00",
+      "duration_seconds": 20.302412,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "Or nespresso 260 G",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '8711000705094'.\n[MONOPRIX_DEBUG] Search terms: [\"L'OR 50CAPSULES café\", \"L'OR café capsules ristretto\", \"L'OR ristretto intensité 11\"]\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez']\n[MONOPRIX_DEBUG]  - Term 1/3: 'L'OR 50CAPSULES café'\n[MONOPRIX_DEBUG]  - Typing 'L'OR 50CAPSULES café' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=L%27OR%2050CAPSULES%20caf%C3%A9\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 2 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/l-or-café-en-grains-espresso-forza-intense-et-corsé-500g/MPX_3292050\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/f16328fc-28f6-4ed9-8695-eb164932ea83/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/l-or-café-en-grains-espresso-forza-intense-et-corsé-500g/MPX_3292050\n[MONOPRIX_DEBUG][SCORE] - Title: 'L'Or Café en grains Espresso Forza intense et corsé 500g' | Brand: 'l'or' | Variant(seed/cand)=(None/chocolat) | Vetoes=[] | NegHits=[] | Score=10 | Plausible=True\n[MONOPRIX_DEBUG]  - No image match for 'L'Or Café en grains Espresso Forza intense et corsé 500g'.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='11,85', title=\"L'Or Café en grains Espresso Forza intense et corsé 500g\", url='https://courses.monoprix.fr/products/l-or-caf%C3%A9-en-grains-espresso-forza-intense-et-cors%C3%A9-500g/MPX_3292050', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/f16328fc-28f6-4ed9-8695-eb164932ea83/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/f16328fc-28f6-4ed9-8695-eb164932ea83/300x300.jpg', matched_ean=None, unit_price='23,70 € / KG', quantity='500 G', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEpicerie Sucrée\\nCafé, Thé et Boisson chaude\\nCafé\\nGrains\\nL'Or Café en grains Espresso Forza intense et corsé 500g\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n500g 23,70\\xa0€ / kilo\\n500g\\n(23,70\\xa0€ / kilo)\\n11,85\\xa0€\\nAjouter\\nPromotions\\n-50% sur le 2ème produit - Cliquez ici pour composer votre lot\\n-50% sur le 2ème produit - Cliquez ici pour composer votre lot\\nInformations produit\\n\\n\\nDescription Produit\\nLa puissance d'un expresso pur, massif, complexe au goût intense et corsé, illuminé par sa délicate mousse ambrée. Les amateurs apprécient sa torréfaction forte et ses notes gourmandes de chocolat et de fruits jaunes. Grains de café grand cru. Sachet de 500 grammes. Niveau d'intensité 9. Un café 100% certifié Rainforest Alliance, qui contribue à améliorer les conditions sociales et environnementales au sein des plantations de café. Ces grains à moudre sont compatibles avec une machine à expresso automatique type broyeur, ou un moulin traditionnel. Parfumé, riche et aromatique, les amateurs apprécient la qualité et le goût du café en grain L'OR. Sans doute le meilleur café du monde. Que vous aimiez le déguster au format ristretto, espresso ou allongé, à la maison ou au travail, ce café d'exception réveillera vos sens.\\n\\n\\nOrigine\\nPologne\\nMarque\\nL'Or\\nService consommateur\\nService Consommateur JDE Numero Cristal 09 69 32 96 61\\nConseils d'utilisation\\nLe café en grains à moudre est idéal pour les machines à expresso automatiques ou pour les moulins traditionnels manuels ou électriques. Après avoir moulu votre café en grains, vous pouvez aussi l'utiliser dans tous types de cafetières.\\nIngredients\\nIngrédients : Café\\nA propos de la marque\\nCréé en France en 1992, L’OR a toujours eu pour ambition de proposer sans doute le meilleur café au monde. Chaque tasse de café L’OR raconte une histoire fascinante. Grâce à la passion et au savoir-faire de ses Maîtres torréfacteurs, L'OR a élaboré des cafés de grande qualité en révélant le profil aromatique des meilleurs grains. Suivez vos sens et laissez-vous envahir par l'intensité de ses arômes. Expresso ou allongé, en grain, moulu ou en capsule, en format familial ou individuel… il y a tant de manières de déguster un café L'OR.\\nType d’emballage\\nPaquet\\nProducteur\\nJACOBS DOUWE EGBERTS FR SAS 79 BOULEVARD SAINT GERMAIN///75006/PARIS/FRANCE\\nConseil de conservation\\nConserver ces grains de café de préférence dans un endroit sec et à température ambiante.\\nConseils d'utilisation\\nLe café en grains à moudre est idéal pour les machines à expresso automatiques ou pour les moulins traditionnels manuels ou électriques. Après avoir moulu votre café en grains, vous pouvez aussi l'utiliser dans tous types de cafetières.\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': None, 'candidate_variant': 'chocolat', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['image_mismatch', 'core_token'], 'candidate_quantity': '500 G', 'descriptor_token_coverage': {'coverage': 0.8333333333333334, 'matched': ['cafe', 'capsules', 'compatible', 'intensite', 'ristretto'], 'missing': ['nespresso'], 'total': 6}, 'missing_tokens': ['nespresso'], 'image_match': False, 'final_score': 10, 'plausible_baseline': True, 'missing_core_tokens': ['nespresso'], 'notes': ['accepted_without_image_match_high_coverage'], 'equivalent': True}, candidates=[{'url': 'https://courses.monoprix.fr/products/l-or-café-en-grains-espresso-forza-intense-et-corsé-500g/MPX_3292050', 'status': 'OK_PARTIAL', 'product': {'title': \"L'Or Café en grains Espresso Forza intense et corsé 500g\", 'brand': \"L'Or\", 'kind': \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\", 'qty': '500 G', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/f16328fc-28f6-4ed9-8695-eb164932ea83/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEpicerie Sucrée\\nCafé, Thé et Boisson chaude\\nCafé\\nGrains\\nL'Or Café en grains Espresso Forza intense et corsé 500g\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n500g 23,70\\xa0€ / kilo\\n500g\\n(23,70\\xa0€ / kilo)\\n11,85\\xa0€\\nAjouter\\nPromotions\\n-50% sur le 2ème produit - Cliquez ici pour composer votre lot\\n-50% sur le 2ème produit - Cliquez ici pour composer votre lot\\nInformations produit\\n\\n\\nDescription Produit\\nLa puissance d'un expresso pur, massif, complexe au goût intense et corsé, illuminé par sa délicate mousse ambrée. Les amateurs apprécient sa torréfaction forte et ses notes gourmandes de chocolat et de fruits jaunes. Grains de café grand cru. Sachet de 500 grammes. Niveau d'intensité 9. Un café 100% certifié Rainforest Alliance, qui contribue à améliorer les conditions sociales et environnementales au sein des plantations de café. Ces grains à moudre sont compatibles avec une machine à expresso automatique type broyeur, ou un moulin traditionnel. Parfumé, riche et aromatique, les amateurs apprécient la qualité et le goût du café en grain L'OR. Sans doute le meilleur café du monde. Que vous aimiez le déguster au format ristretto, espresso ou allongé, à la maison ou au travail, ce café d'exception réveillera vos sens.\\n\\n\\nOrigine\\nPologne\\nMarque\\nL'Or\\nService consommateur\\nService Consommateur JDE Numero Cristal 09 69 32 96 61\\nConseils d'utilisation\\nLe café en grains à moudre est idéal pour les machines à expresso automatiques ou pour les moulins traditionnels manuels ou électriques. Après avoir moulu votre café en grains, vous pouvez aussi l'utiliser dans tous types de cafetières.\\nIngredients\\nIngrédients : Café\\nA propos de la marque\\nCréé en France en 1992, L’OR a toujours eu pour ambition de proposer sans doute le meilleur café au monde. Chaque tasse de café L’OR raconte une histoire fascinante. Grâce à la passion et au savoir-faire de ses Maîtres torréfacteurs, L'OR a élaboré des cafés de grande qualité en révélant le profil aromatique des meilleurs grains. Suivez vos sens et laissez-vous envahir par l'intensité de ses arômes. Expresso ou allongé, en grain, moulu ou en capsule, en format familial ou individuel… il y a tant de manières de déguster un café L'OR.\\nType d’emballage\\nPaquet\\nProducteur\\nJACOBS DOUWE EGBERTS FR SAS 79 BOULEVARD SAINT GERMAIN///75006/PARIS/FRANCE\\nConseil de conservation\\nConserver ces grains de café de préférence dans un endroit sec et à température ambiante.\\nConseils d'utilisation\\nLe café en grains à moudre est idéal pour les machines à expresso automatiques ou pour les moulins traditionnels manuels ou électriques. Après avoir moulu votre café en grains, vous pouvez aussi l'utiliser dans tous types de cafetières.\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '23,70 € / KG', 'price': '11,85'}, 'score': 10.0, 'extras': {'seed_variant': None, 'candidate_variant': 'chocolat', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['image_mismatch', 'core_token'], 'candidate_quantity': '500 G', 'descriptor_token_coverage': {'coverage': 0.8333333333333334, 'matched': ['cafe', 'capsules', 'compatible', 'intensite', 'ristretto'], 'missing': ['nespresso'], 'total': 6}, 'missing_tokens': ['nespresso'], 'image_match': False, 'final_score': 10, 'plausible_baseline': True}}, {'url': 'https://courses.monoprix.fr/products/l-or-ristretto-café-grains-500g/MPX_6021928', 'status': 'PENDING', 'product': {'title': '', 'brand': \"L'Or\", 'kind': \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\", 'qty': '50 capsules', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Or nespresso 260 G"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+      "brand": "Café",
+      "kind": "",
+      "qty": "50 L",
+      "qualifiers": [],
+      "ean": "8711000705094",
+      "image_url": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+      "source": "consolidated",
+      "raw_text": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Café Capsules Ristretto Intensité",
+      "Café Capsules Ristretto",
+      "Café Café 50L Café 50 Café 500",
+      "Café capsules ristretto LOR",
+      "Café ristretto intensite 11 LO",
+      "Café capsules intensite 11 LOR",
+      "Café capsules nespresso LOR",
+      "Café nespresso 50 L"
+    ],
+    "candidates": [
+      {
+        "adapter": "monoprix",
+        "url": "https://courses.monoprix.fr/products/l-or-café-en-grains-espresso-forza-intense -et-corsé-500g/MPX_3292050",
+        "score": 0.0,
+        "product": {
+          "title": "L'Or  Café en grains Espresso Forza intense et corsé 500g",
+          "brand": "L'Or",
+          "kind": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "qty": "500 G",
+          "qualifiers": [],
+          "ean": null,
+          "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/f163 28fc-28f6-4ed9-8695-eb164932ea83/300x300.jpg",
+          "source": "monoprix",
+          "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "monoprix",
+        "url": "https://courses.monoprix.fr/products/l-or-ristretto-café-grains-500g/MPX_602192 8",
+        "score": 0.0,
+        "product": {
+          "title": "",
+          "brand": "L'Or",
+          "kind": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "qty": "50 capsules",
+          "qualifiers": [],
+          "ean": null,
+          "image_url": null,
+          "source": "monoprix",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      }
+    ],
+    "decision": null,
+    "audit": []
+  }
+}

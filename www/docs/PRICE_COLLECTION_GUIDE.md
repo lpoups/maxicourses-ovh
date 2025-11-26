@@ -1,7 +1,7 @@
 # Guide de collecte prix par enseigne
 
 - Chrome remote lancé via `maxicourses_test/start_chrome_debug.sh` (profil `.chrome-debug`), puis toutes les commandes Playwright avec `USE_CDP=1`.
-- **Recherche EAN brut obligatoire** : pour tout nouveau produit, taper directement le code EAN (sans texte) sur les enseignes seed qui l’acceptent – Carrefour Market → Carrefour City → Auchan → Chronodrive → Course U (Super U Eysines) → G20 Minute → Casino Shop (Bègles). Une fois ces runs effectués, exploiter le descriptif obtenu pour Intermarché, Leclerc puis Monoprix. Aucun descriptif ne doit être utilisé sur les enseignes EAN si l’EAN est connu ; un résultat `NO_PRICE` ou `NO_RESULTS` signifie que le drive ne propose pas ce produit.
+- **Recherche EAN brut obligatoire** : pour tout nouveau produit, taper directement le code EAN (sans texte) sur les enseignes seed qui l’acceptent – Carrefour Market → Carrefour City → Auchan → Chronodrive → Course U (Super U Eysines) → G20 Minute → Casino Shop (Bègles) → Spar Super Saint-Médard. Une fois ces runs effectués, exploiter le descriptif obtenu pour Intermarché, Leclerc puis Monoprix. Aucun descriptif ne doit être utilisé sur les enseignes EAN si l’EAN est connu ; un résultat `NO_PRICE` ou `NO_RESULTS` signifie que le drive ne propose pas ce produit.
 - **Mots-clés générés par Finder** : `run_pipeline.py` construit désormais la short-list de requêtes via `FinderPipeline`/`KeywordGenerator`. Les seeds (marque, quantité, requêtes par enseigne) sont codées dans `seed_catalog.py` et exposées via `descriptor_store.py` ; toute mise à jour passe par le code, plus par un JSON. **Interdiction absolue** de créer ou modifier des fichiers `.json` pour piloter les mots-clés : toute tentative doit être migrée vers `finder.py` ou `seed_catalog.py`.
 - Chaque sortie JSON doit inclure `price`, `unit_price` (€/kg ou €/L), `quantity`, `store`, `note` (horodatage UTC), `url`, `matched_ean`.
 - Conserver les captures dans `maxicourses_test/debug_screens/` ou `maxicourses_test/debug/` et référencer la trace dans `docs/HANDOVER_DAILY.md`.
@@ -78,7 +78,7 @@
   ```
 - **Logique** :
   - se rendre sur `HOME_URL` (ou `STORE_URL` si un magasin spécifique doit être chargé),
-  - accepter les cookies puis saisir la requête issue du seed (des magasins acceptant les recherches EAN carrefour market/city/super, auchan, chronodrive, courseu, g20, casino),
+  - accepter les cookies puis saisir la requête issue du seed (des magasins acceptant les recherches EAN carrefour market/city/super, auchan, chronodrive, courseu, g20, casino, spar),
   - ouvrir la fiche la plus pertinente en comparant les descriptifs des magasins seed et extraire prix TTC, prix unitaire, quantité, URL, magasin.
 - **Stratégie de recherche** : pour chaque produit, le fetcher construit automatiquement des requêtes minimalistes (`<marque> <fonction>` puis `<marque> <fonction> <parfum>`). Ces requêtes sans quantité sont testées AVANT les requêtes Finder longues ; si la page renvoie trop de résultats ou aucun, un troisième terme est ajouté et, en dernier recours seulement, la quantité est réintroduite. Documenter toute requête inefficace dans `seed_catalog.py` et dans `docs/HANDOVER_DAILY.md`.
 - **Résultats** : JSON par EAN dans `maxicourses_test/results/test-<EAN>/`, agrégat global `maxicourses_test/results/summary.json`.
@@ -134,6 +134,11 @@
   - le script ouvre ensuite chaque PDP retournée pour lire le JSON-LD (`gtin13`) et ne valide que lorsque l’EAN correspond exactement ;
   - prix TTC et prix unitaire sont extraits du listing HTML, l’unité est ajoutée telle qu’affichée (€/kg ou €/L) et le magasin est fixé à `Casino Shop · Bègles Pruniers`.
 - **Paramétrage** : `CASINO_STORE_CODE`, `CASINO_STORE_SLUG` et `CASINO_STORE_URL` peuvent être forcés via l’environnement si un autre magasin doit être couvert ; par défaut on cible `https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193`.
+
+## Spar Super Saint-Médard-en-Jalles
+- **Script** : identique (`maxicourses_test/fetch_casino_price.py`) mais avec `CASINO_STORE_CODE=TL832`, `CASINO_STORE_SLUG="spar-33160"`, `CASINO_STORE_URL="https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832"`, `CASINO_STORE_LABEL="Spar Super · Saint-Médard-en-Jalles"`.
+- **Principe** : mêmes requêtes Finder que Casino (texte uniquement). Le script parcourt la SERP, ouvre les PDP et valide le `gtin13`. Les prix pack/unitaires sont ceux du listing Spar.
+- **Astuce** : si la SERP renvoie des promos ou des lots, ajuster `seed_catalog.py` (`queries['spar']`) pour privilégier marque + volume (ex. `coca cola 1,75l`). Toute mise à jour doit être documentée dans le handover.
 
 ## Gestion des résultats & comparateur
 - Chaque EAN dispose de `results/test-<EAN>/latest.json` et `summary.json`. L’agrégat global `results/summary.json` alimente `pipeline/index2.html`.

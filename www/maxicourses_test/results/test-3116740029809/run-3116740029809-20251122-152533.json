@@ -1,0 +1,684 @@
+{
+  "ean": "3116740029809",
+  "image_path": null,
+  "started_at": "2025-11-22T15:15:15.561908+01:00",
+  "finished_at": "2025-11-22T15:25:33.842778+01:00",
+  "duration_seconds": 618.28087,
+  "reference": {
+    "title": "Bonbons assortiment bestfizz piquants LUTTI",
+    "description": "Bonbons assortiment bestfizz piquants LUTTI",
+    "source": "carrefour_super",
+    "brand": "Lutti",
+    "quantity": "550 G",
+    "categories": null,
+    "image": "./assets/3116740029809.jpg",
+    "nutriscore_grade": "c",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-c.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3116740029809/debug/run-3116740029809-20251122-151515"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "6,99",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/bonbons-assortiment-bestfizz-piquants-lutti-31167400 29809",
+        "note": null,
+        "unit_price": "12,71 € / KG",
+        "quantity": "550 G",
+        "title": "Bonbons assortiment bestfizz piquants LUTTI",
+        "matched_ean": "3116740029809",
+        "image": "https://media.carrefour.fr/medias/bf607a84ae73470aa41c7cad9722c035/p_540x540/03 116740029809_C1N1_s03.png",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Bonbons assortiment bestfizz piquants LUTTI",
+          "brand": "Bonbons",
+          "kind": "",
+          "qty": "550 G",
+          "qualifiers": [],
+          "ean": "3116740029809",
+          "image_url": "https://media.carrefour.fr/medias/bf607a84ae73470aa41c7cad9722c035/p_540x540/03 116740029809_C1N1_s03.png",
+          "source": "carrefour_city",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-22T15:15:15.563093+01:00",
+      "finished_at": "2025-11-22T15:15:40.712680+01:00",
+      "duration_seconds": 25.149587,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "3116740029809",
+        "QUERY": "3116740029809",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3116740029809"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,09",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/bonbons-assortiment-bestfizz-piquants-lutti-31167400 29809",
+        "note": null,
+        "unit_price": "9,25 € / KG",
+        "quantity": "550 G",
+        "title": "Bonbons assortiment bestfizz piquants LUTTI",
+        "matched_ean": "3116740029809",
+        "image": "https://media.carrefour.fr/medias/bf607a84ae73470aa41c7cad9722c035/p_540x540/03 116740029809_C1N1_s03.png",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Bonbons assortiment bestfizz piquants LUTTI",
+          "brand": "Bonbons",
+          "kind": "",
+          "qty": "550 G",
+          "qualifiers": [],
+          "ean": "3116740029809",
+          "image_url": "https://media.carrefour.fr/medias/bf607a84ae73470aa41c7cad9722c035/p_540x540/03 116740029809_C1N1_s03.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-22T15:15:40.716469+01:00",
+      "finished_at": "2025-11-22T15:16:04.905440+01:00",
+      "duration_seconds": 24.188971,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3116740029809",
+        "QUERY": "3116740029809",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3116740029809"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,95",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/bonbons-assortiment-bestfizz-piquants-lutti-31167400 29809",
+        "note": null,
+        "unit_price": "9,00 € / KG",
+        "quantity": "550 G",
+        "title": "Bonbons assortiment bestfizz piquants LUTTI",
+        "matched_ean": "3116740029809",
+        "image": "https://media.carrefour.fr/medias/bf607a84ae73470aa41c7cad9722c035/p_540x540/03 116740029809_C1N1_s03.png",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Bonbons assortiment bestfizz piquants LUTTI",
+          "brand": "Bonbons",
+          "kind": "",
+          "qty": "550 G",
+          "qualifiers": [],
+          "ean": "3116740029809",
+          "image_url": "https://media.carrefour.fr/medias/bf607a84ae73470aa41c7cad9722c035/p_540x540/03 116740029809_C1N1_s03.png",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-22T15:16:04.906712+01:00",
+      "finished_at": "2025-11-22T15:16:26.399423+01:00",
+      "duration_seconds": 21.492711,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3116740029809",
+        "QUERY": "3116740029809",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3116740029809"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,05",
+        "unit_price": "9,18 € / KG",
+        "quantity": "0,006 KG",
+        "title": "Bestfizz Bonbons piquants",
+        "url": "https://www.auchan.fr/lutti-bestfizz-bonbons-piquants/pr-C1244939",
+        "matched_ean": "3116740029809",
+        "store": "Auchan Drive Supermarché  Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/A0220110704000499133PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Bestfizz Bonbons piquants",
+          "brand": "Bestfizz",
+          "kind": "",
+          "qty": "0,006 KG",
+          "qualifiers": [],
+          "ean": "3116740029809",
+          "image_url": "https://cdn.auchan.fr/media/A0220110704000499133PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-22T15:16:26.400695+01:00",
+      "finished_at": "2025-11-22T15:16:40.877207+01:00",
+      "duration_seconds": 14.476512,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3116740029809",
+        "QUERY": "3116740029809",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results visible, opening first candidate",
+      "metadata": {
+        "attempt_query": "3116740029809"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,99",
+        "title": "Assortiment de bonbons gélifiés et  acidulés aromatisés LUTTI BestFizz",
+        "url": "https://www.chronodrive.com/lutti--bestfizz---assortiment-de-bonbons-gelifies-e t-acidules-aromatises-P165955",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "10,89 € / KG",
+        "quantity": "550 g",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3116740029809",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Assortiment de bonbons gélifiés et  acidulés aromatisés LUTTI BestFizz",
+          "brand": "Assortiment",
+          "kind": "",
+          "qty": "550 g",
+          "qualifiers": [],
+          "ean": "3116740029809",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-22T15:16:40.879099+01:00",
+      "finished_at": "2025-11-22T15:16:48.812513+01:00",
+      "duration_seconds": 7.933414,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3116740029809",
+        "QUERY": "3116740029809",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='3116740029809'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/lutti--best-fizz---bonbons-gelifies-aromatises-P165955",
+      "metadata": {
+        "attempt_query": "3116740029809"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,90",
+        "unit_price": "7,09 € / KG",
+        "quantity": "550  g",
+        "title": "Bonbons Best Fizz piquants LUTTI - Boîte de 550g",
+        "url": "https://www.coursesu.com/p/bonbons-best-fizz-piquants-lutti---boite-de-550g/643 5022.html",
+        "note": "2025-11-22T14:17:24Z · Super U Eysines",
+        "store": "Super U  Eysines",
+        "matched_ean": "3116740029809",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Bonbons Best Fizz piquants LUTTI - Boîte de 550g",
+          "brand": "Bonbons",
+          "kind": "",
+          "qty": "550 g",
+          "qualifiers": [],
+          "ean": "3116740029809",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-22T15:16:48.815259+01:00",
+      "finished_at": "2025-11-22T15:17:24.608430+01:00",
+      "duration_seconds": 35.793171,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3116740029809",
+        "QUERY": "3116740029809",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3116740029809"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-22T15:17:24.609534+01:00",
+      "finished_at": "2025-11-22T15:17:25.306176+01:00",
+      "duration_seconds": 0.696642,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "3116740029809",
+        "QUERY": "3116740029809",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "3116740029809"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Lutti%20assortiment%20550%20G",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Lutti assortiment 550 G",
+          "timestamp": "2025-11-22T14:17:26.193104+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-22T15:17:26.013765+01:00",
+      "finished_at": "2025-11-22T15:17:26.959549+01:00",
+      "duration_seconds": 0.945784,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "3116740029809",
+        "QUERY": "Lutti assortiment 550 G",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Lutti assortiment 550 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3116740029809/debug/run-3116740029809-20251122-151515/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Lutti%20assortiment%20550%20G",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Lutti assortiment 550 G",
+          "timestamp": "2025-11-22T14:17:29.940162+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-22T15:17:29.793317+01:00",
+      "finished_at": "2025-11-22T15:17:30.359170+01:00",
+      "duration_seconds": 0.565853,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "3116740029809",
+        "QUERY": "Lutti assortiment 550 G",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Lutti assortiment 550 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3116740029809/debug/run-3116740029809-20251122-151515/09-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,98",
+        "title": "Bonbons Assortiment Bestfizz",
+        "url": "https://www.intermarche.com/produit/bonbons-assortiment-bestfizz/3116740029809",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "3116740029809",
+        "unit_price": "7,24 € / KG",
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/bonbons-assortiment-bestfizz/3116740029809",
+            "product": {
+              "title": "LuttiBonbons Assortiment Bestfizz",
+              "brand": "LuttiBonbons",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3116740029809",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": null
+      },
+      "started_at": "2025-11-22T15:17:33.465706+01:00",
+      "finished_at": "2025-11-22T15:18:22.705583+01:00",
+      "duration_seconds": 49.239877,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3116740029809",
+        "QUERY": "Lutti assortiment 550 G",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Lutti assortiment 550 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3116740029809/debug/run-3116740029809-20251122-151515/10-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Bonbons LUTTI BestFizz Assortiment Piquant - 550g",
+        "price": "3,65",
+        "unit_price": "6,64 € / kg",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-49834-Bonbons-LUTTI-BestFizz.aspx",
+        "matched_ean": "3116740029809",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-22T14:21:16Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-76212-Tutti-Candi-Haribo.aspx",
+            "product": {
+              "title": "Tutti Candi Haribo Sachet bonbons - 250g",
+              "brand": "Tutti",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3103220038529",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2984910&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-67875-The-Pik-Box-Haribo.aspx",
+            "product": {
+              "title": "The Pik Box Haribo Boîte bonbons acidulés - 550g",
+              "brand": "The",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3103220041734",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2805219&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-263328-Bonbons-Lutti-Bubblizz.aspx",
+            "product": {
+              "title": "Bonbons Lutti Bubblizz Piquants - 300g",
+              "brand": "Bonbons",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3664346347426",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2900983&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-49834-Bonbons-LUTTI-BestFizz.aspx",
+            "product": {
+              "title": "Bonbons LUTTI BestFizz Assortiment Piquant - 550g",
+              "brand": "Bonbons",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3116740029809",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2815022&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-22T15:18:22.708882+01:00",
+      "finished_at": "2025-11-22T15:21:17.041387+01:00",
+      "duration_seconds": 174.332505,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3116740029809",
+        "QUERY": "Lutti 550 G",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Lutti 550 G'\n[LECLERC_DEBUG] after home human pause -> 1.41s\n[LECLERC_DEBUG] attempt #1 with query 'Lutti 550 G'\n[LECLERC_DEBUG] after focus -> 5.37s\n[LECLERC_DEBUG] results visible -> 7.38s (query='Lutti 550 G')\n[LECLERC_DEBUG] after result pause -> 7.48s",
+      "metadata": {
+        "attempt_query": "Lutti 550 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3116740029809/debug/run-3116740029809-20251122-151515/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/lutti-tubo-best-fizz-assortiments-de-bonbo ns-550g/MPX_2160429",
+            "product": {
+              "title": "Lutti Tubo  Best Fizz Assortiments De Bonbons 550g",
+              "brand": "Lutti",
+              "kind": "Bonbons  assortiment bestfizz piquants LUTTI",
+              "qty": "550 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/dad2 9032-a58f-461b-9d43-902d806846d6/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-22T15:21:17.050201+01:00",
+      "finished_at": "2025-11-22T15:22:17.820745+01:00",
+      "duration_seconds": 60.770544,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "3116740029809",
+        "QUERY": "Lutti assortiment 550 G",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '3116740029809'.\n[MONOPRIX_DEBUG] Search terms: ['lutti bonbons', 'lutti bonbons assortiment', 'Lutti assortiment 550 G']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/3: 'lutti bonbons'\n[MONOPRIX_DEBUG]  - Typing 'lutti bonbons' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=lutti%20bonbons\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 1 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/lutti-tubo-best-fizz-assortiments-de-bonbons-550g/MPX_2160429\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/dad29032-a58f-461b-9d43-902d806846d6/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/lutti-tubo-best-fizz-assortiments-de-bonbons-550g/MPX_2160429\n[MONOPRIX_DEBUG][SCORE] - Title: 'Lutti Tubo Best Fizz Assortiments De Bonbons 550g' | Brand: 'lutti' | Variant(seed/cand)=(None/chocolat) | Vetoes=[] | NegHits=[] | Score=15 | Plausible=True\n[MONOPRIX_DEBUG]  - No image match for 'Lutti Tubo Best Fizz Assortiments De Bonbons 550g'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Lutti Tubo Best Fizz Assortiments De Bonbons 550g' | vetoes=['image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'Lutti Tubo Best Fizz Assortiments De Bonbons 550g' (Score: 15) | vetoes=['image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Term 2/3: 'lutti bonbons assortiment'\n[MONOPRIX_DEBUG]  - Typing 'lutti bonbons assortiment' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=lutti%20bonbons%20assortiment\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 1 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/lutti-tubo-best-fizz-assortiments-de-bonbons-550g/MPX_2160429\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/dad29032-a58f-461b-9d43-902d806846d6/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/lutti-tubo-best-fizz-assortiments-de-bonbons-550g/MPX_2160429\n[MONOPRIX_DEBUG][SCORE] - Title: 'Lutti Tubo Best Fizz Assortiments De Bonbons 550g' | Brand: 'lutti' | Variant(seed/cand)=(None/chocolat) | Vetoes=[] | NegHits=[] | Score=15 | Plausible=True\n[MONOPRIX_DEBUG]  - No image match for 'Lutti Tubo Best Fizz Assortiments De Bonbons 550g'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Lutti Tubo Best Fizz Assortiments De Bonbons 550g' | vetoes=['image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'Lutti Tubo Best Fizz Assortiments De Bonbons 550g' (Score: 15) | vetoes=['image_mismatch', 'core_token']\n[MONOPRIX_DEBUG]  - Term 3/3: 'Lutti assortiment 550 G'\n[MONOPRIX_DEBUG]  - Typing 'Lutti assortiment 550 G' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Lutti%20assortiment%20550%20G\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, image=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=[{'url': 'https://courses.monoprix.fr/products/lutti-tubo-best-fizz-assortiments-de-bonbons-550g/MPX_2160429', 'status': 'OK_PARTIAL', 'product': {'title': 'Lutti Tubo Best Fizz Assortiments De Bonbons 550g', 'brand': 'Lutti', 'kind': 'Bonbons assortiment bestfizz piquants LUTTI', 'qty': '550 G', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/dad29032-a58f-461b-9d43-902d806846d6/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEpicerie Sucrée\\nChocolat et Confiserie\\nBonbon\\nLutti Tubo Best Fizz Assortiments De Bonbons 550g\\n6\\xa0m+\\n6\\xa0mois de garantie de vie du produit\\n550g 13,00\\xa0€ / kilo\\n550g\\n(13,00\\xa0€ / kilo)\\n7,15\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLUTTI BEST FIZZ TUBO 550G\\n\\n\\nOrigine\\nFrance\\nMarque\\nLutti\\nService consommateur\\nSERVICE CONSOMMATEUR CARAMBAR & CO NOS SERVICES SONT OUVERTS DU LUNDI AU VENDREDI DE 09H00 À 19H00 0080056667686 APPEL NONSURTAXÉ SERVICECONSOMMATEUR@CARAMBARCO\\nConseils d'utilisation\\n-\\nIngredients\\nIngrédients : Sirop de glucose, Sucre, Gélatine, Sirop de glucose-fructose, Amidon modifié, Farine de BLÉ, Acidifiants (Acide citrique, Acide malique, Acide lactique), Correcteur d'acidité (Malates de sodium), Dextrose, Arômes, Denrées alimentaires colorantes (Concentré de Spiruline, Carthame, Pomme, Radis, Cassis), Colorants (Anthocyanes, Curcumine, Extrait de Paprika), Huile végétale (Palme), Sucre caramélisé, Antioxydants (Acide ascorbique, Extrait riche en tocophérols),\\nAllergènes\\nBLE\\nType d’emballage\\nsac\\nProducteur\\nCARAMBAR AND CO 9-15 RUE MAURICE MALLET/CENTRAL PARK//92445/ISSY LES MOULINEAUX/FRANCE\\nConseil de conservation\\nA conserver au sec et à l'abri de la chaleur\\nConditionné en\\nFrance\\nConseils d'utilisation\\n-\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\tEn % des AJR\\nValeurs Energétique en Kilojoules\\t~ 1468 kJ\\t17 %\\nValeurs Energétique en Kilocalories\\t~ 345 kcal\\t17 %\\nValeurs Nutritionnelles\\nMatières grasses\\t< 0.3 g\\t0.4 %\\nDont Acides Gras Saturés\\t< 0.1 g\\t0.7 %\\nGlucides\\t~ 79.8 g\\t30.7 %\\nDont Sucres\\t~ 65.3 g\\t72.6 %\\nProtéines\\t~ 4.6 g\\t9.1 %\\nSel\\t~ 0.17 g\\t2.8 %\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '13,00 € / KG', 'price': '7,15'}, 'score': 15.0, 'extras': {'seed_variant': None, 'candidate_variant': 'chocolat', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['image_mismatch', 'core_token'], 'candidate_quantity': '550 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.8, 'matched': ['assortiment', 'bestfizz', 'bonbons', 'lutti'], 'missing': ['piquants'], 'total': 5}, 'missing_tokens': ['piquants'], 'image_match': False, 'final_score': 15, 'plausible_baseline': True}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Lutti assortiment 550 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3116740029809/debug/run-3116740029809-20251122-151515/12-monoprix"
+      }
+    }
+  ],
+  "finder": null
+}

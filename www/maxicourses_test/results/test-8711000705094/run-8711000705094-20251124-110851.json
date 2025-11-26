@@ -1,0 +1,102 @@
+{
+  "ean": "8711000705094",
+  "image_path": null,
+  "started_at": "2025-11-24T11:08:42.004866+01:00",
+  "finished_at": "2025-11-24T11:08:51.491981+01:00",
+  "duration_seconds": 9.487115,
+  "reference": {
+    "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "description": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "source": "chronodrive",
+    "brand": "Or",
+    "quantity": "50 L",
+    "categories": null,
+    "image": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-d.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "15,55",
+        "title": "Capsules de café ristretto N°11  L'OR Espresso",
+        "url": "https://www.chronodrive.com/lor--espresso---capsules-de-cafe-ristretto-n11-P524 548",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "59,81 € / KG",
+        "quantity": "50 capsules",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "8711000705094",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café ristretto N°11  L'OR Espresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "50 capsules",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-24T11:08:42.005649+01:00",
+      "finished_at": "2025-11-24T11:08:50.757906+01:00",
+      "duration_seconds": 8.752257,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='8711000705094'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/lor--capsules-de-cafe-expresso-ristretto-P524548",
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Capsules de café ristretto N°11  L'OR Espresso",
+      "brand": "Capsules",
+      "kind": "",
+      "qty": "50 capsules",
+      "qualifiers": [],
+      "ean": "8711000705094",
+      "image_url": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+      "source": "consolidated",
+      "raw_text": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Capsules ristretto 50 CAPSULES",
+      "Capsules ristretto espresso",
+      "Capsules 50 CAPSULES",
+      "Capsules cafe 50 CAPSULES"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

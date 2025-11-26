@@ -1,9 +1,9 @@
 {
   "ean": "5411188118961",
   "image_path": null,
-  "started_at": "2025-11-20T18:41:34.532987+01:00",
-  "finished_at": "2025-11-20T18:46:35.273560+01:00",
-  "duration_seconds": 300.740573,
+  "started_at": "2025-11-26T18:19:50.731684+01:00",
+  "finished_at": "2025-11-26T18:24:44.848499+01:00",
+  "duration_seconds": 294.116815,
   "reference": {
     "title": "Dessert végétal soja nature à l'amande ALPRO - 500g",
     "description": "Dessert végétal soja nature à l'amande ALPRO - 500g",
@@ -20,7 +20,7 @@
     "nova_group": null
   },
   "notes": [
-    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251120-184134"
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251126-181950"
   ],
   "adapters": [
     {
@@ -51,12 +51,14 @@
           "ean": "5411188118961",
           "image_url": "https://media.carrefour.fr/media/referential/media/21c3413019084953b767ba11b37a d886/05411188118961_H1N1_s15.png",
           "source": "carrefour_city",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T18:41:34.533965+01:00",
-      "finished_at": "2025-11-20T18:41:53.577875+01:00",
-      "duration_seconds": 19.04391,
+      "started_at": "2025-11-26T18:19:50.732790+01:00",
+      "finished_at": "2025-11-26T18:20:13.099050+01:00",
+      "duration_seconds": 22.36626,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -103,12 +105,14 @@
           "ean": "5411188118961",
           "image_url": "https://media.carrefour.fr/media/referential/media/21c3413019084953b767ba11b37a d886/05411188118961_H1N1_s15.png",
           "source": "carrefour_market",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T18:41:53.580032+01:00",
-      "finished_at": "2025-11-20T18:42:15.944774+01:00",
-      "duration_seconds": 22.364742,
+      "started_at": "2025-11-26T18:20:13.103633+01:00",
+      "finished_at": "2025-11-26T18:20:36.574156+01:00",
+      "duration_seconds": 23.470523,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -155,12 +159,14 @@
           "ean": "5411188118961",
           "image_url": "https://media.carrefour.fr/media/referential/media/21c3413019084953b767ba11b37a d886/05411188118961_H1N1_s15.png",
           "source": "carrefour_super",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T18:42:15.945689+01:00",
-      "finished_at": "2025-11-20T18:42:34.928379+01:00",
-      "duration_seconds": 18.98269,
+      "started_at": "2025-11-26T18:20:36.575655+01:00",
+      "finished_at": "2025-11-26T18:20:57.774305+01:00",
+      "duration_seconds": 21.19865,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -205,12 +211,14 @@
           "ean": "5411188118961",
           "image_url": "https://cdn.auchan.fr/media/P0200000000059YPRIMARY_1200x1200/B2CD/",
           "source": "auchan",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T18:42:34.929086+01:00",
-      "finished_at": "2025-11-20T18:42:45.543035+01:00",
-      "duration_seconds": 10.613949,
+      "started_at": "2025-11-26T18:20:57.777614+01:00",
+      "finished_at": "2025-11-26T18:21:10.011707+01:00",
+      "duration_seconds": 12.234093,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -224,7 +232,7 @@
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] results visible, opening first candidate",
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results visible, opening first candidate",
       "metadata": {
         "attempt_query": "5411188118961"
       }
@@ -254,14 +262,16 @@
           "qty": "500 g",
           "qualifiers": [],
           "ean": "5411188118961",
-          "image_url": null,
+          "image_url": "./assets/5411188118961.jpg",
           "source": "chronodrive",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T18:42:45.544437+01:00",
-      "finished_at": "2025-11-20T18:42:56.453340+01:00",
-      "duration_seconds": 10.908903,
+      "started_at": "2025-11-26T18:21:10.026108+01:00",
+      "finished_at": "2025-11-26T18:21:18.292045+01:00",
+      "duration_seconds": 8.265937,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -275,7 +285,7 @@
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "[CHRONO_DEBUG] term='5411188118961'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/alpro--specialite-vegetale-a-base-de-soja-et-damande-P364873",
+      "stderr": "[CHRONO_DEBUG] term='5411188118961'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/alpro--dessert-vegetal-soja-et-amandes-P364873",
       "metadata": {
         "attempt_query": "5411188118961"
       }
@@ -290,7 +300,7 @@
         "quantity": "500  g",
         "title": "Dessert végétal soja nature à l'amande ALPRO - 500g",
         "url": "https://www.coursesu.com/p/dessert-vegetal-soja-nature-a-lamande-alpro---500g/2 947231.html",
-        "note": "2025-11-20T17:43:26Z · Super U Eysines",
+        "note": "2025-11-26T17:21:53Z · Super U Eysines",
         "store": "Super  U Eysines",
         "matched_ean": "5411188118961",
         "nutriscore_grade": "c",
@@ -305,14 +315,16 @@
           "qty": "500 g",
           "qualifiers": [],
           "ean": "5411188118961",
-          "image_url": null,
+          "image_url": "./assets/5411188118961.jpg",
           "source": "courseu",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T18:42:56.454451+01:00",
-      "finished_at": "2025-11-20T18:43:26.949218+01:00",
-      "duration_seconds": 30.494767,
+      "started_at": "2025-11-26T18:21:18.298309+01:00",
+      "finished_at": "2025-11-26T18:21:54.251879+01:00",
+      "duration_seconds": 35.95357,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -356,12 +368,14 @@
           "ean": "5411188118961",
           "image_url": "https://www.g20-minute.com/media/cache/product_box_image/41/06/e35c1fccee2ea3e9746da5d29d49.jpg",
           "source": "g20",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T18:43:26.950364+01:00",
-      "finished_at": "2025-11-20T18:43:27.624892+01:00",
-      "duration_seconds": 0.674528,
+      "started_at": "2025-11-26T18:21:54.255045+01:00",
+      "finished_at": "2025-11-26T18:21:55.595618+01:00",
+      "duration_seconds": 1.340573,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -377,6 +391,80 @@
       "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
       "metadata": {
         "attempt_query": "5411188118961"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=5411188118961",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "5411188118961",
+          "timestamp": "2025-11-26T17:22:18.705642+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-26T18:22:18.541055+01:00",
+      "finished_at": "2025-11-26T18:22:19.728596+01:00",
+      "duration_seconds": 1.187541,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "5411188118961",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188118961",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251126-181950/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=5411188118961",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "5411188118961",
+          "timestamp": "2025-11-26T17:22:27.811957+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-26T18:22:27.656546+01:00",
+      "finished_at": "2025-11-26T18:22:28.815753+01:00",
+      "duration_seconds": 1.159207,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "5411188118961",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188118961",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251126-181950/09-spar"
       }
     },
     {
@@ -404,35 +492,9 @@
               "ean": "5411188112709",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/boisson-vegetale-a-l'avoine/5411188115366",
-            "product": {
-              "title": "AlproBoisson végétale à l'avoine",
-              "brand": "Alpro",
-              "kind": "Dessert végétal soja nature à l'amande ALPRO",
-              "qty": "500 g",
-              "qualifiers": [],
-              "ean": "5411188115366",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/boisson-vegetale-lait-d'amande-grillee-/541 1188110835",
-            "product": {
-              "title": "AlproBoisson végétale  lait d'amande grillée ,",
-              "brand": "Alpro",
-              "kind": "Dessert végétal soja nature à l'amande ALPRO",
-              "qty": "500 g",
-              "qualifiers": [],
-              "ean": "1188110835",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -446,7 +508,41 @@
               "ean": "5411188103387",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/boisson-vegetale-a-l'avoine/5411188115366",
+            "product": {
+              "title": "AlproBoisson végétale à l'avoine",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja nature à l'amande ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188115366",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/boisson-vegetale-lait-d'amande-grillee-/541 1188110835",
+            "product": {
+              "title": "AlproBoisson végétale  lait d'amande grillée ,",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja nature à l'amande ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "1188110835",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -460,7 +556,9 @@
               "ean": "5411188110842",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -474,7 +572,9 @@
               "ean": "54111881",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -488,7 +588,9 @@
               "ean": "5411188116592",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -502,7 +604,9 @@
               "ean": "1188118961",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ],
@@ -512,9 +616,9 @@
         "nutriscore_grade": "e",
         "nutriscore_image": "https://www.intermarche.com/icons/nutriscore/score=A.svg"
       },
-      "started_at": "2025-11-20T18:43:28.159909+01:00",
-      "finished_at": "2025-11-20T18:45:37.059491+01:00",
-      "duration_seconds": 128.899582,
+      "started_at": "2025-11-26T18:22:28.816393+01:00",
+      "finished_at": "2025-11-26T18:23:52.633550+01:00",
+      "duration_seconds": 83.817157,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -531,7 +635,7 @@
       "stderr": null,
       "metadata": {
         "attempt_query": "Alpro 500 G",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251120-184134/08-intermarche"
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251126-181950/10-intermarche"
       }
     },
     {
@@ -539,38 +643,40 @@
       "status": "OK",
       "payload": {
         "status": "OK",
-        "title": "Dessert végétal soja alpro Nature à l'amande - 500g",
-        "price": "1,83",
-        "unit_price": "3,66 € / kg",
+        "title": "Dessert végétal soja Alpro Nature à la coco - 500g",
+        "price": "1,82",
+        "unit_price": "3,64 € / kg",
         "quantity": "500  g",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95817-Dessert-vegetal-soja-alpro.aspx",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-93600-Dessert-vegetal-soja-Alpro.aspx",
         "matched_ean": "5411188118961",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-20T17:46:16Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-26T17:24:05Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
         "equivalent": false,
         "candidates": [
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95817-Dessert-vegetal-soja-alpro.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-93600-Dessert-vegetal-soja-Alpro.aspx",
             "product": {
-              "title": "Dessert végétal soja alpro Nature à l'amande - 500g",
+              "title": "Dessert végétal soja Alpro Nature à la coco - 500g",
               "brand": "Alpro",
               "kind": "Dessert végétal soja nature à l'amande ALPRO",
               "qty": "500 g",
               "qualifiers": [],
-              "ean": "5411188118961",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2977684&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "5411188119098",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2976080&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ]
       },
-      "started_at": "2025-11-20T18:45:37.077019+01:00",
-      "finished_at": "2025-11-20T18:46:16.202725+01:00",
-      "duration_seconds": 39.125706,
+      "started_at": "2025-11-26T18:23:52.652968+01:00",
+      "finished_at": "2025-11-26T18:24:05.224229+01:00",
+      "duration_seconds": 12.571261,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -578,16 +684,16 @@
       ],
       "env": {
         "EAN": "5411188118961",
-        "QUERY": "Dessert végétal soja nature à l'amande ALPRO 500 G",
+        "QUERY": "Alpro Dessert 500 G",
         "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
         "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Dessert végétal soja nature à l'amande ALPRO 500 G'\n[LECLERC_DEBUG] after home human pause -> 2.16s\n[LECLERC_DEBUG] after focus -> 3.03s\n[LECLERC_DEBUG] results visible -> 5.60s\n[LECLERC_DEBUG] after result pause -> 5.70s",
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Alpro Dessert 500 G'\n[LECLERC_DEBUG] after home human pause -> 3.10s\n[LECLERC_DEBUG] after focus -> 4.79s\n[LECLERC_DEBUG] results visible -> 5.88s\n[LECLERC_DEBUG] after result pause -> 5.88s",
       "metadata": {
-        "attempt_query": "Dessert végétal soja nature à l'amande ALPRO 500 G",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251120-184134/09-leclerc"
+        "attempt_query": "Alpro Dessert 500 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251126-181950/11-leclerc"
       }
     },
     {
@@ -604,7 +710,7 @@
         "unit_price": "4,90 € / KG",
         "quantity": "500 G",
         "store": null,
-        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nCalendrier de l'avent\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nRégimes alimentaires\nVegan\nDessert  vegan\nAlpro Dessert Végétal Nature Aux Amandes Soja 500g\n1 s+\n1 semaine de  garantie de vie du produit\nNutriscore A\n500g 4,90 € / kilo\n500g\n(4,90 € /  kilo)\n2,45 €\nAjouter\nInformations produit\n\n\nDescription Produit\nAlpro  Nature aux Amandes est un dessert végétal à base de soja et de délicieuses  amandes méditerranéennes, sans lactose. Cette alternative végétale au yaourt  nature est naturellement faible en matières grasses, faible en sucres et riche  en protéines végétales. Il constitue également une source de calcium et de  vitamine D2, E et B12. Ce dessert végétal soja amande Alpro à la texture  onctueuse se savoure aussi bien au petit-déjeuner, qu'en dessert ou en  encas.\n\n\nOrigine\nBelgique\nMarque\nDanone\nService consommateur\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\nConseils d'utilisation\nSe mange à la  cuillère\nIngredients\n\nINGRÉDIENTS: jus de SOJA (94,8%), sucre, AMANDE (1,5%), calcium, stabilisant (pectines), correcteurs d'acidité (acide citrique, citrates de sodium), sel marin de table, antioxydants (extrait riche en tocophérols,  esters d'acides gras de l'acide ascorbique), arômes, vitamines B12, E, D2,  ferments de yaourt (S. thermophilus, L. bulgaricus).\n\nAllergènes\nContient :  SOJA ET AMANDE\nType d’emballage\nbocal\nProducteur\nDANONE Produits Frais  France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\nConseil de  conservation\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5  jours.\nConseils d'utilisation\nSe mange à la cuillère\nValeurs  nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 g\nValeurs  Energétique en Kilojoules\t~ 221 kJ\nValeurs Energétique en Kilocalories\t~ 3  kcal\nValeurs Nutritionnelles\nMatières grasses\t~ 2.8 g\nDont Acides Gras  Saturés\t~ 0.4 g\nGlucides\t~ 2.2 g\nDont Sucres\t~ 2.1 g\nProtéines\t~ 3.9  g\nSel\t~ 0.23 g\n\n\nMicro Nutriments\tpour 100 g\nVitamine D\t~ 0.75  µg\nVitamine E\t~ 1.8 mg\nVitamine B12\t~ 0.38 µg\nCalcium\t~ 120 mg\nNous  contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle  fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon  magasin\nProgramme de fidélité\nNos catalogues\nNos magasins avec  Parapharmacie\nAide & Mentions\nDonnées personnelles et cookies\n(s’ouvre dans  une nouvelle fenêtre)\nConditions de nos offres\nContacts\nRappel produits\nCGV  & Mentions légales\n(s’ouvre dans une nouvelle fenêtre)\nNos autres  sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une nouvelle fenêtre)\nAffiliation  monoprix.fr\nBons plans des marques\nMonoprix.fr Courses\nTarifs de  livraison\nPrésentation du service\nAstuces\nAbonnement M+\nFAQ\nPlus de  services\nAppli mobile Apple\n(s’ouvre dans une nouvelle fenêtre)\nAppli mobile  Android\n(s’ouvre dans une nouvelle fenêtre)\n© 2025\nfacebook\n(s’ouvre dans  une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une nouvelle  fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)\nMonoprix et ses  partenaires vous offrent une expérience sur mesure\nMonoprix et ses partenaires  vous offrent une expérience sur mesure. Nous utilisons plusieurs types de  cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de  cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des  offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des  statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page,  rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des  données personnelles\nVoir la liste de nos partenaires\nPERSONNALISER MES  COOKIES\nJ'ACCEPTE\nCONTINUER SANS ACCEPTER",
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nRégimes alimentaires\nVegan\nDessert  vegan\nAlpro Dessert Végétal Nature Aux Amandes Soja 500g\n1 s+\n1 semaine de  garantie de vie du produit\nNutriscore A\n500g 4,90 € / kilo\n500g\n(4,90 € /  kilo)\n2,45 €\nAjouter\nInformations produit\n\n\nDescription Produit\nAlpro  Nature aux Amandes est un dessert végétal à base de soja et de délicieuses  amandes méditerranéennes, sans lactose. Cette alternative végétale au yaourt  nature est naturellement faible en matières grasses, faible en sucres et riche  en protéines végétales. Il constitue également une source de calcium et de  vitamine D2, E et B12. Ce dessert végétal soja amande Alpro à la texture  onctueuse se savoure aussi bien au petit-déjeuner, qu'en dessert ou en  encas.\n\n\nOrigine\nBelgique\nMarque\nDanone\nService consommateur\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\nConseils d'utilisation\nSe mange à la  cuillère\nIngredients\n\nINGRÉDIENTS: jus de SOJA (94,8%), sucre, AMANDE (1,5%), calcium, stabilisant (pectines), correcteurs d'acidité (acide citrique, citrates de sodium), sel marin de table, antioxydants (extrait riche en tocophérols,  esters d'acides gras de l'acide ascorbique), arômes, vitamines B12, E, D2,  ferments de yaourt (S. thermophilus, L. bulgaricus).\n\nAllergènes\nContient :  SOJA ET AMANDE\nType d’emballage\nbocal\nProducteur\nDANONE Produits Frais  France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\nConseil de  conservation\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5  jours.\nConseils d'utilisation\nSe mange à la cuillère\nValeurs  nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 g\nValeurs  Energétique en Kilojoules\t~ 221 kJ\nValeurs Energétique en Kilocalories\t~ 3  kcal\nValeurs Nutritionnelles\nMatières grasses\t~ 2.8 g\nDont Acides Gras  Saturés\t~ 0.4 g\nGlucides\t~ 2.2 g\nDont Sucres\t~ 2.1 g\nProtéines\t~ 3.9  g\nSel\t~ 0.23 g\n\n\nMicro Nutriments\tpour 100 g\nVitamine D\t~ 0.75  µg\nVitamine E\t~ 1.8 mg\nVitamine B12\t~ 0.38 µg\nCalcium\t~ 120 mg\nNous  contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle  fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon  magasin\nProgramme de fidélité\nNos catalogues\nNos magasins avec  Parapharmacie\nAide & Mentions\nDonnées personnelles et cookies\n(s’ouvre dans  une nouvelle fenêtre)\nConditions de nos offres\nContacts\nRappel produits\nCGV  & Mentions légales\n(s’ouvre dans une nouvelle fenêtre)\nNos autres  sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une nouvelle fenêtre)\nAffiliation  monoprix.fr\nBons plans des marques\nMonoprix.fr Courses\nTarifs de  livraison\nPrésentation du service\nAstuces\nAbonnement M+\nFAQ\nPlus de  services\nAppli mobile Apple\n(s’ouvre dans une nouvelle fenêtre)\nAppli mobile  Android\n(s’ouvre dans une nouvelle fenêtre)\n© 2025\nfacebook\n(s’ouvre dans  une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une nouvelle  fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
         "extras": {
           "seed_variant": "amande",
           "candidate_variant": "amande",
@@ -642,7 +748,9 @@
               "ean": "5411188118961",
               "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8e e4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg",
               "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ],
@@ -650,9 +758,9 @@
           "supports_keywords": true
         }
       },
-      "started_at": "2025-11-20T18:46:16.207441+01:00",
-      "finished_at": "2025-11-20T18:46:35.084944+01:00",
-      "duration_seconds": 18.877503,
+      "started_at": "2025-11-26T18:24:05.250405+01:00",
+      "finished_at": "2025-11-26T18:24:27.799455+01:00",
+      "duration_seconds": 22.54905,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -666,12 +774,14 @@
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5411188118961'.\n[MONOPRIX_DEBUG] Search terms: ['Alpro amande', 'Dessert amande Alpro']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: amande | dynamic negatives: ['vanille', 'coco', 'noix de coco', 'fraise', 'myrtille', 'mangue', 'chocolat', 'orange', 'sans sucre', 'rouge', 'squeeze', 'squeez']\n[MONOPRIX_DEBUG]  - Term 1/2: 'Alpro amande'\n[MONOPRIX_DEBUG]  - Typing 'Alpro amande' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Alpro%20amande\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 1 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8ee4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641\n[MONOPRIX_DEBUG][SCORE] - Title: 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g' | Brand: 'alpro' | Variant(seed/cand)=(amande/amande) | Vetoes=[] | NegHits=[] | Score=15 | Plausible=True\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g'.\n[MONOPRIX_DEBUG] Best match (early return): 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g' (Score: 45)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='2,45', title='Alpro Dessert Végétal Nature Aux Amandes Soja 500g', url='https://courses.monoprix.fr/products/alpro-dessert-v%C3%A9g%C3%A9tal-nature-aux-amandes-soja-500g/MPX_3778641', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8ee4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8ee4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg', matched_ean='5411188118961', unit_price='4,90 € / KG', quantity='500 G', store=None, raw_text='Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l\\'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Nature Aux Amandes Soja 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAlpro Nature aux Amandes est un dessert végétal à base de soja et de délicieuses amandes méditerranéennes, sans lactose. Cette alternative végétale au yaourt nature est naturellement faible en matières grasses, faible en sucres et riche en protéines végétales. Il constitue également une source de calcium et de vitamine D2, E et B12. Ce dessert végétal soja amande Alpro à la texture onctueuse se savoure aussi bien au petit-déjeuner, qu\\'en dessert ou en encas.\\n\\n\\nOrigine\\nBelgique\\nMarque\\nDanone\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d\\'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (94,8%), sucre, AMANDE (1,5%), calcium, stabilisant (pectines), correcteurs d\\'acidité (acide citrique, citrates de sodium), sel marin de table, antioxydants (extrait riche en tocophérols, esters d\\'acides gras de l\\'acide ascorbique), arômes, vitamines B12, E, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA ET AMANDE\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d\\'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 221 kJ\\nValeurs Energétique en Kilocalories\\t~ 3 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.8 g\\nDont Acides Gras Saturés\\t~ 0.4 g\\nGlucides\\t~ 2.2 g\\nDont Sucres\\t~ 2.1 g\\nProtéines\\t~ 3.9 g\\nSel\\t~ 0.23 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine E\\t~ 1.8 mg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', extras={'seed_variant': 'amande', 'candidate_variant': 'amande', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['alpro', 'amande'], 'missing': [], 'total': 2}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}, candidates=[{'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641', 'status': 'OK_PARTIAL', 'product': {'title': 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g', 'brand': 'Alpro', 'kind': \"Dessert végétal soja nature à l'amande ALPRO\", 'qty': '500 G', 'qualifiers': [], 'ean': '5411188118961', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8ee4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l\\'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Nature Aux Amandes Soja 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAlpro Nature aux Amandes est un dessert végétal à base de soja et de délicieuses amandes méditerranéennes, sans lactose. Cette alternative végétale au yaourt nature est naturellement faible en matières grasses, faible en sucres et riche en protéines végétales. Il constitue également une source de calcium et de vitamine D2, E et B12. Ce dessert végétal soja amande Alpro à la texture onctueuse se savoure aussi bien au petit-déjeuner, qu\\'en dessert ou en encas.\\n\\n\\nOrigine\\nBelgique\\nMarque\\nDanone\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d\\'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (94,8%), sucre, AMANDE (1,5%), calcium, stabilisant (pectines), correcteurs d\\'acidité (acide citrique, citrates de sodium), sel marin de table, antioxydants (extrait riche en tocophérols, esters d\\'acides gras de l\\'acide ascorbique), arômes, vitamines B12, E, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA ET AMANDE\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d\\'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 221 kJ\\nValeurs Energétique en Kilocalories\\t~ 3 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.8 g\\nDont Acides Gras Saturés\\t~ 0.4 g\\nGlucides\\t~ 2.2 g\\nDont Sucres\\t~ 2.1 g\\nProtéines\\t~ 3.9 g\\nSel\\t~ 0.23 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine E\\t~ 1.8 mg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '4,90 € / KG', 'price': '2,45'}, 'score': 45.0, 'extras': {'seed_variant': 'amande', 'candidate_variant': 'amande', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['alpro', 'amande'], 'missing': [], 'total': 2}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5411188118961'.\n[MONOPRIX_DEBUG] Search terms: ['Alpro amande', 'Dessert amande Alpro']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: amande | dynamic negatives: ['vanille', 'coco', 'noix de coco', 'fraise', 'myrtille', 'mangue', 'chocolat', 'orange', 'sans sucre', 'rouge', 'squeeze', 'squeez', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/2: 'Alpro amande'\n[MONOPRIX_DEBUG]  - Typing 'Alpro amande' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Alpro%20amande\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 1 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8ee4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641\n[MONOPRIX_DEBUG][SCORE] - Title: 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g' | Brand: 'alpro' | Variant(seed/cand)=(amande/amande) | Vetoes=[] | NegHits=[] | Score=15 | Plausible=True\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g'.\n[MONOPRIX_DEBUG] Best match (early return): 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g' (Score: 45)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='2,45', title='Alpro Dessert Végétal Nature Aux Amandes Soja 500g', url='https://courses.monoprix.fr/products/alpro-dessert-v%C3%A9g%C3%A9tal-nature-aux-amandes-soja-500g/MPX_3778641', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8ee4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8ee4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg', matched_ean='5411188118961', unit_price='4,90 € / KG', quantity='500 G', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Nature Aux Amandes Soja 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAlpro Nature aux Amandes est un dessert végétal à base de soja et de délicieuses amandes méditerranéennes, sans lactose. Cette alternative végétale au yaourt nature est naturellement faible en matières grasses, faible en sucres et riche en protéines végétales. Il constitue également une source de calcium et de vitamine D2, E et B12. Ce dessert végétal soja amande Alpro à la texture onctueuse se savoure aussi bien au petit-déjeuner, qu'en dessert ou en encas.\\n\\n\\nOrigine\\nBelgique\\nMarque\\nDanone\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (94,8%), sucre, AMANDE (1,5%), calcium, stabilisant (pectines), correcteurs d'acidité (acide citrique, citrates de sodium), sel marin de table, antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), arômes, vitamines B12, E, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA ET AMANDE\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 221 kJ\\nValeurs Energétique en Kilocalories\\t~ 3 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.8 g\\nDont Acides Gras Saturés\\t~ 0.4 g\\nGlucides\\t~ 2.2 g\\nDont Sucres\\t~ 2.1 g\\nProtéines\\t~ 3.9 g\\nSel\\t~ 0.23 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine E\\t~ 1.8 mg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': 'amande', 'candidate_variant': 'amande', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['alpro', 'amande'], 'missing': [], 'total': 2}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}, candidates=[{'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641', 'status': 'OK_PARTIAL', 'product': {'title': 'Alpro Dessert Végétal Nature Aux Amandes Soja 500g', 'brand': 'Alpro', 'kind': \"Dessert végétal soja nature à l'amande ALPRO\", 'qty': '500 G', 'qualifiers': [], 'ean': '5411188118961', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4c8ee4a9-eb53-4402-a6f1-5a42a0e9d11d/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Nature Aux Amandes Soja 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAlpro Nature aux Amandes est un dessert végétal à base de soja et de délicieuses amandes méditerranéennes, sans lactose. Cette alternative végétale au yaourt nature est naturellement faible en matières grasses, faible en sucres et riche en protéines végétales. Il constitue également une source de calcium et de vitamine D2, E et B12. Ce dessert végétal soja amande Alpro à la texture onctueuse se savoure aussi bien au petit-déjeuner, qu'en dessert ou en encas.\\n\\n\\nOrigine\\nBelgique\\nMarque\\nDanone\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (94,8%), sucre, AMANDE (1,5%), calcium, stabilisant (pectines), correcteurs d'acidité (acide citrique, citrates de sodium), sel marin de table, antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), arômes, vitamines B12, E, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA ET AMANDE\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 221 kJ\\nValeurs Energétique en Kilocalories\\t~ 3 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.8 g\\nDont Acides Gras Saturés\\t~ 0.4 g\\nGlucides\\t~ 2.2 g\\nDont Sucres\\t~ 2.1 g\\nProtéines\\t~ 3.9 g\\nSel\\t~ 0.23 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine E\\t~ 1.8 mg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '4,90 € / KG', 'price': '2,45'}, 'score': 45.0, 'extras': {'seed_variant': 'amande', 'candidate_variant': 'amande', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['alpro', 'amande'], 'missing': [], 'total': 2}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}}])\n[MONOPRIX_DEBUG] Closing browser",
       "metadata": {
         "attempt_query": "Alpro 500 G",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251120-184134/10-monoprix"
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251126-181950/12-monoprix"
       }
     }
   ],
-  "finder": null
+  "finder": {
+    "error": "'FinderPipeline' object has no attribute 'decide'"
+  }
 }

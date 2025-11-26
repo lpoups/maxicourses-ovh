@@ -2,12 +2,19 @@
 # Étape 1/3 — Scaffold solide et extensible, 100% code “dans le dur”.
 from __future__ import annotations
 import argparse
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from functools import lru_cache
 from typing import Any, List, Dict, Iterable, Optional, Tuple, Protocol, Callable
 import re
 import os
 import atexit
+import json
+from pathlib import Path
+try:
+    from ai_helpers import USE_AI_ASSIST, suggest_search_queries  # type: ignore
+except Exception:  # pragma: no cover - AI optional
+    USE_AI_ASSIST = False  # type: ignore
+    suggest_search_queries = None  # type: ignore
 try:
     from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 except Exception:  # pragma: no cover - Playwright optional
@@ -259,6 +266,64 @@ def _make_leclerc_listing_provider() -> Optional[Callable[[List[str]], List[Tupl
                 except Exception:
                     pass
     return _provider
+
+def _make_monoprix_listing_provider() -> Optional[Callable[[List[str]], List[Tuple[str, str, str]]]]:
+    if sync_playwright is None:
+        return None
+    context = _ensure_sync_playwright_context()
+    if context is None:
+        return None
+
+    @lru_cache(maxsize=64)
+    def _provider_cached(query: str) -> List[Tuple[str, str, str]]:
+        if not query:
+            return []
+        page = None
+        results: List[Tuple[str, str, str]] = []
+        try:
+            page = context.new_page()
+            search_url = f"https://courses.monoprix.fr/search?q={query}"
+            page.goto(search_url, wait_until="domcontentloaded", timeout=20000)
+            try:
+                page.wait_for_selector("a[href*='/p/']", timeout=12000)
+            except Exception:
+                pass
+            page.wait_for_timeout(800)
+            anchors = page.query_selector_all("a[href*='/p/']")
+            seen: set[str] = set()
+            for a in anchors:
+                href = a.get_attribute("href") or ""
+                if not href or "/content/" in href:
+                    continue
+                abs_url = href
+                if abs_url.startswith("/"):
+                    abs_url = f"https://courses.monoprix.fr{abs_url}"
+                if abs_url in seen:
+                    continue
+                seen.add(abs_url)
+                title = _clean_text(a.inner_text() or "")
+                if not title:
+                    continue
+                snippet_node = a.query_selector("div, span")
+                snippet = _clean_text(snippet_node.inner_text()) if snippet_node else ""
+                results.append((abs_url, title, snippet))
+                if len(results) >= 12:
+                    break
+        except Exception:
+            return results
+        finally:
+            if page is not None:
+                try:
+                    page.close()
+                except Exception:
+                    pass
+        return results
+
+    def _provider(keywords: List[str]) -> List[Tuple[str, str, str]]:
+        query = _compose_keyword_query(keywords, max_length=32)
+        return _provider_cached(query)
+
+    return _provider
 # ---------- Modèle ----------
 @dataclass
 class ProductDescriptor:
@@ -271,6 +336,8 @@ class ProductDescriptor:
     image_url: Optional[str] = None
     source: str = ""          # nom d’enseigne adapter
     raw_text: str = ""        # descriptif long brut pour matching
+    seed_query: str = ""      # requete seed (titre riche)
+    leclerc_queries: List[str] = field(default_factory=list) # requetes specifiques leclerc
     def tokens(self) -> List[str]:
         txt = " ".join([self.title, self.brand, self.kind, self.qty, " ".join(self.qualifiers), self.raw_text])
         txt = re.sub(r"[^a-z0-9àâçéèêëîïôûùüÿœ\s\-\.]", " ", txt.lower())
@@ -302,9 +369,51 @@ def _descriptor_to_product(payload: Optional[Dict[str, Any]], *, source: str) ->
         value = payload.get(key)
         if isinstance(value, str) and value.strip():
             raw_parts.append(value.strip())
+    def infer_brand_from_title(raw_title: str, fallback: str) -> str:
+        generic = {
+            "boisson",
+            "lait",
+            "jus",
+            "eau",
+            "soda",
+            "boite",
+            "bouteille",
+            "pack",
+            "lot",
+            "bio",
+            "sans",
+            "produit",
+            "vegetal",
+            "végétal",
+            "amande",
+            "grillee",
+            "grillée",
+            "vanille",
+            "intense",
+        }
+        tokens = re.findall(r"[A-Za-zÀ-ÿ0-9']+", raw_title or "")
+        for tok in tokens:
+            norm = tok.lower()
+            if norm in generic:
+                continue
+            if any(char.isalpha() for char in tok) and not any(char.isdigit() for char in tok):
+                return tok.strip()
+        # fallback: dernier token alpha non générique
+        for tok in reversed(tokens):
+            norm = tok.lower()
+            if norm in generic:
+                continue
+            if any(char.isalpha() for char in tok) and not any(char.isdigit() for char in tok):
+                return tok.strip()
+        return fallback
+
+    brand_clean = str(brand or "").strip()
+    if not brand_clean or brand_clean.lower() in {"", "boisson", "produit", "marque"}:
+        brand_clean = infer_brand_from_title(str(title or ""), brand_clean)
+
     return ProductDescriptor(
         title=str(title or ""),
-        brand=str(brand or ""),
+        brand=brand_clean,
         kind="",
         qty=str(qty or ""),
         qualifiers=qualifiers,
@@ -312,6 +421,8 @@ def _descriptor_to_product(payload: Optional[Dict[str, Any]], *, source: str) ->
         image_url=image_url,
         source=source,
         raw_text=" \n".join(raw_parts),
+        seed_query=payload.get("seed_query") or "",
+        leclerc_queries=payload.get("leclerc_queries") or [],
     )
 # ---------- Interfaces Adapters ----------
 class EanSearch(Protocol):
@@ -368,7 +479,15 @@ class Consolidator:
             image_url=next((s.image_url for s in self.sources if s.image_url), None),
             source="consolidated",
             raw_text=" ".join([s.raw_text for s in self.sources if s.raw_text]),
+            seed_query=pick("seed_query", prefer_seed=True),
         )
+        # leclerc_queries: union
+        lq_all: List[str] = []
+        for s in self.sources:
+            for lq in s.leclerc_queries:
+                if lq not in lq_all:
+                    lq_all.append(lq)
+        merged.leclerc_queries = lq_all
         # qualifiers: union pondérée
         q_all: Dict[str, int] = {}
         for s in self.sources:
@@ -932,11 +1051,91 @@ else:
     LeclercAdapter = _KeywordLeclercAdapter
     IntermarcheAdapter = _KeywordIntermarcheAdapter
     MonoprixAdapter = _KeywordMonoprixAdapter
+class ChronodriveAdapter:
+    name = "chronodrive"
+    supports_ean = True
+    supports_keywords = False
+    can_extract_ean_from_href = False
+
+    def search_by_ean(self, ean: str) -> Optional[ProductDescriptor]:
+        descriptor = get_descriptor(ean)
+        return _descriptor_to_product(descriptor, source="seed")
+
+    def hard_validate(self, src: ProductDescriptor, url: str, pd: ProductDescriptor) -> Optional[float]:
+        return None
+
+    def override_threshold(self) -> Optional[float]:
+        return None
+
+    def override_strict_qty(self) -> Optional[bool]:
+        return None
+
+    def html(self) -> HtmlProvider | None:
+        return None
+
+    def image_compare(self) -> Optional[ImageCompareProvider]:
+        return None
+
+
+class CoursesUAdapter:
+    name = "courseu"
+    supports_ean = True
+    supports_keywords = False
+    can_extract_ean_from_href = False
+
+    def search_by_ean(self, ean: str) -> Optional[ProductDescriptor]:
+        descriptor = get_descriptor(ean)
+        return _descriptor_to_product(descriptor, source="seed")
+
+    def hard_validate(self, src: ProductDescriptor, url: str, pd: ProductDescriptor) -> Optional[float]:
+        return None
+
+    def override_threshold(self) -> Optional[float]:
+        return None
+
+    def override_strict_qty(self) -> Optional[bool]:
+        return None
+
+    def html(self) -> HtmlProvider | None:
+        return None
+
+    def image_compare(self) -> Optional[ImageCompareProvider]:
+        return None
+
+
+class G20Adapter:
+    name = "g20"
+    supports_ean = True
+    supports_keywords = False
+    can_extract_ean_from_href = False
+
+    def search_by_ean(self, ean: str) -> Optional[ProductDescriptor]:
+        descriptor = get_descriptor(ean)
+        return _descriptor_to_product(descriptor, source="seed")
+
+    def hard_validate(self, src: ProductDescriptor, url: str, pd: ProductDescriptor) -> Optional[float]:
+        return None
+
+    def override_threshold(self) -> Optional[float]:
+        return None
+
+    def override_strict_qty(self) -> Optional[bool]:
+        return None
+
+    def html(self) -> HtmlProvider | None:
+        return None
+
+    def image_compare(self) -> Optional[ImageCompareProvider]:
+        return None
+
+
 # Registres codés en dur. Ajouter un magasin = ajouter une classe + lister ici.
 EAN_DIRECT_REGISTRY: List[type] = [
     CarrefourAdapter,
     AuchanAdapter,
-    # CoursesUAdapter, ChronodriveAdapter, etc. à ajouter ici
+    ChronodriveAdapter,
+    CoursesUAdapter,
+    G20Adapter,
 ]
 KEYWORD_REGISTRY: List[type] = [
     MonoprixAdapter,
@@ -980,6 +1179,7 @@ class FinderPipeline:
         self.matcher = MatchingEngine(strict_qty=True)
         self.keywords: List[str] = []
         self.audit: List[AuditEntry] = []
+        self._monoprix_cache: List[str] = []
 
     @classmethod
     def ensure_hooks(cls) -> None:
@@ -998,6 +1198,9 @@ class FinderPipeline:
             image_provider = _make_monoprix_image_provider()
             if image_provider is not None:
                 MonoprixAdapter._image_provider = image_provider  # type: ignore[attr-defined]
+            listing_provider = _make_monoprix_listing_provider()
+            if listing_provider is not None:
+                MonoprixAdapter._listing_provider = staticmethod(listing_provider)  # type: ignore[attr-defined]
         except Exception:
             pass
         cls._hooks_initialized = True
@@ -1020,67 +1223,230 @@ class FinderPipeline:
         return consolidated
     # Étape B: générer mots-clés
     def generate_keywords(self, consolidated: ProductDescriptor) -> List[str]:
-        self.keywords = KeywordGenerator(max_keywords=4).make(consolidated)
-        return self.keywords
-    # Étape C: chercher sur sites sans EAN
-    def search_on_keyword_sites(self, consolidated: ProductDescriptor) -> List[MatchResult]:
-        self.ensure_hooks()
-        results: List[MatchResult] = []
-        orig_strict = self.matcher.strict_qty
-        for cls in KEYWORD_REGISTRY:
-            adapter = cls()
-            assert getattr(adapter, "supports_keywords", False) is True
-            policy = self._policy(adapter.name)
+        base_text = (
+            consolidated.seed_query
+            or consolidated.title
+            or consolidated.raw_text
+            or consolidated.brand
+            or ""
+        ).strip()
+        tokens = base_text.split()
+        priority_keywords: List[str] = []
+        if len(tokens) >= 4:
+            priority_keywords.append(" ".join(tokens[:4]))
+        if len(tokens) >= 3:
+            priority_keywords.append(" ".join(tokens[:3]))
+
+        heuristic_keywords = KeywordGenerator(max_keywords=4).make(consolidated)
+        ai_keywords: List[str] = []
+        if USE_AI_ASSIST and suggest_search_queries:
+            profile = {
+                "title": consolidated.title,
+                "brand": consolidated.brand,
+                "quantity": consolidated.qty,
+                "qualifiers": consolidated.qualifiers,
+                "ean": consolidated.ean,
+                "seed_query": consolidated.seed_query,
+            }
             try:
-                override_strict = adapter.override_strict_qty()
-                if override_strict is not None:
-                    self.matcher.strict_qty = bool(override_strict)
+                resp = suggest_search_queries(
+                    profile,
+                    descriptor=asdict(consolidated),
+                    max_queries=5,
+                    store="generic",
+                    max_length=32,
+                )
+                queries = resp.data.get("queries") if isinstance(resp.data, dict) else None
+                if isinstance(queries, list):
+                    ai_keywords = [q for q in queries if isinstance(q, str) and q.strip()]
+            except Exception:
+                ai_keywords = []
+
+        merged: List[str] = []
+        seen: set[str] = set()
+
+        def push(seq: List[str]):
+            for item in seq:
+                value = " ".join(item.split())
+                if not value:
+                    continue
+                key = value.lower()
+                if key in seen:
+                    continue
+                seen.add(key)
+                merged.append(value)
+
+        push(priority_keywords)
+        push(ai_keywords)
+        push(heuristic_keywords)
+        self.keywords = merged[:8]
+        if not self.keywords:
+            fallback = self._fallback_keywords_from_summary(consolidated.ean)
+
+def _fallback_keywords_from_summary(self, ean: Optional[str]) -> List[str]:
+    if not ean:
+        return []
+    summary_path = Path(os.environ.get("RESULTS_DIR") or "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results") / "summary.json"
+    if not summary_path.exists():
+        return []
+    try:
+        data = json.loads(summary_path.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    block = data.get(str(ean))
+    if not isinstance(block, dict):
+        return []
+    titles: List[str] = []
+    brands: List[str] = []
+    for entry in block.values():
+        if not isinstance(entry, dict):
+            continue
+        payload = entry.get("payload")
+        if not isinstance(payload, dict):
+            continue
+        t = payload.get("title") or payload.get("product_name")
+        product_obj = payload.get("product") or {}
+        b = payload.get("brand") or product_obj.get("brand")
+        if isinstance(t, str) and t.strip():
+            titles.append(t.strip())
+        if isinstance(b, str) and b.strip():
+            brands.append(b.strip())
+        if not b and isinstance(t, str) and t.strip():
+            inferred = _infer_brand_from_title(t)
+            if inferred:
+                brands.append(inferred)
+    title = titles[0] if titles else ""
+    brand = brands[0] if brands else ""
+    tokens = []
+    norm = re.sub(r"[^a-z0-9]+", " ", title.lower())
+    for tok in norm.split():
+        if re.search(r"\d", tok):
+            continue
+        if tok in {"ml", "l", "cl", "kg", "g", "gr", "litre", "litres"}:
+            continue
+        if tok and tok not in tokens:
+            tokens.append(tok)
+    main = tokens[0] if tokens else ""
+    candidates = []
+    if brand and main:
+        candidates.append(f"{brand} {main}")
+    if title:
+        candidates.append(title)
+    if main:
+        candidates.append(main)
+    seen: set[str] = set()
+    filtered: List[str] = []
+    for q in candidates:
+        key = q.lower().strip()
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        filtered.append(q)
+    return filtered[:3]
+
+def _monoprix_keywords(self, consolidated: ProductDescriptor) -> List[str]:
+    """
+    Requêtes Monoprix sans quantités pour éviter les listings trop larges.
+    """
+    filtered: List[str] = []
+    seen: set[str] = set()
+    unit_tokens = {"ml", "l", "cl", "kg", "g", "gr", "kg.", "l.", "ml.", "cl.", "litre", "litres"}
+
+    def strip_qty(query: str) -> Optional[str]:
+        tokens: List[str] = []
+        for tok in query.split():
+            low = tok.lower().strip()
+            if re.search(r"\d", low):
+                continue
+            if low in unit_tokens:
+                continue
+            tokens.append(tok)
+        cleaned = " ".join(tokens).strip()
+        return cleaned or None
+
+    for q in self.keywords:
+        cleaned = strip_qty(q)
+        if not cleaned:
+            continue
+        key = cleaned.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        filtered.append(cleaned)
+
+    if not filtered:
+        brand = (consolidated.brand or "").strip()
+        title_tokens: List[str] = []
+        norm_title = re.sub(r"[^a-z0-9]+", " ", (consolidated.title or "").lower())
+        for tok in norm_title.split():
+            if tok in unit_tokens or re.search(r"\d", tok):
+                continue
+            if tok and tok not in title_tokens:
+                title_tokens.append(tok)
+        main_token = title_tokens[0] if title_tokens else ""
+        if brand and main_token:
+            filtered.append(f"{brand} {main_token}")
+        elif main_token:
+            filtered.append(main_token)
+        elif brand:
+            filtered.append(brand)
+
+def search_on_keyword_sites(self, consolidated: ProductDescriptor) -> List[MatchResult]:
+    self.ensure_hooks()
+    results: List[MatchResult] = []
+    orig_strict = self.matcher.strict_qty
+    for cls in KEYWORD_REGISTRY:
+        adapter = cls()
+        assert getattr(adapter, "supports_keywords", False) is True
+        policy = self._policy(adapter.name)
+        try:
+            override_strict = adapter.override_strict_qty()
+            if override_strict is not None:
+                self.matcher.strict_qty = bool(override_strict)
+            if adapter.name == "leclerc" and consolidated.leclerc_queries:
+                urls = adapter.search_by_keywords(consolidated.leclerc_queries)
+            elif adapter.name == "monoprix":
+                urls = []
+                mono_queries = self._monoprix_keywords(consolidated)
+                for q in mono_queries:
+                    attempt_urls = adapter.search_by_keywords([q])
+                    if attempt_urls:
+                        urls.extend(attempt_urls)
+                        break
+            else:
                 urls = adapter.search_by_keywords(self.keywords)
-                for url in urls:
-                    pd = adapter.parse_product_page(url)
-                    if not pd:
-                        continue
-                    if getattr(adapter, "can_extract_ean_from_href", False):
-                        m = re.search(r"\b(\d{8,14})\b", (url or ""))
-                        if m and not pd.ean:
-                            pd.ean = m.group(1)
-                        if pd.ean:
-                            self.consolidator.add(pd)
-                    provider: Optional[ImageCompareProvider] = None
-                    if hasattr(adapter, "image_compare"):
-                        try:
-                            provider = adapter.image_compare()
-                        except Exception:
-                            provider = None
-                    if policy.disallow_packs and is_pack_or_bundle(pd.title, pd.raw_text):
-                        self.audit.append(
-                            AuditEntry(
-                                adapter=adapter.name,
-                                url=url,
-                                base_score=0.0,
-                                threshold_used=policy.min_text_score,
-                                image_pass=False,
-                                forced=None,
-                                reason="filtered_pack",
-                            )
+            for url in urls:
+                pd = adapter.parse_product_page(url)
+                if not pd:
+                    continue
+                if getattr(adapter, "can_extract_ean_from_href", False):
+                    m = re.search(r"(\d{8,14})", (url or ""))
+                    if m and not pd.ean:
+                        pd.ean = m.group(1)
+                    if pd.ean:
+                        self.consolidator.add(pd)
+                provider: Optional[ImageCompareProvider] = None
+                if hasattr(adapter, "image_compare"):
+                    try:
+                        provider = adapter.image_compare()
+                    except Exception:
+                        provider = None
+                if policy.disallow_packs and is_pack_or_bundle(pd.title, pd.raw_text):
+                    self.audit.append(
+                        AuditEntry(
+                            adapter=adapter.name,
+                            url=url,
+                            base_score=0.0,
+                            threshold_used=policy.min_text_score,
+                            image_pass=False,
+                            forced=None,
+                            reason="filtered_pack",
                         )
-                        continue
-                    forced = adapter.hard_validate(consolidated, url, pd)
-                    if forced is not None:
-                        if policy.requires_ean and not pd.ean:
-                            self.audit.append(
-                                AuditEntry(
-                                    adapter=adapter.name,
-                                    url=url,
-                                    base_score=1.0,
-                                    threshold_used=policy.min_text_score,
-                                    image_pass=False,
-                                    forced=float(forced),
-                                    reason="forced_but_missing_ean",
-                                )
-                            )
-                            continue
-                        results.append(MatchResult(adapter=adapter.name, url=url, descriptor=pd, score=float(forced)))
+                    )
+                    continue
+                forced = adapter.hard_validate(consolidated, url, pd)
+                if forced is not None:
+                    if policy.requires_ean and not pd.ean:
                         self.audit.append(
                             AuditEntry(
                                 adapter=adapter.name,
@@ -1089,67 +1455,46 @@ class FinderPipeline:
                                 threshold_used=policy.min_text_score,
                                 image_pass=False,
                                 forced=float(forced),
-                                reason="hard_validate",
+                                reason="forced_but_missing_ean",
                             )
                         )
                         continue
-                    base_score = self.matcher.score(consolidated, pd)
-                    img_pass = True
-                    if policy.require_image_lock:
-                        img_pass = self.matcher.image_match(
-                            consolidated.image_url,
-                            pd.image_url,
-                            provider=provider,
+                    results.append(MatchResult(adapter=adapter.name, url=url, descriptor=pd, score=float(forced)))
+                    self.audit.append(
+                        AuditEntry(
+                            adapter=adapter.name,
+                            url=url,
+                            base_score=1.0,
+                            threshold_used=policy.min_text_score,
+                            image_pass=False,
+                            forced=float(forced),
+                            reason="hard_validate",
                         )
-                        if not img_pass:
-                            self.audit.append(
-                                AuditEntry(
-                                    adapter=adapter.name,
-                                    url=url,
-                                    base_score=base_score,
-                                    threshold_used=policy.min_text_score,
-                                    image_pass=False,
-                                    forced=None,
-                                    reason="image_lock_failed",
-                                )
-                            )
-                            continue
-                    meets_text_threshold = base_score >= policy.min_text_score
-                    if not meets_text_threshold and not (policy.require_image_lock and img_pass):
+                    )
+                    continue
+                base_score = self.matcher.score(consolidated, pd)
+                img_pass = True
+                if policy.require_image_lock:
+                    img_pass = self.matcher.image_match(
+                        consolidated.image_url,
+                        pd.image_url,
+                        provider=provider,
+                    )
+                    if not img_pass:
                         self.audit.append(
                             AuditEntry(
                                 adapter=adapter.name,
                                 url=url,
                                 base_score=base_score,
                                 threshold_used=policy.min_text_score,
-                                image_pass=img_pass,
+                                image_pass=False,
                                 forced=None,
-                                reason="below_text_threshold",
+                                reason="image_lock_failed",
                             )
                         )
                         continue
-                    if policy.requires_ean and not pd.ean:
-                        self.audit.append(
-                            AuditEntry(
-                                adapter=adapter.name,
-                                url=url,
-                                base_score=base_score,
-                                threshold_used=policy.min_text_score,
-                                image_pass=img_pass,
-                                forced=None,
-                                reason="missing_ean_required",
-                            )
-                        )
-                        continue
-                    final_score = base_score
-                    audit_reason = "generic"
-                    if policy.require_image_lock and img_pass and not meets_text_threshold:
-                        final_score = max(final_score, policy.min_text_score)
-                        audit_reason = "image_override"
-                    if adapter.name == "monoprix" and img_pass:
-                        final_score = max(final_score, 0.995)
-                        audit_reason = "mono_image_override" if audit_reason == "image_override" else "mono_text+image"
-                    results.append(MatchResult(adapter=adapter.name, url=url, descriptor=pd, score=final_score))
+                meets_text_threshold = base_score >= policy.min_text_score
+                if not meets_text_threshold and not (policy.require_image_lock and img_pass):
                     self.audit.append(
                         AuditEntry(
                             adapter=adapter.name,
@@ -1158,15 +1503,49 @@ class FinderPipeline:
                             threshold_used=policy.min_text_score,
                             image_pass=img_pass,
                             forced=None,
-                            reason=audit_reason,
+                            reason="below_text_threshold",
                         )
                     )
-            except NotImplementedError:
-                continue
-            finally:
-                self.matcher.strict_qty = orig_strict
-        # tri décroissant par score
+                    continue
+                if policy.requires_ean and not pd.ean:
+                    self.audit.append(
+                        AuditEntry(
+                            adapter=adapter.name,
+                            url=url,
+                            base_score=base_score,
+                            threshold_used=policy.min_text_score,
+                            image_pass=img_pass,
+                            forced=None,
+                            reason="missing_ean_required",
+                        )
+                    )
+                    continue
+                final_score = base_score
+                audit_reason = "generic"
+                if policy.require_image_lock and img_pass and not meets_text_threshold:
+                    final_score = max(final_score, policy.min_text_score)
+                    audit_reason = "image_override"
+                if adapter.name == "monoprix" and img_pass:
+                    final_score = max(final_score, 0.995)
+                    audit_reason = "mono_image_override" if audit_reason == "image_override" else "mono_text+image"
+                results.append(MatchResult(adapter=adapter.name, url=url, descriptor=pd, score=final_score))
+                self.audit.append(
+                    AuditEntry(
+                        adapter=adapter.name,
+                        url=url,
+                        base_score=base_score,
+                        threshold_used=policy.min_text_score,
+                        image_pass=img_pass,
+                        forced=None,
+                        reason=audit_reason,
+                    )
+                )
+        except NotImplementedError:
+            continue
+        finally:
+            self.matcher.strict_qty = orig_strict
         results.sort(key=lambda r: -r.score)
+        return results
         return results
     # Étape D: décision
     def decide(self, consolidated: ProductDescriptor, candidates: List[MatchResult], threshold: float = 0.7

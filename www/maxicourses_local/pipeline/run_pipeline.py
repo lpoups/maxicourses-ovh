@@ -683,6 +683,32 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
             "G20_BASE_URL": os.getenv("G20_BASE_URL", "https://www.g20-minute.com"),
         },
     },
+    "casino": {
+        "script": ROOT_DIR / "fetch_casino_price.py",
+        "env": lambda: {
+            "CASINO_STORE_CODE": os.getenv("CASINO_STORE_CODE", "TZ193"),
+            "CASINO_STORE_SLUG": os.getenv("CASINO_STORE_SLUG", "casino-shop-33130"),
+            "CASINO_STORE_LABEL": os.getenv("CASINO_STORE_LABEL", "Casino Shop · Bègles Pruniers"),
+            "CASINO_STORE_URL": os.getenv(
+                "CASINO_STORE_URL",
+                "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+            ),
+        },
+    },
+    "spar": {
+        "script": ROOT_DIR / "fetch_casino_price.py",
+        "env": lambda: {
+            "CASINO_STORE_CODE": os.getenv("SPAR_STORE_CODE", "TL832"),
+            "CASINO_STORE_SLUG": os.getenv("SPAR_STORE_SLUG", "spar-33160"),
+            "CASINO_STORE_LABEL": os.getenv(
+                "SPAR_STORE_LABEL", "Spar Super · Saint-Médard-en-Jalles"
+            ),
+            "CASINO_STORE_URL": os.getenv(
+                "SPAR_STORE_URL",
+                "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+            ),
+        },
+    },
 }
 
 ADAPTER_CDP_PORTS: Dict[str, int] = {
@@ -723,6 +749,8 @@ DEFAULT_ADAPTER_ORDER = [
     "chronodrive",
     "courseu",
     "g20",
+    "casino",
+    "spar",
     "intermarche",
     "leclerc",
     "monoprix",
@@ -2224,7 +2252,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     if not default_keywords:
         default_keywords = heuristic_keywords
 
-parallel_adapters = os.getenv("PARALLEL_ADAPTERS", "0").lower() in {"1", "true", "yes"}
+    parallel_adapters = os.getenv("PARALLEL_ADAPTERS", "0").lower() in {"1", "true", "yes"}
 
     def _prepare_adapter(adapter_name: str, index: int):
         adapter_debug: Optional[Path] = None

@@ -20,6 +20,98 @@
     header {
       margin-bottom: 28px;
     }
+    .promo-info-btn {
+      border: none;
+      background: #f97316;
+      color: #fff;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-weight: 700;
+      cursor: pointer;
+      margin-left: 6px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 14px rgba(249, 115, 22, 0.4);
+    }
+    .promo-info-btn:hover {
+      background: #ea580c;
+    }
+    .promo-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.4);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+    .promo-modal.open {
+      display: flex;
+    }
+    .promo-modal__card {
+      background: linear-gradient(145deg, #fff7ed 0%, #ffffff 45%, #f8fafc 100%);
+      color: #0f172a;
+      max-width: 560px;
+      width: 100%;
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid #fed7aa;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+    }
+    .promo-modal__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .promo-modal__close {
+      border: none;
+      background: transparent;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #0f172a;
+    }
+    .promo-modal__title {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .promo-modal__list {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style: none;
+    }
+    .promo-modal__list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      box-shadow: 0 8px 18px rgba(249, 115, 22, 0.08);
+      font-size: 0.95rem;
+    }
+    .promo-modal__list li:nth-child(odd) {
+      background: #fef3c7;
+    }
+    .promo-modal__label {
+      font-weight: 700;
+      color: #0f172a;
+      flex: 1;
+    }
+    .promo-modal__value {
+      color: #334155;
+      font-weight: 600;
+    }
     .alert {
       padding: 14px 18px;
       border-radius: 14px;
@@ -174,6 +266,24 @@
       font-weight: 600;
       color: #1d2544;
     }
+    .masthead__logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+    .masthead__logos img {
+      height: 18px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(15,23,42,0.08));
+      background: #fff;
+      border-radius: 6px;
+      padding: 3px 4px;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
     .masthead__bullets {
       margin: 0;
       padding-left: 18px;
@@ -262,15 +372,15 @@
     }
     .ean-search,
     .image-search {
-      flex: 1 1 280px;
+      flex: 1 1 260px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      border-radius: 20px;
-      padding: 18px 20px;
+      gap: 10px;
+      border-radius: 16px;
+      padding: 12px 14px;
       background: #fff;
       border: 1px solid rgba(15, 23, 42, 0.06);
-      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.07);
     }
     .ean-search {
       background: linear-gradient(160deg, #ffffff 0%, #eef2ff 100%);
@@ -285,16 +395,18 @@
     }
     .ean-search__controls {
       display: flex;
-      gap: 10px;
-      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+      align-items: stretch;
+      max-width: 320px;
     }
     .ean-search__input {
       flex: 1 1 auto;
-      padding: 12px 16px;
-      border-radius: 14px;
+      padding: 10px 14px;
+      border-radius: 12px;
       border: 1px solid rgba(148, 163, 184, 0.4);
       background: rgba(255, 255, 255, 0.9);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       transition: all 150ms ease;
       color: #1f2937;
       box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.05);
@@ -307,16 +419,17 @@
     }
     .ean-search__button {
       flex: 0 0 auto;
-      padding: 11px 22px;
+      padding: 10px 18px;
       border-radius: 999px;
       border: none;
       background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
       color: #fff;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
       transition: transform 120ms ease, box-shadow 120ms ease;
-      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.28);
+      box-shadow: 0 14px 26px rgba(37, 99, 235, 0.24);
+      align-self: flex-start;
     }
     .ean-search__button:hover:not([disabled]) {
       transform: translateY(-1px);
@@ -350,30 +463,33 @@
     }
     .image-search__controls {
       display: flex;
-      gap: 10px;
-      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+      align-items: stretch;
+      max-width: 420px;
     }
     .image-search__input[type="file"] {
       flex: 1 1 auto;
-      font-size: 0.8rem;
-      padding: 10px 14px;
-      border-radius: 14px;
+      font-size: 0.78rem;
+      padding: 9px 12px;
+      border-radius: 12px;
       border: 1px dashed rgba(13, 148, 136, 0.45);
       background: rgba(240, 253, 250, 0.85);
       transition: all 150ms ease;
     }
     .image-search__button {
       flex: 0 0 auto;
-      padding: 11px 20px;
+      padding: 10px 18px;
       border-radius: 999px;
       border: none;
       background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
       color: #fff;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
       transition: transform 120ms ease, box-shadow 120ms ease;
-      box-shadow: 0 16px 32px rgba(13, 148, 136, 0.28);
+      box-shadow: 0 14px 26px rgba(13, 148, 136, 0.24);
+      align-self: flex-start;
     }
     .image-search__button:hover:not([disabled]) {
       transform: translateY(-1px);
@@ -400,16 +516,30 @@
     .product-card {
       background: #fff;
       border-radius: 16px;
-      padding: 14px;
+      padding: 6px 8px;
       box-shadow: 0 10px 24px rgba(15,23,42,0.12);
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 10px;
+      row-gap: 3px;
       align-items: center;
     }
+    .product-card--clickable {
+      cursor: pointer;
+    }
+    .product-card--clickable .product-meta-actions button,
+    .product-card--clickable .product-meta-actions a {
+      cursor: pointer;
+    }
     .product-card--compact {
-      padding: 12px;
-      gap: 14px;
+      padding: 6px 8px;
+      column-gap: 10px;
+    }
+    .product-details-wrapper {
+      width: 100%;
+    }
+    .product-details-wrapper[hidden] {
+      display: none;
     }
     .product-media {
       flex: 0 0 72px;
@@ -421,8 +551,8 @@
       flex-basis: 64px;
     }
     .product-thumb {
-      width: 72px;
-      height: 72px;
+      width: 68px;
+      height: 68px;
       border-radius: 14px;
       background: #f3f5f9;
       display: flex;
@@ -431,8 +561,8 @@
       overflow: hidden;
     }
     .product-card--compact .product-thumb {
-      width: 64px;
-      height: 64px;
+      width: 60px;
+      height: 60px;
     }
     .product-thumb img {
       width: 100%;
@@ -447,40 +577,49 @@
     }
     .product-body {
       flex: 1 1 260px;
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr auto;
       align-items: center;
-      gap: 10px 16px;
+      gap: 4px 8px;
+      width: 100%;
     }
     .product-info {
       flex: 1 1 260px;
       min-width: 200px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      align-items: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: nowrap;
+      min-width: 0;
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      position: relative;
     }
     .product-summary {
       display: inline-flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 4px;
       justify-content: center;
       align-items: center;
       font-size: 0.7rem;
+      white-space: nowrap;
+      flex: 0 0 auto;
+      order: 1;
     }
     .product-summary span {
       background: #eef2ff;
       color: #4338ca;
-      padding: 1px 8px;
+      padding: 1px 6px;
       border-radius: 999px;
       font-size: 0.68rem;
     }
     .product-meta-actions {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       flex: 0 0 auto;
-      margin-left: auto;
+      justify-content: flex-end;
     }
     .product-action-button {
       font-size: 0.68rem;
@@ -566,22 +705,48 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #64748b;
+      white-space: nowrap;
+      margin: 0;
+      flex: 0 0 auto;
+      order: 0;
     }
     .product-title {
       margin: 0;
-      font-size: 1.25rem;
-      color: #0f172a;
+      font-size: 0.65rem;
+      line-height: 1.25;
+      color: #1f2937 !important;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1 1 auto;
+      text-align: center;
+      letter-spacing: 0.005em;
+      font-weight: 600;
+      order: 2;
+      padding: 2px 8px;
+      width: 65%;
+      max-width: 640px;
+      min-width: 280px;
+      margin: 0 auto;
+      background: #d1fae5;
+      border-radius: 12px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
     }
     .product-card--compact .product-title {
-      font-size: 1.05rem;
+      font-size: 0.75rem;
     }
     .product-details {
       display: inline-flex;
       flex-wrap: wrap;
-      gap: 6px 14px;
+      gap: 4px 10px;
       margin: 0;
       align-self: center;
       justify-content: center;
+      white-space: nowrap;
+      flex: 1 1 auto;
+      order: 3;
     }
     .product-details div {
       display: inline-flex;
@@ -608,6 +773,7 @@
       box-shadow: 0 8px 20px rgba(15,23,42,0.12);
       overflow: hidden;
       position: relative;
+      grid-column: 1 / -1;
     }
     .product-card--compact .product-map {
       flex-basis: 200px;
@@ -790,7 +956,7 @@
       letter-spacing: 0.04em;
     }
     .table-collect-button {
-      padding: 6px 16px;
+      padding: 4px 14px;
       border-radius: 999px;
       border: none;
       background: linear-gradient(135deg, #1d4ed8, #2563eb);
@@ -821,6 +987,65 @@
       background: linear-gradient(135deg, #dc2626, #f97316);
       box-shadow: 0 12px 24px rgba(220, 38, 38, 0.3);
     }
+    .actions-cell {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .table-view-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid #1d4ed8;
+      color: #1d4ed8;
+      background: #e0e7ff;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+      box-shadow: 0 10px 18px rgba(37, 99, 235, 0.15);
+    }
+    .details-toggle {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #93c5fd;
+      background: linear-gradient(135deg, #e0f2fe, #bfdbfe);
+      color: #0f172a;
+      font-weight: 600;
+      font-size: 0.50rem;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+      box-shadow: 0 6px 14px rgba(59, 130, 246, 0.18);
+    }
+    .details-toggle:hover {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(59, 130, 246, 0.22);
+    }
+    .details-toggle-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      margin: 4px 0 0;
+      width: 100%;
+    }
+    .card-toggle-row {
+      margin-top: 2px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      grid-column: 1 / -1;
+    }
+    .table-view-button:hover {
+      background: #c7d2fe;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 24px rgba(37, 99, 235, 0.2);
+    }
     .price-badge {
       display: inline-flex;
       align-items: center;
@@ -840,50 +1065,64 @@
       background: rgba(220,38,38,0.12);
       color: #b91c1c;
     }
+    .price-badge--promo {
+      background: rgba(217,119,6,0.14);
+      color: #92400e;
+      border: 1px dashed rgba(217,119,6,0.5);
+    }
+    .product-block {
+      border: 1px solid rgba(37,99,235,0.28);
+      border-radius: 16px;
+      padding: 1px 8px 1px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(15,23,42,0.06);
+      margin: 0;
+    }
     .best-price-banner {
-      margin: 0 0 18px;
-      padding: 12px 16px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #0f1f4b 0%, #1d4ed8 65%, #2563eb 100%);
+      margin: 2px 0 6px;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background: rgba(37,99,235,0.08);
+      border: 1px solid rgba(37,99,235,0.35);
       color: #f8fafc;
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: 0.78rem;
+      font-weight: 500;
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 6px;
       flex-wrap: wrap;
-      row-gap: 6px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 18px 30px rgba(37, 99, 235, 0.25);
+      row-gap: 2px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 6px 10px rgba(37, 99, 235, 0.12);
     }
     .best-price-banner::before {
       content: '★';
-      font-size: 1rem;
-      margin-right: 4px;
+      font-size: 0.82rem;
+      margin-right: 3px;
       color: #fde68a;
     }
     .best-price-banner__item {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 4px 12px;
+      gap: 4px;
+      padding: 2px 6px;
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.15);
-      font-weight: 600;
-      line-height: 1.2;
+      font-weight: 500;
+      line-height: 1.15;
     }
     .best-price-banner__label {
       text-transform: uppercase;
-      font-size: 0.66rem;
-      letter-spacing: 0.08em;
+      font-size: 0.52rem;
+      letter-spacing: 0.06em;
       color: rgba(248,250,252,0.85);
     }
     .best-price-banner__value {
-      font-size: 1.05rem;
+      font-size: 0.40rem;
       color: #fff;
       font-weight: 600;
     }
     .best-price-banner__store {
-      font-size: 0.78rem;
+      font-size: 0.62rem;
       color: rgba(248,250,252,0.85);
     }
     .best-price-banner__item--best {
@@ -897,20 +1136,20 @@
       box-shadow: 0 8px 18px rgba(255, 77, 77, 0.35);
     }
     .best-price-banner__item--delta {
-      background: linear-gradient(120deg, #f97316 0%, #fb923c 70%, #fdba74 100%);
+      background: linear-gradient(120deg, #f97316 0%, #fb923c 60%, #fdba74 100%);
       color: #fff7ed;
       box-shadow: 0 10px 18px rgba(249, 115, 22, 0.35);
       flex: 1 1 auto;
       justify-content: center;
-      min-width: 220px;
+      min-width: 130px;
       position: relative;
-      padding-left: 32px;
+      padding-left: 18px;
     }
     .best-price-banner__item--delta::before {
       content: 'Δ';
       position: absolute;
-      left: 12px;
-      font-size: 1.2rem;
+      left: 7px;
+      font-size: 0.8rem;
       font-weight: 700;
       color: rgba(255,255,255,0.85);
     }
@@ -919,7 +1158,7 @@
     }
     .best-price-banner__item--delta .best-price-banner__value {
       color: #fff;
-      font-size: 1.25rem;
+      font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.01em;
     }
@@ -931,7 +1170,7 @@
     }
     .best-price-banner__item--delta .best-price-banner__label {
       color: rgba(255,255,255,0.9);
-      font-size: 0.72rem;
+      font-size: 0.60rem;
     }
     .stores-summary {
       margin: 48px 0 32px;
@@ -940,6 +1179,10 @@
       background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(37,99,235,0.04));
       border: 1px solid rgba(148, 163, 184, 0.2);
       box-shadow: 0 26px 48px rgba(15, 23, 42, 0.12);
+    }
+    .stores-summary--worst {
+      background: linear-gradient(135deg, rgba(248,113,113,0.2), rgba(248,113,113,0.05));
+      border-color: rgba(248,113,113,0.4);
     }
     .stores-summary__title {
       margin: 0 0 16px;
@@ -1004,6 +1247,9 @@
       font-size: 0.8rem;
       text-transform: uppercase;
     }
+    .stores-summary__rank--worst {
+      background: linear-gradient(135deg, #f97316, #ef4444);
+    }
     .stores-summary__details {
       flex: 1 1 auto;
       display: flex;
@@ -1053,7 +1299,7 @@
       text-decoration: underline;
     }
     .product-block {
-      margin-top: 32px;
+      margin-top: 10px;
     }
     .product-block h2 {
       margin: 0 0 14px;
@@ -1138,8 +1384,19 @@
     </div>
     <div class="masthead__footer">© 2025-2026 MaxiCourses · Powered by OpenCenterAI</div>
   </div>
-  <div class="masthead__summary">
-    <p class="masthead__tagline">Collecte automatisée Carrefour City/Market/Super → Auchan → Chronodrive → SuperU → G20 → Monoprix → Leclerc Drive → Intermarché.</p>
+    <div class="masthead__summary">
+    <div class="masthead__logos" aria-label="Collecte automatisée Carrefour, Auchan, Chronodrive, Super U, G20, Monoprix, Leclerc Drive, Intermarché, Casino, Spar">
+      <img src="../assets/logos/carrefour.png" alt="Carrefour"/>
+      <img src="../assets/logos/auchan.png" alt="Auchan"/>
+      <img src="../assets/logos/chronodrive.png" alt="Chronodrive"/>
+      <img src="../assets/logos/courseu.png" alt="Super U"/>
+      <img src="../assets/logos/g20.png" alt="G20"/>
+      <img src="../assets/logos/monoprix.png" alt="Monoprix"/>
+      <img src="../assets/logos/leclerc.png" alt="Leclerc Drive"/>
+      <img src="../assets/logos/intermarche.png" alt="Intermarché"/>
+      <img src="../assets/logos/casino.png" alt="Casino"/>
+      <img src="../assets/logos/spar.png" alt="Spar"/>
+    </div>
     <ul class="masthead__bullets">
       <li>Recherche par EAN brut, descriptif libre ou upload photo.</li>
       <li>Comparateur multi-enseignes en temps réel et suggestions IA.</li>
@@ -1208,6 +1465,11 @@
   <p class="stores-summary__subtitle" data-role="stores-summary-subtitle"></p>
   <ol class="stores-summary__list" data-role="stores-summary-list"></ol>
 </section>
+<section class="stores-summary stores-summary--worst" hidden="" id="stores-summary-worst">
+  <h2 class="stores-summary__title">Enseignes les moins avantageuses</h2>
+  <p class="stores-summary__subtitle" data-role="stores-summary-subtitle"></p>
+  <ol class="stores-summary__list" data-role="stores-summary-list"></ol>
+</section>
 <script crossorigin="" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
     const EAN_REQUIRED_LENGTH = 13;
@@ -1232,7 +1494,7 @@
     }
     const RESULTS_BASE_CANDIDATES = computeResultsBaseCandidates();
     const DESCRIPTOR_CACHE_URLS = [`${DATA_BASE}/descriptor_cache.json`, '../pipeline/descriptor_cache.json'];
-    const MANUAL_DESCRIPTOR_FALLBACK_URLS = [`${DATA_BASE}/manual_descriptors.json`, '../manual_descriptors.json'];
+    const MANUAL_DESCRIPTOR_FALLBACK_URLS = [];
     const SUMMARY_URLS = RESULTS_BASE_CANDIDATES.map((base) => `${base}/summary.json`);
 
     const buildResultUrls = (ean) => RESULTS_BASE_CANDIDATES.map((base) => `${base}/test-${ean}/latest.json`);
@@ -1269,6 +1531,11 @@
         resultUrls: buildResultUrls('5411188114536')
       },
       {
+        ean: '5411188110835',
+        heading: 'Comparatif (Alpro amande grillée 1 L)',
+        resultUrls: buildResultUrls('5411188110835')
+      },
+      {
         ean: '3700260216148',
         heading: 'Comparatif (Croquettes chat stérilisé saumon Ultima)',
         resultUrls: buildResultUrls('3700260216148')
@@ -1277,6 +1544,11 @@
         ean: '3092718637033',
         heading: 'Comparatif (Sirop Menthe Verte TEISSEIRE 60cl)',
         resultUrls: buildResultUrls('3092718637033')
+      },
+      {
+        ean: '3665468000312',
+        heading: 'Comparatif (Destop Déboucheur Liquide 950 ml)',
+        resultUrls: buildResultUrls('3665468000312')
       },
       {
         ean: '3600551132150',
@@ -1289,8 +1561,11 @@
 
     const MANUAL_COMPARISON = {};
 
-    const REFRESH_ENDPOINT = window.MAXICOURSES_REFRESH_ENDPOINT || 'http://127.0.0.1:5001/api/collect';
-    const REMOVE_ENDPOINT = window.MAXICOURSES_REMOVE_ENDPOINT || REFRESH_ENDPOINT.replace(/collect(\/?$)/, 'remove');
+    const isFileProto = window.location.protocol === 'file:';
+    const apiBase = window.MAXICOURSES_API_BASE
+      || (isFileProto ? 'http://127.0.0.1:5001' : (window.location.origin || 'http://127.0.0.1:5001'));
+    const REFRESH_ENDPOINT = window.MAXICOURSES_REFRESH_ENDPOINT || `${apiBase}/api/collect`;
+    const REMOVE_ENDPOINT = window.MAXICOURSES_REMOVE_ENDPOINT || `${apiBase}/api/remove`;
     const CURRENCY_FORMATTER = new Intl.NumberFormat('fr-FR', {
       style: 'currency',
       currency: 'EUR',
@@ -1302,6 +1577,7 @@
     const datasetCache = new Map();
     const removedDatasets = new Set();
     const cheapestDatasets = new Map();
+    const priciestDatasets = new Map();
 
     const LOGO_BASE = new URL('../assets/logos/', window.location.href).href;
     const LOGOS = {
@@ -1317,7 +1593,8 @@
       monoprix: 'monoprix.png',
       courseu: 'courseu.png',
       g20: 'g20.png',
-      casino: 'casino.png'
+      casino: 'casino.png',
+      spar: 'spar.png'
     };
 
     const DISPLAY_NAMES = {
@@ -1333,7 +1610,8 @@
       monoprix: 'Monoprix',
       courseu: 'Super U Eysines',
       g20: 'G20 Minute',
-      casino: 'Casino Shop Bègles'
+      casino: 'Casino Shop Bègles',
+      spar: 'Spar Super Saint-Médard'
     };
 
     const GENERIC_DESCRIPTOR_TOKENS = new Set([
@@ -1499,26 +1777,7 @@
         }
 
         try {
-          const response = await fetch(REFRESH_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ean })
-          });
-
-          let payload = null;
-          try {
-            payload = await response.json();
-          } catch (err) {
-            payload = null;
-          }
-
-          if (!response.ok) {
-            if (payload?.error === 'ean_format_invalid') {
-              throw new Error(payload?.message || `EAN invalide (${EAN_REQUIRED_LENGTH} chiffres requis).`);
-            }
-            const details = payload?.message || payload?.error || '';
-            throw new Error(details || `HTTP ${response.status}`);
-          }
+          const { payload } = await postCollectRequest({ ean });
 
           let resolvedEan = (payload?.ean || ean || '').replace(/\D+/g, '').trim();
           if (!resolvedEan) {
@@ -1641,22 +1900,7 @@
         }
 
         try {
-          const response = await fetch(REFRESH_ENDPOINT, {
-            method: 'POST',
-            body: formData
-          });
-
-          let payload = null;
-          try {
-            payload = await response.json();
-          } catch (err) {
-            payload = null;
-          }
-
-          if (!response.ok) {
-            const details = payload?.message || payload?.error || '';
-            throw new Error(details || `HTTP ${response.status}`);
-          }
+          const { payload } = await postCollectRequest(formData);
 
           const resolvedEan = (payload?.ean || '').replace(/\D+/g, '').trim();
           if (!resolvedEan) {
@@ -1773,7 +2017,8 @@
       intermarche: { lat: 44.8066547, lon: -0.5750164, label: 'Intermarché · Talence Toulouse' },
       auchan: { lat: 44.806195, lon: -0.5910973, label: 'Auchan Supermarché · Talence' },
       chronodrive: { lat: 44.8589595, lon: -0.6768561, label: 'Chronodrive · Bordeaux Magudas' },
-      casino: { lat: 44.814814, lon: -0.550976, label: 'Casino Shop · Bègles Pruniers' }
+      casino: { lat: 44.814814, lon: -0.550976, label: 'Casino Shop · Bègles Pruniers' },
+      spar: { lat: 44.894404, lon: -0.715413, label: 'Spar Super · Saint-Médard-en-Jalles' }
     };
 
     const FALLBACK_NUTRI_IMAGES = {
@@ -1787,19 +2032,28 @@
 
     document.addEventListener('DOMContentLoaded', async () => {
       setServerWarningVisible(false);
-      const [manualDescriptors, summary] = await Promise.all([
-        fetchDescriptorsCatalog(),
-        fetchFirstAvailable(SUMMARY_URLS)
-      ]);
+      let manualDescriptors = {};
+      let summaryData = {};
+      try {
+        const [manual, summary] = await Promise.all([
+          fetchDescriptorsCatalog(),
+          fetchFirstAvailable(SUMMARY_URLS)
+        ]);
+        manualDescriptors = manual || {};
+        summaryData = summary || {};
+      } catch (err) {
+        console.error('Chargement des données échoué, fallback local', err);
+        manualDescriptors = {};
+        summaryData = {};
+      }
 
-      cachedManualDescriptors = manualDescriptors || {};
+      cachedManualDescriptors = manualDescriptors;
       removedDatasets.clear();
       Object.entries(cachedManualDescriptors).forEach(([ean, descriptor]) => {
         if (descriptor && descriptor.removed) {
           removedDatasets.add(ean);
         }
       });
-      const summaryData = summary || {};
       cachedSummary = summaryData;
 
       const summaryEans = Object.keys(summaryData || {});
@@ -1809,8 +2063,12 @@
         }
       }
 
-      const primaryData = await fetchDataset(PRIMARY_DATASET);
-      renderPrimary(primaryData, summaryData, manualDescriptors);
+      try {
+        const primaryData = await fetchDataset(PRIMARY_DATASET);
+        renderPrimary(primaryData, summaryData, manualDescriptors);
+      } catch (err) {
+        console.error('Render primary failed', err);
+      }
 
       for (const config of EXTRA_DATASETS) {
         if (removedDatasets.has(config.ean)) {
@@ -1820,8 +2078,12 @@
           }
           continue;
         }
-        const dataset = await fetchDataset(config);
-        renderComparisonSection(config, dataset, summaryData, manualDescriptors);
+        try {
+          const dataset = await fetchDataset(config);
+          renderComparisonSection(config, dataset, summaryData, manualDescriptors);
+        } catch (err) {
+          console.error('Render comparison failed', config.ean, err);
+        }
       }
 
       updatePortfolioDeltaView(summaryData);
@@ -1898,6 +2160,19 @@
         return await res.json();
       } catch (err) {
         console.warn('fetchJson failed', url, err);
+        if (window.location.protocol === 'file:') {
+          try {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', url, false);
+            xhr.overrideMimeType('application/json');
+            xhr.send(null);
+            if (xhr.status === 0 || (xhr.status >= 200 && xhr.status < 300)) {
+              return JSON.parse(xhr.responseText);
+            }
+          } catch (e) {
+            console.warn('xhr fallback failed', url, e);
+          }
+        }
         return null;
       }
     }
@@ -2201,7 +2476,8 @@
       datasetData = null,
       cardOptions = {}
     }) {
-      if (!target || !descriptor) return { card: null };
+      try {
+        if (!target || !descriptor) return { card: null };
       target.innerHTML = '';
       target.hidden = false;
       target.classList.add('product-block');
@@ -2216,11 +2492,43 @@
       if (!cardOptionsWithContext.ean && descriptor.ean) {
         cardOptionsWithContext.ean = descriptor.ean;
       }
+      const cardEan = cardOptionsWithContext.ean || descriptor.ean || null;
+      const visibilityKey = cardEan ? `product-details-visibility:${cardEan}` : null;
+      const loadVisibility = () => {
+        if (!visibilityKey) return null;
+        try {
+          const stored = localStorage.getItem(visibilityKey);
+          if (stored === 'hidden') return true;
+          if (stored === 'visible') return false;
+        } catch (e) { /* ignore storage errors */ }
+        return null;
+      };
+      const saveVisibility = (hidden) => {
+        if (!visibilityKey) return;
+        try {
+          localStorage.setItem(visibilityKey, hidden ? 'hidden' : 'visible');
+        } catch (e) { /* ignore storage errors */ }
+      };
+
+      const bannerWrapper = document.createElement('div');
+      const detailsWrapper = document.createElement('div');
+      detailsWrapper.className = 'product-details-wrapper';
+
+      const toggleButton = document.createElement('button');
+      toggleButton.type = 'button';
+      toggleButton.className = 'details-toggle';
+      toggleButton.textContent = 'Voir détails magasins';
+
+      const toggleRow = document.createElement('div');
+      toggleRow.className = 'card-toggle-row';
+      toggleRow.appendChild(toggleButton);
+
       const card = createProductCard(descriptor, cardOptionsWithContext);
       if (card) {
         target.appendChild(card.element);
       }
 
+      // Bandeau comparatif
       if (best || worst) {
         const banner = document.createElement('div');
         banner.className = 'best-price-banner';
@@ -2255,7 +2563,7 @@
         }
 
         banner.innerHTML = segments.filter(Boolean).join('');
-        target.appendChild(banner);
+        bannerWrapper.appendChild(banner);
       }
 
       if (rows.length) {
@@ -2269,7 +2577,7 @@
               <th>Statut</th>
               <th>Prix pack</th>
               <th>Prix / unité</th>
-              <th>Collecte précédente</th>
+              <th>Promo / Avant</th>
               <th>Magasin / Note</th>
               <th>Maj</th>
               <th>Collecte</th>
@@ -2287,15 +2595,47 @@
             datasetConfig: cardOptionsWithContext.datasetConfig || null,
           }
         );
-        target.appendChild(table);
+        detailsWrapper.appendChild(table);
       } else {
         const empty = document.createElement('div');
         empty.className = 'empty-state';
         empty.textContent = 'Aucune donnée collectée pour le moment.';
-        target.appendChild(empty);
+        detailsWrapper.appendChild(empty);
       }
+      if (bannerWrapper.childNodes.length) {
+        target.appendChild(bannerWrapper);
+      }
+      const productBody = card?.element?.querySelector('.product-body');
+      if (productBody) {
+        productBody.appendChild(toggleRow);
+      } else {
+        target.appendChild(toggleRow);
+      }
+      target.appendChild(detailsWrapper);
+
+      const setVisibility = (hidden) => {
+        detailsWrapper.hidden = hidden;
+        saveVisibility(hidden);
+        toggleButton.textContent = hidden ? 'Voir détails magasins' : 'Masquer détails magasins';
+      };
+      const storedHidden = loadVisibility();
+      setVisibility(storedHidden === null ? false : storedHidden);
+      if (card && card.element) {
+        card.element.classList.add('product-card--clickable');
+        card.element.addEventListener('click', (event) => {
+          if (event.target.closest('button, a, input, select, textarea')) return;
+          setVisibility(!detailsWrapper.hidden);
+        });
+      }
+      toggleButton.addEventListener('click', () => {
+        setVisibility(!detailsWrapper.hidden);
+      });
 
       return { card };
+      } catch (err) {
+        console.error('renderProductBlock error', err);
+        return { card: null };
+      }
     }
 
     function renderPrimary(dataset, summary, manualDescriptors) {
@@ -2371,6 +2711,7 @@
         cardOptions: { compact: true, previewUrl, ean: config.ean, datasetConfig: config }
       });
       updateCheapestDatasetEntry(config.ean, best);
+      updateMostExpensiveDatasetEntry(config.ean, worst);
     }
 
     function updateCheapestDatasetEntry(ean, entry) {
@@ -2382,6 +2723,17 @@
         cheapestDatasets.delete(ean);
       }
       refreshCheapestSummary();
+    }
+
+    function updateMostExpensiveDatasetEntry(ean, entry) {
+      if (!ean) return;
+      if (entry && entry.store) {
+        const enriched = decorateBestPriceEntry(entry);
+        priciestDatasets.set(ean, enriched);
+      } else {
+        priciestDatasets.delete(ean);
+      }
+      refreshWorstSummary();
     }
 
     function decorateBestPriceEntry(entry) {
@@ -2412,22 +2764,9 @@
       };
     }
 
-    function refreshCheapestSummary() {
-      const container = document.getElementById('stores-summary');
-      if (!container) return;
-      const list = container.querySelector('[data-role="stores-summary-list"]');
-      if (!list) return;
-      const subtitle = container.querySelector('[data-role="stores-summary-subtitle"]');
-
-      if (!cheapestDatasets.size) {
-        list.innerHTML = '';
-        if (subtitle) subtitle.textContent = '';
-        container.hidden = true;
-        return;
-      }
-
+    function buildStoreAggregateRows(sourceMap) {
       const aggregates = new Map();
-      cheapestDatasets.forEach((entry) => {
+      sourceMap.forEach((entry) => {
         const key = entry.adapterKey || entry.label || entry.store || entry.value;
         const label = entry.label || entry.store || 'Enseigne inconnue';
         const current = aggregates.get(key) || {
@@ -2468,8 +2807,24 @@
         }
         aggregates.set(key, current);
       });
+      return Array.from(aggregates.values());
+    }
 
-      const rows = Array.from(aggregates.values()).sort((a, b) => {
+    function refreshCheapestSummary() {
+      const container = document.getElementById('stores-summary');
+      if (!container) return;
+      const list = container.querySelector('[data-role="stores-summary-list"]');
+      if (!list) return;
+      const subtitle = container.querySelector('[data-role="stores-summary-subtitle"]');
+
+      if (!cheapestDatasets.size) {
+        list.innerHTML = '';
+        if (subtitle) subtitle.textContent = '';
+        container.hidden = true;
+        return;
+      }
+
+      const rows = buildStoreAggregateRows(cheapestDatasets).sort((a, b) => {
         if (b.count !== a.count) return b.count - a.count;
         const avgA = a.count && Number.isFinite(a.total) ? a.total / a.count : Number.POSITIVE_INFINITY;
         const avgB = b.count && Number.isFinite(b.total) ? b.total / b.count : Number.POSITIVE_INFINITY;
@@ -2512,6 +2867,68 @@
 
       if (subtitle) {
         subtitle.textContent = `${cheapestDatasets.size} produit${cheapestDatasets.size > 1 ? 's' : ''} comparé${cheapestDatasets.size > 1 ? 's' : ''} · ${rows.length} enseigne${rows.length > 1 ? 's' : ''} gagnante${rows.length > 1 ? 's' : ''}`;
+      }
+
+      container.hidden = rows.length === 0;
+    }
+
+    function refreshWorstSummary() {
+      const container = document.getElementById('stores-summary-worst');
+      if (!container) return;
+      const list = container.querySelector('[data-role="stores-summary-list"]');
+      if (!list) return;
+      const subtitle = container.querySelector('[data-role="stores-summary-subtitle"]');
+
+      if (!priciestDatasets.size) {
+        list.innerHTML = '';
+        if (subtitle) subtitle.textContent = '';
+        container.hidden = true;
+        return;
+      }
+
+      const rows = buildStoreAggregateRows(priciestDatasets).sort((a, b) => {
+        if (b.count !== a.count) return b.count - a.count;
+        const avgA = a.count && Number.isFinite(a.total) ? a.total / a.count : Number.NEGATIVE_INFINITY;
+        const avgB = b.count && Number.isFinite(b.total) ? b.total / b.count : Number.NEGATIVE_INFINITY;
+        return avgB - avgA;
+      });
+
+      list.innerHTML = '';
+      rows.slice(0, 5).forEach((stat, index) => {
+        const avg = stat.count && Number.isFinite(stat.total) ? stat.total / stat.count : null;
+        const logoHtml = stat.logo
+          ? `<span class="stores-summary__logo"><img src="${escapeHtml(stat.logo)}" alt="${escapeHtml(stat.label)}" /></span>`
+          : `<span class="stores-summary__logo stores-summary__logo--placeholder">${escapeHtml((stat.label || '?').charAt(0) || '•')}</span>`;
+        const metaParts = [
+          `${stat.count} produit${stat.count > 1 ? 's' : ''} perdant${stat.count > 1 ? 's' : ''}`
+        ];
+        if (Number.isFinite(avg)) {
+          metaParts.push(`prix moyen ${formatCurrency(avg)}`);
+        } else if (stat.examplePrice) {
+          metaParts.push(stat.examplePrice);
+        }
+        if (stat.locationExample) {
+          metaParts.push(stat.locationExample);
+        }
+        const item = document.createElement('li');
+        item.className = 'stores-summary__item';
+        item.innerHTML = `
+          <span class="stores-summary__rank stores-summary__rank--worst">FLOP ${index + 1}</span>
+          ${logoHtml}
+          <div class="stores-summary__details">
+            <span class="stores-summary__name">${escapeHtml(stat.label)}</span>
+            <span class="stores-summary__meta">${metaParts.join(' · ')}</span>
+          </div>
+          <div class="stores-summary__prices">
+            ${stat.worst ? `<span class="stores-summary__price">Plus cher ${escapeHtml(stat.worst.priceLabel)}${stat.worst.context ? ` · ${escapeHtml(stat.worst.context)}` : ''}</span>` : ''}
+            ${stat.best && stat.worst && stat.best.value < stat.worst.value ? `<span class="stores-summary__price stores-summary__price--muted">Moins cher ${escapeHtml(stat.best.priceLabel)}${stat.best.context ? ` · ${escapeHtml(stat.best.context)}` : ''}</span>` : ''}
+          </div>
+        `;
+        list.appendChild(item);
+      });
+
+      if (subtitle) {
+        subtitle.textContent = `${priciestDatasets.size} produit${priciestDatasets.size > 1 ? 's' : ''} comparé${priciestDatasets.size > 1 ? 's' : ''} · ${rows.length} enseigne${rows.length > 1 ? 's' : ''} pénalisée${rows.length > 1 ? 's' : ''}`;
       }
 
       container.hidden = rows.length === 0;
@@ -2767,21 +3184,7 @@
       button.textContent = 'Collecte en cours…';
 
       try {
-        const response = await fetch(REFRESH_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ean }),
-        });
-        if (!response.ok) {
-          let details = '';
-          try {
-            const body = await response.json();
-            details = body?.message || body?.error || '';
-          } catch (err) {
-            // ignore parsing errors
-          }
-          throw new Error(details || `HTTP ${response.status}`);
-        }
+        await postCollectRequest({ ean });
         await reloadSummary();
         await reloadDataset(ean, datasetConfig || null);
         setServerWarningVisible(false);
@@ -2801,6 +3204,54 @@
       }
     }
 
+    function buildCollectEndpoints() {
+      const endpoints = new Set();
+      const origin = window.location.origin || '';
+      const protoOk = origin.startsWith('http://') || origin.startsWith('https://');
+      if (window.MAXICOURSES_REFRESH_ENDPOINT) {
+        endpoints.add(window.MAXICOURSES_REFRESH_ENDPOINT);
+      }
+      endpoints.add('http://127.0.0.1:5001/api/collect');
+      endpoints.add(REFRESH_ENDPOINT);
+      if (protoOk) {
+        endpoints.add(`${origin}/api/collect`);
+      }
+      return Array.from(endpoints).filter(Boolean);
+    }
+
+    async function postCollectRequest(body) {
+      const isFormData = typeof FormData !== 'undefined' && body instanceof FormData;
+      const requestBody = isFormData ? body : JSON.stringify(body || {});
+      const headers = isFormData ? undefined : { 'Content-Type': 'application/json' };
+      let lastError = '';
+
+      for (const endpoint of buildCollectEndpoints()) {
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers,
+            body: requestBody,
+            mode: 'cors',
+          });
+          let payload = null;
+          try {
+            payload = await response.clone().json();
+          } catch (err) {
+            payload = null;
+          }
+          if (response.ok) {
+            return { payload, endpoint };
+          }
+          lastError = payload?.message || payload?.error || `HTTP ${response.status}`;
+        } catch (err) {
+          lastError = err?.message || String(err);
+          continue;
+        }
+      }
+
+      throw new Error(lastError || 'Collecte impossible');
+    }
+
     async function handleAdapterCollect({ ean, adapter, datasetConfig, button }) {
       const normalizedAdapter = normalizeAdapterName(adapter);
       if (!ean || !normalizedAdapter || !button) {
@@ -2813,24 +3264,41 @@
       button.textContent = 'Collecte…';
 
       try {
-        const response = await fetch(REFRESH_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ean, adapters: [normalizedAdapter] }),
-        });
-        if (!response.ok) {
-          let details = '';
+        let success = false;
+        let lastError = '';
+        for (const endpoint of buildCollectEndpoints()) {
           try {
-            const body = await response.json();
-            details = body?.message || body?.error || '';
+            const response = await fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ ean, adapters: [normalizedAdapter] }),
+              mode: 'cors',
+            });
+            if (response.ok) {
+              success = true;
+              break;
+            }
+            try {
+              const body = await response.json();
+              lastError = body?.message || body?.error || `HTTP ${response.status}`;
+            } catch (err) {
+              lastError = `HTTP ${response.status}`;
+            }
           } catch (err) {
-            // ignore JSON errors
+            lastError = err?.message || String(err);
+            continue;
           }
-          throw new Error(details || `HTTP ${response.status}`);
+        }
+        if (!success) {
+          throw new Error(lastError || 'Collecte impossible');
         }
 
-        await reloadSummary();
-        await reloadDataset(ean, datasetConfig || null);
+        try {
+          await reloadSummary();
+          await reloadDataset(ean, datasetConfig || null);
+        } catch (err) {
+          console.warn('Recharge des données échouée après collecte', err);
+        }
         setServerWarningVisible(false);
         button.classList.add('table-collect-button--success');
         button.textContent = 'OK';
@@ -2878,14 +3346,23 @@
 
       const manualDescriptor = manualDescriptors?.[ean] || null;
       const manualQuantity = manualDescriptor?.quantity || '';
+      const referenceQuantity = data?.reference?.quantity || data?.reference?.reference_quantity || '';
+      const parsedReferenceQuantity = parseQuantityDetails(referenceQuantity);
+      const parsedManualQuantity = parseQuantityDetails(manualQuantity);
+      const baseQuantityDetails = parsedReferenceQuantity || parsedManualQuantity || null;
 
       return Array.from(map.values())
-        .map((row) => finalizeRow(row, manualQuantity, manualDescriptor, ean))
+        .map((row) => finalizeRow(row, manualQuantity, manualDescriptor, ean, baseQuantityDetails))
         .sort((a, b) => {
-          if (a.priceValue === b.priceValue) {
+          if (a.isMismatch !== b.isMismatch) {
+            return a.isMismatch ? 1 : -1;
+          }
+          const aValue = Number.isFinite(a.sortValue) ? a.sortValue : Number.POSITIVE_INFINITY;
+          const bValue = Number.isFinite(b.sortValue) ? b.sortValue : Number.POSITIVE_INFINITY;
+          if (aValue === bValue) {
             return (a.displayName || '').localeCompare(b.displayName || '');
           }
-          return a.priceValue - b.priceValue;
+          return aValue - bValue;
         });
     }
 
@@ -2926,7 +3403,7 @@
       map.set(base, row);
     }
 
-    function finalizeRow(row, manualQuantity, manualDescriptor, expectedEan) {
+    function finalizeRow(row, manualQuantity, manualDescriptor, expectedEan, baseQuantityDetails) {
       const payload = row.payload ? { ...row.payload } : {};
       const quantityText = payload.quantity || manualQuantity || '';
       const priceValue = parsePriceValue(payload.price);
@@ -2938,13 +3415,35 @@
       const previousUpdatedAt = previousSnapshot?.updated_at || null;
       const expectedEanValue = normalizeEan(expectedEan);
       const matchedEanValue = normalizeEan(payload.matched_ean);
+      const unitPriceValueRaw = parsePriceValue(payload.unit_price || payload.price_unit || payload.price_per_unit);
+      const unitPriceValue = Number.isFinite(unitPriceValueRaw) ? unitPriceValueRaw : null;
+      const promoInfo = computePromoInfo(payload, Number.isFinite(priceValue) ? priceValue : null, unitPriceValue);
+      const sortValue = Number.isFinite(unitPriceValue) ? unitPriceValue : priceValue;
       const productTitle = (payload.title || '').toLowerCase();
       const manualBrand = (manualDescriptor?.brand || '').toLowerCase();
       const descriptorTokens = extractDescriptorTokens(manualDescriptor);
       const tokensWithoutBrand = descriptorTokens.filter((token) => token !== manualBrand);
+      const hasExactEanMatch = Boolean(matchedEanValue && expectedEanValue && matchedEanValue === expectedEanValue);
 
       const differenceNote = extractDifferenceNote(payload);
       const equivalentFlag = payloadIndicatesEquivalent(payload) || Boolean(differenceNote);
+      const rowQuantityDetails = parseQuantityDetails(quantityText);
+      const quantityLowerThanBase = Boolean(
+        baseQuantityDetails
+        && rowQuantityDetails
+        && baseQuantityDetails.unit
+        && baseQuantityDetails.unit === rowQuantityDetails.unit
+        && Number.isFinite(baseQuantityDetails.value)
+        && Number.isFinite(rowQuantityDetails.value)
+        && rowQuantityDetails.value < baseQuantityDetails.value
+      );
+      const quantityUnitMismatch = Boolean(
+        baseQuantityDetails
+        && rowQuantityDetails
+        && baseQuantityDetails.unit
+        && rowQuantityDetails.unit
+        && baseQuantityDetails.unit !== rowQuantityDetails.unit
+      );
 
       let isMismatch = Boolean(equivalentFlag);
       if (!isMismatch && expectedEanValue) {
@@ -2959,6 +3458,9 @@
             isMismatch = true;
           }
         }
+      }
+      if (!hasExactEanMatch && (quantityLowerThanBase || quantityUnitMismatch)) {
+        isMismatch = true;
       }
 
       return {
@@ -2975,12 +3477,16 @@
         previousPriceRaw,
         previousPriceValue,
         previousUpdatedAt,
+        unitPriceValue,
+        sortValue,
+        promo: promoInfo,
         displayName: DISPLAY_NAMES[row.adapterName] || row.adapterName,
         rawAdapters: Array.from(row.rawAdapters || []),
         quantityText,
         differenceNote,
         equivalent: equivalentFlag,
         isMismatch,
+        quantityLowerThanBase,
       };
     }
 
@@ -3012,6 +3518,60 @@
     let mapModalHandlers = null;
 
     const ensureLeaflet = () => typeof L !== 'undefined';
+
+    let promoModal = null;
+    function ensurePromoInfoModal() {
+      if (promoModal) return promoModal;
+      promoModal = document.createElement('div');
+      promoModal.className = 'promo-modal';
+      promoModal.innerHTML = `
+        <div class="promo-modal__card">
+          <div class="promo-modal__header">
+            <h3 class="promo-modal__title">Détail promo</h3>
+            <button type="button" class="promo-modal__close" aria-label="Fermer">×</button>
+          </div>
+          <ul class="promo-modal__list"></ul>
+        </div>
+      `;
+      document.body.appendChild(promoModal);
+      const close = () => {
+        promoModal.classList.remove('open');
+        document.body.classList.remove('modal-open');
+      };
+      promoModal.addEventListener('click', (e) => {
+        if (e.target === promoModal) close();
+      });
+      promoModal.querySelector('.promo-modal__close').addEventListener('click', close);
+      return promoModal;
+    }
+
+    function openPromoInfoModal(info) {
+      const modal = ensurePromoInfoModal();
+      const list = modal.querySelector('.promo-modal__list');
+      const rows = [];
+      if (info.label) rows.push({ label: 'Offre', value: info.label });
+      if (info.detail && info.detail !== info.label) rows.push({ label: 'Remise', value: info.detail });
+      if (info.loyalty) rows.push({ label: 'Condition', value: 'Carte / cagnotte fidélité' });
+
+      const beforeParts = [];
+      if (Number.isFinite(info.basePrice)) beforeParts.push(formatCurrency(info.basePrice));
+      if (info.unitPriceText) beforeParts.push(`(${info.unitPriceText})`);
+      if (beforeParts.length) rows.push({ label: 'Avant remise', value: beforeParts.join(' ') });
+
+      if (Number.isFinite(info.effectivePrice) || (Number.isFinite(info.effectiveMeasurePrice) && info.unitSuffix)) {
+        const afterParts = [];
+        if (Number.isFinite(info.effectivePrice)) afterParts.push(`${formatCurrency(info.effectivePrice)} / u`);
+        if (Number.isFinite(info.effectiveMeasurePrice) && info.unitSuffix) afterParts.push(`≈ ${formatCurrency(info.effectiveMeasurePrice)} / ${info.unitSuffix}`);
+        rows.push({ label: 'Après remise', value: afterParts.join(' · ') });
+      }
+
+      if (Number.isFinite(info.discountedItemPrice)) rows.push({ label: 'Article remisé', value: formatCurrency(info.discountedItemPrice) });
+      if (info.scenarioText) rows.push({ label: 'Exemple panier', value: info.scenarioText });
+      if (info.rawText) rows.push({ label: 'Source', value: `${info.rawText.slice(0, 200)}${info.rawText.length > 200 ? '…' : ''}` });
+      list.innerHTML = rows.map((row) => `<li><span class="promo-modal__label">${escapeHtml(row.label)}</span><span class="promo-modal__value">${escapeHtml(row.value)}</span></li>`).join('');
+      modal.classList.add('open');
+      document.body.classList.add('modal-open');
+    }
 
     function ensureMap(canvasId, interactive) {
       if (!ensureLeaflet()) return null;
@@ -3164,8 +3724,8 @@
         const updatedLabel = row.updatedAt ? formatDateTime(row.updatedAt) : '—';
         const { label: statusLabel, className: statusClass } = formatStatus(row.status);
         const logoSrc = logoFor(row.adapterName, row.rawAdapters);
-        const isBest = Number.isFinite(bestValue) && Number.isFinite(row.priceValue) && Math.abs(row.priceValue - bestValue) < 0.001;
-        const isWorst = Number.isFinite(worstValue) && Number.isFinite(row.priceValue) && Math.abs(row.priceValue - worstValue) < 0.001 && (!Number.isFinite(bestValue) || Math.abs(worstValue - bestValue) > 0.001);
+        const isBest = Number.isFinite(bestValue) && Number.isFinite(row.sortValue) && Math.abs(row.sortValue - bestValue) < 0.001;
+        const isWorst = Number.isFinite(worstValue) && Number.isFinite(row.sortValue) && Math.abs(row.sortValue - worstValue) < 0.001 && (!Number.isFinite(bestValue) || Math.abs(worstValue - bestValue) > 0.001);
 
         const tr = document.createElement('tr');
         if (isBest) tr.classList.add('best-offer');
@@ -3218,21 +3778,54 @@
         const unitCell = document.createElement('td');
         unitCell.textContent = unitPrice || '—';
 
-        const previousCell = document.createElement('td');
-        previousCell.className = 'meta-cell';
+        const promoCell = document.createElement('td');
+        promoCell.className = 'meta-cell';
         const previousPriceText = formatPrice(row.previousPriceRaw);
-        const previousDateLabel = row.previousUpdatedAt ? formatDateTime(row.previousUpdatedAt) : '';
-        if (previousPriceText || previousDateLabel) {
-          const parts = [];
+        const promoInfo = row.promo || computePromoInfo(
+          payload,
+          Number.isFinite(row.priceValue) ? row.priceValue : null,
+          row.unitPriceValue
+        );
+        const promoLabel = promoInfo?.label || payload.promo_label || payload.promotion || payload.promo;
+        const promoDetail = promoInfo?.detail || null;
+        const promoUnitSuffix = extractUnitSuffix(unitPrice);
+        const hasHistory = Number.isFinite(row.priceValue) && Number.isFinite(row.previousPriceValue) && row.previousPriceValue > 0;
+        const hasDrop = hasHistory && row.previousPriceValue > row.priceValue;
+        const promoParts = [];
+        const badgeLabel = promoLabel || promoDetail;
+        if (badgeLabel) {
+          promoParts.push(`<span class="price-badge price-badge--promo">${escapeHtml(badgeLabel)}</span>`);
+        }
+        if (promoInfo?.loyalty) {
+          promoParts.push('<span class="price-badge price-badge--promo">Carte fidélité</span>');
+        }
+        if (hasDrop) {
+          const dropValue = row.previousPriceValue - row.priceValue;
+          const percent = (dropValue / row.previousPriceValue) * 100;
+          promoParts.push(`<span class="price-badge price-badge--promo">-${escapeHtml(formatPercent(percent))}</span>`);
           if (previousPriceText) {
-            parts.push(`<span>${escapeHtml(previousPriceText)}</span>`);
+            promoParts.push(`<span class="meta-sub">Avant ${escapeHtml(previousPriceText)}</span>`);
           }
-          if (previousDateLabel) {
-            parts.push(`<span class="meta-sub">${escapeHtml(previousDateLabel)}</span>`);
-          }
-          previousCell.innerHTML = parts.join('');
-        } else {
-          previousCell.textContent = '—';
+        } else if (previousPriceText) {
+          promoParts.push(`<span class="meta-sub">Dernier prix ${escapeHtml(previousPriceText)}</span>`);
+        }
+        promoCell.innerHTML = promoParts.join(' ') || '—';
+        const needsInfo = promoInfo && (promoInfo.label || promoInfo.detail || promoInfo.loyalty || promoInfo.rawText || Number.isFinite(promoInfo.effectivePrice));
+        if (needsInfo) {
+          const infoBtn = document.createElement('button');
+          infoBtn.type = 'button';
+          infoBtn.className = 'promo-info-btn';
+          infoBtn.title = 'Détail promo';
+          infoBtn.textContent = 'i';
+          infoBtn.addEventListener('click', () => {
+            openPromoInfoModal({
+              ...promoInfo,
+              basePrice: Number.isFinite(row.priceValue) ? row.priceValue : null,
+              unitPriceText: unitPrice || null,
+              unitSuffix: promoUnitSuffix || '',
+            });
+          });
+          promoCell.appendChild(infoBtn);
         }
 
         const storeCell = document.createElement('td');
@@ -3243,6 +3836,7 @@
         updatedCell.textContent = updatedLabel;
 
         const actionsCell = document.createElement('td');
+        actionsCell.className = 'actions-cell';
         const effectiveEan = tableEan || row.ean || null;
         if (effectiveEan && row.adapterName) {
           const collectButton = document.createElement('button');
@@ -3261,13 +3855,11 @@
         }
         if (payload.url) {
           const link = document.createElement('a');
-          link.className = 'link';
+          link.className = 'table-view-button';
           link.href = payload.url;
           link.target = '_blank';
           link.rel = 'noopener';
           link.textContent = 'Voir fiche';
-          link.style.display = 'block';
-          link.style.marginTop = '6px';
           actionsCell.appendChild(link);
         }
         if (!actionsCell.childNodes.length) {
@@ -3279,7 +3871,7 @@
         tr.appendChild(statusCell);
         tr.appendChild(priceCell);
         tr.appendChild(unitCell);
-        tr.appendChild(previousCell);
+        tr.appendChild(promoCell);
         tr.appendChild(storeCell);
         tr.appendChild(updatedCell);
         tr.appendChild(actionsCell);
@@ -3425,18 +4017,21 @@
     }
 
     function pickBestPrice(rows) {
-      const priced = rows.filter((row) => Number.isFinite(row.priceValue));
+      let priced = rows.filter((row) => Number.isFinite(row.sortValue) && !row.isMismatch);
+      if (!priced.length) {
+        priced = rows.filter((row) => Number.isFinite(row.sortValue));
+      }
       if (!priced.length) return null;
       let best = priced[0];
       for (const row of priced.slice(1)) {
-        if (row.priceValue < best.priceValue) {
+        if (row.sortValue < best.sortValue) {
           best = row;
         }
       }
       const payload = best.payload || {};
       return {
-        value: best.priceValue,
-        priceLabel: formatPrice(payload.price) || `${best.priceValue.toFixed(2)} €`,
+        value: best.sortValue,
+        priceLabel: formatPrice(payload.unit_price || payload.price_per_unit || payload.price) || `${best.sortValue.toFixed(2)} €`,
         store: payload.store || best.displayName || DISPLAY_NAMES[best.adapterName] || best.adapterName,
         adapterName: best.adapterName,
         displayName: best.displayName || DISPLAY_NAMES[best.adapterName] || best.adapterName
@@ -3444,18 +4039,18 @@
     }
 
     function pickWorstPrice(rows) {
-      const priced = rows.filter((row) => Number.isFinite(row.priceValue));
+      const priced = rows.filter((row) => Number.isFinite(row.sortValue));
       if (!priced.length) return null;
       let worst = priced[0];
       for (const row of priced.slice(1)) {
-        if (row.priceValue > worst.priceValue) {
+        if (row.sortValue > worst.sortValue) {
           worst = row;
         }
       }
       const payload = worst.payload || {};
       return {
-        value: worst.priceValue,
-        priceLabel: formatPrice(payload.price) || `${worst.priceValue.toFixed(2)} €`,
+        value: worst.sortValue,
+        priceLabel: formatPrice(payload.unit_price || payload.price_per_unit || payload.price) || `${worst.sortValue.toFixed(2)} €`,
         store: payload.store || worst.displayName || DISPLAY_NAMES[worst.adapterName] || worst.adapterName,
         adapterName: worst.adapterName,
         displayName: worst.displayName || DISPLAY_NAMES[worst.adapterName] || worst.adapterName
@@ -3498,6 +4093,179 @@
       const normalized = String(value).replace(/[^0-9,\.]/g, '').replace(',', '.');
       const num = parseFloat(normalized);
       return Number.isFinite(num) ? num : Number.POSITIVE_INFINITY;
+    }
+
+    function parseQuantityDetails(value) {
+      if (!value) return null;
+      const str = String(value).toLowerCase();
+      const match = str.match(/([0-9]+(?:[.,][0-9]+)?)/);
+      if (!match) return null;
+      let num = parseFloat(match[1].replace(',', '.'));
+      let unit = '';
+
+      if (str.includes('kg')) {
+        num *= 1000;
+        unit = 'g';
+      } else if (str.includes('g')) {
+        unit = 'g';
+      } else if (str.includes('ml')) {
+        unit = 'ml';
+      } else if (str.includes('cl')) {
+        num *= 10;
+        unit = 'ml';
+      } else if (str.includes('l')) {
+        num *= 1000;
+        unit = 'ml';
+      } else if (str.includes('caps')) {
+        unit = 'caps';
+      } else if (str.includes('pc') || str.includes('piece') || str.includes('pièce')) {
+        unit = 'pcs';
+      } else {
+        unit = 'unit';
+      }
+
+      return {
+        value: Number.isFinite(num) ? num : null,
+        unit,
+      };
+    }
+
+    function extractUnitSuffix(unitPriceText) {
+      if (!unitPriceText) return '';
+      const match = String(unitPriceText).match(/\/\s*([A-Za-zµ][A-Za-z0-9]*)/);
+      return match ? match[1].trim() : '';
+    }
+
+    function collectPromoText(payload) {
+      if (!payload || typeof payload !== 'object') return '';
+      const parts = [];
+      const storeHint = `${payload.store || ''} ${payload.url || ''}`.toLowerCase();
+      ['promo_label', 'promotion', 'promo', 'promo_text', 'raw_text'].forEach((key) => {
+        const value = payload[key];
+        if (typeof value === 'string' && value.trim()) {
+          if (key === 'raw_text' && /monoprix/.test(storeHint)) {
+            return; // Monoprix raw HTML contains site-wide marketing; ignore it.
+          }
+          parts.push(value);
+        }
+      });
+      const extras = payload.extras;
+      if (extras && typeof extras === 'object') {
+        ['promo_label', 'promotion', 'promo', 'promo_text'].forEach((key) => {
+          const value = extras[key];
+          if (typeof value === 'string' && value.trim()) {
+            parts.push(value);
+          }
+        });
+      }
+      return parts.join(' ').toLowerCase();
+    }
+
+    function detectPromoPattern(text) {
+      const normalized = (text || '').toLowerCase();
+      if (!normalized.trim()) return null;
+      const compact = normalized.replace(/\s+/g, ' ');
+
+      let match = compact.match(/(\d+)\s*\+\s*(\d+)/);
+      if (match) {
+        const buy = parseInt(match[1], 10);
+        const free = parseInt(match[2], 10);
+        if (Number.isFinite(buy) && Number.isFinite(free) && buy > 0 && free > 0) {
+          return { type: 'x_plus_y', buy, free, label: `${buy}+${free}` };
+        }
+      }
+
+      match = compact.match(/(\d+)\s*achet[^0-9%]{0,12}(\d+)\s*(?:offerts?|gratuits?)/);
+      if (match) {
+        const buy = parseInt(match[1], 10);
+        const free = parseInt(match[2], 10);
+        if (Number.isFinite(buy) && Number.isFinite(free) && buy > 0 && free > 0) {
+          return { type: 'x_plus_y', buy, free, label: `${buy} achetés = ${free} offerts` };
+        }
+      }
+
+      match = compact.match(/(\d+)\s*(?:e|eme|ème)\s*(?:[^0-9%]{0,15})?(?:-|\u2212)?\s*(?:moins\s+)?(\d{1,3})\s*%/);
+      if (match) {
+        const nth = parseInt(match[1], 10);
+        const discount = parseInt(match[2], 10);
+        if (Number.isFinite(nth) && nth > 1 && Number.isFinite(discount) && discount >= 0) {
+          return { type: 'nth_discount', nth, discount, label: `${nth}e à -${discount}%` };
+        }
+      }
+
+      match = compact.match(/-\s*(\d{1,3})\s*%\s*sur\s*le\s*(\d+)\s*(?:e|eme|ème)/);
+      if (match) {
+        const discount = parseInt(match[1], 10);
+        const nth = parseInt(match[2], 10);
+        if (Number.isFinite(nth) && nth > 1 && Number.isFinite(discount) && discount >= 0) {
+          return { type: 'nth_discount', nth, discount, label: `${nth}e à -${discount}%` };
+        }
+      }
+
+      return null;
+    }
+
+    function computePromoInfo(payload, basePriceValue, baseUnitPriceValue) {
+      const promoText = collectPromoText(payload);
+      let detected = detectPromoPattern(promoText);
+      const storeHint = `${payload?.store || ''} ${payload?.url || ''}`.toLowerCase();
+      const isLikelyLeclerc = /leclerc/.test(storeHint);
+      const baseLabel = payload?.promo_label || payload?.promotion || payload?.promo || (payload?.extras && payload.extras.promo_label);
+      let label = baseLabel || detected?.label || null;
+      const result = {
+        label,
+        detail: detected?.label || null,
+        effectivePrice: null,
+        effectiveMeasurePrice: null,
+        discountedItemPrice: null,
+        scenarioText: null,
+        rawText: promoText,
+        loyalty: /fid[eé]l|carte|cagnotte|m\+\b|avantage|club/.test(promoText),
+      };
+
+      // Fallback: simple “-XX%” (Leclerc often means 2nd at -XX%)
+      if (!detected && isLikelyLeclerc) {
+        const m = promoText.match(/-\s*(\d{1,3})\s*%/);
+        if (m) {
+          const discount = Math.min(100, Math.max(0, parseInt(m[1], 10)));
+          detected = { type: 'nth_discount', nth: 2, discount, label: `-${discount}% sur le 2e` };
+          if (!label) label = detected.label;
+          if (!result.detail) result.detail = detected.label;
+        }
+      }
+      result.label = label;
+
+      if (!detected || !Number.isFinite(basePriceValue)) {
+        return result;
+      }
+
+      let effectivePrice = null;
+      if (detected.type === 'nth_discount') {
+        const nth = Math.max(2, detected.nth || 2);
+        const discount = Math.min(100, Math.max(0, detected.discount || 0));
+        const discountedItemPrice = basePriceValue * (1 - discount / 100);
+        const totalPaid = (nth - 1) * basePriceValue + discountedItemPrice;
+        effectivePrice = totalPaid / nth;
+        result.detail = `${nth}e à -${discount}% → ${formatCurrency(effectivePrice)} (2e: ${formatCurrency(discountedItemPrice)})`;
+        result.discountedItemPrice = discountedItemPrice;
+        result.scenarioText = `${nth} articles : ${formatCurrency(totalPaid)} soit ${formatCurrency(effectivePrice)} / u (2e à ${formatCurrency(discountedItemPrice)})`;
+      } else if (detected.type === 'x_plus_y') {
+        const buy = Math.max(1, detected.buy || 0);
+        const free = Math.max(0, detected.free || 0);
+        const totalItems = buy + free;
+        if (totalItems > 0) {
+          effectivePrice = (buy * basePriceValue) / totalItems;
+        }
+      }
+
+      if (Number.isFinite(effectivePrice)) {
+        result.effectivePrice = effectivePrice;
+        if (Number.isFinite(baseUnitPriceValue) && Number.isFinite(basePriceValue) && basePriceValue > 0) {
+          const ratio = effectivePrice / basePriceValue;
+          result.effectiveMeasurePrice = baseUnitPriceValue * ratio;
+        }
+      }
+      return result;
     }
 
     function formatPrice(value) {

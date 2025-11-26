@@ -270,7 +270,7 @@ async def handle_404(page) -> bool:
                     "button", has_text="Revenir à l'accueil"
                 ).first.click()
             await page.wait_for_load_state("domcontentloaded")
-            await page.wait_for_timeout(5000)
+            await page.wait_for_timeout(1200)
             return True
     except Exception:
         pass
@@ -702,7 +702,7 @@ async def perform_site_search(page, term: str) -> bool:
                 await field.fill(term)
                 await field.press("Enter")
                 await page.wait_for_load_state("domcontentloaded")
-                await page.wait_for_timeout(5000)
+                await page.wait_for_timeout(1200)
                 return True
         except Exception:
             continue
@@ -777,7 +777,7 @@ async def ensure_home(page) -> bool:
             if await btn.count():
                 await btn.click()
                 await page.wait_for_load_state("domcontentloaded")
-                await page.wait_for_timeout(5000)
+                await page.wait_for_timeout(1200)
                 return True
     except Exception:
         pass
@@ -793,7 +793,7 @@ async def perform_search(page, term: str) -> bool:
         try:
             await page.wait_for_selector("a[href*='/produit/']", timeout=10000)
         except Exception:
-            await page.wait_for_timeout(5000)
+            await page.wait_for_timeout(1200)
         return True
     except Exception:
         return False
@@ -891,7 +891,7 @@ async def run() -> Result:
     if not page.url or "intermarche.com" not in page.url:
         try:
             await page.goto("about:blank")
-            await page.wait_for_timeout(5000)
+            await page.wait_for_timeout(1200)
         except Exception:
             pass
         try:
@@ -904,9 +904,9 @@ async def run() -> Result:
         except Exception:
             pass
     try:
-        await page.wait_for_timeout(5000)
+        await page.wait_for_timeout(1200)
         await page.mouse.move(200, 200, steps=15)
-        await page.wait_for_timeout(5000)
+        await page.wait_for_timeout(1200)
     except Exception:
         pass
     if DEBUG_INTERMARCHE:
@@ -1015,7 +1015,7 @@ async def run() -> Result:
             continue
 
         await page.goto(home_url, wait_until="domcontentloaded")
-        await page.wait_for_timeout(5000)
+        await page.wait_for_timeout(1200)
         await accept_cookies(page)
         await ensure_store_selected(page)
         await accept_cookies(page)
@@ -1028,7 +1028,7 @@ async def run() -> Result:
             continue
         await debug_dump(page, f"search-{term}")
         await debug_shot(page, f"search-{term}")
-        await page.wait_for_timeout(5000)
+        await page.wait_for_timeout(1200)
         if await handle_404(page):
             if DEBUG_INTERMARCHE:
                 sys.stderr.write(
@@ -1093,7 +1093,7 @@ async def run() -> Result:
                 candidate_reason = "ean_in_url"
             try:
                 await page.goto(href, wait_until="domcontentloaded")
-                await page.wait_for_timeout(5000)
+                await page.wait_for_timeout(1200)
                 pdp_visits += 1
                 try:
                     await page.wait_for_selector(
@@ -1229,7 +1229,7 @@ async def run() -> Result:
         if page.url != pdp:
             try:
                 await page.goto(pdp, wait_until="domcontentloaded")
-                await page.wait_for_timeout(5000)
+                await page.wait_for_timeout(1200)
                 try:
                     await page.wait_for_selector(
                         "[data-testid='product-price'], .product-price", timeout=6000

@@ -1,0 +1,81 @@
+{
+  "ean": "5411188118961",
+  "image_path": null,
+  "started_at": "2025-11-23T19:02:10.598129+01:00",
+  "finished_at": "2025-11-23T19:02:45.510284+01:00",
+  "duration_seconds": 34.912155,
+  "reference": {
+    "title": "Dessert végétal soja nature à l'amande ALPRO - 500g",
+    "description": "Dessert végétal soja nature à l'amande ALPRO - 500g",
+    "source": "courseu",
+    "brand": "Alpro",
+    "quantity": "500  g",
+    "categories": "Pflanzliche Lebensmittel und Getränke, Fermentierte Lebensmittel, en:Dairy substitutes, Desserts, en:Vegan products, Milchfreie Nachtische, Fermentierte Lebensmittel ohne Milch, Pflanzenbasierte Joghurts, Sojajoghurt, Einfacher Soja-Joghurt",
+    "image": "./assets/5411188118961.jpg",
+    "nutriscore_grade": "c",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "a",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg",
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251123-190210"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,89",
+        "unit_price": "3,78 € / KG",
+        "quantity": "500  g",
+        "title": "Dessert végétal soja nature à l'amande ALPRO - 500g",
+        "url": "https://www.coursesu.com/p/dessert-vegetal-soja-nature-a-lamande-alpro---500g/2 947231.html",
+        "note": "2025-11-23T18:02:44Z · Super U Eysines",
+        "store": "Super  U Eysines",
+        "matched_ean": "5411188118961",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Dessert végétal soja nature à l'amande ALPRO - 500g",
+          "brand": "Dessert",
+          "kind": "",
+          "qty": "500 g",
+          "qualifiers": [],
+          "ean": "5411188118961",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-23T19:02:10.599552+01:00",
+      "finished_at": "2025-11-23T19:02:44.905268+01:00",
+      "duration_seconds": 34.305716,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "5411188118961",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188118961"
+      }
+    }
+  ],
+  "finder": null
+}

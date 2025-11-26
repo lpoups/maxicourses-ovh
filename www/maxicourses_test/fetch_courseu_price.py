@@ -25,6 +25,7 @@ from pipeline.engine import make_context, state_path_for  # noqa: E402
 from collection_mandate import get_method  # noqa: E402
 from pipeline.nutriscore import extract_nutriscore_from_html  # noqa: E402
 from seed_catalog import get_seed  # noqa: E402
+from descriptor_store import get_descriptor  # noqa: E402
 
 
 EAN = os.environ.get("EAN", "").strip()
@@ -38,15 +39,8 @@ MANDATE = get_method("courseu")
 
 STATE_PATH = state_path_for("courseu")
 
-MANUAL_DESCRIPTOR: dict[str, typing.Any] = {}
-try:
-    descriptor_path = Path(__file__).with_name("manual_descriptors.json")
-    if descriptor_path.exists():
-        MANUAL_DESCRIPTOR = json.loads(descriptor_path.read_text(encoding="utf-8"))
-except Exception:
-    MANUAL_DESCRIPTOR = {}
-
 COURSEU_BASE_URL = "https://www.coursesu.com"
+DESCRIPTOR = get_descriptor(EAN) if EAN else {}
 
 
 @dataclass
@@ -159,52 +153,13 @@ def _descriptor_tokens(ean: str) -> list[str]:
 
 
 def _descriptor_entry(ean: str) -> dict[str, typing.Any]:
-    entry = MANUAL_DESCRIPTOR.get(ean)
-    if isinstance(entry, dict):
-        return entry
-    return {}
+    entry = get_seed(ean)
+    return entry if isinstance(entry, dict) else {}
 
 
 def _store_courseu_hint(ean: str, url: str) -> None:
-    if not ean or not url:
-        return
-    descriptor_path = Path(__file__).with_name("manual_descriptors.json")
-    try:
-        data = json.loads(descriptor_path.read_text(encoding="utf-8"))
-    except Exception:
-        data = {}
-    if not isinstance(data, dict):
-        data = {}
-
-    entry = data.get(ean)
-    if not isinstance(entry, dict):
-        entry = {"ean": ean}
-
-    changed = False
-    if entry.get("courseu_url") != url:
-        entry["courseu_url"] = url
-        changed = True
-
-    parsed = urlparse(url)
-    slug = parsed.path or ""
-    if slug and not slug.startswith("/"):
-        slug = f"/{slug}"
-    if slug:
-        if entry.get("courseu_slug") != slug:
-            entry["courseu_slug"] = slug
-            changed = True
-    if not entry.get("source"):
-        entry["source"] = "courseu"
-        changed = True
-
-    if not changed:
-        return
-
-    data[ean] = entry
-    try:
-        descriptor_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    except Exception:
-        pass
+    # manual_descriptors.json deprecated: do nothing
+    return
 
 
 async def accept_cookies(page) -> None:
@@ -739,12 +694,10 @@ async def extract_product_data(page, snapshot: typing.Optional[str] = None) -> t
             if guess_image:
                 nutri_image = guess_image
 
-    if not quantity:
-        descriptor = MANUAL_DESCRIPTOR.get(EAN or "")
-        if isinstance(descriptor, dict):
-            quantity = descriptor.get("quantity") or descriptor.get("seed_primary_quantity")
-            if isinstance(quantity, str):
-                quantity = _normalize_space(quantity)
+    if not quantity and isinstance(DESCRIPTOR, dict):
+        quantity = DESCRIPTOR.get("quantity") or DESCRIPTOR.get("seed_primary_quantity")
+        if isinstance(quantity, str):
+            quantity = _normalize_space(quantity)
 
     unit_price = _compute_unit_price(price, quantity)
     return price, title, quantity, unit_price, matched_ean, nutri_grade, nutri_image

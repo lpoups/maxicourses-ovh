@@ -14,103 +14,650 @@
         "matched_ean": null,
         "image": null,
         "nutriscore_grade": null,
-        "nutriscore_image": null
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
       },
-      "updated_at": "2025-10-04T10:05:26.312339",
-      "duration_seconds": 16.615645,
+      "updated_at": "2025-11-23T23:23:34.072684+01:00",
+      "duration_seconds": 16.204554,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "NO_PRICE",
+        "payload": {
+          "status": "NO_PRICE",
+          "price": null,
+          "store": "City Bordeaux Balguerie",
+          "url": null,
+          "note": null,
+          "unit_price": null,
+          "quantity": null,
+          "title": null,
+          "matched_ean": null,
+          "image": null,
+          "nutriscore_grade": null,
+          "nutriscore_image": null
+        },
+        "updated_at": "2025-10-04T10:05:26.312339",
+        "error": null,
+        "store_query": null
+      }
     },
     "carrefour_market": {
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "10,91",
+        "price": "11,00",
         "store": "Market Fondaudège",
         "url": "https://www.carrefour.fr/p/cafe-capsules-l-iconique-100-arabica-intensite-8-com patible-nespresso-carte-noire-8000070075207",
         "note": null,
-        "unit_price": "0,36  € / L",
-        "quantity": "30 L",
+        "unit_price": "65,48 € / KG",
+        "quantity": "10 L",
         "title": "Café Capsules L'Iconique 100% Arabica  Intensité 8 Compatible Nespresso CARTE NOIRE",
         "matched_ean": "8000070075207",
-        "image": null,
+        "image": "https://media.carrefour.fr/medias/318bc56f91d343529f77f40cc4bc1082/p_540x540/08 000070075207_A1N1_s04.png",
         "nutriscore_grade": null,
-        "nutriscore_image": null
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules L'Iconique 100% Arabica  Intensité 8 Compatible Nespresso CARTE NOIRE",
+          "brand": "Café",
+          "kind": "",
+          "qty": "10 L",
+          "qualifiers": [],
+          "ean": "8000070075207",
+          "image_url": "https://media.carrefour.fr/medias/318bc56f91d343529f77f40cc4bc1082/p_540x540/08 000070075207_A1N1_s04.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
       },
-      "updated_at": "2025-10-04T10:05:26.312339",
-      "duration_seconds": 17.443821,
+      "updated_at": "2025-11-23T23:23:34.072684+01:00",
+      "duration_seconds": 21.301023,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "10,91",
+          "store": "Market Fondaudège",
+          "url": "https://www.carrefour.fr/p/cafe-capsules-l-iconique-100-arabica-intensite-8-com patible-nespresso-carte-noire-8000070075207",
+          "note": null,
+          "unit_price": "0,36  € / L",
+          "quantity": "30 L",
+          "title": "Café Capsules L'Iconique 100% Arabica  Intensité 8 Compatible Nespresso CARTE NOIRE",
+          "matched_ean": "8000070075207",
+          "image": null,
+          "nutriscore_grade": null,
+          "nutriscore_image": null
+        },
+        "updated_at": "2025-10-04T10:05:26.312339",
+        "error": null,
+        "store_query": null
+      }
     },
     "leclerc": {
       "status": "OK",
       "payload": {
         "status": "OK",
-        "title": "Pain de mie nature Epi d'Or Sans croute - 500g",
-        "price": "1,39",
-        "unit_price": "2,78 € / kg",
-        "quantity": "8 TRC",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24500-Pain-de-mie-nature-Epi-dOr.aspx",
-        "matched_ean": "8000070075207",
+        "title": "Capsules Café Carte Noire Arabica Classique n°7 x10 - 55g",
+        "price": "3,45",
+        "unit_price": "62,73 € / kg 0,35 € / p",
+        "quantity": "10 L",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-179658-Capsules-Cafe-Carte-Noire-.aspx",
+        "matched_ean": null,
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-10-04T10:05:08Z · E.Leclerc Drive · Bruges"
+        "note": "2025-11-23T22:23:15Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true,
+          "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed)."
+        },
+        "equivalent": true,
+        "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed).",
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-179658-Capsules-Cafe-Carte-Noire-.aspx",
+            "product": {
+              "title": "Capsules Café Carte Noire Arabica Classique n°7 x10 - 55g",
+              "brand": "Noire",
+              "kind": "Café Capsules L'Iconique 100% Arabica Intensité 8 Compatible Nespresso CARTE NOIRE",
+              "qty": "10 L",
+              "qualifiers": [],
+              "ean": "8000070059153",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2878387&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "updated_at": "2025-10-04T10:05:26.312339",
-      "duration_seconds": 31.729811,
+      "updated_at": "2025-11-23T23:23:34.072684+01:00",
+      "duration_seconds": 37.994035,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "title": "Pain de mie nature Epi d'Or Sans croute - 500g",
+          "price": "1,39",
+          "unit_price": "2,78 € / kg",
+          "quantity": "8 TRC",
+          "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24500-Pain-de-mie-nature-Epi-dOr.aspx",
+          "matched_ean": "8000070075207",
+          "store": "E.Leclerc Drive · Bruges",
+          "note": "2025-10-04T10:05:08Z · E.Leclerc Drive · Bruges"
+        },
+        "updated_at": "2025-10-04T10:05:26.312339",
+        "error": null,
+        "store_query": null
+      }
     },
     "intermarche": {
-      "status": "OK",
+      "status": "NO_RESULTS",
       "payload": {
-        "status": "OK",
-        "price": "9,75",
-        "title": "Capsules de café compatibles  Nespresso L'Iconique 100% arabica",
-        "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-l'ic onique-100%25-arabica/8000070075207",
-        "note": "Intermarché · Super Talence",
-        "matched_ean": "8000070075207",
-        "unit_price": "56,38 € / KG",
-        "quantity": "30  capsules",
-        "store": "Super Talence"
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Intermarché · Super Talence — produit absent",
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-espr esso-bio/8000070059399",
+            "product": {
+              "title": "Carte NoireCapsules de café compatibles Nespresso Espresso BIO",
+              "brand": "Carte",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8000070059399",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-lung o-classique-n%C2%B06/8000070059351",
+            "product": {
+              "title": "Carte NoireCapsules de café compatibles Nespresso Lungo  Classique n°6",
+              "brand": "Carte",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8000070059351",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-espr esso-intense-n%C2%B09/8000070059313",
+            "product": {
+              "title": "Carte NoireCapsules de café compatibles Nespresso Espresso Intense n°9",
+              "brand": "Carte",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8000070059313",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-espr esso-classique-n%C2%B07/8000070059337",
+            "product": {
+              "title": "Carte NoireCapsules de café compatibles Nespresso Espresso Classique n°7",
+              "brand": "Carte",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8000070059337",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-espr esso-puissant-n%C2%B011/8000070059375",
+            "product": {
+              "title": "Carte NoireCapsules de café compatibles Nespresso Espresso Puissant n°11",
+              "brand": "Carte",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8000070059375",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-espr esso-intense-n%C2%B09/8000070059450",
+            "product": {
+              "title": "Carte NoireCapsules de café compatibles Nespresso Espresso Intense n°9",
+              "brand": "Carte",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8000070059450",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-espr esso-classique-n%C2%B07/8000070059474",
+            "product": {
+              "title": "Carte NoireCapsules de café compatibles Nespresso Espresso Classique n°7",
+              "brand": "Carte",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8000070059474",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-deca feine-n%C2%B05/8000070059412",
+            "product": {
+              "title": "Carte NoireCapsules de café compatibles Nespresso Décaféiné n°5",
+              "brand": "Carte",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8000070059412",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true,
+          "abort_search": true,
+          "abort_reason": "too_many_ean_mismatches",
+          "ean_mismatch_hits": 8
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
       },
-      "updated_at": "2025-10-04T10:05:26.312339",
-      "duration_seconds": 17.383201,
+      "updated_at": "2025-11-23T23:23:34.072684+01:00",
+      "duration_seconds": 127.958915,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "9,75",
+          "title": "Capsules de café compatibles  Nespresso L'Iconique 100% arabica",
+          "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-l'ic onique-100%25-arabica/8000070075207",
+          "note": "Intermarché · Super Talence",
+          "matched_ean": "8000070075207",
+          "unit_price": "56,38 € / KG",
+          "quantity": "30  capsules",
+          "store": "Super Talence"
+        },
+        "updated_at": "2025-10-04T10:05:26.312339",
+        "error": null,
+        "store_query": null
+      }
     },
     "auchan": {
       "status": "OK",
       "payload": {
         "status": "OK",
         "price": "9,51",
-        "title": "Capsules de café l'Iconique café  long arôme intense 100% Arabica compatibles Nespresso",
+        "unit_price": null,
+        "quantity": null,
+        "title": "Capsules de café l'Iconique café long arôme intense 100% Arabica compatibles  Nespresso",
         "url": "https://www.auchan.fr/carte-noire-capsules-de-cafe-l-iconique-cafe-long-arome-i ntense-100-arabica-compatibles-nespresso/pr-C1814348",
-        "note": "Auchan (CDP)",
-        "unit_price": "56,61 € / KG",
-        "quantity": "30 L",
         "matched_ean": "8000070075207",
-        "image": "https://cdn.auchan.fr/media/S010000000413HZPRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200"
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café l'Iconique café long arôme intense 100% Arabica compatibles  Nespresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8000070075207",
+          "image_url": null,
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
       },
-      "updated_at": "2025-10-04T10:05:26.312339",
-      "duration_seconds": 13.209869,
+      "updated_at": "2025-11-23T23:23:34.072684+01:00",
+      "duration_seconds": 15.03798,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "9,51",
+          "title": "Capsules de café l'Iconique café  long arôme intense 100% Arabica compatibles Nespresso",
+          "url": "https://www.auchan.fr/carte-noire-capsules-de-cafe-l-iconique-cafe-long-arome-i ntense-100-arabica-compatibles-nespresso/pr-C1814348",
+          "note": "Auchan (CDP)",
+          "unit_price": "56,61 € / KG",
+          "quantity": "30 L",
+          "matched_ean": "8000070075207",
+          "image": "https://cdn.auchan.fr/media/S010000000413HZPRIMARY_2048x2048/B2CD/?format=rw&am p;quality=75&amp;width=1200&amp;height=1200"
+        },
+        "updated_at": "2025-10-04T10:05:26.312339",
+        "error": null,
+        "store_query": null
+      }
     },
     "chronodrive": {
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "9,39",
-        "title": "Capsules de café allongé CARTE NOIRE L'Iconique 30 capsules",
+        "price": "9,75",
+        "title": "Capsules de café allongé CARTE NOIRE L'Iconique",
         "url": "https://www.chronodrive.com/carte-noire--liconique---capsules-de-cafe-allonge-P 564180",
         "note": "Chronodrive Le Haillan",
-        "unit_price": "Prix au kg ou au litre : 55,89 € / KG",
+        "unit_price": "58,04 € / KG",
         "quantity": "30 capsules",
         "store": "Chronodrive Le Haillan",
-        "matched_ean": "8000070075207"
+        "matched_ean": "8000070075207",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café allongé CARTE NOIRE L'Iconique",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "30 capsules",
+          "qualifiers": [],
+          "ean": "8000070075207",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
       },
-      "updated_at": "2025-10-04T10:05:26.312339",
-      "duration_seconds": 11.014505,
+      "updated_at": "2025-11-23T23:23:34.072684+01:00",
+      "duration_seconds": 5.932013,
+      "error": null,
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "9,39",
+          "title": "Capsules de café allongé CARTE NOIRE L'Iconique 30 capsules",
+          "url": "https://www.chronodrive.com/carte-noire--liconique---capsules-de-cafe-allonge-P 564180",
+          "note": "Chronodrive Le Haillan",
+          "unit_price": "Prix au kg ou au litre : 55,89 € / KG",
+          "quantity": "30 capsules",
+          "store": "Chronodrive Le Haillan",
+          "matched_ean": "8000070075207"
+        },
+        "updated_at": "2025-10-04T10:05:26.312339",
+        "error": null,
+        "store_query": null
+      }
+    },
+    "carrefour_super": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,65",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-l-iconique-100-arabica-intensite-8-com patible-nespresso-carte-noire-8000070075207",
+        "note": null,
+        "unit_price": "57,44 € / KG",
+        "quantity": "30 L",
+        "title": "Café Capsules L'Iconique 100% Arabica  Intensité 8 Compatible Nespresso CARTE NOIRE",
+        "matched_ean": "8000070075207",
+        "image": "https://media.carrefour.fr/medias/318bc56f91d343529f77f40cc4bc1082/p_540x540/08 000070075207_A1N1_s04.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules L'Iconique 100% Arabica  Intensité 8 Compatible Nespresso CARTE NOIRE",
+          "brand": "Café",
+          "kind": "",
+          "qty": "30 L",
+          "qualifiers": [],
+          "ean": "8000070075207",
+          "image_url": "https://media.carrefour.fr/medias/318bc56f91d343529f77f40cc4bc1082/p_540x540/08 000070075207_A1N1_s04.png",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-11-23T23:23:34.072684+01:00",
+      "duration_seconds": 18.435216,
+      "error": null,
+      "store_query": null
+    },
+    "courseu": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,39",
+        "unit_price": "55,89 € / KG",
+        "quantity": "168 g",
+        "title": "Café Capsules CARTE NOIRE L'ICONIQUE LONG - compatible NESPRESSO - x30",
+        "url": "https://www.coursesu.com/p/cafe-capsules-carte-noire-liconique-long---compatibl e-nespresso---x30/1727557.html",
+        "note": "2025-11-23T22:18:57Z · Super U  Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "8000070075207",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules CARTE NOIRE L'ICONIQUE LONG - compatible NESPRESSO - x30",
+          "brand": "Café",
+          "kind": "",
+          "qty": "168 g",
+          "qualifiers": [],
+          "ean": "8000070075207",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-11-23T23:23:34.072684+01:00",
+      "duration_seconds": 31.003031,
+      "error": null,
+      "store_query": null
+    },
+    "g20": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-11-23T23:23:34.072684+01:00",
+      "duration_seconds": 0.716439,
+      "error": null,
+      "store_query": null
+    },
+    "casino": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=8000070075207",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "8000070075207",
+          "timestamp": "2025-11-23T22:19:52.659017+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-11-23T23:23:34.072684+01:00",
+      "duration_seconds": 0.928061,
+      "error": null,
+      "store_query": null
+    },
+    "spar": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=8000070075207",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "8000070075207",
+          "timestamp": "2025-11-23T22:20:28.820161+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-11-23T23:23:34.072684+01:00",
+      "duration_seconds": 0.880374,
+      "error": null,
+      "store_query": null
+    },
+    "monoprix": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,69",
+        "title": "Carte Noire 10 capsules alu espresso décaféiné n°5 - 57g",
+        "url": "https://courses.monoprix.fr/products/carte-noire-10-capsules-alu-espresso-d%C3% A9caf%C3%A9in%C3%A9-n-5-57g/MPX_6573461",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/b617 cbfe-607c-4f8b-a571-64f3f5db7d63/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/b617 cbfe-607c-4f8b-a571-64f3f5db7d63/300x300.jpg",
+        "matched_ean": null,
+        "unit_price": "64,74 € / KG",
+        "quantity": "57 G",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nCalendrier de l'avent\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nRéserver un créneau\nRéserver un créneau\nAller au paiement\nNombre  total d’articles dans votre panier 0. Montant du panier 0,00 €.\n0,00 €\nMin  60,00 €\nBouton du menu principal\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2  mois de livraison offerte*\nEN SAVOIR +\nAccueil\nEpicerie Sucrée\nCafé, Thé et  Boisson chaude\nCafé\nCompatible Nespresso\nCarte Noire 10 capsules alu espresso décaféiné n°5 - 57g\n1 m+\n1 mois de garantie de vie du produit\n57g 64,74 € /  kilo\n57g\n(64,74 € / kilo)\n3,69 €\nAjouter\nInformations  produit\n\n\nDescription Produit\nCarte Noire et ses Maîtres Torréfacteurs vous  proposent des cafés 100% Arabica issus des meilleurs grains. D'abord  sélectionnés avec soin, les grains verts sont assemblés puis torréfiés pour en  révéler les 1000 notes aromatiques. Cet accord parfait est ensuite préservé  grâce aux capsules aluminium Carte Noire, pour un résultat en tasse  unique.\n\n\nOrigine\nFrance\nMarque\nCarte Noire\nService consommateur\nCarte  Noire SAS 58 avenue Émile Zola 92100 Boulogne Billancourt France  www.cartenoire.fr 09 69 32 97 00\nConseils d'utilisation\nCompatibles avec les  machines Nespresso Original. Lavazza n'est pas affiliée, soutenue ou commanditée par Nespresso. Ensemble, recyclons: capsules en aluminium recyclable, selon les  consignes locales.\nIngredients\nIngrédients : Café moulu décaféiné.\nType  d’emballage\nboîte\nProducteur\nCARTE NOIRE 58 AVENUE EMILE  ZOLA///92100/BOULOGNE BILLANCOURT/FRANCE\nConseil de conservation\nA conserver  au sec et à l'abri de la chaleur.\nConseils d'utilisation\nCompatibles avec les  machines Nespresso Original. Lavazza n'est pas affiliée, soutenue ou commanditée par Nespresso. Ensemble, recyclons: capsules en aluminium recyclable, selon les  consignes locales.\nNous contacter\n(s’ouvre dans une nouvelle  fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": "nature",
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": false,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [
+            "unit_family",
+            "image_mismatch",
+            "core_token"
+          ],
+          "candidate_quantity": "57 G",
+          "descriptor_token_coverage": {
+            "coverage": 0.7777777777777778,
+            "matched": [
+              "arabica",
+              "cafe",
+              "capsules",
+              "carte",
+              "compatible",
+              "nespresso",
+              "noire"
+            ],
+            "missing": [
+              "iconique",
+              "intensite"
+            ],
+            "total": 9
+          },
+          "missing_tokens": [
+            "iconique",
+            "intensite"
+          ],
+          "image_match": false,
+          "final_score": 10,
+          "plausible_baseline": false,
+          "missing_core_tokens": [
+            "intensite",
+            "iconique",
+            "10l"
+          ],
+          "notes": [
+            "accepted_without_image_match_high_coverage"
+          ],
+          "equivalent": true
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/carte-noire-10-capsules-alu-espresso-décaf éiné-n-5-57g/MPX_6573461",
+            "product": {
+              "title": "Carte  Noire 10 capsules alu espresso décaféiné n°5 - 57g",
+              "brand": "Noire",
+              "kind": "Café Capsules L'Iconique 100% Arabica  Intensité 8 Compatible Nespresso CARTE  NOIRE",
+              "qty": "57 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/b617 cbfe-607c-4f8b-a571-64f3f5db7d63/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Bouton du menu principal NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte* EN SAVOIR + Accueil Epicerie Sucrée Café,",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "updated_at": "2025-11-23T23:23:34.072684+01:00",
+      "duration_seconds": 18.383779,
       "error": null,
       "store_query": null
     }

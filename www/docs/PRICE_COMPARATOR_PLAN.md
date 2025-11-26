@@ -4,7 +4,7 @@
 Créer un moteur capable d’agréger automatiquement les prix multi-enseignes (Carrefour, Leclerc Drive, etc.), de normaliser les produits et de restituer les meilleures offres (ex. prix/kg minimal) avec preuve visuelle.
 
 ## État actuel
-- Scripts Playwright fonctionnels pour Carrefour, Leclerc Drive, Auchan, Intermarché, Chronodrive et Course U (Super U Eysines), plus le fetcher HTTP `fetch_casino_price.py` pour Casino Shop Bègles (mescoursesdeproximite.com).
+- Scripts Playwright fonctionnels pour Carrefour, Leclerc Drive, Auchan, Intermarché, Chronodrive et Course U (Super U Eysines), plus le fetcher HTTP `fetch_casino_price.py` pour Casino Shop Bègles et Spar Super Saint-Médard (mescoursesdeproximite.com).
 - Contraintes strictes Leclerc Drive documentées dans `fetch_leclerc_drive_price.py` et `~/.codex/config.toml` (Chrome 9222 obligatoire, validation visuelle).
 - Collected dataset d’exemple sur le ketchup Heinz (Carrefour + Leclerc) avec calculs prix/kg (voir `docs/HANDOVER_DAILY.md` et captures dans `maxicourses_test/debug_screens/`).
 - Génération des requêtes entièrement pilotée par `finder.py` / `KeywordGenerator`. **Aucun fichier `.json` ne doit servir à lister ou maintenir des mots-clés** : toujours modifier le code Python (seed_catalog, finder) pour garder un historique traçable.

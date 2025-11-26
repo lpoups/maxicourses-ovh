@@ -1,0 +1,702 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-11-26T15:15:50.519330+01:00",
+  "finished_at": "2025-11-26T15:20:34.327226+01:00",
+  "duration_seconds": 283.807896,
+  "reference": {
+    "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "description": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "source": "carrefour_super",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": null,
+    "image": "./assets/5000112611861.jpg",
+    "nutriscore_grade": "b",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-b.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,79",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+        "note": null,
+        "unit_price": "1,59 € / L",
+        "quantity": "1,75 L",
+        "title": "Soda  au Cola Goût Original COCA-COLA",
+        "matched_ean": "5000112611861",
+        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
+        "nutriscore_grade": "b",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda  au Cola Goût Original COCA-COLA",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
+          "source": "carrefour_city",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-26T15:15:50.520364+01:00",
+      "finished_at": "2025-11-26T15:16:13.976859+01:00",
+      "duration_seconds": 23.456495,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,45",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+        "note": null,
+        "unit_price": "1,40 € / L",
+        "quantity": "1,75 L",
+        "title": "Soda  au Cola Goût Original COCA-COLA",
+        "matched_ean": "5000112611861",
+        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
+        "nutriscore_grade": "b",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda  au Cola Goût Original COCA-COLA",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-26T15:16:13.981109+01:00",
+      "finished_at": "2025-11-26T15:16:36.115463+01:00",
+      "duration_seconds": 22.134354,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,39",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+        "note": null,
+        "unit_price": "1,37 € / L",
+        "quantity": "1,75 L",
+        "title": "Soda  au Cola Goût Original COCA-COLA",
+        "matched_ean": "5000112611861",
+        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda  au Cola Goût Original COCA-COLA",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-26T15:16:36.118095+01:00",
+      "finished_at": "2025-11-26T15:16:55.252636+01:00",
+      "duration_seconds": 19.134541,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,38",
+        "unit_price": "1,36 € / L",
+        "quantity": "1,75  L",
+        "title": "Boisson gazeuse aux extraits végétaux goût original",
+        "url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-orig inal/pr-C1211988",
+        "matched_ean": "5000112611861",
+        "store": "Auchan Drive  Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson gazeuse aux extraits végétaux goût original",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-26T15:16:55.255047+01:00",
+      "finished_at": "2025-11-26T15:17:09.230723+01:00",
+      "duration_seconds": 13.975676,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results visible, opening first candidate",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,49",
+        "title": "Boisson gazeuse aux extraits  végétaux COCA-COLA Original",
+        "url": "https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits- vegetaux-P384066",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "1,42 € / L",
+        "quantity": "1,75 L",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "5000112611861",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltcfe44872100 3a156/nutriscore-e",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson gazeuse aux extraits  végétaux COCA-COLA Original",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "./assets/5000112611861.jpg",
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-26T15:17:09.233167+01:00",
+      "finished_at": "2025-11-26T15:17:17.521430+01:00",
+      "duration_seconds": 8.288263,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='5000112611861'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits-vegetaux-P384066",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,37",
+        "unit_price": "1,35 € / L",
+        "quantity": "1,75  L",
+        "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+        "url": "https://www.coursesu.com/p/soda-coca-cola-original---bouteille-175l/5192990.htm l",
+        "note": "2025-11-26T14:17:53Z · Super U Eysines",
+        "store": "Super U  Eysines",
+        "matched_ean": "5000112611861",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "./assets/5000112611861.jpg",
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-26T15:17:17.528510+01:00",
+      "finished_at": "2025-11-26T15:17:53.876963+01:00",
+      "duration_seconds": 36.348453,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Non disponible",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-26T15:17:53.879460+01:00",
+      "finished_at": "2025-11-26T15:17:54.640051+01:00",
+      "duration_seconds": 0.760591,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,89",
+        "unit_price": "1,65 €/LITRE",
+        "quantity": "1,75L",
+        "title": "Coca-Cola Original 1,75L",
+        "url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216",
+        "note": "Casino Shop · Bègles Pruniers",
+        "store": "Casino Shop · Bègles Pruniers",
+        "matched_ean": "5000112611861",
+        "image": "https://www.mescoursesdeproximite.com/images/produits/vignette/357216_M1_S1.jpg",
+        "product": {
+          "title": "Coca-Cola Original 1,75L",
+          "brand": "Coca-Cola",
+          "qty": "1,75L",
+          "ean": "5000112611861",
+          "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/357216_M1_S1.jpg",
+          "source": "casino"
+        },
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Cola%201.75%20L",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Cola 1.75 L",
+          "timestamp": "2025-11-26T14:17:56.352800+00:00",
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216",
+            "product": {
+              "title": "Coca-Cola Original 1,75L",
+              "brand": "Coca-Cola",
+              "kind": "",
+              "qty": "1,75L",
+              "qualifiers": [],
+              "ean": "5000112611861",
+              "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/357216_M1_S1.jpg",
+              "source": "casino",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-26T15:17:56.070870+01:00",
+      "finished_at": "2025-11-26T15:17:59.862249+01:00",
+      "duration_seconds": 3.791379,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "Cola 1.75 L",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Cola 1.75 L"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,13",
+        "unit_price": "1,79 €/LITRE",
+        "quantity": "1,75L",
+        "title": "Coca-Cola Original 1,75L",
+        "url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-spar-33160/TL832/357216",
+        "note": "Spar Super · Saint-Médard-en-Jalles",
+        "store": "Spar Super · Saint-Médard-en-Jalles",
+        "matched_ean": "5000112611861",
+        "image": "https://www.mescoursesdeproximite.com/images/produits/vignette/357216_M1_S1.jpg",
+        "product": {
+          "title": "Coca-Cola Original 1,75L",
+          "brand": "Coca-Cola",
+          "qty": "1,75L",
+          "ean": "5000112611861",
+          "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/357216_M1_S1.jpg",
+          "source": "casino"
+        },
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Cola%201.75%20L",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Cola 1.75 L",
+          "timestamp": "2025-11-26T14:18:00.020585+00:00",
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-spar-33160/TL832/357216",
+            "product": {
+              "title": "Coca-Cola Original 1,75L",
+              "brand": "Coca-Cola",
+              "kind": "",
+              "qty": "1,75L",
+              "qualifiers": [],
+              "ean": "5000112611861",
+              "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/357216_M1_S1.jpg",
+              "source": "spar",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-26T15:17:59.863147+01:00",
+      "finished_at": "2025-11-26T15:18:02.797277+01:00",
+      "duration_seconds": 2.93413,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "Cola 1.75 L",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Cola 1.75 L"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-26T15:18:02.798060+01:00",
+      "finished_at": "2025-11-26T15:19:32.808235+01:00",
+      "duration_seconds": 90.010175,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "Cola 1.75 L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "",
+      "metadata": {
+        "attempt_query": "Cola 1.75 L",
+        "timeout_s": 90
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "ERROR",
+      "payload": {
+        "status": "ERROR",
+        "error": "datadome_challenge",
+        "message": "DataDome détecté sur le drive Leclerc. Ouvrez le site dans Chrome debug (9222), complétez la vérification puis relancez.",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-26T15:19:32.810839+01:00",
+      "finished_at": "2025-11-26T15:19:36.993307+01:00",
+      "duration_seconds": 4.182468,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "Cola Soda 1.75 L",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:50ms pdp:50ms type:[5,18] query:'Cola Soda 1.75 L'\n[LECLERC_DEBUG] after home human pause -> 3.48s",
+      "metadata": {
+        "attempt_query": "Cola Soda 1.75 L"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,65",
+        "title": "Coca-Cola Original 1,75L",
+        "url": "https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f 8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f 8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg",
+        "matched_ean": "5000112611861",
+        "unit_price": "1,51 € / L",
+        "quantity": "1,75 L",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nBoissons et Lait\nSoda et Boisson  aromatisée\nColas\nCoca-Cola Original 1,75L\n2 m+\n2 mois de garantie de vie du  produit\n1.75L 1,51 € / litre\n1.75L\n(1,51 € / litre)\n2,65  €\nAjouter\nAttributs produit\nProduit vegan\nInformations  produit\n\n\nDescription Produit\nCréée en 1886, Coca-Cola, la légendaire  boisson pétillante, fait le bonheur de plusieurs générations. Cette boisson  intemporelle et délicieuse a été conçue pour rafraîchir ses consommateurs. Elle  est faite pour être partagée. Installez-vous, détendez-vous et savourez. À  servir bien frais pour un maximum de  plaisir.\n\n\nOrigine\nFrance\nMarque\nCoca-Cola\nService  consommateur\nCoca-Cola Europacific Partners France 9 chemin de Bretagne, CS  80050, 92784 Issy-Les-Moulineaux Cedex 9. coca-cola.fr N° Cristal 09 69 39 29 00 (Appel non surtaxé)\nConseils d'utilisation\nSe boit très frais Ne pas  agiter.\nIngredients\nIngrédients: eau gazéifiée ; sucre ; colorant : E150d ;  acidifiant : acide phosphorique ; arômes naturels ; arôme caféine.\nA propos de  la marque\nCoca-Cola est la boisson pétillante emblématique, créée en 1886 à  Atlanta, en Géorgie, par le Dr John S. Pemberton. Coca-Cola a d’abord été  proposé comme boisson à la fontaine à la pharmacie Jacobs sous forme d’un  mélange de sirop de Coca-Cola et d’eau pétillante, la fameuse recette secrète du Coca-Cola. Au fil des ans, cette boisson pétillante légendaire est devenue  culte. Le Coca-Cola est célèbre non seulement pour son goût irrésistible mais  aussi pour la sensation qu'il procure. Chaque gorgée de cette légendaire boisson pétillante évoque des souvenirs heureux. Aujourd'hui, sa popularité l'a rendu  universel.\nType d’emballage\nbouteille\nProducteur\nCOCA COLA EUROPEAN PARTNERS FRAN 9 CHEMIN DE BRETAGNE///92784/ISSY LES MOULINEAUX CEDEX 9/FRANCE\nConseil de conservation\nConserver à l'abri de la lumière directe du soleil, dans un  endroit frais et sec.,Conserver à l'abri de la lumière directe du soleil, dans  un endroit frais et sec.\nAutres informations\n(None)\nConseils  d'utilisation\nSe boit très frais Ne pas agiter.\nValeurs  nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 ml\tpour  250MLT\nValeurs Energétique en Kilojoules\t~ 180 kJ\t450 kJ\nValeurs Energétique en Kilocalories\t~ 42 kcal\t105 kcal\nValeurs Nutritionnelles\nGlucides\t~ 10.6  g\t27 g\nDont Sucres\t~ 10.6 g\t27 g\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": "original",
+          "candidate_variant": "nature",
+          "negatives_hit": [],
+          "variant_ok": false,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [
+            "variant_mismatch"
+          ],
+          "candidate_quantity": "1,75 L",
+          "candidate_size_ratio": 0.0,
+          "descriptor_token_coverage": {
+            "coverage": 0.7777777777777778,
+            "matched": [
+              "boisson",
+              "bouteille",
+              "coca",
+              "cola",
+              "gout",
+              "original",
+              "soda"
+            ],
+            "missing": [
+              "extraits",
+              "gazeuse"
+            ],
+            "total": 9
+          },
+          "missing_tokens": [
+            "extraits",
+            "gazeuse"
+          ],
+          "image_match": true,
+          "final_score": -105,
+          "plausible_baseline": false
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/coca-cola-sans-sucres-1-75l/MPX_3341722",
+            "product": {
+              "title": "",
+              "brand": "Cola",
+              "kind": "Soda au  Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719",
+            "product": {
+              "title": "Coca-Cola Original 1,75L",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "5000112611861",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f 8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-26T15:19:56.392622+01:00",
+      "finished_at": "2025-11-26T15:20:33.650194+01:00",
+      "duration_seconds": 37.257572,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "Coca-Cola Coca-Cola 1,75L Coca",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5000112611861'.\n[MONOPRIX_DEBUG] Search terms: ['coca-cola extraits', 'coca-cola 1,75l', 'coca-cola 175cl']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: original | dynamic negatives: ['sans sucre', 'vanille', 'light', 'zero', 'cherry', '2.25l', '1.25l', 'citron', 'framboise', 'pomme', 'orange', 'zéro', 'caffeine', 'caféine', 'promo', 'lot', 'eco', 'maxi', 'format', 'amande', 'coco', 'mangue', 'chocolat', 'rouge', 'squeez', 'squeeze', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/3: 'coca-cola extraits'\n[MONOPRIX_DEBUG]  - Typing 'coca-cola extraits' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=coca-cola%20extraits\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'coca-cola 1,75l'\n[MONOPRIX_DEBUG]  - Typing 'coca-cola 1,75l' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=coca-cola%201%2C75l\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 2 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/coca-cola-sans-sucres-1-75l/MPX_3341722\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9acbc31d-149d-48f2-9df6-f804cd040609/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/coca-cola-sans-sucres-1-75l/MPX_3341722\n[MONOPRIX_DEBUG][SCORE] - Title: 'Coca-Cola Sans Sucres 1,75L' | Brand: 'cola' | Variant(seed/cand)=(original/sans sucre) | Vetoes=['neg_token', 'variant_mismatch', 'descriptor_coverage'] | NegHits=['sans sucre'] | Score=-255 | Plausible=False\n[MONOPRIX_DEBUG]  - Candidate rejected due to negatives_hit: ['sans sucre']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719\n[MONOPRIX_DEBUG][SCORE] - Title: 'Coca-Cola Original 1,75L' | Brand: 'cola' | Variant(seed/cand)=(original/nature) | Vetoes=['variant_mismatch'] | NegHits=[] | Score=-135 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Coca-Cola Original 1,75L'.\n[MONOPRIX_DEBUG] Best match (early return): 'Coca-Cola Original 1,75L' (Score: -105)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='2,65', title='Coca-Cola Original 1,75L', url='https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg', matched_ean='5000112611861', unit_price='1,51 € / L', quantity='1,75 L', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nSoda et Boisson aromatisée\\nColas\\nCoca-Cola Original 1,75L\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n1.75L 1,51\\xa0€ / litre\\n1.75L\\n(1,51\\xa0€ / litre)\\n2,65\\xa0€\\nAjouter\\nAttributs produit\\nProduit vegan\\nInformations produit\\n\\n\\nDescription Produit\\nCréée en 1886, Coca-Cola, la légendaire boisson pétillante, fait le bonheur de plusieurs générations. Cette boisson intemporelle et délicieuse a été conçue pour rafraîchir ses consommateurs. Elle est faite pour être partagée. Installez-vous, détendez-vous et savourez. À servir bien frais pour un maximum de plaisir.\\n\\n\\nOrigine\\nFrance\\nMarque\\nCoca-Cola\\nService consommateur\\nCoca-Cola Europacific Partners France 9 chemin de Bretagne, CS 80050, 92784 Issy-Les-Moulineaux Cedex 9. coca-cola.fr N° Cristal 09 69 39 29 00 (Appel non surtaxé)\\nConseils d'utilisation\\nSe boit très frais Ne pas agiter.\\nIngredients\\nIngrédients: eau gazéifiée ; sucre ; colorant : E150d ; acidifiant : acide phosphorique ; arômes naturels ; arôme caféine.\\nA propos de la marque\\nCoca-Cola est la boisson pétillante emblématique, créée en 1886 à Atlanta, en Géorgie, par le Dr John S. Pemberton. Coca-Cola a d’abord été proposé comme boisson à la fontaine à la pharmacie Jacobs sous forme d’un mélange de sirop de Coca-Cola et d’eau pétillante, la fameuse recette secrète du Coca-Cola. Au fil des ans, cette boisson pétillante légendaire est devenue culte. Le Coca-Cola est célèbre non seulement pour son goût irrésistible mais aussi pour la sensation qu'il procure. Chaque gorgée de cette légendaire boisson pétillante évoque des souvenirs heureux. Aujourd'hui, sa popularité l'a rendu universel.\\nType d’emballage\\nbouteille\\nProducteur\\nCOCA COLA EUROPEAN PARTNERS FRAN 9 CHEMIN DE BRETAGNE///92784/ISSY LES MOULINEAUX CEDEX 9/FRANCE\\nConseil de conservation\\nConserver à l'abri de la lumière directe du soleil, dans un endroit frais et sec.,Conserver à l'abri de la lumière directe du soleil, dans un endroit frais et sec.\\nAutres informations\\n(None)\\nConseils d'utilisation\\nSe boit très frais Ne pas agiter.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\tpour 250MLT\\nValeurs Energétique en Kilojoules\\t~ 180 kJ\\t450 kJ\\nValeurs Energétique en Kilocalories\\t~ 42 kcal\\t105 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 10.6 g\\t27 g\\nDont Sucres\\t~ 10.6 g\\t27 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': 'original', 'candidate_variant': 'nature', 'negatives_hit': [], 'variant_ok': False, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['variant_mismatch'], 'candidate_quantity': '1,75 L', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.7777777777777778, 'matched': ['boisson', 'bouteille', 'coca', 'cola', 'gout', 'original', 'soda'], 'missing': ['extraits', 'gazeuse'], 'total': 9}, 'missing_tokens': ['extraits', 'gazeuse'], 'image_match': True, 'final_score': -105, 'plausible_baseline': False}, candidates=[{'url': 'https://courses.monoprix.fr/products/coca-cola-sans-sucres-1-75l/MPX_3341722', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Cola', 'kind': 'Soda au Cola Goût Original COCA-COLA', 'qty': '1,75  L', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}, {'url': 'https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719', 'status': 'OK_PARTIAL', 'product': {'title': 'Coca-Cola Original 1,75L', 'brand': 'Cola', 'kind': 'Soda au Cola Goût Original COCA-COLA', 'qty': '1,75 L', 'qualifiers': [], 'ean': '5000112611861', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nSoda et Boisson aromatisée\\nColas\\nCoca-Cola Original 1,75L\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n1.75L 1,51\\xa0€ / litre\\n1.75L\\n(1,51\\xa0€ / litre)\\n2,65\\xa0€\\nAjouter\\nAttributs produit\\nProduit vegan\\nInformations produit\\n\\n\\nDescription Produit\\nCréée en 1886, Coca-Cola, la légendaire boisson pétillante, fait le bonheur de plusieurs générations. Cette boisson intemporelle et délicieuse a été conçue pour rafraîchir ses consommateurs. Elle est faite pour être partagée. Installez-vous, détendez-vous et savourez. À servir bien frais pour un maximum de plaisir.\\n\\n\\nOrigine\\nFrance\\nMarque\\nCoca-Cola\\nService consommateur\\nCoca-Cola Europacific Partners France 9 chemin de Bretagne, CS 80050, 92784 Issy-Les-Moulineaux Cedex 9. coca-cola.fr N° Cristal 09 69 39 29 00 (Appel non surtaxé)\\nConseils d'utilisation\\nSe boit très frais Ne pas agiter.\\nIngredients\\nIngrédients: eau gazéifiée ; sucre ; colorant : E150d ; acidifiant : acide phosphorique ; arômes naturels ; arôme caféine.\\nA propos de la marque\\nCoca-Cola est la boisson pétillante emblématique, créée en 1886 à Atlanta, en Géorgie, par le Dr John S. Pemberton. Coca-Cola a d’abord été proposé comme boisson à la fontaine à la pharmacie Jacobs sous forme d’un mélange de sirop de Coca-Cola et d’eau pétillante, la fameuse recette secrète du Coca-Cola. Au fil des ans, cette boisson pétillante légendaire est devenue culte. Le Coca-Cola est célèbre non seulement pour son goût irrésistible mais aussi pour la sensation qu'il procure. Chaque gorgée de cette légendaire boisson pétillante évoque des souvenirs heureux. Aujourd'hui, sa popularité l'a rendu universel.\\nType d’emballage\\nbouteille\\nProducteur\\nCOCA COLA EUROPEAN PARTNERS FRAN 9 CHEMIN DE BRETAGNE///92784/ISSY LES MOULINEAUX CEDEX 9/FRANCE\\nConseil de conservation\\nConserver à l'abri de la lumière directe du soleil, dans un endroit frais et sec.,Conserver à l'abri de la lumière directe du soleil, dans un endroit frais et sec.\\nAutres informations\\n(None)\\nConseils d'utilisation\\nSe boit très frais Ne pas agiter.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\tpour 250MLT\\nValeurs Energétique en Kilojoules\\t~ 180 kJ\\t450 kJ\\nValeurs Energétique en Kilocalories\\t~ 42 kcal\\t105 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 10.6 g\\t27 g\\nDont Sucres\\t~ 10.6 g\\t27 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '1,51 € / L', 'price': '2,65'}, 'score': -105.0, 'extras': {'seed_variant': 'original', 'candidate_variant': 'nature', 'negatives_hit': [], 'variant_ok': False, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['variant_mismatch'], 'candidate_quantity': '1,75 L', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.7777777777777778, 'matched': ['boisson', 'bouteille', 'coca', 'cola', 'gout', 'original', 'soda'], 'missing': ['extraits', 'gazeuse'], 'total': 9}, 'missing_tokens': ['extraits', 'gazeuse'], 'image_match': True, 'final_score': -105, 'plausible_baseline': False}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Coca-Cola Coca-Cola 1,75L Coca"
+      }
+    }
+  ],
+  "finder": {
+    "error": "'FinderPipeline' object has no attribute 'decide'"
+  }
+}

@@ -1,0 +1,740 @@
+{
+  "ean": "8711000705094",
+  "image_path": null,
+  "started_at": "2025-11-24T14:28:31.465230+01:00",
+  "finished_at": "2025-11-24T14:34:47.244601+01:00",
+  "duration_seconds": 375.779371,
+  "reference": {
+    "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "description": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "source": "carrefour_super",
+    "brand": "L'Or",
+    "quantity": "50 L",
+    "categories": null,
+    "image": "./assets/8711000705094.jpg",
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-d.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-24T14:28:31.465834+01:00",
+      "finished_at": "2025-11-24T14:28:46.228273+01:00",
+      "duration_seconds": 14.762439,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "15,29",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000705094",
+        "note": null,
+        "unit_price": "58,81 € / KG",
+        "quantity": "50 L",
+        "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+        "matched_ean": "8711000705094",
+        "image": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+        "nutriscore_grade": "d",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "50 L",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-24T14:28:46.230015+01:00",
+      "finished_at": "2025-11-24T14:29:07.357381+01:00",
+      "duration_seconds": 21.127366,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "14,59",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000705094",
+        "note": null,
+        "unit_price": "56,12 € / KG",
+        "quantity": "50 L",
+        "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+        "matched_ean": "8711000705094",
+        "image": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+        "nutriscore_grade": "d",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "50 L",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-24T14:29:07.359668+01:00",
+      "finished_at": "2025-11-24T14:29:27.007877+01:00",
+      "duration_seconds": 19.648209,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "16,09",
+        "unit_price": "61,88 € / KG",
+        "quantity": "50 CAPSULES",
+        "title": "Capsules de café ristretto intensité 11 compatibles  Nespresso",
+        "url": "https://www.auchan.fr/l-or-espresso-capsules-de-cafe-ristretto-intensite-11-com patibles-nespresso/pr-C1676041",
+        "matched_ean": "8711000705094",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S010000000406DZPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café ristretto intensité 11 compatibles  Nespresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "50 CAPSULES",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": "https://cdn.auchan.fr/media/S010000000406DZPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-24T14:29:27.010375+01:00",
+      "finished_at": "2025-11-24T14:29:38.968580+01:00",
+      "duration_seconds": 11.958205,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results visible, opening first candidate",
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "15,55",
+        "title": "Capsules de café ristretto N°11  L'OR Espresso",
+        "url": "https://www.chronodrive.com/lor--espresso---capsules-de-cafe-ristretto-n11-P524 548",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "59,81 € / KG",
+        "quantity": "50 capsules",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "8711000705094",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café ristretto N°11  L'OR Espresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "50 capsules",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-24T14:29:38.970945+01:00",
+      "finished_at": "2025-11-24T14:29:45.560878+01:00",
+      "duration_seconds": 6.589933,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='8711000705094'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/lor--capsules-de-cafe-expresso-ristretto-P524548",
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "14,13",
+        "unit_price": "54,35 € / KG",
+        "quantity": "260 g",
+        "title": "Café Capsules L'OR RISTRETTO N°11 - compatible NESPRESSO -  x50",
+        "url": "https://www.coursesu.com/p/cafe-capsules-lor-ristretto-n11---compatible-nespres so---x50/3946455.html",
+        "note": "2025-11-24T13:30:18Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "8711000705094",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules L'OR RISTRETTO N°11 - compatible NESPRESSO -  x50",
+          "brand": "Café",
+          "kind": "",
+          "qty": "260 g",
+          "qualifiers": [],
+          "ean": "8711000705094",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-24T14:29:45.562262+01:00",
+      "finished_at": "2025-11-24T14:30:18.157739+01:00",
+      "duration_seconds": 32.595477,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Non disponible",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-24T14:30:18.158873+01:00",
+      "finished_at": "2025-11-24T14:30:18.949663+01:00",
+      "duration_seconds": 0.79079,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_60s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-24T14:30:28.549152+01:00",
+      "finished_at": "2025-11-24T14:31:28.586228+01:00",
+      "duration_seconds": 60.037076,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "L'OR L'OR 50CAPSULES L'OR café",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_60s",
+      "stderr": "",
+      "metadata": {
+        "attempt_query": "L'OR L'OR 50CAPSULES L'OR café",
+        "timeout_s": 60
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_60s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-24T14:31:28.588497+01:00",
+      "finished_at": "2025-11-24T14:32:28.625118+01:00",
+      "duration_seconds": 60.036621,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "L'OR L'OR 50CAPSULES L'OR café",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_60s",
+      "stderr": "",
+      "metadata": {
+        "attempt_query": "L'OR L'OR 50CAPSULES L'OR café",
+        "timeout_s": 60
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_60s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-24T14:32:28.626695+01:00",
+      "finished_at": "2025-11-24T14:33:28.642669+01:00",
+      "duration_seconds": 60.015974,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "L'OR L'OR 50CAPSULES L'OR café",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_60s",
+      "stderr": "",
+      "metadata": {
+        "attempt_query": "L'OR L'OR 50CAPSULES L'OR café",
+        "timeout_s": 60
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_45s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-24T14:33:28.646289+01:00",
+      "finished_at": "2025-11-24T14:34:13.663490+01:00",
+      "duration_seconds": 45.017201,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "L'OR L'OR 50CAPSULES L'OR café",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_45s",
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=False | delays => human:200ms result:300ms pdp:300ms type:[8,18] query:'L'OR L'OR 50CAPSULES L'OR café'\n[LECLERC_DEBUG] after home human pause -> 1.44s\n[LECLERC_DEBUG] Page source saved to /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/leclerc_debug_source.html\n[LECLERC_DEBUG] Screenshot saved to /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/leclerc_debug_screenshot.png\n[LECLERC_DEBUG] attempt #1 with query 'L'OR L'OR 50CAPSULES L'OR café'\n[LECLERC_DEBUG] results visible -> 6.13s (query='L'OR L'OR 50CAPSULES L'OR café')\n[LECLERC_DEBUG] after result pause -> 6.38s\n[LECLERC_DEBUG] too many results, refining with 'L'OR L'OR 50CAPSULES L'OR café capsules'\n[LECLERC_DEBUG] attempt #2 with query 'L'OR L'OR 50CAPSULES L'OR café capsules'\n[LECLERC_DEBUG] results visible -> 11.48s (query='L'OR L'OR 50CAPSULES L'OR café capsules')\n[LECLERC_DEBUG] after result pause -> 11.83s\n[LECLERC_DEBUG] too many results, refining with 'L'OR L'OR 50CAPSULES L'OR café capsules'\n[LECLERC_DEBUG] attempt #3 with query 'L'OR café ristretto 50'\n[LECLERC_DEBUG] results visible -> 15.53s (query='L'OR café ristretto 50')\n[LECLERC_DEBUG] after result pause -> 15.81s",
+      "metadata": {
+        "attempt_query": "L'OR L'OR 50CAPSULES L'OR café",
+        "timeout_s": 45
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,79",
+        "title": "L'Or Espresso Café Decaffeinato  intensité 6 x10 capsules 52g",
+        "url": "https://courses.monoprix.fr/products/l-or-espresso-caf%C3%A9-decaffeinato-inten sit%C3%A9-6-x10-capsules-52g/MPX_2948471",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/70c9 107e-c49f-457a-b518-16575f9c11fa/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/70c9 107e-c49f-457a-b518-16575f9c11fa/300x300.jpg",
+        "matched_ean": null,
+        "unit_price": "72,88 € / KG",
+        "quantity": "52 G",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nEpicerie Sucrée\nCafé, Thé et Boisson  chaude\nCafé\nCompatible Nespresso\nL'Or Espresso Café Decaffeinato intensité 6  x10 capsules 52g\n2 m+\n2 mois de garantie de vie du produit\n52g 72,88 € /  kilo\n52g\n(72,88 € / kilo)\n3,79 €\nAjouter\nInformations  produit\n\n\nDescription Produit\nLe café décaféiné en capsule L’OR Espresso  DECAFFEINATO est un expresso élégant, au goût ponctué de notes de cacao et d’une pointe de baies sauvages. Une expérience café déca à partager après le repas du  soir, ou pour une pause plaisir à tout moment de la journée. Format : pack de 10 capsules. Couleur : bleu ciel. Niveau d’intensité : 6. Les capsules L’OR  Espresso sont compatibles avec votre machine à café L'OR BARISTA ® et Nespresso  ®*. Parfumé, riche et aromatique, les amateurs apprécient la douceur et le goût  fuité du café L'OR. Que vous l’aimiez serré, expresso ou allongé, la capsule en  aluminium permet de préserver ses arômes. Nos capsules en aluminium sont  fabriquées en France. Elles sont recyclables dans les poubelles de tri sélectif  pour les communes recyclant les petits emballages en aluminium ou en les  déposant dans l’un des nombreux points de collecte de capsules en aluminium  disponibles. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\n\n\nOrigine\nFrance\nHistoire du produit\nCréé en France en 1992, L’OR  a toujours eu pour ambition de proposer le meilleur café au monde. Depuis, L’OR  séduit nos sens en nous offrant des expériences gustatives intenses pour de  grands moments de dégustation. En 2010, L’OR s’est imposé sur le marché  international avec le lancement de L’OR EspressO, première capsule de café  compatible avec les machines à café Nespresso. Aujourd’hui, la qualité  inégalable du café L’OR continue de séduire les amateurs du monde  entier…\nMarque\nL'Or\nService consommateur\nService Consommateur JDE Numero  Cristal 09 69 32 96 61\nConseils d'utilisation\nLes capsules L’OR Espresso sont  compatibles avec votre machine à café L'OR BARISTA ® et Nespresso ®* Insérez la  capsule dans votre machine à café. Appuyez sur le bouton Expresso (40ml). La  machine s'arrêtera automatiquement quand votre café sera prêt. Soulevez et  fermez le levier pour éjecter la capsule dans le contenu de dosettes usagées.  Ces capsules en aluminium sont recyclables. *Marque appartenant à un tiers  n’ayant aucun lien avec Jacobs Douwe Egberts\nIngredients\nIngrédients : Café\nA propos de la marque\nCréé en France en 1992, L’OR a toujours eu pour ambition de proposer sans doute le meilleur café au monde. Chaque tasse de café L’OR raconte une histoire fascinante. Grâce à la passion et au savoir-faire de ses Maîtres  torréfacteurs, L'OR a élaboré des cafés de grande qualité en révélant le profil  aromatique des meilleurs grains. Suivez vos sens et laissez-vous envahir par  l'intensité de ses arômes. Expresso ou allongé, en grain, moulu ou en capsule,  en format familial ou individuel… il y a tant de manières de déguster un café  L'OR. Les capsules en aluminium L’OR sont compatibles avec votre machine à café  Nespresso®* et L'OR BARISTA®. Ces capsules en aluminium sont recyclables.  Nespresso France a créé la filière de recyclage des capsules en aluminium. JDE  France - et sa marque L’OR - a été le premier acteur du secteur à s’engager aux  côtés de Nespresso France afin de la développer. En 2019, c’est le lancement de  la machine à café L’OR BARISTA®, fabriquée par PHILIPS. Avec cette machine, vous pouvez vous préparer un expresso d'un niveau de qualité professionnel, à  déguster à la maison ou au travail. La machine café L’OR BARISTA® a été créée  pour fonctionner avec les capsules espresso classiques L’OR et les capsules  double espresso L’OR BARISTA®, ainsi qu’avec les capsules Nespresso®* et la  plupart des autres capsules compatibles. Faites votre choix parmi un expresso,  un ristretto, un lungo ou un cappuccino. Innovation : cette machine permet de  préparer un café double dans une tasse, ou deux cafés à la fois. *Marque  appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\nType  d’emballage\nboîte\nProducteur\nJACOBS DOUWE EGBERTS FR SAS 79 BOULEVARD SAINT  GERMAIN///75006/PARIS/FRANCE\nConseil de conservation\nConservez ces capsules de café de préférence dans un endroit sec et à température ambiante\nConseils  d'utilisation\nLes capsules L’OR Espresso sont compatibles avec votre machine à  café L'OR BARISTA ® et Nespresso ®* Insérez la capsule dans votre machine à  café. Appuyez sur le bouton Expresso (40ml). La machine s'arrêtera  automatiquement quand votre café sera prêt. Soulevez et fermez le levier pour  éjecter la capsule dans le contenu de dosettes usagées. Ces capsules en  aluminium sont recyclables. *Marque appartenant à un tiers n’ayant aucun lien  avec Jacobs Douwe Egberts\nNous contacter\n(s’ouvre dans une nouvelle  fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": null,
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [
+            "image_mismatch"
+          ],
+          "candidate_quantity": "52 G",
+          "descriptor_token_coverage": {
+            "coverage": 1.0,
+            "matched": [
+              "cafe",
+              "capsules",
+              "compatible",
+              "intensite",
+              "nespresso",
+              "ristretto"
+            ],
+            "missing": [],
+            "total": 6
+          },
+          "missing_tokens": [],
+          "image_match": false,
+          "final_score": -5,
+          "plausible_baseline": true,
+          "notes": [
+            "accepted_without_image_match_high_coverage"
+          ],
+          "equivalent": true
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/l-or-espresso-café-decaffeinato-intensité- 6-x10-capsules-52g/MPX_2948471",
+            "product": {
+              "title": "L'Or Espresso Café Decaffeinato intensité 6 x10 capsules 52g",
+              "brand": "L'Or",
+              "kind": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+              "qty": "52 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/70c9 107e-c49f-457a-b518-16575f9c11fa/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/l-or-espresso-décaffeinato-café-en-capsule s-x30-intensite-6-156g/MPX_6725116",
+            "product": {
+              "title": "",
+              "brand": "L'Or",
+              "kind": "Café Capsules Ristretto Intensité 11 Compatible   Nespresso L'OR",
+              "qty": "50 capsules",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/l-or-espresso-lungo-décaffeinato-café-en-c apsules-intensite-6-x10-52g/MPX_6725115",
+            "product": {
+              "title": "",
+              "brand": "L'Or",
+              "kind": "Café Capsules Ristretto Intensité 11  Compatible  Nespresso L'OR",
+              "qty": "50 capsules",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/carte-d-or-crème-glacée-café-arabica-374g/ MPX_6666833",
+            "product": {
+              "title": "",
+              "brand": "L'Or",
+              "kind": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+              "qty": "50 capsules",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-24T14:34:13.675201+01:00",
+      "finished_at": "2025-11-24T14:34:42.300934+01:00",
+      "duration_seconds": 28.625733,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "Or nespresso 260 G",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '8711000705094'.\n[MONOPRIX_DEBUG] Search terms: [\"l'or 50 capsules\", \"l'or cafe\", \"l'or cafe ristretto\"]\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez']\n[MONOPRIX_DEBUG]  - Term 1/3: 'l'or 50 capsules'\n[MONOPRIX_DEBUG]  - Typing 'l'or 50 capsules' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=l%27or%2050%20capsules\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'l'or cafe'\n[MONOPRIX_DEBUG]  - Typing 'l'or cafe' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=l%27or%20cafe\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 7 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/l-or-espresso-café-decaffeinato-intensité-6-x10-capsules-52g/MPX_2948471\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/70c9107e-c49f-457a-b518-16575f9c11fa/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/l-or-espresso-café-decaffeinato-intensité-6-x10-capsules-52g/MPX_2948471\n[MONOPRIX_DEBUG][SCORE] - Title: 'L'Or Espresso Café Decaffeinato intensité 6 x10 capsules 52g' | Brand: 'l'or' | Variant(seed/cand)=(None/None) | Vetoes=[] | NegHits=[] | Score=-5 | Plausible=True\n[MONOPRIX_DEBUG]  - No image match for 'L'Or Espresso Café Decaffeinato intensité 6 x10 capsules 52g'.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='3,79', title=\"L'Or Espresso Café Decaffeinato intensité 6 x10 capsules 52g\", url='https://courses.monoprix.fr/products/l-or-espresso-caf%C3%A9-decaffeinato-intensit%C3%A9-6-x10-capsules-52g/MPX_2948471', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/70c9107e-c49f-457a-b518-16575f9c11fa/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/70c9107e-c49f-457a-b518-16575f9c11fa/300x300.jpg', matched_ean=None, unit_price='72,88 € / KG', quantity='52 G', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEpicerie Sucrée\\nCafé, Thé et Boisson chaude\\nCafé\\nCompatible Nespresso\\nL'Or Espresso Café Decaffeinato intensité 6 x10 capsules 52g\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n52g 72,88\\xa0€ / kilo\\n52g\\n(72,88\\xa0€ / kilo)\\n3,79\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLe café décaféiné en capsule L’OR Espresso DECAFFEINATO est un expresso élégant, au goût ponctué de notes de cacao et d’une pointe de baies sauvages. Une expérience café déca à partager après le repas du soir, ou pour une pause plaisir à tout moment de la journée. Format : pack de 10 capsules. Couleur : bleu ciel. Niveau d’intensité : 6. Les capsules L’OR Espresso sont compatibles avec votre machine à café L'OR BARISTA ® et Nespresso ®*. Parfumé, riche et aromatique, les amateurs apprécient la douceur et le goût fuité du café L'OR. Que vous l’aimiez serré, expresso ou allongé, la capsule en aluminium permet de préserver ses arômes. Nos capsules en aluminium sont fabriquées en France. Elles sont recyclables dans les poubelles de tri sélectif pour les communes recyclant les petits emballages en aluminium ou en les déposant dans l’un des nombreux points de collecte de capsules en aluminium disponibles. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\\n\\n\\nOrigine\\nFrance\\nHistoire du produit\\nCréé en France en 1992, L’OR a toujours eu pour ambition de proposer le meilleur café au monde. Depuis, L’OR séduit nos sens en nous offrant des expériences gustatives intenses pour de grands moments de dégustation. En 2010, L’OR s’est imposé sur le marché international avec le lancement de L’OR EspressO, première capsule de café compatible avec les machines à café Nespresso. Aujourd’hui, la qualité inégalable du café L’OR continue de séduire les amateurs du monde entier…\\nMarque\\nL'Or\\nService consommateur\\nService Consommateur JDE Numero Cristal 09 69 32 96 61\\nConseils d'utilisation\\nLes capsules L’OR Espresso sont compatibles avec votre machine à café L'OR BARISTA ® et Nespresso ®* Insérez la capsule dans votre machine à café. Appuyez sur le bouton Expresso (40ml). La machine s'arrêtera automatiquement quand votre café sera prêt. Soulevez et fermez le levier pour éjecter la capsule dans le contenu de dosettes usagées. Ces capsules en aluminium sont recyclables. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\\nIngredients\\nIngrédients : Café\\nA propos de la marque\\nCréé en France en 1992, L’OR a toujours eu pour ambition de proposer sans doute le meilleur café au monde. Chaque tasse de café L’OR raconte une histoire fascinante. Grâce à la passion et au savoir-faire de ses Maîtres torréfacteurs, L'OR a élaboré des cafés de grande qualité en révélant le profil aromatique des meilleurs grains. Suivez vos sens et laissez-vous envahir par l'intensité de ses arômes. Expresso ou allongé, en grain, moulu ou en capsule, en format familial ou individuel… il y a tant de manières de déguster un café L'OR. Les capsules en aluminium L’OR sont compatibles avec votre machine à café Nespresso®* et L'OR BARISTA®. Ces capsules en aluminium sont recyclables. Nespresso France a créé la filière de recyclage des capsules en aluminium. JDE France - et sa marque L’OR - a été le premier acteur du secteur à s’engager aux côtés de Nespresso France afin de la développer. En 2019, c’est le lancement de la machine à café L’OR BARISTA®, fabriquée par PHILIPS. Avec cette machine, vous pouvez vous préparer un expresso d'un niveau de qualité professionnel, à déguster à la maison ou au travail. La machine café L’OR BARISTA® a été créée pour fonctionner avec les capsules espresso classiques L’OR et les capsules double espresso L’OR BARISTA®, ainsi qu’avec les capsules Nespresso®* et la plupart des autres capsules compatibles. Faites votre choix parmi un expresso, un ristretto, un lungo ou un cappuccino. Innovation : cette machine permet de préparer un café double dans une tasse, ou deux cafés à la fois. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\\nType d’emballage\\nboîte\\nProducteur\\nJACOBS DOUWE EGBERTS FR SAS 79 BOULEVARD SAINT GERMAIN///75006/PARIS/FRANCE\\nConseil de conservation\\nConservez ces capsules de café de préférence dans un endroit sec et à température ambiante\\nConseils d'utilisation\\nLes capsules L’OR Espresso sont compatibles avec votre machine à café L'OR BARISTA ® et Nespresso ®* Insérez la capsule dans votre machine à café. Appuyez sur le bouton Expresso (40ml). La machine s'arrêtera automatiquement quand votre café sera prêt. Soulevez et fermez le levier pour éjecter la capsule dans le contenu de dosettes usagées. Ces capsules en aluminium sont recyclables. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['image_mismatch'], 'candidate_quantity': '52 G', 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['cafe', 'capsules', 'compatible', 'intensite', 'nespresso', 'ristretto'], 'missing': [], 'total': 6}, 'missing_tokens': [], 'image_match': False, 'final_score': -5, 'plausible_baseline': True, 'notes': ['accepted_without_image_match_high_coverage'], 'equivalent': True}, candidates=[{'url': 'https://courses.monoprix.fr/products/l-or-espresso-café-decaffeinato-intensité-6-x10-capsules-52g/MPX_2948471', 'status': 'OK_PARTIAL', 'product': {'title': \"L'Or Espresso Café Decaffeinato intensité 6 x10 capsules 52g\", 'brand': \"L'Or\", 'kind': \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\", 'qty': '52 G', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/70c9107e-c49f-457a-b518-16575f9c11fa/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEpicerie Sucrée\\nCafé, Thé et Boisson chaude\\nCafé\\nCompatible Nespresso\\nL'Or Espresso Café Decaffeinato intensité 6 x10 capsules 52g\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n52g 72,88\\xa0€ / kilo\\n52g\\n(72,88\\xa0€ / kilo)\\n3,79\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLe café décaféiné en capsule L’OR Espresso DECAFFEINATO est un expresso élégant, au goût ponctué de notes de cacao et d’une pointe de baies sauvages. Une expérience café déca à partager après le repas du soir, ou pour une pause plaisir à tout moment de la journée. Format : pack de 10 capsules. Couleur : bleu ciel. Niveau d’intensité : 6. Les capsules L’OR Espresso sont compatibles avec votre machine à café L'OR BARISTA ® et Nespresso ®*. Parfumé, riche et aromatique, les amateurs apprécient la douceur et le goût fuité du café L'OR. Que vous l’aimiez serré, expresso ou allongé, la capsule en aluminium permet de préserver ses arômes. Nos capsules en aluminium sont fabriquées en France. Elles sont recyclables dans les poubelles de tri sélectif pour les communes recyclant les petits emballages en aluminium ou en les déposant dans l’un des nombreux points de collecte de capsules en aluminium disponibles. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\\n\\n\\nOrigine\\nFrance\\nHistoire du produit\\nCréé en France en 1992, L’OR a toujours eu pour ambition de proposer le meilleur café au monde. Depuis, L’OR séduit nos sens en nous offrant des expériences gustatives intenses pour de grands moments de dégustation. En 2010, L’OR s’est imposé sur le marché international avec le lancement de L’OR EspressO, première capsule de café compatible avec les machines à café Nespresso. Aujourd’hui, la qualité inégalable du café L’OR continue de séduire les amateurs du monde entier…\\nMarque\\nL'Or\\nService consommateur\\nService Consommateur JDE Numero Cristal 09 69 32 96 61\\nConseils d'utilisation\\nLes capsules L’OR Espresso sont compatibles avec votre machine à café L'OR BARISTA ® et Nespresso ®* Insérez la capsule dans votre machine à café. Appuyez sur le bouton Expresso (40ml). La machine s'arrêtera automatiquement quand votre café sera prêt. Soulevez et fermez le levier pour éjecter la capsule dans le contenu de dosettes usagées. Ces capsules en aluminium sont recyclables. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\\nIngredients\\nIngrédients : Café\\nA propos de la marque\\nCréé en France en 1992, L’OR a toujours eu pour ambition de proposer sans doute le meilleur café au monde. Chaque tasse de café L’OR raconte une histoire fascinante. Grâce à la passion et au savoir-faire de ses Maîtres torréfacteurs, L'OR a élaboré des cafés de grande qualité en révélant le profil aromatique des meilleurs grains. Suivez vos sens et laissez-vous envahir par l'intensité de ses arômes. Expresso ou allongé, en grain, moulu ou en capsule, en format familial ou individuel… il y a tant de manières de déguster un café L'OR. Les capsules en aluminium L’OR sont compatibles avec votre machine à café Nespresso®* et L'OR BARISTA®. Ces capsules en aluminium sont recyclables. Nespresso France a créé la filière de recyclage des capsules en aluminium. JDE France - et sa marque L’OR - a été le premier acteur du secteur à s’engager aux côtés de Nespresso France afin de la développer. En 2019, c’est le lancement de la machine à café L’OR BARISTA®, fabriquée par PHILIPS. Avec cette machine, vous pouvez vous préparer un expresso d'un niveau de qualité professionnel, à déguster à la maison ou au travail. La machine café L’OR BARISTA® a été créée pour fonctionner avec les capsules espresso classiques L’OR et les capsules double espresso L’OR BARISTA®, ainsi qu’avec les capsules Nespresso®* et la plupart des autres capsules compatibles. Faites votre choix parmi un expresso, un ristretto, un lungo ou un cappuccino. Innovation : cette machine permet de préparer un café double dans une tasse, ou deux cafés à la fois. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\\nType d’emballage\\nboîte\\nProducteur\\nJACOBS DOUWE EGBERTS FR SAS 79 BOULEVARD SAINT GERMAIN///75006/PARIS/FRANCE\\nConseil de conservation\\nConservez ces capsules de café de préférence dans un endroit sec et à température ambiante\\nConseils d'utilisation\\nLes capsules L’OR Espresso sont compatibles avec votre machine à café L'OR BARISTA ® et Nespresso ®* Insérez la capsule dans votre machine à café. Appuyez sur le bouton Expresso (40ml). La machine s'arrêtera automatiquement quand votre café sera prêt. Soulevez et fermez le levier pour éjecter la capsule dans le contenu de dosettes usagées. Ces capsules en aluminium sont recyclables. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '72,88 € / KG', 'price': '3,79'}, 'score': -5.0, 'extras': {'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['image_mismatch'], 'candidate_quantity': '52 G', 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['cafe', 'capsules', 'compatible', 'intensite', 'nespresso', 'ristretto'], 'missing': [], 'total': 6}, 'missing_tokens': [], 'image_match': False, 'final_score': -5, 'plausible_baseline': True}}, {'url': 'https://courses.monoprix.fr/products/l-or-espresso-décaffeinato-café-en-capsules-x30-intensite-6-156g/MPX_6725116', 'status': 'PENDING', 'product': {'title': '', 'brand': \"L'Or\", 'kind': \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\", 'qty': '50 capsules', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}, {'url': 'https://courses.monoprix.fr/products/l-or-espresso-lungo-décaffeinato-café-en-capsules-intensite-6-x10-52g/MPX_6725115', 'status': 'PENDING', 'product': {'title': '', 'brand': \"L'Or\", 'kind': \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\", 'qty': '50 capsules', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}, {'url': 'https://courses.monoprix.fr/products/carte-d-or-crème-glacée-café-arabica-374g/MPX_6666833', 'status': 'PENDING', 'product': {'title': '', 'brand': \"L'Or\", 'kind': \"Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR\", 'qty': '50 capsules', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Or nespresso 260 G"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+      "brand": "Café",
+      "kind": "",
+      "qty": "50 L",
+      "qualifiers": [],
+      "ean": "8711000705094",
+      "image_url": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087 d53d/08711000705094_H1N1_s09.png",
+      "source": "consolidated",
+      "raw_text": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Café Capsules Ristretto Intensité",
+      "Café Capsules Ristretto",
+      "Café Café 50L Café 50 Café 500",
+      "Café capsules ristretto 50L",
+      "Café ristretto intensité 11",
+      "Café capsules Nespresso LOR",
+      "Café nespresso 50 L",
+      "Café nespresso 50.00 L"
+    ],
+    "candidates": [
+      {
+        "adapter": "monoprix",
+        "url": "https://courses.monoprix.fr/products/l-or-espresso-café-decaffeinato-intensité- 6-x10-capsules-52g/MPX_2948471",
+        "score": 0.0,
+        "product": {
+          "title": "L'Or Espresso Café Decaffeinato intensité 6 x10 capsules 52g",
+          "brand": "L'Or",
+          "kind": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "qty": "52 G",
+          "qualifiers": [],
+          "ean": null,
+          "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/70c9 107e-c49f-457a-b518-16575f9c11fa/300x300.jpg",
+          "source": "monoprix",
+          "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "monoprix",
+        "url": "https://courses.monoprix.fr/products/l-or-espresso-décaffeinato-café-en-capsule s-x30-intensite-6-156g/MPX_6725116",
+        "score": 0.0,
+        "product": {
+          "title": "",
+          "brand": "L'Or",
+          "kind": "Café Capsules Ristretto Intensité 11 Compatible   Nespresso L'OR",
+          "qty": "50 capsules",
+          "qualifiers": [],
+          "ean": null,
+          "image_url": null,
+          "source": "monoprix",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "monoprix",
+        "url": "https://courses.monoprix.fr/products/l-or-espresso-lungo-décaffeinato-café-en-c apsules-intensite-6-x10-52g/MPX_6725115",
+        "score": 0.0,
+        "product": {
+          "title": "",
+          "brand": "L'Or",
+          "kind": "Café Capsules Ristretto Intensité 11  Compatible  Nespresso L'OR",
+          "qty": "50 capsules",
+          "qualifiers": [],
+          "ean": null,
+          "image_url": null,
+          "source": "monoprix",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "monoprix",
+        "url": "https://courses.monoprix.fr/products/carte-d-or-crème-glacée-café-arabica-374g/ MPX_6666833",
+        "score": 0.0,
+        "product": {
+          "title": "",
+          "brand": "L'Or",
+          "kind": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "qty": "50 capsules",
+          "qualifiers": [],
+          "ean": null,
+          "image_url": null,
+          "source": "monoprix",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      }
+    ],
+    "decision": null,
+    "audit": []
+  }
+}

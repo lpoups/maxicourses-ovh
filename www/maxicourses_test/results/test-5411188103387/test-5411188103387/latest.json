@@ -1,9 +1,9 @@
 {
   "ean": "5411188103387",
   "image_path": null,
-  "started_at": "2025-11-20T19:18:51.459600+01:00",
-  "finished_at": "2025-11-20T19:23:35.524238+01:00",
-  "duration_seconds": 284.064638,
+  "started_at": "2025-11-23T17:46:29.598805+01:00",
+  "finished_at": "2025-11-23T17:51:05.189018+01:00",
+  "duration_seconds": 275.590213,
   "reference": {
     "title": "Dessert végétal soja vanille ALPRO - 500g",
     "description": "Dessert végétal soja vanille ALPRO - 500g",
@@ -20,7 +20,7 @@
     "nova_group": null
   },
   "notes": [
-    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251120-191851"
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251123-174629"
   ],
   "adapters": [
     {
@@ -51,12 +51,14 @@
           "ean": "5411188103387",
           "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac19 4cb6/05411188103387_H1N1_s42.png",
           "source": "carrefour_city",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T19:18:51.460692+01:00",
-      "finished_at": "2025-11-20T19:19:14.421946+01:00",
-      "duration_seconds": 22.961254,
+      "started_at": "2025-11-23T17:46:29.599909+01:00",
+      "finished_at": "2025-11-23T17:46:49.445878+01:00",
+      "duration_seconds": 19.845969,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -103,12 +105,14 @@
           "ean": "5411188103387",
           "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac19 4cb6/05411188103387_H1N1_s42.png",
           "source": "carrefour_market",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T19:19:14.424659+01:00",
-      "finished_at": "2025-11-20T19:19:36.854093+01:00",
-      "duration_seconds": 22.429434,
+      "started_at": "2025-11-23T17:46:49.450754+01:00",
+      "finished_at": "2025-11-23T17:47:10.927419+01:00",
+      "duration_seconds": 21.476665,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -155,12 +159,14 @@
           "ean": "5411188103387",
           "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac19 4cb6/05411188103387_H1N1_s42.png",
           "source": "carrefour_super",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T19:19:36.855297+01:00",
-      "finished_at": "2025-11-20T19:19:55.265165+01:00",
-      "duration_seconds": 18.409868,
+      "started_at": "2025-11-23T17:47:10.930819+01:00",
+      "finished_at": "2025-11-23T17:47:29.961028+01:00",
+      "duration_seconds": 19.030209,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -205,12 +211,14 @@
           "ean": "5411188103387",
           "image_url": "https://cdn.auchan.fr/media/P020000000005A1PRIMARY_1200x1200/B2CD/",
           "source": "auchan",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T19:19:55.266287+01:00",
-      "finished_at": "2025-11-20T19:20:07.057459+01:00",
-      "duration_seconds": 11.791172,
+      "started_at": "2025-11-23T17:47:29.964265+01:00",
+      "finished_at": "2025-11-23T17:47:41.810440+01:00",
+      "duration_seconds": 11.846175,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -224,7 +232,7 @@
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] results visible, opening first candidate",
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results visible, opening first candidate",
       "metadata": {
         "attempt_query": "5411188103387"
       }
@@ -256,12 +264,14 @@
           "ean": "5411188103387",
           "image_url": null,
           "source": "chronodrive",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T19:20:07.059204+01:00",
-      "finished_at": "2025-11-20T19:20:14.833794+01:00",
-      "duration_seconds": 7.77459,
+      "started_at": "2025-11-23T17:47:41.814060+01:00",
+      "finished_at": "2025-11-23T17:47:48.262529+01:00",
+      "duration_seconds": 6.448469,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -290,11 +300,11 @@
         "quantity": "500  g",
         "title": "Dessert végétal soja vanille ALPRO - 500g",
         "url": "https://www.coursesu.com/p/dessert-vegetal-soja-vanille-alpro---500g/2764270.ht ml",
-        "note": "2025-11-20T18:20:46Z · Super U Eysines",
+        "note": "2025-11-23T16:48:21Z · Super U Eysines",
         "store": "Super U  Eysines",
         "matched_ean": "5411188103387",
-        "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
         "_meta": {
           "supports_ean": true
         },
@@ -307,12 +317,14 @@
           "ean": "5411188103387",
           "image_url": null,
           "source": "courseu",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T19:20:14.834857+01:00",
-      "finished_at": "2025-11-20T19:20:46.351312+01:00",
-      "duration_seconds": 31.516455,
+      "started_at": "2025-11-23T17:47:48.265657+01:00",
+      "finished_at": "2025-11-23T17:48:21.569901+01:00",
+      "duration_seconds": 33.304244,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -356,12 +368,14 @@
           "ean": "5411188103387",
           "image_url": "https://www.g20-minute.com/media/cache/product_box_image/a9/5c/dd21e655fc146ab275647b51679b.jpg",
           "source": "g20",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-20T19:20:46.352477+01:00",
-      "finished_at": "2025-11-20T19:20:47.023566+01:00",
-      "duration_seconds": 0.671089,
+      "started_at": "2025-11-23T17:48:21.572851+01:00",
+      "finished_at": "2025-11-23T17:48:22.557372+01:00",
+      "duration_seconds": 0.984521,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -377,6 +391,146 @@
       "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
       "metadata": {
         "attempt_query": "5411188103387"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,99",
+        "unit_price": "5,98 €/KILO",
+        "quantity": "500g",
+        "title": "Alpro Dessert Végétal Vanille Soja 500g",
+        "url": "https://www.mescoursesdeproximite.com/produit/alpro-dessert-vegetal-vanille-soja-500g-pot-casino-shop-33130/TZ193/306568",
+        "note": "Casino Shop · Bègles Pruniers",
+        "store": "Casino Shop · Bègles Pruniers",
+        "matched_ean": "5411188103387",
+        "image": "https://www.mescoursesdeproximite.com/images/produits/vignette/306568_M1_S1.jpg",
+        "product": {
+          "title": "Alpro Dessert Végétal Vanille Soja 500g",
+          "brand": "Danone",
+          "qty": "500g",
+          "ean": "5411188103387",
+          "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/306568_M1_S1.jpg",
+          "source": "casino"
+        },
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Alpro%20500%20G",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Alpro 500 G",
+          "timestamp": "2025-11-23T16:48:23.334399+00:00",
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/alpro-dessert-vegetal-vanille-soja-500g-pot-casino-shop-33130/TZ193/306568",
+            "product": {
+              "title": "Alpro Dessert Végétal Vanille Soja 500g",
+              "brand": "Danone",
+              "kind": "",
+              "qty": "500g",
+              "qualifiers": [],
+              "ean": "5411188103387",
+              "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/306568_M1_S1.jpg",
+              "source": "casino",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-23T17:48:23.174096+01:00",
+      "finished_at": "2025-11-23T17:48:25.008750+01:00",
+      "duration_seconds": 1.834654,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5411188103387",
+        "QUERY": "Alpro 500 G",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Alpro 500 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251123-174629/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,99",
+        "unit_price": "5,98 €/KILO",
+        "quantity": "500g",
+        "title": "Alpro Dessert Végétal Vanille Soja 500g",
+        "url": "https://www.mescoursesdeproximite.com/produit/alpro-dessert-vegetal-vanille-soja-500g-pot-spar-33160/TL832/306568",
+        "note": "Spar Super · Saint-Médard-en-Jalles",
+        "store": "Spar Super · Saint-Médard-en-Jalles",
+        "matched_ean": "5411188103387",
+        "image": "https://www.mescoursesdeproximite.com/images/produits/vignette/306568_M1_S1.jpg",
+        "product": {
+          "title": "Alpro Dessert Végétal Vanille Soja 500g",
+          "brand": "Danone",
+          "qty": "500g",
+          "ean": "5411188103387",
+          "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/306568_M1_S1.jpg",
+          "source": "casino"
+        },
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Alpro%20500%20G",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Alpro 500 G",
+          "timestamp": "2025-11-23T16:48:25.166753+00:00",
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/alpro-dessert-vegetal-vanille-soja-500g-pot-spar-33160/TL832/306568",
+            "product": {
+              "title": "Alpro Dessert Végétal Vanille Soja 500g",
+              "brand": "Danone",
+              "kind": "",
+              "qty": "500g",
+              "qualifiers": [],
+              "ean": "5411188103387",
+              "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/306568_M1_S1.jpg",
+              "source": "spar",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-23T17:48:25.010114+01:00",
+      "finished_at": "2025-11-23T17:48:26.296399+01:00",
+      "duration_seconds": 1.286285,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5411188103387",
+        "QUERY": "Alpro 500 G",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Alpro 500 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251123-174629/09-spar"
       }
     },
     {
@@ -404,35 +558,9 @@
               "ean": "5411188112709",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/boisson-vegetale-a-l'avoine/5411188115366",
-            "product": {
-              "title": "AlproBoisson végétale à l'avoine",
-              "brand": "Alpro",
-              "kind": "Dessert végétal soja vanille ALPRO",
-              "qty": "500 g",
-              "qualifiers": [],
-              "ean": "5411188115366",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/boisson-vegetale-lait-d'amande-grillee-/541 1188110835",
-            "product": {
-              "title": "AlproBoisson végétale  lait d'amande grillée ,",
-              "brand": "Alpro",
-              "kind": "Dessert végétal soja  vanille ALPRO",
-              "qty": "500 g",
-              "qualifiers": [],
-              "ean": "1188110835",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -446,7 +574,9 @@
               "ean": "5411188103387",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ],
@@ -456,9 +586,9 @@
         "nutriscore_grade": "e",
         "nutriscore_image": "https://www.intermarche.com/icons/nutriscore/score=A.svg"
       },
-      "started_at": "2025-11-20T19:20:47.649652+01:00",
-      "finished_at": "2025-11-20T19:22:08.785351+01:00",
-      "duration_seconds": 81.135699,
+      "started_at": "2025-11-23T17:48:26.297671+01:00",
+      "finished_at": "2025-11-23T17:49:22.851725+01:00",
+      "duration_seconds": 56.554054,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -475,7 +605,7 @@
       "stderr": null,
       "metadata": {
         "attempt_query": "Alpro 500 G",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251120-191851/08-intermarche"
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251123-174629/10-intermarche"
       }
     },
     {
@@ -490,7 +620,7 @@
         "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
         "matched_ean": "5411188103387",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-20T18:23:17Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-23T16:50:35Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
@@ -507,7 +637,9 @@
               "ean": "5411188119098",
               "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2976080&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -521,14 +653,16 @@
               "ean": "5411188103387",
               "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2977672&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ]
       },
-      "started_at": "2025-11-20T19:22:08.787524+01:00",
-      "finished_at": "2025-11-20T19:23:17.620887+01:00",
-      "duration_seconds": 68.833363,
+      "started_at": "2025-11-23T17:49:22.853698+01:00",
+      "finished_at": "2025-11-23T17:50:35.376667+01:00",
+      "duration_seconds": 72.522969,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -536,16 +670,16 @@
       ],
       "env": {
         "EAN": "5411188103387",
-        "QUERY": "Dessert végétal soja vanille ALPRO 500 G",
+        "QUERY": "Alpro Dessert 500 G",
         "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
         "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Dessert végétal soja vanille ALPRO 500 G'\n[LECLERC_DEBUG] after home human pause -> 1.69s\n[LECLERC_DEBUG] after focus -> 2.47s\n[LECLERC_DEBUG] results visible -> 4.19s\n[LECLERC_DEBUG] after result pause -> 4.29s",
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=False | delays => human:200ms result:300ms pdp:300ms type:[8,18] query:'Alpro Dessert 500 G'\n[LECLERC_DEBUG] after home human pause -> 2.31s\n[LECLERC_DEBUG] Page source saved to /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/leclerc_debug_source.html\n[LECLERC_DEBUG] Screenshot saved to /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/leclerc_debug_screenshot.png\n[LECLERC_DEBUG] attempt #1 with query 'Alpro Dessert 500 G'\n[LECLERC_DEBUG] results visible -> 6.54s (query='Alpro Dessert 500 G')\n[LECLERC_DEBUG] after result pause -> 6.88s",
       "metadata": {
-        "attempt_query": "Dessert végétal soja vanille ALPRO 500 G",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251120-191851/09-leclerc"
+        "attempt_query": "Alpro Dessert 500 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251123-174629/11-leclerc"
       }
     },
     {
@@ -562,7 +696,7 @@
         "unit_price": "4,90 € / KG",
         "quantity": "500 G",
         "store": null,
-        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nCalendrier de l'avent\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nRégimes alimentaires\nVegan\nDessert  vegan\nAlpro Dessert Végétal Vanille Soja 500g\n1 s+\n1 semaine de garantie de  vie du produit\nNutriscore A\n500g 4,90 € / kilo\n500g\n(4,90 € / kilo)\n2,45  €\nAjouter\nInformations produit\n\n\nDescription Produit\nEnvie d'une pause  gourmande et naturellement sans lactose ? Alerte au régal végétal !  Délicieusement onctueux, le brassé végétal alpro soja Vanille 100% gourmand  contribue à vos apports quotidiens en 5 nutriments essentiels (riche en  protéines, source de calcium et de vitamines B12, B2 et D2). A déguster à tout  moment de la journée !\n\n\nOrigine\nBelgique\nMarque\nDanone\nService  consommateur\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\nConseils  d'utilisation\nSe mange à la cuillère\nIngredients\n\nINGRÉDIENTS: jus de SOJA  (90,9%), sucre, stabilisant (pectines), correcteurs d'acidité (acide citrique,  citrates de sodium), calcium, concentré de carotte, sel marin de table, arômes,  arôme naturel de vanille, vanille en poudre (0,03%), antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), vitamines (2, B12,  D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\n\nAllergènes\nContient : SOJA\nType d’emballage\nbocal\nProducteur\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\nConseil de conservation\nA conserver  au frais à max. 7°C. Après ouverture, se conserve 5 jours.\nConseils  d'utilisation\nSe mange à la cuillère\nValeurs nutritionnelles\nINFORMATIONS  NUTRITIONNELLES MOYENNES\n\tpour 100 g\nValeurs Energétique en Kilojoules\t~ 279 kJ\nValeurs Energétique en Kilocalories\t~ 66 kcal\nValeurs  Nutritionnelles\nMatières grasses\t~ 2.2 g\nDont Acides Gras Saturés\t~ 0.4  g\nGlucides\t~ 7.5 g\nDont Sucres\t~ 7.5 g\nProtéines\t~ 3.7 g\nSel\t~ 0.2  g\n\n\nMicro Nutriments\tpour 100 g\nVitamine D\t~ 0.75 µg\nVitamine B12\t~ 0.38 µg\nCalcium\t~ 120 mg\nNous contacter\n(s’ouvre dans une nouvelle  fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)\nMonoprix et  ses partenaires vous offrent une expérience sur mesure\nMonoprix et ses  partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs  types de cookies afin de vous offrir l’expérience la plus fluide possible. Le  dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous  proposer des offres et contenus adaptés, des publicités personnalisées, de  proposer certaines fonctionnalités, d’analyser la performance du site et  d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en  bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans  notreCharte des données personnelles\nVoir la liste de nos  partenaires\nPERSONNALISER MES COOKIES\nJ'ACCEPTE\nCONTINUER SANS ACCEPTER",
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nCalendrier de l'avent\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nRégimes alimentaires\nVegan\nDessert  vegan\nAlpro Dessert Végétal Vanille Soja 500g\n1 s+\n1 semaine de garantie de  vie du produit\nNutriscore A\n500g 4,90 € / kilo\n500g\n(4,90 € / kilo)\n2,45  €\nAjouter\nInformations produit\n\n\nDescription Produit\nEnvie d'une pause  gourmande et naturellement sans lactose ? Alerte au régal végétal !  Délicieusement onctueux, le brassé végétal alpro soja Vanille 100% gourmand  contribue à vos apports quotidiens en 5 nutriments essentiels (riche en  protéines, source de calcium et de vitamines B12, B2 et D2). A déguster à tout  moment de la journée !\n\n\nOrigine\nBelgique\nMarque\nDanone\nService  consommateur\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\nConseils  d'utilisation\nSe mange à la cuillère\nIngredients\n\nINGRÉDIENTS: jus de SOJA  (90,9%), sucre, stabilisant (pectines), correcteurs d'acidité (acide citrique,  citrates de sodium), calcium, concentré de carotte, sel marin de table, arômes,  arôme naturel de vanille, vanille en poudre (0,03%), antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), vitamines (2, B12,  D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\n\nAllergènes\nContient : SOJA\nType d’emballage\nbocal\nProducteur\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\nConseil de conservation\nA conserver  au frais à max. 7°C. Après ouverture, se conserve 5 jours.\nConseils  d'utilisation\nSe mange à la cuillère\nValeurs nutritionnelles\nINFORMATIONS  NUTRITIONNELLES MOYENNES\n\tpour 100 g\nValeurs Energétique en Kilojoules\t~ 279 kJ\nValeurs Energétique en Kilocalories\t~ 66 kcal\nValeurs  Nutritionnelles\nMatières grasses\t~ 2.2 g\nDont Acides Gras Saturés\t~ 0.4  g\nGlucides\t~ 7.5 g\nDont Sucres\t~ 7.5 g\nProtéines\t~ 3.7 g\nSel\t~ 0.2  g\n\n\nMicro Nutriments\tpour 100 g\nVitamine D\t~ 0.75 µg\nVitamine B12\t~ 0.38 µg\nCalcium\t~ 120 mg\nNous contacter\n(s’ouvre dans une nouvelle  fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
         "extras": {
           "seed_variant": null,
           "candidate_variant": "vanille",
@@ -600,7 +734,9 @@
               "ean": "5411188103387",
               "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977 fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg",
               "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -614,7 +750,9 @@
               "ean": null,
               "image_url": null,
               "source": "monoprix",
-              "raw_text": ""
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -628,7 +766,9 @@
               "ean": null,
               "image_url": null,
               "source": "monoprix",
-              "raw_text": ""
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -642,7 +782,9 @@
               "ean": null,
               "image_url": null,
               "source": "monoprix",
-              "raw_text": ""
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ],
@@ -650,9 +792,9 @@
           "supports_keywords": true
         }
       },
-      "started_at": "2025-11-20T19:23:17.627955+01:00",
-      "finished_at": "2025-11-20T19:23:35.442914+01:00",
-      "duration_seconds": 17.814959,
+      "started_at": "2025-11-23T17:50:35.379465+01:00",
+      "finished_at": "2025-11-23T17:51:05.051799+01:00",
+      "duration_seconds": 29.672334,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -666,10 +808,10 @@
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5411188103387'.\n[MONOPRIX_DEBUG] Search terms: ['alpro dessert', 'alpro dessert vegetal', 'Alpro 500 G']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez']\n[MONOPRIX_DEBUG]  - Term 1/3: 'alpro dessert'\n[MONOPRIX_DEBUG]  - Typing 'alpro dessert' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=alpro%20dessert\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 4 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MPX_3305890\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MPX_3305890\n[MONOPRIX_DEBUG][SCORE] - Title: 'Alpro Dessert Végétal Vanille Soja 500g' | Brand: 'alpro' | Variant(seed/cand)=(None/vanille) | Vetoes=[] | NegHits=[] | Score=15 | Plausible=True\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Alpro Dessert Végétal Vanille Soja 500g'.\n[MONOPRIX_DEBUG] Best match (early return): 'Alpro Dessert Végétal Vanille Soja 500g' (Score: 45)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='2,45', title='Alpro Dessert Végétal Vanille Soja 500g', url='https://courses.monoprix.fr/products/alpro-dessert-v%C3%A9g%C3%A9tal-vanille-soja-500g/MPX_3305890', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg', matched_ean='5411188103387', unit_price='4,90 € / KG', quantity='500 G', store=None, raw_text='Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l\\'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Vanille Soja 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nEnvie d\\'une pause gourmande et naturellement sans lactose ? Alerte au régal végétal ! Délicieusement onctueux, le brassé végétal alpro soja Vanille 100% gourmand contribue à vos apports quotidiens en 5 nutriments essentiels (riche en protéines, source de calcium et de vitamines B12, B2 et D2). A déguster à tout moment de la journée !\\n\\n\\nOrigine\\nBelgique\\nMarque\\nDanone\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d\\'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (90,9%), sucre, stabilisant (pectines), correcteurs d\\'acidité (acide citrique, citrates de sodium), calcium, concentré de carotte, sel marin de table, arômes, arôme naturel de vanille, vanille en poudre (0,03%), antioxydants (extrait riche en tocophérols, esters d\\'acides gras de l\\'acide ascorbique), vitamines (2, B12, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d\\'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 279 kJ\\nValeurs Energétique en Kilocalories\\t~ 66 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.2 g\\nDont Acides Gras Saturés\\t~ 0.4 g\\nGlucides\\t~ 7.5 g\\nDont Sucres\\t~ 7.5 g\\nProtéines\\t~ 3.7 g\\nSel\\t~ 0.2 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', extras={'seed_variant': None, 'candidate_variant': 'vanille', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['alpro', 'vanille'], 'missing': [], 'total': 2}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}, candidates=[{'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MPX_3305890', 'status': 'OK_PARTIAL', 'product': {'title': 'Alpro Dessert Végétal Vanille Soja 500g', 'brand': 'Alpro', 'kind': 'Dessert végétal soja vanille ALPRO', 'qty': '500 G', 'qualifiers': [], 'ean': '5411188103387', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l\\'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Vanille Soja 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nEnvie d\\'une pause gourmande et naturellement sans lactose ? Alerte au régal végétal ! Délicieusement onctueux, le brassé végétal alpro soja Vanille 100% gourmand contribue à vos apports quotidiens en 5 nutriments essentiels (riche en protéines, source de calcium et de vitamines B12, B2 et D2). A déguster à tout moment de la journée !\\n\\n\\nOrigine\\nBelgique\\nMarque\\nDanone\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d\\'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (90,9%), sucre, stabilisant (pectines), correcteurs d\\'acidité (acide citrique, citrates de sodium), calcium, concentré de carotte, sel marin de table, arômes, arôme naturel de vanille, vanille en poudre (0,03%), antioxydants (extrait riche en tocophérols, esters d\\'acides gras de l\\'acide ascorbique), vitamines (2, B12, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d\\'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 279 kJ\\nValeurs Energétique en Kilocalories\\t~ 66 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.2 g\\nDont Acides Gras Saturés\\t~ 0.4 g\\nGlucides\\t~ 7.5 g\\nDont Sucres\\t~ 7.5 g\\nProtéines\\t~ 3.7 g\\nSel\\t~ 0.2 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '4,90 € / KG', 'price': '2,45'}, 'score': 45.0, 'extras': {'seed_variant': None, 'candidate_variant': 'vanille', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['alpro', 'vanille'], 'missing': [], 'total': 2}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}}, {'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Alpro', 'kind': 'Dessert végétal soja vanille ALPRO', 'qty': '500  g', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}, {'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-soja-nature-noix-de-coco-500g/MPX_3305889', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Alpro', 'kind': 'Dessert végétal soja vanille ALPRO', 'qty': '500  g', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}, {'url': 'https://courses.monoprix.fr/products/alpro-yaourt-soja-myrtille-500g/MPX_6846108', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Alpro', 'kind': 'Dessert végétal soja vanille ALPRO', 'qty': '500  g', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5411188103387'.\n[MONOPRIX_DEBUG] Search terms: ['alpro 500 g', 'alpro dessert', 'alpro dessert vegetal']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/3: 'alpro 500 g'\n[MONOPRIX_DEBUG]  - Typing 'alpro 500 g' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=alpro%20500%20g\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'alpro dessert'\n[MONOPRIX_DEBUG]  - Typing 'alpro dessert' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=alpro%20dessert\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 4 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MPX_3305890\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MPX_3305890\n[MONOPRIX_DEBUG][SCORE] - Title: 'Alpro Dessert Végétal Vanille Soja 500g' | Brand: 'alpro' | Variant(seed/cand)=(None/vanille) | Vetoes=[] | NegHits=[] | Score=15 | Plausible=True\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Alpro Dessert Végétal Vanille Soja 500g'.\n[MONOPRIX_DEBUG] Best match (early return): 'Alpro Dessert Végétal Vanille Soja 500g' (Score: 45)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='2,45', title='Alpro Dessert Végétal Vanille Soja 500g', url='https://courses.monoprix.fr/products/alpro-dessert-v%C3%A9g%C3%A9tal-vanille-soja-500g/MPX_3305890', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg', matched_ean='5411188103387', unit_price='4,90 € / KG', quantity='500 G', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Vanille Soja 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nEnvie d'une pause gourmande et naturellement sans lactose ? Alerte au régal végétal ! Délicieusement onctueux, le brassé végétal alpro soja Vanille 100% gourmand contribue à vos apports quotidiens en 5 nutriments essentiels (riche en protéines, source de calcium et de vitamines B12, B2 et D2). A déguster à tout moment de la journée !\\n\\n\\nOrigine\\nBelgique\\nMarque\\nDanone\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (90,9%), sucre, stabilisant (pectines), correcteurs d'acidité (acide citrique, citrates de sodium), calcium, concentré de carotte, sel marin de table, arômes, arôme naturel de vanille, vanille en poudre (0,03%), antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), vitamines (2, B12, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 279 kJ\\nValeurs Energétique en Kilocalories\\t~ 66 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.2 g\\nDont Acides Gras Saturés\\t~ 0.4 g\\nGlucides\\t~ 7.5 g\\nDont Sucres\\t~ 7.5 g\\nProtéines\\t~ 3.7 g\\nSel\\t~ 0.2 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': None, 'candidate_variant': 'vanille', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['alpro', 'vanille'], 'missing': [], 'total': 2}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}, candidates=[{'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-vanille-soja-500g/MPX_3305890', 'status': 'OK_PARTIAL', 'product': {'title': 'Alpro Dessert Végétal Vanille Soja 500g', 'brand': 'Alpro', 'kind': 'Dessert végétal soja vanille ALPRO', 'qty': '500 G', 'qualifiers': [], 'ean': '5411188103387', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3977fb34-937b-43a4-a53a-86707c56e4b4/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nRégimes alimentaires\\nVegan\\nDessert vegan\\nAlpro Dessert Végétal Vanille Soja 500g\\n1\\xa0s+\\n1\\xa0semaine de garantie de vie du produit\\nNutriscore A\\n500g 4,90\\xa0€ / kilo\\n500g\\n(4,90\\xa0€ / kilo)\\n2,45\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nEnvie d'une pause gourmande et naturellement sans lactose ? Alerte au régal végétal ! Délicieusement onctueux, le brassé végétal alpro soja Vanille 100% gourmand contribue à vos apports quotidiens en 5 nutriments essentiels (riche en protéines, source de calcium et de vitamines B12, B2 et D2). A déguster à tout moment de la journée !\\n\\n\\nOrigine\\nBelgique\\nMarque\\nDanone\\nService consommateur\\nD.P.F.F. CS 50149 92565 Rueil-Malmaison Cedex\\nConseils d'utilisation\\nSe mange à la cuillère\\nIngredients\\n\\nINGRÉDIENTS: jus de SOJA (90,9%), sucre, stabilisant (pectines), correcteurs d'acidité (acide citrique, citrates de sodium), calcium, concentré de carotte, sel marin de table, arômes, arôme naturel de vanille, vanille en poudre (0,03%), antioxydants (extrait riche en tocophérols, esters d'acides gras de l'acide ascorbique), vitamines (2, B12, D2, ferments de yaourt (S. thermophilus, L. bulgaricus).\\n\\nAllergènes\\nContient : SOJA\\nType d’emballage\\nbocal\\nProducteur\\nDANONE Produits Frais France 150 BD VICTOR HUGO///93589/ST OUEN CEDEX/FRANCE\\nConseil de conservation\\nA conserver au frais à max. 7°C. Après ouverture, se conserve 5 jours.\\nConseils d'utilisation\\nSe mange à la cuillère\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 g\\nValeurs Energétique en Kilojoules\\t~ 279 kJ\\nValeurs Energétique en Kilocalories\\t~ 66 kcal\\nValeurs Nutritionnelles\\nMatières grasses\\t~ 2.2 g\\nDont Acides Gras Saturés\\t~ 0.4 g\\nGlucides\\t~ 7.5 g\\nDont Sucres\\t~ 7.5 g\\nProtéines\\t~ 3.7 g\\nSel\\t~ 0.2 g\\n\\n\\nMicro Nutriments\\tpour 100 g\\nVitamine D\\t~ 0.75 µg\\nVitamine B12\\t~ 0.38 µg\\nCalcium\\t~ 120 mg\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '4,90 € / KG', 'price': '2,45'}, 'score': 45.0, 'extras': {'seed_variant': None, 'candidate_variant': 'vanille', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': [], 'candidate_quantity': '500 G', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['alpro', 'vanille'], 'missing': [], 'total': 2}, 'missing_tokens': [], 'image_match': True, 'final_score': 45, 'plausible_baseline': True}}, {'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-nature-aux-amandes-soja-500g/MPX_3778641', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Alpro', 'kind': 'Dessert végétal soja vanille ALPRO', 'qty': '500  g', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}, {'url': 'https://courses.monoprix.fr/products/alpro-dessert-végétal-soja-nature-noix-de-coco-500g/MPX_3305889', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Alpro', 'kind': 'Dessert végétal soja vanille ALPRO', 'qty': '500  g', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}, {'url': 'https://courses.monoprix.fr/products/alpro-yaourt-soja-myrtille-500g/MPX_6846108', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Alpro', 'kind': 'Dessert végétal soja vanille ALPRO', 'qty': '500  g', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
       "metadata": {
         "attempt_query": "Alpro 500 G",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251120-191851/10-monoprix"
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251123-174629/12-monoprix"
       }
     }
   ],

@@ -1,0 +1,778 @@
+{
+  "ean": "5010029229110",
+  "image_path": null,
+  "started_at": "2025-11-22T11:27:40.852652+01:00",
+  "finished_at": "2025-11-22T11:42:29.475795+01:00",
+  "duration_seconds": 888.623143,
+  "reference": {
+    "title": "Céréales Crispy Minis Chocolat WEETABIX",
+    "description": "Céréales Crispy Minis Chocolat WEETABIX",
+    "source": "carrefour_super",
+    "brand": "Weetabix",
+    "quantity": "500 G",
+    "categories": null,
+    "image": "./assets/5010029229110.jpg",
+    "nutriscore_grade": "c",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-c.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5010029229110/debug/run-5010029229110-20251122-112740"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-22T11:27:40.854129+01:00",
+      "finished_at": "2025-11-22T11:27:56.309531+01:00",
+      "duration_seconds": 15.455402,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,11",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/cereales-crispy-minis-chocolat-weetabix-501002922911 0",
+        "note": null,
+        "unit_price": "8,22 € / KG",
+        "quantity": "500 G",
+        "title": "Céréales Crispy Minis Chocolat WEETABIX",
+        "matched_ean": "5010029229110",
+        "image": "https://media.carrefour.fr/medias/1284e06cc1f24f188a2ac748b5e6eaaa/p_540x540/05 010029229110_A1L1_s04.png",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-c.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Céréales Crispy Minis Chocolat WEETABIX",
+          "brand": "Céréales",
+          "kind": "",
+          "qty": "500 G",
+          "qualifiers": [],
+          "ean": "5010029229110",
+          "image_url": "https://media.carrefour.fr/medias/1284e06cc1f24f188a2ac748b5e6eaaa/p_540x540/05 010029229110_A1L1_s04.png",
+          "source": "carrefour_market",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-22T11:27:56.310505+01:00",
+      "finished_at": "2025-11-22T11:28:17.328799+01:00",
+      "duration_seconds": 21.018294,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,39",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/cereales-crispy-minis-chocolat-weetabix-501002922911 0",
+        "note": null,
+        "unit_price": "6,78 € / KG",
+        "quantity": "500 G",
+        "title": "Céréales Crispy Minis Chocolat WEETABIX",
+        "matched_ean": "5010029229110",
+        "image": "https://media.carrefour.fr/medias/1284e06cc1f24f188a2ac748b5e6eaaa/p_540x540/05 010029229110_A1L1_s04.png",
+        "nutriscore_grade": "a",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-a.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Céréales Crispy Minis Chocolat WEETABIX",
+          "brand": "Céréales",
+          "kind": "",
+          "qty": "500 G",
+          "qualifiers": [],
+          "ean": "5010029229110",
+          "image_url": "https://media.carrefour.fr/medias/1284e06cc1f24f188a2ac748b5e6eaaa/p_540x540/05 010029229110_A1L1_s04.png",
+          "source": "carrefour_super",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-22T11:28:17.331486+01:00",
+      "finished_at": "2025-11-22T11:28:36.485744+01:00",
+      "duration_seconds": 19.154258,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "matched_ean": null,
+        "store": "Auchan Drive  Supermarché Talence-Gallieni",
+        "note": "search_failed:5010029229110",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-22T11:28:36.489386+01:00",
+      "finished_at": "2025-11-22T11:29:04.502221+01:00",
+      "duration_seconds": 28.012835,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results not visible\n[auchan] falling back to search page https://www.auchan.fr/recherche?text=5010029229110\n[auchan] results not visible",
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,59",
+        "title": "Céréales au chocolat WEETABIX Crispy Minis",
+        "url": "https://www.chronodrive.com/weetabix--crispy-minis---cereales-au-chocolat-P5306 56",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "9,18 € / KG",
+        "quantity": "500 g",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "5010029229110",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt54b93afee7e e77aa/nutriscore-b",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Céréales au chocolat WEETABIX Crispy Minis",
+          "brand": "Céréales",
+          "kind": "",
+          "qty": "500 g",
+          "qualifiers": [],
+          "ean": "5010029229110",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-22T11:29:04.503618+01:00",
+      "finished_at": "2025-11-22T11:29:11.186842+01:00",
+      "duration_seconds": 6.683224,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='5010029229110'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/weetabix--crispy-minis---cereales-au-chocolat-P530656",
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,58",
+        "unit_price": "7,16 € / KG",
+        "quantity": "500  g",
+        "title": "Céréales Crispy Minis Choco WEETABIX, 500g",
+        "url": "https://www.coursesu.com/p/cereales-crispy-minis-choco-weetabix-500g/4410714.ht ml",
+        "note": "2025-11-22T10:29:41Z · Super U Eysines",
+        "store": "Super U  Eysines",
+        "matched_ean": "5010029229110",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Céréales Crispy Minis Choco WEETABIX, 500g",
+          "brand": "Céréales",
+          "kind": "",
+          "qty": "500 g",
+          "qualifiers": [],
+          "ean": "5010029229110",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-22T11:29:11.188528+01:00",
+      "finished_at": "2025-11-22T11:29:42.102816+01:00",
+      "duration_seconds": 30.914288,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,99",
+        "title": "WEETABIX Crispy Minis Choco 500g",
+        "url": "https://www.g20-minute.com/products/5010029229110/weetabix-crispy-minis-choco-500g-5010029229110",
+        "note": "G20 Minute",
+        "unit_price": "7,98 €/Kg",
+        "quantity": "500g",
+        "matched_ean": "5010029229110",
+        "image": "https://www.g20-minute.com/media/cache/product_box_image/15/f3/2e7e757212440afb2301e0eca197.jpg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "WEETABIX Crispy Minis Choco 500g",
+          "brand": "WEETABIX",
+          "kind": "",
+          "qty": "500g",
+          "qualifiers": [],
+          "ean": "5010029229110",
+          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/15/f3/2e7e757212440afb2301e0eca197.jpg",
+          "source": "g20",
+          "raw_text": ""
+        }
+      },
+      "started_at": "2025-11-22T11:29:42.104669+01:00",
+      "finished_at": "2025-11-22T11:29:44.190435+01:00",
+      "duration_seconds": 2.085766,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "5010029229110"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=5010029229110",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "5010029229110",
+          "timestamp": "2025-11-22T10:29:45.003219+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-22T11:29:44.842479+01:00",
+      "finished_at": "2025-11-22T11:29:45.664993+01:00",
+      "duration_seconds": 0.822514,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5010029229110",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5010029229110/debug/run-5010029229110-20251122-112740/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=5010029229110",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "5010029229110",
+          "timestamp": "2025-11-22T10:29:49.024888+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-22T11:29:48.883032+01:00",
+      "finished_at": "2025-11-22T11:29:49.524537+01:00",
+      "duration_seconds": 0.641505,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5010029229110",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5010029229110/debug/run-5010029229110-20251122-112740/09-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Intermarché · Super Talence — produit absent",
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/cookie-crisp-cereales-gout-biscuit-pepites- saveur-chocolat/3387390326574",
+            "product": {
+              "title": "NestléCookie Crisp - Céréales goût biscuit pépites saveur chocolat",
+              "brand": "NestléCookie",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3387390326574",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/cereales-cricachoc-chocolat-noisette/325039 2383862",
+            "product": {
+              "title": "Chabrior,  une marque IntermarchéCéréales CricaChoc chocolat noisette",
+              "brand": "Chabrior,",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3250392383862",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/golden-grahams-cereales/3387390339505",
+            "product": {
+              "title": "NestléGolden Grahams - Céréales",
+              "brand": "NestléGolden",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3387390339505",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/cereales-billes-o'-cacao/3250393444425",
+            "product": {
+              "title": "Chabrior, une marque  IntermarchéCéréales Billes O' cacao",
+              "brand": "Chabrior,",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3250393444425",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/chocapic-cereales-chocolat/7613035449626",
+            "product": {
+              "title": "NestléChocapic - Céréales chocolat",
+              "brand": "NestléChocapic",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "7613035449626",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/tresor-cereales-gout-chocolat-noisettes/505 0083535079",
+            "product": {
+              "title": "Kellogg'sTrésor -  Céréales goût chocolat noisettes",
+              "brand": "Kellogg'sTrésor",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "0083535079",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/cereales-crica-choc'-chocolat-noisette/3250 391727414",
+            "product": {
+              "title": "Chabrior, une marque IntermarchéCéréales Crica Choc' chocolat noisette",
+              "brand": "Chabrior,",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "391727414",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/chocapic-cereales-chocolat/3387390123210",
+            "product": {
+              "title": "NestléChocapic - Céréales chocolat",
+              "brand": "NestléChocapic",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3387390123210",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true,
+          "abort_search": true,
+          "abort_reason": "too_many_ean_mismatches",
+          "ean_mismatch_hits": 8
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-11-22T11:29:52.712869+01:00",
+      "finished_at": "2025-11-22T11:32:14.952589+01:00",
+      "duration_seconds": 142.23972,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5010029229110",
+        "abort_reason": "too_many_ean_mismatches",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5010029229110/debug/run-5010029229110-20251122-112740/10-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "NO_MATCH",
+      "payload": {
+        "status": "NO_MATCH",
+        "title": "Chocolat en poudre Equador Pur Cacao non sucré - 250g",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-15288-Mouchoirs-blancs-4-plis-Caresse.aspx",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-22T10:36:03Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-264903-La-Panee-soja-Garden-Gourmet.aspx",
+            "product": {
+              "title": "La Panée soja Garden Gourmet 207g",
+              "brand": "",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8445291659445",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2980155&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-40329-Chocolat-en-poudre-Equador.aspx",
+            "product": {
+              "title": "Chocolat en poudre Equador Pur Cacao non sucré - 250g",
+              "brand": "Chocolat",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700814628",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2120290&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-37467-Infusion-Tisea.aspx",
+            "product": {
+              "title": "Infusion Tiséa Fruits rouges 25 sachets 40g",
+              "brand": "Infusion",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700717752",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2922506&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-241-Soupe-Mouline-Regal-Soupe.aspx",
+            "product": {
+              "title": "Soupe Mouliné Régal Soupe 10 légumes variés - 1L",
+              "brand": "Soupe",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700434437",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2607353&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-13678-Croutons-salade-Epi-dOr.aspx",
+            "product": {
+              "title": "Croûtons salade Epi d'Or Ail et fines herbes - 60g",
+              "brand": "Croûtons",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700434482",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2606040&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24164-The-vert-Briley.aspx",
+            "product": {
+              "title": "Thé vert Briley 32.5g",
+              "brand": "Thé",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700591178",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2645939&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-15288-Mouchoirs-blancs-4-plis-Caresse.aspx",
+            "product": {
+              "title": "Mouchoirs blancs 4 plis Caresse Mini étuis x15",
+              "brand": "Mouchoirs",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700330470",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2824262&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-22T11:32:14.976367+01:00",
+      "finished_at": "2025-11-22T11:36:04.001027+01:00",
+      "duration_seconds": 229.02466,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "Céréales Crispy Minis Chocolat WEETABIX 500 G",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Céréales Crispy Minis Chocolat WEETABIX 500 G'\n[LECLERC_DEBUG] after home human pause -> 1.87s\n[LECLERC_DEBUG] after focus -> 2.75s\n[LECLERC_DEBUG] results visible -> 4.61s\n[LECLERC_DEBUG] after result pause -> 4.71s",
+      "metadata": {
+        "attempt_query": "Céréales Crispy Minis Chocolat WEETABIX 500 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5010029229110/debug/run-5010029229110-20251122-112740/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-11-22T11:42:24.629482+01:00",
+      "finished_at": "2025-11-22T11:42:25.909809+01:00",
+      "duration_seconds": 1.280327,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5010029229110",
+        "QUERY": "5010029229110",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5010029229110'.\n[MONOPRIX_DEBUG] Search terms: ['Weetabix cereales 500 G', 'Weetabix cereales chocolat']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez']\n[MONOPRIX_DEBUG]  - Term 1/2: 'Weetabix cereales 500 G'\n[MONOPRIX_DEBUG]  - Search simulation failed: Page.goto: Target page, context or browser has been closed\n[MONOPRIX_DEBUG]  - Term 2/2: 'Weetabix cereales chocolat'\n[MONOPRIX_DEBUG]  - Search simulation failed: Page.goto: Target page, context or browser has been closed\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, image=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=None)\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "5010029229110",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5010029229110/debug/run-5010029229110-20251122-112740/12-monoprix"
+      }
+    }
+  ],
+  "finder": null
+}

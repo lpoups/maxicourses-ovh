@@ -62,11 +62,16 @@ EAN = os.environ.get("EAN", "").strip()
 QUERY = os.environ.get("QUERY", "").strip()
 STORE_URL = os.environ.get("STORE_URL", "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx")
 CDP_URL = os.environ.get("CDP_URL", "http://127.0.0.1:9222")
-HUMAN_DELAY_MS = env_int("LECLERC_HUMAN_DELAY_MS", 300)
-RESULT_DELAY_MS = env_int("LECLERC_RESULT_DELAY_MS", 600)
-PDP_DELAY_MS = env_int("LECLERC_PDP_DELAY_MS", 400)
+NO_DELAY = os.environ.get("LECLERC_NO_DELAY", "0").lower() in {"1", "true", "yes"}
+HUMAN_DELAY_MS = env_int("LECLERC_HUMAN_DELAY_MS", 100)
+RESULT_DELAY_MS = env_int("LECLERC_RESULT_DELAY_MS", 100)
+PDP_DELAY_MS = env_int("LECLERC_PDP_DELAY_MS", 100)
 TYPE_MIN_DELAY = env_int("LECLERC_TYPE_MIN_MS", 8)
 FAST_MODE = os.environ.get("LECLERC_FAST_MODE", "1").lower() in {"1", "true", "yes"}
+MAX_RESULT_DELAY_MS = 2000  # plafond voulu entre deux lectures de listing
+MAX_PDP_DELAY_MS = 2000     # plafond voulu entre ouverture d'une fiche et retour
+MIN_DELAY_MS = 0 if NO_DELAY else 25   # floor divisé par 2
+MIN_ADAPTIVE_MS = 0 if NO_DELAY else 50
 
 
 def _env_delay(name: str, default: int, *, minimum: int = 50) -> int:
@@ -76,17 +81,21 @@ def _env_delay(name: str, default: int, *, minimum: int = 50) -> int:
     return value
 
 
-HUMAN_DELAY_MS = _env_delay("LECLERC_HUMAN_DELAY_MS", 300 if FAST_MODE else 200, minimum=50)
-RESULT_DELAY_MS = _env_delay("LECLERC_RESULT_DELAY_MS", 600 if FAST_MODE else 300, minimum=50)
-PDP_DELAY_MS = _env_delay("LECLERC_PDP_DELAY_MS", 400 if FAST_MODE else 300, minimum=50)
-TYPE_MIN_DELAY = _env_delay("LECLERC_TYPE_MIN_MS", 8 if FAST_MODE else 8, minimum=5)
+HUMAN_DELAY_MS = _env_delay("LECLERC_HUMAN_DELAY_MS", 100 if FAST_MODE else 70, minimum=MIN_DELAY_MS)
+RESULT_DELAY_MS = _env_delay("LECLERC_RESULT_DELAY_MS", 100 if FAST_MODE else 70, minimum=MIN_DELAY_MS)
+PDP_DELAY_MS = _env_delay("LECLERC_PDP_DELAY_MS", 200 if FAST_MODE else 100, minimum=MIN_DELAY_MS)
+TYPE_MIN_DELAY = _env_delay("LECLERC_TYPE_MIN_MS", 8 if FAST_MODE else 8, minimum=0 if NO_DELAY else 5)
 TYPE_MAX_DELAY = _env_delay("LECLERC_TYPE_MAX_MS", 180 if FAST_MODE else 18, minimum=10)
+# Cap direct pour respecter les 2s max demandées
+RESULT_DELAY_MS = min(RESULT_DELAY_MS, MAX_RESULT_DELAY_MS)
+PDP_DELAY_MS = min(PDP_DELAY_MS, MAX_PDP_DELAY_MS)
 
 
 def _adaptive_delay(ms: int, minimum: int = 100) -> int:
+    minv = MIN_ADAPTIVE_MS if NO_DELAY else minimum
     if FAST_MODE:
-        return max(minimum, max(1, ms) // 10)
-    return max(minimum, ms)
+        return max(minv, max(1, ms) // 10)
+    return max(minv, ms)
 
 MANUAL_DESCRIPTOR: dict[str, dict] = all_seeds()
 EAN_PATTERN = re.compile(r"(?<!\d)(\d{13})(?!\d)")
@@ -175,8 +184,10 @@ def inject_leclerc_html_provider(ctx) -> None:
         pass
 
 async def human_pause(page, base_ms: int) -> None:
+    if NO_DELAY:
+        return
     jitter = random.randint(-int(base_ms * 0.2), int(base_ms * 0.2))
-    await page.wait_for_timeout(max(100, base_ms + jitter))
+    await page.wait_for_timeout(max(50, base_ms + jitter))
 
 
 def _normalize(text: str) -> str:
@@ -206,7 +217,7 @@ DEFAULT_NEGATIVE_PATTERNS = [
     "sans-sucre",
 ]
 
-LECLERC_MAX_PDP = 10
+LECLERC_MAX_PDP = env_int("LECLERC_MAX_PDP", 12)
 
 
 def _build_query_candidates(descriptor_entry: Optional[dict], fallback_query: str, ean: str) -> List[str]:
@@ -391,6 +402,9 @@ async def run_manual_leclerc(
     if os.environ.get("USE_CDP") != "1":
         return {"status": "ERROR", "error": "SET USE_CDP=1 (Chrome remote obligatoire)"}
 
+    # Clamp pour garantir <2s entre fiches
+    result_delay_ms = min(result_delay_ms, MAX_RESULT_DELAY_MS)
+    pdp_delay_ms = min(pdp_delay_ms, MAX_PDP_DELAY_MS)
     sys.stderr.write(
         f"[LECLERC_DEBUG] FAST_MODE={FAST_MODE} | delays => human:{human_delay_ms}ms "
         f"result:{result_delay_ms}ms pdp:{pdp_delay_ms}ms type:[{type_min_delay},{type_max_delay}] "
@@ -461,6 +475,11 @@ async def run_manual_leclerc(
     async with async_playwright() as p:
         browser = await p.chromium.connect_over_cdp(cdp_url)
         context = browser.contexts[0] if browser.contexts else await browser.new_context()
+        try:
+            context.set_default_timeout(4000)
+            context.set_default_navigation_timeout(4000)
+        except Exception:
+            pass
 
         try:
             inject_leclerc_html_provider(context)
@@ -681,16 +700,16 @@ async def run_manual_leclerc(
             navigated = False
             try:
                 if visit_idx > 0:
-                    await page.goto(search_url, wait_until="domcontentloaded")
+                    await page.goto(search_url, wait_until="domcontentloaded", timeout=2500)
                     await human_pause(page, result_delay_ms)
                 cards = page.locator("li.liWCRS310_Product")
                 target_card = cards.nth(cand["index"])
                 link = target_card.locator("a.aWCRS310_Product").first
                 await link.scroll_into_view_if_needed()
-                await human_pause(page, _adaptive_delay(400))
-                await link.click()
+                await human_pause(page, _adaptive_delay(200))
+                await link.click(timeout=1500)
                 try:
-                    await page.wait_for_url("**/fiche-produits-*.aspx", timeout=6000)
+                    await page.wait_for_url("**/fiche-produits-*.aspx", timeout=2000)
                     navigated = True
                 except PlaywrightTimeoutError:
                     navigated = False
@@ -702,7 +721,7 @@ async def run_manual_leclerc(
                     f"[LECLERC_DEBUG] navigation fallback to {fallback_url}\n"
                 )
                 try:
-                    await page.goto(fallback_url, wait_until="domcontentloaded")
+                    await page.goto(fallback_url, wait_until="domcontentloaded", timeout=2500)
                     navigated = True
                 except Exception:
                     navigated = False
@@ -847,9 +866,13 @@ async def run_manual_leclerc(
                 html = ""
 
             observed_eans: List[str] = []
-            url_match = EAN_PATTERN.search(current_url or "")
-            if url_match:
-                observed_eans.append(url_match.group(1))
+            try:
+                path_only = urlparse(current_url or "").path
+                path_ean = _extract_ean_from_html(path_only, None)
+                if path_ean:
+                    observed_eans.append(path_ean)
+            except Exception:
+                pass
             html_ean = _extract_ean_from_html(html, current_url)
             if html_ean and html_ean not in observed_eans:
                 observed_eans.append(html_ean)
@@ -870,12 +893,10 @@ async def run_manual_leclerc(
                 candidate_entry["info_url"] = info_url
 
             matched_candidate_ean = None
-            if ean and ean in observed_eans:
-                matched_candidate_ean = ean
+            if html_ean:
+                matched_candidate_ean = html_ean
             elif info_ean:
                 matched_candidate_ean = info_ean
-            elif html_ean:
-                matched_candidate_ean = html_ean
             elif observed_eans:
                 matched_candidate_ean = observed_eans[0]
 
@@ -913,19 +934,20 @@ async def run_manual_leclerc(
                 except Exception:
                     pass
 
-            if matched_candidate_ean and ean and matched_candidate_ean == ean:
-                candidate_entry["status"] = "MATCHED"
-                candidate_entry["reason"] = "ean_match"
-            elif image_match and ean:
-                matched_candidate_ean = ean
-                candidate_entry["status"] = "MATCHED"
-                candidate_entry["reason"] = "image_match"
-            elif ean:
-                candidate_entry["status"] = "REJECTED"
-                candidate_entry["reason"] = "ean_mismatch"
+            if ean:
+                if matched_candidate_ean and matched_candidate_ean == ean:
+                    candidate_entry["status"] = "MATCHED"
+                    candidate_entry["reason"] = "ean_match"
+                else:
+                    candidate_entry["status"] = "REJECTED"
+                    candidate_entry["reason"] = "ean_mismatch"
             else:
-                candidate_entry["status"] = "REJECTED"
-                candidate_entry["reason"] = "no_seed_ean"
+                if matched_candidate_ean:
+                    candidate_entry["status"] = "MATCHED"
+                    candidate_entry["reason"] = "no_seed_strict"
+                else:
+                    candidate_entry["status"] = "REJECTED"
+                    candidate_entry["reason"] = "no_seed_ean"
 
             finder_candidates.append(candidate_entry)
             last_candidate_entry = candidate_entry
@@ -1014,16 +1036,15 @@ async def run_manual_leclerc(
         tokens_ok = token_hits >= token_threshold if token_threshold else False
         if ean:
             if matched_ean and matched_ean != ean:
-                equivalent_flag = True
+                status = "NO_MATCH"
+                price = None
+                unit_price = None
                 difference_note = f"EAN détecté {matched_ean} différent du seed {ean}"
             elif matched_ean is None:
-                if tokens_ok:
-                    equivalent_flag = True
-                    difference_note = "EAN introuvable dans la fiche (validation via descriptif seed)."
-                else:
-                    status = "NO_MATCH"
-                    price = None
-                    unit_price = None
+                status = "NO_MATCH"
+                price = None
+                unit_price = None
+                difference_note = "EAN introuvable dans la fiche"
         elif matched_ean is None:
             if not tokens_ok:
                 status = "NO_MATCH"

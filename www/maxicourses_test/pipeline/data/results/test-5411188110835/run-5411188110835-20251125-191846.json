@@ -1,0 +1,74 @@
+{
+  "ean": "5411188110835",
+  "image_path": null,
+  "started_at": "2025-11-25T19:18:44.574317+01:00",
+  "finished_at": "2025-11-25T19:18:46.134530+01:00",
+  "duration_seconds": 1.560213,
+  "reference": {
+    "title": "Boisson végétale amande grillée ALPRO 1 L",
+    "description": null,
+    "source": "carrefour",
+    "brand": "Alpro",
+    "quantity": "1 L",
+    "categories": null,
+    "image": "./assets/5411188110835.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "monoprix",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-25T19:18:45.961154+01:00",
+      "finished_at": "2025-11-25T19:18:46.021397+01:00",
+      "duration_seconds": 0.060243,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5411188110835",
+        "QUERY": "5411188110835",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py\", line 2146\n    product_result = await parse_product_page(new_page, product_url, descriptor_entry)\n    ^\nIndentationError: expected an indented block",
+      "metadata": {
+        "attempt_query": "5411188110835"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Boisson végétale amande grillée ALPRO 1 L",
+      "brand": "Alpro",
+      "kind": "",
+      "qty": "1 L",
+      "qualifiers": [],
+      "ean": "5411188110835",
+      "image_url": "./assets/5411188110835.jpg",
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}
