@@ -1924,74 +1924,40 @@
     }
   },
   "3700260216148": {
-    "carrefour_city": {
-      "status": "CF_BLOCK",
-      "payload": {
-        "status": "CF_BLOCK",
-        "price": null,
-        "store": null,
-        "url": "https://www.carrefour.fr/s?q=3700260216148",
-        "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
-        "_meta": {
-          "supports_ean": true
-        }
-      },
-      "updated_at": "2025-11-19T22:20:24.689049+01:00",
-      "duration_seconds": 6.31821,
-      "error": null,
-      "store_query": null,
-      "previous": {
-        "status": "CF_BLOCK",
-        "payload": {
-          "status": "CF_BLOCK",
-          "price": null,
-          "store": null,
-          "url": "https://www.carrefour.fr/s?q=3700260216148",
-          "note": null,
-          "unit_price": null,
-          "quantity": null,
-          "title": null,
-          "matched_ean": null,
-          "image": null,
-          "nutriscore_grade": null,
-          "nutriscore_image": null,
-          "_meta": {
-            "supports_ean": true
-          }
-        },
-        "updated_at": "2025-11-19T20:57:50.813759+01:00",
-        "error": null,
-        "store_query": null
-      }
-    },
     "carrefour_market": {
-      "status": "CF_BLOCK",
+      "status": "OK",
       "payload": {
-        "status": "CF_BLOCK",
-        "price": null,
-        "store": null,
-        "url": "https://www.carrefour.fr/s?q=3700260216148",
+        "status": "OK",
+        "price": "7,25",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/croquettes-pour-chat-adulte-sterilise-saumon-ultima- 3700260216148",
         "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
+        "unit_price": "4,83 € / KG",
+        "quantity": "1,5 KG",
+        "title": "Croquettes Pour Chat Adulte Stérilisé Saumon ULTIMA",
+        "matched_ean": "3700260216148",
+        "image": "https://media.carrefour.fr/media/referential/media/2b041de5859d4870b9cd5ad393ca a8c9/03700260216148_H1N1_s01.png",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-c.svg",
         "_meta": {
           "supports_ean": true
+        },
+        "product": {
+          "title": "Croquettes Pour Chat Adulte Stérilisé Saumon ULTIMA",
+          "brand": "Croquettes",
+          "kind": "",
+          "qty": "1,5 KG",
+          "qualifiers": [],
+          "ean": "3700260216148",
+          "image_url": "https://media.carrefour.fr/media/referential/media/2b041de5859d4870b9cd5ad393ca a8c9/03700260216148_H1N1_s01.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-19T22:20:24.689049+01:00",
-      "duration_seconds": 6.271965,
+      "updated_at": "2025-11-26T20:31:37.291300+01:00",
+      "duration_seconds": 19.321958,
       "error": null,
       "store_query": null,
       "previous": {
@@ -2013,18 +1979,18 @@
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-19T20:57:50.813759+01:00",
+        "updated_at": "2025-11-19T22:20:24.689049+01:00",
         "error": null,
         "store_query": null
       }
     },
-    "carrefour_super": {
-      "status": "CF_BLOCK",
+    "carrefour_city": {
+      "status": "NO_PRICE",
       "payload": {
-        "status": "CF_BLOCK",
+        "status": "NO_PRICE",
         "price": null,
-        "store": null,
-        "url": "https://www.carrefour.fr/s?q=3700260216148",
+        "store": "City Bordeaux Balguerie",
+        "url": null,
         "note": null,
         "unit_price": null,
         "quantity": null,
@@ -2037,8 +2003,8 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-19T22:20:24.689049+01:00",
-      "duration_seconds": 5.921309,
+      "updated_at": "2025-11-26T20:31:37.291300+01:00",
+      "duration_seconds": 19.278089,
       "error": null,
       "store_query": null,
       "previous": {
@@ -2060,7 +2026,7 @@
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-19T20:57:50.813759+01:00",
+        "updated_at": "2025-11-19T22:20:24.689049+01:00",
         "error": null,
         "store_query": null
       }
@@ -2071,7 +2037,7 @@
         "status": "OK",
         "price": "7,55",
         "unit_price": "5,03 € / KG",
-        "quantity": "5  L",
+        "quantity": "1,5  KG",
         "title": "Croquettes au saumon pour chat stérilisé",
         "url": "https://www.auchan.fr/ultima-croquettes-au-saumon-pour-chat-sterilise/pr-C11872 63",
         "matched_ean": "3700260216148",
@@ -2085,16 +2051,18 @@
           "title": "Croquettes au saumon pour chat stérilisé",
           "brand": "Croquettes",
           "kind": "",
-          "qty": "5 L",
+          "qty": "1,5 KG",
           "qualifiers": [],
           "ean": "3700260216148",
           "image_url": "https://cdn.auchan.fr/media/A0220080612000538201PRIMARY_1200x1200/B2CD/",
           "source": "auchan",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-19T22:20:24.689049+01:00",
-      "duration_seconds": 15.730348,
+      "updated_at": "2025-11-26T20:31:37.291300+01:00",
+      "duration_seconds": 13.774068,
       "error": null,
       "store_query": null,
       "previous": {
@@ -2125,7 +2093,7 @@
             "raw_text": ""
           }
         },
-        "updated_at": "2025-11-19T20:57:50.813759+01:00",
+        "updated_at": "2025-11-19T22:20:24.689049+01:00",
         "error": null,
         "store_query": null
       }
@@ -2148,8 +2116,8 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-19T22:20:24.689049+01:00",
-      "duration_seconds": 71.981849,
+      "updated_at": "2025-11-26T20:31:37.291300+01:00",
+      "duration_seconds": 75.098967,
       "error": null,
       "store_query": null,
       "previous": {
@@ -2170,7 +2138,163 @@
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-19T20:57:50.813759+01:00",
+        "updated_at": "2025-11-19T22:20:24.689049+01:00",
+        "error": null,
+        "store_query": null
+      }
+    },
+    "intermarche": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "7,05",
+        "title": "croquettes pour chat stérilisé  adulte saumon",
+        "url": "https://www.intermarche.com/produit/croquettes-pour-chat-sterilise-adulte-saumo n/3700260216148",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "3700260216148",
+        "unit_price": "4,70 € / KG",
+        "quantity": null,
+        "store": "Super  Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/croquettes-pour-chat-sterilise-adulte-poule t/3700260217176",
+            "product": {
+              "title": "Ultimacroquettes pour  chat stérilisé adulte poulet",
+              "brand": "Ultimacroquettes",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3700260217176",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/croquettes-pour-chat-sterilise-adulte-poule t/8410650162065",
+            "product": {
+              "title": "Ultimacroquettes pour  chat stérilisé adulte poulet",
+              "brand": "Ultimacroquettes",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8410650162065",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/croquettes-pour-chat-sterilise-adulte-saumo n/3700260216148",
+            "product": {
+              "title": "Ultimacroquettes pour  chat stérilisé adulte saumon",
+              "brand": "Ultimacroquettes",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3700260216148",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-11-26T20:31:37.291300+01:00",
+      "duration_seconds": 39.812012,
+      "error": null,
+      "store_query": null,
+      "previous": {
+        "status": "NO_RESULTS",
+        "payload": {
+          "status": "NO_RESULTS",
+          "price": null,
+          "title": null,
+          "url": null,
+          "note": null,
+          "matched_ean": null,
+          "unit_price": null,
+          "quantity": null,
+          "store": null,
+          "candidates": [],
+          "_meta": {
+            "supports_keywords": true
+          },
+          "nutriscore_grade": null,
+          "nutriscore_image": null
+        },
+        "updated_at": "2025-11-19T22:20:24.689049+01:00",
+        "error": null,
+        "store_query": null
+      }
+    },
+    "carrefour_super": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "6,99",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/croquettes-pour-chat-adulte-sterilise-saumon-ultima- 3700260216148",
+        "note": null,
+        "unit_price": "4,66 € / KG",
+        "quantity": "1,5 KG",
+        "title": "Croquettes Pour Chat Adulte Stérilisé Saumon ULTIMA",
+        "matched_ean": "3700260216148",
+        "image": "https://media.carrefour.fr/media/referential/media/2b041de5859d4870b9cd5ad393ca a8c9/03700260216148_H1N1_s01.png",
+        "nutriscore_grade": "b",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Croquettes Pour Chat Adulte Stérilisé Saumon ULTIMA",
+          "brand": "Croquettes",
+          "kind": "",
+          "qty": "1,5 KG",
+          "qualifiers": [],
+          "ean": "3700260216148",
+          "image_url": "https://media.carrefour.fr/media/referential/media/2b041de5859d4870b9cd5ad393ca a8c9/03700260216148_H1N1_s01.png",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-11-26T20:31:37.291300+01:00",
+      "duration_seconds": 22.503899,
+      "error": null,
+      "store_query": null,
+      "previous": {
+        "status": "CF_BLOCK",
+        "payload": {
+          "status": "CF_BLOCK",
+          "price": null,
+          "store": null,
+          "url": "https://www.carrefour.fr/s?q=3700260216148",
+          "note": null,
+          "unit_price": null,
+          "quantity": null,
+          "title": null,
+          "matched_ean": null,
+          "image": null,
+          "nutriscore_grade": null,
+          "nutriscore_image": null,
+          "_meta": {
+            "supports_ean": true
+          }
+        },
+        "updated_at": "2025-11-19T22:20:24.689049+01:00",
         "error": null,
         "store_query": null
       }
@@ -2184,7 +2308,7 @@
         "quantity": "1,5  kg",
         "title": "Croquettes pour chat stérilisés au saumon ULTIMA, 1,5kg",
         "url": "https://www.coursesu.com/p/croquettes-pour-chat-sterilises-au-saumon-ultima-15k g/5663068.html",
-        "note": "2025-11-19T21:00:50Z · Super U Eysines",
+        "note": "2025-11-26T19:22:31Z · Super U Eysines",
         "store": "Super U Eysines",
         "matched_ean": "3700260216148",
         "nutriscore_grade": null,
@@ -2201,11 +2325,13 @@
           "ean": "3700260216148",
           "image_url": null,
           "source": "courseu",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-19T22:20:24.689049+01:00",
-      "duration_seconds": 35.613594,
+      "updated_at": "2025-11-26T20:31:37.291300+01:00",
+      "duration_seconds": 64.347078,
       "error": null,
       "store_query": null,
       "previous": {
@@ -2217,11 +2343,11 @@
           "quantity": "1,5  kg",
           "title": "Croquettes pour chat stérilisés au saumon ULTIMA, 1,5kg",
           "url": "https://www.coursesu.com/p/croquettes-pour-chat-sterilises-au-saumon-ultima-15k g/5663068.html",
-          "note": "2025-11-19T19:39:31Z · Super U Eysines",
+          "note": "2025-11-19T21:00:50Z · Super U Eysines",
           "store": "Super U Eysines",
           "matched_ean": "3700260216148",
-          "nutriscore_grade": "c",
-          "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+          "nutriscore_grade": null,
+          "nutriscore_image": null,
           "_meta": {
             "supports_ean": true
           },
@@ -2237,7 +2363,7 @@
             "raw_text": ""
           }
         },
-        "updated_at": "2025-11-19T20:57:50.813759+01:00",
+        "updated_at": "2025-11-19T22:20:24.689049+01:00",
         "error": null,
         "store_query": null
       }
@@ -2266,11 +2392,13 @@
           "ean": "3700260216148",
           "image_url": "https://www.g20-minute.com/media/cache/product_box_image/36/e5/fe4c7ff79e755da825cdac27bf1d.jpg",
           "source": "g20",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-19T22:20:24.689049+01:00",
-      "duration_seconds": 0.464095,
+      "updated_at": "2025-11-26T20:31:37.291300+01:00",
+      "duration_seconds": 1.014025,
       "error": null,
       "store_query": null,
       "previous": {
@@ -2300,128 +2428,54 @@
             "raw_text": ""
           }
         },
-        "updated_at": "2025-11-19T20:57:50.813759+01:00",
-        "error": null,
-        "store_query": null
-      }
-    },
-    "intermarche": {
-      "status": "NO_RESULTS",
-      "payload": {
-        "status": "NO_RESULTS",
-        "price": null,
-        "title": null,
-        "url": null,
-        "note": null,
-        "matched_ean": null,
-        "unit_price": null,
-        "quantity": null,
-        "store": null,
-        "candidates": [],
-        "_meta": {
-          "supports_keywords": true
-        },
-        "nutriscore_grade": null,
-        "nutriscore_image": null
-      },
-      "updated_at": "2025-11-19T22:20:24.689049+01:00",
-      "duration_seconds": 137.874873,
-      "error": null,
-      "store_query": null,
-      "previous": {
-        "status": "NO_RESULTS",
-        "payload": {
-          "status": "NO_RESULTS",
-          "price": null,
-          "title": null,
-          "url": null,
-          "note": null,
-          "matched_ean": null,
-          "unit_price": null,
-          "quantity": null,
-          "store": null,
-          "candidates": [],
-          "_meta": {
-            "supports_keywords": true
-          },
-          "nutriscore_grade": null,
-          "nutriscore_image": null
-        },
-        "updated_at": "2025-11-19T20:57:50.813759+01:00",
+        "updated_at": "2025-11-19T22:20:24.689049+01:00",
         "error": null,
         "store_query": null
       }
     },
     "monoprix": {
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
-        "price": null,
-        "title": null,
-        "url": null,
-        "note": null,
-        "image": null,
-        "matched_ean": null,
-        "unit_price": null,
-        "quantity": null,
+        "status": "OK",
+        "price": "9,09",
+        "title": "Ultima Croquettes Au Saumon Pour  Chat Stérilisé Adulte 1,5kg",
+        "url": "https://courses.monoprix.fr/products/ultima-croquettes-au-saumon-pour-chat-st%C 3%A9rilis%C3%A9-adulte-1-5kg/MPX_1737512",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/db28 3dad-4db7-45b4-971d-d91349cec1b5/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/db28 3dad-4db7-45b4-971d-d91349cec1b5/300x300.jpg",
+        "matched_ean": "3700260216148",
+        "unit_price": "6,06 € / KG",
+        "quantity": "1,5 KG",
         "store": null,
-        "raw_text": null,
-        "extras": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR  +\nAccueil\nAnimaux\nChat\nCroquettes\nStérilisés\nUltima Croquettes Au Saumon  Pour Chat Stérilisé Adulte 1,5kg\n6 m+\n6 mois de garantie de vie du  produit\n1.5kg 6,06 € / kilo\n1.5kg\n(6,06 € / kilo)\n9,09  €\nAjouter\nInformations produit\n\n\nDescription Produit\nLes chats stérilisés  peuvent prendre du poids et ont tendance à avoir un système urinaire plus  sensible. Nos vétérinaires nutritionnistes développent des recettes de haute  qualité adaptées à leurs besoins  nutritionnels.\n\n\nOrigine\nFrance\nMarque\nUltima\nService  consommateur\nSERVICE CONSOMMATEUR 2 - 4 Boulevard des Iles 92130 Issy les  Moulineaux France hello@affinity-petcare.com 0800 901  101\nIngredients\nCOMPOSITION : Saumon (15 %) (dont tête, arête, chair),  protéine de maïs, pois déshydratés (12 %), protéines déshydratées de volaille,  blé complet (11 %), orge complète (10 %), protéines animales hydrolysées  (volaille, porc, poisson), maïs complet (4 %), protéines déshydratées de bœuf,  graisse animale (volaille, porc), fibre de pois, substances minérales, poudre de cellulose, pulpe de betterave, protéines déshydratées de porc. ADDITIFS/kg.  Additifs nutritionnels : Vitamine A 24300 UI ; vitamine D3 1080 UI ; vitamine E  650 mg ; vitamine C 190 mg ; taurine 1100 mg ; biotine 1,2 mg ; sulfate de  fer(II) monohydraté 260 mg (Fe : 86 mg) ; iodure de potassium 1,9 mg (I : 1,4  mg) ; sulfate de cuivre(II) pentahydraté 33 mg (Cu : 8,8 mg) ; sulfate de  manganèse monohydraté 123 mg (Mn : 40 mg) ; sulfate de zinc monohydraté 356 mg  (Zn : 130 mg) ; sélénite de sodium 0,2 mg (Se : 0,1 mg). Additifs zootechniques  : Chlorure d'ammonium 5 g. *Avec des antioxygènes. COMPOSITION : Saumon (15 %)  (dont tête, arête, chair), protéine de maïs, pois déshydratés (12 %), protéines  déshydratées de volaille, blé complet (11 %), orge complète (10 %), protéines  animales hydrolysées (volaille, porc, poisson), maïs complet (4 %), protéines  déshydratées de bœuf, graisse animale (volaille, porc), fibre de pois,  substances minérales, poudre de cellulose, pulpe de betterave, protéines  déshydratées de porc.\nProducteur\nAFFINITY PETCARE FRANCE 2-4 BOULEVARD DES  ILES/L'ARC EN CIEL//92130/ISSY LES MOULINEAUX/FRANCE\nAutres  informations\n.\nConseils d'utilisation\nConserver dans un endroit frais et sec. L’animal doit avoir accès en permanence à de l’eau propre et fraîche dans un  récipient propre.\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos  magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos  magasins avec Parapharmacie\nAide & Mentions\nDonnées personnelles et  cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": null,
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [],
+          "candidate_quantity": "1,5 KG",
+          "image_match": true,
+          "final_score": 30,
+          "plausible_baseline": false
+        },
         "candidates": [
           {
-            "url": "https://courses.monoprix.fr/products/purina-one-chat-adulte-croquettes-au-saumo n-et-aux-céréales-1-5kg/MPX_953769",
+            "url": "https://courses.monoprix.fr/products/ultima-croquettes-au-saumon-pour-chat-stér ilisé-adulte-1-5kg/MPX_1737512",
             "product": {
-              "title": "Purina One Chat Adulte Croquettes Au Saumon Et Aux Céréales 1,5kg",
-              "brand": "Croquettes",
-              "kind": "Croquettes au saumon pour chat stérilisé",
+              "title": "Ultima Croquettes Au Saumon Pour Chat Stérilisé Adulte 1,5kg",
+              "brand": "Ultima",
+              "kind": "",
               "qty": "1,5 KG",
               "qualifiers": [],
-              "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/9e39 8675-4ffa-4c38-8b43-ae2a3dbcdb63/300x300.jpg",
+              "ean": "3700260216148",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/db28 3dad-4db7-45b4-971d-d91349cec1b5/300x300.jpg",
               "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
-            }
-          },
-          {
-            "url": "https://courses.monoprix.fr/products/perfect-fit-croquettes-saumon-frais-chat-a dulte-1-stérilisé-1-4kg/MPX_6640542",
-            "product": {
-              "title": "Perfect Fit Croquettes saumon frais chat adulte 1+ stérilisé 1.4kg",
-              "brand": "Croquettes",
-              "kind": "Croquettes au saumon pour chat stérilisé",
-              "qty": "1,4 KG",
-              "qualifiers": [],
-              "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/3f82 f761-9dd1-4f11-a7da-b70eab8bc0d6/300x300.jpg",
-              "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
-            }
-          },
-          {
-            "url": "https://courses.monoprix.fr/products/purina-one-croquettes-chat-adulte-au-saumo n-et-céréales-450g/MPX_655607",
-            "product": {
-              "title": "Purina One Croquettes Chat Adulte au saumon et céréales 450g",
-              "brand": "Croquettes",
-              "kind": "Croquettes au saumon pour chat stérilisé",
-              "qty": "450 G",
-              "qualifiers": [],
-              "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/7e3a 419d-1c31-4e2e-bdce-5ecf26b8a1f7/300x300.jpg",
-              "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
-            }
-          },
-          {
-            "url": "https://courses.monoprix.fr/products/friskies-croquettes-au-saumon-et-aux-légum es-1-5kg-chat-adulte/MPX_6730097",
-            "product": {
-              "title": "Friskies Croquettes au Saumon et aux Légumes - 1,5kg - Chat Adulte",
-              "brand": "Croquettes",
-              "kind": "Croquettes au saumon pour chat stérilisé",
-              "qty": "1,5 KG",
-              "qualifiers": [],
-              "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/1d2f 1468-0681-4924-81d2-199663d3d7fc/300x300.jpg",
-              "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ],
@@ -2429,8 +2483,8 @@
           "supports_keywords": true
         }
       },
-      "updated_at": "2025-11-19T22:20:24.689049+01:00",
-      "duration_seconds": 79.257961,
+      "updated_at": "2025-11-26T20:31:37.291300+01:00",
+      "duration_seconds": 33.024546,
       "error": null,
       "store_query": null,
       "previous": {
@@ -2510,10 +2564,237 @@
             "supports_keywords": true
           }
         },
-        "updated_at": "2025-11-19T20:57:50.813759+01:00",
+        "updated_at": "2025-11-19T22:20:24.689049+01:00",
         "error": null,
         "store_query": null
       }
+    },
+    "casino": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=3700260216148",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "3700260216148",
+          "timestamp": "2025-11-26T19:23:03.662552+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-11-26T20:31:37.291300+01:00",
+      "duration_seconds": 1.169896,
+      "error": null,
+      "store_query": null
+    },
+    "spar": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=3700260216148",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "3700260216148",
+          "timestamp": "2025-11-26T19:23:17.240465+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-11-26T20:31:37.291300+01:00",
+      "duration_seconds": 1.003366,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "NO_MATCH",
+      "payload": {
+        "status": "NO_MATCH",
+        "title": "Croquettes Friskies junior Poulet & legumes - 1.5kg",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-48698-Croquettes-chat-Purina-One.aspx",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-26T19:25:06Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-227378-Croquettes-Friskies-junior.aspx",
+            "product": {
+              "title": "Croquettes Friskies junior Poulet & legumes - 1.5kg",
+              "brand": "Croquettes",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8445290965592",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2699612&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-244229-Croquettes-Friskies-chat-adulte.aspx",
+            "product": {
+              "title": "Croquettes Friskies chat adulte Lapin Poulet Légumes - 1.5kg",
+              "brand": "Croquettes",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8445290976857",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2835160&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-244234-Croquettes-Friskies-chat-adulte.aspx",
+            "product": {
+              "title": "Croquettes Friskies chat adulte Saumon Légumes - 1.5kg",
+              "brand": "Croquettes",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8445290976734",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2860586&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-227602-Croquettes-Friskies-.aspx",
+            "product": {
+              "title": "Croquettes Friskies Poulet & légumes 1,5 kg",
+              "brand": "Croquettes",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8445290976475",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2701400&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-227397-Croquettes-Friskies-.aspx",
+            "product": {
+              "title": "Croquettes Friskies Dinde & legumes - 1.5kg",
+              "brand": "Croquettes",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8445290977069",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2699621&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-227400-Croquettes-chat-Friskies.aspx",
+            "product": {
+              "title": "Croquettes chat Friskies Saumon et legumes - 1.5 kg",
+              "brand": "Croquettes",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8445290950109",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2940600&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-244235-Croquettes-Friskies-chat-adulte.aspx",
+            "product": {
+              "title": "Croquettes Friskies chat adulte Boeuf Poulet Légumes - 1.5kg",
+              "brand": "Croquettes",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8445290976406",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2835154&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-227603-Croquettes-chat-sterilise.aspx",
+            "product": {
+              "title": "Croquettes chat stérilisé Friskies Agneau légumes - 1.5kg",
+              "brand": "Croquettes",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8445290976765",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2701064&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-19102-Croquettes-chat-Purina-One.aspx",
+            "product": {
+              "title": "Croquettes chat Purina One Stérilisé-Saumon/Céréales-1,5kg",
+              "brand": "Croquettes",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "7613032759155",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2541268&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-41275-Croquettes-chat-Purina-One.aspx",
+            "product": {
+              "title": "Croquettes chat Purina One Sterilisé - Poulet - 1,5kg",
+              "brand": "Croquettes",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "7613033514449",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2488046&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "updated_at": "2025-11-26T20:31:37.291300+01:00",
+      "duration_seconds": 68.612917,
+      "error": null,
+      "store_query": null
+    },
+    "_finder": {
+      "error": "'FinderPipeline' object has no attribute 'decide'"
     }
   },
   "3600551132150": {
@@ -5083,22 +5364,160 @@
         "nutriscore_grade": "e",
         "nutriscore_image": "https://www.intermarche.com/icons/nutriscore/score=A.svg"
       },
-      "updated_at": "2025-11-26T18:24:44.848499+01:00",
-      "duration_seconds": 83.817157,
+      "updated_at": "2025-11-26T19:20:57.335400+01:00",
+      "duration_seconds": 76.224114,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "TIMEOUT",
+        "status": "OK",
         "payload": {
-          "status": "TIMEOUT",
-          "error": "timeout_after_90s",
+          "status": "OK",
+          "price": "1,95",
+          "title": "Dessert végétal soja nature aux  amandes",
+          "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-nature-aux-amandes/541 1188118961",
+          "note": "Intermarché · Super Talence",
+          "matched_ean": "5411188118961",
+          "unit_price": "3,90 € / KG",
+          "quantity": "500  g",
+          "store": "Super Talence",
+          "candidates": [
+            {
+              "url": "https://www.intermarche.com/produit/boisson-vegetale-lait-d'amande-grillee-sans -sucres/5411188112709",
+              "product": {
+                "title": "AlproBoisson végétale lait d'amande grillée, sans sucres",
+                "brand": "Alpro",
+                "kind": "Dessert végétal soja nature à l'amande ALPRO",
+                "qty": "500 g",
+                "qualifiers": [],
+                "ean": "5411188112709",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-vanille/5411188103387",
+              "product": {
+                "title": "AlproDessert végétal soja vanille,",
+                "brand": "Alpro",
+                "kind": "Dessert végétal soja nature à l'amande ALPRO",
+                "qty": "500 g",
+                "qualifiers": [],
+                "ean": "5411188103387",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://www.intermarche.com/produit/boisson-vegetale-a-l'avoine/5411188115366",
+              "product": {
+                "title": "AlproBoisson végétale à l'avoine",
+                "brand": "Alpro",
+                "kind": "Dessert végétal soja nature à l'amande ALPRO",
+                "qty": "500 g",
+                "qualifiers": [],
+                "ean": "5411188115366",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://www.intermarche.com/produit/boisson-vegetale-lait-d'amande-grillee-/541 1188110835",
+              "product": {
+                "title": "AlproBoisson végétale  lait d'amande grillée ,",
+                "brand": "Alpro",
+                "kind": "Dessert végétal soja nature à l'amande ALPRO",
+                "qty": "500 g",
+                "qualifiers": [],
+                "ean": "1188110835",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://www.intermarche.com/produit/boisson-vegetale-noisette/5411188110842",
+              "product": {
+                "title": "AlproBoisson végétale noisette",
+                "brand": "Alpro",
+                "kind": "Dessert végétal soja nature à l'amande ALPRO",
+                "qty": "500 g",
+                "qualifiers": [],
+                "ean": "5411188110842",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-noix-de-coco-/54111881 19098",
+              "product": {
+                "title": "AlproDessert végétal soja noix de coco  ,",
+                "brand": "Alpro",
+                "kind": "Dessert végétal soja nature à l'amande ALPRO",
+                "qty": "500 g",
+                "qualifiers": [],
+                "ean": "54111881",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://www.intermarche.com/produit/boisson-vegetale-coco-riz/5411188116592",
+              "product": {
+                "title": "AlproBoisson végétale coco riz",
+                "brand": "Alpro",
+                "kind": "Dessert végétal soja nature à l'amande ALPRO",
+                "qty": "500 g",
+                "qualifiers": [],
+                "ean": "5411188116592",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://www.intermarche.com/produit/dessert-vegetal-soja-nature-aux-amandes/541 1188118961",
+              "product": {
+                "title": "AlproDessert végétal  soja nature aux amandes",
+                "brand": "Alpro",
+                "kind": "Dessert végétal soja nature à l'amande ALPRO",
+                "qty": "500 g",
+                "qualifiers": [],
+                "ean": "1188118961",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            }
+          ],
           "_meta": {
             "supports_keywords": true
           },
-          "candidates": []
+          "nutriscore_grade": "e",
+          "nutriscore_image": "https://www.intermarche.com/icons/nutriscore/score=A.svg"
         },
-        "updated_at": "2025-11-26T17:59:00.964815+01:00",
-        "error": "timeout_after_90s",
+        "updated_at": "2025-11-26T19:13:01.457535+01:00",
+        "error": null,
         "store_query": null
       }
     },
@@ -5106,14 +5525,14 @@
       "status": "OK",
       "payload": {
         "status": "OK",
-        "title": "Dessert végétal soja Alpro Nature à la coco - 500g",
+        "title": "Dessert végétal soja alpro Nature à l'amande - 500g",
         "price": "1,82",
         "unit_price": "3,64 € / kg",
         "quantity": "500  g",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-93600-Dessert-vegetal-soja-Alpro.aspx",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95817-Dessert-vegetal-soja-alpro.aspx",
         "matched_ean": "5411188118961",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-26T17:24:05Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-26T18:18:55Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
@@ -5130,29 +5549,61 @@
               "ean": "5411188119098",
               "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2976080&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
+            "product": {
+              "title": "Dessert végétal soja alpro Vanille - 500g",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja nature à l'amande ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188103387",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2977672&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95817-Dessert-vegetal-soja-alpro.aspx",
+            "product": {
+              "title": "Dessert végétal soja alpro Nature à l'amande - 500g",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja nature à l'amande ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188118961",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2977684&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
               "leclerc_queries": []
             }
           }
         ]
       },
-      "updated_at": "2025-11-26T18:24:44.848499+01:00",
-      "duration_seconds": 12.571261,
+      "updated_at": "2025-11-26T19:20:57.335400+01:00",
+      "duration_seconds": 21.666784,
       "error": null,
       "store_query": null,
       "previous": {
         "status": "OK",
         "payload": {
           "status": "OK",
-          "title": "Dessert végétal soja Alpro Nature à la coco - 500g",
+          "title": "Dessert végétal soja alpro Nature à l'amande - 500g",
           "price": "1,82",
           "unit_price": "3,64 € / kg",
           "quantity": "500  g",
-          "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-93600-Dessert-vegetal-soja-Alpro.aspx",
+          "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95817-Dessert-vegetal-soja-alpro.aspx",
           "matched_ean": "5411188118961",
           "store": "E.Leclerc Drive · Bruges",
-          "note": "2025-11-26T16:57:44Z · E.Leclerc Drive · Bruges",
+          "note": "2025-11-26T18:10:58Z · E.Leclerc Drive · Bruges",
           "_meta": {
             "supports_keywords": true
           },
@@ -5169,6 +5620,38 @@
                 "ean": "5411188119098",
                 "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2976080&amp;use=l&amp;cat=p&amp;typeid=i",
                 "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
+              "product": {
+                "title": "Dessert végétal soja alpro Vanille - 500g",
+                "brand": "Alpro",
+                "kind": "Dessert végétal soja nature à l'amande ALPRO",
+                "qty": "500 g",
+                "qualifiers": [],
+                "ean": "5411188103387",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2977672&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95817-Dessert-vegetal-soja-alpro.aspx",
+              "product": {
+                "title": "Dessert végétal soja alpro Nature à l'amande - 500g",
+                "brand": "Alpro",
+                "kind": "Dessert végétal soja nature à l'amande ALPRO",
+                "qty": "500 g",
+                "qualifiers": [],
+                "ean": "5411188118961",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2977684&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
                 "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
                 "seed_query": "",
                 "leclerc_queries": []
@@ -5176,7 +5659,7 @@
             }
           ]
         },
-        "updated_at": "2025-11-26T17:59:00.964815+01:00",
+        "updated_at": "2025-11-26T19:13:01.457535+01:00",
         "error": null,
         "store_query": null
       }
@@ -5553,7 +6036,7 @@
         "quantity": "500 G",
         "title": "Dessert végétal soja vanille ALPRO",
         "matched_ean": "5411188103387",
-        "image": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac19 4cb6/05411188103387_H1N1_s42.png",
+        "image": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac194cb6/05411188103387_H1N1 _s42.png",
         "nutriscore_grade": "a",
         "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-a.svg",
         "_meta": {
@@ -5566,37 +6049,50 @@
           "qty": "500 G",
           "qualifiers": [],
           "ean": "5411188103387",
-          "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac19 4cb6/05411188103387_H1N1_s42.png",
+          "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac194cb6/05411188103387_H1N1 _s42.png",
           "source": "carrefour_super",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-23T17:51:05.189018+01:00",
-      "duration_seconds": 19.030209,
+      "updated_at": "2025-11-27T12:57:14.892552+01:00",
+      "duration_seconds": 17.446148,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "NO_PRICE",
+        "status": "OK",
         "payload": {
-          "status": "NO_PRICE",
-          "price": null,
+          "status": "OK",
+          "price": "1,99",
           "store": "Lormont",
-          "url": null,
+          "url": "https://www.carrefour.fr/p/dessert-vegetal-soja-vanille-alpro-5411188103387",
           "note": null,
-          "unit_price": null,
-          "quantity": null,
-          "title": null,
-          "matched_ean": null,
-          "image": null,
-          "nutriscore_grade": null,
-          "nutriscore_image": null,
+          "unit_price": "3,98 € / KG",
+          "quantity": "500 G",
+          "title": "Dessert végétal soja vanille ALPRO",
+          "matched_ean": "5411188103387",
+          "image": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac19 4cb6/05411188103387_H1N1_s42.png",
+          "nutriscore_grade": "a",
+          "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-a.svg",
           "_meta": {
             "supports_ean": true
+          },
+          "product": {
+            "title": "Dessert végétal soja vanille ALPRO",
+            "brand": "Dessert",
+            "kind": "",
+            "qty": "500 G",
+            "qualifiers": [],
+            "ean": "5411188103387",
+            "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac19 4cb6/05411188103387_H1N1_s42.png",
+            "source": "carrefour_super",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
           }
         },
-        "updated_at": "2025-11-23T17:24:14.972573+01:00",
+        "updated_at": "2025-11-23T17:51:05.189018+01:00",
         "error": null,
         "store_query": null
       }
@@ -5724,54 +6220,67 @@
         "status": "OK",
         "price": "1,91",
         "unit_price": "3,82 € / KG",
-        "quantity": "500  g",
-        "title": "Dessert végétal soja vanille ALPRO - 500g",
-        "url": "https://www.coursesu.com/p/dessert-vegetal-soja-vanille-alpro---500g/2764270.ht ml",
-        "note": "2025-11-23T16:48:21Z · Super U Eysines",
-        "store": "Super U  Eysines",
+        "quantity": "500 g",
+        "title": "Dessert  végétal soja vanille ALPRO - 500g",
+        "url": "https://www.coursesu.com/p/dessert-vegetal-soja-vanille-alpro---500g/2764270.html",
+        "note": "2025-11-27T11:53:16Z · Super U Eysines",
+        "store": "Super U Eysines",
         "matched_ean": "5411188103387",
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-naviga tion/nutrition_et_regimes_alimentaires.png",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Dessert végétal soja vanille ALPRO - 500g",
+          "title": "Dessert  végétal soja vanille ALPRO - 500g",
           "brand": "Dessert",
           "kind": "",
           "qty": "500 g",
           "qualifiers": [],
           "ean": "5411188103387",
-          "image_url": null,
+          "image_url": "./assets/5411188103387.jpg",
           "source": "courseu",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-23T17:51:05.189018+01:00",
-      "duration_seconds": 33.304244,
+      "updated_at": "2025-11-27T12:53:16.866989+01:00",
+      "duration_seconds": 29.270106,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "NO_RESULTS",
+        "status": "OK",
         "payload": {
-          "status": "NO_RESULTS",
-          "price": null,
-          "unit_price": null,
-          "quantity": null,
-          "title": null,
-          "url": null,
-          "note": "2025-11-23T16:18:29Z · Super U Eysines",
-          "store": "Super U Eysines",
-          "matched_ean": null,
+          "status": "OK",
+          "price": "1,91",
+          "unit_price": "3,82 € / KG",
+          "quantity": "500  g",
+          "title": "Dessert végétal soja vanille ALPRO - 500g",
+          "url": "https://www.coursesu.com/p/dessert-vegetal-soja-vanille-alpro---500g/2764270.ht ml",
+          "note": "2025-11-23T16:48:21Z · Super U Eysines",
+          "store": "Super U  Eysines",
+          "matched_ean": "5411188103387",
           "nutriscore_grade": null,
           "nutriscore_image": null,
           "_meta": {
             "supports_ean": true
+          },
+          "product": {
+            "title": "Dessert végétal soja vanille ALPRO - 500g",
+            "brand": "Dessert",
+            "kind": "",
+            "qty": "500 g",
+            "qualifiers": [],
+            "ean": "5411188103387",
+            "image_url": null,
+            "source": "courseu",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
           }
         },
-        "updated_at": "2025-11-23T17:24:14.972573+01:00",
+        "updated_at": "2025-11-23T17:51:05.189018+01:00",
         "error": null,
         "store_query": null
       }
@@ -5954,7 +6463,7 @@
         "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
         "matched_ean": "5411188103387",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-23T16:50:35Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-26T18:52:37Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
@@ -5994,63 +6503,20 @@
           }
         ]
       },
-      "updated_at": "2025-11-23T17:51:05.189018+01:00",
-      "duration_seconds": 72.522969,
+      "updated_at": "2025-11-26T19:53:07.697574+01:00",
+      "duration_seconds": 15.02125,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "OK",
+        "status": "ERROR",
         "payload": {
-          "status": "OK",
-          "title": "Dessert végétal soja alpro Vanille - 500g",
-          "price": "1,81",
-          "unit_price": "3,62 € / kg",
-          "quantity": "500  g",
-          "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
-          "matched_ean": "5411188103387",
-          "store": "E.Leclerc Drive · Bruges",
-          "note": "2025-11-23T16:22:50Z · E.Leclerc Drive · Bruges",
           "_meta": {
             "supports_keywords": true
           },
-          "equivalent": false,
-          "candidates": [
-            {
-              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-93600-Dessert-vegetal-soja-Alpro.aspx",
-              "product": {
-                "title": "Dessert végétal soja Alpro Nature à la coco - 500g",
-                "brand": "Alpro",
-                "kind": "Dessert végétal soja vanille ALPRO",
-                "qty": "500 g",
-                "qualifiers": [],
-                "ean": "5411188119098",
-                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2976080&amp;use=l&amp;cat=p&amp;typeid=i",
-                "source": "leclerc",
-                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
-                "seed_query": "",
-                "leclerc_queries": []
-              }
-            },
-            {
-              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
-              "product": {
-                "title": "Dessert végétal soja alpro Vanille - 500g",
-                "brand": "Alpro",
-                "kind": "Dessert végétal soja vanille ALPRO",
-                "qty": "500 g",
-                "qualifiers": [],
-                "ean": "5411188103387",
-                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2977672&amp;use=l&amp;cat=p&amp;typeid=i",
-                "source": "leclerc",
-                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
-                "seed_query": "",
-                "leclerc_queries": []
-              }
-            }
-          ]
+          "candidates": []
         },
-        "updated_at": "2025-11-23T17:24:14.972573+01:00",
-        "error": null,
+        "updated_at": "2025-11-26T19:49:49.610444+01:00",
+        "error": "EMPTY_STDOUT",
         "store_query": null
       }
     },
@@ -6490,6 +6956,25 @@
         "error": null,
         "store_query": null
       }
+    },
+    "_finder": {
+      "consolidated": {
+        "title": "Dessert végétal soja vanille ALPRO",
+        "brand": "Dessert",
+        "kind": "",
+        "qty": "500 G",
+        "qualifiers": [],
+        "ean": "5411188103387",
+        "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac194cb6/05411188103387_H1N1 _s42.png",
+        "source": "consolidated",
+        "raw_text": "Dessert végétal soja vanille ALPRO - 500g",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": null,
+      "candidates": [],
+      "decision": null,
+      "audit": []
     }
   },
   "5411188114536": {
@@ -7200,17 +7685,90 @@
       }
     },
     "leclerc": {
-      "status": "ERROR",
+      "status": "OK",
       "payload": {
-        "status": "ERROR",
-        "error": "leclerc_run_failed",
+        "status": "OK",
+        "title": "Dessert végétal Alpro Fraise - 500g",
+        "price": "1,79",
+        "unit_price": "3,58 € / kg",
+        "quantity": "500  g",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-211095-Dessert-vegetal-Alpro.aspx",
+        "matched_ean": "5411188114536",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-26T18:53:50Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
-        "candidates": []
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-93600-Dessert-vegetal-soja-Alpro.aspx",
+            "product": {
+              "title": "Dessert végétal soja Alpro Nature à la coco - 500g",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188119098",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2976080&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
+            "product": {
+              "title": "Dessert végétal soja alpro Vanille - 500g",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188103387",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2977672&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95817-Dessert-vegetal-soja-alpro.aspx",
+            "product": {
+              "title": "Dessert végétal soja alpro Nature à l'amande - 500g",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188118961",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2977684&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-211095-Dessert-vegetal-Alpro.aspx",
+            "product": {
+              "title": "Dessert végétal Alpro Fraise - 500g",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188114536",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2976071&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "updated_at": "2025-11-26T14:01:56.009729+01:00",
-      "duration_seconds": 2.051903,
+      "updated_at": "2025-11-26T19:54:50.426658+01:00",
+      "duration_seconds": 24.895442,
       "error": null,
       "store_query": null,
       "previous": {
@@ -7223,7 +7781,7 @@
           },
           "candidates": []
         },
-        "updated_at": "2025-11-26T14:00:40.907487+01:00",
+        "updated_at": "2025-11-26T14:01:56.009729+01:00",
         "error": null,
         "store_query": null
       }
@@ -7396,23 +7954,7 @@
       "store_query": null
     },
     "_finder": {
-      "consolidated": {
-        "title": "Dessert végétal soja fraise ALPRO - 500g",
-        "brand": "Alpro",
-        "kind": "",
-        "qty": "500 g",
-        "qualifiers": [],
-        "ean": "5411188114536",
-        "image_url": "./assets/5411188114536.jpg",
-        "source": "consolidated",
-        "raw_text": "Dessert végétal soja fraise ALPRO - 500g",
-        "seed_query": "",
-        "leclerc_queries": []
-      },
-      "keywords": null,
-      "candidates": [],
-      "decision": null,
-      "audit": []
+      "error": "'FinderPipeline' object has no attribute 'decide'"
     }
   },
   "3092718637033": {
@@ -8352,32 +8894,45 @@
         "note": null,
         "unit_price": "1,59 € / L",
         "quantity": "1,75 L",
-        "title": "Soda  au Cola Goût Original COCA-COLA",
+        "title": "Soda au Cola Goût Original COCA-COLA",
         "matched_ean": "5000112611861",
-        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
-        "nutriscore_grade": "b",
-        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
+        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Soda  au Cola Goût Original COCA-COLA",
+          "title": "Soda au Cola Goût Original COCA-COLA",
           "brand": "Soda",
           "kind": "",
           "qty": "1,75 L",
           "qualifiers": [],
           "ean": "5000112611861",
-          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
+          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
           "source": "carrefour_city",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-26T15:20:34.327226+01:00",
-      "duration_seconds": 23.456495,
+      "updated_at": "2025-11-27T12:20:24.059187+01:00",
+      "duration_seconds": 21.349154,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "TIMEOUT",
+        "payload": {
+          "status": "TIMEOUT",
+          "error": "timeout_after_90s",
+          "_meta": {
+            "supports_ean": true
+          }
+        },
+        "updated_at": "2025-11-27T11:53:56.133665+01:00",
+        "error": "timeout_after_90s",
+        "store_query": null
+      }
     },
     "carrefour_market": {
       "status": "OK",
@@ -8389,32 +8944,45 @@
         "note": null,
         "unit_price": "1,40 € / L",
         "quantity": "1,75 L",
-        "title": "Soda  au Cola Goût Original COCA-COLA",
+        "title": "Soda au Cola Goût Original COCA-COLA",
         "matched_ean": "5000112611861",
-        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
+        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
         "nutriscore_grade": "b",
         "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Soda  au Cola Goût Original COCA-COLA",
+          "title": "Soda au Cola Goût Original COCA-COLA",
           "brand": "Soda",
           "kind": "",
           "qty": "1,75 L",
           "qualifiers": [],
           "ean": "5000112611861",
-          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
+          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
           "source": "carrefour_market",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-26T15:20:34.327226+01:00",
-      "duration_seconds": 22.134354,
+      "updated_at": "2025-11-27T12:20:56.797083+01:00",
+      "duration_seconds": 18.087945,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "TIMEOUT",
+        "payload": {
+          "status": "TIMEOUT",
+          "error": "timeout_after_90s",
+          "_meta": {
+            "supports_ean": true
+          }
+        },
+        "updated_at": "2025-11-27T11:52:26.530219+01:00",
+        "error": "timeout_after_90s",
+        "store_query": null
+      }
     },
     "carrefour_super": {
       "status": "OK",
@@ -8426,51 +8994,87 @@
         "note": null,
         "unit_price": "1,37 € / L",
         "quantity": "1,75 L",
-        "title": "Soda  au Cola Goût Original COCA-COLA",
+        "title": "Soda au Cola Goût Original COCA-COLA",
         "matched_ean": "5000112611861",
-        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
+        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
         "nutriscore_grade": "e",
         "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Soda  au Cola Goût Original COCA-COLA",
+          "title": "Soda au Cola Goût Original COCA-COLA",
           "brand": "Soda",
           "kind": "",
           "qty": "1,75 L",
           "qualifiers": [],
           "ean": "5000112611861",
-          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png",
+          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
           "source": "carrefour_super",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-26T15:20:34.327226+01:00",
-      "duration_seconds": 19.134541,
+      "updated_at": "2025-11-27T12:56:48.305910+01:00",
+      "duration_seconds": 17.702644,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "2,39",
+          "store": "Lormont",
+          "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+          "note": null,
+          "unit_price": "1,37 € / L",
+          "quantity": "1,75 L",
+          "title": "Soda au Cola Goût Original COCA-COLA",
+          "matched_ean": "5000112611861",
+          "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+          "nutriscore_grade": "e",
+          "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Soda au Cola Goût Original COCA-COLA",
+            "brand": "Soda",
+            "kind": "",
+            "qty": "1,75 L",
+            "qualifiers": [],
+            "ean": "5000112611861",
+            "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+            "source": "carrefour_super",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-11-27T12:48:24.770109+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "auchan": {
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "2,38",
-        "unit_price": "1,36 € / L",
-        "quantity": "1,75  L",
-        "title": "Boisson gazeuse aux extraits végétaux goût original",
-        "url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-orig inal/pr-C1211988",
+        "price": "2,39",
+        "unit_price": "1,37 € / L",
+        "quantity": "1,75 L",
+        "title": "Boisson  gazeuse aux extraits végétaux goût original",
+        "url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-original/pr-C1211988",
         "matched_ean": "5000112611861",
-        "store": "Auchan Drive  Supermarché Talence-Gallieni",
-        "note": "Auchan Talence",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan  Talence",
         "image": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Boisson gazeuse aux extraits végétaux goût original",
+          "title": "Boisson  gazeuse aux extraits végétaux goût original",
           "brand": "Boisson",
           "kind": "",
           "qty": "1,75 L",
@@ -8483,30 +9087,51 @@
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-26T15:20:34.327226+01:00",
-      "duration_seconds": 13.975676,
+      "updated_at": "2025-11-27T12:21:12.607794+01:00",
+      "duration_seconds": 9.635196,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "NO_PRICE",
+        "payload": {
+          "status": "NO_PRICE",
+          "price": null,
+          "unit_price": null,
+          "quantity": null,
+          "title": null,
+          "url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-original/pr-C1211988",
+          "matched_ean": null,
+          "store": "Auchan Drive Supermarché Talence-Gallieni",
+          "note": "price_missing",
+          "image": null,
+          "_meta": {
+            "supports_ean": true
+          }
+        },
+        "updated_at": "2025-11-27T12:19:25.187041+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "chronodrive": {
       "status": "OK",
       "payload": {
         "status": "OK",
         "price": "2,49",
-        "title": "Boisson gazeuse aux extraits  végétaux COCA-COLA Original",
-        "url": "https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits- vegetaux-P384066",
+        "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
+        "url": "https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits-vegetaux-P384066",
         "note": "Chronodrive Le Haillan",
         "unit_price": "1,42 € / L",
         "quantity": "1,75 L",
         "store": "Chronodrive Le Haillan",
         "matched_ean": "5000112611861",
         "nutriscore_grade": "e",
-        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltcfe44872100 3a156/nutriscore-e",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltcfe448721003a156/nutriscore-e",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Boisson gazeuse aux extraits  végétaux COCA-COLA Original",
+          "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
           "brand": "Boisson",
           "kind": "",
           "qty": "1,75 L",
@@ -8519,10 +9144,45 @@
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-26T15:20:34.327226+01:00",
-      "duration_seconds": 8.288263,
+      "updated_at": "2025-11-27T12:54:53.489453+01:00",
+      "duration_seconds": 6.53718,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "2,49",
+          "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
+          "url": "https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits-vegetaux-P384066",
+          "note": "Chronodrive Le Haillan",
+          "unit_price": "1,42 € / L",
+          "quantity": "1,75 L",
+          "store": "Chronodrive Le Haillan",
+          "matched_ean": "5000112611861",
+          "nutriscore_grade": "e",
+          "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltcfe448721003a156/nutriscore-e",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
+            "brand": "Boisson",
+            "kind": "",
+            "qty": "1,75 L",
+            "qualifiers": [],
+            "ean": "5000112611861",
+            "image_url": "./assets/5000112611861.jpg",
+            "source": "chronodrive",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-11-27T12:51:15.387631+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "courseu": {
       "status": "OK",
@@ -8941,7 +9601,23 @@
       "store_query": null
     },
     "_finder": {
-      "error": "'FinderPipeline' object has no attribute 'decide'"
+      "consolidated": {
+        "title": "Soda au Cola Goût Original COCA-COLA",
+        "brand": "Soda",
+        "kind": "",
+        "qty": "1,75 L",
+        "qualifiers": [],
+        "ean": "5000112611861",
+        "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+        "source": "consolidated",
+        "raw_text": "Soda COCA-COLA Original - Bouteille 1,75L",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": null,
+      "candidates": [],
+      "decision": null,
+      "audit": []
     }
   },
   "8712100731822": {
@@ -9017,37 +9693,62 @@
       }
     },
     "carrefour_market": {
-      "status": "NO_PRICE",
+      "status": "OK",
       "payload": {
-        "status": "NO_PRICE",
-        "price": null,
+        "status": "OK",
+        "price": "2,84",
         "store": "Market Fondaudège",
-        "url": null,
+        "url": "https://www.carrefour.fr/p/moutarde-epices-amorates-savora-amora-8712100731822",
         "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
+        "unit_price": "7,38 € / KG",
+        "quantity": "385 G",
+        "title": "Moutarde Epices & Amorates Savora AMORA",
+        "matched_ean": "8712100731822",
+        "image": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24c c85e/08712100731822_C1N1_s05.png",
+        "nutriscore_grade": "d",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg",
         "_meta": {
           "supports_ean": true
+        },
+        "product": {
+          "title": "Moutarde Epices & Amorates Savora AMORA",
+          "brand": "Moutarde",
+          "kind": "",
+          "qty": "385 G",
+          "qualifiers": [],
+          "ean": "8712100731822",
+          "image_url": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24c c85e/08712100731822_C1N1_s05.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-24T10:28:21.491162+01:00",
-      "duration_seconds": 12.761959,
+      "updated_at": "2025-11-27T09:49:57.597003+01:00",
+      "duration_seconds": 18.521063,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "ERROR",
+        "status": "NO_PRICE",
         "payload": {
+          "status": "NO_PRICE",
+          "price": null,
+          "store": "Market Fondaudège",
+          "url": null,
+          "note": null,
+          "unit_price": null,
+          "quantity": null,
+          "title": null,
+          "matched_ean": null,
+          "image": null,
+          "nutriscore_grade": null,
+          "nutriscore_image": null,
           "_meta": {
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-21T16:13:26.816952+01:00",
-        "error": "EMPTY_STDOUT",
+        "updated_at": "2025-11-24T10:28:21.491162+01:00",
+        "error": null,
         "store_query": null
       }
     },
@@ -9063,7 +9764,7 @@
         "quantity": "385 G",
         "title": "Moutarde Epices & Amorates Savora AMORA",
         "matched_ean": "8712100731822",
-        "image": "https://media.carrefour.fr/medias/852e37fd05f24a1c9976e1fe51150cc4/p_540x540/08 712100731822_H1N1_s06.png",
+        "image": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24cc85e/08712100731822_C1N1 _s05.png",
         "nutriscore_grade": "d",
         "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg",
         "_meta": {
@@ -9076,26 +9777,51 @@
           "qty": "385 G",
           "qualifiers": [],
           "ean": "8712100731822",
-          "image_url": "https://media.carrefour.fr/medias/852e37fd05f24a1c9976e1fe51150cc4/p_540x540/08 712100731822_H1N1_s06.png",
+          "image_url": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24cc85e/08712100731822_C1N1 _s05.png",
           "source": "carrefour_super",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-24T10:28:21.491162+01:00",
-      "duration_seconds": 20.314626,
+      "updated_at": "2025-11-27T12:56:11.495850+01:00",
+      "duration_seconds": 17.641167,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "ERROR",
+        "status": "OK",
         "payload": {
+          "status": "OK",
+          "price": "2,29",
+          "store": "Lormont",
+          "url": "https://www.carrefour.fr/p/moutarde-epices-amorates-savora-amora-8712100731822",
+          "note": null,
+          "unit_price": "5,95 € / KG",
+          "quantity": "385 G",
+          "title": "Moutarde Epices & Amorates Savora AMORA",
+          "matched_ean": "8712100731822",
+          "image": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24cc85e/08712100731822_C1N1 _s05.png",
+          "nutriscore_grade": "d",
+          "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg",
           "_meta": {
             "supports_ean": true
+          },
+          "product": {
+            "title": "Moutarde Epices & Amorates Savora AMORA",
+            "brand": "Moutarde",
+            "kind": "",
+            "qty": "385 G",
+            "qualifiers": [],
+            "ean": "8712100731822",
+            "image_url": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24cc85e/08712100731822_C1N1 _s05.png",
+            "source": "carrefour_super",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
           }
         },
-        "updated_at": "2025-11-21T16:13:26.816952+01:00",
-        "error": "EMPTY_STDOUT",
+        "updated_at": "2025-11-27T12:47:08.891920+01:00",
+        "error": null,
         "store_query": null
       }
     },
@@ -9129,19 +9855,42 @@
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-24T10:28:21.491162+01:00",
-      "duration_seconds": 11.838435,
+      "updated_at": "2025-11-27T11:48:07.640263+01:00",
+      "duration_seconds": 28.415341,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "ERROR",
+        "status": "OK",
         "payload": {
+          "status": "OK",
+          "price": "2,65",
+          "unit_price": "6,88 € / KG",
+          "quantity": "0,385 KG",
+          "title": "Spécialité à la moutarde savora en bocal",
+          "url": "https://www.auchan.fr/savora-specialite-a-la-moutarde-savora-en-bocal/pr-C12300 73",
+          "matched_ean": "8712100731822",
+          "store": "Auchan Drive Supermarché  Talence-Gallieni",
+          "note": "Auchan Talence",
+          "image": "https://cdn.auchan.fr/media/A0220141215000569861PRIMARY_1200x1200/B2CD/",
           "_meta": {
             "supports_ean": true
+          },
+          "product": {
+            "title": "Spécialité à la moutarde savora en bocal",
+            "brand": "Spécialité",
+            "kind": "",
+            "qty": "0,385 KG",
+            "qualifiers": [],
+            "ean": "8712100731822",
+            "image_url": "https://cdn.auchan.fr/media/A0220141215000569861PRIMARY_1200x1200/B2CD/",
+            "source": "auchan",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
           }
         },
-        "updated_at": "2025-11-21T16:13:26.816952+01:00",
-        "error": "EMPTY_STDOUT",
+        "updated_at": "2025-11-24T10:28:21.491162+01:00",
+        "error": null,
         "store_query": null
       }
     },
@@ -9154,11 +9903,11 @@
         "url": "https://www.chronodrive.com/savora--moutarde-aux-aromates-P16609",
         "note": "Chronodrive Le Haillan",
         "unit_price": "7,14 € / KG",
-        "quantity": "385  g",
+        "quantity": "385 g",
         "store": "Chronodrive Le Haillan",
         "matched_ean": "8712100731822",
         "nutriscore_grade": "e",
-        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt1c2c391f123 113a7/nutriscore-d",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt1c2c391f123113a7/nutriscore-d",
         "_meta": {
           "supports_ean": true
         },
@@ -9169,26 +9918,28 @@
           "qty": "385 g",
           "qualifiers": [],
           "ean": "8712100731822",
-          "image_url": null,
+          "image_url": "./assets/8712100731822.jpg",
           "source": "chronodrive",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-24T10:28:21.491162+01:00",
-      "duration_seconds": 6.445755,
+      "updated_at": "2025-11-27T12:21:36.251864+01:00",
+      "duration_seconds": 5.926072,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "ERROR",
+        "status": "TIMEOUT",
         "payload": {
+          "status": "TIMEOUT",
+          "error": "timeout_after_90s",
           "_meta": {
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-21T16:13:26.816952+01:00",
-        "error": "EMPTY_STDOUT",
+        "updated_at": "2025-11-27T11:56:49.722006+01:00",
+        "error": "timeout_after_90s",
         "store_query": null
       }
     },
@@ -9693,6 +10444,25 @@
         "error": null,
         "store_query": null
       }
+    },
+    "_finder": {
+      "consolidated": {
+        "title": "Moutarde Epices & Amorates Savora AMORA",
+        "brand": "Moutarde",
+        "kind": "",
+        "qty": "385 G",
+        "qualifiers": [],
+        "ean": "8712100731822",
+        "image_url": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24cc85e/08712100731822_C1N1 _s05.png",
+        "source": "consolidated",
+        "raw_text": "Moutarde aux aromates SAVORA 385 g",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": null,
+      "candidates": [],
+      "decision": null,
+      "audit": []
     }
   },
   "3665468000312": {
@@ -14355,41 +15125,51 @@
   },
   "3103220045640": {
     "carrefour_city": {
-      "status": "OK",
+      "status": "NO_PRICE",
       "payload": {
-        "status": "OK",
-        "price": "1,80",
+        "status": "NO_PRICE",
+        "price": null,
         "store": "City Bordeaux Balguerie",
-        "url": "https://www.carrefour.fr/p/bonbons-les-schtroumpfs-haribo-3103220045640",
+        "url": null,
         "note": null,
-        "unit_price": "6,00 € / KG",
-        "quantity": "300 G",
-        "title": "Bonbons Les Schtroumpfs HARIBO",
-        "matched_ean": "3103220045640",
-        "image": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03 103220045640_A1C1_s01.jpeg",
-        "nutriscore_grade": "e",
-        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
         "_meta": {
           "supports_ean": true
-        },
-        "product": {
-          "title": "Bonbons Les Schtroumpfs HARIBO",
-          "brand": "Bonbons",
-          "kind": "",
-          "qty": "300 G",
-          "qualifiers": [],
-          "ean": "3103220045640",
-          "image_url": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03 103220045640_A1C1_s01.jpeg",
-          "source": "carrefour_city",
-          "raw_text": "",
-          "seed_query": "",
-          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 20.721391,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 18.83322,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "NO_PRICE",
+        "payload": {
+          "status": "NO_PRICE",
+          "price": null,
+          "store": "City Bordeaux Balguerie",
+          "url": null,
+          "note": null,
+          "unit_price": null,
+          "quantity": null,
+          "title": null,
+          "matched_ean": null,
+          "image": null,
+          "nutriscore_grade": null,
+          "nutriscore_image": null,
+          "_meta": {
+            "supports_ean": true
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "carrefour_market": {
       "status": "OK",
@@ -14403,9 +15183,9 @@
         "quantity": "300 G",
         "title": "Bonbons Les Schtroumpfs HARIBO",
         "matched_ean": "3103220045640",
-        "image": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03 103220045640_A1C1_s01.jpeg",
-        "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+        "image": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
         "_meta": {
           "supports_ean": true
         },
@@ -14416,17 +15196,53 @@
           "qty": "300 G",
           "qualifiers": [],
           "ean": "3103220045640",
-          "image_url": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03 103220045640_A1C1_s01.jpeg",
+          "image_url": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
           "source": "carrefour_market",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 21.567706,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 26.355006,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "1,90",
+          "store": "Market Fondaudège",
+          "url": "https://www.carrefour.fr/p/bonbons-les-schtroumpfs-haribo-3103220045640",
+          "note": null,
+          "unit_price": "6,33 € / KG",
+          "quantity": "300 G",
+          "title": "Bonbons Les Schtroumpfs HARIBO",
+          "matched_ean": "3103220045640",
+          "image": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+          "nutriscore_grade": "c",
+          "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Bonbons Les Schtroumpfs HARIBO",
+            "brand": "Bonbons",
+            "kind": "",
+            "qty": "300 G",
+            "qualifiers": [],
+            "ean": "3103220045640",
+            "image_url": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+            "source": "carrefour_market",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "carrefour_super": {
       "status": "NO_PRICE",
@@ -14447,10 +15263,46 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 13.276046,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 24.753636,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "1,59",
+          "store": "Lormont",
+          "url": "https://www.carrefour.fr/p/bonbons-les-schtroumpfs-haribo-3103220045640",
+          "note": null,
+          "unit_price": "5,30 € / KG",
+          "quantity": "300 G",
+          "title": "Bonbons Les Schtroumpfs HARIBO",
+          "matched_ean": "3103220045640",
+          "image": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+          "nutriscore_grade": "c",
+          "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Bonbons Les Schtroumpfs HARIBO",
+            "brand": "Bonbons",
+            "kind": "",
+            "qty": "300 G",
+            "qualifiers": [],
+            "ean": "3103220045640",
+            "image_url": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+            "source": "carrefour_super",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "auchan": {
       "status": "NO_RESULTS",
@@ -14462,37 +15314,58 @@
         "title": null,
         "url": null,
         "matched_ean": null,
-        "store": "Auchan Drive  Supermarché Talence-Gallieni",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
         "note": "search_failed:3103220045640",
         "image": null,
         "_meta": {
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 26.85733,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 30.33257,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "NO_RESULTS",
+        "payload": {
+          "status": "NO_RESULTS",
+          "price": null,
+          "unit_price": null,
+          "quantity": null,
+          "title": null,
+          "url": null,
+          "matched_ean": null,
+          "store": "Auchan Drive Supermarché Talence-Gallieni",
+          "note": "search_failed:3103220045640",
+          "image": null,
+          "_meta": {
+            "supports_ean": true
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "chronodrive": {
       "status": "OK",
       "payload": {
         "status": "OK",
         "price": "1,65",
-        "title": "Bonbons gélifiés aromatisés HARIBO  Schtroumpfs",
-        "url": "https://www.chronodrive.com/haribo--schtroumpfs---bonbons-gelifies-aromatises-P 419481",
+        "title": "Bonbons gélifiés aromatisés HARIBO Schtroumpfs",
+        "url": "https://www.chronodrive.com/haribo--schtroumpfs---bonbons-gelifies-aromatises-P419481",
         "note": "Chronodrive Le Haillan",
         "unit_price": "5,50 € / KG",
         "quantity": "300 g",
-        "store": "Chronodrive Le Haillan",
+        "store": "Chronodrive Le  Haillan",
         "matched_ean": "3103220045640",
         "nutriscore_grade": "e",
-        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt1c2c391f123 113a7/nutriscore-d",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt1c2c391f123113a7/nutriscore-d",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Bonbons gélifiés aromatisés HARIBO  Schtroumpfs",
+          "title": "Bonbons gélifiés aromatisés HARIBO Schtroumpfs",
           "brand": "Bonbons",
           "kind": "",
           "qty": "300 g",
@@ -14505,10 +15378,45 @@
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 7.030473,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 6.313942,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "1,65",
+          "title": "Bonbons gélifiés aromatisés HARIBO Schtroumpfs",
+          "url": "https://www.chronodrive.com/haribo--schtroumpfs---bonbons-gelifies-aromatises-P419481",
+          "note": "Chronodrive Le Haillan",
+          "unit_price": "5,50 € / KG",
+          "quantity": "300 g",
+          "store": "Chronodrive Le  Haillan",
+          "matched_ean": "3103220045640",
+          "nutriscore_grade": "e",
+          "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt1c2c391f123113a7/nutriscore-d",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Bonbons gélifiés aromatisés HARIBO Schtroumpfs",
+            "brand": "Bonbons",
+            "kind": "",
+            "qty": "300 g",
+            "qualifiers": [],
+            "ean": "3103220045640",
+            "image_url": null,
+            "source": "chronodrive",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "courseu": {
       "status": "OK",
@@ -14516,19 +15424,19 @@
         "status": "OK",
         "price": "1,55",
         "unit_price": "5,17 € / KG",
-        "quantity": "300  g",
-        "title": "Bonbon Schtroumpfs HARIBO sachet 300g",
+        "quantity": "300 g",
+        "title": "Bonbon  Schtroumpfs HARIBO sachet 300g",
         "url": "https://www.coursesu.com/p/bonbon-schtroumpfs-haribo-sachet-300g/3531513.html",
-        "note": "2025-11-22T14:30:25Z · Super U Eysines",
+        "note": "2025-11-27T13:47:46Z · Super U Eysines",
         "store": "Super U Eysines",
         "matched_ean": "3103220045640",
         "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-naviga tion/nutrition_et_regimes_alimentaires.png",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Bonbon Schtroumpfs HARIBO sachet 300g",
+          "title": "Bonbon  Schtroumpfs HARIBO sachet 300g",
           "brand": "Bonbon",
           "kind": "",
           "qty": "300 g",
@@ -14541,10 +15449,45 @@
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 30.901398,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 31.844015,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "1,55",
+          "unit_price": "5,17 € / KG",
+          "quantity": "300 g",
+          "title": "Bonbon  Schtroumpfs HARIBO sachet 300g",
+          "url": "https://www.coursesu.com/p/bonbon-schtroumpfs-haribo-sachet-300g/3531513.html",
+          "note": "2025-11-27T13:25:51Z · Super U Eysines",
+          "store": "Super U Eysines",
+          "matched_ean": "3103220045640",
+          "nutriscore_grade": "c",
+          "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-naviga tion/nutrition_et_regimes_alimentaires.png",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Bonbon  Schtroumpfs HARIBO sachet 300g",
+            "brand": "Bonbon",
+            "kind": "",
+            "qty": "300 g",
+            "qualifiers": [],
+            "ean": "3103220045640",
+            "image_url": null,
+            "source": "courseu",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "g20": {
       "status": "OK",
@@ -14575,69 +15518,177 @@
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 0.627654,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 0.629485,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "1,58",
+          "title": "Bonbons HARIBO Schtroumpfs 300g",
+          "url": "https://www.g20-minute.com/products/3103220045640/bonbons-haribo-schtroumpfs-300g-3103220045640",
+          "note": "G20 Minute",
+          "unit_price": "5,27 €/Kg",
+          "quantity": "300g",
+          "matched_ean": "3103220045640",
+          "image": "https://www.g20-minute.com/media/cache/product_box_image/fe/75/194e77c05114775e77f8563c1f00.jpg",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Bonbons HARIBO Schtroumpfs 300g",
+            "brand": "Bonbons",
+            "kind": "",
+            "qty": "300g",
+            "qualifiers": [],
+            "ean": "3103220045640",
+            "image_url": "https://www.g20-minute.com/media/cache/product_box_image/fe/75/194e77c05114775e77f8563c1f00.jpg",
+            "source": "g20",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "casino": {
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
-        "note": "Casino Shop",
+        "status": "OK",
+        "price": "2,39",
+        "unit_price": "7,97 €/KILO",
+        "quantity": "300g",
+        "title": "Haribo Bonbons Les Schtroumpfs 300g",
+        "url": "https://www.mescoursesdeproximite.com/produit/haribo-bonbons-les-schtroumpfs-300g-000300grm-casino-shop-33130/TZ193/291203",
+        "note": "Casino Shop · Bègles Pruniers",
+        "store": "Casino Shop · Bègles Pruniers",
+        "matched_ean": "3103220045640",
+        "image": "https://www.mescoursesdeproximite.com/images/produits/vignette/291203_M1_S1.jpg",
+        "product": {
+          "title": "Haribo Bonbons Les Schtroumpfs 300g",
+          "brand": "Haribo",
+          "qty": "300g",
+          "ean": "3103220045640",
+          "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/291203_M1_S1.jpg",
+          "source": "casino"
+        },
         "_meta": {
           "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Haribo%20schtroumpfs%20300%20G",
           "store_code": "TZ193",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
           "query": "Haribo schtroumpfs 300 G",
-          "timestamp": "2025-11-22T14:40:13.142833+00:00",
+          "timestamp": "2025-11-27T13:47:48.759116+00:00",
           "supports_keywords": true
         },
-        "candidates": []
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/haribo-bonbons-les-schtroumpfs-300g-000300grm-casino-shop-33130/TZ193/291203",
+            "product": {
+              "title": "Haribo Bonbons Les Schtroumpfs 300g",
+              "brand": "Haribo",
+              "kind": "",
+              "qty": "300g",
+              "qualifiers": [],
+              "ean": "3103220045640",
+              "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/291203_M1_S1.jpg",
+              "source": "casino",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "updated_at": "2025-11-22T15:40:16.199868+01:00",
-      "duration_seconds": 0.945805,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 1.602585,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "NO_RESULTS",
+        "status": "TIMEOUT",
         "payload": {
-          "status": "NO_RESULTS",
-          "note": "Casino Shop",
+          "status": "TIMEOUT",
+          "error": "timeout_after_90s",
           "_meta": {
-            "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Haribo%20schtroumpfs%20300%20G",
-            "store_code": "TZ193",
-            "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
-            "query": "Haribo schtroumpfs 300 G",
-            "timestamp": "2025-11-22T14:30:26.577272+00:00",
             "supports_keywords": true
           },
           "candidates": []
         },
-        "updated_at": "2025-11-22T15:37:44.691570+01:00",
-        "error": null,
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": "timeout_after_90s",
         "store_query": null
       }
     },
     "spar": {
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
-        "note": "Casino Shop",
+        "status": "OK",
+        "price": "2,00",
+        "unit_price": "6,67 €/KILO",
+        "quantity": "300g",
+        "title": "Haribo Bonbons Les Schtroumpfs 300g",
+        "url": "https://www.mescoursesdeproximite.com/produit/haribo-bonbons-les-schtroumpfs-300g-000300grm-spar-33160/TL832/291203",
+        "note": "Spar Super · Saint-Médard-en-Jalles",
+        "store": "Spar Super · Saint-Médard-en-Jalles",
+        "matched_ean": "3103220045640",
+        "image": "https://www.mescoursesdeproximite.com/images/produits/vignette/291203_M1_S1.jpg",
+        "product": {
+          "title": "Haribo Bonbons Les Schtroumpfs 300g",
+          "brand": "Haribo",
+          "qty": "300g",
+          "ean": "3103220045640",
+          "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/291203_M1_S1.jpg",
+          "source": "casino"
+        },
         "_meta": {
           "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Haribo%20schtroumpfs%20300%20G",
           "store_code": "TL832",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
           "query": "Haribo schtroumpfs 300 G",
-          "timestamp": "2025-11-22T14:30:29.670588+00:00",
+          "timestamp": "2025-11-27T13:47:50.353955+00:00",
           "supports_keywords": true
         },
-        "candidates": []
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/haribo-bonbons-les-schtroumpfs-300g-000300grm-spar-33160/TL832/291203",
+            "product": {
+              "title": "Haribo Bonbons Les Schtroumpfs 300g",
+              "brand": "Haribo",
+              "kind": "",
+              "qty": "300g",
+              "qualifiers": [],
+              "ean": "3103220045640",
+              "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/291203_M1_S1.jpg",
+              "source": "spar",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 0.617103,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 1.645574,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "TIMEOUT",
+        "payload": {
+          "status": "TIMEOUT",
+          "error": "timeout_after_90s",
+          "_meta": {
+            "supports_keywords": true
+          },
+          "candidates": []
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": "timeout_after_90s",
+        "store_query": null
+      }
     },
     "intermarche": {
       "status": "OK",
@@ -14646,7 +15697,7 @@
         "price": "1,46",
         "title": "Bonbons les schtroumpfs",
         "url": "https://www.intermarche.com/produit/bonbons-les-schtroumpfs/3103220045640",
-        "note": "Intermarché · Super Talence",
+        "note": "Intermarché ·  Super Talence",
         "matched_ean": "3103220045640",
         "unit_price": "4,87 € / KG",
         "quantity": null,
@@ -14663,7 +15714,7 @@
               "ean": "3103220045640",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
               "seed_query": "",
               "leclerc_queries": []
             }
@@ -14675,40 +15726,61 @@
         "nutriscore_grade": "e",
         "nutriscore_image": null
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 47.985548,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 24.022293,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "NO_RESULTS",
+        "payload": {
+          "status": "NO_RESULTS",
+          "price": null,
+          "title": null,
+          "url": null,
+          "note": null,
+          "matched_ean": null,
+          "unit_price": null,
+          "quantity": null,
+          "store": null,
+          "candidates": [],
+          "_meta": {
+            "supports_keywords": true
+          },
+          "nutriscore_grade": null,
+          "nutriscore_image": null
+        },
+        "updated_at": "2025-11-27T14:44:44.198684+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "leclerc": {
-      "status": "OK",
+      "status": "NO_MATCH",
       "payload": {
-        "status": "OK",
-        "title": "Dragibus Soft Haribo Sachet bonbons - 300g",
-        "price": "1,35",
-        "unit_price": "4,50 € / kg",
+        "status": "NO_MATCH",
+        "title": "Chocolat en poudre Equador Pur Cacao non sucré - 250g",
+        "price": null,
+        "unit_price": null,
         "quantity": null,
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/recherche.aspx?TexteRecherche=haribo%20300%20g",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-3151-Cafe-moulu-Plantation-.aspx",
         "matched_ean": null,
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-22T14:36:58Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-27T14:03:13Z · E.Leclerc Drive · Bruges",
         "_meta": {
-          "supports_keywords": true,
-          "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed)."
+          "supports_keywords": true
         },
-        "equivalent": true,
-        "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed).",
+        "equivalent": false,
         "candidates": [
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-163143-Dragibus-Soft-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-40329-Chocolat-en-poudre-Equador.aspx",
             "product": {
-              "title": "Dragibus Soft Haribo Sachet bonbons - 300g",
-              "brand": "Dragibus",
+              "title": "Chocolat en poudre Equador Pur Cacao non sucré - 250g",
+              "brand": "Chocolat",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220048658",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2806123&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700748435",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2120290&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -14716,15 +15788,15 @@
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-163145-Dragibus-Original-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24163-Infusion-Tisea-Tilleul-Citron.aspx",
             "product": {
-              "title": "Dragibus Original Haribo Multipack bonbons - 250g",
-              "brand": "Dragibus",
+              "title": "Infusion Tiséa Tilleul Citron 25 sachets 34g",
+              "brand": "Infusion",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220048672",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2984943&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700595640",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2854240&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -14732,15 +15804,15 @@
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-76211-Lours-dor-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-239-Soupe-Veloute-Regal-Soupe.aspx",
             "product": {
-              "title": "L'ours d'or Haribo Sachet bonbons - 300g",
-              "brand": "L'ours",
+              "title": "Soupe Velouté Régal Soupe 10 légumes - 1L",
+              "brand": "Soupe",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220009802",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2805201&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700660508",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2983781&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -14748,15 +15820,15 @@
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-104092-Tagada-Zip-Fraicheur-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-13678-Croutons-salade-Epi-dOr.aspx",
             "product": {
-              "title": "Tagada Zip Fraîcheur Haribo Sachet bonbons - 220g",
-              "brand": "Tagada",
+              "title": "Croûtons salade Epi d'Or Ail et fines herbes - 60g",
+              "brand": "Croûtons",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220044544",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2802359&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700434482",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2606040&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -14764,15 +15836,15 @@
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-97060-Tagada-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24164-The-vert-Briley.aspx",
             "product": {
-              "title": "Tagada Haribo Sachet bonbons - 400g",
-              "brand": "Tagada",
+              "title": "Thé vert Briley 32.5g",
+              "brand": "Thé",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220033371",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2801854&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700591178",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2645939&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -14780,15 +15852,15 @@
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-135444-Croco-Baby--30-de-sucre-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-15288-Mouchoirs-blancs-4-plis-Caresse.aspx",
             "product": {
-              "title": "Croco Baby -30% de sucre Haribo Sachet bonbons - 165g",
-              "brand": "Croco",
+              "title": "Mouchoirs blancs 4 plis Caresse Mini étuis x15",
+              "brand": "Mouchoirs",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220045626",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2806111&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700330470",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2824262&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -14796,31 +15868,15 @@
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-3517-Bonbons-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-3151-Cafe-moulu-Plantation-.aspx",
             "product": {
-              "title": "Bonbons Haribo Réglisse Carensac - 250g",
-              "brand": "Bonbons",
+              "title": "Café moulu Plantation Tradition - 250g",
+              "brand": "Café",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220009819",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2982405&amp;use=l&amp;cat=p&amp;typeid=i",
-              "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-49828-Happy-Life-Haribo.aspx",
-            "product": {
-              "title": "Happy Life Haribo Sachet bonbons - 275g",
-              "brand": "Happy",
-              "kind": "",
-              "qty": "",
-              "qualifiers": [],
-              "ean": "3103220034804",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2803577&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700010426",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2580886&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -14829,118 +15885,206 @@
           }
         ]
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 338.555156,
+      "updated_at": "2025-11-27T15:03:13.484746+01:00",
+      "duration_seconds": 38.76987,
       "error": null,
-      "store_query": null
-    },
-    "monoprix": {
-      "status": "OK",
-      "payload": {
+      "store_query": null,
+      "previous": {
         "status": "OK",
-        "price": "1,65",
-        "title": "Haribo Bonbons Les Schtroumpfs  300g",
-        "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-300g/MPX_13 32907",
-        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d846 6aac-5f23-48db-a88c-1ea3937589b0/300x300.jpg",
-        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d846 6aac-5f23-48db-a88c-1ea3937589b0/300x300.jpg",
-        "matched_ean": null,
-        "unit_price": "5,50 € / KG",
-        "quantity": "300 G",
-        "store": null,
-        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nCalendrier de l'avent\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nEpicerie Sucrée\nChocolat et  Confiserie\nBonbon\nHaribo Bonbons Les Schtroumpfs 300g\n6 m+\n6 mois de  garantie de vie du produit\n300g 5,50 € / kilo\n300g\n(5,50 € / kilo)\n1,65  €\nAjouter\nInformations produit\n\n\nDescription Produit\nDepuis plus de trente ans, leur couleur et leur goût inimitables font des Schtroumpfs l’un des bonbons préférés des Français. Dans chaque sachet retrouvez vos Schtroumpfs préférés !  Schtroumpf alors ! Ils sont sans colorant artificiel  !!\n\n\nOrigine\nFrance\nMarque\nHaribo\nService consommateur\nHARIBO 67,  boulevard du Capitaine Gèze - 13014 MARSEILLE\nConseils  d'utilisation\nconsommation en l'état\nIngredients\nIngrédients: sirop de  glucose; sucre; gélatine; dextrose; acidifiant: acide citrique; arôme; huile de  tournesol; concentrés de fruits et de plantes: spiruline, carthame, citron,  carotte; agent d'enrobage: cire d'abeille blanche et jaune. Tenir à l'abri de la chaleur et de l'humidité. Peut contenir des traces de blé,  lait.\nAllergènes\naucun\nType d’emballage\nEnveloppe\nProducteur\nHARIBO 67 BD  DU CAPITAINE GEZE///13014/MARSEILLE/FRANCE\nConseil de conservation\ntenir à  l'abri de la chaleur et de l'humidité\nAutres informations\n67, boulevard du  Capitaine Gèze F-13014 MARSEILLE\nConseils d'utilisation\nconsommation en  l'état\nValeurs nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour  100 g\tEn % des AJR\nValeurs Energétique en Kilojoules\t~ 1411 kJ\t4 %\nValeurs  Energétique en Kilocalories\t~ 332 kcal\t4 %\nValeurs Nutritionnelles\nMatières  grasses\t< 0.5 g\t1 %\nDont Acides Gras Saturés\t< 0.1 g\t1 %\nGlucides\t~ 75  g\t7 %\nDont Sucres\t~ 43 g\t12 %\nProtéines\t~ 6.6 g\t3 %\nSel\t~ 0.03 g\t1  %\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une  nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos  magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos  magasins avec Parapharmacie\nAide & Mentions\nDonnées personnelles et  cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
-        "extras": {
-          "seed_variant": null,
-          "candidate_variant": "chocolat",
-          "negatives_hit": [],
-          "variant_ok": true,
-          "unit_family_ok": true,
-          "size_ok": true,
-          "category_ok": true,
-          "vetoes": [
-            "image_mismatch"
-          ],
-          "candidate_quantity": "300 G",
-          "candidate_size_ratio": 0.0,
-          "descriptor_token_coverage": {
-            "coverage": 1.0,
-            "matched": [
-              "bonbons",
-              "haribo",
-              "les",
-              "schtroumpfs"
-            ],
-            "missing": [],
-            "total": 4
+        "payload": {
+          "status": "OK",
+          "title": "Les Schtroumpfs Haribo Sachet bonbons - 300g",
+          "price": "1,43",
+          "unit_price": "4,77 € / kg",
+          "quantity": null,
+          "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-115115-Les-Schtroumpfs-Haribo.aspx",
+          "matched_ean": "3103220045640",
+          "store": "E.Leclerc Drive · Bruges",
+          "note": "2025-11-27T13:52:18Z · E.Leclerc Drive · Bruges",
+          "_meta": {
+            "supports_keywords": true
           },
-          "missing_tokens": [],
-          "image_match": false,
-          "final_score": 15,
-          "plausible_baseline": true,
-          "notes": [
-            "accepted_without_image_match"
+          "equivalent": false,
+          "candidates": [
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-163143-Dragibus-Soft-Haribo.aspx",
+              "product": {
+                "title": "Dragibus Soft Haribo Sachet bonbons - 300g",
+                "brand": "Dragibus",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220048658",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2806123&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-76211-Lours-dor-Haribo.aspx",
+              "product": {
+                "title": "L'ours d'or Haribo Sachet bonbons - 300g",
+                "brand": "L'ours",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220009802",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2805201&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-30577-Les-Schtroumpfs-Pik-Haribo.aspx",
+              "product": {
+                "title": "Les Schtroumpfs Pik Haribo Sachet bonbons acidulés - 275g",
+                "brand": "Les",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220035771",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2984898&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-25408-Dragolo-Haribo.aspx",
+              "product": {
+                "title": "Dragolo Haribo Sachet bonbons - 300g",
+                "brand": "Dragolo",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220022696",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2803574&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-115114-Polka-Haribo.aspx",
+              "product": {
+                "title": "Polka Haribo Sachet bonbons - 300g",
+                "brand": "Polka",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220045633",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2982414&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-83303-Happy-Cola-Haribo.aspx",
+              "product": {
+                "title": "Happy Cola Haribo Sachet bonbons - 300g",
+                "brand": "Happy",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220009550",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2806087&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-3356-Banans-Haribo.aspx",
+              "product": {
+                "title": "Banan's Haribo Sachet bonbons - 300g",
+                "brand": "Banan's",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220009659",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=1739936&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-115115-Les-Schtroumpfs-Haribo.aspx",
+              "product": {
+                "title": "Les Schtroumpfs Haribo Sachet bonbons - 300g",
+                "brand": "Les",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220045640",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2788475&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            }
           ]
         },
+        "updated_at": "2025-11-27T14:57:14.100922+01:00",
+        "error": null,
+        "store_query": null
+      }
+    },
+    "monoprix": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
         "candidates": [
           {
-            "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-300g/MPX_13 32907",
+            "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-pik-275g/MPX_2135995",
             "product": {
-              "title": "Haribo Bonbons Les  Schtroumpfs 300g",
+              "title": "Haribo Bonbons Les Schtroumpfs Pik 275g",
               "brand": "Haribo",
-              "kind": "Bonbons Les Schtroumpfs HARIBO",
-              "qty": "300 G",
+              "kind": "",
+              "qty": "275 G",
               "qualifiers": [],
               "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d846 6aac-5f23-48db-a88c-1ea3937589b0/300x300.jpg",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5300e01b-393a-4025-8330-889f 792c3997/300x300.jpg",
               "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Sélection Raclette Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2",
               "seed_query": "",
               "leclerc_queries": []
             }
           },
           {
-            "url": "https://courses.monoprix.fr/products/haribo-dragibus-soft-veggie-300g/MPX_42135 35",
+            "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-300g/MPX_1332907",
             "product": {
-              "title": "Haribo Dragibus Soft Veggie  300g",
+              "title": "Haribo Bonbons Les Schtroumpfs 300g",
               "brand": "Haribo",
-              "kind": "Bonbons Les Schtroumpfs HARIBO",
+              "kind": "",
               "qty": "300 G",
               "qualifiers": [],
               "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d906 4ccd-9de0-4e4f-9d5f-8b32e2d7897e/300x300.jpg",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d8466aac-5f23-48db-a88c-1ea3 937589b0/300x300.jpg",
               "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://courses.monoprix.fr/products/haribo-bonbons-zanzigliss-300g/MPX_2309208",
-            "product": {
-              "title": "Haribo Bonbons Zanzigliss  300g",
-              "brand": "Haribo",
-              "kind": "Bonbons Les Schtroumpfs HARIBO",
-              "qty": "300 G",
-              "qualifiers": [],
-              "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/fddb 0e20-39c4-472e-a6d0-cd67d3f3d9c2/300x300.jpg",
-              "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://courses.monoprix.fr/products/haribo-bonbons-assortis-polka-300g/MPX_808 233",
-            "product": {
-              "title": "Haribo Bonbons Assortis  Polka 300g",
-              "brand": "Haribo",
-              "kind": "Bonbons Les Schtroumpfs HARIBO",
-              "qty": "300 G",
-              "qualifiers": [],
-              "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/2f6a 29e8-9112-4c6b-87ee-029a1741d09f/300x300.jpg",
-              "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Sélection Raclette Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2",
               "seed_query": "",
               "leclerc_queries": []
             }
@@ -14950,10 +16094,86 @@
           "supports_keywords": true
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 45.459023,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 45.027969,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "NO_RESULTS",
+        "payload": {
+          "status": "NO_RESULTS",
+          "price": null,
+          "title": null,
+          "url": null,
+          "note": null,
+          "image": null,
+          "matched_ean": null,
+          "unit_price": null,
+          "quantity": null,
+          "store": null,
+          "raw_text": null,
+          "extras": null,
+          "candidates": [
+            {
+              "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-pik-275g/MPX_2135995",
+              "product": {
+                "title": "Haribo Bonbons Les Schtroumpfs Pik 275g",
+                "brand": "Haribo",
+                "kind": "",
+                "qty": "275 G",
+                "qualifiers": [],
+                "ean": null,
+                "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5300e01b-393a-4025-8330-889f 792c3997/300x300.jpg",
+                "source": "monoprix",
+                "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Sélection Raclette Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-300g/MPX_1332907",
+              "product": {
+                "title": "Haribo Bonbons Les Schtroumpfs 300g",
+                "brand": "Haribo",
+                "kind": "",
+                "qty": "300 G",
+                "qualifiers": [],
+                "ean": null,
+                "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d8466aac-5f23-48db-a88c-1ea3 937589b0/300x300.jpg",
+                "source": "monoprix",
+                "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Sélection Raclette Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            }
+          ],
+          "_meta": {
+            "supports_keywords": true
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
+    },
+    "_finder": {
+      "consolidated": {
+        "title": "",
+        "brand": "Chocolat",
+        "kind": "",
+        "qty": "",
+        "qualifiers": [],
+        "ean": "3103220045640",
+        "image_url": null,
+        "source": "consolidated",
+        "raw_text": "",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": null,
+      "candidates": [],
+      "decision": null,
+      "audit": []
     }
   },
   "8000070075207": {
@@ -16298,47 +17518,56 @@
   },
   "5411188110835": {
     "leclerc": {
-      "status": "ERROR",
+      "status": "OK",
       "payload": {
-        "status": "ERROR",
-        "error": "no_leclerc_tab",
-        "message": "Ouvrez un onglet Leclerc dans Chrome (9222) avant de lancer la collecte.",
+        "status": "OK",
+        "title": "boisson végétale lait d'amande grillée alpro -1l",
+        "price": "2,02",
+        "unit_price": "2.02 € / L",
+        "quantity": "1 L",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-60171-boisson-vegetale-lait-damande.aspx",
+        "matched_ean": "5411188110835",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-26T19:17:19Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
-        "candidates": []
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-60171-boisson-vegetale-lait-damande.aspx",
+            "product": {
+              "title": "boisson végétale lait d'amande grillée alpro -1l",
+              "brand": "Alpro",
+              "kind": "Boisson végétale amande grillée ALPRO",
+              "qty": "1 L",
+              "qualifiers": [],
+              "ean": "5411188110835",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2988671&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><iframe height=\"0\" width=\"0\" style=\"display: none; visibility: hidden;\"></iframe><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "updated_at": "2025-11-26T14:08:08.986726+01:00",
-      "duration_seconds": 0.715801,
+      "updated_at": "2025-11-26T20:17:35.398551+01:00",
+      "duration_seconds": 13.522404,
       "error": null,
-      "store_query": null,
-      "previous": {
-        "status": "ERROR",
-        "payload": {
-          "status": "ERROR",
-          "error": "no_leclerc_tab",
-          "message": "Ouvrez un onglet Leclerc dans Chrome (9222) avant de lancer la collecte.",
-          "_meta": {
-            "supports_keywords": true
-          },
-          "candidates": []
-        },
-        "updated_at": "2025-11-26T14:07:42.346727+01:00",
-        "error": null,
-        "store_query": null
-      }
+      "store_query": null
     },
     "_finder": {
       "consolidated": {
-        "title": "Boisson végétale amande grillée ALPRO 1 L",
-        "brand": "Alpro",
+        "title": "Boisson Végétale Amande Grillée ALPRO",
+        "brand": "Boisson",
         "kind": "",
         "qty": "1 L",
         "qualifiers": [],
         "ean": "5411188110835",
-        "image_url": "./assets/5411188110835.jpg",
+        "image_url": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cbaa48/05411188110835_H1N1 _s28.png",
         "source": "consolidated",
-        "raw_text": "",
+        "raw_text": "Boisson Végétale Amande Grillée ALPRO",
         "seed_query": "",
         "leclerc_queries": []
       },
@@ -16505,7 +17734,7 @@
         "quantity": "1 L",
         "title": "Boisson Végétale Amande Grillée ALPRO",
         "matched_ean": "5411188110835",
-        "image": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cb aa48/05411188110835_H1N1_s28.png",
+        "image": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cbaa48/05411188110835_H1N1 _s28.png",
         "nutriscore_grade": "b",
         "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
         "_meta": {
@@ -16518,15 +17747,15 @@
           "qty": "1 L",
           "qualifiers": [],
           "ean": "5411188110835",
-          "image_url": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cb aa48/05411188110835_H1N1_s28.png",
+          "image_url": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cbaa48/05411188110835_H1N1 _s28.png",
           "source": "carrefour_super",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-25T20:20:31.181231+01:00",
-      "duration_seconds": 21.157536,
+      "updated_at": "2025-11-27T12:57:50.109910+01:00",
+      "duration_seconds": 18.104735,
       "error": null,
       "store_query": null,
       "previous": {
@@ -16561,7 +17790,7 @@
             "leclerc_queries": []
           }
         },
-        "updated_at": "2025-11-25T19:27:05.179213+01:00",
+        "updated_at": "2025-11-25T20:20:31.181231+01:00",
         "error": null,
         "store_query": null
       }
@@ -16854,13 +18083,13 @@
           "store_code": "TZ193",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
           "query": "5411188110835",
-          "timestamp": "2025-11-25T19:19:00.409452+00:00",
+          "timestamp": "2025-11-27T08:51:03.679500+00:00",
           "supports_keywords": true
         },
         "candidates": []
       },
-      "updated_at": "2025-11-25T20:20:31.181231+01:00",
-      "duration_seconds": 1.177422,
+      "updated_at": "2025-11-27T09:51:04.492004+01:00",
+      "duration_seconds": 0.966347,
       "error": null,
       "store_query": null,
       "previous": {
@@ -16873,12 +18102,12 @@
             "store_code": "TZ193",
             "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
             "query": "5411188110835",
-            "timestamp": "2025-11-25T18:24:42.548380+00:00",
+            "timestamp": "2025-11-25T19:19:00.409452+00:00",
             "supports_keywords": true
           },
           "candidates": []
         },
-        "updated_at": "2025-11-25T19:27:05.179213+01:00",
+        "updated_at": "2025-11-25T20:20:31.181231+01:00",
         "error": null,
         "store_query": null
       }
@@ -16893,13 +18122,13 @@
           "store_code": "TL832",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
           "query": "5411188110835",
-          "timestamp": "2025-11-25T19:19:11.340756+00:00",
+          "timestamp": "2025-11-27T08:51:25.379037+00:00",
           "supports_keywords": true
         },
         "candidates": []
       },
-      "updated_at": "2025-11-25T20:20:31.181231+01:00",
-      "duration_seconds": 1.162133,
+      "updated_at": "2025-11-27T09:51:26.121111+01:00",
+      "duration_seconds": 0.897092,
       "error": null,
       "store_query": null,
       "previous": {
@@ -16912,12 +18141,12 @@
             "store_code": "TL832",
             "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
             "query": "5411188110835",
-            "timestamp": "2025-11-25T18:24:52.271023+00:00",
+            "timestamp": "2025-11-25T19:19:11.340756+00:00",
             "supports_keywords": true
           },
           "candidates": []
         },
-        "updated_at": "2025-11-25T19:27:05.179213+01:00",
+        "updated_at": "2025-11-25T20:20:31.181231+01:00",
         "error": null,
         "store_query": null
       }

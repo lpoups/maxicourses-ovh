@@ -1,0 +1,100 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-11-27T12:20:38.128946+01:00",
+  "finished_at": "2025-11-27T12:20:56.797083+01:00",
+  "duration_seconds": 18.668137,
+  "reference": {
+    "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "description": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "source": "carrefour_market",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": null,
+    "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+    "nutriscore_grade": "b",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-b.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251127-122038"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,45",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+        "note": null,
+        "unit_price": "1,40 € / L",
+        "quantity": "1,75 L",
+        "title": "Soda au Cola Goût Original COCA-COLA",
+        "matched_ean": "5000112611861",
+        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+        "nutriscore_grade": "b",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda au Cola Goût Original COCA-COLA",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-27T12:20:38.129579+01:00",
+      "finished_at": "2025-11-27T12:20:56.217524+01:00",
+      "duration_seconds": 18.087945,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda au Cola Goût Original COCA-COLA",
+      "brand": "Soda",
+      "kind": "",
+      "qty": "1,75 L",
+      "qualifiers": [],
+      "ean": "5000112611861",
+      "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+      "source": "consolidated",
+      "raw_text": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

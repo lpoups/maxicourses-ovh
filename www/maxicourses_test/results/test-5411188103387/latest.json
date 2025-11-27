@@ -1,9 +1,9 @@
 {
   "ean": "5411188103387",
   "image_path": null,
-  "started_at": "2025-11-23T17:46:29.598805+01:00",
-  "finished_at": "2025-11-23T17:51:05.189018+01:00",
-  "duration_seconds": 275.590213,
+  "started_at": "2025-11-27T12:56:56.896526+01:00",
+  "finished_at": "2025-11-27T12:57:14.892552+01:00",
+  "duration_seconds": 17.996026,
   "reference": {
     "title": "Dessert végétal soja vanille ALPRO - 500g",
     "description": "Dessert végétal soja vanille ALPRO - 500g",
@@ -11,7 +11,7 @@
     "brand": "Alpro",
     "quantity": "500  g",
     "categories": null,
-    "image": "./assets/5411188103387.jpg",
+    "image": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac194cb6/05411188103387_H1N1 _s42.png",
     "nutriscore_grade": "a",
     "nutriscore_score": null,
     "nutriscore_image": "../assets/nutriscore/nutriscore-a.svg",
@@ -20,7 +20,7 @@
     "nova_group": null
   },
   "notes": [
-    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251123-174629"
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251127-125656"
   ],
   "adapters": [
     {
@@ -144,7 +144,7 @@
         "quantity": "500 G",
         "title": "Dessert végétal soja vanille ALPRO",
         "matched_ean": "5411188103387",
-        "image": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac19 4cb6/05411188103387_H1N1_s42.png",
+        "image": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac194cb6/05411188103387_H1N1 _s42.png",
         "nutriscore_grade": "a",
         "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-a.svg",
         "_meta": {
@@ -157,16 +157,16 @@
           "qty": "500 G",
           "qualifiers": [],
           "ean": "5411188103387",
-          "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac19 4cb6/05411188103387_H1N1_s42.png",
+          "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac194cb6/05411188103387_H1N1 _s42.png",
           "source": "carrefour_super",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-23T17:47:10.930819+01:00",
-      "finished_at": "2025-11-23T17:47:29.961028+01:00",
-      "duration_seconds": 19.030209,
+      "started_at": "2025-11-27T12:56:56.897156+01:00",
+      "finished_at": "2025-11-27T12:57:14.343304+01:00",
+      "duration_seconds": 17.446148,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -297,34 +297,34 @@
         "status": "OK",
         "price": "1,91",
         "unit_price": "3,82 € / KG",
-        "quantity": "500  g",
-        "title": "Dessert végétal soja vanille ALPRO - 500g",
-        "url": "https://www.coursesu.com/p/dessert-vegetal-soja-vanille-alpro---500g/2764270.ht ml",
-        "note": "2025-11-23T16:48:21Z · Super U Eysines",
-        "store": "Super U  Eysines",
+        "quantity": "500 g",
+        "title": "Dessert  végétal soja vanille ALPRO - 500g",
+        "url": "https://www.coursesu.com/p/dessert-vegetal-soja-vanille-alpro---500g/2764270.html",
+        "note": "2025-11-27T11:53:16Z · Super U Eysines",
+        "store": "Super U Eysines",
         "matched_ean": "5411188103387",
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-naviga tion/nutrition_et_regimes_alimentaires.png",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Dessert végétal soja vanille ALPRO - 500g",
+          "title": "Dessert  végétal soja vanille ALPRO - 500g",
           "brand": "Dessert",
           "kind": "",
           "qty": "500 g",
           "qualifiers": [],
           "ean": "5411188103387",
-          "image_url": null,
+          "image_url": "./assets/5411188103387.jpg",
           "source": "courseu",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-23T17:47:48.265657+01:00",
-      "finished_at": "2025-11-23T17:48:21.569901+01:00",
-      "duration_seconds": 33.304244,
+      "started_at": "2025-11-27T12:52:47.035110+01:00",
+      "finished_at": "2025-11-27T12:53:16.305216+01:00",
+      "duration_seconds": 29.270106,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -620,7 +620,7 @@
         "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
         "matched_ean": "5411188103387",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-23T16:50:35Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-26T18:52:37Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
@@ -660,9 +660,9 @@
           }
         ]
       },
-      "started_at": "2025-11-23T17:49:22.853698+01:00",
-      "finished_at": "2025-11-23T17:50:35.376667+01:00",
-      "duration_seconds": 72.522969,
+      "started_at": "2025-11-26T19:52:22.202030+01:00",
+      "finished_at": "2025-11-26T19:52:37.223280+01:00",
+      "duration_seconds": 15.02125,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -670,16 +670,16 @@
       ],
       "env": {
         "EAN": "5411188103387",
-        "QUERY": "Alpro Dessert 500 G",
+        "QUERY": "Alpro 500 G",
         "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
         "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=False | delays => human:200ms result:300ms pdp:300ms type:[8,18] query:'Alpro Dessert 500 G'\n[LECLERC_DEBUG] after home human pause -> 2.31s\n[LECLERC_DEBUG] Page source saved to /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/leclerc_debug_source.html\n[LECLERC_DEBUG] Screenshot saved to /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/leclerc_debug_screenshot.png\n[LECLERC_DEBUG] attempt #1 with query 'Alpro Dessert 500 G'\n[LECLERC_DEBUG] results visible -> 6.54s (query='Alpro Dessert 500 G')\n[LECLERC_DEBUG] after result pause -> 6.88s",
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Alpro 500 G'\n[LECLERC_DEBUG] after home human pause -> 0.71s\n[LECLERC_DEBUG] after focus -> 1.00s\n[LECLERC_DEBUG] results visible -> 1.99s\n[LECLERC_DEBUG] after result pause -> 1.99s",
       "metadata": {
-        "attempt_query": "Alpro Dessert 500 G",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251123-174629/11-leclerc"
+        "attempt_query": "Alpro 500 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251126-195215/01-leclerc"
       }
     },
     {
@@ -815,5 +815,23 @@
       }
     }
   ],
-  "finder": null
+  "finder": {
+    "consolidated": {
+      "title": "Dessert végétal soja vanille ALPRO",
+      "brand": "Dessert",
+      "kind": "",
+      "qty": "500 G",
+      "qualifiers": [],
+      "ean": "5411188103387",
+      "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac194cb6/05411188103387_H1N1 _s42.png",
+      "source": "consolidated",
+      "raw_text": "Dessert végétal soja vanille ALPRO - 500g",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
 }

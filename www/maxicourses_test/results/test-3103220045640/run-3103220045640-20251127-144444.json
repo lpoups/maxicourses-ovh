@@ -1,0 +1,70 @@
+{
+  "ean": "3103220045640",
+  "image_path": null,
+  "started_at": "2025-11-27T14:44:35.535842+01:00",
+  "finished_at": "2025-11-27T14:44:44.198684+01:00",
+  "duration_seconds": 8.662842,
+  "reference": {
+    "title": null,
+    "description": null,
+    "source": "unknown",
+    "brand": null,
+    "quantity": null,
+    "categories": null,
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3103220045640/debug/run-3103220045640-20251127-144435"
+  ],
+  "adapters": [
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-11-27T14:44:36.629519+01:00",
+      "finished_at": "2025-11-27T14:44:44.172556+01:00",
+      "duration_seconds": 7.543037,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045640",
+        "QUERY": "3103220045640",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3103220045640",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3103220045640/debug/run-3103220045640-20251127-144435/01-intermarche"
+      }
+    }
+  ],
+  "finder": null
+}

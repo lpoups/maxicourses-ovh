@@ -1,0 +1,100 @@
+{
+  "ean": "3103220045640",
+  "image_path": null,
+  "started_at": "2025-11-27T12:58:36.743053+01:00",
+  "finished_at": "2025-11-27T12:58:56.371895+01:00",
+  "duration_seconds": 19.628842,
+  "reference": {
+    "title": "Bonbons Les Schtroumpfs HARIBO",
+    "description": "Bonbons Les Schtroumpfs HARIBO",
+    "source": "carrefour_super",
+    "brand": "Haribo",
+    "quantity": "300 G",
+    "categories": null,
+    "image": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+    "nutriscore_grade": "c",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-c.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3103220045640/debug/run-3103220045640-20251127-125836"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,59",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/bonbons-les-schtroumpfs-haribo-3103220045640",
+        "note": null,
+        "unit_price": "5,30 € / KG",
+        "quantity": "300 G",
+        "title": "Bonbons Les Schtroumpfs HARIBO",
+        "matched_ean": "3103220045640",
+        "image": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Bonbons Les Schtroumpfs HARIBO",
+          "brand": "Bonbons",
+          "kind": "",
+          "qty": "300 G",
+          "qualifiers": [],
+          "ean": "3103220045640",
+          "image_url": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-27T12:58:36.743666+01:00",
+      "finished_at": "2025-11-27T12:58:55.734881+01:00",
+      "duration_seconds": 18.991215,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3103220045640",
+        "QUERY": "3103220045640",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3103220045640"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Bonbons Les Schtroumpfs HARIBO",
+      "brand": "Bonbons",
+      "kind": "",
+      "qty": "300 G",
+      "qualifiers": [],
+      "ean": "3103220045640",
+      "image_url": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+      "source": "consolidated",
+      "raw_text": "Bonbons Les Schtroumpfs HARIBO",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

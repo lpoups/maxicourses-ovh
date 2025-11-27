@@ -359,17 +359,90 @@
       "store_query": null
     },
     "leclerc": {
-      "status": "ERROR",
+      "status": "OK",
       "payload": {
-        "status": "ERROR",
-        "error": "leclerc_run_failed",
+        "status": "OK",
+        "title": "Dessert végétal Alpro Fraise - 500g",
+        "price": "1,79",
+        "unit_price": "3,58 € / kg",
+        "quantity": "500  g",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-211095-Dessert-vegetal-Alpro.aspx",
+        "matched_ean": "5411188114536",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-26T18:53:50Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
-        "candidates": []
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-93600-Dessert-vegetal-soja-Alpro.aspx",
+            "product": {
+              "title": "Dessert végétal soja Alpro Nature à la coco - 500g",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188119098",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2976080&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
+            "product": {
+              "title": "Dessert végétal soja alpro Vanille - 500g",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188103387",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2977672&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95817-Dessert-vegetal-soja-alpro.aspx",
+            "product": {
+              "title": "Dessert végétal soja alpro Nature à l'amande - 500g",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188118961",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2977684&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-211095-Dessert-vegetal-Alpro.aspx",
+            "product": {
+              "title": "Dessert végétal Alpro Fraise - 500g",
+              "brand": "Alpro",
+              "kind": "Dessert végétal soja fraise ALPRO",
+              "qty": "500 g",
+              "qualifiers": [],
+              "ean": "5411188114536",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2976071&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "updated_at": "2025-11-26T14:01:56.009729+01:00",
-      "duration_seconds": 2.051903,
+      "updated_at": "2025-11-26T19:54:50.426658+01:00",
+      "duration_seconds": 24.895442,
       "error": null,
       "store_query": null
     },
@@ -478,23 +551,7 @@
       "store_query": null
     },
     "_finder": {
-      "consolidated": {
-        "title": "Dessert végétal soja fraise ALPRO - 500g",
-        "brand": "Alpro",
-        "kind": "",
-        "qty": "500 g",
-        "qualifiers": [],
-        "ean": "5411188114536",
-        "image_url": "./assets/5411188114536.jpg",
-        "source": "consolidated",
-        "raw_text": "Dessert végétal soja fraise ALPRO - 500g",
-        "seed_query": "",
-        "leclerc_queries": []
-      },
-      "keywords": null,
-      "candidates": [],
-      "decision": null,
-      "audit": []
+      "error": "'FinderPipeline' object has no attribute 'decide'"
     }
   }
 }

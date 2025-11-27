@@ -86,7 +86,7 @@
         "quantity": "500 G",
         "title": "Dessert végétal soja vanille ALPRO",
         "matched_ean": "5411188103387",
-        "image": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac19 4cb6/05411188103387_H1N1_s42.png",
+        "image": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac194cb6/05411188103387_H1N1 _s42.png",
         "nutriscore_grade": "a",
         "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-a.svg",
         "_meta": {
@@ -99,15 +99,15 @@
           "qty": "500 G",
           "qualifiers": [],
           "ean": "5411188103387",
-          "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac19 4cb6/05411188103387_H1N1_s42.png",
+          "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac194cb6/05411188103387_H1N1 _s42.png",
           "source": "carrefour_super",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-23T17:51:05.189018+01:00",
-      "duration_seconds": 19.030209,
+      "updated_at": "2025-11-27T12:57:14.892552+01:00",
+      "duration_seconds": 17.446148,
       "error": null,
       "store_query": null
     },
@@ -188,33 +188,33 @@
         "status": "OK",
         "price": "1,91",
         "unit_price": "3,82 € / KG",
-        "quantity": "500  g",
-        "title": "Dessert végétal soja vanille ALPRO - 500g",
-        "url": "https://www.coursesu.com/p/dessert-vegetal-soja-vanille-alpro---500g/2764270.ht ml",
-        "note": "2025-11-23T16:48:21Z · Super U Eysines",
-        "store": "Super U  Eysines",
+        "quantity": "500 g",
+        "title": "Dessert  végétal soja vanille ALPRO - 500g",
+        "url": "https://www.coursesu.com/p/dessert-vegetal-soja-vanille-alpro---500g/2764270.html",
+        "note": "2025-11-27T11:53:16Z · Super U Eysines",
+        "store": "Super U Eysines",
         "matched_ean": "5411188103387",
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-naviga tion/nutrition_et_regimes_alimentaires.png",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Dessert végétal soja vanille ALPRO - 500g",
+          "title": "Dessert  végétal soja vanille ALPRO - 500g",
           "brand": "Dessert",
           "kind": "",
           "qty": "500 g",
           "qualifiers": [],
           "ean": "5411188103387",
-          "image_url": null,
+          "image_url": "./assets/5411188103387.jpg",
           "source": "courseu",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-23T17:51:05.189018+01:00",
-      "duration_seconds": 33.304244,
+      "updated_at": "2025-11-27T12:53:16.866989+01:00",
+      "duration_seconds": 29.270106,
       "error": null,
       "store_query": null
     },
@@ -320,7 +320,7 @@
         "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95815-Dessert-vegetal-soja-alpro.aspx",
         "matched_ean": "5411188103387",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-23T16:50:35Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-26T18:52:37Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
@@ -360,8 +360,8 @@
           }
         ]
       },
-      "updated_at": "2025-11-23T17:51:05.189018+01:00",
-      "duration_seconds": 72.522969,
+      "updated_at": "2025-11-26T19:53:07.697574+01:00",
+      "duration_seconds": 15.02125,
       "error": null,
       "store_query": null
     },
@@ -584,6 +584,25 @@
       "duration_seconds": 1.286285,
       "error": null,
       "store_query": null
+    },
+    "_finder": {
+      "consolidated": {
+        "title": "Dessert végétal soja vanille ALPRO",
+        "brand": "Dessert",
+        "kind": "",
+        "qty": "500 G",
+        "qualifiers": [],
+        "ean": "5411188103387",
+        "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac194cb6/05411188103387_H1N1 _s42.png",
+        "source": "consolidated",
+        "raw_text": "Dessert végétal soja vanille ALPRO - 500g",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": null,
+      "candidates": [],
+      "decision": null,
+      "audit": []
     }
   }
 }

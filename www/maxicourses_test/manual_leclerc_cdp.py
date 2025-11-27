@@ -382,6 +382,41 @@ def _build_candidate_product(
     return product
 
 
+def _normalized_unit_price(price: Optional[str], quantity: Optional[str]) -> Optional[str]:
+    """Compute a coherent €/L or €/kg when the site unit is inconsistent."""
+    if not price or not quantity:
+        return None
+    try:
+        price_val = float(str(price).replace(",", "."))
+    except Exception:
+        return None
+    q = str(quantity).upper().replace(" ", "")
+    match = re.search(r"([0-9]+(?:[.,][0-9]+)?)(L|CL|ML|KG|G)", q)
+    if not match:
+        return None
+    try:
+        qty_val = float(match.group(1).replace(",", "."))
+    except Exception:
+        return None
+    unit = match.group(2)
+    if unit == "L":
+        per = price_val / max(qty_val, 1e-6)
+        return f"{per:.2f} € / L"
+    if unit == "CL":
+        per = price_val / (qty_val / 100.0)
+        return f"{per:.2f} € / L"
+    if unit == "ML":
+        per = price_val / (qty_val / 1000.0)
+        return f"{per:.2f} € / L"
+    if unit == "KG":
+        per = price_val / max(qty_val, 1e-6)
+        return f"{per:.2f} € / kg"
+    if unit == "G":
+        per = price_val / (qty_val / 1000.0)
+        return f"{per:.2f} € / kg"
+    return None
+
+
 async def run_manual_leclerc(
     *,
     query: str,
@@ -1053,6 +1088,11 @@ async def run_manual_leclerc(
 
         if not quantity and isinstance(descriptor_entry, dict):
             quantity = descriptor_entry.get('quantity') or quantity
+
+        # Corriger les incohérences de prix unitaire (ex. €/kg sur un volume en L)
+        normalized_unit_price = _normalized_unit_price(price, quantity)
+        if normalized_unit_price:
+            unit_price = normalized_unit_price
 
         result_payload = {
             "status": status,

@@ -48,6 +48,18 @@ Ce mémo remplace l’ancien journal volumineux. Il décrit l’état courant, l
 
 (Ajouter les nouvelles sections ici)  
 
+## 2025-11-21 – GPT (Codex CLI)
+
+### Faits marquants
+- Les collectes déclenchées via `index2.html` étaient stoppées à 480 s par le watchdog de `server.py`, ce qui effaçait `results/test-<EAN>/` avant d’avoir un nouveau JSON. Ajout d’un paramètre `PIPELINE_TIMEOUT_SECONDS` (par défaut 900 s) pour laisser `run_pipeline.py` terminer l’enchaînement des 12 adaptateurs.
+- Pour éviter toute page blanche en cas d’échec, `api/collect` ne purge plus le dossier `results/test-<EAN>` ni l’entrée `summary.json` tant que le run n’est pas annoncé `OK`. Les anciennes données restent donc visibles dans `index2.html` jusqu’à ce qu’une collecte réussisse.
+- Validation : `curl -sS -X POST http://127.0.0.1:5001/api/collect -H 'Content-Type: application/json' -d '{"ean":"3665468000312"}'` → run complet en ~8 min 33 s, fichiers mis à jour : `results/test-3665468000312/run-3665468000312-20251121-184030.json`, `latest.json`, `summary.json` + entrée globale `results/summary.json` (Casino/Spar OK).
+- Après toute modification de `server.py`, redémarrer immédiatement : `pkill -f "maxicourses_test/server.py"` puis `USE_CDP=1 python3 maxicourses_test/server.py >/tmp/maxi_server.log 2>&1 &` et noter ce reboot dans le handover.
+
+### Points ouverts
+- Surveiller la durée réelle des adaptateurs Intermarché/Leclerc : si l’un dépasse plusieurs minutes, préparer une stratégie de parallélisation ou relever `PIPELINE_TIMEOUT_SECONDS`.
+- Rejouer `curl /api/collect` pour les EAN critiques (Orangina, Coca, Savora, Destop…) après toute modification fetcher afin de garantir que `results/summary.json` reste cohérent avec l’UI.
+
 ## 2025-11-01 – GPT (Codex CLI)
 
 ### Faits marquants
@@ -203,3 +215,14 @@ Ce mémo remplace l’ancien journal volumineux. Il décrit l’état courant, l
 
 ### Suivi
 - Lors des prochaines collectes globales, vérifier que `run_pipeline.py` enchaîne bien `... g20 -> casino -> spar ...` et que `results/summary.json` remonte les deux magasins. Si Spar tombe en `NO_RESULTS`, ajuster les requêtes `queries['spar']` dans `seed_catalog.py`.
+
+## 2025-11-26 – GPT (Codex CLI)
+
+### Faits marquants
+- Commit global `chore: snapshot py html json` (561 fichiers) incluant tous les `.py/.html/.json` modifiés, résultat/runs et captures debug. `ai_helpers.toml` non touché.
+- Leclerc : `manual_leclerc_cdp.py` en matching strict EAN (plus de token_equivalent), timeouts navigation réduits, `LECLERC_MAX_PDP` porté à 12. Collecte validée sur `5411188118961` → fiche amande avec EAN exact.
+- Intermarché : pauses réduites (timeouts 1200 ms au lieu de 5000) et run ok sur `5411188118961` (prix 1,95 €, EAN exact).
+
+### Points d’attention
+- Le commit inclut de très nombreux JSON/logs/caches Chrome (profil carrefour_city). Prévoir un nettoyage `.gitignore` ciblé si besoin de réduire le dépôt.
+- Finder/post-traitement : warning récurrent (`FinderPipeline` sans `decide`) toujours présent dans les logs Leclerc. A traiter pour stabiliser l’éval post-collecte.

@@ -1,47 +1,56 @@
 {
   "5411188110835": {
     "leclerc": {
-      "status": "ERROR",
+      "status": "OK",
       "payload": {
-        "status": "ERROR",
-        "error": "no_leclerc_tab",
-        "message": "Ouvrez un onglet Leclerc dans Chrome (9222) avant de lancer la collecte.",
+        "status": "OK",
+        "title": "boisson végétale lait d'amande grillée alpro -1l",
+        "price": "2,02",
+        "unit_price": "2.02 € / L",
+        "quantity": "1 L",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-60171-boisson-vegetale-lait-damande.aspx",
+        "matched_ean": "5411188110835",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-26T19:17:19Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
-        "candidates": []
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-60171-boisson-vegetale-lait-damande.aspx",
+            "product": {
+              "title": "boisson végétale lait d'amande grillée alpro -1l",
+              "brand": "Alpro",
+              "kind": "Boisson végétale amande grillée ALPRO",
+              "qty": "1 L",
+              "qualifiers": [],
+              "ean": "5411188110835",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2988671&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><iframe height=\"0\" width=\"0\" style=\"display: none; visibility: hidden;\"></iframe><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "updated_at": "2025-11-26T14:08:08.986726+01:00",
-      "duration_seconds": 0.715801,
+      "updated_at": "2025-11-26T20:17:35.398551+01:00",
+      "duration_seconds": 13.522404,
       "error": null,
-      "store_query": null,
-      "previous": {
-        "status": "ERROR",
-        "payload": {
-          "status": "ERROR",
-          "error": "no_leclerc_tab",
-          "message": "Ouvrez un onglet Leclerc dans Chrome (9222) avant de lancer la collecte.",
-          "_meta": {
-            "supports_keywords": true
-          },
-          "candidates": []
-        },
-        "updated_at": "2025-11-26T14:07:42.346727+01:00",
-        "error": null,
-        "store_query": null
-      }
+      "store_query": null
     },
     "_finder": {
       "consolidated": {
-        "title": "Boisson végétale amande grillée ALPRO 1 L",
-        "brand": "Alpro",
+        "title": "Boisson Végétale Amande Grillée ALPRO",
+        "brand": "Boisson",
         "kind": "",
         "qty": "1 L",
         "qualifiers": [],
         "ean": "5411188110835",
-        "image_url": "./assets/5411188110835.jpg",
+        "image_url": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cbaa48/05411188110835_H1N1 _s28.png",
         "source": "consolidated",
-        "raw_text": "",
+        "raw_text": "Boisson Végétale Amande Grillée ALPRO",
         "seed_query": "",
         "leclerc_queries": []
       },
@@ -208,7 +217,7 @@
         "quantity": "1 L",
         "title": "Boisson Végétale Amande Grillée ALPRO",
         "matched_ean": "5411188110835",
-        "image": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cb aa48/05411188110835_H1N1_s28.png",
+        "image": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cbaa48/05411188110835_H1N1 _s28.png",
         "nutriscore_grade": "b",
         "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
         "_meta": {
@@ -221,15 +230,15 @@
           "qty": "1 L",
           "qualifiers": [],
           "ean": "5411188110835",
-          "image_url": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cb aa48/05411188110835_H1N1_s28.png",
+          "image_url": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cbaa48/05411188110835_H1N1 _s28.png",
           "source": "carrefour_super",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-25T20:20:31.181231+01:00",
-      "duration_seconds": 21.157536,
+      "updated_at": "2025-11-27T12:57:50.109910+01:00",
+      "duration_seconds": 18.104735,
       "error": null,
       "store_query": null,
       "previous": {
@@ -264,7 +273,7 @@
             "leclerc_queries": []
           }
         },
-        "updated_at": "2025-11-25T19:27:05.179213+01:00",
+        "updated_at": "2025-11-25T20:20:31.181231+01:00",
         "error": null,
         "store_query": null
       }
@@ -557,13 +566,13 @@
           "store_code": "TZ193",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
           "query": "5411188110835",
-          "timestamp": "2025-11-25T19:19:00.409452+00:00",
+          "timestamp": "2025-11-27T08:51:03.679500+00:00",
           "supports_keywords": true
         },
         "candidates": []
       },
-      "updated_at": "2025-11-25T20:20:31.181231+01:00",
-      "duration_seconds": 1.177422,
+      "updated_at": "2025-11-27T09:51:04.492004+01:00",
+      "duration_seconds": 0.966347,
       "error": null,
       "store_query": null,
       "previous": {
@@ -576,12 +585,12 @@
             "store_code": "TZ193",
             "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
             "query": "5411188110835",
-            "timestamp": "2025-11-25T18:24:42.548380+00:00",
+            "timestamp": "2025-11-25T19:19:00.409452+00:00",
             "supports_keywords": true
           },
           "candidates": []
         },
-        "updated_at": "2025-11-25T19:27:05.179213+01:00",
+        "updated_at": "2025-11-25T20:20:31.181231+01:00",
         "error": null,
         "store_query": null
       }
@@ -596,13 +605,13 @@
           "store_code": "TL832",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
           "query": "5411188110835",
-          "timestamp": "2025-11-25T19:19:11.340756+00:00",
+          "timestamp": "2025-11-27T08:51:25.379037+00:00",
           "supports_keywords": true
         },
         "candidates": []
       },
-      "updated_at": "2025-11-25T20:20:31.181231+01:00",
-      "duration_seconds": 1.162133,
+      "updated_at": "2025-11-27T09:51:26.121111+01:00",
+      "duration_seconds": 0.897092,
       "error": null,
       "store_query": null,
       "previous": {
@@ -615,12 +624,12 @@
             "store_code": "TL832",
             "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
             "query": "5411188110835",
-            "timestamp": "2025-11-25T18:24:52.271023+00:00",
+            "timestamp": "2025-11-25T19:19:11.340756+00:00",
             "supports_keywords": true
           },
           "candidates": []
         },
-        "updated_at": "2025-11-25T19:27:05.179213+01:00",
+        "updated_at": "2025-11-25T20:20:31.181231+01:00",
         "error": null,
         "store_query": null
       }

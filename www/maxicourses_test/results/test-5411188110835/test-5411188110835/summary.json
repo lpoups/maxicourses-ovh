@@ -99,7 +99,7 @@
         "quantity": "1 L",
         "title": "Boisson Végétale Amande Grillée ALPRO",
         "matched_ean": "5411188110835",
-        "image": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cb aa48/05411188110835_H1N1_s28.png",
+        "image": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cbaa48/05411188110835_H1N1 _s28.png",
         "nutriscore_grade": "b",
         "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
         "_meta": {
@@ -112,15 +112,15 @@
           "qty": "1 L",
           "qualifiers": [],
           "ean": "5411188110835",
-          "image_url": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cb aa48/05411188110835_H1N1_s28.png",
+          "image_url": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cbaa48/05411188110835_H1N1 _s28.png",
           "source": "carrefour_super",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-26T08:00:00.671889+01:00",
-      "duration_seconds": 20.863551,
+      "updated_at": "2025-11-27T12:57:50.109910+01:00",
+      "duration_seconds": 18.104735,
       "error": null,
       "store_query": null
     },
@@ -275,13 +275,13 @@
           "store_code": "TZ193",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
           "query": "5411188110835",
-          "timestamp": "2025-11-25T16:30:51.616137+00:00",
+          "timestamp": "2025-11-27T08:51:03.679500+00:00",
           "supports_keywords": true
         },
         "candidates": []
       },
-      "updated_at": "2025-11-25T17:33:12.026669+01:00",
-      "duration_seconds": 1.037233,
+      "updated_at": "2025-11-27T09:51:04.492004+01:00",
+      "duration_seconds": 0.966347,
       "error": null,
       "store_query": null
     },
@@ -295,13 +295,13 @@
           "store_code": "TL832",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
           "query": "5411188110835",
-          "timestamp": "2025-11-25T16:31:01.881000+00:00",
+          "timestamp": "2025-11-27T08:51:25.379037+00:00",
           "supports_keywords": true
         },
         "candidates": []
       },
-      "updated_at": "2025-11-25T17:33:12.026669+01:00",
-      "duration_seconds": 0.972335,
+      "updated_at": "2025-11-27T09:51:26.121111+01:00",
+      "duration_seconds": 0.897092,
       "error": null,
       "store_query": null
     },
@@ -363,32 +363,72 @@
       "store_query": null
     },
     "leclerc": {
-      "status": "ERROR",
+      "status": "OK",
       "payload": {
-        "status": "ERROR",
-        "error": "no_leclerc_tab",
-        "message": "Ouvrez un onglet Leclerc dans Chrome (9222) avant de lancer la collecte.",
+        "status": "OK",
+        "title": "boisson végétale lait d'amande grillée alpro -1l",
+        "price": "2,02",
+        "unit_price": "14,64 € / kg",
+        "quantity": "1 L",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-60171-boisson-vegetale-lait-damande.aspx",
+        "matched_ean": "5411188110835",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-26T19:08:08Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
-        "candidates": []
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-60165-Boisson-vegetale-Alpro.aspx",
+            "product": {
+              "title": "Boisson végétale Alpro noisette - 1l",
+              "brand": "Alpro",
+              "kind": "Boisson végétale amande grillée ALPRO",
+              "qty": "1 L",
+              "qualifiers": [],
+              "ean": "5411188110842",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2849602&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-60171-boisson-vegetale-lait-damande.aspx",
+            "product": {
+              "title": "boisson végétale lait d'amande grillée alpro -1l",
+              "brand": "Alpro",
+              "kind": "Boisson végétale amande grillée ALPRO",
+              "qty": "1 L",
+              "qualifiers": [],
+              "ean": "5411188110835",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2988671&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "updated_at": "2025-11-26T14:08:08.986726+01:00",
-      "duration_seconds": 0.715801,
+      "updated_at": "2025-11-26T20:08:40.227498+01:00",
+      "duration_seconds": 13.762,
       "error": null,
       "store_query": null
     },
     "_finder": {
       "consolidated": {
-        "title": "Boisson végétale amande grillée ALPRO 1 L",
-        "brand": "Alpro",
+        "title": "Boisson Végétale Amande Grillée ALPRO",
+        "brand": "Boisson",
         "kind": "",
         "qty": "1 L",
         "qualifiers": [],
         "ean": "5411188110835",
-        "image_url": "./assets/5411188110835.jpg",
+        "image_url": "https://media.carrefour.fr/media/referential/media/a0f90aaafddd4838802ed42676cbaa48/05411188110835_H1N1 _s28.png",
         "source": "consolidated",
-        "raw_text": "",
+        "raw_text": "Boisson Végétale Amande Grillée ALPRO",
         "seed_query": "",
         "leclerc_queries": []
       },

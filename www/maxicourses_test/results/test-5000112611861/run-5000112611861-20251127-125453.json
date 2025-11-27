@@ -1,0 +1,99 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-11-27T12:54:46.524542+01:00",
+  "finished_at": "2025-11-27T12:54:53.489453+01:00",
+  "duration_seconds": 6.964911,
+  "reference": {
+    "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "description": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "source": "chronodrive",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": null,
+    "image": "./assets/5000112611861.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251127-125446"
+  ],
+  "adapters": [
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,49",
+        "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
+        "url": "https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits-vegetaux-P384066",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "1,42 € / L",
+        "quantity": "1,75 L",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "5000112611861",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltcfe448721003a156/nutriscore-e",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "./assets/5000112611861.jpg",
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-27T12:54:46.525603+01:00",
+      "finished_at": "2025-11-27T12:54:53.062783+01:00",
+      "duration_seconds": 6.53718,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='5000112611861'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits-vegetaux-P384066",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
+      "brand": "Boisson",
+      "kind": "",
+      "qty": "1,75 L",
+      "qualifiers": [],
+      "ean": "5000112611861",
+      "image_url": "./assets/5000112611861.jpg",
+      "source": "consolidated",
+      "raw_text": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

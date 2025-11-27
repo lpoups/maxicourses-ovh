@@ -1,41 +1,51 @@
 {
   "3103220045640": {
     "carrefour_city": {
-      "status": "OK",
+      "status": "NO_PRICE",
       "payload": {
-        "status": "OK",
-        "price": "1,80",
+        "status": "NO_PRICE",
+        "price": null,
         "store": "City Bordeaux Balguerie",
-        "url": "https://www.carrefour.fr/p/bonbons-les-schtroumpfs-haribo-3103220045640",
+        "url": null,
         "note": null,
-        "unit_price": "6,00 € / KG",
-        "quantity": "300 G",
-        "title": "Bonbons Les Schtroumpfs HARIBO",
-        "matched_ean": "3103220045640",
-        "image": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03 103220045640_A1C1_s01.jpeg",
-        "nutriscore_grade": "e",
-        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
         "_meta": {
           "supports_ean": true
-        },
-        "product": {
-          "title": "Bonbons Les Schtroumpfs HARIBO",
-          "brand": "Bonbons",
-          "kind": "",
-          "qty": "300 G",
-          "qualifiers": [],
-          "ean": "3103220045640",
-          "image_url": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03 103220045640_A1C1_s01.jpeg",
-          "source": "carrefour_city",
-          "raw_text": "",
-          "seed_query": "",
-          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 20.721391,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 18.83322,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "NO_PRICE",
+        "payload": {
+          "status": "NO_PRICE",
+          "price": null,
+          "store": "City Bordeaux Balguerie",
+          "url": null,
+          "note": null,
+          "unit_price": null,
+          "quantity": null,
+          "title": null,
+          "matched_ean": null,
+          "image": null,
+          "nutriscore_grade": null,
+          "nutriscore_image": null,
+          "_meta": {
+            "supports_ean": true
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "carrefour_market": {
       "status": "OK",
@@ -49,9 +59,9 @@
         "quantity": "300 G",
         "title": "Bonbons Les Schtroumpfs HARIBO",
         "matched_ean": "3103220045640",
-        "image": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03 103220045640_A1C1_s01.jpeg",
-        "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+        "image": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
         "_meta": {
           "supports_ean": true
         },
@@ -62,17 +72,53 @@
           "qty": "300 G",
           "qualifiers": [],
           "ean": "3103220045640",
-          "image_url": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03 103220045640_A1C1_s01.jpeg",
+          "image_url": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
           "source": "carrefour_market",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 21.567706,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 26.355006,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "1,90",
+          "store": "Market Fondaudège",
+          "url": "https://www.carrefour.fr/p/bonbons-les-schtroumpfs-haribo-3103220045640",
+          "note": null,
+          "unit_price": "6,33 € / KG",
+          "quantity": "300 G",
+          "title": "Bonbons Les Schtroumpfs HARIBO",
+          "matched_ean": "3103220045640",
+          "image": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+          "nutriscore_grade": "c",
+          "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Bonbons Les Schtroumpfs HARIBO",
+            "brand": "Bonbons",
+            "kind": "",
+            "qty": "300 G",
+            "qualifiers": [],
+            "ean": "3103220045640",
+            "image_url": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+            "source": "carrefour_market",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "carrefour_super": {
       "status": "NO_PRICE",
@@ -93,10 +139,46 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 13.276046,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 24.753636,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "1,59",
+          "store": "Lormont",
+          "url": "https://www.carrefour.fr/p/bonbons-les-schtroumpfs-haribo-3103220045640",
+          "note": null,
+          "unit_price": "5,30 € / KG",
+          "quantity": "300 G",
+          "title": "Bonbons Les Schtroumpfs HARIBO",
+          "matched_ean": "3103220045640",
+          "image": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+          "nutriscore_grade": "c",
+          "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Bonbons Les Schtroumpfs HARIBO",
+            "brand": "Bonbons",
+            "kind": "",
+            "qty": "300 G",
+            "qualifiers": [],
+            "ean": "3103220045640",
+            "image_url": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
+            "source": "carrefour_super",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "auchan": {
       "status": "NO_RESULTS",
@@ -108,37 +190,58 @@
         "title": null,
         "url": null,
         "matched_ean": null,
-        "store": "Auchan Drive  Supermarché Talence-Gallieni",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
         "note": "search_failed:3103220045640",
         "image": null,
         "_meta": {
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 26.85733,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 30.33257,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "NO_RESULTS",
+        "payload": {
+          "status": "NO_RESULTS",
+          "price": null,
+          "unit_price": null,
+          "quantity": null,
+          "title": null,
+          "url": null,
+          "matched_ean": null,
+          "store": "Auchan Drive Supermarché Talence-Gallieni",
+          "note": "search_failed:3103220045640",
+          "image": null,
+          "_meta": {
+            "supports_ean": true
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "chronodrive": {
       "status": "OK",
       "payload": {
         "status": "OK",
         "price": "1,65",
-        "title": "Bonbons gélifiés aromatisés HARIBO  Schtroumpfs",
-        "url": "https://www.chronodrive.com/haribo--schtroumpfs---bonbons-gelifies-aromatises-P 419481",
+        "title": "Bonbons gélifiés aromatisés HARIBO Schtroumpfs",
+        "url": "https://www.chronodrive.com/haribo--schtroumpfs---bonbons-gelifies-aromatises-P419481",
         "note": "Chronodrive Le Haillan",
         "unit_price": "5,50 € / KG",
         "quantity": "300 g",
-        "store": "Chronodrive Le Haillan",
+        "store": "Chronodrive Le  Haillan",
         "matched_ean": "3103220045640",
         "nutriscore_grade": "e",
-        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt1c2c391f123 113a7/nutriscore-d",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt1c2c391f123113a7/nutriscore-d",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Bonbons gélifiés aromatisés HARIBO  Schtroumpfs",
+          "title": "Bonbons gélifiés aromatisés HARIBO Schtroumpfs",
           "brand": "Bonbons",
           "kind": "",
           "qty": "300 g",
@@ -151,10 +254,45 @@
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 7.030473,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 6.313942,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "1,65",
+          "title": "Bonbons gélifiés aromatisés HARIBO Schtroumpfs",
+          "url": "https://www.chronodrive.com/haribo--schtroumpfs---bonbons-gelifies-aromatises-P419481",
+          "note": "Chronodrive Le Haillan",
+          "unit_price": "5,50 € / KG",
+          "quantity": "300 g",
+          "store": "Chronodrive Le  Haillan",
+          "matched_ean": "3103220045640",
+          "nutriscore_grade": "e",
+          "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt1c2c391f123113a7/nutriscore-d",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Bonbons gélifiés aromatisés HARIBO Schtroumpfs",
+            "brand": "Bonbons",
+            "kind": "",
+            "qty": "300 g",
+            "qualifiers": [],
+            "ean": "3103220045640",
+            "image_url": null,
+            "source": "chronodrive",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "courseu": {
       "status": "OK",
@@ -162,19 +300,19 @@
         "status": "OK",
         "price": "1,55",
         "unit_price": "5,17 € / KG",
-        "quantity": "300  g",
-        "title": "Bonbon Schtroumpfs HARIBO sachet 300g",
+        "quantity": "300 g",
+        "title": "Bonbon  Schtroumpfs HARIBO sachet 300g",
         "url": "https://www.coursesu.com/p/bonbon-schtroumpfs-haribo-sachet-300g/3531513.html",
-        "note": "2025-11-22T14:30:25Z · Super U Eysines",
+        "note": "2025-11-27T13:47:46Z · Super U Eysines",
         "store": "Super U Eysines",
         "matched_ean": "3103220045640",
         "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-naviga tion/nutrition_et_regimes_alimentaires.png",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Bonbon Schtroumpfs HARIBO sachet 300g",
+          "title": "Bonbon  Schtroumpfs HARIBO sachet 300g",
           "brand": "Bonbon",
           "kind": "",
           "qty": "300 g",
@@ -187,10 +325,45 @@
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 30.901398,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 31.844015,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "1,55",
+          "unit_price": "5,17 € / KG",
+          "quantity": "300 g",
+          "title": "Bonbon  Schtroumpfs HARIBO sachet 300g",
+          "url": "https://www.coursesu.com/p/bonbon-schtroumpfs-haribo-sachet-300g/3531513.html",
+          "note": "2025-11-27T13:25:51Z · Super U Eysines",
+          "store": "Super U Eysines",
+          "matched_ean": "3103220045640",
+          "nutriscore_grade": "c",
+          "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-naviga tion/nutrition_et_regimes_alimentaires.png",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Bonbon  Schtroumpfs HARIBO sachet 300g",
+            "brand": "Bonbon",
+            "kind": "",
+            "qty": "300 g",
+            "qualifiers": [],
+            "ean": "3103220045640",
+            "image_url": null,
+            "source": "courseu",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "g20": {
       "status": "OK",
@@ -221,69 +394,177 @@
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 0.627654,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 0.629485,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "1,58",
+          "title": "Bonbons HARIBO Schtroumpfs 300g",
+          "url": "https://www.g20-minute.com/products/3103220045640/bonbons-haribo-schtroumpfs-300g-3103220045640",
+          "note": "G20 Minute",
+          "unit_price": "5,27 €/Kg",
+          "quantity": "300g",
+          "matched_ean": "3103220045640",
+          "image": "https://www.g20-minute.com/media/cache/product_box_image/fe/75/194e77c05114775e77f8563c1f00.jpg",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Bonbons HARIBO Schtroumpfs 300g",
+            "brand": "Bonbons",
+            "kind": "",
+            "qty": "300g",
+            "qualifiers": [],
+            "ean": "3103220045640",
+            "image_url": "https://www.g20-minute.com/media/cache/product_box_image/fe/75/194e77c05114775e77f8563c1f00.jpg",
+            "source": "g20",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "casino": {
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
-        "note": "Casino Shop",
+        "status": "OK",
+        "price": "2,39",
+        "unit_price": "7,97 €/KILO",
+        "quantity": "300g",
+        "title": "Haribo Bonbons Les Schtroumpfs 300g",
+        "url": "https://www.mescoursesdeproximite.com/produit/haribo-bonbons-les-schtroumpfs-300g-000300grm-casino-shop-33130/TZ193/291203",
+        "note": "Casino Shop · Bègles Pruniers",
+        "store": "Casino Shop · Bègles Pruniers",
+        "matched_ean": "3103220045640",
+        "image": "https://www.mescoursesdeproximite.com/images/produits/vignette/291203_M1_S1.jpg",
+        "product": {
+          "title": "Haribo Bonbons Les Schtroumpfs 300g",
+          "brand": "Haribo",
+          "qty": "300g",
+          "ean": "3103220045640",
+          "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/291203_M1_S1.jpg",
+          "source": "casino"
+        },
         "_meta": {
           "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Haribo%20schtroumpfs%20300%20G",
           "store_code": "TZ193",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
           "query": "Haribo schtroumpfs 300 G",
-          "timestamp": "2025-11-22T14:40:13.142833+00:00",
+          "timestamp": "2025-11-27T13:47:48.759116+00:00",
           "supports_keywords": true
         },
-        "candidates": []
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/haribo-bonbons-les-schtroumpfs-300g-000300grm-casino-shop-33130/TZ193/291203",
+            "product": {
+              "title": "Haribo Bonbons Les Schtroumpfs 300g",
+              "brand": "Haribo",
+              "kind": "",
+              "qty": "300g",
+              "qualifiers": [],
+              "ean": "3103220045640",
+              "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/291203_M1_S1.jpg",
+              "source": "casino",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "updated_at": "2025-11-22T15:40:16.199868+01:00",
-      "duration_seconds": 0.945805,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 1.602585,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "NO_RESULTS",
+        "status": "TIMEOUT",
         "payload": {
-          "status": "NO_RESULTS",
-          "note": "Casino Shop",
+          "status": "TIMEOUT",
+          "error": "timeout_after_90s",
           "_meta": {
-            "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Haribo%20schtroumpfs%20300%20G",
-            "store_code": "TZ193",
-            "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
-            "query": "Haribo schtroumpfs 300 G",
-            "timestamp": "2025-11-22T14:30:26.577272+00:00",
             "supports_keywords": true
           },
           "candidates": []
         },
-        "updated_at": "2025-11-22T15:37:44.691570+01:00",
-        "error": null,
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": "timeout_after_90s",
         "store_query": null
       }
     },
     "spar": {
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
-        "note": "Casino Shop",
+        "status": "OK",
+        "price": "2,00",
+        "unit_price": "6,67 €/KILO",
+        "quantity": "300g",
+        "title": "Haribo Bonbons Les Schtroumpfs 300g",
+        "url": "https://www.mescoursesdeproximite.com/produit/haribo-bonbons-les-schtroumpfs-300g-000300grm-spar-33160/TL832/291203",
+        "note": "Spar Super · Saint-Médard-en-Jalles",
+        "store": "Spar Super · Saint-Médard-en-Jalles",
+        "matched_ean": "3103220045640",
+        "image": "https://www.mescoursesdeproximite.com/images/produits/vignette/291203_M1_S1.jpg",
+        "product": {
+          "title": "Haribo Bonbons Les Schtroumpfs 300g",
+          "brand": "Haribo",
+          "qty": "300g",
+          "ean": "3103220045640",
+          "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/291203_M1_S1.jpg",
+          "source": "casino"
+        },
         "_meta": {
           "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Haribo%20schtroumpfs%20300%20G",
           "store_code": "TL832",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
           "query": "Haribo schtroumpfs 300 G",
-          "timestamp": "2025-11-22T14:30:29.670588+00:00",
+          "timestamp": "2025-11-27T13:47:50.353955+00:00",
           "supports_keywords": true
         },
-        "candidates": []
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/haribo-bonbons-les-schtroumpfs-300g-000300grm-spar-33160/TL832/291203",
+            "product": {
+              "title": "Haribo Bonbons Les Schtroumpfs 300g",
+              "brand": "Haribo",
+              "kind": "",
+              "qty": "300g",
+              "qualifiers": [],
+              "ean": "3103220045640",
+              "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/291203_M1_S1.jpg",
+              "source": "spar",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 0.617103,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 1.645574,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "TIMEOUT",
+        "payload": {
+          "status": "TIMEOUT",
+          "error": "timeout_after_90s",
+          "_meta": {
+            "supports_keywords": true
+          },
+          "candidates": []
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": "timeout_after_90s",
+        "store_query": null
+      }
     },
     "intermarche": {
       "status": "OK",
@@ -292,7 +573,7 @@
         "price": "1,46",
         "title": "Bonbons les schtroumpfs",
         "url": "https://www.intermarche.com/produit/bonbons-les-schtroumpfs/3103220045640",
-        "note": "Intermarché · Super Talence",
+        "note": "Intermarché ·  Super Talence",
         "matched_ean": "3103220045640",
         "unit_price": "4,87 € / KG",
         "quantity": null,
@@ -309,7 +590,7 @@
               "ean": "3103220045640",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
               "seed_query": "",
               "leclerc_queries": []
             }
@@ -321,40 +602,61 @@
         "nutriscore_grade": "e",
         "nutriscore_image": null
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 47.985548,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 24.022293,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "NO_RESULTS",
+        "payload": {
+          "status": "NO_RESULTS",
+          "price": null,
+          "title": null,
+          "url": null,
+          "note": null,
+          "matched_ean": null,
+          "unit_price": null,
+          "quantity": null,
+          "store": null,
+          "candidates": [],
+          "_meta": {
+            "supports_keywords": true
+          },
+          "nutriscore_grade": null,
+          "nutriscore_image": null
+        },
+        "updated_at": "2025-11-27T14:44:44.198684+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "leclerc": {
-      "status": "OK",
+      "status": "NO_MATCH",
       "payload": {
-        "status": "OK",
-        "title": "Dragibus Soft Haribo Sachet bonbons - 300g",
-        "price": "1,35",
-        "unit_price": "4,50 € / kg",
+        "status": "NO_MATCH",
+        "title": "Chocolat en poudre Equador Pur Cacao non sucré - 250g",
+        "price": null,
+        "unit_price": null,
         "quantity": null,
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/recherche.aspx?TexteRecherche=haribo%20300%20g",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-3151-Cafe-moulu-Plantation-.aspx",
         "matched_ean": null,
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-22T14:36:58Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-27T14:03:13Z · E.Leclerc Drive · Bruges",
         "_meta": {
-          "supports_keywords": true,
-          "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed)."
+          "supports_keywords": true
         },
-        "equivalent": true,
-        "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed).",
+        "equivalent": false,
         "candidates": [
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-163143-Dragibus-Soft-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-40329-Chocolat-en-poudre-Equador.aspx",
             "product": {
-              "title": "Dragibus Soft Haribo Sachet bonbons - 300g",
-              "brand": "Dragibus",
+              "title": "Chocolat en poudre Equador Pur Cacao non sucré - 250g",
+              "brand": "Chocolat",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220048658",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2806123&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700748435",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2120290&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -362,15 +664,15 @@
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-163145-Dragibus-Original-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24163-Infusion-Tisea-Tilleul-Citron.aspx",
             "product": {
-              "title": "Dragibus Original Haribo Multipack bonbons - 250g",
-              "brand": "Dragibus",
+              "title": "Infusion Tiséa Tilleul Citron 25 sachets 34g",
+              "brand": "Infusion",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220048672",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2984943&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700595640",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2854240&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -378,15 +680,15 @@
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-76211-Lours-dor-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-239-Soupe-Veloute-Regal-Soupe.aspx",
             "product": {
-              "title": "L'ours d'or Haribo Sachet bonbons - 300g",
-              "brand": "L'ours",
+              "title": "Soupe Velouté Régal Soupe 10 légumes - 1L",
+              "brand": "Soupe",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220009802",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2805201&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700660508",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2983781&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -394,15 +696,15 @@
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-104092-Tagada-Zip-Fraicheur-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-13678-Croutons-salade-Epi-dOr.aspx",
             "product": {
-              "title": "Tagada Zip Fraîcheur Haribo Sachet bonbons - 220g",
-              "brand": "Tagada",
+              "title": "Croûtons salade Epi d'Or Ail et fines herbes - 60g",
+              "brand": "Croûtons",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220044544",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2802359&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700434482",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2606040&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -410,15 +712,15 @@
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-97060-Tagada-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24164-The-vert-Briley.aspx",
             "product": {
-              "title": "Tagada Haribo Sachet bonbons - 400g",
-              "brand": "Tagada",
+              "title": "Thé vert Briley 32.5g",
+              "brand": "Thé",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220033371",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2801854&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700591178",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2645939&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -426,15 +728,15 @@
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-135444-Croco-Baby--30-de-sucre-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-15288-Mouchoirs-blancs-4-plis-Caresse.aspx",
             "product": {
-              "title": "Croco Baby -30% de sucre Haribo Sachet bonbons - 165g",
-              "brand": "Croco",
+              "title": "Mouchoirs blancs 4 plis Caresse Mini étuis x15",
+              "brand": "Mouchoirs",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220045626",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2806111&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700330470",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2824262&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -442,31 +744,15 @@
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-3517-Bonbons-Haribo.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-3151-Cafe-moulu-Plantation-.aspx",
             "product": {
-              "title": "Bonbons Haribo Réglisse Carensac - 250g",
-              "brand": "Bonbons",
+              "title": "Café moulu Plantation Tradition - 250g",
+              "brand": "Café",
               "kind": "",
               "qty": "",
               "qualifiers": [],
-              "ean": "3103220009819",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2982405&amp;use=l&amp;cat=p&amp;typeid=i",
-              "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-49828-Happy-Life-Haribo.aspx",
-            "product": {
-              "title": "Happy Life Haribo Sachet bonbons - 275g",
-              "brand": "Happy",
-              "kind": "",
-              "qty": "",
-              "qualifiers": [],
-              "ean": "3103220034804",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2803577&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700010426",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2580886&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
               "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
               "seed_query": "",
@@ -475,118 +761,206 @@
           }
         ]
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 338.555156,
+      "updated_at": "2025-11-27T15:03:13.484746+01:00",
+      "duration_seconds": 38.76987,
       "error": null,
-      "store_query": null
-    },
-    "monoprix": {
-      "status": "OK",
-      "payload": {
+      "store_query": null,
+      "previous": {
         "status": "OK",
-        "price": "1,65",
-        "title": "Haribo Bonbons Les Schtroumpfs  300g",
-        "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-300g/MPX_13 32907",
-        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d846 6aac-5f23-48db-a88c-1ea3937589b0/300x300.jpg",
-        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d846 6aac-5f23-48db-a88c-1ea3937589b0/300x300.jpg",
-        "matched_ean": null,
-        "unit_price": "5,50 € / KG",
-        "quantity": "300 G",
-        "store": null,
-        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nCalendrier de l'avent\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nEpicerie Sucrée\nChocolat et  Confiserie\nBonbon\nHaribo Bonbons Les Schtroumpfs 300g\n6 m+\n6 mois de  garantie de vie du produit\n300g 5,50 € / kilo\n300g\n(5,50 € / kilo)\n1,65  €\nAjouter\nInformations produit\n\n\nDescription Produit\nDepuis plus de trente ans, leur couleur et leur goût inimitables font des Schtroumpfs l’un des bonbons préférés des Français. Dans chaque sachet retrouvez vos Schtroumpfs préférés !  Schtroumpf alors ! Ils sont sans colorant artificiel  !!\n\n\nOrigine\nFrance\nMarque\nHaribo\nService consommateur\nHARIBO 67,  boulevard du Capitaine Gèze - 13014 MARSEILLE\nConseils  d'utilisation\nconsommation en l'état\nIngredients\nIngrédients: sirop de  glucose; sucre; gélatine; dextrose; acidifiant: acide citrique; arôme; huile de  tournesol; concentrés de fruits et de plantes: spiruline, carthame, citron,  carotte; agent d'enrobage: cire d'abeille blanche et jaune. Tenir à l'abri de la chaleur et de l'humidité. Peut contenir des traces de blé,  lait.\nAllergènes\naucun\nType d’emballage\nEnveloppe\nProducteur\nHARIBO 67 BD  DU CAPITAINE GEZE///13014/MARSEILLE/FRANCE\nConseil de conservation\ntenir à  l'abri de la chaleur et de l'humidité\nAutres informations\n67, boulevard du  Capitaine Gèze F-13014 MARSEILLE\nConseils d'utilisation\nconsommation en  l'état\nValeurs nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour  100 g\tEn % des AJR\nValeurs Energétique en Kilojoules\t~ 1411 kJ\t4 %\nValeurs  Energétique en Kilocalories\t~ 332 kcal\t4 %\nValeurs Nutritionnelles\nMatières  grasses\t< 0.5 g\t1 %\nDont Acides Gras Saturés\t< 0.1 g\t1 %\nGlucides\t~ 75  g\t7 %\nDont Sucres\t~ 43 g\t12 %\nProtéines\t~ 6.6 g\t3 %\nSel\t~ 0.03 g\t1  %\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une  nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos  magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos  magasins avec Parapharmacie\nAide & Mentions\nDonnées personnelles et  cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
-        "extras": {
-          "seed_variant": null,
-          "candidate_variant": "chocolat",
-          "negatives_hit": [],
-          "variant_ok": true,
-          "unit_family_ok": true,
-          "size_ok": true,
-          "category_ok": true,
-          "vetoes": [
-            "image_mismatch"
-          ],
-          "candidate_quantity": "300 G",
-          "candidate_size_ratio": 0.0,
-          "descriptor_token_coverage": {
-            "coverage": 1.0,
-            "matched": [
-              "bonbons",
-              "haribo",
-              "les",
-              "schtroumpfs"
-            ],
-            "missing": [],
-            "total": 4
+        "payload": {
+          "status": "OK",
+          "title": "Les Schtroumpfs Haribo Sachet bonbons - 300g",
+          "price": "1,43",
+          "unit_price": "4,77 € / kg",
+          "quantity": null,
+          "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-115115-Les-Schtroumpfs-Haribo.aspx",
+          "matched_ean": "3103220045640",
+          "store": "E.Leclerc Drive · Bruges",
+          "note": "2025-11-27T13:52:18Z · E.Leclerc Drive · Bruges",
+          "_meta": {
+            "supports_keywords": true
           },
-          "missing_tokens": [],
-          "image_match": false,
-          "final_score": 15,
-          "plausible_baseline": true,
-          "notes": [
-            "accepted_without_image_match"
+          "equivalent": false,
+          "candidates": [
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-163143-Dragibus-Soft-Haribo.aspx",
+              "product": {
+                "title": "Dragibus Soft Haribo Sachet bonbons - 300g",
+                "brand": "Dragibus",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220048658",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2806123&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-76211-Lours-dor-Haribo.aspx",
+              "product": {
+                "title": "L'ours d'or Haribo Sachet bonbons - 300g",
+                "brand": "L'ours",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220009802",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2805201&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-30577-Les-Schtroumpfs-Pik-Haribo.aspx",
+              "product": {
+                "title": "Les Schtroumpfs Pik Haribo Sachet bonbons acidulés - 275g",
+                "brand": "Les",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220035771",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2984898&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-25408-Dragolo-Haribo.aspx",
+              "product": {
+                "title": "Dragolo Haribo Sachet bonbons - 300g",
+                "brand": "Dragolo",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220022696",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2803574&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-115114-Polka-Haribo.aspx",
+              "product": {
+                "title": "Polka Haribo Sachet bonbons - 300g",
+                "brand": "Polka",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220045633",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2982414&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-83303-Happy-Cola-Haribo.aspx",
+              "product": {
+                "title": "Happy Cola Haribo Sachet bonbons - 300g",
+                "brand": "Happy",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220009550",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2806087&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-3356-Banans-Haribo.aspx",
+              "product": {
+                "title": "Banan's Haribo Sachet bonbons - 300g",
+                "brand": "Banan's",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220009659",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=1739936&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-115115-Les-Schtroumpfs-Haribo.aspx",
+              "product": {
+                "title": "Les Schtroumpfs Haribo Sachet bonbons - 300g",
+                "brand": "Les",
+                "kind": "",
+                "qty": "",
+                "qualifiers": [],
+                "ean": "3103220045640",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2788475&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            }
           ]
         },
+        "updated_at": "2025-11-27T14:57:14.100922+01:00",
+        "error": null,
+        "store_query": null
+      }
+    },
+    "monoprix": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
         "candidates": [
           {
-            "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-300g/MPX_13 32907",
+            "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-pik-275g/MPX_2135995",
             "product": {
-              "title": "Haribo Bonbons Les  Schtroumpfs 300g",
+              "title": "Haribo Bonbons Les Schtroumpfs Pik 275g",
               "brand": "Haribo",
-              "kind": "Bonbons Les Schtroumpfs HARIBO",
-              "qty": "300 G",
+              "kind": "",
+              "qty": "275 G",
               "qualifiers": [],
               "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d846 6aac-5f23-48db-a88c-1ea3937589b0/300x300.jpg",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5300e01b-393a-4025-8330-889f 792c3997/300x300.jpg",
               "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Sélection Raclette Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2",
               "seed_query": "",
               "leclerc_queries": []
             }
           },
           {
-            "url": "https://courses.monoprix.fr/products/haribo-dragibus-soft-veggie-300g/MPX_42135 35",
+            "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-300g/MPX_1332907",
             "product": {
-              "title": "Haribo Dragibus Soft Veggie  300g",
+              "title": "Haribo Bonbons Les Schtroumpfs 300g",
               "brand": "Haribo",
-              "kind": "Bonbons Les Schtroumpfs HARIBO",
+              "kind": "",
               "qty": "300 G",
               "qualifiers": [],
               "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d906 4ccd-9de0-4e4f-9d5f-8b32e2d7897e/300x300.jpg",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d8466aac-5f23-48db-a88c-1ea3 937589b0/300x300.jpg",
               "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://courses.monoprix.fr/products/haribo-bonbons-zanzigliss-300g/MPX_2309208",
-            "product": {
-              "title": "Haribo Bonbons Zanzigliss  300g",
-              "brand": "Haribo",
-              "kind": "Bonbons Les Schtroumpfs HARIBO",
-              "qty": "300 G",
-              "qualifiers": [],
-              "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/fddb 0e20-39c4-472e-a6d0-cd67d3f3d9c2/300x300.jpg",
-              "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://courses.monoprix.fr/products/haribo-bonbons-assortis-polka-300g/MPX_808 233",
-            "product": {
-              "title": "Haribo Bonbons Assortis  Polka 300g",
-              "brand": "Haribo",
-              "kind": "Bonbons Les Schtroumpfs HARIBO",
-              "qty": "300 G",
-              "qualifiers": [],
-              "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/2f6a 29e8-9112-4c6b-87ee-029a1741d09f/300x300.jpg",
-              "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Sélection Raclette Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2",
               "seed_query": "",
               "leclerc_queries": []
             }
@@ -596,10 +970,86 @@
           "supports_keywords": true
         }
       },
-      "updated_at": "2025-11-22T15:37:44.691570+01:00",
-      "duration_seconds": 45.459023,
+      "updated_at": "2025-11-27T14:57:14.100922+01:00",
+      "duration_seconds": 45.027969,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "NO_RESULTS",
+        "payload": {
+          "status": "NO_RESULTS",
+          "price": null,
+          "title": null,
+          "url": null,
+          "note": null,
+          "image": null,
+          "matched_ean": null,
+          "unit_price": null,
+          "quantity": null,
+          "store": null,
+          "raw_text": null,
+          "extras": null,
+          "candidates": [
+            {
+              "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-pik-275g/MPX_2135995",
+              "product": {
+                "title": "Haribo Bonbons Les Schtroumpfs Pik 275g",
+                "brand": "Haribo",
+                "kind": "",
+                "qty": "275 G",
+                "qualifiers": [],
+                "ean": null,
+                "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5300e01b-393a-4025-8330-889f 792c3997/300x300.jpg",
+                "source": "monoprix",
+                "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Sélection Raclette Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-300g/MPX_1332907",
+              "product": {
+                "title": "Haribo Bonbons Les Schtroumpfs 300g",
+                "brand": "Haribo",
+                "kind": "",
+                "qty": "300 G",
+                "qualifiers": [],
+                "ean": null,
+                "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d8466aac-5f23-48db-a88c-1ea3 937589b0/300x300.jpg",
+                "source": "monoprix",
+                "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Sélection Raclette Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            }
+          ],
+          "_meta": {
+            "supports_keywords": true
+          }
+        },
+        "updated_at": "2025-11-27T14:31:48.636946+01:00",
+        "error": null,
+        "store_query": null
+      }
+    },
+    "_finder": {
+      "consolidated": {
+        "title": "",
+        "brand": "Chocolat",
+        "kind": "",
+        "qty": "",
+        "qualifiers": [],
+        "ean": "3103220045640",
+        "image_url": null,
+        "source": "consolidated",
+        "raw_text": "",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": null,
+      "candidates": [],
+      "decision": null,
+      "audit": []
     }
   }
 }

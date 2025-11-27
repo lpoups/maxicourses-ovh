@@ -1112,17 +1112,17 @@
     }
     .best-price-banner__label {
       text-transform: uppercase;
-      font-size: 0.52rem;
+      font-size: 0.72rem;
       letter-spacing: 0.06em;
       color: rgba(248,250,252,0.85);
     }
     .best-price-banner__value {
-      font-size: 0.40rem;
+      font-size: 0.72rem;
       color: #fff;
       font-weight: 600;
     }
     .best-price-banner__store {
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       color: rgba(248,250,252,0.85);
     }
     .best-price-banner__item--best {
@@ -1158,7 +1158,7 @@
     }
     .best-price-banner__item--delta .best-price-banner__value {
       color: #fff;
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.01em;
     }
@@ -1170,7 +1170,7 @@
     }
     .best-price-banner__item--delta .best-price-banner__label {
       color: rgba(255,255,255,0.9);
-      font-size: 0.60rem;
+      font-size: 0.72rem;
     }
     .stores-summary {
       margin: 48px 0 32px;
@@ -2337,6 +2337,16 @@
       let refreshButton = null;
       let removeButton = null;
 
+      let previewUrl = options.previewUrl || null;
+      if (!previewUrl && datasetData) {
+        previewUrl = datasetData.image_path
+          || datasetData.reference?.image
+          || (datasetData.adapters || []).reduce((acc, adapter) => acc || adapter?.payload?.image_path || adapter?.payload?.image || null, null);
+      }
+      if (!previewUrl && descriptor.image) {
+        previewUrl = descriptor.image;
+      }
+
       const eanEl = root.querySelector('[data-role="ean"]');
       eanEl.textContent = descriptor.ean || '—';
 
@@ -2345,7 +2355,8 @@
 
       const thumbEl = root.querySelector('.product-thumb');
       thumbEl.innerHTML = '';
-      const imageSrc = descriptor.image ? toAbsolute(descriptor.image) : '';
+      const thumbCandidate = descriptor.image || previewUrl;
+      const imageSrc = thumbCandidate ? toAbsolute(thumbCandidate) : '';
       if (imageSrc) {
         const img = document.createElement('img');
         img.src = imageSrc;
@@ -2359,15 +2370,6 @@
       }
 
       if (previewLink) {
-        let previewUrl = options.previewUrl || null;
-        if (!previewUrl && datasetData) {
-          previewUrl = datasetData.image_path
-            || datasetData.reference?.image
-            || (datasetData.adapters || []).reduce((acc, adapter) => acc || adapter?.payload?.image_path || adapter?.payload?.image || null, null);
-        }
-        if (!previewUrl && descriptor.image) {
-          previewUrl = descriptor.image;
-        }
         if (previewUrl) {
           previewLink.href = toAbsolute(previewUrl);
           previewLink.hidden = false;

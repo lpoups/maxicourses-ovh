@@ -1,0 +1,99 @@
+{
+  "ean": "5411188103387",
+  "image_path": null,
+  "started_at": "2025-11-27T12:52:47.034428+01:00",
+  "finished_at": "2025-11-27T12:53:16.866989+01:00",
+  "duration_seconds": 29.832561,
+  "reference": {
+    "title": "Dessert végétal soja vanille ALPRO - 500g",
+    "description": "Dessert végétal soja vanille ALPRO - 500g",
+    "source": "courseu",
+    "brand": "Alpro",
+    "quantity": "500  g",
+    "categories": null,
+    "image": "./assets/5411188103387.jpg",
+    "nutriscore_grade": "c",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251127-125247"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,91",
+        "unit_price": "3,82 € / KG",
+        "quantity": "500 g",
+        "title": "Dessert  végétal soja vanille ALPRO - 500g",
+        "url": "https://www.coursesu.com/p/dessert-vegetal-soja-vanille-alpro---500g/2764270.html",
+        "note": "2025-11-27T11:53:16Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "5411188103387",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-naviga tion/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Dessert  végétal soja vanille ALPRO - 500g",
+          "brand": "Dessert",
+          "kind": "",
+          "qty": "500 g",
+          "qualifiers": [],
+          "ean": "5411188103387",
+          "image_url": "./assets/5411188103387.jpg",
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-27T12:52:47.035110+01:00",
+      "finished_at": "2025-11-27T12:53:16.305216+01:00",
+      "duration_seconds": 29.270106,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5411188103387",
+        "QUERY": "5411188103387",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5411188103387"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Dessert  végétal soja vanille ALPRO - 500g",
+      "brand": "Dessert",
+      "kind": "",
+      "qty": "500 g",
+      "qualifiers": [],
+      "ean": "5411188103387",
+      "image_url": "./assets/5411188103387.jpg",
+      "source": "consolidated",
+      "raw_text": "Dessert végétal soja vanille ALPRO - 500g",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

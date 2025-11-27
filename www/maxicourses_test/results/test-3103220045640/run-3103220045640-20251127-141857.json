@@ -1,0 +1,121 @@
+{
+  "ean": "3103220045640",
+  "image_path": null,
+  "started_at": "2025-11-27T14:18:11.653249+01:00",
+  "finished_at": "2025-11-27T14:18:57.840132+01:00",
+  "duration_seconds": 46.186883,
+  "reference": {
+    "title": null,
+    "description": null,
+    "source": "unknown",
+    "brand": "Chocolat",
+    "quantity": null,
+    "categories": null,
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3103220045640/debug/run-3103220045640-20251127-141811"
+  ],
+  "adapters": [
+    {
+      "adapter": "leclerc",
+      "status": "NO_MATCH",
+      "payload": {
+        "status": "NO_MATCH",
+        "title": "Calendrier de l'Avent Smarties chocolat Noël - 223g",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-4727-Chocolat-au-lait-Tablette-dOr.aspx",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-27T13:18:57Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": true,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-167220-Calendrier-de-lAvent.aspx",
+            "product": {
+              "title": "Calendrier de l'Avent Smarties chocolat Noël - 223g",
+              "brand": "Calendrier",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8000300410143",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2960081&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><iframe height=\"0\" width=\"0\" style=\"display: none; visibility: hidden;\"></iframe><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-4727-Chocolat-au-lait-Tablette-dOr.aspx",
+            "product": {
+              "title": "Chocolat au lait Tablette d'Or Raisins secs & Noisettes - 200g",
+              "brand": "Chocolat",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2746778&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "difference_note": "Match sans EAN (couverture mots-clés)"
+      },
+      "started_at": "2025-11-27T14:18:12.526307+01:00",
+      "finished_at": "2025-11-27T14:18:57.816177+01:00",
+      "duration_seconds": 45.28987,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045640",
+        "QUERY": "Chocolat",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Chocolat'\n[LECLERC_DEBUG] after home human pause -> 1.82s\n[LECLERC_DEBUG] after focus -> 2.28s\n[LECLERC_DEBUG] results visible -> 3.66s\n[LECLERC_DEBUG] after result pause -> 3.66s",
+      "metadata": {
+        "attempt_query": "Chocolat",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3103220045640/debug/run-3103220045640-20251127-141811/01-leclerc"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "",
+      "brand": "Chocolat",
+      "kind": "",
+      "qty": "",
+      "qualifiers": [],
+      "ean": "3103220045640",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "ean": "8712100731822",
+  "image_path": null,
+  "started_at": "2025-11-27T12:21:29.911472+01:00",
+  "finished_at": "2025-11-27T12:21:36.251864+01:00",
+  "duration_seconds": 6.340392,
+  "reference": {
+    "title": "Moutarde aux aromates SAVORA 385 g",
+    "description": "Moutarde aux aromates SAVORA 385 g",
+    "source": "chronodrive",
+    "brand": "Savora",
+    "quantity": "385  g",
+    "categories": "Condiments, Sauces, Moutardes, en:groceries, Spécialité à la Moutarde",
+    "image": "./assets/8712100731822.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "b",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
+    "nova_group": "3"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251127-122129"
+  ],
+  "adapters": [
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,75",
+        "title": "Moutarde aux aromates SAVORA",
+        "url": "https://www.chronodrive.com/savora--moutarde-aux-aromates-P16609",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "7,14 € / KG",
+        "quantity": "385 g",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "8712100731822",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt1c2c391f123113a7/nutriscore-d",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Moutarde aux aromates SAVORA",
+          "brand": "Moutarde",
+          "kind": "",
+          "qty": "385 g",
+          "qualifiers": [],
+          "ean": "8712100731822",
+          "image_url": "./assets/8712100731822.jpg",
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-27T12:21:29.912205+01:00",
+      "finished_at": "2025-11-27T12:21:35.838277+01:00",
+      "duration_seconds": 5.926072,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "8712100731822",
+        "QUERY": "8712100731822",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='8712100731822'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/savora--moutarde-aux-aromates-P16609",
+      "metadata": {
+        "attempt_query": "8712100731822"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Moutarde aux aromates SAVORA",
+      "brand": "Moutarde",
+      "kind": "",
+      "qty": "385 g",
+      "qualifiers": [],
+      "ean": "8712100731822",
+      "image_url": "./assets/8712100731822.jpg",
+      "source": "consolidated",
+      "raw_text": "Moutarde aux aromates SAVORA 385 g",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

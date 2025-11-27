@@ -38,26 +38,39 @@
       "store_query": null
     },
     "carrefour_market": {
-      "status": "NO_PRICE",
+      "status": "OK",
       "payload": {
-        "status": "NO_PRICE",
-        "price": null,
+        "status": "OK",
+        "price": "2,84",
         "store": "Market Fondaudège",
-        "url": null,
+        "url": "https://www.carrefour.fr/p/moutarde-epices-amorates-savora-amora-8712100731822",
         "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
+        "unit_price": "7,38 € / KG",
+        "quantity": "385 G",
+        "title": "Moutarde Epices & Amorates Savora AMORA",
+        "matched_ean": "8712100731822",
+        "image": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24c c85e/08712100731822_C1N1_s05.png",
+        "nutriscore_grade": "d",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg",
         "_meta": {
           "supports_ean": true
+        },
+        "product": {
+          "title": "Moutarde Epices & Amorates Savora AMORA",
+          "brand": "Moutarde",
+          "kind": "",
+          "qty": "385 G",
+          "qualifiers": [],
+          "ean": "8712100731822",
+          "image_url": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24c c85e/08712100731822_C1N1_s05.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-24T10:28:21.491162+01:00",
-      "duration_seconds": 12.761959,
+      "updated_at": "2025-11-27T09:49:57.597003+01:00",
+      "duration_seconds": 18.521063,
       "error": null,
       "store_query": null
     },
@@ -73,7 +86,7 @@
         "quantity": "385 G",
         "title": "Moutarde Epices & Amorates Savora AMORA",
         "matched_ean": "8712100731822",
-        "image": "https://media.carrefour.fr/medias/852e37fd05f24a1c9976e1fe51150cc4/p_540x540/08 712100731822_H1N1_s06.png",
+        "image": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24cc85e/08712100731822_C1N1 _s05.png",
         "nutriscore_grade": "d",
         "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg",
         "_meta": {
@@ -86,15 +99,15 @@
           "qty": "385 G",
           "qualifiers": [],
           "ean": "8712100731822",
-          "image_url": "https://media.carrefour.fr/medias/852e37fd05f24a1c9976e1fe51150cc4/p_540x540/08 712100731822_H1N1_s06.png",
+          "image_url": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24cc85e/08712100731822_C1N1 _s05.png",
           "source": "carrefour_super",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-24T10:28:21.491162+01:00",
-      "duration_seconds": 20.314626,
+      "updated_at": "2025-11-27T12:56:11.495850+01:00",
+      "duration_seconds": 17.641167,
       "error": null,
       "store_query": null
     },
@@ -128,8 +141,8 @@
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-24T10:28:21.491162+01:00",
-      "duration_seconds": 11.838435,
+      "updated_at": "2025-11-27T11:48:07.640263+01:00",
+      "duration_seconds": 28.415341,
       "error": null,
       "store_query": null
     },
@@ -142,11 +155,11 @@
         "url": "https://www.chronodrive.com/savora--moutarde-aux-aromates-P16609",
         "note": "Chronodrive Le Haillan",
         "unit_price": "7,14 € / KG",
-        "quantity": "385  g",
+        "quantity": "385 g",
         "store": "Chronodrive Le Haillan",
         "matched_ean": "8712100731822",
         "nutriscore_grade": "e",
-        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt1c2c391f123 113a7/nutriscore-d",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/blt1c2c391f123113a7/nutriscore-d",
         "_meta": {
           "supports_ean": true
         },
@@ -157,15 +170,15 @@
           "qty": "385 g",
           "qualifiers": [],
           "ean": "8712100731822",
-          "image_url": null,
+          "image_url": "./assets/8712100731822.jpg",
           "source": "chronodrive",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-24T10:28:21.491162+01:00",
-      "duration_seconds": 6.445755,
+      "updated_at": "2025-11-27T12:21:36.251864+01:00",
+      "duration_seconds": 5.926072,
       "error": null,
       "store_query": null
     },
@@ -492,6 +505,25 @@
       "duration_seconds": 1.3405,
       "error": null,
       "store_query": null
+    },
+    "_finder": {
+      "consolidated": {
+        "title": "Moutarde Epices & Amorates Savora AMORA",
+        "brand": "Moutarde",
+        "kind": "",
+        "qty": "385 G",
+        "qualifiers": [],
+        "ean": "8712100731822",
+        "image_url": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24cc85e/08712100731822_C1N1 _s05.png",
+        "source": "consolidated",
+        "raw_text": "Moutarde aux aromates SAVORA 385 g",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": null,
+      "candidates": [],
+      "decision": null,
+      "audit": []
     }
   }
 }

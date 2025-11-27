@@ -1,26 +1,26 @@
 {
   "ean": "5000112611861",
   "image_path": null,
-  "started_at": "2025-11-26T17:51:16.617414+01:00",
-  "finished_at": "2025-11-26T17:52:27.443493+01:00",
-  "duration_seconds": 70.826079,
+  "started_at": "2025-11-27T12:56:29.965525+01:00",
+  "finished_at": "2025-11-27T12:56:48.305910+01:00",
+  "duration_seconds": 18.340385,
   "reference": {
     "title": "Soda COCA-COLA Original - Bouteille 1,75L",
     "description": "Soda COCA-COLA Original - Bouteille 1,75L",
-    "source": "courseu",
+    "source": "carrefour_super",
     "brand": "Cola",
     "quantity": "1,75  L",
     "categories": null,
-    "image": "./assets/5000112611861.jpg",
-    "nutriscore_grade": "unknown",
+    "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+    "nutriscore_grade": "e",
     "nutriscore_score": null,
-    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
     "ecoscore_grade": null,
     "ecoscore_image": null,
     "nova_group": null
   },
   "notes": [
-    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251126-175116"
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251127-125629"
   ],
   "adapters": [
     {
@@ -112,9 +112,292 @@
         "attempt_query": "Cola Soda 1.75 L",
         "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251126-175116/01-leclerc"
       }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,45",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+        "note": null,
+        "unit_price": "1,40 € / L",
+        "quantity": "1,75 L",
+        "title": "Soda au Cola Goût Original COCA-COLA",
+        "matched_ean": "5000112611861",
+        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+        "nutriscore_grade": "b",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda au Cola Goût Original COCA-COLA",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-27T12:20:38.129579+01:00",
+      "finished_at": "2025-11-27T12:20:56.217524+01:00",
+      "duration_seconds": 18.087945,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "carrefour_city",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,79",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+        "note": null,
+        "unit_price": "1,59 € / L",
+        "quantity": "1,75 L",
+        "title": "Soda au Cola Goût Original COCA-COLA",
+        "matched_ean": "5000112611861",
+        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda au Cola Goût Original COCA-COLA",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+          "source": "carrefour_city",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-27T12:20:02.030619+01:00",
+      "finished_at": "2025-11-27T12:20:23.379773+01:00",
+      "duration_seconds": 21.349154,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,39",
+        "unit_price": "1,37 € / L",
+        "quantity": "1,75 L",
+        "title": "Boisson  gazeuse aux extraits végétaux goût original",
+        "url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-original/pr-C1211988",
+        "matched_ean": "5000112611861",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan  Talence",
+        "image": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson  gazeuse aux extraits végétaux goût original",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-27T12:21:02.371302+01:00",
+      "finished_at": "2025-11-27T12:21:12.006498+01:00",
+      "duration_seconds": 9.635196,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results visible, opening first candidate",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,39",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+        "note": null,
+        "unit_price": "1,37 € / L",
+        "quantity": "1,75 L",
+        "title": "Soda au Cola Goût Original COCA-COLA",
+        "matched_ean": "5000112611861",
+        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda au Cola Goût Original COCA-COLA",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-27T12:56:29.966386+01:00",
+      "finished_at": "2025-11-27T12:56:47.669030+01:00",
+      "duration_seconds": 17.702644,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,49",
+        "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
+        "url": "https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits-vegetaux-P384066",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "1,42 € / L",
+        "quantity": "1,75 L",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "5000112611861",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltcfe448721003a156/nutriscore-e",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "./assets/5000112611861.jpg",
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-27T12:54:46.525603+01:00",
+      "finished_at": "2025-11-27T12:54:53.062783+01:00",
+      "duration_seconds": 6.53718,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='5000112611861'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits-vegetaux-P384066",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
     }
   ],
   "finder": {
-    "error": "'FinderPipeline' object has no attribute 'decide'"
+    "consolidated": {
+      "title": "Soda au Cola Goût Original COCA-COLA",
+      "brand": "Soda",
+      "kind": "",
+      "qty": "1,75 L",
+      "qualifiers": [],
+      "ean": "5000112611861",
+      "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+      "source": "consolidated",
+      "raw_text": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
   }
 }
