@@ -23,6 +23,7 @@ except ImportError:  # pragma: no cover - optional dependency
 EAN = os.environ.get("EAN", "").strip()
 QUERY = os.environ.get("QUERY", "").strip()
 PROXY = os.environ.get("PROXY")
+DIRECT_URL = os.environ.get("DIRECT_URL", "").strip()  # For quick price updates
 
 BASE_URL = os.environ.get("G20_BASE_URL", "https://www.g20-minute.com")
 SEARCH_TEMPLATE = os.environ.get(
@@ -192,11 +193,16 @@ def _parse_with_regex(html: str, ean: str) -> Optional[Result]:
 
 
 def fetch_g20(ean: str, query: str) -> Result:
-    term = ean or query
-    if not term:
-        return Result(status="ERROR", note="EAN ou requête manquants")
+    # If DIRECT_URL is provided, use it directly (quick price update mode)
+    if DIRECT_URL and DIRECT_URL.startswith("http"):
+        search_url = DIRECT_URL
+        term = ean or query  # Still need term for parsing
+    else:
+        term = ean or query
+        if not term:
+            return Result(status="ERROR", note="EAN ou requête manquants")
+        search_url = _build_search_url(term)
 
-    search_url = _build_search_url(term)
     session = requests.Session()
     session.headers.update(HEADERS)
     if PROXY:

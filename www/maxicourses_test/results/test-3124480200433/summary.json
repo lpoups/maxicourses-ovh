@@ -1,39 +1,51 @@
 {
   "3124480200433": {
     "carrefour_city": {
-      "status": "OK",
+      "status": "NO_PRICE",
       "payload": {
-        "status": "OK",
-        "price": "2,55",
+        "status": "NO_PRICE",
+        "price": null,
         "store": "City Bordeaux Balguerie",
-        "url": "https://www.carrefour.fr/p/soda-a-l-orange-et-sa-pulpe-orangina-3124480200433",
+        "url": null,
         "note": null,
-        "unit_price": "1,70 € / L",
-        "quantity": "1,5 L",
-        "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
-        "matched_ean": "3124480200433",
-        "image": "https://media.carrefour.fr/media/referential/media/9ca283a3ef764594aba8aaf41632 e418/03124480200433_C1N1_s04.jpeg",
-        "nutriscore_grade": "e",
-        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
         "_meta": {
           "supports_ean": true
-        },
-        "product": {
-          "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
-          "brand": "Soda",
-          "kind": "",
-          "qty": "1,5 L",
-          "qualifiers": [],
-          "ean": "3124480200433",
-          "image_url": "https://media.carrefour.fr/media/referential/media/9ca283a3ef764594aba8aaf41632 e418/03124480200433_C1N1_s04.jpeg",
-          "source": "carrefour_city",
-          "raw_text": ""
         }
       },
-      "updated_at": "2025-11-21T15:53:22.497281+01:00",
-      "duration_seconds": 23.29112,
+      "updated_at": "2025-11-28T16:27:35.662524+01:00",
+      "duration_seconds": 16.532277,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "NO_PRICE",
+        "payload": {
+          "status": "NO_PRICE",
+          "price": null,
+          "store": "City Bordeaux Balguerie",
+          "url": null,
+          "note": null,
+          "unit_price": null,
+          "quantity": null,
+          "title": null,
+          "matched_ean": null,
+          "image": null,
+          "nutriscore_grade": null,
+          "nutriscore_image": null,
+          "_meta": {
+            "supports_ean": true
+          }
+        },
+        "updated_at": "2025-11-28T16:24:02.677622+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "carrefour_market": {
       "status": "OK",
@@ -45,30 +57,66 @@
         "note": null,
         "unit_price": "1,66 € / L",
         "quantity": "1,5 L",
-        "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
+        "title": "Soda à l'Orange et sa Pulpe ORANGINA",
         "matched_ean": "3124480200433",
-        "image": "https://media.carrefour.fr/media/referential/media/9ca283a3ef764594aba8aaf41632 e418/03124480200433_C1N1_s04.jpeg",
+        "image": "https://media.carrefour.fr/media/referential/media/006cef2b70474e7b9d272865d62e10bd/03124480200433_C1N1 _s04.jpeg",
         "nutriscore_grade": "e",
         "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
+          "title": "Soda à l'Orange et sa Pulpe ORANGINA",
           "brand": "Soda",
           "kind": "",
           "qty": "1,5 L",
           "qualifiers": [],
           "ean": "3124480200433",
-          "image_url": "https://media.carrefour.fr/media/referential/media/9ca283a3ef764594aba8aaf41632 e418/03124480200433_C1N1_s04.jpeg",
+          "image_url": "https://media.carrefour.fr/media/referential/media/006cef2b70474e7b9d272865d62e10bd/03124480200433_C1N1 _s04.jpeg",
           "source": "carrefour_market",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-21T15:53:22.497281+01:00",
-      "duration_seconds": 22.454032,
+      "updated_at": "2025-11-28T16:24:02.677622+01:00",
+      "duration_seconds": 20.78623,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "2,49",
+          "store": "Market Fondaudège",
+          "url": "https://www.carrefour.fr/p/soda-a-l-orange-et-sa-pulpe-orangina-3124480200433",
+          "note": null,
+          "unit_price": "1,66 € / L",
+          "quantity": "1,5 L",
+          "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
+          "matched_ean": "3124480200433",
+          "image": "https://media.carrefour.fr/media/referential/media/9ca283a3ef764594aba8aaf41632 e418/03124480200433_C1N1_s04.jpeg",
+          "nutriscore_grade": "e",
+          "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
+            "brand": "Soda",
+            "kind": "",
+            "qty": "1,5 L",
+            "qualifiers": [],
+            "ean": "3124480200433",
+            "image_url": "https://media.carrefour.fr/media/referential/media/9ca283a3ef764594aba8aaf41632 e418/03124480200433_C1N1_s04.jpeg",
+            "source": "carrefour_market",
+            "raw_text": ""
+          }
+        },
+        "updated_at": "2025-11-21T15:53:22.497281+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "carrefour_super": {
       "status": "NO_PRICE",
@@ -89,77 +137,169 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-21T15:53:22.497281+01:00",
-      "duration_seconds": 14.330268,
+      "updated_at": "2025-11-28T16:27:13.566873+01:00",
+      "duration_seconds": 15.599104,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "NO_PRICE",
+        "payload": {
+          "status": "NO_PRICE",
+          "price": null,
+          "store": "Lormont",
+          "url": null,
+          "note": null,
+          "unit_price": null,
+          "quantity": null,
+          "title": null,
+          "matched_ean": null,
+          "image": null,
+          "nutriscore_grade": null,
+          "nutriscore_image": null,
+          "_meta": {
+            "supports_ean": true
+          }
+        },
+        "updated_at": "2025-11-28T16:24:02.677622+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "auchan": {
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "2,28",
-        "unit_price": "1,52 € / L",
-        "quantity": "1,5  L",
-        "title": "Boisson gazeuse à l'orange",
+        "price": "2,15",
+        "unit_price": "1,43 € / L",
+        "quantity": "1,5 L",
+        "title": "Boisson  gazeuse à l'orange",
         "url": "https://www.auchan.fr/orangina-boisson-gazeuse-a-l-orange/pr-C1820950",
         "matched_ean": "3124480200433",
-        "store": "Auchan Drive Supermarché  Talence-Gallieni",
-        "note": "Auchan Talence",
-        "image": "https://cdn.auchan.fr/media/S010000000419TMPRIMARY_1200x1200/B2CD/",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan  Talence",
+        "image": null,
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Boisson gazeuse à l'orange",
+          "title": "Boisson  gazeuse à l'orange",
           "brand": "Boisson",
           "kind": "",
           "qty": "1,5 L",
           "qualifiers": [],
           "ean": "3124480200433",
-          "image_url": "https://cdn.auchan.fr/media/S010000000419TMPRIMARY_1200x1200/B2CD/",
+          "image_url": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03124480200433_C1N1_s04.jpeg",
           "source": "auchan",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-21T15:53:22.497281+01:00",
-      "duration_seconds": 13.238131,
+      "updated_at": "2025-11-28T16:24:02.677622+01:00",
+      "duration_seconds": 14.179021,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "2,28",
+          "unit_price": "1,52 € / L",
+          "quantity": "1,5  L",
+          "title": "Boisson gazeuse à l'orange",
+          "url": "https://www.auchan.fr/orangina-boisson-gazeuse-a-l-orange/pr-C1820950",
+          "matched_ean": "3124480200433",
+          "store": "Auchan Drive Supermarché  Talence-Gallieni",
+          "note": "Auchan Talence",
+          "image": "https://cdn.auchan.fr/media/S010000000419TMPRIMARY_1200x1200/B2CD/",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Boisson gazeuse à l'orange",
+            "brand": "Boisson",
+            "kind": "",
+            "qty": "1,5 L",
+            "qualifiers": [],
+            "ean": "3124480200433",
+            "image_url": "https://cdn.auchan.fr/media/S010000000419TMPRIMARY_1200x1200/B2CD/",
+            "source": "auchan",
+            "raw_text": ""
+          }
+        },
+        "updated_at": "2025-11-21T15:53:22.497281+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "chronodrive": {
       "status": "OK",
       "payload": {
         "status": "OK",
         "price": "2,35",
-        "title": "Boisson gazeuse à la pulpe d'orange  ORANGINA",
-        "url": "https://www.chronodrive.com/orangina--boisson-gazeuse-a-la-pulpe-dorange-P57177 5",
+        "title": "Boisson gazeuse à la pulpe d'orange ORANGINA",
+        "url": "https://www.chronodrive.com/orangina--boisson-gazeuse-a-la-pulpe-dorange-P571775",
         "note": "Chronodrive Le Haillan",
         "unit_price": "1,57 € / L",
         "quantity": "1,5 L",
         "store": "Chronodrive Le Haillan",
         "matched_ean": "3124480200433",
         "nutriscore_grade": "e",
-        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltcfe44872100 3a156/nutriscore-e",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltcfe448721003a156/nutriscore-e",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Boisson gazeuse à la pulpe d'orange  ORANGINA",
+          "title": "Boisson gazeuse à la pulpe d'orange ORANGINA",
           "brand": "Boisson",
           "kind": "",
           "qty": "1,5 L",
           "qualifiers": [],
           "ean": "3124480200433",
-          "image_url": null,
+          "image_url": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03124480200433_C1N1_s04.jpeg",
           "source": "chronodrive",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-21T15:53:22.497281+01:00",
-      "duration_seconds": 8.089506,
+      "updated_at": "2025-11-28T16:24:02.677622+01:00",
+      "duration_seconds": 6.537171,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "2,35",
+          "title": "Boisson gazeuse à la pulpe d'orange  ORANGINA",
+          "url": "https://www.chronodrive.com/orangina--boisson-gazeuse-a-la-pulpe-dorange-P57177 5",
+          "note": "Chronodrive Le Haillan",
+          "unit_price": "1,57 € / L",
+          "quantity": "1,5 L",
+          "store": "Chronodrive Le Haillan",
+          "matched_ean": "3124480200433",
+          "nutriscore_grade": "e",
+          "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltcfe44872100 3a156/nutriscore-e",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Boisson gazeuse à la pulpe d'orange  ORANGINA",
+            "brand": "Boisson",
+            "kind": "",
+            "qty": "1,5 L",
+            "qualifiers": [],
+            "ean": "3124480200433",
+            "image_url": null,
+            "source": "chronodrive",
+            "raw_text": ""
+          }
+        },
+        "updated_at": "2025-11-21T15:53:22.497281+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "courseu": {
       "status": "OK",
@@ -167,33 +307,68 @@
         "status": "OK",
         "price": "2,03",
         "unit_price": "1,35 € / L",
-        "quantity": "1,5  L",
-        "title": "Soda à l'orange ORANGINA - la bouteille de 1,5L",
-        "url": "https://www.coursesu.com/p/soda-a-lorange-orangina---la-bouteille-de-15l/199261 4.html",
-        "note": "2025-11-21T14:49:43Z · Super U Eysines",
-        "store": "Super U  Eysines",
+        "quantity": "1,5 L",
+        "title": "Soda à  l'orange ORANGINA - la bouteille de 1,5L",
+        "url": "https://www.coursesu.com/p/soda-a-lorange-orangina---la-bouteille-de-15l/1992614.html",
+        "note": "2025-11-28T15:20:22Z · Super U Eysines",
+        "store": "Super U Eysines",
         "matched_ean": "3124480200433",
         "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-naviga tion/nutrition_et_regimes_alimentaires.png",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Soda à l'orange ORANGINA - la bouteille de 1,5L",
+          "title": "Soda à  l'orange ORANGINA - la bouteille de 1,5L",
           "brand": "Soda",
           "kind": "",
           "qty": "1,5 L",
           "qualifiers": [],
           "ean": "3124480200433",
-          "image_url": null,
+          "image_url": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03124480200433_C1N1_s04.jpeg",
           "source": "courseu",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-21T15:53:22.497281+01:00",
-      "duration_seconds": 35.224256,
+      "updated_at": "2025-11-28T16:24:02.677622+01:00",
+      "duration_seconds": 29.608524,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "2,03",
+          "unit_price": "1,35 € / L",
+          "quantity": "1,5  L",
+          "title": "Soda à l'orange ORANGINA - la bouteille de 1,5L",
+          "url": "https://www.coursesu.com/p/soda-a-lorange-orangina---la-bouteille-de-15l/199261 4.html",
+          "note": "2025-11-21T14:49:43Z · Super U Eysines",
+          "store": "Super U  Eysines",
+          "matched_ean": "3124480200433",
+          "nutriscore_grade": "c",
+          "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Soda à l'orange ORANGINA - la bouteille de 1,5L",
+            "brand": "Soda",
+            "kind": "",
+            "qty": "1,5 L",
+            "qualifiers": [],
+            "ean": "3124480200433",
+            "image_url": null,
+            "source": "courseu",
+            "raw_text": ""
+          }
+        },
+        "updated_at": "2025-11-21T15:53:22.497281+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "g20": {
       "status": "NO_RESULTS",
@@ -211,10 +386,30 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-21T15:53:22.497281+01:00",
-      "duration_seconds": 0.733475,
+      "updated_at": "2025-11-28T16:26:53.805865+01:00",
+      "duration_seconds": 0.63655,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "NO_RESULTS",
+        "payload": {
+          "status": "NO_RESULTS",
+          "price": null,
+          "title": null,
+          "url": null,
+          "note": "G20 Minute",
+          "unit_price": null,
+          "quantity": null,
+          "matched_ean": null,
+          "image": null,
+          "_meta": {
+            "supports_ean": true
+          }
+        },
+        "updated_at": "2025-11-28T16:24:02.677622+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "intermarche": {
       "status": "OK",
@@ -223,7 +418,7 @@
         "price": "1,99",
         "title": "Soda à l'orange",
         "url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200433",
-        "note": "Intermarché · Super Talence",
+        "note": "Intermarché · Super  Talence",
         "matched_ean": "3124480200433",
         "unit_price": "1,33 € / L",
         "quantity": "1,5 L",
@@ -234,69 +429,31 @@
             "product": {
               "title": "HariboBonbons acidulés Orangina Pik",
               "brand": "Orangina",
-              "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
+              "kind": "Soda à l'Orange et sa Pulpe  ORANGINA",
               "qty": "1,5 L",
               "qualifiers": [],
               "ean": "3103220035580",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/eau-minerale-naturelle/3250390051015",
-            "product": {
-              "title": "Aix les Bains, une  marque IntermarchéEau minérale naturelle",
-              "brand": "Orangina",
-              "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
-              "qty": "1,5 L",
-              "qualifiers": [],
-              "ean": "3250390051015",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200464",
-            "product": {
-              "title": "OranginaSoda à l'orange",
-              "brand": "Orangina",
-              "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
-              "qty": "1,5 L",
-              "qualifiers": [],
-              "ean": "3124480200464",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
             "url": "https://www.intermarche.com/produit/eau-de-source/3250390030799",
             "product": {
-              "title": "Fiée des Lois, une marque  IntermarchéEau de source",
+              "title": "Fiée des  Lois, une marque IntermarchéEau de source",
               "brand": "Orangina",
-              "kind": "Soda à l'Orange et sa  Pulpe ORANGINA",
+              "kind": "Soda à l'Orange et sa Pulpe  ORANGINA",
               "qty": "1,5 L",
               "qualifiers": [],
               "ean": "3250390030799",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/soda-a-l'orange-sans-sucres/3124480185068",
-            "product": {
-              "title": "OranginaSoda à l'orange sans sucres",
-              "brand": "Orangina",
-              "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
-              "qty": "1,5 L",
-              "qualifiers": [],
-              "ean": "3124480185068",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -304,13 +461,31 @@
             "product": {
               "title": "OranginaSoda à l'orange",
               "brand": "Orangina",
-              "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
+              "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
               "qty": "1,5 L",
               "qualifiers": [],
               "ean": "3124480200488",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/eau-minerale-naturelle/3250390051015",
+            "product": {
+              "title": "Aix les Bains, une marque IntermarchéEau minérale naturelle",
+              "brand": "Orangina",
+              "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
+              "qty": "1,5 L",
+              "qualifiers": [],
+              "ean": "3250390051015",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -318,13 +493,15 @@
             "product": {
               "title": "OranginaSoda à l'orange",
               "brand": "Orangina",
-              "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
+              "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
               "qty": "1,5 L",
               "qualifiers": [],
               "ean": "3124480200433",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ],
@@ -334,10 +511,132 @@
         "nutriscore_grade": "e",
         "nutriscore_image": null
       },
-      "updated_at": "2025-11-21T15:53:22.497281+01:00",
-      "duration_seconds": 115.780145,
+      "updated_at": "2025-11-28T16:24:02.677622+01:00",
+      "duration_seconds": 52.315145,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "1,99",
+          "title": "Soda à l'orange",
+          "url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200433",
+          "note": "Intermarché · Super Talence",
+          "matched_ean": "3124480200433",
+          "unit_price": "1,33 € / L",
+          "quantity": "1,5 L",
+          "store": "Super Talence",
+          "candidates": [
+            {
+              "url": "https://www.intermarche.com/produit/bonbons-acidules-orangina-pik/3103220035580",
+              "product": {
+                "title": "HariboBonbons acidulés Orangina Pik",
+                "brand": "Orangina",
+                "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
+                "qty": "1,5 L",
+                "qualifiers": [],
+                "ean": "3103220035580",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              }
+            },
+            {
+              "url": "https://www.intermarche.com/produit/eau-minerale-naturelle/3250390051015",
+              "product": {
+                "title": "Aix les Bains, une  marque IntermarchéEau minérale naturelle",
+                "brand": "Orangina",
+                "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
+                "qty": "1,5 L",
+                "qualifiers": [],
+                "ean": "3250390051015",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              }
+            },
+            {
+              "url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200464",
+              "product": {
+                "title": "OranginaSoda à l'orange",
+                "brand": "Orangina",
+                "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
+                "qty": "1,5 L",
+                "qualifiers": [],
+                "ean": "3124480200464",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              }
+            },
+            {
+              "url": "https://www.intermarche.com/produit/eau-de-source/3250390030799",
+              "product": {
+                "title": "Fiée des Lois, une marque  IntermarchéEau de source",
+                "brand": "Orangina",
+                "kind": "Soda à l'Orange et sa  Pulpe ORANGINA",
+                "qty": "1,5 L",
+                "qualifiers": [],
+                "ean": "3250390030799",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              }
+            },
+            {
+              "url": "https://www.intermarche.com/produit/soda-a-l'orange-sans-sucres/3124480185068",
+              "product": {
+                "title": "OranginaSoda à l'orange sans sucres",
+                "brand": "Orangina",
+                "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
+                "qty": "1,5 L",
+                "qualifiers": [],
+                "ean": "3124480185068",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              }
+            },
+            {
+              "url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200488",
+              "product": {
+                "title": "OranginaSoda à l'orange",
+                "brand": "Orangina",
+                "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
+                "qty": "1,5 L",
+                "qualifiers": [],
+                "ean": "3124480200488",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              }
+            },
+            {
+              "url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200433",
+              "product": {
+                "title": "OranginaSoda à l'orange",
+                "brand": "Orangina",
+                "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
+                "qty": "1,5 L",
+                "qualifiers": [],
+                "ean": "3124480200433",
+                "image_url": null,
+                "source": "intermarche",
+                "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              }
+            }
+          ],
+          "_meta": {
+            "supports_keywords": true
+          },
+          "nutriscore_grade": "e",
+          "nutriscore_image": null
+        },
+        "updated_at": "2025-11-21T15:53:22.497281+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "leclerc": {
       "status": "OK",
@@ -345,17 +644,97 @@
         "status": "OK",
         "title": "Soda à l'orange Orangina 1,5L",
         "price": "1,97",
-        "unit_price": "1,31 € / l",
+        "unit_price": "1.31 € / L",
         "quantity": "1,5 L",
         "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-240425-Soda-a-lorange-Orangina.aspx",
         "matched_ean": "3124480200433",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-21T14:52:58Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-28T15:22:06Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
         "equivalent": false,
         "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-682-Soda-PulpOrange.aspx",
+            "product": {
+              "title": "Soda Pulp'Orange Bouteille - 1,5L",
+              "brand": "Orangina",
+              "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
+              "qty": "1,5 L",
+              "qualifiers": [],
+              "ean": "3564700027561",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2922382&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-50734-Soda-Sprinks.aspx",
+            "product": {
+              "title": "Soda Sprink's Orange - 1.5L",
+              "brand": "Orangina",
+              "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
+              "qty": "1,5 L",
+              "qualifiers": [],
+              "ean": "3564700813935",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2925979&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-51089-Soda-Sprinks.aspx",
+            "product": {
+              "title": "Soda Sprink's Aux agrumes - 1.5L",
+              "brand": "Orangina",
+              "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
+              "qty": "1,5 L",
+              "qualifiers": [],
+              "ean": "3564700813850",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2913727&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/PageDir/pgeWCSD002_Erreur.aspx?m=173301&nopr=173301&l=fr-FR&u=2&s=2000&v=2032&q=1&fromJsWCTD610=1",
+            "product": {
+              "title": "Votre Drive : Bruges",
+              "brand": "Orangina",
+              "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
+              "qty": "1,5 L",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2913736&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-50984-Soda-zero-Sprinks.aspx",
+            "product": {
+              "title": "Soda zéro Sprink's Agrumes - 1,5L",
+              "brand": "Orangina",
+              "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
+              "qty": "1,5 L",
+              "qualifiers": [],
+              "ean": "3564700813812",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2913724&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
           {
             "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-240425-Soda-a-lorange-Orangina.aspx",
             "product": {
@@ -367,15 +746,54 @@
               "ean": "3124480200433",
               "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2946499&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ]
       },
-      "updated_at": "2025-11-21T15:53:22.497281+01:00",
-      "duration_seconds": 69.995661,
+      "updated_at": "2025-11-28T16:24:02.677622+01:00",
+      "duration_seconds": 45.508267,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "title": "Soda à l'orange Orangina 1,5L",
+          "price": "1,97",
+          "unit_price": "1,31 € / l",
+          "quantity": "1,5 L",
+          "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-240425-Soda-a-lorange-Orangina.aspx",
+          "matched_ean": "3124480200433",
+          "store": "E.Leclerc Drive · Bruges",
+          "note": "2025-11-21T14:52:58Z · E.Leclerc Drive · Bruges",
+          "_meta": {
+            "supports_keywords": true
+          },
+          "equivalent": false,
+          "candidates": [
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-240425-Soda-a-lorange-Orangina.aspx",
+              "product": {
+                "title": "Soda à l'orange Orangina 1,5L",
+                "brand": "Orangina",
+                "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
+                "qty": "1,5 L",
+                "qualifiers": [],
+                "ean": "3124480200433",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2946499&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+              }
+            }
+          ]
+        },
+        "updated_at": "2025-11-21T15:53:22.497281+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "monoprix": {
       "status": "OK",
@@ -383,14 +801,14 @@
         "status": "OK",
         "price": "2,45",
         "title": "Orangina Soda à l’Orange 1,5L",
-        "url": "https://courses.monoprix.fr/products/orangina-soda-%C3%A0-l-orange-1-5l/MPX_202 9",
-        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4a56 0b82-36bb-40f0-8cde-612ae88990c1/300x300.jpg",
-        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4a56 0b82-36bb-40f0-8cde-612ae88990c1/300x300.jpg",
+        "url": "https://courses.monoprix.fr/products/orangina-soda-%C3%A0-l-orange-1-5l/MPX_2029",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4a560b82-36bb-40f0-8cde-612a e88990c1/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4a560b82-36bb-40f0-8cde-612a e88990c1/300x300.jpg",
         "matched_ean": "3124480200433",
         "unit_price": "1,63 € / L",
         "quantity": "1,5 L",
         "store": null,
-        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nCalendrier de l'avent\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nBoissons et Lait\nSoda et Boisson  aromatisée\nBoisson gazeuse aux fruits\nOrangina Soda à l’Orange 1,5L\n2 m+\n2  mois de garantie de vie du produit\nNutriscore E\n1.5L 1,63 € /  litre\n1.5L\n(1,63 € / litre)\n2,45 €\nAjouter\nPromotions\n-50% sur le 2ème  produit - Cliquez ici pour composer votre lot\n-50% sur le 2ème produit -  Cliquez ici pour composer votre lot\nInformations produit\n\n\nDescription  Produit\nDécouvrez la recette secouée et rafraichissante d'Orangina au goût  incomparable. Une formule unique grâce à un subtil mélange de jus, de pulpe et  d'huile essentielle d'orange pour un véritable moment de  plaisir.\n\n\nOrigine\nFrance\nMarque\nOrangina\nService consommateur\nOrangina  Schweppes France - Service consommateurs CS 80491 - 13593 Aix - en - Provence  Cedex 3 - France\nIngredients\nIngrédients : Eau gazéifiée, jus d'orange et  autres agrumes à base de concentrés 10% (orange 9% dont pulpe 1%, pamplemousse,  mandarine), sucre, concentré d'écorces d'orange et de mandarine, acidifiant :  acide citrique, arôme naturel d'orange, conservateur : sorbate de  potassium.\nType d’emballage\nbouteille\nProducteur\nORANGINA SCHWEPPES FRANCE  40-52 BOULEVARD DU PARC///92200/NEUILLY SUR SEINE/FRANCE\nConseil de  conservation\nA conserver à l'abri du soleil et de la chaleur.\nValeurs  nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 ml\tEn % des  AJR\nValeurs Energétique en Kilojoules\t~ 165 kJ\t2 %\nValeurs Energétique en  Kilocalories\t~ 39 kcal\t2 %\nValeurs Nutritionnelles\nMatières grasses\t~ 0.1  g\t\nGlucides\t~ 9.2 g\t4 %\nDont Sucres\t~ 9.1 g\t10 %\nProtéines\t~ 0.1  g\t\nSel\t~ 0.01 g\t\nNous contacter\n(s’ouvre dans une nouvelle  fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)\nMonoprix et  ses partenaires vous offrent une expérience sur mesure\nMonoprix et ses  partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs  types de cookies afin de vous offrir l’expérience la plus fluide possible. Le  dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous  proposer des offres et contenus adaptés, des publicités personnalisées, de  proposer certaines fonctionnalités, d’analyser la performance du site et  d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en  bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans  notreCharte des données personnelles\nVoir la liste de nos  partenaires\nPERSONNALISER MES COOKIES\nJ'ACCEPTE\nCONTINUER SANS ACCEPTER",
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de  recherche\nAller directement en bas de la page\nChocolats de Noël\nAppli mobile\nSélection Raclette\nMes marques Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nMenu des onglets du haut de l’écran\nPage d’accueil\nRechercher un  article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au paiement\nNombre total  d’articles dans votre panier 0. Montant du panier 0,00 €.\n0,00 €\nMin 60,00 €\nNos  Rayons\nFavoris\nListe de courses\nProduits réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€  d'achats + 2 mois de livraison offerte*\nEN SAVOIR +\nAccueil\nPromotions\nLes promos à ne pas  manquer\nLe 2ème à moins 50%\nOrangina Soda à l’Orange 1,5L\n2 m+\n2 mois de garantie de vie du  produit\nNutriscore E\n1.5L 1,63 € / litre\n1.5L\n(1,63 € / litre)\n2,45 €\nAjouter\nPromotions\n-50%  sur le 2ème produit - Cliquez ici pour composer votre lot\n-50% sur le 2ème produit - Cliquez ici pour  composer votre lot\nInformations produit\n\n\nDescription Produit\nDécouvrez la recette secouée et  rafraichissante d'Orangina au goût incomparable. Une formule unique grâce à un subtil mélange de jus, de pulpe et d'huile essentielle d'orange pour un véritable moment de  plaisir.\n\n\nOrigine\nFrance\nMarque\nOrangina\nService consommateur\nOrangina Schweppes France -  Service consommateurs CS 80491 - 13593 Aix - en - Provence Cedex 3 - France\nIngredients\nIngrédients :  Eau gazéifiée, jus d'orange et autres agrumes à base de concentrés 10% (orange 9% dont pulpe 1%,  pamplemousse, mandarine), sucre, concentré d'écorces d'orange et de mandarine, acidifiant : acide  citrique, arôme naturel d'orange, conservateur : sorbate de potassium.\nType  d’emballage\nbouteille\nProducteur\nORANGINA SCHWEPPES FRANCE 40-52 BOULEVARD DU PARC///92200/NEUILLY  SUR SEINE/FRANCE\nConseil de conservation\nA conserver à l'abri du soleil et de la chaleur.\nValeurs  nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 ml\tEn % des AJR\nValeurs Energétique en Kilojoules\t~ 165 kJ\t2 %\nValeurs Energétique en Kilocalories\t~ 39 kcal\t2 %\nValeurs  Nutritionnelles\nMatières grasses\t~ 0.1 g\t\nGlucides\t~ 9.2 g\t4 %\nDont Sucres\t~ 9.1 g\t10  %\nProtéines\t~ 0.1 g\t\nSel\t~ 0.01 g\t\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre  dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon  magasin\nProgramme de fidélité\nNos catalogues\nNos magasins avec Parapharmacie\nAide &  Mentions\nDonnées personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une nouvelle fenêtre)\nNos  autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace  Franchisé\n(s’ouvre dans une nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des  marques\nMonoprix.fr Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle fenêtre)\nAppli mobile  Android\n(s’ouvre dans une nouvelle fenêtre)\n© 2025\nfacebook\n(s’ouvre dans une nouvelle  fenêtre)\ntwitter\n(s’ouvre dans une nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
         "extras": {
           "seed_variant": "orange",
           "candidate_variant": "orange",
@@ -399,40 +817,48 @@
           "unit_family_ok": true,
           "size_ok": true,
           "category_ok": true,
-          "vetoes": [],
+          "vetoes": [
+            "descriptor_coverage"
+          ],
           "candidate_quantity": "1,5 L",
           "candidate_size_ratio": 0.0,
           "descriptor_token_coverage": {
-            "coverage": 1.0,
+            "coverage": 0.6666666666666666,
             "matched": [
-              "boisson",
-              "gazeuse",
               "orange",
               "orangina",
               "pulpe",
               "soda"
             ],
-            "missing": [],
+            "missing": [
+              "boisson",
+              "gazeuse"
+            ],
             "total": 6
           },
-          "missing_tokens": [],
+          "missing_tokens": [
+            "boisson",
+            "gazeuse"
+          ],
           "image_match": true,
           "final_score": 45,
-          "plausible_baseline": true
+          "plausible_baseline": false
         },
         "candidates": [
           {
-            "url": "https://courses.monoprix.fr/products/orangina-soda-à-l-orange-sans-sucres-1-5l/ MPX_2786753",
+            "url": "https://courses.monoprix.fr/products/orangina-soda-à-l-orange-sans-sucres-1-5l/MPX_2786753",
             "product": {
-              "title": "Orangina Soda À  L'Orange Sans Sucres 1,5L",
+              "title": "",
               "brand": "Orangina",
-              "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
+              "kind": "Soda à  l'Orange et sa Pulpe  ORANGINA",
               "qty": "1,5 L",
               "qualifiers": [],
               "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/2e40 c454-60dc-4355-96d7-fc6eb0347f21/300x300.jpg",
+              "image_url": null,
               "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -444,23 +870,27 @@
               "qty": "1,5 L",
               "qualifiers": [],
               "ean": "3124480200433",
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4a56 0b82-36bb-40f0-8cde-612ae88990c1/300x300.jpg",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4a560b82-36bb-40f0-8cde-612a e88990c1/300x300.jpg",
               "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Sélection Raclette Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Menu des onglets du haut de l’écran Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
-            "url": "https://courses.monoprix.fr/products/orangina-rouge-boisson-gazeuse-rafraîchiss ante-à-l-orange-sanguine-1-5l/MPX_4028283",
+            "url": "https://courses.monoprix.fr/products/orangina-rouge-boisson-gazeuse-rafraîchissante-à-l-orange-sanguine -1-5l/MPX_4028283",
             "product": {
               "title": "",
               "brand": "Orangina",
-              "kind": "Soda à  l'Orange et sa Pulpe  ORANGINA",
+              "kind": "Soda à   l'Orange et sa Pulpe ORANGINA",
               "qty": "1,5 L",
               "qualifiers": [],
               "ean": null,
               "image_url": null,
               "source": "monoprix",
-              "raw_text": ""
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ],
@@ -468,10 +898,105 @@
           "supports_keywords": true
         }
       },
-      "updated_at": "2025-11-21T15:53:22.497281+01:00",
-      "duration_seconds": 23.390861,
+      "updated_at": "2025-11-28T16:24:02.677622+01:00",
+      "duration_seconds": 25.749406,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "2,45",
+          "title": "Orangina Soda à l’Orange 1,5L",
+          "url": "https://courses.monoprix.fr/products/orangina-soda-%C3%A0-l-orange-1-5l/MPX_202 9",
+          "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4a56 0b82-36bb-40f0-8cde-612ae88990c1/300x300.jpg",
+          "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4a56 0b82-36bb-40f0-8cde-612ae88990c1/300x300.jpg",
+          "matched_ean": "3124480200433",
+          "unit_price": "1,63 € / L",
+          "quantity": "1,5 L",
+          "store": null,
+          "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nCalendrier de l'avent\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nBoissons et Lait\nSoda et Boisson  aromatisée\nBoisson gazeuse aux fruits\nOrangina Soda à l’Orange 1,5L\n2 m+\n2  mois de garantie de vie du produit\nNutriscore E\n1.5L 1,63 € /  litre\n1.5L\n(1,63 € / litre)\n2,45 €\nAjouter\nPromotions\n-50% sur le 2ème  produit - Cliquez ici pour composer votre lot\n-50% sur le 2ème produit -  Cliquez ici pour composer votre lot\nInformations produit\n\n\nDescription  Produit\nDécouvrez la recette secouée et rafraichissante d'Orangina au goût  incomparable. Une formule unique grâce à un subtil mélange de jus, de pulpe et  d'huile essentielle d'orange pour un véritable moment de  plaisir.\n\n\nOrigine\nFrance\nMarque\nOrangina\nService consommateur\nOrangina  Schweppes France - Service consommateurs CS 80491 - 13593 Aix - en - Provence  Cedex 3 - France\nIngredients\nIngrédients : Eau gazéifiée, jus d'orange et  autres agrumes à base de concentrés 10% (orange 9% dont pulpe 1%, pamplemousse,  mandarine), sucre, concentré d'écorces d'orange et de mandarine, acidifiant :  acide citrique, arôme naturel d'orange, conservateur : sorbate de  potassium.\nType d’emballage\nbouteille\nProducteur\nORANGINA SCHWEPPES FRANCE  40-52 BOULEVARD DU PARC///92200/NEUILLY SUR SEINE/FRANCE\nConseil de  conservation\nA conserver à l'abri du soleil et de la chaleur.\nValeurs  nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 ml\tEn % des  AJR\nValeurs Energétique en Kilojoules\t~ 165 kJ\t2 %\nValeurs Energétique en  Kilocalories\t~ 39 kcal\t2 %\nValeurs Nutritionnelles\nMatières grasses\t~ 0.1  g\t\nGlucides\t~ 9.2 g\t4 %\nDont Sucres\t~ 9.1 g\t10 %\nProtéines\t~ 0.1  g\t\nSel\t~ 0.01 g\t\nNous contacter\n(s’ouvre dans une nouvelle  fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)\nMonoprix et  ses partenaires vous offrent une expérience sur mesure\nMonoprix et ses  partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs  types de cookies afin de vous offrir l’expérience la plus fluide possible. Le  dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous  proposer des offres et contenus adaptés, des publicités personnalisées, de  proposer certaines fonctionnalités, d’analyser la performance du site et  d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en  bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans  notreCharte des données personnelles\nVoir la liste de nos  partenaires\nPERSONNALISER MES COOKIES\nJ'ACCEPTE\nCONTINUER SANS ACCEPTER",
+          "extras": {
+            "seed_variant": "orange",
+            "candidate_variant": "orange",
+            "negatives_hit": [],
+            "variant_ok": true,
+            "unit_family_ok": true,
+            "size_ok": true,
+            "category_ok": true,
+            "vetoes": [],
+            "candidate_quantity": "1,5 L",
+            "candidate_size_ratio": 0.0,
+            "descriptor_token_coverage": {
+              "coverage": 1.0,
+              "matched": [
+                "boisson",
+                "gazeuse",
+                "orange",
+                "orangina",
+                "pulpe",
+                "soda"
+              ],
+              "missing": [],
+              "total": 6
+            },
+            "missing_tokens": [],
+            "image_match": true,
+            "final_score": 45,
+            "plausible_baseline": true
+          },
+          "candidates": [
+            {
+              "url": "https://courses.monoprix.fr/products/orangina-soda-à-l-orange-sans-sucres-1-5l/ MPX_2786753",
+              "product": {
+                "title": "Orangina Soda À  L'Orange Sans Sucres 1,5L",
+                "brand": "Orangina",
+                "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
+                "qty": "1,5 L",
+                "qualifiers": [],
+                "ean": null,
+                "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/2e40 c454-60dc-4355-96d7-fc6eb0347f21/300x300.jpg",
+                "source": "monoprix",
+                "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+              }
+            },
+            {
+              "url": "https://courses.monoprix.fr/products/orangina-soda-à-l-orange-1-5l/MPX_2029",
+              "product": {
+                "title": "Orangina Soda à l’Orange 1,5L",
+                "brand": "Orangina",
+                "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
+                "qty": "1,5 L",
+                "qualifiers": [],
+                "ean": "3124480200433",
+                "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4a56 0b82-36bb-40f0-8cde-612ae88990c1/300x300.jpg",
+                "source": "monoprix",
+                "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
+              }
+            },
+            {
+              "url": "https://courses.monoprix.fr/products/orangina-rouge-boisson-gazeuse-rafraîchiss ante-à-l-orange-sanguine-1-5l/MPX_4028283",
+              "product": {
+                "title": "",
+                "brand": "Orangina",
+                "kind": "Soda à  l'Orange et sa Pulpe  ORANGINA",
+                "qty": "1,5 L",
+                "qualifiers": [],
+                "ean": null,
+                "image_url": null,
+                "source": "monoprix",
+                "raw_text": ""
+              }
+            }
+          ],
+          "_meta": {
+            "supports_keywords": true
+          }
+        },
+        "updated_at": "2025-11-21T15:53:22.497281+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "_finder": {
       "consolidated": {
@@ -483,64 +1008,12 @@
         "ean": "3124480200433",
         "image_url": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03124480200433_C1N1_s04.jpeg",
         "source": "consolidated",
-        "raw_text": "Soda à  l'Orange et sa Pulpe ORANGINA"
+        "raw_text": "Soda à  l'Orange et sa Pulpe ORANGINA",
+        "seed_query": "",
+        "leclerc_queries": []
       },
-      "keywords": [
-        "Orangina orange 1.5 L",
-        "Orangina orange 1.50 L",
-        "Orangina orange 1,50 L",
-        "Orangina orange 150 CL"
-      ],
-      "candidates": [
-        {
-          "adapter": "monoprix",
-          "url": "https://courses.monoprix.fr/products/orangina-soda-à-l-orange-sans-sucres-1-5l/ MPX_2786753",
-          "score": 0.6,
-          "product": {
-            "title": "Orangina Soda À  L'Orange Sans Sucres 1,5L",
-            "brand": "Orangina",
-            "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
-            "qty": "1,5 L",
-            "qualifiers": [],
-            "ean": null,
-            "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/2e40 c454-60dc-4355-96d7-fc6eb0347f21/300x300.jpg",
-            "source": "monoprix",
-            "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
-          }
-        },
-        {
-          "adapter": "monoprix",
-          "url": "https://courses.monoprix.fr/products/orangina-soda-à-l-orange-1-5l/MPX_2029",
-          "score": 0.6,
-          "product": {
-            "title": "Orangina Soda à l’Orange 1,5L",
-            "brand": "Orangina",
-            "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
-            "qty": "1,5 L",
-            "qualifiers": [],
-            "ean": "3124480200433",
-            "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4a56 0b82-36bb-40f0-8cde-612ae88990c1/300x300.jpg",
-            "source": "monoprix",
-            "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
-          }
-        },
-        {
-          "adapter": "monoprix",
-          "url": "https://courses.monoprix.fr/products/orangina-rouge-boisson-gazeuse-rafraîchiss ante-à-l-orange-sanguine-1-5l/MPX_4028283",
-          "score": 0.6,
-          "product": {
-            "title": "",
-            "brand": "Orangina",
-            "kind": "Soda à  l'Orange et sa Pulpe  ORANGINA",
-            "qty": "1,5 L",
-            "qualifiers": [],
-            "ean": null,
-            "image_url": null,
-            "source": "monoprix",
-            "raw_text": ""
-          }
-        }
-      ],
+      "keywords": null,
+      "candidates": [],
       "decision": null,
       "audit": []
     },
@@ -570,7 +1043,7 @@
           "store_code": "TZ193",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
           "query": "Orangina 1.5 L",
-          "timestamp": "2025-11-21T14:49:45.711130+00:00",
+          "timestamp": "2025-11-28T15:20:24.411189+00:00",
           "supports_keywords": true
         },
         "candidates": [
@@ -585,15 +1058,67 @@
               "ean": "3124480200433",
               "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/151796_M1_S1.jpg",
               "source": "casino",
-              "raw_text": ""
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ]
       },
-      "updated_at": "2025-11-21T15:53:22.497281+01:00",
-      "duration_seconds": 3.889752,
+      "updated_at": "2025-11-28T16:24:02.677622+01:00",
+      "duration_seconds": 1.857185,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "2,79",
+          "unit_price": "1,86 €/LITRE",
+          "quantity": "1,5L",
+          "title": "Orangina Soda à l’Orange 1,5L",
+          "url": "https://www.mescoursesdeproximite.com/produit/orangina-soda-a-l-orange-1-5l-la-bouteille-de-1-5l-casino-shop-33130/TZ193/151796",
+          "note": "Casino Shop · Bègles Pruniers",
+          "store": "Casino Shop · Bègles Pruniers",
+          "matched_ean": "3124480200433",
+          "image": "https://www.mescoursesdeproximite.com/images/produits/vignette/151796_M1_S1.jpg",
+          "product": {
+            "title": "Orangina Soda à l’Orange 1,5L",
+            "brand": "Orangina",
+            "qty": "1,5L",
+            "ean": "3124480200433",
+            "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/151796_M1_S1.jpg",
+            "source": "casino"
+          },
+          "_meta": {
+            "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Orangina%201.5%20L",
+            "store_code": "TZ193",
+            "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+            "query": "Orangina 1.5 L",
+            "timestamp": "2025-11-21T14:49:45.711130+00:00",
+            "supports_keywords": true
+          },
+          "candidates": [
+            {
+              "url": "https://www.mescoursesdeproximite.com/produit/orangina-soda-a-l-orange-1-5l-la-bouteille-de-1-5l-casino-shop-33130/TZ193/151796",
+              "product": {
+                "title": "Orangina Soda à l’Orange 1,5L",
+                "brand": "Orangina",
+                "kind": "",
+                "qty": "1,5L",
+                "qualifiers": [],
+                "ean": "3124480200433",
+                "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/151796_M1_S1.jpg",
+                "source": "casino",
+                "raw_text": ""
+              }
+            }
+          ]
+        },
+        "updated_at": "2025-11-21T15:53:22.497281+01:00",
+        "error": null,
+        "store_query": null
+      }
     },
     "spar": {
       "status": "OK",
@@ -621,7 +1146,7 @@
           "store_code": "TL832",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
           "query": "Orangina 1.5 L",
-          "timestamp": "2025-11-21T14:49:49.606968+00:00",
+          "timestamp": "2025-11-28T15:20:26.246890+00:00",
           "supports_keywords": true
         },
         "candidates": [
@@ -636,15 +1161,67 @@
               "ean": "3124480200433",
               "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/151796_M1_S1.jpg",
               "source": "spar",
-              "raw_text": ""
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ]
       },
-      "updated_at": "2025-11-21T15:53:22.497281+01:00",
-      "duration_seconds": 3.603789,
+      "updated_at": "2025-11-28T16:24:02.677622+01:00",
+      "duration_seconds": 2.735814,
       "error": null,
-      "store_query": null
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "2,69",
+          "unit_price": "1,79 €/LITRE",
+          "quantity": "1,5L",
+          "title": "Orangina Soda à l’Orange 1,5L",
+          "url": "https://www.mescoursesdeproximite.com/produit/orangina-soda-a-l-orange-1-5l-la-bouteille-de-1-5l-spar-33160/TL832/151796",
+          "note": "Spar Super · Saint-Médard-en-Jalles",
+          "store": "Spar Super · Saint-Médard-en-Jalles",
+          "matched_ean": "3124480200433",
+          "image": "https://www.mescoursesdeproximite.com/images/produits/vignette/151796_M1_S1.jpg",
+          "product": {
+            "title": "Orangina Soda à l’Orange 1,5L",
+            "brand": "Orangina",
+            "qty": "1,5L",
+            "ean": "3124480200433",
+            "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/151796_M1_S1.jpg",
+            "source": "casino"
+          },
+          "_meta": {
+            "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Orangina%201.5%20L",
+            "store_code": "TL832",
+            "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+            "query": "Orangina 1.5 L",
+            "timestamp": "2025-11-21T14:49:49.606968+00:00",
+            "supports_keywords": true
+          },
+          "candidates": [
+            {
+              "url": "https://www.mescoursesdeproximite.com/produit/orangina-soda-a-l-orange-1-5l-la-bouteille-de-1-5l-spar-33160/TL832/151796",
+              "product": {
+                "title": "Orangina Soda à l’Orange 1,5L",
+                "brand": "Orangina",
+                "kind": "",
+                "qty": "1,5L",
+                "qualifiers": [],
+                "ean": "3124480200433",
+                "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/151796_M1_S1.jpg",
+                "source": "spar",
+                "raw_text": ""
+              }
+            }
+          ]
+        },
+        "updated_at": "2025-11-21T15:53:22.497281+01:00",
+        "error": null,
+        "store_query": null
+      }
     }
   }
 }

@@ -423,44 +423,42 @@
       "store_query": null
     },
     "leclerc": {
-      "status": "OK",
+      "status": "NO_MATCH",
       "payload": {
-        "status": "OK",
+        "status": "NO_MATCH",
         "title": "Capsules Café Carte Noire Arabica Classique n°7 x10 - 55g",
-        "price": "3,45",
-        "unit_price": "62,73 € / kg 0,35 € / p",
-        "quantity": "10 L",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
         "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-179658-Capsules-Cafe-Carte-Noire-.aspx",
         "matched_ean": null,
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-23T22:23:15Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-28T10:03:11Z · E.Leclerc Drive · Bruges",
         "_meta": {
-          "supports_keywords": true,
-          "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed)."
+          "supports_keywords": true
         },
-        "equivalent": true,
-        "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed).",
+        "equivalent": false,
         "candidates": [
           {
             "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-179658-Capsules-Cafe-Carte-Noire-.aspx",
             "product": {
               "title": "Capsules Café Carte Noire Arabica Classique n°7 x10 - 55g",
-              "brand": "Noire",
-              "kind": "Café Capsules L'Iconique 100% Arabica Intensité 8 Compatible Nespresso CARTE NOIRE",
-              "qty": "10 L",
+              "brand": "Capsules",
+              "kind": "",
+              "qty": "",
               "qualifiers": [],
               "ean": "8000070059153",
               "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2878387&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script async=\"\" src=\"//try.abtasty.com/747cb0822199e15c90600777964a0481.js\" crossorigin=\"anonymous\"></script><script",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
               "seed_query": "",
               "leclerc_queries": []
             }
           }
         ]
       },
-      "updated_at": "2025-11-23T23:23:34.072684+01:00",
-      "duration_seconds": 37.994035,
+      "updated_at": "2025-11-28T11:06:04.299256+01:00",
+      "duration_seconds": 7.267685,
       "error": null,
       "store_query": null
     },
@@ -552,6 +550,25 @@
       "duration_seconds": 18.383779,
       "error": null,
       "store_query": null
+    },
+    "_finder": {
+      "consolidated": {
+        "title": "Café  Capsules L'Iconique 100% Arabica Intensité 8 Compatible Nespresso CARTE NOIRE",
+        "brand": "Carte Noire",
+        "kind": "",
+        "qty": "10 L",
+        "qualifiers": [],
+        "ean": "8000070075207",
+        "image_url": "https://media.carrefour.fr/medias/318bc56f91d343529f77f40cc4bc1082/p_540x540/08000070075207_A1N1_s04.pn g",
+        "source": "consolidated",
+        "raw_text": "Entrée générée automatiquement – descriptif requis.",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": null,
+      "candidates": [],
+      "decision": null,
+      "audit": []
     }
   }
 }

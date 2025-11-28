@@ -37,6 +37,7 @@ EAN = os.environ.get("EAN", "").strip()
 QUERY = os.environ.get("QUERY", "").strip()
 HEADLESS = os.environ.get("HEADLESS", "1") == "1"
 PROXY = os.environ.get("PROXY")
+DIRECT_URL = os.environ.get("DIRECT_URL", "").strip()  # For quick price updates
 HOME_URL = os.environ.get("HOME_URL", "https://www.intermarche.com/")
 MANDATE = get_method("intermarche")
 DEBUG_INTERMARCHE = os.environ.get("DEBUG_INTERMARCHE") == "1"

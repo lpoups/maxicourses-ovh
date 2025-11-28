@@ -298,16 +298,12 @@
     "ecoscore_image": null,
     "image": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03124480200433_C1N1_s04.jpeg",
     "leclerc_queries": [
-      "Orangina 1.5 L",
       "Orangina Soda 1.5 L",
       "Orangina Soda Orange 1.5 L",
-      "Soda Orange 1.5 L",
-      "Orangina Orange 1.5 L",
-      "Orangina Soda l'Orange sa Pulpe 1,5 L",
-      "Soda à l'Orange et sa Pulpe ORANGINA",
-      "3124480200433"
+      "Orangina 1.5 L",
+      "Soda Orange 1.5 L"
     ],
-    "leclerc_query": "Orangina 1.5 L",
+    "leclerc_query": "Orangina Soda 1.5 L",
     "name": "Soda à  l'Orange et sa Pulpe ORANGINA",
     "negatives": {
       "intermarche": [
@@ -371,7 +367,14 @@
     "seed_primary_name": "Soda à  l'Orange et sa Pulpe ORANGINA",
     "seed_primary_quantity": "1,5 L",
     "seed_query": "Orangina Soda l'Orange sa Pulpe 1,5 L",
-    "source": "carrefour_super"
+    "source": "carrefour_super",
+    "carrefour_market_url": "https://www.carrefour.fr/p/soda-a-l-orange-et-sa-pulpe-orangina-3124480200433",
+    "chronodrive_url": "https://www.chronodrive.com/orangina--boisson-gazeuse-a-la-pulpe-dorange-P571775",
+    "casino_url": "https://www.mescoursesdeproximite.com/produit/orangina-soda-a-l-orange-1-5l-la-bouteille-de-1-5l-casino-shop-33130/TZ193/151796",
+    "spar_url": "https://www.mescoursesdeproximite.com/produit/orangina-soda-a-l-orange-1-5l-la-bouteille-de-1-5l-spar-33160/TL832/151796",
+    "intermarche_url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200433",
+    "leclerc_url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-240425-Soda-a-lorange-Orangina.aspx",
+    "monoprix_url": "https://courses.monoprix.fr/products/orangina-soda-%C3%A0-l-orange-1-5l/MPX_2029"
   },
   "3222472129798": {
     "ean": "3222472129798",
@@ -568,17 +571,12 @@
     "ean": "5000112611861",
     "image": "./assets/5000112611861.jpg",
     "leclerc_queries": [
-      "Cola 1.75 L",
       "Cola Soda 1.75 L",
       "Cola Soda Goût 1.75 L",
-      "Soda Goût 1.75 L",
-      "Cola Goût 1.75 L",
-      "Cola Soda COCA Original Bouteille 1,75 L",
-      "Soda au Cola Goût Original COCA-COLA",
-      "Soda COCA-COLA Original - Bouteille 1,75L",
-      "5000112611861"
+      "Cola 1.75 L",
+      "Soda Goût 1.75 L"
     ],
-    "leclerc_query": "Cola 1.75 L",
+    "leclerc_query": "Cola Soda 1.75 L",
     "name": "Soda COCA-COLA Original - Bouteille 1,75L",
     "negatives": {
       "intermarche": [
@@ -686,7 +684,10 @@
     "seed_primary_name": "Soda au Cola Goût Original COCA-COLA",
     "seed_primary_quantity": "1,75 L",
     "seed_query": "Cola Soda COCA Original Bouteille 1,75 L",
-    "source": "courseu"
+    "source": "courseu",
+    "leclerc_url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
+    "carrefour_super_url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+    "carrefour_market_url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861"
   },
   "5010029229110": {
     "ean": "5010029229110",
@@ -799,17 +800,12 @@
     "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg",
     "image": "./assets/5411188118961.jpg",
     "leclerc_queries": [
-      "Alpro 500 G",
       "Alpro Dessert 500 G",
       "Alpro Dessert végétal 500 G",
-      "Dessert végétal 500 G",
-      "Alpro végétal 500 G",
-      "Alpro Dessert végétal soja nature l'amande 500 g",
-      "Dessert végétal soja nature à l'amande ALPRO",
-      "Dessert végétal soja nature à l'amande ALPRO - 500g",
-      "5411188118961"
+      "Alpro 500 G",
+      "Dessert végétal 500 G"
     ],
-    "leclerc_query": "Alpro 500 G",
+    "leclerc_query": "Alpro Dessert 500 G",
     "name": "Dessert végétal soja nature à l'amande ALPRO - 500g",
     "negatives": {
       "monoprix": [
@@ -851,7 +847,9 @@
     "seed_primary_quantity": "500 G",
     "seed_query": "Alpro Dessert végétal soja nature l'amande 500 g",
     "source": "courseu",
-    "variant": "amande"
+    "variant": "amande",
+    "leclerc_url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-95817-Dessert-vegetal-soja-alpro.aspx",
+    "g20_url": "https://www.g20-minute.com/products/5411188118961/alpro-soja-amandes-500-g-x-1-5411188118961"
   },
   "5449000000996": {
     "ean": "5449000000996",
@@ -895,17 +893,12 @@
     "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
     "image": "./assets/8712100731822.jpg",
     "leclerc_queries": [
-      "Savora 385 G",
       "Savora Moutarde 385 G",
       "Savora Moutarde Epices 385 G",
-      "Moutarde Epices 385 G",
-      "Savora Epices 385 G",
-      "Savora Moutarde aromates g 385 g",
-      "Moutarde Epices & Amorates Savora AMORA",
-      "Moutarde aux aromates SAVORA 385 g",
-      "8712100731822"
+      "Savora 385 G",
+      "Moutarde Epices 385 G"
     ],
-    "leclerc_query": "Savora 385 G",
+    "leclerc_query": "Savora Moutarde 385 G",
     "name": "Moutarde aux aromates SAVORA 385 g",
     "negatives": {
       "intermarche": [
@@ -998,6 +991,28 @@
     "seed_primary_name": "Moutarde Epices & Amorates Savora AMORA",
     "seed_primary_quantity": "385 G",
     "seed_query": "Savora Moutarde aromates g 385 g",
-    "source": "chronodrive"
+    "source": "chronodrive",
+    "carrefour_city_url": "https://www.carrefour.fr/p/moutarde-epices-amorates-savora-amora-8712100731822",
+    "carrefour_market_url": "https://www.carrefour.fr/p/moutarde-epices-amorates-savora-amora-8712100731822",
+    "carrefour_super_url": "https://www.carrefour.fr/p/moutarde-epices-amorates-savora-amora-8712100731822",
+    "auchan_url": "https://www.auchan.fr/savora-specialite-a-la-moutarde-savora-en-bocal/pr-C1230073",
+    "chronodrive_url": "https://www.chronodrive.com/savora--moutarde-aux-aromates-P16609",
+    "g20_url": "https://www.g20-minute.com/products/8712100731822/amora-specialite-a-la-moutarde-de-dijon-aux-epices-savora-bocal-385g-8712100731822",
+    "casino_url": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-casino-shop-33130/TZ193/798533",
+    "spar_url": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-spar-33160/TL832/798533",
+    "intermarche_url": "https://www.intermarche.com/produit/specialite-a-la-moutarde-de-dijon-aux-11-epices-et-aromates/8712100 731822",
+    "leclerc_url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-39338-Moutarde-Savora-Amora.aspx",
+    "monoprix_url": "https://courses.monoprix.fr/products/amora-sp%C3%A9cialit%C3%A9-%C3%A0-la-moutarde-savora-bocal-385g/MP X_1170829"
+  },
+  "3103220045640": {
+    "leclerc_url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-115115-Les-Schtroumpfs-Haribo.aspx",
+    "leclerc_query": "Haribo Bonbons 300 G",
+    "leclerc_queries": [
+      "Haribo Bonbons 300 G",
+      "Haribo Bonbons Schtroumpfs 300 G",
+      "Haribo 300 G",
+      "Bonbons Schtroumpfs 300 G"
+    ],
+    "ean": "3103220045640"
   }
 }

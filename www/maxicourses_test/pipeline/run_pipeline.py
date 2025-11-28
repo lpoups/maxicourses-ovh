@@ -32,6 +32,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 ASSETS_DIR = ROOT_DIR / "pipeline" / "assets"
 AI_LOG_ROOT = ROOT_DIR / "logs" / "refonte_v2" / "runs"
 QUERY_CACHE_PATH = ROOT_DIR / "pipeline" / "query_cache.json"
+DESCRIPTOR_CACHE_PATH = ROOT_DIR / "pipeline" / "descriptor_cache.json"
 
 SIZE_TOKEN_SUFFIXES = ("ml", "cl", "dl", "l", "g", "kg")
 PARIS_TZ = ZoneInfo("Europe/Paris")
@@ -1807,8 +1808,18 @@ def ensure_descriptor_via_seed(
         "g20",
     ]
 
+    # Fix: If we are targeting Leclerc (which needs keywords) but lack a descriptor,
+    # we MUST run seed adapters even if they were not explicitly requested.
+    force_seed_for_leclerc = "leclerc" in adapters and _needs_enrichment(descriptor_current)
+
     for adapter in seed_order:
-        if adapter not in adapters:
+        is_explicitly_requested = adapter in adapters
+        if not is_explicitly_requested and not force_seed_for_leclerc:
+            continue
+
+        # Optimization: if we are running this ONLY for enrichment (not requested),
+        # and we already have a high-quality seed (score >= 2), we can stop to save time.
+        if not is_explicitly_requested and best_seed_score >= 2:
             continue
         if adapter in seed_results:
             continue
@@ -1956,64 +1967,88 @@ def run_adapter(
         candidates: List[str] = []
         seen: set[str] = set()
         adapter_uses_ean_search = adapter not in {"leclerc"}
+        
+        # CHECK: If USE_CACHED_URLS is set and we have a direct URL, use ONLY that
+        use_cached_urls_mode = os.getenv("USE_CACHED_URLS") == "1"
+        print(f"[DEBUG] Adapter: {adapter}, USE_CACHED_URLS env: {os.getenv('USE_CACHED_URLS')}, use_cached_urls_mode: {use_cached_urls_mode}")
+        print(f"[DEBUG] Descriptor is None? {descriptor is None}, Descriptor keys: {list(descriptor.keys()) if descriptor else 'N/A'}")
+        
+        if use_cached_urls_mode and descriptor:
+            direct_url_key = f"{adapter}_url"
+            direct_url = descriptor.get(direct_url_key)
+            print(f"[DEBUG] Looking for {direct_url_key}, found: {direct_url[:80] if direct_url else 'None'}")
+            
+            if direct_url and isinstance(direct_url, str) and direct_url.startswith("http"):
+                # In cached URLs mode, we bypass all search logic
+                query_candidates = [direct_url]
+                env["DIRECT_URL"] = direct_url
+                env["SKIP_SEARCH"] = "1"  # Signal to adapter to go direct to URL
+                print(f"[QUICK PRICE UPDATE] ✅ Using cached URL for {adapter}: {direct_url[:60]}...")
+            else:
+                # No cached URL available, fall back to normal query building
+                use_cached_urls_mode = False
+                if os.getenv("USE_CACHED_URLS") == "1":  # Was requested but not available
+                    print(f"[QUICK PRICE UPDATE] ❌ No cached URL for {adapter}, falling back to search")
+        
+        if not use_cached_urls_mode:
+            # Normal query building logic (when not using cached URLs)
+            def add_candidate(value: Optional[str]) -> None:
+                if not isinstance(value, str):
+                    return
+                cleaned = value.strip()
+                if not cleaned or cleaned.lower() in seen:
+                    return
+                seen.add(cleaned.lower())
+                candidates.append(cleaned)
 
-        def add_candidate(value: Optional[str]) -> None:
-            if not isinstance(value, str):
-                return
-            cleaned = value.strip()
-            if not cleaned or cleaned.lower() in seen:
-                return
-            seen.add(cleaned.lower())
-            candidates.append(cleaned)
+            cached_query = _cached_query_for(adapter, ean)
+            if cached_query:
+                add_candidate(cached_query)
 
-        cached_query = _cached_query_for(adapter, ean)
-        if cached_query:
-            add_candidate(cached_query)
+            descriptor_leclerc_queries: List[str] = []
+            if adapter == "leclerc" and descriptor:
+                primary_leclerc = descriptor.get("leclerc_query")
+                if isinstance(primary_leclerc, str):
+                    descriptor_leclerc_queries.append(primary_leclerc)
+                leclerc_list = descriptor.get("leclerc_queries")
+                if isinstance(leclerc_list, list):
+                    for item in leclerc_list:
+                        if isinstance(item, str):
+                            descriptor_leclerc_queries.append(item)
 
-        descriptor_leclerc_queries: List[str] = []
-        if adapter == "leclerc" and descriptor:
-            primary_leclerc = descriptor.get("leclerc_query")
-            if isinstance(primary_leclerc, str):
-                descriptor_leclerc_queries.append(primary_leclerc)
-            leclerc_list = descriptor.get("leclerc_queries")
-            if isinstance(leclerc_list, list):
-                for item in leclerc_list:
-                    if isinstance(item, str):
-                        descriptor_leclerc_queries.append(item)
+            # Priorité absolue aux requêtes Leclerc spécifiques
+            if adapter == "leclerc":
+                if descriptor_leclerc_queries:
+                    for leclerc_kw in descriptor_leclerc_queries:
+                        add_candidate(leclerc_kw)
+                # ELSE: On ne fait RIEN. Si pas de mots-clés Leclerc, on ne fallback PAS sur 'query' (qui est souvent l'EAN).
+                # Cela évite de chercher "310322..." sur Leclerc.
 
-        # Priorité absolue aux requêtes Leclerc spécifiques
-        if adapter == "leclerc":
-            if descriptor_leclerc_queries:
-                for leclerc_kw in descriptor_leclerc_queries:
-                    add_candidate(leclerc_kw)
-            # ELSE: On ne fait RIEN. Si pas de mots-clés Leclerc, on ne fallback PAS sur 'query' (qui est souvent l'EAN).
-            # Cela évite de chercher "310322..." sur Leclerc.
+            if finder_keywords:
+                for kw in finder_keywords:
+                    add_candidate(kw)
 
-        if finder_keywords:
-            for kw in finder_keywords:
-                add_candidate(kw)
-
-        if adapter != "leclerc":
-            add_candidate(query)
-
-        if descriptor:
             if adapter != "leclerc":
-                seed_q = descriptor.get("seed_query")
-                add_candidate(seed_q)
-        if adapter_uses_ean_search:
-            add_candidate(ean)
+                add_candidate(query)
 
-        if not candidates:
-            fallback = None
-            if not finder_keywords:
-                # Si on n'a rien trouvé, on fallback sur 'query' SAUF pour Leclerc
-                # Pour Leclerc, 'query' est souvent l'EAN, et on ne veut PAS chercher l'EAN.
+            if descriptor:
                 if adapter != "leclerc":
-                    fallback = query if query else (ean if adapter_uses_ean_search else None)
-            add_candidate(fallback)
-        if adapter == "monoprix" and len(candidates) > 4:
-            candidates = candidates[:4]
-        query_candidates = candidates
+                    seed_q = descriptor.get("seed_query")
+                    add_candidate(seed_q)
+            if adapter_uses_ean_search:
+                add_candidate(ean)
+
+            if not candidates:
+                fallback = None
+                if not finder_keywords:
+                    # Si on n'a rien trouvé, on fallback sur 'query' SAUF pour Leclerc
+                    # Pour Leclerc, 'query' est souvent l'EAN, et on ne veut PAS chercher l'EAN.
+                    if adapter != "leclerc":
+                        fallback = query if query else (ean if adapter_uses_ean_search else None)
+                add_candidate(fallback)
+            if adapter == "monoprix" and len(candidates) > 4:
+                candidates = candidates[:4]
+            query_candidates = candidates
 
     best_result: Optional[RawAdapterResult] = None
     adapter_timeout_s = int(os.getenv("ADAPTER_TIMEOUT_S", "90"))
@@ -2031,6 +2066,20 @@ def run_adapter(
             local_env["QUERY"] = ean
         else:
             local_env["QUERY"] = candidate_query
+        
+        # Check for direct URL in descriptor (e.g. "courseu_url")
+        # If found, pass it to the adapter to potentially bypass search
+        if descriptor:
+            direct_url_key = f"{adapter}_url"
+            direct_url = descriptor.get(direct_url_key)
+            if direct_url and isinstance(direct_url, str) and direct_url.startswith("http"):
+                local_env["DIRECT_URL"] = direct_url
+                # Some adapters might use STORE_URL or similar, but let's standardize on DIRECT_URL
+                # or inject it into QUERY if the adapter supports URL-as-query
+                if adapter not in EAN_ONLY_ADAPTERS:
+                     # For some adapters, we might want to try the URL as the query if it looks like a product page
+                     pass
+
         if adapter == "leclerc":
             local_env.setdefault("LECLERC_NO_DELAY", "1")
 
@@ -2410,6 +2459,21 @@ def main(argv: Optional[List[str]] = None) -> int:
         return 2
 
     descriptor = load_manual_descriptor(ean)
+    
+    # Load initial descriptor from environment (passed by server with cached URLs)
+    initial_descriptor_json = os.environ.get("INITIAL_DESCRIPTOR_JSON")
+    if initial_descriptor_json:
+        try:
+            initial_desc = json.loads(initial_descriptor_json)
+            if isinstance(initial_desc, dict):
+                if descriptor is None:
+                    descriptor = {}
+                # Update descriptor with initial data (including cached URLs)
+                descriptor.update(initial_desc)
+                print(f"[INFO] Loaded initial descriptor from environment (keys: {list(initial_desc.keys())})")
+        except Exception as e:
+            print(f"[WARN] Failed to parse INITIAL_DESCRIPTOR_JSON: {e}")
+
     if descriptor:
         print("Descriptor (manuel):", json.dumps(descriptor, ensure_ascii=False))
     else:
@@ -2569,6 +2633,29 @@ def main(argv: Optional[List[str]] = None) -> int:
                 descriptor["leclerc_queries"] = leclerc_queries
         save_manual_descriptor_entry(ean, descriptor)
 
+    # Update persistent cache with successful URLs and keywords
+    cache_updates = {}
+    
+    # 1. Store URLs
+    for res in results:
+        if res.status == "OK" and res.payload:
+            store_url = res.payload.get("url") or res.payload.get("store_url")
+            if store_url:
+                # Map adapter name to cache key (e.g. "courseu" -> "courseu_url")
+                # Special cases if needed, otherwise default to {adapter}_url
+                key = f"{res.adapter}_url"
+                cache_updates[key] = store_url
+
+    # 2. Keywords (Leclerc, etc.)
+    if descriptor:
+        for field in ("leclerc_query", "leclerc_queries", "primary_keywords", "secondary_keywords"):
+            val = descriptor.get(field)
+            if val:
+                cache_updates[field] = val
+    
+    if cache_updates:
+        update_descriptor_cache(ean, cache_updates)
+
     finder_block: Optional[Dict[str, Any]] = None
     if args.use_finder:
         try:
@@ -2637,6 +2724,44 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     return 0
 
+
+
+
+def update_descriptor_cache(ean: str, updates: Dict[str, Any]) -> None:
+    """Updates the descriptor cache with new data (URLs, keywords) for a given EAN."""
+    if not ean or not updates:
+        return
+
+    try:
+        if DESCRIPTOR_CACHE_PATH.exists():
+            data = json.loads(DESCRIPTOR_CACHE_PATH.read_text(encoding="utf-8"))
+        else:
+            data = {}
+    except Exception:
+        data = {}
+
+    entry = data.get(ean, {})
+    if not isinstance(entry, dict):
+        entry = {}
+
+    changed = False
+    for key, value in updates.items():
+        if value is None:
+            continue
+        if isinstance(value, str) and not value.strip():
+            continue
+        # Only update if value is different or new
+        if entry.get(key) != value:
+            entry[key] = value
+            changed = True
+
+    if changed:
+        entry["ean"] = ean
+        data[ean] = entry
+        try:
+            DESCRIPTOR_CACHE_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        except Exception as e:
+            print(f"[WARN] Failed to update descriptor cache: {e}")
 
 if __name__ == "__main__":
     sys.exit(main())

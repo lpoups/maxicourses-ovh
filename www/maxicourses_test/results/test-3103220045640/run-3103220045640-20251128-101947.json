@@ -1,0 +1,87 @@
+{
+  "ean": "3103220045640",
+  "image_path": null,
+  "started_at": "2025-11-28T10:19:31.311152+01:00",
+  "finished_at": "2025-11-28T10:19:47.270175+01:00",
+  "duration_seconds": 15.959023,
+  "reference": {
+    "title": "Schtroumpfs",
+    "description": null,
+    "source": "unknown",
+    "brand": "Haribo",
+    "quantity": "300 g",
+    "categories": "Snacks, Sweet snacks, Confectioneries, Candies, Gummi candies",
+    "image": null,
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "b",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3103220045640/debug/run-3103220045640-20251128-101931"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_super",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Lormont",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-28T10:19:31.311531+01:00",
+      "finished_at": "2025-11-28T10:19:46.667937+01:00",
+      "duration_seconds": 15.356406,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3103220045640",
+        "QUERY": "3103220045640",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3103220045640"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Schtroumpfs",
+      "brand": "Haribo",
+      "kind": "",
+      "qty": "300 g",
+      "qualifiers": [],
+      "ean": "3103220045640",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

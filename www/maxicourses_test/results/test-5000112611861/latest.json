@@ -1,26 +1,26 @@
 {
   "ean": "5000112611861",
   "image_path": null,
-  "started_at": "2025-11-27T12:56:29.965525+01:00",
-  "finished_at": "2025-11-27T12:56:48.305910+01:00",
-  "duration_seconds": 18.340385,
+  "started_at": "2025-11-28T16:54:42.228357+01:00",
+  "finished_at": "2025-11-28T16:54:42.987501+01:00",
+  "duration_seconds": 0.759144,
   "reference": {
     "title": "Soda COCA-COLA Original - Bouteille 1,75L",
     "description": "Soda COCA-COLA Original - Bouteille 1,75L",
-    "source": "carrefour_super",
+    "source": "courseu",
     "brand": "Cola",
     "quantity": "1,75  L",
-    "categories": null,
-    "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
-    "nutriscore_grade": "e",
+    "categories": "Beverages,Carbonated drinks,Sodas,Colas",
+    "image": "./assets/5000112611861.jpg",
+    "nutriscore_grade": "unknown",
     "nutriscore_score": null,
-    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
-    "ecoscore_grade": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
     "ecoscore_image": null,
-    "nova_group": null
+    "nova_group": "4"
   },
   "notes": [
-    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251127-125629"
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251128-165442"
   ],
   "adapters": [
     {
@@ -30,12 +30,12 @@
         "status": "OK",
         "title": "Soda Coca-Cola Original Bouteille - 1,75L",
         "price": "2,37",
-        "unit_price": "1,35 € / l",
+        "unit_price": "1.35 € / L",
         "quantity": "1,75  L",
         "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
         "matched_ean": "5000112611861",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-26T16:51:41Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-28T15:28:58Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
@@ -91,9 +91,9 @@
           }
         ]
       },
-      "started_at": "2025-11-26T17:51:17.471965+01:00",
-      "finished_at": "2025-11-26T17:51:41.751594+01:00",
-      "duration_seconds": 24.279629,
+      "started_at": "2025-11-28T16:28:39.022077+01:00",
+      "finished_at": "2025-11-28T16:28:58.361300+01:00",
+      "duration_seconds": 19.339223,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -107,10 +107,276 @@
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Cola Soda 1.75 L'\n[LECLERC_DEBUG] after home human pause -> 2.60s\n[LECLERC_DEBUG] after focus -> 3.07s\n[LECLERC_DEBUG] results visible -> 4.84s\n[LECLERC_DEBUG] after result pause -> 4.84s",
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Cola Soda 1.75 L'\n[LECLERC_DEBUG] after home human pause -> 0.76s\n[LECLERC_DEBUG] after focus -> 1.19s\n[LECLERC_DEBUG] results visible -> 2.02s\n[LECLERC_DEBUG] after result pause -> 2.02s",
       "metadata": {
         "attempt_query": "Cola Soda 1.75 L",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251126-175116/01-leclerc"
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251128-162816/01-leclerc"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Non disponible",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-28T16:54:42.228941+01:00",
+      "finished_at": "2025-11-28T16:54:42.744643+01:00",
+      "duration_seconds": 0.515702,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Intermarché · Super Talence — produit absent",
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5449000267467",
+            "product": {
+              "title": "Coca-ColaSoda au cola goût original",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "5449000267467",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE  html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola/3250390578994",
+            "product": {
+              "title": "Look, une marque  IntermarchéSoda au cola",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "3250390578994",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5449000283900",
+            "product": {
+              "title": "Coca-ColaSoda au cola goût original",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "5449000283900",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE  html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola/3250391459131",
+            "product": {
+              "title": "Look, une marque  IntermarchéSoda au cola",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "3250391459131",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5449000267412",
+            "product": {
+              "title": "Coca-ColaSoda au cola  goût Original",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "5449000267412",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/mini-soda-au-cola-gout-original/5449000243171",
+            "product": {
+              "title": "Coca-ColaMini soda au cola goût original",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût  Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "5449000243171",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola-gout-original/5449000267467",
+            "product": {
+              "title": "Coca-ColaSoda au cola goût original",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "5449000267467",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE  html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola/3250390578994",
+            "product": {
+              "title": "Look, une marque  IntermarchéSoda au cola",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "3250390578994",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true,
+          "abort_search": true,
+          "abort_reason": "too_many_ean_mismatches",
+          "ean_mismatch_hits": 8
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-11-28T16:30:03.912179+01:00",
+      "finished_at": "2025-11-28T16:31:29.572902+01:00",
+      "duration_seconds": 85.660723,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "Cola 1.75 L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Cola 1.75 L",
+        "abort_reason": "too_many_ean_mismatches",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251128-163003/01-intermarche"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,45",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+        "note": null,
+        "unit_price": "1,40 € / L",
+        "quantity": "1,75 L",
+        "title": "Soda au Cola Goût Original COCA-COLA",
+        "matched_ean": "5000112611861",
+        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+        "nutriscore_grade": "b",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-b.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda au Cola Goût Original COCA-COLA",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-28T16:52:57.808375+01:00",
+      "finished_at": "2025-11-28T16:53:23.123575+01:00",
+      "duration_seconds": 25.3152,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611861"
       }
     },
     {
@@ -146,9 +412,9 @@
           "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-27T12:20:38.129579+01:00",
-      "finished_at": "2025-11-27T12:20:56.217524+01:00",
-      "duration_seconds": 18.087945,
+      "started_at": "2025-11-28T16:52:40.896758+01:00",
+      "finished_at": "2025-11-28T16:53:51.954498+01:00",
+      "duration_seconds": 71.05774,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -166,230 +432,17 @@
       "metadata": {
         "attempt_query": "5000112611861"
       }
-    },
-    {
-      "adapter": "carrefour_city",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "2,79",
-        "store": "City Bordeaux Balguerie",
-        "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
-        "note": null,
-        "unit_price": "1,59 € / L",
-        "quantity": "1,75 L",
-        "title": "Soda au Cola Goût Original COCA-COLA",
-        "matched_ean": "5000112611861",
-        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "Soda au Cola Goût Original COCA-COLA",
-          "brand": "Soda",
-          "kind": "",
-          "qty": "1,75 L",
-          "qualifiers": [],
-          "ean": "5000112611861",
-          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
-          "source": "carrefour_city",
-          "raw_text": "",
-          "seed_query": "",
-          "leclerc_queries": []
-        }
-      },
-      "started_at": "2025-11-27T12:20:02.030619+01:00",
-      "finished_at": "2025-11-27T12:20:23.379773+01:00",
-      "duration_seconds": 21.349154,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
-      ],
-      "env": {
-        "EAN": "5000112611861",
-        "QUERY": "5000112611861",
-        "CARREFOUR_STATE_VARIANT": "carrefour_city",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "5000112611861"
-      }
-    },
-    {
-      "adapter": "auchan",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "2,39",
-        "unit_price": "1,37 € / L",
-        "quantity": "1,75 L",
-        "title": "Boisson  gazeuse aux extraits végétaux goût original",
-        "url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-original/pr-C1211988",
-        "matched_ean": "5000112611861",
-        "store": "Auchan Drive Supermarché Talence-Gallieni",
-        "note": "Auchan  Talence",
-        "image": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "Boisson  gazeuse aux extraits végétaux goût original",
-          "brand": "Boisson",
-          "kind": "",
-          "qty": "1,75 L",
-          "qualifiers": [],
-          "ean": "5000112611861",
-          "image_url": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
-          "source": "auchan",
-          "raw_text": "",
-          "seed_query": "",
-          "leclerc_queries": []
-        }
-      },
-      "started_at": "2025-11-27T12:21:02.371302+01:00",
-      "finished_at": "2025-11-27T12:21:12.006498+01:00",
-      "duration_seconds": 9.635196,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
-      ],
-      "env": {
-        "EAN": "5000112611861",
-        "QUERY": "5000112611861",
-        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results visible, opening first candidate",
-      "metadata": {
-        "attempt_query": "5000112611861"
-      }
-    },
-    {
-      "adapter": "carrefour_super",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "2,39",
-        "store": "Lormont",
-        "url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
-        "note": null,
-        "unit_price": "1,37 € / L",
-        "quantity": "1,75 L",
-        "title": "Soda au Cola Goût Original COCA-COLA",
-        "matched_ean": "5000112611861",
-        "image": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
-        "nutriscore_grade": "e",
-        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "Soda au Cola Goût Original COCA-COLA",
-          "brand": "Soda",
-          "kind": "",
-          "qty": "1,75 L",
-          "qualifiers": [],
-          "ean": "5000112611861",
-          "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
-          "source": "carrefour_super",
-          "raw_text": "",
-          "seed_query": "",
-          "leclerc_queries": []
-        }
-      },
-      "started_at": "2025-11-27T12:56:29.966386+01:00",
-      "finished_at": "2025-11-27T12:56:47.669030+01:00",
-      "duration_seconds": 17.702644,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
-      ],
-      "env": {
-        "EAN": "5000112611861",
-        "QUERY": "5000112611861",
-        "CARREFOUR_STATE_VARIANT": "carrefour_super",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "5000112611861"
-      }
-    },
-    {
-      "adapter": "chronodrive",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "2,49",
-        "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
-        "url": "https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits-vegetaux-P384066",
-        "note": "Chronodrive Le Haillan",
-        "unit_price": "1,42 € / L",
-        "quantity": "1,75 L",
-        "store": "Chronodrive Le Haillan",
-        "matched_ean": "5000112611861",
-        "nutriscore_grade": "e",
-        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltcfe448721003a156/nutriscore-e",
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
-          "brand": "Boisson",
-          "kind": "",
-          "qty": "1,75 L",
-          "qualifiers": [],
-          "ean": "5000112611861",
-          "image_url": "./assets/5000112611861.jpg",
-          "source": "chronodrive",
-          "raw_text": "",
-          "seed_query": "",
-          "leclerc_queries": []
-        }
-      },
-      "started_at": "2025-11-27T12:54:46.525603+01:00",
-      "finished_at": "2025-11-27T12:54:53.062783+01:00",
-      "duration_seconds": 6.53718,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
-      ],
-      "env": {
-        "EAN": "5000112611861",
-        "QUERY": "5000112611861",
-        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": "[CHRONO_DEBUG] term='5000112611861'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits-vegetaux-P384066",
-      "metadata": {
-        "attempt_query": "5000112611861"
-      }
     }
   ],
   "finder": {
     "consolidated": {
-      "title": "Soda au Cola Goût Original COCA-COLA",
-      "brand": "Soda",
+      "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "brand": "Cola",
       "kind": "",
       "qty": "1,75 L",
       "qualifiers": [],
       "ean": "5000112611861",
-      "image_url": "https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05000112611861_H1N1_s01.pn g",
+      "image_url": "./assets/5000112611861.jpg",
       "source": "consolidated",
       "raw_text": "Soda COCA-COLA Original - Bouteille 1,75L",
       "seed_query": "",

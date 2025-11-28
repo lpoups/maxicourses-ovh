@@ -203,9 +203,58 @@ def merge_descriptor_fields(base: Dict[str, Any], updates: Dict[str, Any]) -> bo
     return changed
 
 
+def load_descriptor_cache() -> Dict[str, Any]:
+    """Load enriched descriptors from pipeline/descriptor_cache.json.
+    
+    This cache contains keywords and metadata generated during global collections,
+    including leclerc_queries, primary_keywords, and other enriched fields.
+    """
+    cache_path = ROOT / "pipeline" / "descriptor_cache.json"
+    if not cache_path.exists():
+        return {}
+    try:
+        data = json.loads(cache_path.read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            return {}
+        return data
+    except Exception:
+        return {}
+
+
 def load_manual_descriptor(ean: str) -> Dict[str, Any]:
+    """Load descriptor for an EAN, merging data from seed_catalog and descriptor_cache.
+    
+    Priority order:
+    1. seed_catalog (base data)
+    2. descriptor_cache (enriched keywords from global collections)
+    
+    This ensures solo collections can reuse the optimized keywords generated during
+    global collections rather than falling back to generic OpenFoodFacts data.
+    """
     descriptor = load_descriptor_from_store(ean)
     descriptor.setdefault("ean", ean)
+    
+    # Merge enriched data from descriptor_cache if available
+    cache = load_descriptor_cache()
+    cached_descriptor = cache.get(ean)
+    if isinstance(cached_descriptor, dict):
+        # Prioritize these cached fields as they contain optimized keywords
+        priority_fields = [
+            "leclerc_query",
+            "leclerc_queries", 
+            "primary_keywords",
+            "secondary_keywords",
+            "seed_query",
+            "seed_primary_name",
+            "seed_primary_quantity",
+            "canonical",
+            "queries",  # Store-specific queries
+            "negatives",  # Store-specific negative keywords
+        ]
+        for field in priority_fields:
+            if field in cached_descriptor and cached_descriptor[field]:
+                descriptor[field] = cached_descriptor[field]
+    
     return descriptor
 
 
@@ -241,6 +290,22 @@ def ensure_manual_descriptor(ean: str) -> Dict[str, Any]:
     entry.setdefault("source", entry.get("source") or "auto")
     entry.setdefault("note", entry.get("note") or "")
     entry.setdefault("description", entry.get("description") or "")
+    
+    # Merge descriptor_cache.json data (URLs, keywords)
+    cache_path = Path(__file__).parent / "pipeline" / "descriptor_cache.json"
+    if cache_path.exists():
+        try:
+            cache = json.loads(cache_path.read_text(encoding="utf-8"))
+            cached_data = cache.get(ean, {})
+            if isinstance(cached_data, dict):
+                for key, value in cached_data.items():
+                    # Merge cached values for _url keys and query/keyword keys
+                    if key.endswith("_url") or "queries" in key or "query" in key or "keywords" in key:
+                        if value:  # Only if not None/empty
+                            entry[key] = value
+        except Exception:
+            pass
+    
     return dict(entry)
 
 
@@ -371,6 +436,7 @@ def run_pipeline_collect(
     env["USE_CDP"] = "1"
     env["LECLERC_MAX_DURATION_S"] = "45"
     env["LECLERC_FAST_MODE"] = "1"
+    env["LECLERC_NO_DELAY"] = "1"
     if extra_env:
         env.update(extra_env)
 
@@ -409,6 +475,108 @@ def api_descriptors():
         return jsonify({"status": "OK", "descriptor": descriptor})
     descriptors = descriptor_catalog()
     return jsonify({"status": "OK", "descriptors": descriptors, "removed": sorted(removed_eans())})
+
+
+@app.post("/api/update-price")
+def api_update_price():
+    """Quick price update using cached URLs (no search needed)."""
+    payload = request.get_json(silent=True) or {}
+    raw_ean = (payload.get("ean") or request.args.get("ean") or "").strip()
+    ean = re.sub(r"\D", "", raw_ean)
+    if not ean:
+        return jsonify({"error": "ean_requis"}), 400
+    if len(ean) != EAN_REQUIRED_LENGTH:
+        return jsonify({
+            "error": "ean_format_invalid",
+            "message": f"EAN doivent contenir {EAN_REQUIRED_LENGTH} chiffres (reçu: {raw_ean})",
+        }), 400
+
+    descriptor = ensure_manual_descriptor(ean)
+    
+    headed = bool(payload.get("headed", False))
+    adapters = payload.get("adapters")
+    if adapters and not isinstance(adapters, list):
+        adapters = None
+    if not adapters:
+        adapters = [
+            "carrefour_city",
+            "carrefour_market",
+            "carrefour_super",
+            "auchan",
+            "chronodrive",
+            "courseu",
+            "g20",
+            "casino",
+            "spar",
+            "intermarche",
+            "leclerc",
+            "monoprix",
+        ]
+    
+    proxy = payload.get("proxy") or request.args.get("proxy")
+    
+    extra_env: Dict[str, str] = {"USE_CACHED_URLS": "1"}
+    for key in ("CDP_URL", "LECLERC_DRIVE_URL", "CHRONODRIVE_STORE_URL", "COURSEU_STORE_URL", "COURSEU_STORE_NAME"):
+        value = payload.get(key) or request.args.get(key.lower())
+        if value:
+            extra_env[key] = value
+
+    if descriptor:
+        try:
+            extra_env["INITIAL_DESCRIPTOR_JSON"] = json.dumps(descriptor, ensure_ascii=False)
+        except Exception:
+            pass
+
+    proc = run_pipeline_collect(
+        ean=ean,
+        headed=headed,
+        adapters=adapters,
+        proxy=proxy,
+        extra_env=extra_env or None,
+    )
+
+    stdout = proc.stdout.strip()
+    stderr = proc.stderr.strip()
+    if proc.returncode != 0:
+        return jsonify({
+            "error": "pipeline_failed",
+            "exit_code": proc.returncode,
+            "stdout": stdout,
+            "stderr": stderr,
+        }), 500
+
+    latest_path = results_dir_for(ean) / "latest.json"
+    summary_path = results_dir_for(ean) / "summary.json"
+    if not latest_path.exists():
+        return jsonify({
+            "error": "missing_results",
+            "message": f"latest.json introuvable dans {latest_path.parent}",
+            "stdout": stdout,
+            "stderr": stderr,
+        }), 500
+
+    latest = json.loads(latest_path.read_text(encoding="utf-8"))
+    summary: Optional[Dict[str, Any]] = None
+    if summary_path.exists():
+        try:
+            summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        except Exception:
+            summary = None
+
+    summary_entry = summary.get(ean) if isinstance(summary, dict) else None
+    upsert_global_summary(ean, summary_entry)
+
+    descriptor = set_descriptor_removed_flag(ean, False)
+
+    return jsonify({
+        "status": "OK",
+        "ean": ean,
+        "descriptor": descriptor,
+        "latest": latest,
+        "summary": summary_entry,
+        "stdout": stdout,
+        "mode": "quick_price_update",
+    })
 
 
 @app.post("/api/collect")
@@ -473,9 +641,10 @@ def api_collect():
                 400,
             )
 
-    descriptor = load_manual_descriptor(ean)
-    if not descriptor:
-        descriptor = ensure_manual_descriptor(ean)
+    # IMPORTANT: Toujours appeler ensure_manual_descriptor pour enrichir le descriptor
+    # via OpenFoodFacts si nécessaire (brand, name, quantity, etc.)
+    # Cela garantit que même en mode solo, on aura les données nécessaires pour générer des keywords
+    descriptor = ensure_manual_descriptor(ean)
 
     preview_only = False
     preview_sources = []
@@ -518,6 +687,12 @@ def api_collect():
         value = payload.get(key) or request.args.get(key.lower())
         if value:
             extra_env[key] = value
+
+    if descriptor:
+        try:
+            extra_env["INITIAL_DESCRIPTOR_JSON"] = json.dumps(descriptor, ensure_ascii=False)
+        except Exception:
+            pass
 
     if preview_only:
         response_payload = {
