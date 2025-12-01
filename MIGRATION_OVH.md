@@ -309,10 +309,10 @@ Cette configuration permet de lancer une collecte globale sans intervention huma
 4.  **Configuration Services**: Mise en place des services systemd (Chrome headless, Pipeline).
 5.  **Validation**: Test de fonctionnement sur le serveur.
 
-### [Date: 2025-12-01] - Préparation app iOS & sauvegarde GitHub (TODO)
+### [Date: 2025-12-01] - Préparation app iOS & sauvegarde GitHub
 - Objectif: ne rien changer sur OVH, préparer une app iOS qui scanne un code-barres et l'envoie à `api.maxicourses.fr`.
-- Actions planifiées:
-  1. Sauvegarder le code OVH sur GitHub (copie lecture seule du repo actuel).
-  2. Créer un projet Xcode minimal (SwiftUI + AVFoundation) pour scanner EAN/UPC et envoyer la valeur scannée à l'API.
-  3. Tester sur iPhone perso via "Personal Team" (compte Apple gratuit) sans toucher au serveur.
-- Statut: en cours de planification, aucun déploiement lancé.
+- Sauvegarde GitHub: branch `backup-ovh-20251201` poussée sur `https://github.com/lpoups/maxicourses-ovh` (copie lecture seule de l'état OVH/local).
+- Prochaines actions iOS:
+  1. Créer un projet Xcode minimal (SwiftUI + AVFoundation) pour scanner EAN/UPC et envoyer la valeur scannée à l'API.
+  2. Tester sur iPhone perso via "Personal Team" (compte Apple gratuit) sans toucher au serveur.
+- Statut: sauvegarde effectuée, app iOS à démarrer.
