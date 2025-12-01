@@ -38,6 +38,7 @@ QUERY = os.environ.get("QUERY", "").strip()
 HEADLESS = os.environ.get("HEADLESS", "1") == "1"
 PROXY = os.environ.get("PROXY")
 DIRECT_URL = os.environ.get("DIRECT_URL", "").strip()  # For quick price updates
+SKIP_SEARCH = (os.environ.get("SKIP_SEARCH") or "0").lower() in {"1", "true", "yes"}
 HOME_URL = os.environ.get("HOME_URL", "https://www.intermarche.com/")
 MANDATE = get_method("intermarche")
 DEBUG_INTERMARCHE = os.environ.get("DEBUG_INTERMARCHE") == "1"
@@ -942,6 +943,13 @@ async def run() -> Result:
         await p.stop()
         return Result(status="NO_QUERY")
 
+    if DIRECT_URL:
+        direct_stage = [("direct_url", DIRECT_URL)]
+        if SKIP_SEARCH:
+            query_plan = direct_stage
+        else:
+            query_plan = direct_stage + query_plan
+
     price = None
     title = None
     pdp = None
@@ -992,88 +1000,98 @@ async def run() -> Result:
     for stage_label, term in query_plan:
         if abort_search:
             break
+        is_direct_stage = stage_label == "direct_url"
         stage_matched_ean: typing.Optional[str] = None
         stage_matched_reason: typing.Optional[str] = None
-        normalized_term = _normalize_query(term)
-        forbidden_tokens = _forbidden_query_tokens(term)
-        if forbidden_tokens:
-            log_telemetry_event(
-                {
-                    "store": TELEMETRY_STORE,
-                    "ean": EAN,
-                    "query": normalized_term,
-                    "stage": stage_label,
-                    "status": "search_attempt",
-                    "hit": False,
-                    "seed_based": True,
-                    "used_memory": False,
-                    "allowed_tokens": False,
-                    "filtered_tokens": forbidden_tokens,
-                    "results_count": 0,
-                    "search_url": None,
-                }
-            )
-            continue
-
-        await page.goto(home_url, wait_until="domcontentloaded")
-        await page.wait_for_timeout(1200)
-        await accept_cookies(page)
-        await ensure_store_selected(page)
-        await accept_cookies(page)
-        performed = await perform_search(page, term)
-        if not performed:
-            if DEBUG_INTERMARCHE:
-                sys.stderr.write(
-                    f"[intermarche] search field not available for term '{term}'\n"
-                )
-            continue
-        await debug_dump(page, f"search-{term}")
-        await debug_shot(page, f"search-{term}")
-        await page.wait_for_timeout(1200)
-        if await handle_404(page):
-            if DEBUG_INTERMARCHE:
-                sys.stderr.write(
-                    f"[intermarche] 404 after search '{term}', retrying next term\n"
-                )
-            continue
-        candidates_info = await collect_product_links(page)
-        pdp = None
+        normalized_term = _normalize_query(term) if not is_direct_stage else "direct_url"
+        candidates_info: list[dict[str, typing.Any]] = []
         candidates: list[str] = []
         candidate_labels: dict[str, str] = {}
-        seen_candidate_urls: set[str] = set()
-        for info in candidates_info:
-            href = info.get("href")
-            if not href:
-                continue
-            label = (info.get("text") or "").strip()
-            normalized_label = label.lower()
-            if negatives_tokens and any(
-                token in normalized_label for token in negatives_tokens
-            ):
-                continue
-            if _canonical_token_filter(normalized_label):
-                continue
-            if href.startswith("/"):
-                href = f"https://www.intermarche.com{href}"
-            if href in seen_candidate_urls:
-                continue
-            seen_candidate_urls.add(href)
-            candidates.append(href)
-            candidate_labels[href] = label
-        if DEBUG_INTERMARCHE:
-            sys.stderr.write(
-                f"[intermarche] candidates for term '{term}': {candidates}\n"
-            )
+        search_url = None
 
-        search_url = page.url
-        log_search_attempt(
-            store=TELEMETRY_STORE,
-            ean=EAN,
-            query=normalized_term,
-            stage=stage_label,
-            results_count=len(candidates),
-            search_url=search_url,
-        )
+        if not is_direct_stage:
+            forbidden_tokens = _forbidden_query_tokens(term)
+            if forbidden_tokens:
+                log_telemetry_event(
+                    {
+                        "store": TELEMETRY_STORE,
+                        "ean": EAN,
+                        "query": normalized_term,
+                        "stage": stage_label,
+                        "status": "search_attempt",
+                        "hit": False,
+                        "seed_based": True,
+                        "used_memory": False,
+                        "allowed_tokens": False,
+                        "filtered_tokens": forbidden_tokens,
+                        "results_count": 0,
+                        "search_url": None,
+                    }
+                )
+                continue
+
+            await page.goto(home_url, wait_until="domcontentloaded")
+            await page.wait_for_timeout(1200)
+            await accept_cookies(page)
+            await ensure_store_selected(page)
+            await accept_cookies(page)
+            performed = await perform_search(page, term)
+            if not performed:
+                if DEBUG_INTERMARCHE:
+                    sys.stderr.write(
+                        f"[intermarche] search field not available for term '{term}'\n"
+                    )
+                continue
+            await debug_dump(page, f"search-{term}")
+            await debug_shot(page, f"search-{term}")
+            await page.wait_for_timeout(1200)
+            if await handle_404(page):
+                if DEBUG_INTERMARCHE:
+                    sys.stderr.write(
+                        f"[intermarche] 404 after search '{term}', retrying next term\n"
+                    )
+                continue
+            candidates_info = await collect_product_links(page)
+            pdp = None
+            seen_candidate_urls: set[str] = set()
+            for info in candidates_info:
+                href = info.get("href")
+                if not href:
+                    continue
+                label = (info.get("text") or "").strip()
+                normalized_label = label.lower()
+                if negatives_tokens and any(
+                    token in normalized_label for token in negatives_tokens
+                ):
+                    continue
+                if _canonical_token_filter(normalized_label):
+                    continue
+                if href.startswith("/"):
+                    href = f"https://www.intermarche.com{href}"
+                if href in seen_candidate_urls:
+                    continue
+                seen_candidate_urls.add(href)
+                candidates.append(href)
+                candidate_labels[href] = label
+            if DEBUG_INTERMARCHE:
+                sys.stderr.write(
+                    f"[intermarche] candidates for term '{term}': {candidates}\n"
+                )
+        else:
+            pdp = term
+            search_url = term
+
+        if not search_url:
+            search_url = page.url
+        if not is_direct_stage:
+            log_search_attempt(
+                store=TELEMETRY_STORE,
+                ean=EAN,
+                query=normalized_term,
+                stage=stage_label,
+                results_count=len(candidates),
+                search_url=search_url,
+            )
 
         matched_href = None
         fallback_href = None
@@ -1211,7 +1229,10 @@ async def run() -> Result:
                 finder_candidates.append(candidate_entry)
             if abort_search:
                 break
-        pdp = matched_href or fallback_href
+        if not is_direct_stage:
+            pdp = matched_href or fallback_href
+        else:
+            pdp = pdp or term
         if not pdp:
             if abort_search:
                 break

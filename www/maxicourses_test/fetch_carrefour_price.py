@@ -33,6 +33,8 @@ QUERY = (os.environ.get("QUERY") or EAN).strip()
 HUMAN_DEBUG_DIR = os.environ.get("HUMAN_DEBUG_DIR")
 STATE_VARIANT = os.environ.get("CARREFOUR_STATE_VARIANT", "carrefour")
 USING_CDP = os.environ.get("USE_CDP", "0") == "1"
+DIRECT_URL = (os.environ.get("DIRECT_URL") or "").strip()
+SKIP_SEARCH = (os.environ.get("SKIP_SEARCH") or "0").lower() in {"1", "true", "yes"}
 
 
 @dataclass
@@ -502,8 +504,10 @@ async def run() -> Result:
         or state_path_for('carrefour')
         or state_path_for('courses-carrefour')
     )
+    residential_proxy = os.environ.get("CARREFOUR_RESIDENTIAL_PROXY")
     p, browser, context, page = await make_context(
-        headless=HEADLESS, proxy=PROXY, storage_state_path=storage_state,
+        headless=HEADLESS, proxy=PROXY, residential_proxy=residential_proxy,
+        storage_state_path=storage_state,
         user_agent=None,
     )
 
@@ -583,6 +587,232 @@ async def run() -> Result:
         else:
             store_name = await ensure_expected_store(page, STORE_QUERY, attempts=3)
 
+    async def capture_current_product(allow_back: bool) -> bool:
+        nonlocal pdp_url, title_text, price_text, unit_text, quantity_text, matched_ean, image_url, nutriscore_grade, nutriscore_image, store_name
+        pdp_url = None
+        title_text = None
+        price_text = None
+        unit_text = None
+        quantity_text = None
+        matched_ean = None
+        image_url = None
+        nutriscore_grade = None
+        nutriscore_image = None
+
+        pdp_url = page.url
+        try:
+            html = await page.content()
+        except Exception:
+            html = ""
+
+        if os.environ.get("CARREFOUR_FRONTAL_STORE") and expected_store:
+            store_name = expected_store
+        else:
+            store_name = await ensure_expected_store(page, STORE_QUERY, attempts=3)
+
+        if EAN and (EAN in (pdp_url or "") or (EAN in html)):
+            matched_ean = EAN
+        elif EAN:
+            if allow_back:
+                try:
+                    await page.go_back()
+                    await page.wait_for_load_state('domcontentloaded')
+                    await human_pause(page, 900, 600)
+                except Exception:
+                    pass
+            return False
+
+        try:
+            title_text = await page.locator('h1').first.text_content(timeout=6000)
+            if title_text:
+                title_text = clean_spaces(title_text)
+        except Exception:
+            pass
+
+        try:
+            price_locator = page.locator("[data-testid='pdp-price'] span, [data-testid='pdp-price'], .product-price, [class*='price']").first
+            raw_price = await price_locator.text_content(timeout=6000)
+            if raw_price:
+                raw_price = clean_spaces(raw_price.replace('\xa0', ' '))
+                normalized = re.sub(r"[^0-9,\.]", "", raw_price)
+                m = re.search(r"(\d+[\.,]\d{2})", normalized)
+                if m:
+                    price_value = m.group(1).replace(',', '.').strip()
+                    try:
+                        price_text = f"{float(price_value):.2f}"
+                    except ValueError:
+                        price_text = price_value
+                else:
+                    price_text = raw_price
+        except Exception:
+            pass
+
+        try:
+            unit_selectors = [
+                "[data-testid='price-per-unit']",
+                "[data-testid*='unit-price']",
+                "[class*='unit-price']",
+            ]
+            for sel in unit_selectors:
+                locator = page.locator(sel)
+                if await locator.count():
+                    candidate = await locator.first.text_content(timeout=4000)
+                    if candidate:
+                        unit_text = clean_spaces(candidate.replace('\xa0', ' '))
+                        break
+            if not unit_text:
+                unit_text = await page.evaluate(
+                    """
+                    () => {
+                      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+                      const patterns = /(€\s*\/\s*(?:kg|l|pi.?ce|lavage|unité))/i;
+                      while (walker.nextNode()) {
+                        const txt = (walker.currentNode.textContent || '').trim();
+                        if (!txt) continue;
+                        if (patterns.test(txt)) {
+                          return txt;
+                        }
+                      }
+                      return null;
+                    }
+                    """
+                )
+                if unit_text:
+                    unit_text = clean_spaces(str(unit_text))
+        except Exception:
+            pass
+
+        try:
+            ld_scripts = page.locator("script[type='application/ld+json']")
+            for i in range(await ld_scripts.count()):
+                raw_ld = await ld_scripts.nth(i).text_content()
+                if not raw_ld:
+                    continue
+                try:
+                    data_ld = json.loads(raw_ld)
+                except Exception:
+                    continue
+                items_ld = data_ld if isinstance(data_ld, list) else [data_ld]
+                for item_ld in items_ld:
+                    if not isinstance(item_ld, dict):
+                        continue
+                    if item_ld.get('@type') != 'Product':
+                        continue
+                    if not title_text and item_ld.get('name'):
+                        title_text = clean_spaces(str(item_ld.get('name')))
+                    if not image_url and item_ld.get('image'):
+                        image_candidate = extract_image_url(item_ld.get('image'))
+                        if image_candidate:
+                            image_url = image_candidate
+                    nutrition = item_ld.get('nutrition')
+                    if isinstance(nutrition, dict):
+                        grade = nutrition.get('nutriscoreGrade') or nutrition.get('nutriScore') or nutrition.get('nutriscore')
+                        if grade and isinstance(grade, str):
+                            nutriscore_grade = grade.strip().lower()[:1]
+                        icon = nutrition.get('nutriscoreUrl') or nutrition.get('nutriscoreImage')
+                        if icon and isinstance(icon, str):
+                            nutriscore_image = icon
+                    if not quantity_text and item_ld.get('size'):
+                        quantity_text = clean_spaces(str(item_ld.get('size')))
+        except Exception:
+            pass
+
+        if not nutriscore_grade or not nutriscore_image:
+            try:
+                dom_nutri = await page.evaluate(
+                    """
+                    () => {
+                      const selectors = [
+                        "[data-testid='nutri-score']",
+                        "[data-testid='nutrition-nutriscore']",
+                        "[class*='nutri-score']",
+                        "[class*='NutriScore']"
+                      ];
+                      let root = null;
+                      for (const sel of selectors) {
+                        const found = document.querySelector(sel);
+                        if (found) { root = found; break; }
+                      }
+                      let img = root ? root.querySelector('img') : null;
+                      if (!img) {
+                        img = document.querySelector("img[alt*='Nutri']") || document.querySelector("img[src*='nutri']");
+                      }
+                      const label =
+                        (root && (root.getAttribute('aria-label') || root.getAttribute('data-value'))) ||
+                        (img ? img.getAttribute('alt') : null) ||
+                        (root ? root.textContent : null);
+                      const src = img ? img.getAttribute('src') : null;
+                      if (!label && !src) {
+                        return null;
+                      }
+                        return { label, src };
+                    }
+                    """
+                )
+            except Exception:
+                dom_nutri = None
+            if isinstance(dom_nutri, dict):
+                label = dom_nutri.get("label") or ""
+                dom_src = dom_nutri.get("src")
+                candidate_grade: Optional[str] = None
+                if isinstance(label, str):
+                    cleaned_label = clean_spaces(label) or ""
+                    if cleaned_label:
+                        match = re.search(r"nutri[- ]?score[^A-E]*([A-E])", cleaned_label, flags=re.IGNORECASE)
+                        if not match:
+                            match = re.search(r"\b([A-E])\b", cleaned_label, flags=re.IGNORECASE)
+                        if match:
+                            candidate_grade = match.group(1).lower()
+                if isinstance(dom_src, str):
+                    cand = clean_spaces(dom_src)
+                    if cand:
+                        if not cand.lower().startswith("http"):
+                            cand = urljoin(page.url, cand)
+                        nutriscore_image = cand
+                        match = re.search(r"nutri(?:score)?[-_]?([a-e])", cand, flags=re.IGNORECASE)
+                        if match:
+                            candidate_grade = match.group(1).lower()
+                if candidate_grade:
+                    nutriscore_grade = candidate_grade
+
+        if not image_url:
+            try:
+                og_image = await page.locator("meta[property='og:image']").first.get_attribute('content')
+                og_image = clean_spaces(og_image) if og_image else None
+                if og_image:
+                    image_url = og_image
+            except Exception:
+                pass
+
+        if not quantity_text:
+            search_fields = []
+            try:
+                info_section = page.locator("section, div").filter(has_text=re.compile(r"EAN|\d"))
+                for i in range(min(await info_section.count(), 6)):
+                    txt = await info_section.nth(i).text_content(timeout=1000)
+                    if txt:
+                        search_fields.append(txt)
+            except Exception:
+                pass
+            search_fields.append(title_text or "")
+            blob = "\n".join(search_fields)
+            mqty = re.search(r"(\d+[\.,]?\d*)\s*(ml|l|cl|kg|g)\b", blob, flags=re.IGNORECASE)
+            if mqty:
+                val, unit = mqty.groups()
+                quantity_text = clean_spaces(f"{val} {unit.upper()}")
+
+        if price_text:
+            return True
+
+        if allow_back:
+            try:
+                await page.go_back()
+                await page.wait_for_load_state('domcontentloaded')
+                await human_pause(page, 900, 600)
+            except Exception:
+                pass
+        return False
+
     search_terms = [EAN]
     if QUERY and QUERY != EAN:
         search_terms.append(QUERY)
@@ -597,6 +827,25 @@ async def run() -> Result:
     nutriscore_grade = None
     nutriscore_image = None
 
+    if DIRECT_URL:
+        direct_ok = False
+        try:
+            await page.goto(DIRECT_URL, wait_until="domcontentloaded")
+            await human_pause(page, 1200, 800)
+            safe_direct = re.sub(r"[^A-Za-z0-9]", "_", "direct")
+            await snapshot(page, f"results-{safe_direct}")
+            await dump_html(page, f"results-{safe_direct}")
+            direct_ok = await capture_current_product(False)
+        except PlaywrightTimeout:
+            direct_ok = False
+        except Exception:
+            direct_ok = False
+
+        if direct_ok:
+            search_terms = []
+        elif SKIP_SEARCH:
+            return Result(status="NO_PRICE", url=DIRECT_URL, store=store_name)
+
     for term in search_terms:
         performed = await perform_search(page, term)
         store_name = await ensure_expected_store(page, STORE_QUERY, attempts=3)
@@ -608,13 +857,34 @@ async def run() -> Result:
             except PlaywrightTimeout:
                 continue
             title_check = await page.title()
-            if "Just a moment" in title_check or (resp and resp.status == 403):
-                await snapshot(page, "cf-block")
-                await dump_html(page, "cf-block")
-                if not USING_CDP:
-                    await browser.close()
-                await p.stop()
-                return Result(status="CF_BLOCK", url=search_url)
+            if "Just a moment" in title_check or "Un instant" in title_check or (resp and resp.status == 403):
+                print(f"[WARN] Cloudflare challenge detected (Title: {title_check}). Attempting to solve...")
+                await snapshot(page, "cf-challenge-start")
+                
+                # Attempt to solve challenge by waiting and moving mouse
+                try:
+                    # Wait up to 20s for challenge to resolve
+                    for i in range(10):
+                        await human_pause(page, 1000, 500)
+                        await gentle_move(page, random.randint(100, 800), random.randint(100, 600))
+                        
+                        # Check if passed
+                        new_title = await page.title()
+                        if "Just a moment" not in new_title and "Un instant" not in new_title:
+                            print(f"[INFO] Challenge passed! New title: {new_title}")
+                            await snapshot(page, "cf-challenge-passed")
+                            break
+                    else:
+                        print("[ERROR] Challenge failed after 15s")
+                        await snapshot(page, "cf-challenge-failed")
+                        await dump_html(page, "cf-challenge-failed")
+                        if not USING_CDP:
+                            await browser.close()
+                        await p.stop()
+                        return Result(status="CF_BLOCK", url=search_url)
+                except Exception as e:
+                    print(f"[ERROR] Error solving challenge: {e}")
+                    return Result(status="CF_BLOCK", url=search_url)
         await human_pause(page, 1200, 800)
         safe_term = re.sub(r"[^A-Za-z0-9]", "_", term)[:20]
         await snapshot(page, f"results-{safe_term}")
@@ -639,216 +909,9 @@ async def run() -> Result:
             except Exception:
                 continue
 
-            pdp_url = page.url
-            try:
-                html = await page.content()
-            except Exception:
-                html = ""
-
-            if os.environ.get("CARREFOUR_FRONTAL_STORE") and expected_store:
-                store_name = expected_store
-            else:
-                store_name = await ensure_expected_store(page, STORE_QUERY, attempts=3)
-
-            if EAN and (EAN in pdp_url or EAN in html):
-                matched_ean = EAN
-            elif EAN:
-                # Not the right product, go back and try another
-                try:
-                    await page.go_back()
-                    await page.wait_for_load_state('domcontentloaded')
-                    await human_pause(page, 900, 600)
-                    continue
-                except Exception:
-                    continue
-
-            # ensure store is set on PDP as well
-            if os.environ.get("CARREFOUR_FRONTAL_STORE") and expected_store:
-                store_name = expected_store
-            else:
-                store_name = await ensure_expected_store(page, STORE_QUERY, attempts=3)
-
-            try:
-                title_text = await page.locator('h1').first.text_content(timeout=6000)
-                if title_text:
-                    title_text = clean_spaces(title_text)
-            except Exception:
-                pass
-
-            try:
-                price_locator = page.locator("[data-testid='pdp-price'] span, [data-testid='pdp-price'], .product-price, [class*='price']").first
-                raw_price = await price_locator.text_content(timeout=6000)
-                if raw_price:
-                    raw_price = clean_spaces(raw_price.replace('\xa0', ' '))
-                    normalized = re.sub(r"[^0-9,\.]", "", raw_price)
-                    m = re.search(r"(\d+[\.,]\d{2})", normalized)
-                    if m:
-                        price_value = m.group(1).replace(',', '.').strip()
-                        try:
-                            price_text = f"{float(price_value):.2f}"
-                        except ValueError:
-                            price_text = price_value
-                    else:
-                        price_text = raw_price
-            except Exception:
-                pass
-
-            try:
-                unit_selectors = [
-                    "[data-testid='price-per-unit']",
-                    "[data-testid*='unit-price']",
-                    "[class*='unit-price']",
-                ]
-                for sel in unit_selectors:
-                    locator = page.locator(sel)
-                    if await locator.count():
-                        candidate = await locator.first.text_content(timeout=4000)
-                        if candidate:
-                            unit_text = clean_spaces(candidate.replace('\xa0', ' '))
-                            break
-                if not unit_text:
-                    unit_text = await page.evaluate(
-                        """
-                        () => {
-                          const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-                          const patterns = /(€\s*\/\s*(?:kg|l|pi.?ce|lavage|unité))/i;
-                          while (walker.nextNode()) {
-                            const txt = (walker.currentNode.textContent || '').trim();
-                            if (!txt) continue;
-                            if (patterns.test(txt)) {
-                              return txt;
-                            }
-                          }
-                          return null;
-                        }
-                        """
-                    )
-                    if unit_text:
-                        unit_text = clean_spaces(str(unit_text))
-            except Exception:
-                pass
-
-            try:
-                ld_scripts = page.locator("script[type='application/ld+json']")
-                for i in range(await ld_scripts.count()):
-                    raw_ld = await ld_scripts.nth(i).text_content()
-                    if not raw_ld:
-                        continue
-                    try:
-                        data_ld = json.loads(raw_ld)
-                    except Exception:
-                        continue
-                    items_ld = data_ld if isinstance(data_ld, list) else [data_ld]
-                    for item_ld in items_ld:
-                        if not isinstance(item_ld, dict):
-                            continue
-                        if item_ld.get('@type') != 'Product':
-                            continue
-                        if not title_text and item_ld.get('name'):
-                            title_text = clean_spaces(str(item_ld.get('name')))
-                        if not image_url and item_ld.get('image'):
-                            image_candidate = extract_image_url(item_ld.get('image'))
-                            if image_candidate:
-                                image_url = image_candidate
-                        nutrition = item_ld.get('nutrition')
-                        if isinstance(nutrition, dict):
-                            grade = nutrition.get('nutriscoreGrade') or nutrition.get('nutriScore') or nutrition.get('nutriscore')
-                            if grade and isinstance(grade, str):
-                                nutriscore_grade = grade.strip().lower()[:1]
-                            icon = nutrition.get('nutriscoreUrl') or nutrition.get('nutriscoreImage')
-                            if icon and isinstance(icon, str):
-                                nutriscore_image = icon
-                        if not quantity_text and item_ld.get('size'):
-                            quantity_text = clean_spaces(str(item_ld.get('size')))
-            except Exception:
-                pass
-
-            if not nutriscore_grade or not nutriscore_image:
-                try:
-                    dom_nutri = await page.evaluate(
-                        """
-                        () => {
-                          const selectors = [
-                            "[data-testid='nutri-score']",
-                            "[data-testid='nutrition-nutriscore']",
-                            "[class*='nutri-score']",
-                            "[class*='NutriScore']"
-                          ];
-                          let root = null;
-                          for (const sel of selectors) {
-                            const found = document.querySelector(sel);
-                            if (found) { root = found; break; }
-                          }
-                          let img = root ? root.querySelector('img') : null;
-                          if (!img) {
-                            img = document.querySelector("img[alt*='Nutri']") || document.querySelector("img[src*='nutri']");
-                          }
-                          const label =
-                            (root && (root.getAttribute('aria-label') || root.getAttribute('data-value'))) ||
-                            (img ? img.getAttribute('alt') : null) ||
-                            (root ? root.textContent : null);
-                          const src = img ? img.getAttribute('src') : null;
-                          if (!label && !src) {
-                            return null;
-                          }
-                            return { label, src };
-                        }
-                        """
-                    )
-                except Exception:
-                    dom_nutri = None
-                if isinstance(dom_nutri, dict):
-                    label = dom_nutri.get("label") or ""
-                    dom_src = dom_nutri.get("src")
-                    candidate_grade: Optional[str] = None
-                    if isinstance(label, str):
-                        cleaned_label = clean_spaces(label) or ""
-                        if cleaned_label:
-                            match = re.search(r"nutri[- ]?score[^A-E]*([A-E])", cleaned_label, flags=re.IGNORECASE)
-                            if not match:
-                                match = re.search(r"\b([A-E])\b", cleaned_label, flags=re.IGNORECASE)
-                            if match:
-                                candidate_grade = match.group(1).lower()
-                    if isinstance(dom_src, str):
-                        cand = clean_spaces(dom_src)
-                        if cand:
-                            if not cand.lower().startswith("http"):
-                                cand = urljoin(page.url, cand)
-                            nutriscore_image = cand
-                            match = re.search(r"nutri(?:score)?[-_]?([a-e])", cand, flags=re.IGNORECASE)
-                            if match:
-                                candidate_grade = match.group(1).lower()
-                    if candidate_grade:
-                        nutriscore_grade = candidate_grade
-
-            if not image_url:
-                try:
-                    og_image = await page.locator("meta[property='og:image']").first.get_attribute('content')
-                    og_image = clean_spaces(og_image) if og_image else None
-                    if og_image:
-                        image_url = og_image
-                except Exception:
-                    pass
-
-            if not quantity_text:
-                search_fields = []
-                try:
-                    info_section = page.locator("section, div").filter(has_text=re.compile(r"EAN|\d"))
-                    for i in range(min(await info_section.count(), 6)):
-                        txt = await info_section.nth(i).text_content(timeout=1000)
-                        if txt:
-                            search_fields.append(txt)
-                except Exception:
-                    pass
-                search_fields.append(title_text or "")
-                blob = "\n".join(search_fields)
-                mqty = re.search(r"(\d+[\.,]?\d*)\s*(ml|l|cl|kg|g)\b", blob, flags=re.IGNORECASE)
-                if mqty:
-                    val, unit = mqty.groups()
-                    quantity_text = clean_spaces(f"{val} {unit.upper()}")
-
-                if price_text:
-                    break
+            success = await capture_current_product(True)
+            if success:
+                break
 
             if price_text:
                 break

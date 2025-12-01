@@ -244,13 +244,12 @@
     "ean": "3092718637033",
     "image": "./assets/3092718637033.jpg",
     "leclerc_queries": [
-      "Sirop Menthe 60 CL",
-      "Teisseire Menthe 60 CL",
-      "Sirop Menthe Teisseire 60 CL",
-      "Menthe Teisseire 60 CL",
-      "3092718637033"
+      "Teisseire Sirop 60 CL",
+      "Teisseire Sirop menthe 60 CL",
+      "Teisseire 60 CL",
+      "Sirop menthe 60 CL"
     ],
-    "leclerc_query": "Sirop Menthe 60 CL",
+    "leclerc_query": "Teisseire Sirop 60 CL",
     "name": "Sirop menthe verte TEISSEIRE – 60 CL",
     "primary_keywords": [
       "Sirop Menthe 60 CL"
@@ -260,7 +259,11 @@
     "seed_primary_quantity": "60 CL",
     "seed_query": "Sirop Menthe 60 CL",
     "source": "carrefour",
-    "removed": false
+    "removed": false,
+    "carrefour_super_url": "https://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033",
+    "casino_url": "https://www.mescoursesdeproximite.com/produit/teisseire-menthe-verte-60cl-la-bouteille-de-60cl-casino-shop-33130/TZ193/503212",
+    "spar_url": "https://www.mescoursesdeproximite.com/produit/teisseire-menthe-verte-60cl-la-bouteille-de-60cl-spar-33160/TL832/503212",
+    "intermarche_url": "https://www.intermarche.com/produit/sirop-menthe-verte/3092718637033"
   },
   "3124480200433": {
     "auchan_slug": "auchan-drive-supermarche-talence-gallieni",
@@ -374,7 +377,8 @@
     "spar_url": "https://www.mescoursesdeproximite.com/produit/orangina-soda-a-l-orange-1-5l-la-bouteille-de-1-5l-spar-33160/TL832/151796",
     "intermarche_url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200433",
     "leclerc_url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-240425-Soda-a-lorange-Orangina.aspx",
-    "monoprix_url": "https://courses.monoprix.fr/products/orangina-soda-%C3%A0-l-orange-1-5l/MPX_2029"
+    "monoprix_url": "https://courses.monoprix.fr/products/orangina-soda-%C3%A0-l-orange-1-5l/MPX_2029",
+    "carrefour_city_url": "https://www.carrefour.fr/p/soda-a-l-orange-et-sa-pulpe-orangina-3124480200433"
   },
   "3222472129798": {
     "ean": "3222472129798",
@@ -420,11 +424,12 @@
     "ean": "3665468000312",
     "image": "./assets/3665468000312.jpg",
     "leclerc_queries": [
+      "Destop Déboucheur 950 ML",
+      "Destop Déboucheur Liquide 950 ML",
       "Destop 950 ML",
-      "Déboucheur liquide Destop 950 ml",
-      "3665468000312"
+      "Déboucheur Liquide 950 ML"
     ],
-    "leclerc_query": "Destop 950 ML",
+    "leclerc_query": "Destop Déboucheur 950 ML",
     "name": "Déboucheur liquide destop flacon 950ml",
     "note": "2025-11-01T11:32:40Z · Monoprix auto",
     "nutriscore_grade": "unknown",
@@ -456,7 +461,11 @@
     "seed_primary_name": "Déboucheur Liquide Multi-Usages DESTOP",
     "seed_primary_quantity": "950 ML",
     "seed_query": "Destop Déboucheur liquide flacon 950 ml",
-    "source": "courseu"
+    "source": "courseu",
+    "leclerc_url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-209859-Deboucheur-Liquide-Destop-.aspx",
+    "carrefour_city_url": "https://www.carrefour.fr/p/deboucheur-liquide-multi-usages-destop-3665468000312",
+    "carrefour_market_url": "https://www.carrefour.fr/p/deboucheur-liquide-multi-usages-destop-3665468000312",
+    "carrefour_super_url": "https://www.carrefour.fr/p/deboucheur-liquide-multi-usages-destop-3665468000312"
   },
   "3174660031913": {
     "brand": "Béghin Say",
@@ -491,14 +500,12 @@
     "ean": "3665468000329",
     "image": "./assets/3665468000329.jpg",
     "leclerc_queries": [
-      "Destop gel 950 ML",
-      "Destop Express 950 ML",
-      "Destop Déboucheur gel 950 ML",
-      "Déboucheur gel 950 ML",
-      "Destop gel multi usages",
-      "3665468000329"
+      "Destop Déboucheur 950 ML",
+      "Destop Déboucheur Express 950 ML",
+      "Destop 950 ML",
+      "Déboucheur Express 950 ML"
     ],
-    "leclerc_query": "Destop gel 950 ML",
+    "leclerc_query": "Destop Déboucheur 950 ML",
     "name": "Déboucheur express gel multi-usages Destop 950ml",
     "note": "2025-11-14T12:15:00Z · Carrefour seed",
     "nutriscore_grade": "unknown",
@@ -530,7 +537,19 @@
     "seed_primary_name": "Déboucheur Express Gel Multi-Usages DESTOP",
     "seed_primary_quantity": "950 ML",
     "seed_query": "Destop gel express 950 ml",
-    "source": "carrefour_market"
+    "source": "carrefour_market",
+    "carrefour_city_url": "https://www.carrefour.fr/p/deboucheur-express-gel-multi-usages-destop-3665468000329",
+    "carrefour_market_url": "https://www.carrefour.fr/p/deboucheur-express-gel-multi-usages-destop-3665468000329",
+    "carrefour_super_url": "https://www.carrefour.fr/p/deboucheur-express-gel-multi-usages-destop-3665468000329",
+    "auchan_url": "https://www.auchan.fr/destop-gel-deboucheur-canalisations-express-a-la-soude/pr-C1628938",
+    "chronodrive_url": "https://www.chronodrive.com/destop--deboucheur-liquide-express-P201017",
+    "courseu_url": "https://www.coursesu.com/p/destop-deboucheur-gel-express-950ml/3628830.html",
+    "g20_url": "https://www.g20-minute.com/products/3665468000329/destop-deboucheur-gel-express-950ml-3665468000329",
+    "casino_url": "https://www.mescoursesdeproximite.com/produit/destop-deboucheur-gel-express-950ml-950-0-ml-casino-shop-33130/TZ193/522582",
+    "spar_url": "https://www.mescoursesdeproximite.com/produit/destop-deboucheur-gel-express-950ml-950-0-ml-spar-33160/TL832/522582",
+    "intermarche_url": "https://www.intermarche.com/produit/gel-deboucheur-express/3665468000329",
+    "leclerc_url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-209860-Deboucheur-Gel-Destop-.aspx",
+    "monoprix_url": "https://courses.monoprix.fr/products/destop-d%C3%A9boucheur-gel-express-950ml/MPX_6612349"
   },
   "3665468402529": {
     "ean": "3665468402529",
@@ -687,7 +706,13 @@
     "source": "courseu",
     "leclerc_url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
     "carrefour_super_url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
-    "carrefour_market_url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861"
+    "carrefour_market_url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+    "carrefour_city_url": "https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861",
+    "auchan_url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-original/pr-C1211988",
+    "chronodrive_url": "https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits-vegetaux-P384066",
+    "casino_url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216",
+    "spar_url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-spar-33160/TL832/357216",
+    "monoprix_url": "https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719"
   },
   "5010029229110": {
     "ean": "5010029229110",
@@ -1006,13 +1031,43 @@
   },
   "3103220045640": {
     "leclerc_url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-115115-Les-Schtroumpfs-Haribo.aspx",
-    "leclerc_query": "Haribo Bonbons 300 G",
+    "leclerc_query": "Haribo Schtroumpfs 300 G",
     "leclerc_queries": [
-      "Haribo Bonbons 300 G",
-      "Haribo Bonbons Schtroumpfs 300 G",
+      "Haribo Schtroumpfs 300 G",
       "Haribo 300 G",
-      "Bonbons Schtroumpfs 300 G"
+      "Schtroumpfs 300 G"
     ],
     "ean": "3103220045640"
+  },
+  "8711000705094": {
+    "leclerc_query": "L'Or Café 50 CAPSULES",
+    "leclerc_queries": [
+      "L'Or Café 50 CAPSULES",
+      "L'Or Café Capsules 50 CAPSULES",
+      "L'Or 50 CAPSULES",
+      "Café Capsules 50 CAPSULES"
+    ],
+    "primary_keywords": [
+      "Cafe Capsules Ristretto Intensite",
+      "Cafe Capsules Ristretto Intensite L'Or",
+      "Ristretto 50 capsules"
+    ],
+    "ean": "8711000705094",
+    "leclerc_url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-208417-Cafe-ristretto-LOr-Espresso.aspx"
+  },
+  "3502110008329": {
+    "carrefour_market_url": "https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329",
+    "chronodrive_url": "https://www.chronodrive.com/pepsi--boisson-gazeuse-aux-extraits-vegetaux-P16714",
+    "courseu_url": "https://www.coursesu.com/p/soda-regular-pepsi-15l/987379.html",
+    "g20_url": "https://www.g20-minute.com/products/3502110008329/pepsi-1-5-l-3502110008329",
+    "casino_url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-casino-shop-33130/TZ193/274462",
+    "spar_url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462",
+    "leclerc_query": "Pepsi 1500 ML",
+    "leclerc_queries": [
+      "Pepsi 1500 ML"
+    ],
+    "ean": "3502110008329",
+    "leclerc_url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx",
+    "intermarche_url": "https://www.intermarche.com/produit/soda-saveur-cola/3502110008329"
   }
 }

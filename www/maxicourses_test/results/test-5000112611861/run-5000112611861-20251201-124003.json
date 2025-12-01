@@ -1,0 +1,601 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-12-01T12:37:51.245872+01:00",
+  "finished_at": "2025-12-01T12:40:03.634310+01:00",
+  "duration_seconds": 132.388438,
+  "reference": {
+    "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "description": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "source": "courseu",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": "Beverages,Carbonated drinks,Sodas,Colas",
+    "image": "./assets/5000112611861.jpg",
+    "nutriscore_grade": "c",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-01T12:37:51.246329+01:00",
+      "finished_at": "2025-12-01T12:37:52.148970+01:00",
+      "duration_seconds": 0.902641,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9223\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9223",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-01T12:37:52.149497+01:00",
+      "finished_at": "2025-12-01T12:37:52.833059+01:00",
+      "duration_seconds": 0.683562,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9223\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9223",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-01T12:37:52.833429+01:00",
+      "finished_at": "2025-12-01T12:37:53.512793+01:00",
+      "duration_seconds": 0.679364,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9223\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9223",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-01T12:37:53.513108+01:00",
+      "finished_at": "2025-12-01T12:39:23.525608+01:00",
+      "duration_seconds": 90.0125,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] --- Choose Drive Attempt 1/3 ---\n[auchan] Found visible button: button:has-text('Choisir ce Drive') (index 0)\n[auchan]   Attempting mouse click at (890.99609375, 510.0)\n[auchan] Attempting JS click...\n[auchan] Attempting dispatchEvent('click')...\n[auchan] Button still visible, trying force click...\n[auchan] --- Choose Drive Attempt 2/3 ---\n[auchan] Found visible button: button:has-text('Choisir ce Drive') (index 0)\n[auchan]   Attempting mouse click at (890.99609375, 510.0)\n[auchan] Attempting JS click...\n[auchan] Attempting dispatchEvent('click')...\n[auchan] Button still visible, trying force click...\n[auchan] --- Choose Drive Attempt 3/3 ---\n[auchan] Found visible button: button:has-text('Choisir ce Drive') (index 0)\n[auchan]   Attempting mouse click at (890.99609375, 510.0)\n[auchan] Attempting JS click...\n[auchan] Attempting dispatchEvent('click')...\n[auchan] Button still visible, trying force click...\n[auchan] ⚠️ Max attempts reached. Proceeding anyway...\n[auchan] ⚠️ No valid price found (Attempt 1/3). Retrying store selection...\n[auchan] --- Choose Drive Attempt 1/3 ---\n[auchan] Found visible button: button:has-text('Afficher le prix') (index 0)\n[auchan]   Attempting mouse click at (875.0, 453.75)\n[auchan] Attempting JS click...\n[auchan] Attempting dispatchEvent('click')...\n[auchan] ✅ 'Afficher le prix' clicked. Reloading page to force update...\n[auchan] ⚠️ No valid price found (Attempt 2/3). Retrying store selection...\n[auchan] --- Choose Drive Attempt 1/3 ---\n[auchan] Found visible button: button:has-text('Afficher le prix') (index 0)\n[auchan]   Attempting mouse click at (875.0, 453.75)\n[auchan] Attempting JS click...\n[auchan] Attempting dispatchEvent('click')...\n[auchan] ✅ 'Afficher le prix' clicked. Reloading page to force update...\n[auchan] ⚠️ No valid price found (Attempt 3/3). Retrying store selection...\n[auchan] --- Choose Drive Attempt 1/3 ---\n[auchan] Found visible button: button:has-text('Afficher le prix') (index 0)\n[auchan]   Attempting mouse click at (875.0, 453.75)\n[auchan] Attempting JS click...\n[auchan] Attempting dispatchEvent('click')...\n[auchan] ✅ 'Afficher le prix' clicked. Reloading page to force update...\n[auchan] results visible, extracting price from search results\n[auchan] ⚠️ No valid price found (Attempt 1/3). Retrying store selection...\n[auchan] --- Choose Drive Attempt 1/3 ---\n[auchan] Found visible button: button:has-text('Afficher le prix') (index 0)\n[auchan]   Attempting mouse click at (875.0, 453.75)\n[auchan] Attempting JS click...\n[auchan] Attempting dispatchEvent('click')...\n[auchan] ✅ 'Afficher le prix' clicked. Reloading page to force update...\n[auchan] ⚠️ No valid price found (Attempt 2/3). Retrying store selection...\n[auchan] --- Choose Drive Attempt 1/3 ---\n[auchan] Found visible button: button:has-text('Afficher le prix') (index 0)\n[auchan]   Attempting mouse click at (875.0, 453.75)\n[auchan] Attempting JS click...\n[auchan] Attempting dispatchEvent('click')...\n[auchan] ✅ 'Afficher le prix' clicked. Reloading page to force update...",
+      "metadata": {
+        "attempt_query": "5000112611861",
+        "timeout_s": 90
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,49",
+        "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
+        "url": "https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits-vegetaux-P384066",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "1,42 € / L",
+        "quantity": "1,75 L",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "5000112611861",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltcfe448721003a156/nutriscore-e",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson gazeuse aux extraits végétaux COCA-COLA Original",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "./assets/5000112611861.jpg",
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-01T12:39:23.528981+01:00",
+      "finished_at": "2025-12-01T12:39:27.644393+01:00",
+      "duration_seconds": 4.115412,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,38",
+        "unit_price": "1,36 € / L",
+        "quantity": "1,75 L",
+        "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+        "url": "https://www.coursesu.com/p/soda-coca-cola-original---bouteille-175l/5192990.html",
+        "note": "2025-12-01T11:39:34Z · Super U  Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "5000112611861",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-navigation/nutrition_et_regimes_aliment aires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "./assets/5000112611861.jpg",
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-01T12:39:27.647281+01:00",
+      "finished_at": "2025-12-01T12:39:34.303239+01:00",
+      "duration_seconds": 6.655958,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Non disponible",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-01T12:39:34.304560+01:00",
+      "finished_at": "2025-12-01T12:39:34.880366+01:00",
+      "duration_seconds": 0.575806,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,89",
+        "unit_price": "1,65 €/LITRE",
+        "quantity": "1,75L",
+        "title": "Coca-Cola Original 1,75L",
+        "url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216",
+        "note": "Casino Shop · Bègles Pruniers",
+        "store": "Casino Shop · Bègles Pruniers",
+        "matched_ean": "5000112611861",
+        "product": {
+          "title": "Coca-Cola Original 1,75L",
+          "brand": "Coca-Cola",
+          "qty": "1,75L",
+          "ean": "5000112611861",
+          "image_url": null,
+          "source": "casino"
+        },
+        "_meta": {
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216",
+          "timestamp": "2025-12-01T11:39:35.597459+00:00",
+          "direct_url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216",
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216",
+            "product": {
+              "title": "Coca-Cola Original 1,75L",
+              "brand": "Coca-Cola",
+              "kind": "",
+              "qty": "1,75L",
+              "qualifiers": [],
+              "ean": "5000112611861",
+              "image_url": null,
+              "source": "casino",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-12-01T12:39:35.442464+01:00",
+      "finished_at": "2025-12-01T12:39:36.548835+01:00",
+      "duration_seconds": 1.106371,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,13",
+        "unit_price": "1,79 €/LITRE",
+        "quantity": "1,75L",
+        "title": "Coca-Cola Original 1,75L",
+        "url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-spar-33160/TL832/357216",
+        "note": "Spar Super · Saint-Médard-en-Jalles",
+        "store": "Spar Super · Saint-Médard-en-Jalles",
+        "matched_ean": "5000112611861",
+        "product": {
+          "title": "Coca-Cola Original 1,75L",
+          "brand": "Coca-Cola",
+          "qty": "1,75L",
+          "ean": "5000112611861",
+          "image_url": null,
+          "source": "casino"
+        },
+        "_meta": {
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-spar-33160/TL832/357216",
+          "timestamp": "2025-12-01T11:39:36.695166+00:00",
+          "direct_url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-spar-33160/TL832/357216",
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-spar-33160/TL832/357216",
+            "product": {
+              "title": "Coca-Cola Original 1,75L",
+              "brand": "Coca-Cola",
+              "kind": "",
+              "qty": "1,75L",
+              "qualifiers": [],
+              "ean": "5000112611861",
+              "image_url": null,
+              "source": "spar",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-12-01T12:39:36.549522+01:00",
+      "finished_at": "2025-12-01T12:39:37.285054+01:00",
+      "duration_seconds": 0.735532,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-spar-33160/TL832/357216",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-spar-33160/TL832/357216"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-01T12:39:37.285776+01:00",
+      "finished_at": "2025-12-01T12:39:37.676241+01:00",
+      "duration_seconds": 0.390465,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "Cola 1.75 L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py\", line 1636, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py\", line 827, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9223",
+      "metadata": {
+        "attempt_query": "Cola 1.75 L"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Soda Coca-Cola Original Bouteille - 1,75L",
+        "price": "2,39",
+        "unit_price": "1,37 € / l",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
+        "matched_ean": "5000112611861",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-12-01T11:39:41Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "product": {
+          "title": "Soda Coca-Cola Original Bouteille - 1,75L",
+          "brand": "Cola",
+          "kind": "Soda au Cola Goût Original COCA-COLA",
+          "qty": "1,75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": null,
+          "source": "leclerc",
+          "raw_text": ""
+        },
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
+            "product": {
+              "title": "Soda Coca-Cola Original Bouteille - 1,75L",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "5000112611861",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-12-01T12:39:39.671384+01:00",
+      "finished_at": "2025-12-01T12:39:41.076624+01:00",
+      "duration_seconds": 1.40524,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] DIRECT_URL mode: https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx' direct_url:True\n[LECLERC_DEBUG] Navigating directly to https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx\n[LECLERC_DEBUG] Direct navigation successful -> 0.55s",
+      "metadata": {
+        "attempt_query": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,65",
+        "title": "Coca-Cola Original 1,75L",
+        "url": "https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg",
+        "matched_ean": "5000112611861",
+        "unit_price": "1,51 € / L",
+        "quantity": "1,75 L",
+        "store": null,
+        "raw_text": "Aller directement au  contenu\nAller directement au moteur de recherche\nAller directement en bas de la page\nChocolats de Noël\nAppli  mobile\nSaint-Nicolas\nMes marques Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et Maison\n(s’ouvre dans une  nouvelle fenêtre)\nCasino\nMenu des onglets du haut de l’écran\nPage d’accueil\nRechercher un article\nSe connecter\nRéserver un  créneau\nRéserver un créneau\nAller au paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00 €.\n0,00 €\nMin  60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nBoissons et Lait\nSoda et Boisson aromatisée\nColas\nCoca-Cola Original 1,75L\n1 m+\n1 mois de  garantie de vie du produit\n1.75L 1,51 € / litre\n1.75L\n(1,51 € / litre)\n2,65 €\nAjouter\nAttributs produit\nProduit  vegan\nInformations produit\n\n\nDescription Produit\nCréée en 1886, Coca-Cola, la légendaire boisson pétillante, fait le bonheur de  plusieurs générations. Cette boisson intemporelle et délicieuse a été conçue pour rafraîchir ses consommateurs. Elle est faite pour être  partagée. Installez-vous, détendez-vous et savourez. À servir bien frais pour un maximum de  plaisir.\n\n\nOrigine\nFrance\nMarque\nCoca-Cola\nService consommateur\nCoca-Cola Europacific Partners France 9 chemin de Bretagne, CS  80050, 92784 Issy-Les-Moulineaux Cedex 9. coca-cola.fr N° Cristal 09 69 39 29 00 (Appel non surtaxé)\nConseils d'utilisation\nSe boit  très frais Ne pas agiter.\nIngredients\nIngrédients: eau gazéifiée ; sucre ; colorant : E150d ; acidifiant : acide phosphorique ; arômes  naturels ; arôme caféine.\nA propos de la marque\nCoca-Cola est la boisson pétillante emblématique, créée en 1886 à Atlanta, en Géorgie,  par le Dr John S. Pemberton. Coca-Cola a d’abord été proposé comme boisson à la fontaine à la pharmacie Jacobs sous forme d’un mélange de sirop de Coca-Cola et d’eau pétillante, la fameuse recette secrète du Coca-Cola. Au fil des ans, cette boisson pétillante légendaire est  devenue culte. Le Coca-Cola est célèbre non seulement pour son goût irrésistible mais aussi pour la sensation qu'il procure. Chaque  gorgée de cette légendaire boisson pétillante évoque des souvenirs heureux. Aujourd'hui, sa popularité l'a rendu universel.\nType  d’emballage\nbouteille\nProducteur\nCOCA COLA EUROPEAN PARTNERS FRAN 9 CHEMIN DE BRETAGNE///92784/ISSY LES MOULINEAUX CEDEX  9/FRANCE\nConseil de conservation\nConserver à l'abri de la lumière directe du soleil, dans un endroit frais et sec.,Conserver à l'abri  de la lumière directe du soleil, dans un endroit frais et sec.\nAutres informations\n(None)\nConseils d'utilisation\nSe boit très frais  Ne pas agiter.\nValeurs nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 ml\tpour 250MLT\nValeurs Energétique en  Kilojoules\t~ 180 kJ\t450 kJ\nValeurs Energétique en Kilocalories\t~ 42 kcal\t105 kcal\nValeurs Nutritionnelles\nGlucides\t~ 10.6 g\t27  g\nDont Sucres\t~ 10.6 g\t27 g\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique  relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos magasins avec  Parapharmacie\nAide & Mentions\nDonnées personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous  rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une nouvelle fenêtre)\nAffiliation  monoprix.fr\nBons plans des marques\nMonoprix.fr Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle  fenêtre)",
+        "extras": {
+          "seed_variant": "original",
+          "candidate_variant": "nature",
+          "negatives_hit": [],
+          "variant_ok": false,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [
+            "variant_mismatch"
+          ],
+          "candidate_quantity": "1,75 L",
+          "candidate_size_ratio": 0.0,
+          "descriptor_token_coverage": {
+            "coverage": 0.7777777777777778,
+            "matched": [
+              "boisson",
+              "bouteille",
+              "coca",
+              "cola",
+              "gout",
+              "original",
+              "soda"
+            ],
+            "missing": [
+              "extraits",
+              "gazeuse"
+            ],
+            "total": 9
+          },
+          "missing_tokens": [
+            "extraits",
+            "gazeuse"
+          ],
+          "image_match": true
+        },
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-12-01T12:39:41.077978+01:00",
+      "finished_at": "2025-12-01T12:39:48.110572+01:00",
+      "duration_seconds": 7.032594,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5000112611861'.\n[MONOPRIX_DEBUG] Search terms: ['coca-cola extraits', 'coca-cola 1,75l', 'coca-cola 175cl']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Attempting direct PDP via descriptor URL\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/133f8f3a-b0ae-4528-90b8-25a22fda497b/300x300.jpg\n[MONOPRIX_DEBUG][SCORE] - Title: 'Coca-Cola Original 1,75L' | Brand: 'cola' | Variant(seed/cand)=(original/nature) | Vetoes=['variant_mismatch'] | NegHits=[] | Score=-135 | Plausible=False\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719"
+      }
+    }
+  ],
+  "finder": {
+    "error": "'FinderPipeline' object has no attribute 'decide'"
+  }
+}

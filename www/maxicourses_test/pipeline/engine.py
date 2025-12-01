@@ -6,14 +6,34 @@ from playwright_stealth import stealth_async
 
 async def make_context(headless: bool = True,
                        proxy: Optional[str] = None,
+                       residential_proxy: Optional[str] = None,
                        storage_state_path: Optional[str] = None,
                        user_agent: Optional[str] = None):
     p = await async_playwright().start()
     use_chrome = os.getenv("USE_CHROME", "0") == "1"
     use_cdp = os.getenv("USE_CDP", "0") == "1"
+    use_xvfb = os.getenv("USE_XVFB", "0") == "1"
     cdp_url = os.getenv("CDP_URL") or "http://127.0.0.1:9222"
-    launch_kwargs = {"headless": headless, "timeout": 60000}
-    if proxy:
+    
+    # Force headed mode if using Xvfb
+    is_headless = headless and not use_xvfb
+    
+    launch_kwargs = {
+        "headless": is_headless,
+        "timeout": 60000,
+        "args": [
+            "--disable-blink-features=AutomationControlled",
+            "--no-sandbox",
+            "--disable-infobars",
+            "--window-size=1920,1080",
+            "--disable-dev-shm-usage",
+            "--disable-extensions",
+            "--disable-gpu",
+        ]
+    }
+    if residential_proxy:
+        launch_kwargs["proxy"] = {"server": residential_proxy}
+    elif proxy:
         launch_kwargs["proxy"] = {"server": proxy}
     if use_chrome:
         launch_kwargs["channel"] = "chrome"
@@ -28,7 +48,7 @@ async def make_context(headless: bool = True,
         browser = await p.chromium.launch(**launch_kwargs)
         context = await browser.new_context(
             storage_state=storage_state_path,
-            user_agent=user_agent,
+            user_agent=user_agent or "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             locale="fr-FR",
             timezone_id="Europe/Paris",
         )

@@ -1,0 +1,75 @@
+{
+  "ean": "8711000705094",
+  "image_path": null,
+  "started_at": "2025-11-30T11:53:11.800271+01:00",
+  "finished_at": "2025-11-30T11:53:12.705617+01:00",
+  "duration_seconds": 0.905346,
+  "reference": {
+    "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "description": null,
+    "source": "carrefour_super",
+    "brand": "L'Or",
+    "quantity": "50 capsules",
+    "categories": "Boissons et préparations de boissons,Boissons,Boissons chaudes,Cafés,Dosettes,Cafés en dosettes,Cafés en dosettes compatible Nespresso",
+    "image": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087d53d/08711000705094_H1N1_s09.png",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "f",
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8711000705094/debug/run-8711000705094-20251130-115311"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-11-30T11:53:11.801236+01:00",
+      "finished_at": "2025-11-30T11:53:11.960253+01:00",
+      "duration_seconds": 0.159017,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py\", line 645, in <module>\n    payload = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py\", line 590, in run\n    p, browser, context, page = await make_context(\nTypeError: make_context() got an unexpected keyword argument 'use_stealth'",
+      "metadata": {
+        "attempt_query": "8711000705094"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+      "brand": "L'Or",
+      "kind": "",
+      "qty": "50 capsules",
+      "qualifiers": [],
+      "ean": "8711000705094",
+      "image_url": "https://media.carrefour.fr/media/referential/media/b1447232c33144399c6568efd087d53d/08711000705094_H1N1_s09.png",
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

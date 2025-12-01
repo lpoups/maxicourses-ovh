@@ -422,27 +422,58 @@
       "store_query": null
     },
     "leclerc": {
-      "status": "NO_PRICE",
+      "status": "OK",
       "payload": {
-        "status": "NO_PRICE",
-        "title": "Déboucheur Liquide Destop\n4 doses - 950ml",
-        "price": null,
-        "unit_price": null,
+        "status": "OK",
+        "title": "Déboucheur Liquide Destop 4 doses - 950ml",
+        "price": "3,46",
+        "unit_price": "3.64 € / L",
         "quantity": "950 ml",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/recherche.aspx?TexteRecherche=destop%20d%C3%A9boucheur%20liquide%20flacon%20950%20ml",
-        "matched_ean": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-209859-Deboucheur-Liquide-Destop-.aspx",
+        "matched_ean": "3665468000312",
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-21T17:48:14Z · E.Leclerc Drive · Bruges",
+        "note": "2025-11-29T12:26:44Z · E.Leclerc Drive · Bruges",
         "_meta": {
-          "supports_keywords": true,
-          "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed)."
+          "supports_keywords": true
         },
-        "equivalent": true,
-        "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed).",
-        "candidates": []
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-209860-Deboucheur-Gel-Destop-.aspx",
+            "product": {
+              "title": "Déboucheur Gel Destop Express - 4 doses - 950ml",
+              "brand": "Destop",
+              "kind": "Déboucheur Liquide Multi-Usages DESTOP",
+              "qty": "950 ml",
+              "qualifiers": [],
+              "ean": "3665468000329",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2832164&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-209859-Deboucheur-Liquide-Destop-.aspx",
+            "product": {
+              "title": "Déboucheur Liquide Destop 4 doses - 950ml",
+              "brand": "Destop",
+              "kind": "Déboucheur Liquide Multi-Usages DESTOP",
+              "qty": "950 ml",
+              "qualifiers": [],
+              "ean": "3665468000312",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2832161&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "updated_at": "2025-11-21T18:49:03.417806+01:00",
-      "duration_seconds": 35.043052,
+      "updated_at": "2025-11-29T13:27:14.808694+01:00",
+      "duration_seconds": 13.927213,
       "error": null,
       "store_query": null
     },
@@ -524,6 +555,9 @@
       "duration_seconds": 48.198912,
       "error": null,
       "store_query": null
+    },
+    "_finder": {
+      "error": "'FinderPipeline' object has no attribute 'decide'"
     }
   }
 }

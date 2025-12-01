@@ -25,7 +25,8 @@ EAN = os.environ.get("EAN", "").strip()
 QUERY = os.environ.get("QUERY", "").strip()
 HEADLESS = os.environ.get("HEADLESS", "1") == "1"
 PROXY = os.environ.get("PROXY")
-CHRONO_URL = os.environ.get("CHRONO_URL")
+DIRECT_URL = (os.environ.get("DIRECT_URL") or "").strip()
+CHRONO_URL = (os.environ.get("CHRONO_URL") or DIRECT_URL or "").strip() or None
 MANDATE = get_method("chronodrive")
 DEFAULT_STORE_URL = "https://www.chronodrive.com/magasin/le-haillan-422"
 STORE_URL = os.environ.get("STORE_URL") or DEFAULT_STORE_URL

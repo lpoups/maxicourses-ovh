@@ -29,7 +29,8 @@ except ImportError:  # pragma: no cover - optional dependency when --image n/a
     zxingcpp = None  # type: ignore
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
-ASSETS_DIR = ROOT_DIR / "pipeline" / "assets"
+ASSETS_DIR = ROOT_DIR / "assets"
+UPLOADS_DIR = ROOT_DIR / "uploads"
 AI_LOG_ROOT = ROOT_DIR / "logs" / "refonte_v2" / "runs"
 QUERY_CACHE_PATH = ROOT_DIR / "pipeline" / "query_cache.json"
 DESCRIPTOR_CACHE_PATH = ROOT_DIR / "pipeline" / "descriptor_cache.json"
@@ -603,7 +604,6 @@ ALLOWED_MANUAL_DESCRIPTOR_FIELDS = {
 }
 
 ALWAYS_OVERRIDE_FIELDS = {
-    "image",
     "nutriscore_grade",
     "nutriscore_image",
     "ecoscore_grade",
@@ -1924,8 +1924,27 @@ def run_adapter(
     env["EAN"] = ean
     env["HEADLESS"] = "1" if headless else "0"
     env.setdefault("USE_CDP", "1")
-    if "CDP_URL" not in env and os.getenv("CDP_URL"):
-        env["CDP_URL"] = os.environ["CDP_URL"]
+    
+    # --- DUAL PORT HYBRID MODE ---
+    # Port 9222: Local Chrome on Server (Fast, Datacenter IP)
+    # Port 9223: Tunnel to Mac Chrome (Residential IP)
+    RESIDENTIAL_ADAPTERS = {
+        "intermarche", 
+        "carrefour_city", 
+        "carrefour_market", 
+        "carrefour_super", 
+        "carrefour_hyper"
+    }
+    
+    cdp_url = os.getenv("CDP_URL")
+    if not cdp_url:
+        if adapter in RESIDENTIAL_ADAPTERS:
+            cdp_url = "http://127.0.0.1:9223"
+            print(f"[HYBRID] 🏠 {adapter} requires residential IP -> Switching to Tunnel on port 9223")
+        else:
+            cdp_url = "http://127.0.0.1:9222"
+            
+    env["CDP_URL"] = cdp_url
     if proxy:
         env["PROXY"] = proxy
     if descriptor and adapter not in EAN_ONLY_ADAPTERS:

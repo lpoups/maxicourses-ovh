@@ -428,14 +428,33 @@ async def run_manual_leclerc(
     pdp_delay_ms: int = 70,
     type_min_delay: int = 80,
     type_max_delay: int = 80,
+    direct_url: Optional[str] = None,
+    skip_search: bool = False,
 ) -> dict:
-    """Replay a Leclerc Drive search with human pacing and return a JSON-ready dict."""
+    """Replay a Leclerc Drive search with human pacing and return a JSON-ready dict.
+    
+    If direct_url is provided, skip the search phase and go directly to the product page.
+    If skip_search is True and direct_url fails, return NO_PRICE without fallback.
+    """
     started = time.perf_counter()
 
-    if not (query or ean):
-        return {"status": "ERROR", "error": "QUERY is required"}
-    if os.environ.get("USE_CDP") != "1":
-        return {"status": "ERROR", "error": "SET USE_CDP=1 (Chrome remote obligatoire)"}
+    # Quick price update mode: direct URL provided
+    if direct_url:
+        sys.stderr.write(f"[LECLERC_DEBUG] DIRECT_URL mode: {direct_url}\n")
+        if not (query or ean):
+            return {"status": "ERROR", "error": "QUERY or EAN is required"}
+        if os.environ.get("USE_CDP") != "1":
+            return {"status": "ERROR", "error": "SET USE_CDP=1 (Chrome remote obligatoire)"}
+        
+        # We'll jump directly to the PDP extraction logic
+        # but first we need to set up the browser context
+        pass  # Continue with browser setup below
+    else:
+        # Regular search mode
+        if not (query or ean):
+            return {"status": "ERROR", "error": "QUERY is required"}
+        if os.environ.get("USE_CDP") != "1":
+            return {"status": "ERROR", "error": "SET USE_CDP=1 (Chrome remote obligatoire)"}
 
     # Clamp pour garantir <2s entre fiches
     result_delay_ms = min(result_delay_ms, MAX_RESULT_DELAY_MS)
@@ -443,7 +462,7 @@ async def run_manual_leclerc(
     sys.stderr.write(
         f"[LECLERC_DEBUG] FAST_MODE={FAST_MODE} | delays => human:{human_delay_ms}ms "
         f"result:{result_delay_ms}ms pdp:{pdp_delay_ms}ms type:[{type_min_delay},{type_max_delay}] "
-        f"query:'{query}'\n"
+        f"query:'{query}' direct_url:{bool(direct_url)}\n"
     )
 
     descriptor_entry = MANUAL_DESCRIPTOR.get(ean.strip()) if ean else None
@@ -542,6 +561,130 @@ async def run_manual_leclerc(
 
         await page.bring_to_front()
 
+
+        # Direct URL mode: skip search and go straight to PDP
+        if direct_url:
+            sys.stderr.write(f"[LECLERC_DEBUG] Navigating directly to {direct_url}\n")
+            try:
+                await page.goto(direct_url, wait_until="domcontentloaded", timeout=5000)
+                await human_pause(page, pdp_delay_ms)
+                sys.stderr.write(f"[LECLERC_DEBUG] Direct navigation successful -> {time.perf_counter()-started:.2f}s\n")
+            except Exception as e:
+                sys.stderr.write(f"[LECLERC_DEBUG] Direct navigation failed: {e}\n")
+                if skip_search:
+                    return {"status": "NO_PRICE", "note": "Direct URL failed (skip_search=True)"}
+                return {"status": "NO_PRICE", "note": "Direct URL navigation failed"}
+            
+            # Extract price directly from PDP
+            async def text_clean(selector: str) -> Optional[str]:
+                node = page.locator(selector).first
+                try:
+                    if await node.count():
+                        value = await node.text_content()
+                        if value:
+                            return " ".join(value.split())
+                except Exception:
+                    return None
+                return None
+
+            async def first_match_text(selectors: List[str]) -> Optional[str]:
+                for selector in selectors:
+                    value = await text_clean(selector)
+                    if value:
+                        return value
+                return None
+            
+            try:
+                title_raw = await page.locator("h1").first.text_content()
+            except Exception:
+                title_raw = None
+            title = " ".join(title_raw.split()) if title_raw else ""
+            
+            whole = await first_match_text([
+                ".pWCRS310_PrixPartieEntiere",
+                ".prix .prix-actuel-partie-entiere",
+                ".pWCRS310_PrixUnitairePartieEntiere",
+            ]) or ""
+            decimal = await first_match_text([
+                ".pWCRS310_PrixPartieDecimale",
+                ".prix .prix-actuel-partie-decimale",
+                ".pWCRS310_PrixUnitairePartieDecimale",
+            ]) or ""
+            whole_digits = "".join(filter(str.isdigit, whole))
+            decimal_digits = "".join(filter(str.isdigit, decimal))[:2]
+            price = f"{int(whole_digits)}.{decimal_digits or '00'}" if whole_digits else None
+            if price:
+                price = price.replace(".", ",")
+            
+            unit_price = await first_match_text([
+                ".pWCRS310_PrixUniteMesure",
+                ".prix .prix-detail",
+                ".pWCRS310_PrixUnitaire",
+            ])
+            
+            quantity = None
+            if unit_price and "€" in unit_price:
+                quantity = await first_match_text([
+                    ".spanWCRS310_ContenanceInfo",
+                    ".ficheProduit__infos--poids",
+                ])
+            if not quantity:
+                quantity = await first_match_text([
+                    ".ficheProduit__infos--poids",
+                    ".pWCRS310_ContenanceInfo",
+                ])
+            if quantity:
+                quantity = quantity.upper()
+            
+            # Try to extract EAN
+            try:
+                html_content = await page.content()
+                matched_ean = _extract_ean_from_html(html_content, direct_url)
+            except Exception:
+                matched_ean = None
+            
+            if not price:
+                return {"status": "NO_PRICE", "title": title, "url": direct_url, "note": f"Quick update via {direct_url}"}
+            
+            # Build product object
+            product = _build_candidate_product(
+                descriptor_entry,
+                title,
+                matched_ean,
+                "",
+                None,
+                quantity,
+            )
+            
+            # Extract store name from URL
+            store_label = "E.Leclerc Drive"
+            try:
+                parsed = urlparse(direct_url)
+                slug = parsed.path or ""
+                match = re.search(r"magasin-[0-9-]+-([^./]+)", slug, re.IGNORECASE)
+                if match:
+                    alias = match.group(1).replace('-', ' ').strip()
+                    if alias:
+                        store_label = f"E.Leclerc Drive · {alias.title()}"
+            except Exception:
+                pass
+            
+            return {
+                "status": "OK",
+                "title": title,
+                "price": price,
+                "unit_price": unit_price,
+                "quantity": quantity,
+                "url": direct_url,
+                "matched_ean": matched_ean or ean,
+                "store": store_label,
+                "note": f"{time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())} · {store_label}",
+                "_meta": {"supports_keywords": True},
+                "equivalent": False,
+                "product": product,
+            }
+        
+        # Regular mode: go to store homepage and perform search
         await page.goto(store_url, wait_until="domcontentloaded")
         await human_pause(page, human_delay_ms)
         sys.stderr.write(f"[LECLERC_DEBUG] after home human pause -> {time.perf_counter()-started:.2f}s\n")

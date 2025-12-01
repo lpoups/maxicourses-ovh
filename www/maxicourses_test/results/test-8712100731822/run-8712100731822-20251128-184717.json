@@ -1,0 +1,76 @@
+{
+  "ean": "8712100731822",
+  "image_path": null,
+  "started_at": "2025-11-28T18:47:12.583711+01:00",
+  "finished_at": "2025-11-28T18:47:17.036728+01:00",
+  "duration_seconds": 4.453017,
+  "reference": {
+    "title": "Moutarde aux aromates SAVORA 385 g",
+    "description": "Moutarde aux aromates SAVORA 385 g",
+    "source": "chronodrive",
+    "brand": "Savora",
+    "quantity": "385  g",
+    "categories": "Condiments, Sauces, Moutardes, en:groceries, Spécialité à la Moutarde",
+    "image": "./assets/8712100731822.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
+    "ecoscore_grade": "b",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
+    "nova_group": "3"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251128-184712"
+  ],
+  "adapters": [
+    {
+      "adapter": "casino",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-28T18:47:13.346306+01:00",
+      "finished_at": "2025-11-28T18:47:14.267968+01:00",
+      "duration_seconds": 0.921662,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8712100731822",
+        "QUERY": "Savora 385 G",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py\", line 509, in <module>\n    sys.exit(main())\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py\", line 503, in main\n    result = fetch_casino()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py\", line 398, in fetch_casino\n    price = _normalize_price(details.get(\"price\") if isinstance(details, dict) else None)\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py\", line 165, in _normalize_price\n    text.replace(\"\\xa0\", \" \")\nAttributeError: 'int' object has no attribute 'replace'",
+      "metadata": {
+        "attempt_query": "Savora 385 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251128-184712/01-casino"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Moutarde aux aromates SAVORA 385 g",
+      "brand": "Savora",
+      "kind": "",
+      "qty": "385 g",
+      "qualifiers": [],
+      "ean": "8712100731822",
+      "image_url": "./assets/8712100731822.jpg",
+      "source": "consolidated",
+      "raw_text": "Moutarde aux aromates SAVORA 385 g",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

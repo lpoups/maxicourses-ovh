@@ -1,0 +1,508 @@
+{
+  "3502110008329": {
+    "carrefour_city": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-11-30T13:05:10.463904+01:00",
+      "duration_seconds": 16.494325,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,03",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329",
+        "note": null,
+        "unit_price": "1,35 € / L",
+        "quantity": "1,5 L",
+        "title": "Soda au Cola PEPSI",
+        "matched_ean": "3502110008329",
+        "image": "https://media.carrefour.fr/medias/980f01ab270549e6be2310ff13f54b76/p_540x540/03502110008329_H1N1_s07.jp eg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda au Cola PEPSI",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,5 L",
+          "qualifiers": [],
+          "ean": "3502110008329",
+          "image_url": "https://media.carrefour.fr/medias/980f01ab270549e6be2310ff13f54b76/p_540x540/03502110008329_H1N1_s07.jp eg",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-11-30T13:05:10.463904+01:00",
+      "duration_seconds": 7.617847,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_super": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Lormont",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-11-30T13:05:10.463904+01:00",
+      "duration_seconds": 16.435212,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": "https://www.auchan.fr/pepsi-boisson-gazeuse-cola-aux-extraits-vegetaux/pr-C1209689",
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "price_missing",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-11-30T14:04:48.913753+01:00",
+      "duration_seconds": 11.568469,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,39",
+        "title": "Boisson gazeuse aux extraits végétaux PEPSI",
+        "url": "https://www.chronodrive.com/pepsi--boisson-gazeuse-aux-extraits-vegetaux-P16714",
+        "note": "Chronodrive  Le Haillan",
+        "unit_price": "0,93 € / L",
+        "quantity": "1,5 L",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3502110008329",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson gazeuse aux extraits végétaux PEPSI",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1,5 L",
+          "qualifiers": [],
+          "ean": "3502110008329",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-11-30T13:05:10.463904+01:00",
+      "duration_seconds": 3.484008,
+      "error": null,
+      "store_query": null
+    },
+    "courseu": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,19",
+        "unit_price": "0,79 € / L",
+        "quantity": "1,5 l",
+        "title": "Soda  regular PEPSI, 1,5l",
+        "url": "https://www.coursesu.com/p/soda-regular-pepsi-15l/987379.html",
+        "note": "2025-11-30T12:01:50Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "3502110008329",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-naviga tion/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda  regular PEPSI, 1,5l",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,5 l",
+          "qualifiers": [],
+          "ean": "3502110008329",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-11-30T13:05:10.463904+01:00",
+      "duration_seconds": 6.783282,
+      "error": null,
+      "store_query": null
+    },
+    "g20": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-11-30T13:05:10.463904+01:00",
+      "duration_seconds": 0.495474,
+      "error": null,
+      "store_query": null
+    },
+    "casino": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,99",
+        "unit_price": "1,33 €/LITRE",
+        "quantity": "1,5L",
+        "title": "Pepsi Soda au Cola Classique 1,5L",
+        "url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-casino-shop-33130/TZ193/274462",
+        "note": "Casino Shop · Bègles Pruniers",
+        "store": "Casino Shop · Bègles Pruniers",
+        "matched_ean": "3502110008329",
+        "product": {
+          "title": "Pepsi Soda au Cola Classique 1,5L",
+          "brand": "PEPSI",
+          "qty": "1,5L",
+          "ean": "3502110008329",
+          "image_url": null,
+          "source": "casino"
+        },
+        "_meta": {
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Pepsi 1500 ML",
+          "timestamp": "2025-11-30T12:01:51.741088+00:00",
+          "direct_url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-casino-shop-33130/TZ193/274462",
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-casino-shop-33130/TZ193/274462",
+            "product": {
+              "title": "Pepsi Soda au Cola Classique 1,5L",
+              "brand": "PEPSI",
+              "kind": "",
+              "qty": "1,5L",
+              "qualifiers": [],
+              "ean": "3502110008329",
+              "image_url": null,
+              "source": "casino",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "updated_at": "2025-11-30T13:05:10.463904+01:00",
+      "duration_seconds": 1.126298,
+      "error": null,
+      "store_query": null
+    },
+    "spar": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,17",
+        "unit_price": "1,45 €/LITRE",
+        "quantity": "1,5L",
+        "title": "Pepsi Soda au Cola Classique 1,5L",
+        "url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462",
+        "note": "Spar Super · Saint-Médard-en-Jalles",
+        "store": "Spar Super · Saint-Médard-en-Jalles",
+        "matched_ean": "3502110008329",
+        "product": {
+          "title": "Pepsi Soda au Cola Classique 1,5L",
+          "brand": "PEPSI",
+          "qty": "1,5L",
+          "ean": "3502110008329",
+          "image_url": null,
+          "source": "casino"
+        },
+        "_meta": {
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Pepsi 1500 ML",
+          "timestamp": "2025-11-30T12:01:52.889116+00:00",
+          "direct_url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462",
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462",
+            "product": {
+              "title": "Pepsi Soda au Cola Classique 1,5L",
+              "brand": "PEPSI",
+              "kind": "",
+              "qty": "1,5L",
+              "qualifiers": [],
+              "ean": "3502110008329",
+              "image_url": null,
+              "source": "spar",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "updated_at": "2025-11-30T13:05:10.463904+01:00",
+      "duration_seconds": 0.898316,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,19",
+        "title": "Soda saveur cola",
+        "url": "https://www.intermarche.com/produit/soda-saveur-cola/3502110008329",
+        "note": "Intermarché · Super  Talence",
+        "matched_ean": "3502110008329",
+        "unit_price": "0,79 € / L",
+        "quantity": null,
+        "store": "Super  Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/soda-saveur-cola-sans-sucres/3502110009357",
+            "product": {
+              "title": "PepsiSoda saveur  cola sans sucres",
+              "brand": "PepsiSoda",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3502110009357",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/ramequins-125-ml/3250390139034",
+            "product": {
+              "title": "Apta, une marque IntermarchéRamequins 125 ml",
+              "brand": "Apta,",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3250390139034",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-saveur-cola-sans-sucres/3168930175957",
+            "product": {
+              "title": "PepsiSoda saveur cola sans sucres",
+              "brand": "PepsiSoda",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3168930175957",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/biberon-poignees-col-large-300-ml-0m+/3250393107481",
+            "product": {
+              "title": "Pommette, une marque IntermarchéBiberon poignées col large 300  ml 0m+",
+              "brand": "Pommette,",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3250393107481",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-saveur-cola/3502110008329",
+            "product": {
+              "title": "PepsiSoda saveur cola",
+              "brand": "PepsiSoda",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3502110008329",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE  html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-11-30T13:05:10.463904+01:00",
+      "duration_seconds": 53.002063,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Soda au cola Pepsi La bouteille de 1.5L",
+        "price": "1,17",
+        "unit_price": "0,78 € / l",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx",
+        "matched_ean": "3502110008329",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-30T12:02:48Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "product": {
+          "title": "Soda au cola Pepsi La bouteille de 1.5L",
+          "brand": "",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "3502110008329",
+          "image_url": null,
+          "source": "leclerc",
+          "raw_text": ""
+        },
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx",
+            "product": {
+              "title": "Soda au cola Pepsi La bouteille de 1.5L",
+              "brand": "Soda",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3502110008329",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "updated_at": "2025-11-30T13:05:10.463904+01:00",
+      "duration_seconds": 1.821709,
+      "error": null,
+      "store_query": null
+    },
+    "monoprix": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "updated_at": "2025-11-30T13:05:10.463904+01:00",
+      "duration_seconds": 31.88875,
+      "error": null,
+      "store_query": null
+    },
+    "_finder": {
+      "consolidated": {
+        "title": "Pepsi 1,5L",
+        "brand": "Pepsi",
+        "kind": "",
+        "qty": "1500 ml",
+        "qualifiers": [],
+        "ean": "3502110008329",
+        "image_url": null,
+        "source": "consolidated",
+        "raw_text": "",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": null,
+      "candidates": [],
+      "decision": null,
+      "audit": []
+    }
+  }
+}

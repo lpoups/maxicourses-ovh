@@ -51,14 +51,7 @@
         "seed_query": "",
         "leclerc_queries": []
       },
-      "keywords": [
-        "Café Capsules Ristretto Intensité",
-        "Café Capsules Ristretto",
-        "L'Or nespresso 50 CAPSULES",
-        "L'Or nespresso ristretto",
-        "L'Or 50 CAPSULES",
-        "L'Or capsules 50 CAPSULES"
-      ],
+      "keywords": null,
       "candidates": [],
       "decision": null,
       "audit": []
@@ -295,38 +288,15 @@
       "store_query": null
     },
     "auchan": {
-      "status": "OK",
+      "status": "ERROR",
       "payload": {
-        "status": "OK",
-        "price": "16,09",
-        "unit_price": "61,88 € / KG",
-        "quantity": "50 CAPSULES",
-        "title": "Capsules de café ristretto intensité 11 compatibles  Nespresso",
-        "url": "https://www.auchan.fr/l-or-espresso-capsules-de-cafe-ristretto-intensite-11-com patibles-nespresso/pr-C1676041",
-        "matched_ean": "8711000705094",
-        "store": "Auchan Drive Supermarché Talence-Gallieni",
-        "note": "Auchan Talence",
-        "image": "https://cdn.auchan.fr/media/S010000000406DZPRIMARY_1200x1200/B2CD/",
         "_meta": {
           "supports_ean": true
-        },
-        "product": {
-          "title": "Capsules de café ristretto intensité 11 compatibles  Nespresso",
-          "brand": "Capsules",
-          "kind": "",
-          "qty": "50 CAPSULES",
-          "qualifiers": [],
-          "ean": "8711000705094",
-          "image_url": "https://cdn.auchan.fr/media/S010000000406DZPRIMARY_1200x1200/B2CD/",
-          "source": "auchan",
-          "raw_text": "",
-          "seed_query": "",
-          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-24T15:48:53.318812+01:00",
-      "duration_seconds": 11.729602,
-      "error": null,
+      "updated_at": "2025-11-30T11:53:47.088995+01:00",
+      "duration_seconds": 0.158978,
+      "error": "EMPTY_STDOUT",
       "store_query": null
     },
     "chronodrive": {
@@ -366,18 +336,43 @@
       "store_query": null
     },
     "leclerc": {
-      "status": "TIMEOUT",
+      "status": "OK",
       "payload": {
-        "status": "TIMEOUT",
-        "error": "timeout_after_45s",
+        "status": "OK",
+        "title": "Café ristretto L'Or Espresso Intensité 11 - x50 -260g",
+        "price": "13,63",
+        "unit_price": "52,42 € / kg",
+        "quantity": "50 capsules",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-208417-Cafe-ristretto-LOr-Espresso.aspx",
+        "matched_ean": "8711000705094",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-29T12:54:11Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
-        "candidates": []
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-208417-Cafe-ristretto-LOr-Espresso.aspx",
+            "product": {
+              "title": "Café ristretto L'Or Espresso Intensité 11 - x50 -260g",
+              "brand": "L'Or",
+              "kind": "Café Capsules Ristretto Intensité 11 Compatible Nespresso L'OR",
+              "qty": "50 capsules",
+              "qualifiers": [],
+              "ean": "8711000705094",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=3000474&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "updated_at": "2025-11-24T15:48:53.318812+01:00",
-      "duration_seconds": 45.023363,
-      "error": "timeout_after_45s",
+      "updated_at": "2025-11-29T13:54:28.182221+01:00",
+      "duration_seconds": 9.624348,
+      "error": null,
       "store_query": null
     },
     "carrefour_city": {
@@ -399,8 +394,8 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-25T11:12:04.994326+01:00",
-      "duration_seconds": 17.997319,
+      "updated_at": "2025-11-29T13:53:47.106855+01:00",
+      "duration_seconds": 13.157046,
       "error": null,
       "store_query": null
     },
@@ -420,8 +415,8 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-25T11:12:15.657886+01:00",
-      "duration_seconds": 0.691656,
+      "updated_at": "2025-11-29T13:53:51.896328+01:00",
+      "duration_seconds": 0.748512,
       "error": null,
       "store_query": null
     },

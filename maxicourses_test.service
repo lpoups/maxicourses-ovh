@@ -1,0 +1,14 @@
+[Unit]
+Description=Maxicourses Web Interface
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/maxicourses-ovh/www/maxicourses_test
+ExecStart=/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3 server.py
+Restart=always
+Environment=PYTHONUNBUFFERED=1
+Environment=PORT=5001
+
+[Install]
+WantedBy=multi-user.target

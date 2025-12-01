@@ -1,27 +1,17 @@
 {
   "3103220045640": {
     "carrefour_city": {
-      "status": "NO_PRICE",
+      "status": "TIMEOUT",
       "payload": {
-        "status": "NO_PRICE",
-        "price": null,
-        "store": "City Bordeaux Balguerie",
-        "url": null,
-        "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
         "_meta": {
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-27T16:49:39.342090+01:00",
-      "duration_seconds": 13.850869,
-      "error": null,
+      "updated_at": "2025-11-29T13:46:12.222883+01:00",
+      "duration_seconds": 90.406196,
+      "error": "timeout_after_90s",
       "store_query": null,
       "previous": {
         "status": "NO_PRICE",
@@ -42,7 +32,7 @@
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-27T14:57:14.100922+01:00",
+        "updated_at": "2025-11-27T16:49:39.342090+01:00",
         "error": null,
         "store_query": null
       }
@@ -139,43 +129,30 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-28T10:19:47.270175+01:00",
-      "duration_seconds": 15.356406,
+      "updated_at": "2025-11-29T13:47:26.732965+01:00",
+      "duration_seconds": 14.057193,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "OK",
+        "status": "NO_PRICE",
         "payload": {
-          "status": "OK",
-          "price": "1,59",
+          "status": "NO_PRICE",
+          "price": null,
           "store": "Lormont",
-          "url": "https://www.carrefour.fr/p/bonbons-les-schtroumpfs-haribo-3103220045640",
+          "url": null,
           "note": null,
-          "unit_price": "5,30 € / KG",
-          "quantity": "300 G",
-          "title": "Bonbons Les Schtroumpfs HARIBO",
-          "matched_ean": "3103220045640",
-          "image": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
-          "nutriscore_grade": "c",
-          "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+          "unit_price": null,
+          "quantity": null,
+          "title": null,
+          "matched_ean": null,
+          "image": null,
+          "nutriscore_grade": null,
+          "nutriscore_image": null,
           "_meta": {
             "supports_ean": true
-          },
-          "product": {
-            "title": "Bonbons Les Schtroumpfs HARIBO",
-            "brand": "Bonbons",
-            "kind": "",
-            "qty": "300 G",
-            "qualifiers": [],
-            "ean": "3103220045640",
-            "image_url": "https://media.carrefour.fr/medias/4b83fdea060e401d94a362f63561f591/p_540x540/03103220045640_A1C1_s01.jp eg",
-            "source": "carrefour_super",
-            "raw_text": "",
-            "seed_query": "",
-            "leclerc_queries": []
           }
         },
-        "updated_at": "2025-11-27T16:49:39.342090+01:00",
+        "updated_at": "2025-11-28T10:19:47.270175+01:00",
         "error": null,
         "store_query": null
       }
@@ -197,8 +174,8 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-27T16:49:39.342090+01:00",
-      "duration_seconds": 27.236374,
+      "updated_at": "2025-11-29T13:43:11.744521+01:00",
+      "duration_seconds": 40.232115,
       "error": null,
       "store_query": null,
       "previous": {
@@ -218,7 +195,7 @@
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-27T14:57:14.100922+01:00",
+        "updated_at": "2025-11-27T16:49:39.342090+01:00",
         "error": null,
         "store_query": null
       }
@@ -1041,30 +1018,13 @@
         "store": null,
         "raw_text": null,
         "extras": null,
-        "candidates": [
-          {
-            "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-pik-275g/MPX_2135995",
-            "product": {
-              "title": "Haribo Bonbons Les Schtroumpfs Pik 275g",
-              "brand": "Haribo",
-              "kind": "",
-              "qty": "275 G",
-              "qualifiers": [],
-              "ean": null,
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5300e01b-393a-4025-8330-889f 792c3997/300x300.jpg",
-              "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Sélection Raclette Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          }
-        ],
+        "candidates": [],
         "_meta": {
           "supports_keywords": true
         }
       },
-      "updated_at": "2025-11-27T16:49:39.342090+01:00",
-      "duration_seconds": 40.874665,
+      "updated_at": "2025-11-29T13:49:02.214385+01:00",
+      "duration_seconds": 34.416889,
       "error": null,
       "store_query": null,
       "previous": {
@@ -1098,35 +1058,35 @@
                 "seed_query": "",
                 "leclerc_queries": []
               }
-            },
-            {
-              "url": "https://courses.monoprix.fr/products/haribo-bonbons-les-schtroumpfs-300g/MPX_1332907",
-              "product": {
-                "title": "Haribo Bonbons Les Schtroumpfs 300g",
-                "brand": "Haribo",
-                "kind": "",
-                "qty": "300 G",
-                "qualifiers": [],
-                "ean": null,
-                "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d8466aac-5f23-48db-a88c-1ea3 937589b0/300x300.jpg",
-                "source": "monoprix",
-                "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Sélection Raclette Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2",
-                "seed_query": "",
-                "leclerc_queries": []
-              }
             }
           ],
           "_meta": {
             "supports_keywords": true
           }
         },
-        "updated_at": "2025-11-27T14:57:14.100922+01:00",
+        "updated_at": "2025-11-27T16:49:39.342090+01:00",
         "error": null,
         "store_query": null
       }
     },
     "_finder": {
-      "error": "'FinderPipeline' object has no attribute 'decide'"
+      "consolidated": {
+        "title": "Schtroumpfs",
+        "brand": "Haribo",
+        "kind": "",
+        "qty": "300 g",
+        "qualifiers": [],
+        "ean": "3103220045640",
+        "image_url": null,
+        "source": "consolidated",
+        "raw_text": "",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": null,
+      "candidates": [],
+      "decision": null,
+      "audit": []
     }
   }
 }

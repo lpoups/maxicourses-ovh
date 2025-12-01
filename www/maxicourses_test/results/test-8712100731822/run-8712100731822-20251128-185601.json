@@ -1,0 +1,98 @@
+{
+  "ean": "8712100731822",
+  "image_path": null,
+  "started_at": "2025-11-28T18:55:59.249576+01:00",
+  "finished_at": "2025-11-28T18:56:01.259393+01:00",
+  "duration_seconds": 2.009817,
+  "reference": {
+    "title": "Moutarde aux aromates SAVORA 385 g",
+    "description": "Moutarde aux aromates SAVORA 385 g",
+    "source": "chronodrive",
+    "brand": "Savora",
+    "quantity": "385  g",
+    "categories": "Condiments, Sauces, Moutardes, en:groceries, Spécialité à la Moutarde",
+    "image": "./assets/8712100731822.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
+    "ecoscore_grade": "b",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
+    "nova_group": "3"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251128-185559"
+  ],
+  "adapters": [
+    {
+      "adapter": "casino",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,00",
+        "quantity": "385g",
+        "title": "Amora Spécialité à la Moutarde Savora Bocal 385g",
+        "url": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-casino-shop-33130/TZ193/798533",
+        "note": "Casino Shop · Bègles Pruniers",
+        "store": "Casino Shop · Bègles Pruniers",
+        "matched_ean": "8712100731822",
+        "product": {
+          "title": "Amora Spécialité à la Moutarde Savora Bocal 385g",
+          "brand": "Amora",
+          "qty": "385g",
+          "ean": "8712100731822",
+          "image_url": null,
+          "source": "casino"
+        },
+        "_meta": {
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Savora 385 G",
+          "timestamp": "2025-11-28T17:56:00.363730+00:00",
+          "direct_url": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-casino-shop-33130/TZ193/798533",
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-casino-shop-33130/TZ193/798533",
+            "product": {
+              "title": "Amora Spécialité à la Moutarde Savora Bocal 385g",
+              "brand": "Amora",
+              "kind": "",
+              "qty": "385g",
+              "qualifiers": [],
+              "ean": "8712100731822",
+              "image_url": null,
+              "source": "casino",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-28T18:56:00.195297+01:00",
+      "finished_at": "2025-11-28T18:56:01.256685+01:00",
+      "duration_seconds": 1.061388,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8712100731822",
+        "QUERY": "Savora 385 G",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Savora 385 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251128-185559/01-casino"
+      }
+    }
+  ],
+  "finder": {
+    "error": "'FinderPipeline' object has no attribute 'decide'"
+  }
+}

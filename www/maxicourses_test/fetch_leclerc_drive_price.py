@@ -35,9 +35,16 @@ def env(name: str, default: str = "") -> str:
 async def run() -> dict:
     if os.environ.get("USE_CDP") != "1":
         return {"status": "ERROR", "error": "Leclerc Drive nécessite USE_CDP=1"}
+    
+    # Quick price update support
+    direct_url = env("DIRECT_URL")
+    skip_search = env("SKIP_SEARCH", "0").lower() in {"1", "true", "yes"}
+    
     result = await run_manual_leclerc(
         query=env("QUERY"),
         ean=env("EAN"),
+        direct_url=direct_url or None,
+        skip_search=skip_search,
         store_url=env("STORE_URL", "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx"),
         cdp_url=env("CDP_URL", "http://127.0.0.1:9222"),
         human_delay_ms=int(os.environ.get("LECLERC_HUMAN_DELAY_MS", str(DEFAULT_HUMAN_DELAY_MS))),

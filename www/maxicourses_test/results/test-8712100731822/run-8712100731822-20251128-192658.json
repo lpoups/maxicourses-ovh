@@ -1,0 +1,89 @@
+{
+  "ean": "8712100731822",
+  "image_path": null,
+  "started_at": "2025-11-28T19:26:38.614391+01:00",
+  "finished_at": "2025-11-28T19:26:58.611770+01:00",
+  "duration_seconds": 19.997379,
+  "reference": {
+    "title": "Moutarde aux aromates SAVORA 385 g",
+    "description": "Moutarde aux aromates SAVORA 385 g",
+    "source": "chronodrive",
+    "brand": "Savora",
+    "quantity": "385  g",
+    "categories": "Condiments, Sauces, Moutardes, en:groceries, Spécialité à la Moutarde",
+    "image": "./assets/8712100731822.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
+    "ecoscore_grade": "b",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
+    "nova_group": "3"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251128-192638"
+  ],
+  "adapters": [
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,50",
+        "title": "Spécialité à la moutarde de Dijon aux 11 épices et  aromates",
+        "url": "https://www.intermarche.com/produit/specialite-a-la-moutarde-de-dijon-aux-11-epices-et-aromates/8712100 731822",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "8712100731822",
+        "unit_price": "6,49 € /  KG",
+        "quantity": "385  g",
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/specialite-a-la-moutarde-de-dijon-aux-11-epices-et-aromates/8712100 731822",
+            "product": {
+              "title": "SavoraSpécialité à la moutarde de Dijon aux 11 épices et  aromates",
+              "brand": "Savora",
+              "kind": "Moutarde Epices & Amorates Savora AMORA",
+              "qty": "385 g",
+              "qualifiers": [],
+              "ean": "8712100731822",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": null
+      },
+      "started_at": "2025-11-28T19:26:39.040036+01:00",
+      "finished_at": "2025-11-28T19:26:58.605526+01:00",
+      "duration_seconds": 19.56549,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "8712100731822",
+        "QUERY": "Savora 385 G",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Savora 385 G",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251128-192638/01-intermarche"
+      }
+    }
+  ],
+  "finder": {
+    "error": "'FinderPipeline' object has no attribute 'decide'"
+  }
+}

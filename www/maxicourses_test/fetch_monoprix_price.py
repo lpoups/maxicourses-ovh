@@ -51,6 +51,8 @@ MANDATE = get_method("monoprix")
 DEBUG_MONOPRIX = os.environ.get("DEBUG_MONOPRIX") == "1"
 DEBUG_DUMP_ROOT = os.environ.get("HUMAN_DEBUG_DIR") or os.environ.get("MONOPRIX_DEBUG_DIR")
 FAILURE_LOG_PATH = Path(__file__).resolve().with_name("logs") / "seed_failures.log"
+DIRECT_URL = (os.environ.get("DIRECT_URL") or "").strip()
+SKIP_SEARCH = (os.environ.get("SKIP_SEARCH") or "0").lower() in {"1", "true", "yes"}
 
 IMAGE_HASH_CACHE: dict[Path, int] = {}
 REMOTE_HASH_CACHE: dict[str, int] = {}
@@ -2583,6 +2585,40 @@ def evaluate_candidate(
     return score, plausible, extras
 
 
+async def _attempt_direct_monoprix(context, descriptor_entry: dict[str, typing.Any]) -> typing.Optional[Result]:
+    if not DIRECT_URL:
+        return None
+    new_page = await context.new_page()
+    try:
+        candidate = await parse_product_page(new_page, DIRECT_URL, descriptor_entry)
+    finally:
+        await new_page.close()
+    if not candidate or not candidate.price:
+        return None
+    if not _is_candidate_valid_for_seed(candidate, descriptor_entry):
+        return None
+
+    seed_variant = _seed_variant_from_descriptor(descriptor_entry)
+    category_tokens = _extract_category_tokens(descriptor_entry)
+    dynamic_negatives = _collect_monoprix_negatives(descriptor_entry, seed_variant)
+    score, plausible, extras = evaluate_candidate(
+        candidate,
+        descriptor_entry,
+        negatives=dynamic_negatives,
+        seed_variant=seed_variant,
+        category_tokens=category_tokens,
+    )
+    candidate.extras = extras
+    image_match = await _image_matches_descriptor_async(descriptor_entry, candidate.note)
+    extras["image_match"] = image_match
+    if image_match or (plausible and not extras.get("vetoes")):
+        candidate.status = "OK"
+        candidate.matched_ean = descriptor_entry.get("ean") or EAN or candidate.matched_ean
+        candidate.candidates = [{"url": DIRECT_URL, "status": "MATCHED", "score": score}]
+        return candidate
+    return None
+
+
 async def run() -> Result:
     sys.stderr.write("[MONOPRIX_DEBUG] Starting run() function\n")
     global MANUAL_DESCRIPTOR
@@ -2653,7 +2689,16 @@ async def run() -> Result:
         sys.stderr.write("[MONOPRIX_DEBUG] Calling ensure_store()\n")
         await ensure_store(page)
         sys.stderr.write("[MONOPRIX_DEBUG] ensure_store() finished\n")
-        
+
+        if DIRECT_URL:
+            sys.stderr.write("[MONOPRIX_DEBUG] Attempting direct PDP via descriptor URL\n")
+            direct_candidate = await _attempt_direct_monoprix(context, descriptor_entry or {})
+            if direct_candidate:
+                return direct_candidate
+            if SKIP_SEARCH:
+                sys.stderr.write("[MONOPRIX_DEBUG] Direct PDP failed and SKIP_SEARCH enabled\n")
+                return Result(status="NO_RESULTS")
+
         sys.stderr.write("[MONOPRIX_DEBUG] Calling find_best_product()\n")
         result = await find_best_product(page, context, HOME_URL, terms)
         sys.stderr.write(f"[MONOPRIX_DEBUG] find_best_product() returned: {result}\n")

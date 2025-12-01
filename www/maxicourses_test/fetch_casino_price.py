@@ -34,6 +34,8 @@ except ImportError:  # pragma: no cover
 EAN = os.environ.get("EAN", "").strip()
 QUERY = os.environ.get("QUERY", "").strip()
 PROXY = os.environ.get("PROXY")
+DIRECT_URL = (os.environ.get("DIRECT_URL") or "").strip()
+SKIP_SEARCH = (os.environ.get("SKIP_SEARCH") or "0").lower() in {"1", "true", "yes"}
 
 BASE_URL = os.environ.get("CASINO_BASE_URL", "https://www.mescoursesdeproximite.com")
 STORE_CODE = os.environ.get("CASINO_STORE_CODE", "TZ193").strip()
@@ -157,10 +159,14 @@ def _build_search_url(term: str) -> str:
 
 
 def _normalize_price(text: Optional[str]) -> Optional[str]:
-    if not text:
+    if text is None:
         return None
+    # Support numbers coming from JSON-LD (int/float) in direct mode
+    if isinstance(text, (int, float)):
+        text = f"{text:.2f}" if isinstance(text, float) else str(text)
     cleaned = (
-        text.replace("\xa0", " ")
+        str(text)
+        .replace("\xa0", " ")
         .replace("€", "")
         .strip()
         .replace(" ", "")
@@ -181,6 +187,38 @@ def _strip_parentheses(value: Optional[str]) -> Optional[str]:
     if not value:
         return None
     return value.strip().strip("()").strip()
+
+
+def _extract_pdp_price_info(html: str) -> tuple[Optional[str], Optional[str]]:
+    if not html:
+        return None, None
+    price_text = None
+    unit_text = None
+    if BeautifulSoup is not None:
+        try:
+            soup = BeautifulSoup(html, "lxml")
+            container = soup.select_one(".prixProduit")
+            if container:
+                spans = container.select("span")
+                for span in spans:
+                    text = span.get_text(" ", strip=True)
+                    if not text or "€" not in text:
+                        continue
+                    if text.startswith("(") and text.endswith(")"):
+                        unit_text = text.strip("()")
+                    elif price_text is None:
+                        price_text = text
+        except Exception:
+            price_text = unit_text = None
+    if not price_text:
+        match = re.search(r'prixProduit[\s\S]*?<span[^>]*>\s*([\d\s.,]+)\s*€', html, re.IGNORECASE)
+        if match:
+            price_text = match.group(1).strip() + " €"
+    if not unit_text:
+        match = re.search(r'\(([^<>]*€\s*/[^<>]+)\)', html, re.IGNORECASE)
+        if match:
+            unit_text = match.group(1).strip()
+    return price_text, unit_text
 
 
 def _guess_quantity(*texts: Optional[str]) -> Optional[str]:
@@ -328,20 +366,28 @@ def _fetch_product_details(session: requests.Session, url: str) -> Dict[str, Any
         return {}
     if response.status_code >= 400:
         return {}
-    data = _extract_product_jsonld(response.text)
+    html = response.text
+    data = _extract_product_jsonld(html)
+    price_text, unit_text = _extract_pdp_price_info(html)
     if not isinstance(data, dict):
-        return {}
+        data = {}
     brand = None
     brand_entry = data.get("brand")
     if isinstance(brand_entry, dict):
         brand = brand_entry.get("name")
     elif isinstance(brand_entry, str):
         brand = brand_entry
+    offers = data.get("offers")
+    if not isinstance(offers, dict):
+        offers = None
+    schema_price = offers.get("price") if offers else data.get("price")
+    price_value = price_text or schema_price
     return {
         "ean": data.get("gtin13") or data.get("gtin") or data.get("sku"),
         "brand": brand,
         "name": data.get("name"),
-        "price": data.get("offers", {}).get("price") if isinstance(data.get("offers"), dict) else None,
+        "price": price_value,
+        "unit_price": unit_text,
     }
 
 
@@ -372,8 +418,67 @@ def fetch_casino() -> ResultPayload:
     if not query:
         return ResultPayload(status="ERROR", error="Requête vide", note=STORE_LABEL)
 
-    search_url = _build_search_url(query)
     session = _make_session()
+
+    if DIRECT_URL:
+        direct_meta = {
+            "store_code": STORE_CODE,
+            "store_url": STORE_URL,
+            "query": query,
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "direct_url": DIRECT_URL,
+        }
+        details = _fetch_product_details(session, DIRECT_URL)
+        details = details if isinstance(details, dict) else {}
+        matched_ean = details.get("ean")
+        if matched_ean and EAN and matched_ean != EAN:
+            if SKIP_SEARCH:
+                return ResultPayload(
+                    status="NO_MATCH",
+                    note=STORE_LABEL,
+                    url=DIRECT_URL,
+                    matched_ean=matched_ean,
+                    _meta=direct_meta,
+                )
+        price = _normalize_price(details.get("price"))
+        unit_price = _strip_parentheses(details.get("unit_price"))
+        title = details.get("name")
+        brand = details.get("brand")
+        quantity = _guess_quantity(title)
+        if price:
+            payload_product = {
+                "title": title,
+                "brand": brand,
+                "qty": quantity,
+                "ean": matched_ean or EAN,
+                "image_url": None,
+                "source": "casino",
+            }
+            return ResultPayload(
+                status="OK",
+                price=price,
+                unit_price=unit_price,
+                quantity=quantity,
+                title=title,
+                url=DIRECT_URL,
+                note=STORE_LABEL,
+                store=STORE_LABEL,
+                matched_ean=matched_ean or EAN,
+                image=None,
+                product=payload_product,
+                _meta=direct_meta,
+            )
+        if SKIP_SEARCH:
+            return ResultPayload(
+                status="NO_PRICE",
+                title=title,
+                url=DIRECT_URL,
+                note=STORE_LABEL,
+                matched_ean=matched_ean or EAN,
+                _meta=direct_meta,
+            )
+
+    search_url = _build_search_url(query)
     meta = {
         "search_url": search_url,
         "store_code": STORE_CODE,
@@ -402,6 +507,7 @@ def fetch_casino() -> ResultPayload:
 
     for candidate in candidates:
         details = _fetch_product_details(session, candidate.url)
+        details = details if isinstance(details, dict) else {}
         matched_ean = details.get("ean")
         if matched_ean != EAN:
             continue
@@ -409,7 +515,7 @@ def fetch_casino() -> ResultPayload:
         product_title = candidate.title or details.get("name")
         brand = candidate.brand or details.get("brand")
         quantity = candidate.quantity or _guess_quantity(product_title)
-        unit_price = candidate.unit_price
+        unit_price = candidate.unit_price or _strip_parentheses(details.get("unit_price"))
         payload_product = {
             "title": product_title,
             "brand": brand,

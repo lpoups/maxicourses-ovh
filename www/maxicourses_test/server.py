@@ -15,7 +15,9 @@ from typing import Any, Dict, Optional, Set
 from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
 
-from flask import Flask, abort, jsonify, request, send_from_directory
+import subprocess
+import functools
+from flask import Flask, request, jsonify, send_from_directory, abort, session, redirect, url_for, render_template_string
 
 from decode_ean import decode_image_to_ean
 from descriptor_store import (
@@ -64,6 +66,28 @@ def _to_ascii_lower(value: str) -> str:
     normalized = unicodedata.normalize("NFKD", value)
     stripped = "".join(ch for ch in normalized if not unicodedata.combining(ch))
     return stripped.lower()
+
+
+def fix_json_paths(data: Any) -> Any:
+    """Recursively fix paths in JSON data to be relative to server root."""
+    if isinstance(data, dict):
+        return {k: fix_json_paths(v) for k, v in data.items()}
+    if isinstance(data, list):
+        return [fix_json_paths(v) for v in data]
+    if isinstance(data, str):
+        # Fix absolute paths from local machine or previous runs
+        if "/results/" in data:
+            # Keep only the part starting with results/
+            try:
+                index = data.find("results/")
+                if index != -1:
+                    return data[index:]
+            except Exception:
+                pass
+        # Fix broken URLs (e.g. spaces in extension)
+        if data.startswith("http") and " " in data:
+            return data.replace(" ", "")
+    return data
 
 
 def fetch_openfoodfacts_descriptor(ean: str) -> Optional[Dict[str, Any]]:
@@ -572,8 +596,8 @@ def api_update_price():
         "status": "OK",
         "ean": ean,
         "descriptor": descriptor,
-        "latest": latest,
-        "summary": summary_entry,
+        "latest": fix_json_paths(latest),
+        "summary": fix_json_paths(summary_entry),
         "stdout": stdout,
         "mode": "quick_price_update",
     })
@@ -760,8 +784,8 @@ def api_collect():
             "ean": ean,
             "descriptor": descriptor,
             "query": build_seed_query(ean, descriptor),
-            "latest": latest,
-            "summary": summary_entry,
+            "latest": fix_json_paths(latest),
+            "summary": fix_json_paths(summary_entry),
             "stdout": stdout,
             "from_image": image_mode,
             "uploaded_image_path": str(stored_path) if stored_path else None,
@@ -814,8 +838,333 @@ def serve_results(subpath: str):
 
 @app.get("/")
 def home():
-    return "MaxiCourses API: POST /api/collect {ean: ...}"
+    # Serve the frontend UI
+    index_path = ROOT / "pipeline" / "index_ovh_prod.html"
+    if index_path.exists():
+        return send_from_directory(index_path.parent, index_path.name)
+    return "MaxiCourses API: POST /api/collect {ean: ...} (Frontend not found)"
 
+@app.get("/index.html")
+def index_html():
+    return home()
+
+
+def fix_json_paths(data: Any) -> Any:
+    """Recursively fix paths in JSON data to be relative to server root."""
+    if isinstance(data, dict):
+        return {k: fix_json_paths(v) for k, v in data.items()}
+    if isinstance(data, list):
+        return [fix_json_paths(v) for v in data]
+    if isinstance(data, str):
+        # Fix absolute paths from local machine or previous runs
+        if "/results/" in data:
+            # Keep only the part starting with results/
+            try:
+                index = data.find("results/")
+                if index != -1:
+                    return data[index:]
+            except Exception:
+                pass
+        # Fix broken URLs (e.g. spaces in extension)
+        if data.startswith("http") and " " in data:
+            return data.replace(" ", "")
+    return data
+
+
+@app.get("/assets/<path:subpath>")
+def serve_assets(subpath: str):
+    # Assets are likely in ../../assets relative to this file (www/maxicourses_test/server.py)
+    # Or just check common locations
+    possible_roots = [
+        ROOT.parent.parent / "assets", # ~/maxicourses-ovh/assets
+        ROOT / "assets",               # ~/maxicourses-ovh/www/maxicourses_test/assets
+        ROOT / "pipeline" / "assets",  # ~/maxicourses-ovh/www/maxicourses_test/pipeline/assets
+    ]
+    for root in possible_roots:
+        target = (root / subpath).resolve()
+        if target.exists() and str(target).startswith(str(root.resolve())):
+             return send_from_directory(root, subpath)
+    abort(404)
+
+# --- Control Panel ---
+
+app.secret_key = "maxicourses_secret_key_change_me"  # Needed for session
+CONTROL_PASSWORD = "20851967!"
+
+def login_required(f):
+    @functools.wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not session.get("logged_in"):
+            return redirect(url_for("ovh_control_login"))
+        return f(*args, **kwargs)
+    return decorated_function
+
+@app.route("/ovh_control/login", methods=["GET", "POST"])
+def ovh_control_login():
+    if request.method == "POST":
+        if request.form.get("password") == CONTROL_PASSWORD:
+            session["logged_in"] = True
+            return redirect(url_for("ovh_control"))
+        else:
+            return render_template_string(LOGIN_TEMPLATE, error="Mot de passe incorrect")
+    return render_template_string(LOGIN_TEMPLATE)
+
+@app.route("/ovh_control/logout")
+def ovh_control_logout():
+    session.pop("logged_in", None)
+    return redirect(url_for("ovh_control_login"))
+
+@app.route("/ovh_control")
+@login_required
+def ovh_control():
+    return render_template_string(CONTROL_TEMPLATE)
+
+@app.route("/api/control/<action>", methods=["POST"])
+@login_required
+def api_control(action):
+    try:
+        output = ""
+        status_code = "ok"
+        
+        # --- WEB SERVICE ---
+        if action == "status_web":
+            try:
+                # Check if active
+                subprocess.check_call(["systemctl", "is-active", "--quiet", "maxicourses-web.service"])
+                output = "OK"
+            except subprocess.CalledProcessError:
+                output = "NO OK"
+        elif action == "start_web":
+            subprocess.check_call(["sudo", "systemctl", "start", "maxicourses-web.service"])
+            output = "Service démarré."
+        elif action == "restart_web":
+            subprocess.check_call(["sudo", "systemctl", "restart", "maxicourses-web.service"])
+            output = "Service redémarré."
+        elif action == "stop_web":
+            subprocess.check_call(["sudo", "systemctl", "stop", "maxicourses-web.service"])
+            output = "Service arrêté."
+        elif action == "logs_web":
+             output = subprocess.check_output(["journalctl", "-u", "maxicourses-web.service", "-n", "50", "--no-pager"], stderr=subprocess.STDOUT, text=True)
+
+        # --- CHROME SERVICE ---
+        elif action == "status_chrome":
+            try:
+                subprocess.check_call(["systemctl", "is-active", "--quiet", "chrome-debug@ubuntu.service"])
+                output = "OK"
+            except subprocess.CalledProcessError:
+                output = "NO OK"
+        elif action == "start_chrome":
+            subprocess.check_call(["sudo", "systemctl", "start", "chrome-debug@ubuntu.service"])
+            output = "Chrome démarré."
+        elif action == "restart_chrome":
+            subprocess.check_call(["sudo", "systemctl", "restart", "chrome-debug@ubuntu.service"])
+            output = "Chrome redémarré."
+        elif action == "stop_chrome":
+            subprocess.check_call(["sudo", "systemctl", "stop", "chrome-debug@ubuntu.service"])
+            output = "Chrome arrêté."
+            
+        # --- SSH TUNNEL ---
+        elif action == "status_tunnel":
+            # Check for sshd listening on port 9223 (IPv4 or IPv6) - DEDICATED TUNNEL PORT
+            cmd = "sudo ss -tulpn | grep :9223 | grep sshd"
+            try:
+                subprocess.check_output(cmd, shell=True, text=True)
+                output = "OK"
+            except subprocess.CalledProcessError:
+                output = "NO OK"
+        elif action == "start_tunnel":
+            # Tunnels are initiated from the client, not the server
+            output = "⚠️ Action requise côté client (Mac) :\n\nOuvrez un terminal sur votre Mac et lancez :\nssh -R 9223:localhost:9222 ovh-server\n\n(Cela connectera le port 9223 du serveur à votre Chrome Mac sur 9222)"
+            status_code = "warning"
+        elif action == "stop_tunnel" or action == "kill_tunnel":
+            # Kill the sshd process listening on port 9223
+            try:
+                # Extract PID: users:(("sshd",pid=1234,fd=7)) -> 1234
+                cmd = "sudo ss -lptn 'sport = :9223' | grep sshd | grep -o 'pid=[0-9]*' | cut -d'=' -f2 | xargs -r sudo kill"
+                subprocess.check_call(cmd, shell=True)
+                output = "Tunnel arrêté (processus tué)."
+            except subprocess.CalledProcessError as e:
+                output = f"Erreur lors de l'arrêt du tunnel: {e}"
+            
+        return jsonify({"status": status_code, "output": output})
+    except subprocess.CalledProcessError as e:
+        return jsonify({"status": "error", "output": e.output if e.output else str(e)})
+    except Exception as e:
+        return jsonify({"status": "error", "output": str(e)})
+
+# --- Templates ---
+
+LOGIN_TEMPLATE = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - OVH Control</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f2f5; }
+        .card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        input { padding: 0.5rem; margin-bottom: 1rem; width: 100%; box-sizing: border-box; }
+        button { background: #007bff; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; width: 100%; }
+        button:hover { background: #0056b3; }
+        .error { color: red; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Connexion</h2>
+        {% if error %}<div class="error">{{ error }}</div>{% endif %}
+        <form method="post">
+            <input type="password" name="password" placeholder="Mot de passe" required autofocus>
+            <button type="submit">Entrer</button>
+        </form>
+    </div>
+</body>
+</html>
+"""
+
+CONTROL_TEMPLATE = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OVH Control Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 20px; background: #f8fafc; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        h1 { font-size: 1.5rem; margin: 0; color: #1e293b; }
+        .card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        h2 { margin: 0; font-size: 1.1rem; color: #475569; }
+        .status-badge { padding: 4px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; }
+        .status-ok { background: #dcfce7; color: #166534; }
+        .status-nook { background: #fee2e2; color: #991b1b; }
+        .status-unknown { background: #f1f5f9; color: #64748b; }
+        
+        .actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; margin-top: 15px; }
+        button { padding: 10px; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; transition: all 0.2s; font-size: 0.9rem; }
+        
+        .btn-start { background: #22c55e; color: white; }
+        .btn-start:hover { background: #16a34a; }
+        
+        .btn-restart { background: #f59e0b; color: white; }
+        .btn-restart:hover { background: #d97706; }
+        
+        .btn-stop { background: #ef4444; color: white; }
+        .btn-stop:hover { background: #dc2626; }
+        
+        .btn-logs { background: #3b82f6; color: white; }
+        .btn-logs:hover { background: #2563eb; }
+
+        .message-box { margin-top: 15px; padding: 10px; background: #f8fafc; border-radius: 6px; font-size: 0.85rem; color: #475569; display: none; border: 1px solid #e2e8f0; }
+        .logout { color: #64748b; text-decoration: none; font-size: 0.9rem; }
+        .logout:hover { color: #ef4444; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>OVH Control</h1>
+            <a href="/ovh_control/logout" class="logout">Déconnexion</a>
+        </div>
+
+        <!-- Maxicourses Web -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Maxicourses Web</h2>
+                <span id="status_web_badge" class="status-badge status-unknown">Checking...</span>
+            </div>
+            <div class="actions">
+                <button class="btn-start" onclick="run('start_web')">Lancer</button>
+                <button class="btn-restart" onclick="run('restart_web')">Redémarrer</button>
+                <button class="btn-stop" onclick="run('stop_web')">Arrêter</button>
+                <button class="btn-logs" onclick="run('logs_web')">Logs</button>
+            </div>
+            <div id="msg_web" class="message-box"></div>
+        </div>
+
+        <!-- Chrome Debug -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Chrome Debug</h2>
+                <span id="status_chrome_badge" class="status-badge status-unknown">Checking...</span>
+            </div>
+            <div class="actions">
+                <button class="btn-start" onclick="run('start_chrome')">Lancer</button>
+                <button class="btn-restart" onclick="run('restart_chrome')">Redémarrer</button>
+                <button class="btn-stop" onclick="run('stop_chrome')">Arrêter</button>
+            </div>
+            <div id="msg_chrome" class="message-box"></div>
+        </div>
+
+        <!-- SSH Tunnel -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Tunnel SSH</h2>
+                <span id="status_tunnel_badge" class="status-badge status-unknown">Checking...</span>
+            </div>
+            <div class="actions">
+                <button class="btn-start" onclick="run('start_tunnel')">Lancer</button>
+                <button class="btn-stop" onclick="run('stop_tunnel')">Arrêter / Tuer</button>
+            </div>
+            <div id="msg_tunnel" class="message-box"></div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-refresh status on load
+        window.onload = function() {
+            checkStatus('web');
+            checkStatus('chrome');
+            checkStatus('tunnel');
+        };
+
+        async function checkStatus(service) {
+            const badge = document.getElementById('status_' + service + '_badge');
+            try {
+                const response = await fetch('/api/control/status_' + service, { method: 'POST' });
+                const data = await response.json();
+                
+                if (data.output.trim() === 'OK') {
+                    badge.textContent = 'OK';
+                    badge.className = 'status-badge status-ok';
+                } else {
+                    badge.textContent = 'NO OK';
+                    badge.className = 'status-badge status-nook';
+                }
+            } catch (e) {
+                badge.textContent = 'Error';
+                badge.className = 'status-badge status-nook';
+            }
+        }
+
+        async function run(action) {
+            const service = action.split('_')[1]; // web, chrome, tunnel
+            const msgBox = document.getElementById('msg_' + service);
+            
+            msgBox.style.display = 'block';
+            msgBox.textContent = "Exécution...";
+            msgBox.style.color = '#475569';
+            
+            try {
+                const response = await fetch('/api/control/' + action, { method: 'POST' });
+                const data = await response.json();
+                
+                if (action.startsWith('logs')) {
+                    msgBox.innerHTML = '<pre>' + data.output + '</pre>';
+                } else {
+                    msgBox.textContent = data.output;
+                    // Refresh status after action (with small delay)
+                    setTimeout(() => checkStatus(service), 2000);
+                }
+            } catch (e) {
+                msgBox.textContent = "Erreur: " + e;
+                msgBox.style.color = '#dc2626';
+            }
+        }
+    </script>
+</body>
+</html>
+"""
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5001, debug=False)

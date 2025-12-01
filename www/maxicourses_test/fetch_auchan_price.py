@@ -20,6 +20,8 @@ from seed_catalog import all_seeds
 EAN = os.environ.get("EAN", "").strip()
 HEADLESS = os.environ.get("HEADLESS", "1") == "1"
 PROXY = os.environ.get("PROXY")
+DIRECT_URL = (os.environ.get("DIRECT_URL") or "").strip()
+SKIP_SEARCH = (os.environ.get("SKIP_SEARCH") or "0").lower() in {"1", "true", "yes"}
 STORE_ID = os.environ.get("AUCHAN_STORE_ID", "6117")
 STORE_SLUG = os.environ.get(
     "AUCHAN_STORE_SLUG", "auchan-drive-supermarche-talence-gallieni"
@@ -33,8 +35,7 @@ STORE_LABEL = os.environ.get(
 )
 DEFAULT_USER_AGENT = os.environ.get(
     "AUCHAN_USER_AGENT",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/128.0.6613.18 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
 )
 
 SEED_DATA = all_seeds()
@@ -99,31 +100,52 @@ async def close_delivery_modal(page) -> None:
 
 
 async def choose_drive(page) -> None:
+    """
+    Selects the store if the 'Choisir ce drive' button is present.
+    """
     selectors = [
+        "button.journey-button",
         "button:has-text('Choisir ce Drive')",
-        "button:has-text('Choisir ce drive')",
         "button:has-text('Choisir ce magasin')",
-        "button:has-text('Afficher le prix')",
-        "button:has-text('Afficher les prix')",
-        "button[autotrack-event-action='choose_store']",
-        "button[data-testid*='choose-drive']",
     ]
-    found = False
-    for selector in selectors:
-        button = page.locator(selector).first
+    
+    log("Checking for 'Choisir ce drive' button...")
+    
+    try:
+        # Wait for network to be idle to ensure button is interactive
         try:
-            if await button.count():
-                log(f"click selector {selector}")
-                await button.scroll_into_view_if_needed()
-                await button.click()
-                await page.wait_for_timeout(4000)
-                found = True
-                break
+            await page.wait_for_load_state("networkidle", timeout=5000)
         except Exception:
-            continue
-    if not found:
-        log("choose_drive: no store button detected")
-    await sync_store_context(page)
+            pass
+
+        target_button = None
+        for selector in selectors:
+            btn = page.locator(selector).first
+            if await btn.count() and await btn.is_visible():
+                target_button = btn
+                log(f"Found visible button: {selector}")
+                break
+        
+        if not target_button:
+            log("No 'Choisir ce drive' button found. Maybe already selected?")
+            return
+
+        # Simple, robust click
+        log("Clicking 'Choisir ce drive'...")
+        await target_button.scroll_into_view_if_needed()
+        await page.wait_for_timeout(500)
+        await target_button.click(force=True)
+        
+        # Wait for reaction
+        await page.wait_for_timeout(3000)
+        
+        if not await target_button.is_visible():
+            log("✅ Button disappeared, store selected.")
+        else:
+            log("⚠️ Button still visible after click.")
+
+    except Exception as e:
+        log(f"Error in choose_drive: {e}")
 
 
 STORE_CONTEXT_SCRIPT = """
@@ -168,7 +190,7 @@ async def prepare_store_page(page) -> None:
     await accept_cookies(page)
     await close_delivery_modal(page)
     await choose_drive(page)
-    await page.wait_for_timeout(800)
+    # choose_drive() already waits 5 seconds after clicking
 
 
 async def focus_search_input(page):
@@ -188,9 +210,13 @@ async def focus_search_input(page):
     return None
 
 
-async def search_ean(page, ean: str) -> bool:
+async def search_ean(page, ean: str) -> tuple[bool, Optional[str]]:
+    """
+    Searches for EAN and returns (success, price_from_search_results).
+    The price appears on search results page BEFORE clicking the product.
+    """
     if not (ean and ean.isdigit()):
-        return False
+        return False, None
     result_cards = page.locator(
         "article.product-thumbnail a[href*='/pr-'], "
         "a[href*='/produit/'], a[href*='/pr-']"
@@ -221,26 +247,49 @@ async def search_ean(page, ean: str) -> bool:
                 await page.wait_for_timeout(1200)
             except Exception as exc:
                 log(f"search page fallback failed: {exc}")
-                return False
+                return False, None
 
         try:
             await result_cards.first.wait_for(timeout=8000)
-            log("results visible, opening first candidate")
+            log("results visible, extracting price from search results")
             break
         except Exception:
             log("results not visible")
     else:
-        return False
+        return False, None
 
+    # Extract price from the FIRST search result card (before clicking)
+    price_from_search = None
+    try:
+        # Try multiple selectors for price in search results
+        first_card = result_cards.first
+        price_selectors = [
+            ".product-thumbnail__price",
+            "[data-testid='product-price']",
+            ".product-price",
+            "[class*='price']"
+        ]
+        for selector in price_selectors:
+            price_node = first_card.locator(selector).first
+            if await price_node.count():
+                price_text = await price_node.text_content()
+                price_from_search = clean_price(price_text)
+                if price_from_search:
+                    log(f"price from search results: {price_from_search}")
+                    break
+    except Exception as e:
+        log(f"failed to extract price from search results: {e}")
+
+    # Now click to go to PDP for other details
     try:
         async with page.expect_navigation(wait_until="domcontentloaded", timeout=12000):
             await result_cards.first.click()
         await accept_cookies(page)
         await page.wait_for_timeout(800)
-        return True
+        return True, price_from_search
     except Exception as exc:
         log(f"candidate click failed: {exc}")
-        return False
+        return False, price_from_search
 
 
 async def reveal_price(page) -> None:
@@ -267,7 +316,7 @@ async def reveal_price(page) -> None:
         await page.wait_for_timeout(400)
 
 
-def clean_price(text: Optional[str], *, require_currency: bool = False) -> Optional[str]:
+def clean_price(text: Optional[str], *, require_currency: bool = True) -> Optional[str]:
     if not text:
         return None
     normalized = text.replace("\xa0", " ")
@@ -471,47 +520,80 @@ def normalize_unit_price_text(text: Optional[str]) -> Optional[str]:
     return f"{value:.2f}".replace(".", ",") + f" € / {label}"
 
 
+
 async def extract_from_pdp(page) -> Optional[Result]:
-    await reveal_price(page)
-    if os.environ.get("AUCHAN_DEBUG") == "1":
+    # Retry loop for price extraction (handle missing store selection)
+    max_retries = 3
+    for attempt in range(max_retries):
+        await reveal_price(page)
+        if os.environ.get("AUCHAN_DEBUG") == "1":
+            try:
+                await page.screenshot(path=f"auchan_debug_{attempt}.png", full_page=True)
+            except Exception:
+                pass
+        html = await page.content()
+        
+        title = None
         try:
-            await page.screenshot(path="auchan_debug.png", full_page=True)
-        except Exception:
-            pass
-    html = await page.content()
-    if os.environ.get("AUCHAN_DEBUG") == "1":
-        try:
-            Path("auchan_debug.html").write_text(html)
+            title = await page.locator("h1").first.text_content(timeout=4000)
         except Exception:
             pass
 
-    title = None
-    try:
-        title = await page.locator("h1").first.text_content(timeout=4000)
-    except Exception:
-        pass
-
-    price_text = None
-    price_node = page.locator("[data-testid='product-price'], .product-price").first
-    if await price_node.count():
-        try:
-            price_text = await price_node.text_content()
-            if os.environ.get("AUCHAN_DEBUG") == "1" and price_text:
-                snippet = None
+        price_text = None
+        price_node = page.locator("[data-testid='product-price'], .product-price").first
+        if await price_node.count():
+            try:
+                price_text = await price_node.text_content()
+            except Exception:
+                price_text = None
+        
+        # Enforce currency check as per guide
+        if not price_text:
+            price_text = clean_price(html, require_currency=True)
+        
+        price_value = clean_price(price_text, require_currency=True)
+        
+        if os.environ.get("AUCHAN_DEBUG") == "1":
+            log(f"Attempt {attempt+1}: price_text={price_text!r} value={price_value!r}")
+            if not price_value:
+                # Smart Dump: Find any element with '€'
+                log("--- DEBUG: Smart Price Scan ---")
                 try:
-                    snippet = await price_node.inner_html()
-                except Exception:
-                    snippet = None
-                log(f"price_text_raw={price_text!r}")
-                if snippet:
-                    log(f"price_node_html={snippet[:200]!r}")
-        except Exception:
-            price_text = None
-    if not price_text:
-        price_text = clean_price(html, require_currency=True)
-    price_value = clean_price(price_text)
-    if os.environ.get("AUCHAN_DEBUG") == "1":
-        log(f"price_debug text={price_text!r} value={price_value!r}")
+                    # Find elements containing '€' text
+                    elements = await page.locator("*:has-text('€')").all()
+                    for i, el in enumerate(elements[:10]): # Limit to first 10 matches
+                        try:
+                            tag = await el.evaluate("el => el.tagName")
+                            cls = await el.get_attribute("class") or ""
+                            text = (await el.text_content() or "").strip()
+                            if len(text) < 50: # Only interesting if short text
+                                log(f"Match {i}: <{tag} class='{cls}'>{text}</{tag}>")
+                        except Exception:
+                            pass
+                    
+                    # Also dump body text snippet
+                    body_text = await page.inner_text("body")
+                    log(f"Body Text Snippet: {body_text[:500]!r}")
+                    
+                    # Dump Cookies and LocalStorage
+                    cookies = await page.context.cookies()
+                    log(f"Cookies: {[c['name'] + '=' + c['value'][:10] + '...' for c in cookies]}")
+                    
+                    ls = await page.evaluate("() => JSON.stringify(localStorage)")
+                    log(f"LocalStorage: {ls}")
+                    
+                except Exception as e:
+                    log(f"Smart scan failed: {e}")
+                log("------------------------------")
+            
+        if price_value:
+            break
+            
+        # If no price, maybe store not selected? Try choosing drive again.
+        log(f"⚠️ No valid price found (Attempt {attempt+1}/{max_retries}). Retrying store selection...")
+        await choose_drive(page)
+        await page.wait_for_timeout(2000)
+        
     if not price_value:
         return None
 
@@ -590,22 +672,81 @@ async def run() -> Result:
         proxy=PROXY,
         storage_state_path=storage_state,
         user_agent=DEFAULT_USER_AGENT,
-        use_stealth=False,
     )
+
+    # Debug: Log Console and Network
+    if os.environ.get("AUCHAN_DEBUG") == "1":
+        page.on("console", lambda msg: log(f"CONSOLE: {msg.text}"))
+        page.on("requestfailed", lambda req: log(f"REQ_FAILED: {req.url} {req.failure}"))
+        # page.on("request", lambda req: log(f"REQ: {req.method} {req.url}")) # Too noisy?
+        page.on("response", lambda res: log(f"RESP: {res.status} {res.url}") if res.status >= 400 else None)
 
     try:
         await install_store_context(page)
         await prepare_store_page(page)
-        searched = await search_ean(page, EAN)
+
+        if DIRECT_URL:
+            try:
+                await page.goto(DIRECT_URL, wait_until="domcontentloaded")
+                await page.wait_for_timeout(600)
+                direct_result = await extract_from_pdp(page)
+            except Exception:
+                direct_result = None
+            if direct_result:
+                return direct_result
+            if SKIP_SEARCH:
+                return Result(
+                    status="NO_PRICE",
+                    note="direct_url_failed",
+                    store=STORE_LABEL,
+                    url=DIRECT_URL,
+                )
+
+        # Search and get price from search results
+        searched, price_from_search = await search_ean(page, EAN)
         if not searched:
             return Result(
                 status="NO_RESULTS",
                 note=f"search_failed:{EAN}",
                 store=STORE_LABEL,
             )
+        
+        # Extract other details from PDP
         result = await extract_from_pdp(page)
+        
+        # If we got price from search results but not from PDP, use search price
+        if result and not result.price and price_from_search:
+            log(f"using price from search results: {price_from_search}")
+            result.price = price_from_search
+            # Compute unit price if we have quantity
+            if result.quantity:
+                try:
+                    price_float = float(price_from_search.replace(",", "."))
+                    unit_price = compute_unit_price_from_quantity(price_float, result.quantity)
+                    if unit_price:
+                        result.unit_price = unit_price
+                except (ValueError, AttributeError):
+                    pass
+        
         if result:
             return result
+        
+        # If PDP extraction completely failed but we have search price, return that
+        if price_from_search:
+            log(f"PDP extraction failed, returning search price only")
+            try:
+                price_float = float(price_from_search.replace(",", "."))
+                formatted_price = f"{price_float:.2f}".replace(".", ",")
+            except ValueError:
+                formatted_price = price_from_search
+            return Result(
+                status="OK",
+                price=formatted_price,
+                url=page.url,
+                store=STORE_LABEL,
+                note="price_from_search_results",
+            )
+        
         return Result(
             status="NO_PRICE",
             note="price_missing",

@@ -1,0 +1,96 @@
+{
+  "ean": "3092718637033",
+  "image_path": null,
+  "started_at": "2025-11-28T23:09:39.886745+01:00",
+  "finished_at": "2025-11-28T23:09:50.508668+01:00",
+  "duration_seconds": 10.621923,
+  "reference": {
+    "title": "Sirop menthe verte TEISSEIRE – 60 CL",
+    "description": "Sirop menthe verte TEISSEIRE – 60 CL",
+    "source": "auchan",
+    "brand": "Teisseire",
+    "quantity": "60 CL",
+    "categories": null,
+    "image": "./assets/3092718637033.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,96",
+        "unit_price": "4,93 € / L",
+        "quantity": "0,6 L",
+        "title": "Sirop de menthe",
+        "url": "https://www.auchan.fr/teisseire-sirop-de-menthe/pr-C1628583",
+        "matched_ean": "3092718637033",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S01000000040189PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Sirop de menthe",
+          "brand": "Sirop",
+          "kind": "",
+          "qty": "0,6 L",
+          "qualifiers": [],
+          "ean": "3092718637033",
+          "image_url": "https://cdn.auchan.fr/media/S01000000040189PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-28T23:09:39.887346+01:00",
+      "finished_at": "2025-11-28T23:09:49.552500+01:00",
+      "duration_seconds": 9.665154,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')",
+      "metadata": {
+        "attempt_query": "3092718637033"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Sirop de menthe",
+      "brand": "Sirop",
+      "kind": "",
+      "qty": "0,6 L",
+      "qualifiers": [],
+      "ean": "3092718637033",
+      "image_url": "https://cdn.auchan.fr/media/S01000000040189PRIMARY_1200x1200/B2CD/",
+      "source": "consolidated",
+      "raw_text": "Sirop menthe verte TEISSEIRE – 60 CL",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

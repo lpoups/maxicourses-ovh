@@ -1,0 +1,75 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-12-01T12:33:55.307586+01:00",
+  "finished_at": "2025-12-01T12:33:57.275651+01:00",
+  "duration_seconds": 1.968065,
+  "reference": {
+    "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "description": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "source": "courseu",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": "Beverages,Carbonated drinks,Sodas,Colas",
+    "image": "./assets/5000112611861.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251201-123355"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_market",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-01T12:33:55.308825+01:00",
+      "finished_at": "2025-12-01T12:33:56.375630+01:00",
+      "duration_seconds": 1.066805,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9223\n\nTraceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 14868, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_browser_type.py\", line 207, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 83, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n  - <ws preparing> retrieving websocket url from http://127.0.0.1:9223",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "brand": "Cola",
+      "kind": "",
+      "qty": "1,75 L",
+      "qualifiers": [],
+      "ean": "5000112611861",
+      "image_url": "./assets/5000112611861.jpg",
+      "source": "consolidated",
+      "raw_text": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

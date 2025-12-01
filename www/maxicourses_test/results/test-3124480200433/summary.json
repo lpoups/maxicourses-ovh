@@ -1,26 +1,39 @@
 {
   "3124480200433": {
     "carrefour_city": {
-      "status": "NO_PRICE",
+      "status": "OK",
       "payload": {
-        "status": "NO_PRICE",
-        "price": null,
+        "status": "OK",
+        "price": "2,55",
         "store": "City Bordeaux Balguerie",
-        "url": null,
+        "url": "https://www.carrefour.fr/p/soda-a-l-orange-et-sa-pulpe-orangina-3124480200433",
         "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
+        "unit_price": "1,70 € / L",
+        "quantity": "1,5 L",
+        "title": "Soda à l'Orange et sa Pulpe ORANGINA",
+        "matched_ean": "3124480200433",
+        "image": "https://media.carrefour.fr/media/referential/media/412beaa13ea049e385a7c5eabd69e17a/03124480200433_C1N1 _s04.jpeg",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
         "_meta": {
           "supports_ean": true
+        },
+        "product": {
+          "title": "Soda à l'Orange et sa Pulpe ORANGINA",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,5 L",
+          "qualifiers": [],
+          "ean": "3124480200433",
+          "image_url": "https://media.carrefour.fr/media/referential/media/412beaa13ea049e385a7c5eabd69e17a/03124480200433_C1N1 _s04.jpeg",
+          "source": "carrefour_city",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-28T16:27:35.662524+01:00",
-      "duration_seconds": 16.532277,
+      "updated_at": "2025-11-29T11:07:38.623750+01:00",
+      "duration_seconds": 18.716986,
       "error": null,
       "store_query": null,
       "previous": {
@@ -42,7 +55,7 @@
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-28T16:24:02.677622+01:00",
+        "updated_at": "2025-11-28T16:27:35.662524+01:00",
         "error": null,
         "store_query": null
       }
@@ -137,8 +150,8 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-28T16:27:13.566873+01:00",
-      "duration_seconds": 15.599104,
+      "updated_at": "2025-11-29T11:08:00.117234+01:00",
+      "duration_seconds": 13.907745,
       "error": null,
       "store_query": null,
       "previous": {
@@ -160,7 +173,7 @@
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-28T16:24:02.677622+01:00",
+        "updated_at": "2025-11-28T16:27:13.566873+01:00",
         "error": null,
         "store_query": null
       }
@@ -386,8 +399,8 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-28T16:26:53.805865+01:00",
-      "duration_seconds": 0.63655,
+      "updated_at": "2025-11-29T11:08:07.550505+01:00",
+      "duration_seconds": 0.596576,
       "error": null,
       "store_query": null,
       "previous": {
@@ -406,7 +419,7 @@
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-28T16:24:02.677622+01:00",
+        "updated_at": "2025-11-28T16:26:53.805865+01:00",
         "error": null,
         "store_query": null
       }
@@ -425,81 +438,17 @@
         "store": "Super Talence",
         "candidates": [
           {
-            "url": "https://www.intermarche.com/produit/bonbons-acidules-orangina-pik/3103220035580",
-            "product": {
-              "title": "HariboBonbons acidulés Orangina Pik",
-              "brand": "Orangina",
-              "kind": "Soda à l'Orange et sa Pulpe  ORANGINA",
-              "qty": "1,5 L",
-              "qualifiers": [],
-              "ean": "3103220035580",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/eau-de-source/3250390030799",
-            "product": {
-              "title": "Fiée des  Lois, une marque IntermarchéEau de source",
-              "brand": "Orangina",
-              "kind": "Soda à l'Orange et sa Pulpe  ORANGINA",
-              "qty": "1,5 L",
-              "qualifiers": [],
-              "ean": "3250390030799",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200488",
-            "product": {
-              "title": "OranginaSoda à l'orange",
-              "brand": "Orangina",
-              "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
-              "qty": "1,5 L",
-              "qualifiers": [],
-              "ean": "3124480200488",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/eau-minerale-naturelle/3250390051015",
-            "product": {
-              "title": "Aix les Bains, une marque IntermarchéEau minérale naturelle",
-              "brand": "Orangina",
-              "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
-              "qty": "1,5 L",
-              "qualifiers": [],
-              "ean": "3250390051015",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
             "url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200433",
             "product": {
-              "title": "OranginaSoda à l'orange",
-              "brand": "Orangina",
-              "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
+              "title": "Soda à l'orange",
+              "brand": "Soda",
+              "kind": "",
               "qty": "1,5 L",
               "qualifiers": [],
               "ean": "3124480200433",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "raw_text": "",
               "seed_query": "",
               "leclerc_queries": []
             }
@@ -511,130 +460,22 @@
         "nutriscore_grade": "e",
         "nutriscore_image": null
       },
-      "updated_at": "2025-11-28T16:24:02.677622+01:00",
-      "duration_seconds": 52.315145,
+      "updated_at": "2025-11-29T11:08:34.813821+01:00",
+      "duration_seconds": 14.898648,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "OK",
+        "status": "TIMEOUT",
         "payload": {
-          "status": "OK",
-          "price": "1,99",
-          "title": "Soda à l'orange",
-          "url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200433",
-          "note": "Intermarché · Super Talence",
-          "matched_ean": "3124480200433",
-          "unit_price": "1,33 € / L",
-          "quantity": "1,5 L",
-          "store": "Super Talence",
-          "candidates": [
-            {
-              "url": "https://www.intermarche.com/produit/bonbons-acidules-orangina-pik/3103220035580",
-              "product": {
-                "title": "HariboBonbons acidulés Orangina Pik",
-                "brand": "Orangina",
-                "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
-                "qty": "1,5 L",
-                "qualifiers": [],
-                "ean": "3103220035580",
-                "image_url": null,
-                "source": "intermarche",
-                "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-              }
-            },
-            {
-              "url": "https://www.intermarche.com/produit/eau-minerale-naturelle/3250390051015",
-              "product": {
-                "title": "Aix les Bains, une  marque IntermarchéEau minérale naturelle",
-                "brand": "Orangina",
-                "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
-                "qty": "1,5 L",
-                "qualifiers": [],
-                "ean": "3250390051015",
-                "image_url": null,
-                "source": "intermarche",
-                "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-              }
-            },
-            {
-              "url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200464",
-              "product": {
-                "title": "OranginaSoda à l'orange",
-                "brand": "Orangina",
-                "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
-                "qty": "1,5 L",
-                "qualifiers": [],
-                "ean": "3124480200464",
-                "image_url": null,
-                "source": "intermarche",
-                "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-              }
-            },
-            {
-              "url": "https://www.intermarche.com/produit/eau-de-source/3250390030799",
-              "product": {
-                "title": "Fiée des Lois, une marque  IntermarchéEau de source",
-                "brand": "Orangina",
-                "kind": "Soda à l'Orange et sa  Pulpe ORANGINA",
-                "qty": "1,5 L",
-                "qualifiers": [],
-                "ean": "3250390030799",
-                "image_url": null,
-                "source": "intermarche",
-                "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-              }
-            },
-            {
-              "url": "https://www.intermarche.com/produit/soda-a-l'orange-sans-sucres/3124480185068",
-              "product": {
-                "title": "OranginaSoda à l'orange sans sucres",
-                "brand": "Orangina",
-                "kind": "Soda à l'Orange et sa Pulpe ORANGINA",
-                "qty": "1,5 L",
-                "qualifiers": [],
-                "ean": "3124480185068",
-                "image_url": null,
-                "source": "intermarche",
-                "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-              }
-            },
-            {
-              "url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200488",
-              "product": {
-                "title": "OranginaSoda à l'orange",
-                "brand": "Orangina",
-                "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
-                "qty": "1,5 L",
-                "qualifiers": [],
-                "ean": "3124480200488",
-                "image_url": null,
-                "source": "intermarche",
-                "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-              }
-            },
-            {
-              "url": "https://www.intermarche.com/produit/soda-a-l'orange/3124480200433",
-              "product": {
-                "title": "OranginaSoda à l'orange",
-                "brand": "Orangina",
-                "kind": "Soda à  l'Orange et sa Pulpe ORANGINA",
-                "qty": "1,5 L",
-                "qualifiers": [],
-                "ean": "3124480200433",
-                "image_url": null,
-                "source": "intermarche",
-                "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
-              }
-            }
-          ],
+          "status": "TIMEOUT",
+          "error": "timeout_after_90s",
           "_meta": {
             "supports_keywords": true
           },
-          "nutriscore_grade": "e",
-          "nutriscore_image": null
+          "candidates": []
         },
-        "updated_at": "2025-11-21T15:53:22.497281+01:00",
-        "error": null,
+        "updated_at": "2025-11-28T23:06:04.155839+01:00",
+        "error": "timeout_after_90s",
         "store_query": null
       }
     },
@@ -999,23 +840,7 @@
       }
     },
     "_finder": {
-      "consolidated": {
-        "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
-        "brand": "Orangina",
-        "kind": "",
-        "qty": "1,5 L",
-        "qualifiers": [],
-        "ean": "3124480200433",
-        "image_url": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03124480200433_C1N1_s04.jpeg",
-        "source": "consolidated",
-        "raw_text": "Soda à  l'Orange et sa Pulpe ORANGINA",
-        "seed_query": "",
-        "leclerc_queries": []
-      },
-      "keywords": null,
-      "candidates": [],
-      "decision": null,
-      "audit": []
+      "error": "'FinderPipeline' object has no attribute 'decide'"
     },
     "casino": {
       "status": "OK",

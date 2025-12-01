@@ -1,28 +1,134 @@
 {
   "ean": "3092718637033",
   "image_path": null,
-  "started_at": "2025-11-22T10:13:11.234871+01:00",
-  "finished_at": "2025-11-22T10:17:48.562977+01:00",
-  "duration_seconds": 277.328106,
+  "started_at": "2025-11-29T17:27:13.456747+01:00",
+  "finished_at": "2025-11-29T17:28:09.091797+01:00",
+  "duration_seconds": 55.63505,
   "reference": {
-    "title": "Sirop Menthe  Verte TEISSEIRE",
-    "description": "Sirop Menthe  Verte TEISSEIRE",
-    "source": "carrefour_super",
+    "title": "Sirop menthe verte TEISSEIRE – 60 CL",
+    "description": "Sirop menthe verte TEISSEIRE – 60 CL",
+    "source": "carrefour",
     "brand": "Teisseire",
     "quantity": "60 CL",
-    "categories": null,
+    "categories": "Boissons,Sirops,Sirops aromatisés,Sirops de menthe",
     "image": "./assets/3092718637033.jpg",
-    "nutriscore_grade": "c",
+    "nutriscore_grade": "unknown",
     "nutriscore_score": null,
-    "nutriscore_image": "../assets/nutriscore/nutriscore-c.svg",
-    "ecoscore_grade": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "a-plus",
     "ecoscore_image": null,
-    "nova_group": null
+    "nova_group": "4"
   },
   "notes": [
-    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251122-101311"
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251129-172713"
   ],
   "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,96",
+        "unit_price": "4,93 € / L",
+        "quantity": "0,6 L",
+        "title": "Sirop de menthe",
+        "url": "https://www.auchan.fr/teisseire-sirop-de-menthe/pr-C1628583",
+        "matched_ean": "3092718637033",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S01000000040189PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Sirop de menthe",
+          "brand": "Sirop",
+          "kind": "",
+          "qty": "0,6 L",
+          "qualifiers": [],
+          "ean": "3092718637033",
+          "image_url": "https://cdn.auchan.fr/media/S01000000040189PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-28T23:09:39.887346+01:00",
+      "finished_at": "2025-11-28T23:09:49.552500+01:00",
+      "duration_seconds": 9.665154,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')",
+      "metadata": {
+        "attempt_query": "3092718637033"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,45",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033",
+        "note": null,
+        "unit_price": "4,08 € / L",
+        "quantity": "60 CL",
+        "title": "Sirop Menthe Verte TEISSEIRE",
+        "matched_ean": "3092718637033",
+        "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03092718637033_C1N1_s03.pn g",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Sirop Menthe Verte TEISSEIRE",
+          "brand": "Sirop",
+          "kind": "",
+          "qty": "60 CL",
+          "qualifiers": [],
+          "ean": "3092718637033",
+          "image_url": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03092718637033_C1N1_s03.pn g",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-11-29T13:55:38.395095+01:00",
+      "finished_at": "2025-11-29T13:55:58.060655+01:00",
+      "duration_seconds": 19.66556,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3092718637033"
+      }
+    },
     {
       "adapter": "carrefour_city",
       "status": "NO_PRICE",
@@ -43,9 +149,9 @@
           "supports_ean": true
         }
       },
-      "started_at": "2025-11-22T10:13:11.236729+01:00",
-      "finished_at": "2025-11-22T10:13:23.928251+01:00",
-      "duration_seconds": 12.691522,
+      "started_at": "2025-11-29T13:56:48.658646+01:00",
+      "finished_at": "2025-11-29T13:57:01.933752+01:00",
+      "duration_seconds": 13.275106,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -55,262 +161,6 @@
         "EAN": "3092718637033",
         "QUERY": "3092718637033",
         "CARREFOUR_STATE_VARIANT": "carrefour_city",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "3092718637033"
-      }
-    },
-    {
-      "adapter": "carrefour_market",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "2,81",
-        "store": "Market Fondaudège",
-        "url": "https://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033",
-        "note": null,
-        "unit_price": "4,68 € / L",
-        "quantity": "60 CL",
-        "title": "Sirop Menthe  Verte TEISSEIRE",
-        "matched_ean": "3092718637033",
-        "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
-        "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "Sirop Menthe  Verte TEISSEIRE",
-          "brand": "Sirop",
-          "kind": "",
-          "qty": "60 CL",
-          "qualifiers": [],
-          "ean": "3092718637033",
-          "image_url": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
-          "source": "carrefour_market",
-          "raw_text": ""
-        }
-      },
-      "started_at": "2025-11-22T10:13:23.928744+01:00",
-      "finished_at": "2025-11-22T10:13:41.294368+01:00",
-      "duration_seconds": 17.365624,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
-      ],
-      "env": {
-        "EAN": "3092718637033",
-        "QUERY": "3092718637033",
-        "CARREFOUR_STATE_VARIANT": "carrefour_market",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "3092718637033"
-      }
-    },
-    {
-      "adapter": "carrefour_super",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "2,45",
-        "store": "Lormont",
-        "url": "https://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033",
-        "note": null,
-        "unit_price": "4,08 € / L",
-        "quantity": "60 CL",
-        "title": "Sirop Menthe  Verte TEISSEIRE",
-        "matched_ean": "3092718637033",
-        "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
-        "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "Sirop Menthe  Verte TEISSEIRE",
-          "brand": "Sirop",
-          "kind": "",
-          "qty": "60 CL",
-          "qualifiers": [],
-          "ean": "3092718637033",
-          "image_url": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
-          "source": "carrefour_super",
-          "raw_text": ""
-        }
-      },
-      "started_at": "2025-11-22T10:13:41.295888+01:00",
-      "finished_at": "2025-11-22T10:14:02.964640+01:00",
-      "duration_seconds": 21.668752,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
-      ],
-      "env": {
-        "EAN": "3092718637033",
-        "QUERY": "3092718637033",
-        "CARREFOUR_STATE_VARIANT": "carrefour_super",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "3092718637033"
-      }
-    },
-    {
-      "adapter": "auchan",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "2,96",
-        "unit_price": "4,93 € / L",
-        "quantity": "0,6  L",
-        "title": "Sirop de menthe",
-        "url": "https://www.auchan.fr/teisseire-sirop-de-menthe/pr-C1628583",
-        "matched_ean": "3092718637033",
-        "store": "Auchan Drive Supermarché Talence-Gallieni",
-        "note": "Auchan Talence",
-        "image": "https://cdn.auchan.fr/media/S01000000040189PRIMARY_1200x1200/B2CD/",
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "Sirop de menthe",
-          "brand": "Sirop",
-          "kind": "",
-          "qty": "0,6 L",
-          "qualifiers": [],
-          "ean": "3092718637033",
-          "image_url": "https://cdn.auchan.fr/media/S01000000040189PRIMARY_1200x1200/B2CD/",
-          "source": "auchan",
-          "raw_text": ""
-        }
-      },
-      "started_at": "2025-11-22T10:14:02.965235+01:00",
-      "finished_at": "2025-11-22T10:14:12.998652+01:00",
-      "duration_seconds": 10.033417,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
-      ],
-      "env": {
-        "EAN": "3092718637033",
-        "QUERY": "3092718637033",
-        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] click selector button:has-text('Choisir ce Drive')\n[auchan] results visible, opening first candidate",
-      "metadata": {
-        "attempt_query": "3092718637033"
-      }
-    },
-    {
-      "adapter": "chronodrive",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "2,85",
-        "title": "Sirop de menthe verte TEISSEIRE",
-        "url": "https://www.chronodrive.com/teisseire--sirop-de-menthe-verte-P519369",
-        "note": "Chronodrive Le Haillan",
-        "unit_price": "4,75 € / L",
-        "quantity": "60  cl",
-        "store": "Chronodrive Le Haillan",
-        "matched_ean": "3092718637033",
-        "nutriscore_grade": "e",
-        "nutriscore_image": null,
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "Sirop de menthe verte TEISSEIRE",
-          "brand": "Sirop",
-          "kind": "",
-          "qty": "60 cl",
-          "qualifiers": [],
-          "ean": "3092718637033",
-          "image_url": null,
-          "source": "chronodrive",
-          "raw_text": ""
-        }
-      },
-      "started_at": "2025-11-22T10:14:12.999399+01:00",
-      "finished_at": "2025-11-22T10:14:20.050865+01:00",
-      "duration_seconds": 7.051466,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
-      ],
-      "env": {
-        "EAN": "3092718637033",
-        "QUERY": "3092718637033",
-        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": "[CHRONO_DEBUG] term='3092718637033'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/teisseire--sirop-de-menthe-verte-P519369",
-      "metadata": {
-        "attempt_query": "3092718637033"
-      }
-    },
-    {
-      "adapter": "courseu",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "2,42",
-        "unit_price": "4,03 € / KG",
-        "quantity": "0,6  kg",
-        "title": "Sirop de Menthe verte TEISSEIRE, bidon 60cl",
-        "url": "https://www.coursesu.com/p/sirop-de-menthe-verte-teisseire-bidon-60cl/2758855.h tml",
-        "note": "2025-11-22T09:14:50Z · Super U Eysines",
-        "store": "Super U  Eysines",
-        "matched_ean": "3092718637033",
-        "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "Sirop de Menthe verte TEISSEIRE, bidon 60cl",
-          "brand": "Sirop",
-          "kind": "",
-          "qty": "0,6 kg",
-          "qualifiers": [],
-          "ean": "3092718637033",
-          "image_url": null,
-          "source": "courseu",
-          "raw_text": ""
-        }
-      },
-      "started_at": "2025-11-22T10:14:20.051568+01:00",
-      "finished_at": "2025-11-22T10:14:50.356232+01:00",
-      "duration_seconds": 30.304664,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
-      ],
-      "env": {
-        "EAN": "3092718637033",
-        "QUERY": "3092718637033",
-        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
         "HEADLESS": "0"
       },
       "exit_code": 0,
@@ -337,9 +187,9 @@
           "supports_ean": true
         }
       },
-      "started_at": "2025-11-22T10:14:50.357421+01:00",
-      "finished_at": "2025-11-22T10:14:50.901920+01:00",
-      "duration_seconds": 0.544499,
+      "started_at": "2025-11-29T13:57:39.207867+01:00",
+      "finished_at": "2025-11-29T13:57:39.735861+01:00",
+      "duration_seconds": 0.527994,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -359,23 +209,56 @@
     },
     {
       "adapter": "casino",
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
-        "note": "Casino Shop",
+        "status": "OK",
+        "price": "3,54",
+        "unit_price": "5,90 €/LITRE",
+        "quantity": "60cl",
+        "title": "Teisseire Menthe verte 60cl",
+        "url": "https://www.mescoursesdeproximite.com/produit/teisseire-menthe-verte-60cl-la-bouteille-de-60cl-casino-shop-33130/TZ193/503212",
+        "note": "Casino Shop · Bègles Pruniers",
+        "store": "Casino Shop · Bègles Pruniers",
+        "matched_ean": "3092718637033",
+        "image": "https://www.mescoursesdeproximite.com/images/produits/vignette/503212_M1_S1.jpg",
+        "product": {
+          "title": "Teisseire Menthe verte 60cl",
+          "brand": "Teisseire",
+          "qty": "60cl",
+          "ean": "3092718637033",
+          "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/503212_M1_S1.jpg",
+          "source": "casino"
+        },
         "_meta": {
           "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Sirop%20Menthe%2060%20CL",
           "store_code": "TZ193",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
           "query": "Sirop Menthe 60 CL",
-          "timestamp": "2025-11-22T09:14:51.623103+00:00",
+          "timestamp": "2025-11-29T12:57:09.150007+00:00",
           "supports_keywords": true
         },
-        "candidates": []
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/teisseire-menthe-verte-60cl-la-bouteille-de-60cl-casino-shop-33130/TZ193/503212",
+            "product": {
+              "title": "Teisseire Menthe verte 60cl",
+              "brand": "Teisseire",
+              "kind": "",
+              "qty": "60cl",
+              "qualifiers": [],
+              "ean": "3092718637033",
+              "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/503212_M1_S1.jpg",
+              "source": "casino",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "started_at": "2025-11-22T10:14:51.459148+01:00",
-      "finished_at": "2025-11-22T10:14:52.352824+01:00",
-      "duration_seconds": 0.893676,
+      "started_at": "2025-11-29T13:57:08.976808+01:00",
+      "finished_at": "2025-11-29T13:58:04.065438+01:00",
+      "duration_seconds": 55.08863,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -391,28 +274,61 @@
       "stderr": null,
       "metadata": {
         "attempt_query": "Sirop Menthe 60 CL",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251122-101311/08-casino"
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251129-135708/01-casino"
       }
     },
     {
       "adapter": "spar",
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
-        "note": "Casino Shop",
+        "status": "OK",
+        "price": "3,64",
+        "unit_price": "6,07 €/LITRE",
+        "quantity": "60cl",
+        "title": "Teisseire Menthe verte 60cl",
+        "url": "https://www.mescoursesdeproximite.com/produit/teisseire-menthe-verte-60cl-la-bouteille-de-60cl-spar-33160/TL832/503212",
+        "note": "Spar Super · Saint-Médard-en-Jalles",
+        "store": "Spar Super · Saint-Médard-en-Jalles",
+        "matched_ean": "3092718637033",
+        "image": "https://www.mescoursesdeproximite.com/images/produits/vignette/503212_M1_S1.jpg",
+        "product": {
+          "title": "Teisseire Menthe verte 60cl",
+          "brand": "Teisseire",
+          "qty": "60cl",
+          "ean": "3092718637033",
+          "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/503212_M1_S1.jpg",
+          "source": "casino"
+        },
         "_meta": {
           "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Sirop%20Menthe%2060%20CL",
           "store_code": "TL832",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
           "query": "Sirop Menthe 60 CL",
-          "timestamp": "2025-11-22T09:14:55.693649+00:00",
+          "timestamp": "2025-11-29T12:58:14.504939+00:00",
           "supports_keywords": true
         },
-        "candidates": []
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/teisseire-menthe-verte-60cl-la-bouteille-de-60cl-spar-33160/TL832/503212",
+            "product": {
+              "title": "Teisseire Menthe verte 60cl",
+              "brand": "Teisseire",
+              "kind": "",
+              "qty": "60cl",
+              "qualifiers": [],
+              "ean": "3092718637033",
+              "image_url": "https://www.mescoursesdeproximite.com/images/produits/vignette/503212_M1_S1.jpg",
+              "source": "spar",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
       },
-      "started_at": "2025-11-22T10:14:55.546930+01:00",
-      "finished_at": "2025-11-22T10:14:56.165682+01:00",
-      "duration_seconds": 0.618752,
+      "started_at": "2025-11-29T13:58:14.348548+01:00",
+      "finished_at": "2025-11-29T13:58:53.756864+01:00",
+      "duration_seconds": 39.408316,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -428,7 +344,161 @@
       "stderr": null,
       "metadata": {
         "attempt_query": "Sirop Menthe 60 CL",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251122-101311/09-spar"
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251129-135814/01-spar"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "NO_MATCH",
+      "payload": {
+        "status": "NO_MATCH",
+        "title": "Sirop Teisseire Menthe verte - 60cl",
+        "price": null,
+        "unit_price": null,
+        "quantity": "60 CL",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206144-Boisson-concentree-Teisseire.aspx",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-11-29T12:59:44Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206143-Sirop-Teisseire-.aspx",
+            "product": {
+              "title": "Sirop Teisseire Pêche - 60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "qualifiers": [],
+              "ean": "3092718637699",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2508597&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206163-Sirop-Teisseire-.aspx",
+            "product": {
+              "title": "Sirop Teisseire Menthe verte - 60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "qualifiers": [],
+              "ean": "3564700125717",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2772726&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206169-Sirop-Tesseire.aspx",
+            "product": {
+              "title": "Sirop Tesseire Citron - 60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "qualifiers": [],
+              "ean": "3092718637002",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2771747&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206142-Sirop-Teisseire-.aspx",
+            "product": {
+              "title": "Sirop Teisseire Fraise - 60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "qualifiers": [],
+              "ean": "3092718637392",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2771750&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206140-Sirop-concentre-Teisseire.aspx",
+            "product": {
+              "title": "Sirop concentré Teisseire Citron vert - 60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "qualifiers": [],
+              "ean": "3092718637361",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2508591&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206139-Sirop-Teisseire.aspx",
+            "product": {
+              "title": "Sirop Teisseire Cassis - 60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "qualifiers": [],
+              "ean": "3092718637309",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2508588&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206144-Boisson-concentree-Teisseire.aspx",
+            "product": {
+              "title": "Boisson concentrée Teisseire A diluer grenadine Zéro - 60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "qualifiers": [],
+              "ean": "3564700125717",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2508600&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-11-29T13:59:02.830490+01:00",
+      "finished_at": "2025-11-29T13:59:44.860549+01:00",
+      "duration_seconds": 42.030059,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Teisseire Sirop 60 CL",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Teisseire Sirop 60 CL' direct_url:False\n[LECLERC_DEBUG] after home human pause -> 0.91s\n[LECLERC_DEBUG] after focus -> 1.25s\n[LECLERC_DEBUG] results visible -> 2.31s\n[LECLERC_DEBUG] after result pause -> 2.31s",
+      "metadata": {
+        "attempt_query": "Teisseire Sirop 60 CL",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251129-135829/01-leclerc"
       }
     },
     {
@@ -439,7 +509,7 @@
         "price": "2,40",
         "title": "Sirop menthe verte",
         "url": "https://www.intermarche.com/produit/sirop-menthe-verte/3092718637033",
-        "note": "Intermarché · Super Talence",
+        "note": "Intermarché · Super  Talence",
         "matched_ean": "3092718637033",
         "unit_price": "4,00 € / L",
         "quantity": "60 CL",
@@ -450,27 +520,63 @@
             "product": {
               "title": "Sirop SportSirop de menthe",
               "brand": "Teisseire",
-              "kind": "Sirop  menthe verte TEISSEIRE",
+              "kind": "Sirop menthe verte TEISSEIRE",
               "qty": "60 CL",
               "qualifiers": [],
               "ean": "3014400222952",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
-            "url": "https://www.intermarche.com/produit/sirop-de-menthe-pur-sucre-francais/32503900 01508",
+            "url": "https://www.intermarche.com/produit/sirop-menthe/3250390005513",
             "product": {
-              "title": "Paquito,  une marque IntermarchéSirop de menthe pur sucre français",
+              "title": "Paquito, une marque  IntermarchéSirop menthe",
               "brand": "Teisseire",
               "kind": "Sirop menthe verte TEISSEIRE",
               "qty": "60 CL",
               "qualifiers": [],
-              "ean": "32503900",
+              "ean": "3250390005513",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/sirop-de-menthe/3250390001508",
+            "product": {
+              "title": "Paquito, une  marque IntermarchéSirop de menthe",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "qualifiers": [],
+              "ean": "3250390001508",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/sirop-de-menthe-concentre-a-diluer-avec-edulcorants-0%25-de-sucres/ 3250390953586",
+            "product": {
+              "title": "Paquito, une marque IntermarchéSirop de menthe concentré à diluer avec édulcorants 0% de sucres",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "qualifiers": [],
+              "ean": "3250390953586",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           },
           {
@@ -478,13 +584,15 @@
             "product": {
               "title": "TeisseireSirop menthe verte",
               "brand": "Teisseire",
-              "kind": "Sirop  menthe verte TEISSEIRE",
+              "kind": "Sirop menthe verte TEISSEIRE",
               "qty": "60 CL",
               "qualifiers": [],
               "ean": "3092718637033",
               "image_url": null,
               "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: "
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
             }
           }
         ],
@@ -494,9 +602,9 @@
         "nutriscore_grade": "e",
         "nutriscore_image": null
       },
-      "started_at": "2025-11-22T10:14:59.479515+01:00",
-      "finished_at": "2025-11-22T10:16:07.716558+01:00",
-      "duration_seconds": 68.237043,
+      "started_at": "2025-11-29T17:27:14.275573+01:00",
+      "finished_at": "2025-11-29T17:28:09.082819+01:00",
+      "duration_seconds": 54.807246,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -513,209 +621,11 @@
       "stderr": null,
       "metadata": {
         "attempt_query": "Sirop Menthe 60 CL",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251122-101311/10-intermarche"
-      }
-    },
-    {
-      "adapter": "leclerc",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "title": "Sirop Teisseire Menthe verte - 60cl",
-        "price": "2,39",
-        "unit_price": "0,73 € / l",
-        "quantity": "60 CL",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206140-Sirop-concentre-Teisseire.aspx",
-        "matched_ean": null,
-        "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-22T09:17:16Z · E.Leclerc Drive · Bruges",
-        "_meta": {
-          "supports_keywords": true,
-          "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed)."
-        },
-        "equivalent": true,
-        "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed).",
-        "candidates": [
-          {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206163-Sirop-Teisseire-.aspx",
-            "product": {
-              "title": "Sirop Teisseire Menthe verte - 60cl",
-              "brand": "Teisseire",
-              "kind": "Sirop menthe verte TEISSEIRE",
-              "qty": "60 CL",
-              "qualifiers": [],
-              "ean": "3564700427064",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2772726&amp;use=l&amp;cat=p&amp;typeid=i",
-              "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
-            }
-          },
-          {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206140-Sirop-concentre-Teisseire.aspx",
-            "product": {
-              "title": "Sirop concentré Teisseire Citron vert - 60cl",
-              "brand": "Teisseire",
-              "kind": "Sirop menthe verte TEISSEIRE",
-              "qty": "60 CL",
-              "qualifiers": [],
-              "ean": "3092718637361",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2508591&amp;use=l&amp;cat=p&amp;typeid=i",
-              "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
-            }
-          }
-        ]
-      },
-      "started_at": "2025-11-22T10:16:07.720132+01:00",
-      "finished_at": "2025-11-22T10:17:16.243096+01:00",
-      "duration_seconds": 68.522964,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
-      ],
-      "env": {
-        "EAN": "3092718637033",
-        "QUERY": "Sirop Menthe Verte TEISSEIRE 60 CL",
-        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:50ms result:60ms pdp:50ms type:[5,18] query:'Sirop Menthe Verte TEISSEIRE 60 CL'\n[LECLERC_DEBUG] after home human pause -> 1.22s\n[LECLERC_DEBUG] after focus -> 2.01s\n[LECLERC_DEBUG] results visible -> 3.64s\n[LECLERC_DEBUG] after result pause -> 3.74s",
-      "metadata": {
-        "attempt_query": "Sirop Menthe Verte TEISSEIRE 60 CL",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251122-101311/11-leclerc"
-      }
-    },
-    {
-      "adapter": "monoprix",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "3,29",
-        "title": "Teisseire Menthe verte 60cl",
-        "url": "https://courses.monoprix.fr/products/teisseire-menthe-verte-60cl/MPX_6602109",
-        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/540b 833d-f45d-4023-bde0-2251831fe8ed/300x300.jpg",
-        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/540b 833d-f45d-4023-bde0-2251831fe8ed/300x300.jpg",
-        "matched_ean": "3092718637033",
-        "unit_price": "5,48 € / L",
-        "quantity": "600 ML",
-        "store": null,
-        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nCalendrier de l'avent\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nPage d’accueil\nRechercher  un article\nSe connecter\nRéserver un créneau\nRéserver un créneau\nAller au  paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00  €.\n0,00 €\nMin 60,00 €\nNos Rayons\nFavoris\nListe de courses\nProduits  réguliers\nIdées repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de  livraison offerte*\nEN SAVOIR +\nAccueil\nBoissons et Lait\nJus et  Sirop\nSirop\nTeisseire Menthe verte 60cl\n1 a+\n1 an de garantie de vie du  produit\n600ml 5,48 € / litre\n600ml\n(5,48 € / litre)\n3,29  €\nAjouter\nInformations produit\n\n\nDescription Produit\nLe sirop de menthe  verte Teisseire est idéal pour préparer des boissons rafraîchissantes et vous  garantir un moment de gourmandise. Implanté au cœur des Alpes depuis 1720,  Teisseire vous propose des sirops fruités, issus d'un savoir faire historique,  qui accompagnent vos moments de partage, le tout sans arômes artificiels et sans conservateurs. De l'emblématique Grenadine aux parfums plus raffinés, découvrez  notre large gamme de sirops issus des fruits et des  plantes.\n\n\nOrigine\nFrance\nMarque\nTeisseire\nService consommateur\nNathalie CHEVALIER 482 Av. Ambroise Croizat - CS 70501 - 38926 GRENOBLE CEDEX 38920  CROLLES France nathalie.chevalier@britvic.com\nConseils d'utilisation\nDiluer 1  dose de sirop pour 12 doses d'eau. 200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré. Cet emballage contient 39  portions de 15,4ml.\nIngredients\nIngrédients : Sucre, sirop de  glucose-fructose, eau, arôme naturel de menthe, colorants : caramel ordinaire,  bleu brillant FCF.\nType d’emballage\ncylindre\nProducteur\nTEISSEIRE FRANCE 482 AVENUE AMBROISE CROIZAT///38926/CROLLES CEDEX/FRANCE\nConseil de conservation\nA consommer de préférence avant fin : voir sur le côté du bouchon. A conserver  idéalement au frais après ouverture.\nConseils d'utilisation\nDiluer 1 dose de  sirop pour 12 doses d'eau. 200ml de boisson diluée à 1+12 avec de l'eau,  correspond à une portion de 15,4ml de concentré. Cet emballage contient 39  portions de 15,4ml.\nValeurs nutritionnelles\nINFORMATIONS NUTRITIONNELLES  MOYENNES\n\tpour 100 ml\nValeurs Energétique en Kilojoules\t~ 100 kJ\nValeurs  Energétique en Kilocalories\t~ 24 kcal\nValeurs Nutritionnelles\nGlucides\t~ 6  g\nDont Sucres\t~ 5.5 g\nNous contacter\n(s’ouvre dans une nouvelle  fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
-        "extras": {
-          "seed_variant": "verte",
-          "candidate_variant": null,
-          "negatives_hit": [],
-          "variant_ok": false,
-          "unit_family_ok": true,
-          "size_ok": true,
-          "category_ok": true,
-          "vetoes": [
-            "variant_missing"
-          ],
-          "candidate_quantity": "600 ML",
-          "candidate_size_ratio": 0.0,
-          "descriptor_token_coverage": {
-            "coverage": 1.0,
-            "matched": [
-              "menthe",
-              "sirop",
-              "teisseire",
-              "verte"
-            ],
-            "missing": [],
-            "total": 4
-          },
-          "missing_tokens": [],
-          "image_match": true,
-          "final_score": -105,
-          "plausible_baseline": false
-        },
-        "candidates": [
-          {
-            "url": "https://courses.monoprix.fr/products/teisseire-sirop-de-citron-60cl/MPX_6603851",
-            "product": {
-              "title": "Teisseire Sirop de Citron  60cl",
-              "brand": "Teisseire",
-              "kind": "Sirop Menthe  Verte TEISSEIRE",
-              "qty": "600 ML",
-              "qualifiers": [],
-              "ean": "3092718637033",
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8a3c 7453-9e86-4c58-9572-37da0daa2c26/300x300.jpg",
-              "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
-            }
-          },
-          {
-            "url": "https://courses.monoprix.fr/products/teisseire-pêche-60cl/MPX_6602112",
-            "product": {
-              "title": "Teisseire Pêche 60cl",
-              "brand": "Teisseire",
-              "kind": "Sirop Menthe  Verte TEISSEIRE",
-              "qty": "600 ML",
-              "qualifiers": [],
-              "ean": "3092718637033",
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/02e3 a0f4-cf82-4069-8e49-9862df666b7d/300x300.jpg",
-              "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
-            }
-          },
-          {
-            "url": "https://courses.monoprix.fr/products/teisseire-menthe-verte-60cl/MPX_6602109",
-            "product": {
-              "title": "Teisseire Menthe verte 60cl",
-              "brand": "Teisseire",
-              "kind": "Sirop Menthe  Verte TEISSEIRE",
-              "qty": "600 ML",
-              "qualifiers": [],
-              "ean": "3092718637033",
-              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/540b 833d-f45d-4023-bde0-2251831fe8ed/300x300.jpg",
-              "source": "monoprix",
-              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Calendrier de l'avent Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de"
-            }
-          },
-          {
-            "url": "https://courses.monoprix.fr/products/teisseire-sirop-fraise-60cl/MPX_2160127",
-            "product": {
-              "title": "",
-              "brand": "Teisseire",
-              "kind": "Sirop Menthe  Verte TEISSEIRE",
-              "qty": "60 CL",
-              "qualifiers": [],
-              "ean": null,
-              "image_url": null,
-              "source": "monoprix",
-              "raw_text": ""
-            }
-          }
-        ],
-        "_meta": {
-          "supports_keywords": true
-        }
-      },
-      "started_at": "2025-11-22T10:17:16.253069+01:00",
-      "finished_at": "2025-11-22T10:17:48.430844+01:00",
-      "duration_seconds": 32.177775,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
-      ],
-      "env": {
-        "EAN": "3092718637033",
-        "QUERY": "Teisseire menthe 60 CL",
-        "HOME_URL": "https://courses.monoprix.fr/",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '3092718637033'.\n[MONOPRIX_DEBUG] Search terms: ['teisseire sirop', 'teisseire sirop menthe', 'Sirop Menthe 60 CL']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: verte | dynamic negatives: ['vanille', 'amande', 'coco', 'mangue', 'chocolat', 'orange', 'sans sucre', 'rouge', 'squeez', 'squeeze']\n[MONOPRIX_DEBUG]  - Term 1/3: 'teisseire sirop'\n[MONOPRIX_DEBUG]  - Typing 'teisseire sirop' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=teisseire%20sirop\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 9 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/teisseire-sirop-de-citron-60cl/MPX_6603851\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8a3c7453-9e86-4c58-9572-37da0daa2c26/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/teisseire-sirop-de-citron-60cl/MPX_6603851\n[MONOPRIX_DEBUG][SCORE] - Title: 'Teisseire Sirop de Citron 60cl' | Brand: 'teisseire' | Variant(seed/cand)=(verte/None) | Vetoes=['variant_missing', 'descriptor_coverage'] | NegHits=[] | Score=-135 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Teisseire Sirop de Citron 60cl'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Teisseire Sirop de Citron 60cl' | vetoes=['variant_missing', 'descriptor_coverage', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/teisseire-pêche-60cl/MPX_6602112\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/02e3a0f4-cf82-4069-8e49-9862df666b7d/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/teisseire-pêche-60cl/MPX_6602112\n[MONOPRIX_DEBUG][SCORE] - Title: 'Teisseire Pêche 60cl' | Brand: 'teisseire' | Variant(seed/cand)=(verte/None) | Vetoes=['variant_missing', 'descriptor_coverage'] | NegHits=[] | Score=-135 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Teisseire Pêche 60cl'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Teisseire Pêche 60cl' | vetoes=['variant_missing', 'descriptor_coverage', 'core_token']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/teisseire-menthe-verte-60cl/MPX_6602109\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/540b833d-f45d-4023-bde0-2251831fe8ed/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/teisseire-menthe-verte-60cl/MPX_6602109\n[MONOPRIX_DEBUG][SCORE] - Title: 'Teisseire Menthe verte 60cl' | Brand: 'teisseire' | Variant(seed/cand)=(verte/None) | Vetoes=['variant_missing'] | NegHits=[] | Score=-135 | Plausible=False\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Teisseire Menthe verte 60cl'.\n[MONOPRIX_DEBUG] Best match (early return): 'Teisseire Menthe verte 60cl' (Score: -105)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='3,29', title='Teisseire Menthe verte 60cl', url='https://courses.monoprix.fr/products/teisseire-menthe-verte-60cl/MPX_6602109', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/540b833d-f45d-4023-bde0-2251831fe8ed/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/540b833d-f45d-4023-bde0-2251831fe8ed/300x300.jpg', matched_ean='3092718637033', unit_price='5,48 € / L', quantity='600 ML', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nJus et Sirop\\nSirop\\nTeisseire Menthe verte 60cl\\n1\\xa0a+\\n1\\xa0an de garantie de vie du produit\\n600ml 5,48\\xa0€ / litre\\n600ml\\n(5,48\\xa0€ / litre)\\n3,29\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLe sirop de menthe verte Teisseire est idéal pour préparer des boissons rafraîchissantes et vous garantir un moment de gourmandise. Implanté au cœur des Alpes depuis 1720, Teisseire vous propose des sirops fruités, issus d'un savoir faire historique, qui accompagnent vos moments de partage, le tout sans arômes artificiels et sans conservateurs. De l'emblématique Grenadine aux parfums plus raffinés, découvrez notre large gamme de sirops issus des fruits et des plantes.\\n\\n\\nOrigine\\nFrance\\nMarque\\nTeisseire\\nService consommateur\\nNathalie CHEVALIER 482 Av. Ambroise Croizat - CS 70501 - 38926 GRENOBLE CEDEX 38920 CROLLES France nathalie.chevalier@britvic.com\\nConseils d'utilisation\\nDiluer 1 dose de sirop pour 12 doses d'eau. 200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré. Cet emballage contient 39 portions de 15,4ml.\\nIngredients\\nIngrédients : Sucre, sirop de glucose-fructose, eau, arôme naturel de menthe, colorants : caramel ordinaire, bleu brillant FCF.\\nType d’emballage\\ncylindre\\nProducteur\\nTEISSEIRE FRANCE 482 AVENUE AMBROISE CROIZAT///38926/CROLLES CEDEX/FRANCE\\nConseil de conservation\\nA consommer de préférence avant fin : voir sur le côté du bouchon. A conserver idéalement au frais après ouverture.\\nConseils d'utilisation\\nDiluer 1 dose de sirop pour 12 doses d'eau. 200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré. Cet emballage contient 39 portions de 15,4ml.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\nValeurs Energétique en Kilojoules\\t~ 100 kJ\\nValeurs Energétique en Kilocalories\\t~ 24 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 6 g\\nDont Sucres\\t~ 5.5 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': 'verte', 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': False, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['variant_missing'], 'candidate_quantity': '600 ML', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['menthe', 'sirop', 'teisseire', 'verte'], 'missing': [], 'total': 4}, 'missing_tokens': [], 'image_match': True, 'final_score': -105, 'plausible_baseline': False}, candidates=[{'url': 'https://courses.monoprix.fr/products/teisseire-sirop-de-citron-60cl/MPX_6603851', 'status': 'OK_PARTIAL', 'product': {'title': 'Teisseire Sirop de Citron 60cl', 'brand': 'Teisseire', 'kind': 'Sirop Menthe  Verte TEISSEIRE', 'qty': '600 ML', 'qualifiers': [], 'ean': '3092718637033', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/8a3c7453-9e86-4c58-9572-37da0daa2c26/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nJus et Sirop\\nSirop\\nTeisseire Sirop de Citron 60cl\\n6\\xa0m+\\n6\\xa0mois de garantie de vie du produit\\n600ml 5,48\\xa0€ / litre\\n600ml\\n(5,48\\xa0€ / litre)\\n3,29\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLe sirop de citron Teisseire est idéal pour préparer des boissons rafraîchissantes et vous garantir un moment de gourmandise. Implanté au cœur des Alpes depuis 1720, Teisseire vous propose des sirops fruités, issus d'un savoir faire historique, qui accompagnent vos moments de partage, le tout sans arômes artificiels et sans conservateurs. De l'emblématique Grenadine aux parfums plus raffinés, découvrez notre large gamme de sirops issus des fruits et des plantes.\\n\\n\\nOrigine\\nFrance\\nMarque\\nTeisseire\\nService consommateur\\nNathalie CHEVALIER 482 Av. Ambroise Croizat - CS 70501 - 38926 GRENOBLE CEDEX 38920 CROLLES France nathalie.chevalier@britvic.com\\nConseils d'utilisation\\nDiluer 1 dose de sirop pour 12 doses d'eau. 200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré. Cet emballage contient 39 portions de 15,4ml.\\nIngredients\\nSucre, eau, jus de citron à base de concentré 20%, sirop de glucose-fructose, acidifiant : acide citrique, arômes naturels de citron avec autres arômes naturels.\\nType d’emballage\\ncylindre\\nProducteur\\nTEISSEIRE FRANCE 482 AVENUE AMBROISE CROIZAT///38926/CROLLES CEDEX/FRANCE\\nConseil de conservation\\nA consommer de préférence avant fin : voir sur le côté du bouchon. A conserver idéalement au frais après ouverture.\\nConseils d'utilisation\\nDiluer 1 dose de sirop pour 12 doses d'eau. 200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré. Cet emballage contient 39 portions de 15,4ml.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\nValeurs Energétique en Kilojoules\\t~ 1194 kJ\\nValeurs Energétique en Kilocalories\\t~ 281 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 66 g\\nDont Sucres\\t~ 65 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '5,48 € / L', 'price': '3,29'}, 'score': -105.0, 'extras': {'seed_variant': 'verte', 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': False, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['variant_missing', 'descriptor_coverage', 'core_token'], 'candidate_quantity': '600 ML', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.5, 'matched': ['sirop', 'teisseire'], 'missing': ['menthe', 'verte'], 'total': 4}, 'missing_tokens': ['menthe', 'verte'], 'image_match': True, 'final_score': -105, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/teisseire-pêche-60cl/MPX_6602112', 'status': 'OK_PARTIAL', 'product': {'title': 'Teisseire Pêche 60cl', 'brand': 'Teisseire', 'kind': 'Sirop Menthe  Verte TEISSEIRE', 'qty': '600 ML', 'qualifiers': [], 'ean': '3092718637033', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/02e3a0f4-cf82-4069-8e49-9862df666b7d/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nJus et Sirop\\nSirop\\nTeisseire Pêche 60cl\\n6\\xa0m+\\n6\\xa0mois de garantie de vie du produit\\n600ml 7,08\\xa0€ / litre\\n600ml\\n(7,08\\xa0€ / litre)\\n4,25\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLe sirop de pêche Teisseire est idéal pour préparer des boissons rafraîchissantes et vous garantir un moment de gourmandise. Implanté au cœur des Alpes depuis 1720, Teisseire vous propose des sirops fruités, issus d'un savoir faire historique, qui accompagnent vos moments de partage, le tout sans arômes artificiels et sans conservateurs. De l'emblématique Grenadine aux parfums plus raffinés, découvrez notre large gamme de sirops issus des fruits et des plantes.\\n\\n\\nOrigine\\nFrance\\nMarque\\nTeisseire\\nService consommateur\\nNathalie CHEVALIER - nchevalier@teisseire.fr 482 Av. Ambroise Croizat - CS 70501 - 38926 CROLLES CEDEX 38920 CROLLES nathalie.chevalier@britvic.com\\nConseils d'utilisation\\nDiluer 1 dose de sirop pour 12 doses d'eau **200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré Cet emballage contient 39 portions de 15,4ml\\nIngredients\\nSucre, jus de fruits à base de concentrés 50% (pêche 35%, citron), arômes naturels, acidifiant : acide citrique, colorant : lutéine (extrait de tagète), eau.\\nType d’emballage\\ncylindre\\nProducteur\\nTEISSEIRE FRANCE 482 AVENUE AMBROISE CROIZAT///38926/CROLLES CEDEX/FRANCE\\nConseil de conservation\\nA consommer de préférence avant fin : voir sur le côté du bouchon. A conserver idéalement au frais après ouverture.\\nAutres informations\\nSans colorant artificiel - Sans conservateur - Fruits cueillis à maturité Sans arômes artificiels - Arômes naturels* *cette recette est élaborée à partir d'arômes naturels non issus exclusivement de pêche (mention complémentaire en BOP)\\nConseils d'utilisation\\nDiluer 1 dose de sirop pour 12 doses d'eau **200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré Cet emballage contient 39 portions de 15,4ml\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\nValeurs Energétique en Kilojoules\\t~ 111 kJ\\nValeurs Energétique en Kilocalories\\t~ 26 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 6.5 g\\nDont Sucres\\t~ 6 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '7,08 € / L', 'price': '4,25'}, 'score': -105.0, 'extras': {'seed_variant': 'verte', 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': False, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['variant_missing', 'descriptor_coverage', 'core_token'], 'candidate_quantity': '600 ML', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 0.5, 'matched': ['sirop', 'teisseire'], 'missing': ['menthe', 'verte'], 'total': 4}, 'missing_tokens': ['menthe', 'verte'], 'image_match': True, 'final_score': -105, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/teisseire-menthe-verte-60cl/MPX_6602109', 'status': 'OK_PARTIAL', 'product': {'title': 'Teisseire Menthe verte 60cl', 'brand': 'Teisseire', 'kind': 'Sirop Menthe  Verte TEISSEIRE', 'qty': '600 ML', 'qualifiers': [], 'ean': '3092718637033', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/540b833d-f45d-4023-bde0-2251831fe8ed/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nCalendrier de l'avent\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nJus et Sirop\\nSirop\\nTeisseire Menthe verte 60cl\\n1\\xa0a+\\n1\\xa0an de garantie de vie du produit\\n600ml 5,48\\xa0€ / litre\\n600ml\\n(5,48\\xa0€ / litre)\\n3,29\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLe sirop de menthe verte Teisseire est idéal pour préparer des boissons rafraîchissantes et vous garantir un moment de gourmandise. Implanté au cœur des Alpes depuis 1720, Teisseire vous propose des sirops fruités, issus d'un savoir faire historique, qui accompagnent vos moments de partage, le tout sans arômes artificiels et sans conservateurs. De l'emblématique Grenadine aux parfums plus raffinés, découvrez notre large gamme de sirops issus des fruits et des plantes.\\n\\n\\nOrigine\\nFrance\\nMarque\\nTeisseire\\nService consommateur\\nNathalie CHEVALIER 482 Av. Ambroise Croizat - CS 70501 - 38926 GRENOBLE CEDEX 38920 CROLLES France nathalie.chevalier@britvic.com\\nConseils d'utilisation\\nDiluer 1 dose de sirop pour 12 doses d'eau. 200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré. Cet emballage contient 39 portions de 15,4ml.\\nIngredients\\nIngrédients : Sucre, sirop de glucose-fructose, eau, arôme naturel de menthe, colorants : caramel ordinaire, bleu brillant FCF.\\nType d’emballage\\ncylindre\\nProducteur\\nTEISSEIRE FRANCE 482 AVENUE AMBROISE CROIZAT///38926/CROLLES CEDEX/FRANCE\\nConseil de conservation\\nA consommer de préférence avant fin : voir sur le côté du bouchon. A conserver idéalement au frais après ouverture.\\nConseils d'utilisation\\nDiluer 1 dose de sirop pour 12 doses d'eau. 200ml de boisson diluée à 1+12 avec de l'eau, correspond à une portion de 15,4ml de concentré. Cet emballage contient 39 portions de 15,4ml.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\nValeurs Energétique en Kilojoules\\t~ 100 kJ\\nValeurs Energétique en Kilocalories\\t~ 24 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 6 g\\nDont Sucres\\t~ 5.5 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '5,48 € / L', 'price': '3,29'}, 'score': -105.0, 'extras': {'seed_variant': 'verte', 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': False, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['variant_missing'], 'candidate_quantity': '600 ML', 'candidate_size_ratio': 0.0, 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['menthe', 'sirop', 'teisseire', 'verte'], 'missing': [], 'total': 4}, 'missing_tokens': [], 'image_match': True, 'final_score': -105, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/teisseire-sirop-fraise-60cl/MPX_2160127', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Teisseire', 'kind': 'Sirop Menthe  Verte TEISSEIRE', 'qty': '60 CL', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
-      "metadata": {
-        "attempt_query": "Teisseire menthe 60 CL",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251122-101311/12-monoprix"
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251129-172713/01-intermarche"
       }
     }
   ],
-  "finder": null
+  "finder": {
+    "error": "'FinderPipeline' object has no attribute 'decide'"
+  }
 }

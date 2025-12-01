@@ -1,0 +1,77 @@
+{
+  "ean": "3502110008329",
+  "image_path": null,
+  "started_at": "2025-11-30T11:50:38.706438+01:00",
+  "finished_at": "2025-11-30T11:51:21.694167+01:00",
+  "duration_seconds": 42.987729,
+  "reference": {
+    "title": "Pepsi 1,5L",
+    "description": null,
+    "source": "unknown",
+    "brand": "Pepsi",
+    "quantity": "1500 ml",
+    "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté",
+    "image": null,
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251130-115038"
+  ],
+  "adapters": [
+    {
+      "adapter": "intermarche",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-11-30T11:50:39.496933+01:00",
+      "finished_at": "2025-11-30T11:51:19.719406+01:00",
+      "duration_seconds": 40.222473,
+      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "Pepsi 1500 ML",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py\", line 1636, in <module>\n    res = asyncio.run(run())\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py\", line 642, in run_until_complete\n    return future.result()\n  File \"/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py\", line 1033, in run\n    await page.goto(home_url, wait_until=\"domcontentloaded\")\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/async_api/_generated.py\", line 8992, in goto\n    await self._impl_obj.goto(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_page.py\", line 556, in goto\n    return await self._main_frame.goto(**locals_to_params(locals()))\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_frame.py\", line 153, in goto\n    await self._channel.send(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 69, in send\n    return await self._connection.wrap_api_call(\n  File \"/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/playwright/_impl/_connection.py\", line 558, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TargetClosedError: Page.goto: Target page, context or browser has been closed",
+      "metadata": {
+        "attempt_query": "Pepsi 1500 ML",
+        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251130-115038/01-intermarche"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Pepsi 1,5L",
+      "brand": "Pepsi",
+      "kind": "",
+      "qty": "1500 ml",
+      "qualifiers": [],
+      "ean": "3502110008329",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

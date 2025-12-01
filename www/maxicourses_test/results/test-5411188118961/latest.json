@@ -1,13 +1,13 @@
 {
   "ean": "5411188118961",
   "image_path": null,
-  "started_at": "2025-11-28T16:55:06.917518+01:00",
-  "finished_at": "2025-11-28T16:55:08.055006+01:00",
-  "duration_seconds": 1.137488,
+  "started_at": "2025-11-28T18:56:19.272353+01:00",
+  "finished_at": "2025-11-28T18:56:19.832556+01:00",
+  "duration_seconds": 0.560203,
   "reference": {
     "title": "Dessert végétal soja nature à l'amande ALPRO - 500g",
     "description": "Dessert végétal soja nature à l'amande ALPRO - 500g",
-    "source": "g20",
+    "source": "courseu",
     "brand": "Alpro",
     "quantity": "500  g",
     "categories": "Pflanzliche Lebensmittel und Getränke, Fermentierte Lebensmittel, en:Dairy substitutes, Desserts, en:Vegan products, Milchfreie Nachtische, Fermentierte Lebensmittel ohne Milch, Pflanzenbasierte Joghurts, Sojajoghurt, Einfacher Soja-Joghurt",
@@ -20,7 +20,7 @@
     "nova_group": "4"
   },
   "notes": [
-    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251128-165506"
+    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251128-185619"
   ],
   "adapters": [
     {
@@ -285,37 +285,24 @@
     },
     {
       "adapter": "g20",
-      "status": "OK",
+      "status": "NO_RESULTS",
       "payload": {
-        "status": "OK",
-        "price": "2,09",
-        "title": "ALPRO SOJA AMANDES 500 G X 1",
-        "url": "https://www.g20-minute.com/products/5411188118961/alpro-soja-amandes-500-g-x-1-5411188118961",
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
         "note": "G20 Minute",
-        "unit_price": "4,18 €/Kg",
-        "quantity": "500g",
-        "matched_ean": "5411188118961",
-        "image": "https://www.g20-minute.com/media/cache/product_box_image/41/06/e35c1fccee2ea3e9746da5d29d49.jpg",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
         "_meta": {
           "supports_ean": true
-        },
-        "product": {
-          "title": "ALPRO SOJA AMANDES 500 G X 1",
-          "brand": "ALPRO",
-          "kind": "",
-          "qty": "500g",
-          "qualifiers": [],
-          "ean": "5411188118961",
-          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/41/06/e35c1fccee2ea3e9746da5d29d49.jpg",
-          "source": "g20",
-          "raw_text": "",
-          "seed_query": "",
-          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-28T16:55:06.918620+01:00",
-      "finished_at": "2025-11-28T16:55:07.447418+01:00",
-      "duration_seconds": 0.528798,
+      "started_at": "2025-11-28T18:56:19.273585+01:00",
+      "finished_at": "2025-11-28T18:56:19.591953+01:00",
+      "duration_seconds": 0.318368,
       "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
       "command": [
         "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
@@ -336,13 +323,13 @@
   ],
   "finder": {
     "consolidated": {
-      "title": "ALPRO SOJA AMANDES 500 G X 1",
-      "brand": "ALPRO",
+      "title": "Dessert végétal soja nature à l'amande ALPRO - 500g",
+      "brand": "Alpro",
       "kind": "",
-      "qty": "500g",
+      "qty": "500 g",
       "qualifiers": [],
       "ean": "5411188118961",
-      "image_url": "https://www.g20-minute.com/media/cache/product_box_image/41/06/e35c1fccee2ea3e9746da5d29d49.jpg",
+      "image_url": "./assets/5411188118961.jpg",
       "source": "consolidated",
       "raw_text": "Dessert végétal soja nature à l'amande ALPRO - 500g",
       "seed_query": "",

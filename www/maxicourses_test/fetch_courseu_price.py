@@ -36,6 +36,8 @@ STORE_URL = (os.environ.get("STORE_URL") or "https://www.coursesu.com/drive-supe
 HOME_URL = STORE_URL
 STORE_NAME = os.environ.get("STORE_NAME") or "Super U Eysines"
 MANDATE = get_method("courseu")
+DIRECT_URL = (os.environ.get("DIRECT_URL") or "").strip()
+SKIP_SEARCH = (os.environ.get("SKIP_SEARCH") or "0").lower() in {"1", "true", "yes"}
 
 STATE_PATH = state_path_for("courseu")
 
@@ -735,6 +737,50 @@ async def _collect_once(use_cdp: bool) -> Result:
             await context.route("**/cdn-cgi/challenge-platform/**", _block_cf_scripts)
             await ensure_store(page)
             await refresh_home(page)
+
+            if DIRECT_URL:
+                direct_snapshot = None
+                try:
+                    await page.goto(DIRECT_URL, wait_until="commit")
+                except PlaywrightTimeout:
+                    pass
+                await page.wait_for_timeout(200)
+                direct_snapshot = await page.content()
+                await accept_cookies(page)
+                await close_overlays(page)
+                price, title, quantity, unit_price, matched_ean, nutri_grade, nutri_image = await extract_product_data(page, direct_snapshot)
+                final_note = build_note(STORE_NAME)
+                if price:
+                    result = Result(
+                        status="OK",
+                        price=price,
+                        unit_price=unit_price,
+                        quantity=quantity,
+                        title=title,
+                        url=page.url,
+                        note=final_note,
+                        store=STORE_NAME,
+                        matched_ean=_final_matched_ean(matched_ean or (EAN if EAN and EAN in (page.url or "") else None)),
+                        nutriscore_grade=nutri_grade,
+                        nutriscore_image=nutri_image,
+                    )
+                    if EAN and page.url:
+                        _store_courseu_hint(EAN, page.url)
+                    return result
+                if SKIP_SEARCH:
+                    status = "CF_BLOCK" if await _is_cf_block(page) else "NO_PRICE"
+                    return Result(
+                        status=status,
+                        title=title,
+                        quantity=quantity,
+                        url=page.url,
+                        note=final_note,
+                        store=STORE_NAME,
+                        matched_ean=_final_matched_ean(matched_ean),
+                        nutriscore_grade=nutri_grade,
+                        nutriscore_image=nutri_image,
+                    )
+
             search_term = EAN or query
             await perform_search(page, search_term)
             opened, snapshot = await open_best_result(page, search_term, EAN)
