@@ -9,12 +9,13 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Any
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse, parse_qs
 
 from rich import print
 import sys as _sys, os as _os
 _sys.path.append(_os.path.dirname(__file__))
 from scraper.engine import make_context, state_path_for
+import json # Moved here as per user's implied request, and also needed for the new function
 
 try:
     from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout
@@ -201,7 +202,7 @@ async def accept_cookies(page) -> None:
     try:
         await page.evaluate(
             """
-            (()=>{const labels=['tout accepter','accepter','j\'accepte','ok'];
+            (()=>{const labels=['tout accepter','accepter','j\\'accepte','ok'];
             const btns=[...document.querySelectorAll('button')];
             for(const b of btns){const t=(b.innerText||'').trim().toLowerCase();
                 if(labels.some(l=>t.includes(l))){b.click();return true;}}
@@ -210,6 +211,40 @@ async def accept_cookies(page) -> None:
         )
     except Exception:
         pass
+
+
+async def handle_turnstile(page) -> None:
+    """Detect and click Cloudflare Turnstile checkboxes."""
+    print("Checking for Turnstile/Cloudflare challenge...")
+    try:
+        await page.wait_for_timeout(2000)
+        # 1. Check iframes
+        frames = page.frames
+        for frame in frames:
+            try:
+                # Common Turnstile checkbox
+                checkbox = frame.locator("input[type='checkbox']").first
+                if await checkbox.count() > 0 and await checkbox.is_visible():
+                    print("Found Turnstile checkbox! Clicking...")
+                    await checkbox.click(force=True)
+                    await page.wait_for_timeout(2000)
+                    return
+                # Cloudflare Challenge Stage
+                cf_btn = frame.locator("#challenge-stage").first
+                if await cf_btn.count() > 0:
+                    print("Found Cloudflare challenge stage! Clicking center...")
+                    box = await cf_btn.bounding_box()
+                    if box:
+                        await gentle_move(page, box["x"] + 10, box["y"] + 10)
+                        await page.mouse.down()
+                        await page.wait_for_timeout(100)
+                        await page.mouse.up()
+                        await page.wait_for_timeout(2000)
+                        return
+            except Exception:
+                pass
+    except Exception as e:
+        print(f"Turnstile error: {e}")
 
 
 async def open_store_modal(page) -> bool:
@@ -435,6 +470,118 @@ async def ensure_expected_store(page, target: Optional[str], attempts: int = 3) 
     return clean_spaces(current)
 
 
+def try_parse_json_state(html_content: str, target_ean: str):
+    """
+    Attempts to parse window.__INITIAL_STATE__ from HTML and extract product data 
+    for the target EAN.
+    Returns a dict with extracted fields or None.
+    """
+    try:
+        marker = 'window.__INITIAL_STATE__='
+        start_idx = html_content.find(marker)
+        if start_idx == -1:
+            return None
+        start_idx += len(marker)
+        end_idx = html_content.find('</script>', start_idx)
+        if end_idx == -1:
+            return None
+        
+        json_str = html_content[start_idx:end_idx].strip()
+        if json_str.endswith(';'):
+            json_str = json_str[:-1]
+            
+        data = json.loads(json_str)
+        route_data_str = data.get('routeData')
+        if not route_data_str:
+            return None
+            
+        flat_list = json.loads(route_data_str)
+        
+        def resolve(idx):
+            if isinstance(idx, int) and 0 <= idx < len(flat_list):
+                return flat_list[idx]
+            return idx
+
+        # Find product object matching EAN
+        product_obj = None
+        for item in flat_list:
+            if isinstance(item, dict):
+                # We look for an object that has 'ean' property
+                # The 'ean' property might be an index pointing to the EAN string
+                raw_ean = item.get('ean')
+                if raw_ean:
+                    val_ean = resolve(raw_ean)
+                    if str(val_ean) == str(target_ean):
+                        product_obj = item
+                        break
+        
+        if not product_obj:
+            return None
+
+        # Extract fields
+        title = resolve(product_obj.get('title'))
+        qty_label = resolve(product_obj.get('format')) # e.g. "6x33cL"
+        
+        # Price is usually nested in offers -> ean -> ... -> attributes -> price
+        price_val = None
+        unit_price_label = None
+        
+        # Try to find offers
+        offers_map = resolve(product_obj.get('offers'))
+        if isinstance(offers_map, dict):
+            # offers_map keys are EANs, values are indices to offer maps
+            offer_ptr = offers_map.get(str(target_ean))
+            # If not found, try raw_ean index?
+            if not offer_ptr and 'ean' in product_obj:
+                 offer_ptr = offers_map.get(str(product_obj['ean']))
+                 
+            offer_ids = resolve(offer_ptr) # This is a dict of store_id -> offer_node_index
+            
+            if isinstance(offer_ids, dict):
+                # Pick the first one? Or look for current store?
+                if len(offer_ids) > 0:
+                     first_offer_idx = list(offer_ids.values())[0]
+                     offer_node = resolve(first_offer_idx)
+                     attrs = resolve(offer_node.get('attributes'))
+                     if isinstance(attrs, dict):
+                         # Fixed logic: 'price' in attributes points to a price INFO object, not the value directly
+                         price_info = resolve(attrs.get('price'))
+                         if isinstance(price_info, dict):
+                             if 'price' in price_info:
+                                 price_val = resolve(price_info.get('price'))
+                             
+                             # Unit price is often in this same price info object
+                             per_unit_lbl = resolve(price_info.get('perUnitLabel'))
+                             if per_unit_lbl:
+                                 unit_price_label = per_unit_lbl
+                         else:
+                             # Fallback: maybe it is the value?
+                             price_val = price_info
+                         
+                         # Sometimes it might be in attrs? (Legacy case or different store)
+                         if not unit_price_label:
+                             per_unit_lbl = resolve(attrs.get('perUnitLabel'))
+                             if per_unit_lbl:
+                                 unit_price_label = per_unit_lbl
+
+        # Debug Log to file
+        with open("debug_json_carrefour.log", "a") as f:
+            f.write(f"Parsed EAN {target_ean}: Price={price_val} Qty={qty_label} Unit={unit_price_label}\n")
+
+        return {
+            "title": title,
+            "quantity": qty_label,
+            "price": price_val,
+            "unit_price": unit_price_label
+        }
+
+    except Exception as e:
+        with open("debug_json_carrefour.log", "a") as f:
+            f.write(f"JSON Parse Error: {e}\n")
+        print(f"[WARN] JSON Parsing failed: {e}")
+        return None
+
+
 async def perform_search(page, term: str) -> bool:
     await open_search_ui(page)
     search_selectors = [
@@ -505,11 +652,32 @@ async def run() -> Result:
         or state_path_for('courses-carrefour')
     )
     residential_proxy = os.environ.get("CARREFOUR_RESIDENTIAL_PROXY")
-    p, browser, context, page = await make_context(
-        headless=HEADLESS, proxy=PROXY, residential_proxy=residential_proxy,
-        storage_state_path=storage_state,
-        user_agent=None,
-    )
+    # CDP / Turnstile Fix
+    p = await async_playwright().start()
+    browser = None
+    context = None
+    page = None
+
+    if USING_CDP and os.environ.get("CDP_URL"):
+        # Clean CDP Connection (Bypassing make_context to avoid stealth detection)
+        cdp_url = os.environ.get("CDP_URL")
+        print(f"Connecting to CDP: {cdp_url}")
+        try:
+            browser = await p.chromium.connect_over_cdp(cdp_url)
+            context = browser.contexts[0] if browser.contexts else await browser.new_context()
+            # Manual Stealth: Hide webdriver property
+            await context.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+            page = await context.new_page()
+        except Exception as e:
+            print(f"CDP Connection Failed: {e}")
+            sys.exit(1)
+    else:
+        # Standard connection (Headless/Stealth)
+        p, browser, context, page = await make_context(
+            headless=HEADLESS, proxy=PROXY, residential_proxy=residential_proxy,
+            storage_state_path=storage_state,
+            user_agent=None,
+        )
 
     async def _close_extra(new_page):
         try:
@@ -560,6 +728,8 @@ async def run() -> Result:
     else:
         try:
             await page.goto(HOME_URL, wait_until="domcontentloaded")
+            # Turnstile / Cloudflare Check
+            await handle_turnstile(page)
         except Exception:
             pass
 
@@ -665,7 +835,7 @@ async def run() -> Result:
                     """
                     () => {
                       const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-                      const patterns = /(€\s*\/\s*(?:kg|l|pi.?ce|lavage|unité))/i;
+                      const patterns = /(€\\s*\\/\\s*(?:kg|l|pi.?ce|lavage|unité))/i;
                       while (walker.nextNode()) {
                         const txt = (walker.currentNode.textContent || '').trim();
                         if (!txt) continue;
@@ -784,8 +954,43 @@ async def run() -> Result:
             except Exception:
                 pass
 
+        # 1. Try tc_vars (TrustCommander) - often reliable for price/category
+        try:
+            tc_match = re.search(r"var\s+tc_vars\s*=\s*Object\.assign\([^,]+,\s*(\{.*?\})\)", html, re.DOTALL)
+            if tc_match:
+                tc_json = tc_match.group(1)
+                # Cleanup simple keys if needed or parse loosely
+                try:
+                    tc_data = json.loads(tc_json)
+                    if tc_data.get("product_price"):
+                         # tc_vars price is often a float
+                         p_val = float(tc_data.get("product_price"))
+                         if p_val > 0:
+                             price_text = f"{p_val:.2f}"
+                    if not matched_ean and tc_data.get("product_EAN"):
+                        matched_ean = str(tc_data.get("product_EAN"))
+                except Exception:
+                    # Fallback regex for tc_vars fields if JSON fails
+                    pass
+        except Exception:
+            pass
+
         if not quantity_text:
             search_fields = []
+            try:
+                # 1. Restrict search to likely main product container if possible
+                # But 'info_section' strategy is broad. 
+                # Let's try to parse Title "Lot de X" first
+                if title_text:
+                    m_lot = re.search(r"\blot\s+de\s+(\d+)", title_text, flags=re.IGNORECASE)
+                    if m_lot:
+                         lot_count = int(m_lot.group(1))
+                         # Now look for "33cl" or volume in title or blob
+                         # Try to find volume ONLY (e.g. 33cl) and multiply
+                         pass
+            except Exception:
+                pass
+
             try:
                 info_section = page.locator("section, div").filter(has_text=re.compile(r"EAN|\d"))
                 for i in range(min(await info_section.count(), 6)):
@@ -796,10 +1001,63 @@ async def run() -> Result:
                 pass
             search_fields.append(title_text or "")
             blob = "\n".join(search_fields)
-            mqty = re.search(r"(\d+[\.,]?\d*)\s*(ml|l|cl|kg|g)\b", blob, flags=re.IGNORECASE)
-            if mqty:
-                val, unit = mqty.groups()
-                quantity_text = clean_spaces(f"{val} {unit.upper()}")
+            
+            # IMPROVED REGEX: Negative lookbehind to avoid "pour 100ml" (nutrition)
+            # Matches: "6x33cl", "1.5L", "500g" but NOT "pour 100 ml"
+            mqty = re.search(r"(?<!pour\s)(?<!per\s)(?<!\d\s)\b(\d+(?:[\.,]\d+)?)\s*(ml|cl|dl|l|g|kg)\b", blob, flags=re.IGNORECASE)
+            
+            # Special case for "NxVV cl" (e.g. 6x33cl) and "Lot de X ... Y cl"
+            m_pack = re.search(r"\b(\d+)\s*x\s*(\d+(?:[\.,]\d+)?)?\s*(ml|cl|dl|l|g|kg)\b", blob, flags=re.IGNORECASE)
+            
+            if m_pack:
+                count = float(m_pack.group(1))
+                vol = float(m_pack.group(2).replace(',', '.'))
+                # Fix: If bad regex detected "6.0x20.0CL" but it should match "6x33", check if 20 is suspicious
+                # But let's trust regex unless verified.
+                unit = m_pack.group(3).lower()
+                quantity_text = f"{count}x{vol}{unit.upper()}"
+            elif mqty:
+                # If we found "lot de X" in title, maybe apply it?
+                m_lot = re.search(r"\blot\s+de\s+(\d+)", title_text or "", flags=re.IGNORECASE)
+                val = float(mqty.group(1).replace(',', '.'))
+                unit = mqty.group(2)
+                if m_lot:
+                     count = int(m_lot.group(1))
+                     # If val is small (e.g. 33cl), multiply?
+                     # heuristic: if val < 10 (L) or < 2000 (ml), it's likely one unit
+                     quantity_text = f"{count}x{val}{unit.upper()}"
+                else:
+                    quantity_text = clean_spaces(f"{val} {unit.upper()}")
+
+        # Math Sanity Check (Implied Quantity)
+        calculated_quantity = None
+        if price_text and unit_text:
+             try:
+                 p_clean = float(price_text.replace(',', '.').replace('€', '').strip())
+                 # Parse unit price (e.g. "3.12 € / L")
+                 u_match = re.search(r"(\d+[\.,]\d+)", unit_text)
+                 if u_match:
+                     u_val = float(u_match.group(1).replace(',', '.'))
+                     if u_val > 0:
+                         implied = p_clean / u_val
+                         # Detection based on unit text unit
+                         if "/ l" in unit_text.lower() or "/l" in unit_text.lower():
+                             calculated_quantity = f"{implied:.2f}L"
+                         elif "/ kg" in unit_text.lower():
+                             calculated_quantity = f"{implied:.2f}KG"
+             except Exception:
+                 pass
+        
+        # Override decision: 
+        # If calculated quantity exists, it is usually authoritative for the Price/Unit Price ratio.
+        # If extracted qty is "100 ML" (junk) OR seems to mismatch significantly, use calculated.
+        # "6x33cl" = 1.98L. Calculated "2.68 €/L" -> 1.98L. Perfect match.
+        # If we got "6x20cl" (1.2L) vs Calculated (1.98L), we should PREFER Calculated.
+        
+        if calculated_quantity:
+             quantity_text = calculated_quantity # Trust Math for now as regex is flaky on standard text for this site.
+
+
 
         if price_text:
             return True
@@ -889,6 +1147,54 @@ async def run() -> Result:
         safe_term = re.sub(r"[^A-Za-z0-9]", "_", term)[:20]
         await snapshot(page, f"results-{safe_term}")
         await dump_html(page, f"results-{safe_term}")
+
+        # NEW: Try to parse JSON state directly
+        try:
+             page_content = await page.content()
+             json_data = try_parse_json_state(page_content, EAN)
+             if json_data and json_data.get('price'):
+                 print(f"[INFO] Successfully extracted data from JSON State: {json_data}")
+                 
+                 price_text = str(json_data.get('price')).replace('.', ',')
+                 
+                 u_text = json_data.get('unit_price')
+                 if u_text:
+                     unit_text = u_text.replace('.', ',')
+                     
+                 q_text = json_data.get('quantity')
+                 if q_text:
+                     quantity_text = q_text
+                     
+                 t_text = json_data.get('title')
+                 if t_text:
+                     title_text = t_text
+                     
+                 matched_ean = EAN
+                 pdp_url = page.url # We are on search page, but effectively we found the product
+                 
+                 # IMPORTANT: If we found data, we can return immediately or break loop
+                 # Returning Result immediately is cleaner
+                 
+                 cleaned_store = clean_spaces(store_name)
+                 expected_clean = clean_spaces(expected_store)
+                 final_store = cleaned_store or expected_clean
+                 
+                 return Result(
+                    status="OK",
+                    price=price_text,
+                    store=final_store,
+                    url=pdp_url,
+                    unit_price=unit_text,
+                    quantity=quantity_text,
+                    title=title_text,
+                    matched_ean=matched_ean,
+                    note="json_state_extraction", # Mark as JSON extracted
+                    image=image_url,
+                    nutriscore_grade=nutriscore_grade,
+                    nutriscore_image=nutriscore_image,
+                )
+        except Exception as e:
+             print(f"[WARN] Error in JSON State extraction: {e}")
 
         cards = page.locator("a[href^='/p/']")
         count = await cards.count()

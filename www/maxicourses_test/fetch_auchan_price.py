@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""
+CRITICAL: DO NOT MODIFY THIS FILE WITHOUT EXPLICIT USER APPROVAL.
+THIS FILE CONTAINS STRICTLY VALIDATED LOGIC FOR AUCHAN COLLECTION.
+ANY CHANGE CAN BREAK THE COLLECTION PROCESS.
+RESTORED FROM PATCHES: cookies, disable_fallback, sanitization.
+"""
 """Auchan Talence fetcher — minimal flow: load store page, search EAN, open PDP."""
 import asyncio
 import json
@@ -17,7 +23,9 @@ _sys.path.append(_os.path.dirname(__file__))
 from scraper.engine import make_context, state_path_for
 from seed_catalog import all_seeds
 
-EAN = os.environ.get("EAN", "").strip()
+EAN = (os.environ.get("EAN") or os.environ.get("QUERY") or "").strip()
+# FORCE DEBUG for diagnosis
+os.environ["AUCHAN_DEBUG"] = "1"
 HEADLESS = os.environ.get("HEADLESS", "1") == "1"
 PROXY = os.environ.get("PROXY")
 DIRECT_URL = (os.environ.get("DIRECT_URL") or "").strip()
@@ -64,22 +72,55 @@ def log(message: str) -> None:
 
 
 async def accept_cookies(page) -> None:
-    selectors = [
-        "#didomi-notice-agree-button",
-        "#onetrust-accept-btn-handler",
-        "button:has-text('Tout accepter')",
-        "button:has-text('Accepter')",
-        "button:has-text(\"J'accepte\")",
-    ]
-    for selector in selectors:
-        button = page.locator(selector).first
-        try:
-            if await button.count():
-                await button.click()
-                await page.wait_for_timeout(400)
-                return
-        except Exception:
-            continue
+    try:
+        # Strategy 1: TrustCommander / OneTrust Standard Buttons
+        # Use localized text search first as it is robust against obfuscated classes
+        button_texts = [
+            "Accepter et fermer", 
+            "Tout accepter", 
+            "Accepter", 
+            "J'accepte", 
+            "Continuer sans accepter"
+        ]
+        
+        for text in button_texts:
+            # Look for button or link with exact or partial text, notably inside consent modals
+            # We use a broad selector to catch it
+            try:
+                # Use a broad selector for buttons and links containing the text
+                btn = page.locator(f"button:has-text('{text}'), a:has-text('{text}')").first
+                if await btn.count() > 0 and await btn.is_visible():
+                    log(f"Found cookie button with text: {text}")
+                    await btn.click(timeout=3000)
+                    await page.wait_for_timeout(1000)
+                    return
+            except Exception:
+                pass
+
+        # Strategy 2: Common Consent ID selectors
+        selectors = [
+             "#onetrust-accept-btn-handler",
+             "#onetrust-banner-sdk button#onetrust-accept-btn-handler",
+             "button#didomi-notice-agree-button",
+             "button[id*='cookie-accept']",
+             "button[class*='cookie-accept']",
+             "#popin_tc_privacy_button_2", # TrustCommander specific?
+             ".tc-reset-css button" # Generic TrustCommander
+        ]
+        
+        for sel in selectors:
+            try:
+                elem = page.locator(sel).first
+                if await elem.count() > 0 and await elem.is_visible():
+                     log(f"Found cookie button via selector: {sel}")
+                     await elem.click(timeout=3000)
+                     await page.wait_for_timeout(1000)
+                     return
+            except Exception:
+                pass
+
+    except Exception as e:
+        log(f"Cookie acceptance warning: {e}")
 
 
 async def close_delivery_modal(page) -> None:
@@ -104,9 +145,9 @@ async def choose_drive(page) -> None:
     Selects the store if the 'Choisir ce drive' button is present.
     """
     selectors = [
-        "button.journey-button",
         "button:has-text('Choisir ce Drive')",
         "button:has-text('Choisir ce magasin')",
+        "button.journey-button",
     ]
     
     log("Checking for 'Choisir ce drive' button...")
@@ -114,9 +155,9 @@ async def choose_drive(page) -> None:
     try:
         # Wait for network to be idle to ensure button is interactive
         try:
-            await page.wait_for_load_state("networkidle", timeout=5000)
+             await page.wait_for_load_state("networkidle", timeout=5000)
         except Exception:
-            pass
+             pass
 
         target_button = None
         for selector in selectors:
@@ -130,67 +171,66 @@ async def choose_drive(page) -> None:
             log("No 'Choisir ce drive' button found. Maybe already selected?")
             return
 
-        # Simple, robust click
-        log("Clicking 'Choisir ce drive'...")
-        await target_button.scroll_into_view_if_needed()
-        await page.wait_for_timeout(500)
-        await target_button.click(force=True)
-        
-        # Wait for reaction
-        await page.wait_for_timeout(3000)
-        
-        if not await target_button.is_visible():
-            log("✅ Button disappeared, store selected.")
-        else:
-            log("⚠️ Button still visible after click.")
+        button_text = await target_button.text_content()
+        log(f"Found 'Choisir ce drive' button. Text: '{button_text.strip() if button_text else ''}'")
+
+        # Hammer Click Strategy: Retry clicking until Toast appears
+        max_click_attempts = 5
+        for click_attempt in range(max_click_attempts):
+            log(f"Clicking 'Choisir ce drive' (Attempt {click_attempt + 1}/{max_click_attempts})...")
+            try:
+                await target_button.scroll_into_view_if_needed()
+                
+                # Human-like click simulation with randomization
+                box = await target_button.bounding_box()
+                if box:
+                    import random
+                    # Add random offset to avoid dead-center detection
+                    offset_x = random.uniform(-5, 5)
+                    offset_y = random.uniform(-5, 5)
+                    target_x = box["x"] + box["width"] / 2 + offset_x
+                    target_y = box["y"] + box["height"] / 2 + offset_y
+                    
+                    await page.mouse.move(target_x, target_y)
+                    await page.wait_for_timeout(random.randint(150, 300)) # Variable hover
+                    await page.mouse.down()
+                    await page.wait_for_timeout(random.randint(80, 150)) # Variable press
+                    await page.mouse.up()
+                else:
+                    # Fallback if no box
+                    await target_button.click(force=True, timeout=1000)
+
+            except Exception as e:
+                log(f"Click failed: {e}")
+
+            log("Waiting for 'C'est noté' popup...")
+            try:
+                toast = page.locator("div:has-text(\"C'est noté\")").first
+                # Short wait to see if this click worked
+                await toast.wait_for(state="visible", timeout=3000)
+                log("✅ Toast 'C'est noté' APPEARED.")
+                
+                log("Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...")
+                await toast.wait_for(state="hidden", timeout=15000)
+                log("✅ Toast DISAPPEARED. Proceeding to search.")
+                return 
+            except Exception:
+                log("⚠️ Toast did not appear yet. Retrying click...")
+                await page.wait_for_timeout(500)
+
+        log("❌ FATAL: Toast never appeared after multiple clicks. Falling back to blind wait.")
+        await page.wait_for_timeout(4000)
 
     except Exception as e:
         log(f"Error in choose_drive: {e}")
 
 
-STORE_CONTEXT_SCRIPT = """
-        (store) => {
-            try {
-                const {id, slug, label} = store;
-                if (id) {
-                    window.localStorage.setItem('storeId', id);
-                    window.localStorage.setItem('journeyStoreId', id);
-                }
-                if (slug) {
-                    window.localStorage.setItem('storeSlug', slug);
-                }
-                if (label) {
-                    window.localStorage.setItem('storeName', label);
-                }
-            } catch (e) {}
-        }
-    """
-
-
-async def install_store_context(page) -> None:
-    payload = {"id": STORE_ID, "slug": STORE_SLUG, "label": STORE_LABEL}
-    try:
-        await page.add_init_script(STORE_CONTEXT_SCRIPT, payload)
-    except Exception:
-        pass
-
-
-async def sync_store_context(page) -> None:
-    payload = {"id": STORE_ID, "slug": STORE_SLUG, "label": STORE_LABEL}
-    try:
-        await page.evaluate(STORE_CONTEXT_SCRIPT, payload)
-    except Exception:
-        pass
-
-
 async def prepare_store_page(page) -> None:
     log(f"goto store page {STORE_URL}")
     await page.goto(STORE_URL, wait_until="domcontentloaded")
-    await sync_store_context(page)
     await accept_cookies(page)
     await close_delivery_modal(page)
     await choose_drive(page)
-    # choose_drive() already waits 5 seconds after clicking
 
 
 async def focus_search_input(page):
@@ -239,15 +279,9 @@ async def search_ean(page, ean: str) -> tuple[bool, Optional[str]]:
                 log(f"search typing failed: {exc}")
                 continue
         else:
-            search_url = f"https://www.auchan.fr/recherche?text={ean}"
-            log(f"falling back to search page {search_url}")
-            try:
-                await page.goto(search_url, wait_until="domcontentloaded", timeout=18000)
-                await accept_cookies(page)
-                await page.wait_for_timeout(1200)
-            except Exception as exc:
-                log(f"search page fallback failed: {exc}")
-                return False, None
+            # USER STRICT INSTRUCTION: NO REFRESH / NO GOTO
+            log("Search typing failed, but fallback (refresh) is DISABLE per user request.")
+            return False, None
 
         try:
             await result_cards.first.wait_for(timeout=8000)
@@ -299,21 +333,35 @@ async def reveal_price(page) -> None:
         "button.price-unavailable__button",
         "button.product-unavailable__button",
     ]
+    log(f"Attempting to reveal price (clicking 'Afficher le prix')...")
     for _ in range(3):
+        button_found = False
         for selector in selectors:
             button = page.locator(selector).first
             try:
-                if await button.count():
+                if await button.count() and await button.is_visible():
+                    log(f"Found reveal price button: {selector}")
                     await button.scroll_into_view_if_needed()
-                    await button.click()
+                    await button.click(force=True)
+                    log("Clicked reveal button.")
                     await page.wait_for_timeout(800)
+                    button_found = True
                     break
-            except Exception:
+            except Exception as e:
+                log(f"Error clicking reveal button {selector}: {e}")
                 continue
+        
+        # Check if price appeared
         price_node = page.locator("[data-testid='product-price'], .product-price").first
         if await price_node.count():
+            log("Price revealed!")
             return
+        
+        if not button_found:
+             log("No reveal price button found on this attempt.")
+        
         await page.wait_for_timeout(400)
+    log("Failed to reveal price after retries.")
 
 
 def clean_price(text: Optional[str], *, require_currency: bool = True) -> Optional[str]:
@@ -438,11 +486,31 @@ def _parse_quantity_components(text: Optional[str]) -> Optional[tuple[float, str
 
 
 def normalize_quantity_string(value: Optional[str]) -> Optional[str]:
-    components = _parse_quantity_components(value)
-    if not components:
-        return value.strip() if isinstance(value, str) else None
-    amount, _, display_unit = components
-    return _format_quantity_text(amount, display_unit)
+    # SANITIZATION PATCH: Return raw value if it looks like a pack or simple quantity
+    # Do NOT convert to total Liters/Kg.
+    if not value:
+        return None
+    
+    val = value.strip()
+    
+    # If it looks like "6x33cl" or "6 x 33 cl", keep it!
+    # Normalize spaces only.
+    if 'x' in val.lower() or '*' in val:
+         # Standardize " x " and units casing
+         val = re.sub(r"\s*[xX*]\s*", "x", val)
+         return val
+    
+    # If it is simple quantity "1.5L", keep it (maybe normalize decimal separator)
+    # Avoid calling _parse_quantity_components which does conversion math.
+
+    # Basic cleanup: 1,5L -> 1.5L. Remove spaces around unit.
+    # regex capture number and unit
+    m = re.match(r"^(\d+(?:[.,]\d+)?)\s*([a-zA-Z]+)$", val)
+    if m:
+        qty, unit = m.groups()
+        return f"{qty.replace(',', '.')} {unit.upper()}"
+
+    return val
 
 
 def extract_quantity(html: str) -> Optional[str]:
@@ -628,8 +696,8 @@ async def extract_from_pdp(page) -> Optional[Result]:
                                 quantity = normalized_q
     except Exception:
         pass
-    if not quantity:
-        quantity = extract_quantity(html)
+    # if not quantity:
+    #     quantity = extract_quantity(html) # DISABLED: Too risky (matches "5 L" randomly)
     if not unit_price:
         unit_price = normalize_unit_price_text(html)
     if not matched_ean and EAN and EAN in (page.url or ""):
@@ -666,13 +734,42 @@ async def run() -> Result:
     if not EAN:
         return Result(status="NO_EAN", note="EAN required", store=STORE_LABEL)
 
-    storage_state = state_path_for("auchan")
-    p, browser, context, page = await make_context(
-        headless=HEADLESS,
-        proxy=PROXY,
-        storage_state_path=storage_state,
-        user_agent=DEFAULT_USER_AGENT,
-    )
+    # Bypassing scraper.engine.make_context to avoid 'stealth_async' and other hidden scripts
+    # This aligns with the user's request to remove "blocking functions"
+    from playwright.async_api import async_playwright
+    p = await async_playwright().start()
+    
+    cdp_url = os.environ.get("CDP_URL", "http://127.0.0.1:9222")
+    log(f"Connecting to CDP (No Stealth): {cdp_url}")
+    
+    try:
+        browser = await p.chromium.connect_over_cdp(cdp_url)
+    except Exception as e:
+        log(f"CDP Connection failed: {e}")
+        return Result(status="ERROR", note="CDP Connection Failed", store=STORE_LABEL)
+
+    context = browser.contexts[0] if browser.contexts else await browser.new_context()
+    if context.pages:
+        page = context.pages[0]
+    else:
+        page = await context.new_page()
+        
+    start_url = page.url
+    if "auchan.fr" in start_url:
+        log("Page already on Auchan, checking if reload needed.")
+        if "google" in start_url: # Anti-pattern check
+             pass
+
+    # storage_state = state_path_for("auchan") # Ignored in Direct CDP usually unless we load it explicitly
+    # But since we use persistent context of CDP, we rely on browser state.
+
+
+    # Clear cookies to remove corrupt state/overlays
+    try:
+        await context.clear_cookies()
+        log("Cookies cleared to force fresh session.")
+    except Exception:
+        pass
 
     # Debug: Log Console and Network
     if os.environ.get("AUCHAN_DEBUG") == "1":
@@ -682,7 +779,6 @@ async def run() -> Result:
         page.on("response", lambda res: log(f"RESP: {res.status} {res.url}") if res.status >= 400 else None)
 
     try:
-        await install_store_context(page)
         await prepare_store_page(page)
 
         if DIRECT_URL:
@@ -767,4 +863,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("ABORT")
         sys.exit(130)
-    print(json.dumps(payload.__dict__, ensure_ascii=False))
+    sys.stdout.write(json.dumps(payload.__dict__, ensure_ascii=False) + "\n")
