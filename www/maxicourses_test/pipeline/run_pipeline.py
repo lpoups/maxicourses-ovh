@@ -1187,75 +1187,29 @@ def extract_remote_image(descriptor: Optional[Dict[str, Any]], adapter_results: 
 
 
 def ensure_local_image_asset(ean: str, descriptor: Optional[Dict[str, Any]], adapter_results: List[RawAdapterResult]) -> Optional[Dict[str, Any]]:
+    """
+    ARCHITECTURE 100% OVH: Ne pas télécharger en local.
+    Garde simplement l'URL HTTP dans le descriptor.
+    Le matching d'images se fait via comparaison HTTP distante.
+    """
     if not descriptor:
         return descriptor
 
     image_value = descriptor.get("image")
-    remote_url: Optional[str] = None
-
-    if isinstance(image_value, str) and image_value.startswith("./assets/"):
-        asset_path = ASSETS_DIR / Path(image_value).name
-        if asset_path.exists():
-            return descriptor
-
-    # [PERSISTENCE] Check if we already have an image for this EAN on disk
-    # The user wants "stored once and for all".
-    for ext in [".jpg", ".jpeg", ".png", ".webp"]:
-        existing_path = ASSETS_DIR / f"{ean}{ext}"
-        if existing_path.exists():
-            if descriptor.get("image") == f"./assets/{existing_path.name}":
-                 return descriptor
-            updated = dict(descriptor)
-            updated["image"] = f"./assets/{existing_path.name}"
-            save_manual_descriptor_entry(ean, updated)
-            return updated
-
-    if isinstance(image_value, str) and image_value.strip().lower().startswith("http"):
-        remote_url = html.unescape(image_value.strip())
-
-    if not remote_url:
-        remote_url = extract_remote_image(descriptor, adapter_results)
-
-    if not remote_url:
+    
+    # Si on a déjà une URL HTTP, c'est parfait - ne rien changer
+    if isinstance(image_value, str) and image_value.startswith("http"):
         return descriptor
-
-    try:
-        remote_url = html.unescape(remote_url).strip()
-        remote_url = re.sub(r"\s+", "", remote_url)
-        parsed = urlparse(remote_url)
-    except Exception:
-        return descriptor
-
-    ext = os.path.splitext(parsed.path)[1].lower()
-    if ext not in {".jpg", ".jpeg", ".png", ".webp"}:
-        ext = ".jpg"
-
-    dest_name = f"{ean}{ext}"
-    dest_path = ASSETS_DIR / dest_name
-    try:
-        ASSETS_DIR.mkdir(parents=True, exist_ok=True)
-        # Use requests with headers to avoid 403 (Cloudflare/CourseU)
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
-            "Referer": "https://www.coursesu.com/",
-            "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
-        }
-        import requests
-        resp = requests.get(remote_url, headers=headers, timeout=15)
-        if resp.status_code != 200:
-            return descriptor
-        data = resp.content
-        if not data:
-            return descriptor
-        dest_path.write_bytes(data)
-    except Exception:
-        return descriptor
-
-    updated = dict(descriptor)
-    updated["image"] = f"./assets/{dest_path.name}"
-    save_manual_descriptor_entry(ean, updated)
-    return updated
+    
+    # Si pas d'image, essayer d'en extraire une des résultats
+    remote_url = extract_remote_image(descriptor, adapter_results)
+    if remote_url and isinstance(remote_url, str) and remote_url.startswith("http"):
+        updated = dict(descriptor)
+        updated["image"] = remote_url
+        save_manual_descriptor_entry(ean, updated)
+        return updated
+    
+    return descriptor
 
 
 def _stringify(value: Any) -> str:
@@ -3095,23 +3049,13 @@ def main(argv: Optional[List[str]] = None) -> int:
             if res.status == "OK" and res.payload:
                 discovered_image = res.payload.get("image_url") or res.payload.get("image")
                 current_chk = descriptor.get("image") or ""
-                # Only update if we don't already have a local asset
-                is_local_asset = current_chk.startswith("./assets/") or current_chk.startswith("assets/")
                 
-                if discovered_image and not is_local_asset:
-                    # Basic validation
-                    if isinstance(discovered_image, str) and len(discovered_image) > 10:
-                        # DOWNLOAD IT IMMEDIATELY
-                        # Pass product_url (res.payload.get("url")) to allow screenshot fallback for 403 blocks
-                        product_url = res.payload.get("url")
-                        local_path = _download_and_localize_image(ean, discovered_image, product_url=product_url)
-                        if local_path:
-                             descriptor["image"] = local_path
-                             print(f"[INFO] Pipeline: Auto-localized image from {adapter}: {local_path}")
-                        else:
-                             # Fallback to URL if download failed (better than nothing, though risky for frontend)
-                             descriptor["image"] = discovered_image
-                             print(f"[INFO] Pipeline: Auto-propagated URL (download failed) from {adapter}: {discovered_image}")
+                # ARCHITECTURE 100% OVH: Stocker directement l'URL dans MongoDB (pas de téléchargement local)
+                if discovered_image and isinstance(discovered_image, str) and len(discovered_image) > 10:
+                    # Valider que c'est bien une URL HTTP
+                    if discovered_image.startswith("http"):
+                        descriptor["image"] = discovered_image
+                        print(f"[INFO] Pipeline: Stored remote image URL from {adapter}: {discovered_image[:80]}...")
             # ---------------------------------
 
             if res.error:
