@@ -968,16 +968,25 @@ def _compare_image_with_descriptor(descriptor: dict[str, typing.Any], image_url:
 
     descriptor_copy = dict(descriptor)
     img = descriptor_copy.get("image")
+    
+    # ARCHITECTURE 100% OVH: Si l'image est une URL HTTP, la passer directement
+    # Ne pas essayer de la convertir en chemin local
     if isinstance(img, str) and img.strip():
-        path = Path(img.strip())
-        if not path.is_absolute():
-            script_root = Path(__file__).resolve().parent
-            candidate1 = script_root / path
-            candidate2 = script_root / "pipeline" / "assets" / path.name
-            if candidate1.exists():
-                descriptor_copy["image"] = str(candidate1)
-            elif candidate2.exists():
-                descriptor_copy["image"] = str(candidate2)
+        img_stripped = img.strip()
+        if img_stripped.startswith("http"):
+            # URL HTTP - utiliser directement
+            descriptor_copy["image"] = img_stripped
+        else:
+            # Ancien format (chemin local) - essayer de résoudre pour compatibilité
+            path = Path(img_stripped)
+            if not path.is_absolute():
+                script_root = Path(__file__).resolve().parent
+                candidate1 = script_root / path
+                candidate2 = script_root / "pipeline" / "assets" / path.name
+                if candidate1.exists():
+                    descriptor_copy["image"] = str(candidate1)
+                elif candidate2.exists():
+                    descriptor_copy["image"] = str(candidate2)
 
     try:
         return descriptor_matches_candidate(descriptor_copy, cleaned, ean=current_ean, threshold=threshold)

@@ -46,6 +46,37 @@ Corriger le bug de collete de lerclerc : Les mots cles de recherche sont excelle
 
 ---
 
+## 🧪 MODE TEST MAXICOURSES
+
+> **⚠️ TOUS LES TESTS DOIVENT SE FAIRE VIA LE DASHBOARD OVH !**
+
+### Architecture de Test
+```
+Machine Locale (IP résidentielle)
+    ↓ Tunnel SSH port 9222
+Serveur OVH
+    ├── Chrome Debug (port 9222) ← utilise le tunnel
+    ├── MongoDB (port 27017) ← local au serveur
+    ├── server.py (port 5001) ← API
+    └── Dashboard (index.html) ← Interface de test
+```
+
+### Ce que fait le tunnel SSH
+- **Port 9222** : Chrome debug - permet aux scrapers de naviguer avec une IP résidentielle
+- **Le tunnel NE COUVRE PAS MongoDB** - MongoDB est uniquement accessible depuis OVH
+
+### Comment tester
+1. Ouvrir le dashboard : `http://api.maxicourses.fr/index.html`
+2. Lancer une collecte depuis le dashboard
+3. Les scripts s'exécutent sur OVH avec accès MongoDB
+4. Chrome utilise l'IP locale via le tunnel SSH
+
+### ❌ Ne PAS faire
+- Ne pas lancer les scripts Python en local (pas d'accès MongoDB)
+- Ne pas essayer de tester Monoprix/Leclerc en local
+
+---
+
 ## 🔒 ARCHITECTURE IMAGES - 100% OVH (14/12/2025)
 
 > **⚠️ AUCUN FICHIER LOCAL ! Tout est URL dans MongoDB.**
