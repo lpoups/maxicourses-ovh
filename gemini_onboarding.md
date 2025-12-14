@@ -46,6 +46,26 @@ Corriger le bug de collete de lerclerc : Les mots cles de recherche sont excelle
 
 ---
 
+## 🔒 ARCHITECTURE IMAGES - 100% OVH (14/12/2025)
+
+> **⚠️ AUCUN FICHIER LOCAL ! Tout est URL dans MongoDB.**
+
+### Comment ça marche
+1. **Collecte** → Le scraper extrait l'URL de l'image produit
+2. **Stockage** → L'URL HTTP est stockée directement dans `descriptor.image` dans MongoDB
+3. **Matching** → Monoprix/Leclerc comparent via HTTP (hash distant vs hash candidat)
+
+### Fonctions modifiées
+- `run_pipeline.py` ligne 3095+ : **Stocke directement l'URL** (pas de téléchargement)
+- `ensure_local_image_asset` : **Garde l'URL HTTP** sans téléchargement local
+
+### Pourquoi c'est important
+- Le serveur OVH n'a pas accès au dossier `assets/` local
+- Le téléchargement échouait souvent (403, timeout)
+- Les URLs HTTP fonctionnent partout
+
+---
+
 ## 🔒 MÉTHODE COURSE U - NE JAMAIS MODIFIER !
 
 > **⚠️ ATTENTION: Cette méthode fonctionne parfaitement. NE PAS LA MODIFIER sauf lors du passage en mode collecte full serveur OVH.**
