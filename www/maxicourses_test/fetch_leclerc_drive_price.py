@@ -65,3 +65,7 @@ if __name__ == "__main__":
         print(json.dumps(payload, ensure_ascii=False))
     except KeyboardInterrupt:
         sys.exit(1)
+    except Exception as e:
+        import traceback
+        traceback.print_exc(file=sys.stderr)
+        print(json.dumps({"status": "ERROR", "error": f"Crash: {str(e)}"}, ensure_ascii=False))
