@@ -21,11 +21,12 @@ from flask import Flask, request, jsonify, send_from_directory, abort, session, 
 
 from decode_ean import decode_image_to_ean
 from descriptor_store import (
-    all_descriptors as descriptor_catalog,
     descriptor_exists,
     get_descriptor as load_descriptor_from_store,
     removed_eans,
     set_removed_flag,
+    ProductRepository,
+    all_descriptors,
 )
 
 ROOT = Path(__file__).resolve().parent
@@ -457,7 +458,10 @@ def run_pipeline_collect(
         cmd.extend(["--proxy", proxy])
 
     env = os.environ.copy()
+    env["PYTHONPATH"] = str(ROOT) + os.pathsep + env.get("PYTHONPATH", "")
     env["USE_CDP"] = "1"
+    if "CDP_URL" not in env:
+        env["CDP_URL"] = "http://127.0.0.1:9223"
     env["LECLERC_MAX_DURATION_S"] = "45"
     env["LECLERC_FAST_MODE"] = "1"
     env["LECLERC_NO_DELAY"] = "1"
@@ -496,9 +500,24 @@ def api_descriptors():
     ean = _clean_string(request.args.get("ean"))
     if ean:
         descriptor = ensure_manual_descriptor(ean)
-        return jsonify({"status": "OK", "descriptor": descriptor})
-    descriptors = descriptor_catalog()
-    return jsonify({"status": "OK", "descriptors": descriptors, "removed": sorted(removed_eans())})
+        
+        # Phase 9: Comparison Engine
+        # Check for Best Deal (Substitute)
+        repo = ProductRepository()
+        best_deal = repo.get_cheapest_substitute(ean)
+        
+        return jsonify({
+            "status": "OK", 
+            "descriptor": descriptor,
+            "best_deal": best_deal
+        })
+    descriptors = all_descriptors()
+    # Filter out removed descriptors
+    active_descriptors = {
+        k: v for k, v in descriptors.items() 
+        if not v.get("removed")
+    }
+    return jsonify({"status": "OK", "descriptors": active_descriptors, "removed": sorted(removed_eans())})
 
 
 @app.post("/api/update-price")
@@ -547,7 +566,7 @@ def api_update_price():
 
     if descriptor:
         try:
-            extra_env["INITIAL_DESCRIPTOR_JSON"] = json.dumps(descriptor, ensure_ascii=False)
+            extra_env["INITIAL_DESCRIPTOR_JSON"] = json.dumps(descriptor, ensure_ascii=False, default=str)
         except Exception:
             pass
 
@@ -714,7 +733,7 @@ def api_collect():
 
     if descriptor:
         try:
-            extra_env["INITIAL_DESCRIPTOR_JSON"] = json.dumps(descriptor, ensure_ascii=False)
+            extra_env["INITIAL_DESCRIPTOR_JSON"] = json.dumps(descriptor, ensure_ascii=False, default=str)
         except Exception:
             pass
 
@@ -793,6 +812,11 @@ def api_collect():
     )
 
 
+@app.route("/api/remove", methods=["OPTIONS"])
+def api_remove_options():
+    return ('', 204)
+
+
 @app.post("/api/remove")
 def api_remove():
     payload = request.get_json(silent=True) or {}
@@ -811,6 +835,7 @@ def api_remove():
 
     descriptor = set_descriptor_removed_flag(ean, True)
     remove_global_summary_entry(ean)
+    purge_results(ean)
 
     return jsonify(
         {
@@ -834,6 +859,30 @@ def serve_results(subpath: str):
         abort(404)
     relative = target.relative_to(safe_root)
     return send_from_directory(safe_root, str(relative))
+
+
+@app.get("/index_ovh_prod.html")
+def index_ovh_prod():
+    return home()
+
+
+@app.get("/pipeline/<path:subpath>")
+def serve_pipeline(subpath):
+    response = send_from_directory(ROOT / "pipeline", subpath)
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    return response
+
+
+@app.get("/data/<path:subpath>")
+def serve_data(subpath):
+    # Special case: descriptor_cache.json is in pipeline/ but requested via data/
+    if subpath == "descriptor_cache.json":
+         response = send_from_directory(ROOT / "pipeline", subpath)
+    else:
+         response = send_from_directory(ROOT / "pipeline" / "data", subpath)
+    
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    return response
 
 
 @app.get("/")
@@ -935,14 +984,17 @@ def api_control(action):
             except subprocess.CalledProcessError:
                 output = "NO OK"
         elif action == "start_web":
-            subprocess.check_call(["sudo", "systemctl", "start", "maxicourses-web.service"])
-            output = "Service démarré."
+            # Nonsensical if self-hosted, but keeping for consistency just in case
+            subprocess.Popen("nohup sh -c 'sleep 1; sudo systemctl start maxicourses-web.service' > /dev/null 2>&1 &", shell=True)
+            output = "Commande de démarrage envoyée."
         elif action == "restart_web":
-            subprocess.check_call(["sudo", "systemctl", "restart", "maxicourses-web.service"])
-            output = "Service redémarré."
+            # Restart self (async delay to allow response)
+            subprocess.Popen("nohup sh -c 'sleep 1; sudo systemctl restart maxicourses-web.service' > /dev/null 2>&1 &", shell=True)
+            output = "Service va redémarrer dans 1 seconde..."
         elif action == "stop_web":
-            subprocess.check_call(["sudo", "systemctl", "stop", "maxicourses-web.service"])
-            output = "Service arrêté."
+            # Stop self (async delay)
+            subprocess.Popen("nohup sh -c 'sleep 1; sudo systemctl stop maxicourses-web.service' > /dev/null 2>&1 &", shell=True)
+            output = "Service va s'arrêter dans 1 seconde..."
         elif action == "logs_web":
              output = subprocess.check_output(["journalctl", "-u", "maxicourses-web.service", "-n", "50", "--no-pager"], stderr=subprocess.STDOUT, text=True)
 
