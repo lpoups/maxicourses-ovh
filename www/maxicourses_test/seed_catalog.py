@@ -1,7 +1,25 @@
 """Seed catalog codé en dur (remplace l'ancien manual_descriptors.json)."""
 from __future__ import annotations
 
-SEED_CATALOG = {'1234567890123': {'ean': '1234567890123',
+SEED_CATALOG = {
+ '8006540882351': {
+    'brand': 'Oral-B',
+    'ean': '8006540882351',
+    'name': 'Oral-B Dentifrice 3D White Advanced Luxe Perfection',
+    'quantity': '75 ml',
+    'source': 'manual',
+    'note': 'Monoprix Investigation'
+ },
+ '5000204343120': {
+    'brand': 'Raid',
+    'ean': '5000204343120',
+    'name': 'Raid Aérosol Multi Insectes',
+    'quantity': '400 ml',
+    'image': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/79883652-540c-4467-9304-44583163359d/300x300.jpg',
+    'source': 'manual',
+    'note': 'Monoprix AI Test'
+ },
+'1234567890123': {'ean': '1234567890123',
                    'leclerc_queries': ['1234567890123'],
                    'leclerc_query': '1234567890123',
                    'primary_keywords': ['1234567890123'],
@@ -629,12 +647,29 @@ SEED_CATALOG = {'1234567890123': {'ean': '1234567890123',
                    'seed_query': "Alpro Dessert végétal soja nature l'amande 500 g",
                    'source': 'courseu',
                    'variant': 'amande'},
- '5449000000996': {'ean': '5449000000996',
-                   'leclerc_queries': ['5449000000996'],
-                   'leclerc_query': '5449000000996',
-                   'primary_keywords': ['5449000000996'],
-                   'removed': True,
-                   'source': 'auto'},
+ '5449000283856': {
+    'brand': 'Coca-Cola',
+    'ean': '5449000283856',
+    # 'image': 'https://images.openfoodfacts.org/images/products/544/900/028/3856/front_fr.154.400.jpg', # BANNED
+    'leclerc_queries': ['Coca Cola 6x33cl'],
+    'leclerc_query': 'Coca Cola 6x33cl',
+    'name': 'Coca-Cola Original Goût Original 6x33cl',
+    'primary_keywords': ['Coca Cola 6x33cl'],
+    'quantity': '6x33cl',
+    'queries': {
+        'intermarche': ['Coca Cola 6x33cl'],  # Simple & Effective
+        'leclerc': ['Coca Cola 6x33cl'],
+        'auchan': ['Coca Cola 6x33cl'],
+        'carrefour_market': ['Coca Cola 6x33cl'],
+        'carrefour_city': ['Coca Cola 6x33cl'],
+        'monoprix': ['Coca Cola 6x33cl'],
+        'courseu': ['Coca Cola 6x33cl']
+    },
+    'seed_primary_name': 'Coca-Cola Original Goût Original 6x33cl',
+    'seed_primary_quantity': '6x33cl',
+    'seed_query': 'Coca Cola 6x33cl',
+    'source': 'manual'
+},
  '8712100731822': {'brand': 'Savora',
                    'canonical': {'brand': 'Savora',
                                  'ean': '8712100731822',
@@ -735,7 +770,10 @@ SEED_CATALOG = {'1234567890123': {'ean': '1234567890123',
                    'seed_primary_name': 'Moutarde Epices & Amorates Savora AMORA',
                    'seed_primary_quantity': '385 G',
                    'seed_query': 'Savora Moutarde aromates g 385 g',
-                   'source': 'chronodrive'}}
+                   'source': 'chronodrive'}
+}
+
+
 
 
 def get_seed(ean: str):
@@ -749,3 +787,11 @@ def get_seed(ean: str):
 def all_seeds():
     """Return the full seed catalog."""
     return SEED_CATALOG
+
+SEED_CATALOG["3600523177677"] = {
+        "brand": "L'Oréal Paris",
+        "name": "Studio Line Spray Coiffant Invisi Fix Fixation forte",
+        "quantity": "150 ml",
+        "primary_keywords": ["L'Oréal", "Studio", "Spray", "Invisi", "Fix"],
+        "seed_query": "L'Oréal Studio Spray Invisi Fix"
+}

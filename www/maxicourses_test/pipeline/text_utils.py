@@ -20,6 +20,13 @@ def strip_accents(value: str) -> str:
         if unicodedata.category(char) != "Mn"
     )
 
+def normalize_text(text: Optional[str]) -> str:
+    """Lowercase, strip accents, and collapse spaces."""
+    if not text:
+        return ""
+    norm = strip_accents(text).lower()
+    return re.sub(r"\s+", " ", norm).strip()
+
 
 def is_pack_or_bundle(title: Optional[str], raw_text: Optional[str]) -> bool:
     """Detect packs/lots while avoiding false positives on plain 'x' characters."""

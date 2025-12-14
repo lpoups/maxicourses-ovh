@@ -40,6 +40,10 @@ try:
 except Exception:  # pragma: no cover - provider optional
     MonoprixAdapter = None  # type: ignore
 
+try:
+    from ai_helpers import compute_vision_similarity
+except ImportError:
+    compute_vision_similarity = None
 
 EAN = os.environ.get("EAN", "").strip()
 QUERY = os.environ.get("QUERY", "").strip()
@@ -171,6 +175,28 @@ def _ahash_js() -> str:
     """
 
 
+def _fetch_b64_js() -> str:
+    return """
+    async (imgUrl) => {
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      const loaded = new Promise((res, rej) => {
+        img.onload = () => res();
+        img.onerror = (e) => rej(e);
+      });
+      img.src = imgUrl;
+      await loaded;
+
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width; canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      // Return data URL (base64)
+      return canvas.toDataURL("image/jpeg", 0.8);
+    }
+    """
+
+
 def _hamming64(a: int, b: int) -> int:
     x = a ^ b
     count = 0
@@ -201,12 +227,51 @@ async def _compute_ahash(ctx: BrowserContext, url: Optional[str]) -> Optional[in
         await page.close()
 
 
+async def _get_image_b64(ctx: BrowserContext, url: Optional[str]) -> Optional[str]:
+    if not url:
+        return None
+    page = await ctx.new_page()
+    try:
+        await page.goto("about:blank")
+        # Ensure we can fetch cross-origin or same-origin
+        script = _fetch_b64_js()
+        b64 = await page.evaluate(
+            f"async (targetUrl) => {{ const fn = {script}; return await fn(targetUrl); }}",
+            url,
+        )
+        # remove "data:image/jpeg;base64," prefix if desired, but helper handles it
+        if isinstance(b64, str) and "," in b64:
+             return b64.split(",", 1)[1]
+        return b64
+    except Exception:
+        return None
+    finally:
+        await page.close()
+
+
 async def _compare_images_async(ctx: BrowserContext, seed_url: Optional[str], cand_url: Optional[str]) -> bool:
     a = await _compute_ahash(ctx, seed_url)
     b = await _compute_ahash(ctx, cand_url)
     if a is None or b is None:
         return False
-    return _hamming64(a, b) <= 8
+    dist = _hamming64(a, b)
+    if dist <= 8:
+        return True
+    
+    # Fallback AI
+    if compute_vision_similarity:
+        print(f"[DEBUG] Hash mismatch (dist={dist}), trying AI Vision...", file=sys.stderr)
+        b64_seed = await _get_image_b64(ctx, seed_url)
+        b64_cand = await _get_image_b64(ctx, cand_url)
+        if b64_seed and b64_cand:
+            resp = compute_vision_similarity(b64_seed, b64_cand)
+            if resp.status == "ok" and resp.data.get("match") is True:
+                print(f"[DEBUG] AI Vision MATCH conf={resp.data.get('confidence')}", file=sys.stderr)
+                return True
+            else:
+                print(f"[DEBUG] AI Vision NO MATCH: {resp.data}", file=sys.stderr)
+    
+    return False
 
 
 def compare_images_via_playwright(ctx: BrowserContext, seed_url: Optional[str], cand_url: Optional[str]) -> bool:
@@ -1431,6 +1496,24 @@ def build_query_terms() -> list[str]:
     descriptor = MANUAL_DESCRIPTOR.get(EAN) if EAN else {}
     if not isinstance(descriptor, dict):
         descriptor = {}
+    seen: set[str] = set()
+    
+    def add(term: typing.Optional[str]) -> None:
+        candidate = _prepare_query(term, max_len)
+        if not candidate:
+            return
+        if _looks_like_ean(candidate):
+            return
+        normalized_candidate = candidate.lower()
+        if normalized_candidate in seen:
+            return
+        seen.add(normalized_candidate)
+        terms.append(candidate)
+
+    # 0. AI / Finder Query (HIGHEST PRIORITY)
+    if QUERY:
+        add(QUERY)
+
     # Terme prioritaire : 3 premiers mots du descriptif seed
     seed_title = descriptor.get("seed_primary_name") or descriptor.get("name") or descriptor.get("seed_query")
     if (not descriptor.get("brand")) and seed_title:
@@ -1440,9 +1523,7 @@ def build_query_terms() -> list[str]:
     if isinstance(seed_title, str) and seed_title.strip():
         first3 = " ".join(seed_title.split()[:3])
         if first3:
-            candidate = _prepare_query(first3, max_len)
-            if candidate:
-                terms.append(candidate)
+            add(first3) # Use add() to ensure consistency
 
     # 1) Si Finder fournit explicitement les mots-clés, on les utilise en priorité
     finder_keywords_raw = os.environ.get("FINDER_KEYWORDS", "")
@@ -1451,14 +1532,9 @@ def build_query_terms() -> list[str]:
             parsed = json.loads(finder_keywords_raw)
             if isinstance(parsed, list):
                 for item in parsed:
-                    candidate = _prepare_query(item, max_len)
-                    if candidate:
-                        terms.append(candidate)
-            # on ne retourne plus immédiatement pour permettre les fallbacks
+                     add(item)
         except Exception:
             pass
-
-    seen: set[str] = set()
 
     def primary_tokens_from_descriptor(data: dict[str, typing.Any]) -> list[str]:
         raw_fields: list[str] = []
@@ -1482,20 +1558,6 @@ def build_query_terms() -> list[str]:
                     tokens.append(normalized)
         return tokens
 
-    def add(term: typing.Optional[str]) -> None:
-        candidate = _prepare_query(term, max_len)
-        if not candidate:
-            return
-        if _looks_like_ean(candidate):
-            return
-        normalized_candidate = candidate.lower()
-        if normalized_candidate in seen:
-            return
-        seen.add(normalized_candidate)
-        terms.append(candidate)
-        if max_terms > 0 and len(terms) >= max_terms:
-            return
-
     primary_tokens = primary_tokens_from_descriptor(descriptor)
     qty = descriptor.get("quantity") or descriptor.get("seed_primary_quantity")
     if isinstance(qty, str):
@@ -1511,10 +1573,6 @@ def build_query_terms() -> list[str]:
     derived_keywords = _derive_keywords_from_descriptor(descriptor)
     for keyword in derived_keywords:
         add(keyword)
-
-    # 1. Finder-provided term from the environment (primary source)
-    if QUERY:
-        add(QUERY)
 
     # 2. Minimal fallback built from descriptor (brand + function)
     if max_terms <= 0 or len(terms) < max_terms:
@@ -2239,13 +2297,10 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
                 final_plausible = True
                 extras.setdefault("notes", []).append("accepted_with_image_match_despite_core_gap")
                 extras["equivalent"] = True
-            if not final_plausible and coverage >= 0.7 and "image_mismatch" in extras["vetoes"]:
-                product_result.status = "OK"
-                extras.setdefault("notes", []).append("accepted_without_image_match_high_coverage")
-                extras["equivalent"] = True
-                product_result.extras = extras
-                product_result.candidates = list(candidate_records)
-                return product_result
+            # STRICT IMAGE VALIDATION ENFORCEMENT:
+            # We do NOT accept products based solely on text coverage anymore.
+            # If image_match is False, we fall through to rejection/fallback.
+            # (Deleted "accepted_without_image_match_high_coverage" block)
 
             if final_plausible:
                 product_result.status = "OK"
@@ -2260,21 +2315,6 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
 
             if fallback_results:
                 fallback_results.sort(key=lambda x: x[0], reverse=True)
-                top_score, top_result = fallback_results[0]
-                sys.stderr.write(
-                    f"[MONOPRIX_DEBUG]  - Best rejected candidate '{top_result.title}' (Score: {top_score}) | vetoes={top_result.extras.get('vetoes')}\n"
-                )
-                vetoes = set(top_result.extras.get("vetoes") or [])
-                baseline_ok = bool(top_result.extras.get("plausible_baseline"))
-                if baseline_ok and vetoes.issubset({"image_mismatch"}) and top_result.price:
-                    top_result.status = "OK"
-                    top_result.extras.setdefault("notes", []).append("accepted_without_image_match")
-                    top_result.extras["equivalent"] = True  # produit différent, laissé au choix humain
-                    sys.stderr.write(
-                        f"[MONOPRIX_DEBUG]  - Accepting fallback candidate despite image mismatch: '{top_result.title}'.\n"
-                    )
-                    top_result.candidates = list(candidate_records)
-                    return top_result
         else:
             sys.stderr.write("[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n")
 

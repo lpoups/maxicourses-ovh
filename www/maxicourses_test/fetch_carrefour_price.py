@@ -15,7 +15,9 @@ from rich import print
 import sys as _sys, os as _os
 _sys.path.append(_os.path.dirname(__file__))
 from scraper.engine import make_context, state_path_for
-import json # Moved here as per user's implied request, and also needed for the new function
+import json
+
+print(f"[DEBUG] Loaded local fetch_carrefour_price.py from {_os.path.abspath(__file__)}", file=_sys.stderr)
 
 try:
     from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout
@@ -1071,9 +1073,11 @@ async def run() -> Result:
                 pass
         return False
 
-    search_terms = [EAN]
-    if QUERY and QUERY != EAN:
-        search_terms.append(QUERY)
+    # MANDATE: Strict EAN Search. Do not fallback to keywords if EAN is known.
+    if EAN:
+        search_terms = [EAN]
+    else:
+        search_terms = ([QUERY] if QUERY else [])
 
     pdp_url = None
     title_text = None
@@ -1104,8 +1108,26 @@ async def run() -> Result:
         elif SKIP_SEARCH:
             return Result(status="NO_PRICE", url=DIRECT_URL, store=store_name)
 
+    skip_search_ui = False
+    current_url = page.url or ""
+    # Relaxed condition: If EAN is in URL (Search or PDP), we optimize.
+    if EAN in current_url:
+        log_msg = f"[INFO] Context optimization: Page (PDP/Search) matches {EAN}. Reloading to refresh store..."
+        print(log_msg, file=sys.stderr)
+        try:
+             await page.reload(wait_until="domcontentloaded")
+             await human_pause(page, 1500, 500)
+             skip_search_ui = True
+        except Exception:
+             pass
+
     for term in search_terms:
-        performed = await perform_search(page, term)
+        performed = False
+        if skip_search_ui and term == EAN:
+             performed = True
+        else:
+             performed = await perform_search(page, term)
+
         store_name = await ensure_expected_store(page, STORE_QUERY, attempts=3)
         if not performed:
             # fallback: direct navigation to search results
@@ -1116,7 +1138,7 @@ async def run() -> Result:
                 continue
             title_check = await page.title()
             if "Just a moment" in title_check or "Un instant" in title_check or (resp and resp.status == 403):
-                print(f"[WARN] Cloudflare challenge detected (Title: {title_check}). Attempting to solve...")
+                print(f"[WARN] Cloudflare challenge detected (Title: {title_check}). Attempting to solve...", file=sys.stderr)
                 await snapshot(page, "cf-challenge-start")
                 
                 # Attempt to solve challenge by waiting and moving mouse
@@ -1129,11 +1151,11 @@ async def run() -> Result:
                         # Check if passed
                         new_title = await page.title()
                         if "Just a moment" not in new_title and "Un instant" not in new_title:
-                            print(f"[INFO] Challenge passed! New title: {new_title}")
+                            print(f"[INFO] Challenge passed! New title: {new_title}", file=sys.stderr)
                             await snapshot(page, "cf-challenge-passed")
                             break
                     else:
-                        print("[ERROR] Challenge failed after 15s")
+                        print("[ERROR] Challenge failed after 15s", file=sys.stderr)
                         await snapshot(page, "cf-challenge-failed")
                         await dump_html(page, "cf-challenge-failed")
                         if not USING_CDP:
@@ -1141,7 +1163,7 @@ async def run() -> Result:
                         await p.stop()
                         return Result(status="CF_BLOCK", url=search_url)
                 except Exception as e:
-                    print(f"[ERROR] Error solving challenge: {e}")
+                    print(f"[ERROR] Error solving challenge: {e}", file=sys.stderr)
                     return Result(status="CF_BLOCK", url=search_url)
         await human_pause(page, 1200, 800)
         safe_term = re.sub(r"[^A-Za-z0-9]", "_", term)[:20]
@@ -1153,7 +1175,7 @@ async def run() -> Result:
              page_content = await page.content()
              json_data = try_parse_json_state(page_content, EAN)
              if json_data and json_data.get('price'):
-                 print(f"[INFO] Successfully extracted data from JSON State: {json_data}")
+                 print(f"[INFO] Successfully extracted data from JSON State: {json_data}", file=sys.stderr)
                  
                  price_text = str(json_data.get('price')).replace('.', ',')
                  
@@ -1194,8 +1216,32 @@ async def run() -> Result:
                     nutriscore_image=nutriscore_image,
                 )
         except Exception as e:
-             print(f"[WARN] Error in JSON State extraction: {e}")
+             print(f"[WARN] Error in JSON State extraction: {e}", file=sys.stderr)
 
+        # Optimization Fallback: If we skipped search, we might be on PDP. 
+        # If JSON failed, try DOM extraction immediately.
+        if skip_search_ui:
+             print("[INFO] Optimization active: Attempting direct DOM extraction.", file=sys.stderr)
+             dom_success = await capture_current_product(allow_back=False)
+             if dom_success:
+                 # Helper to return formatted result from captured variables
+                 # Refactor: We should ideally unify return logic, but for now reuse the variables set by capture_current_product
+                 if price_text:
+                     return Result(
+                        status="OK",
+                        price=price_text,
+                        store=store_name,
+                        url=pdp_url,
+                        unit_price=unit_text,
+                        quantity=quantity_text,
+                        title=title_text,
+                        matched_ean=matched_ean,
+                        note="optimized_dom_extraction",
+                        image=image_url,
+                        nutriscore_grade=nutriscore_grade,
+                        nutriscore_image=nutriscore_image,
+                    )
+        
         cards = page.locator("a[href^='/p/']")
         count = await cards.count()
         if count == 0:

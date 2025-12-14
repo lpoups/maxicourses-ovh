@@ -30,6 +30,9 @@ rsync -avz --delete \
     --exclude 'maxicourses_local' \
     --exclude 'www/maxicourses_test/results' \
     --exclude 'www/maxicourses_test/state' \
+    --exclude 'www/maxicourses_test/assets' \
+    --exclude '.env' \
+    --exclude 'mongo_data' \
     "$LOCAL_DIR/" "$REMOTE_HOST:$REMOTE_DIR/"
 
 # 3. Setup Remote Environment
@@ -53,6 +56,9 @@ ssh $REMOTE_HOST << EOF
     # For now, just ensure it's installed.
     echo "🎭 Installing Playwright browsers..."
     playwright install chromium
+    
+    echo "♻️ Restarting Web Service..."
+    sudo systemctl restart maxicourses-web
 EOF
 
 echo "✅ Deployment completed successfully!"

@@ -1,142 +1,413 @@
 # descriptor_store.py
-# Source de vérité des descriptifs produits à partir de seed_catalog (code) et
-# d’un simple registre texte pour le flag `removed`.
+# Source de vérité des descriptifs produits : MongoDB (Golden Record)
+# Fallback : seed_catalog.py (Bootstrap seulement)
+
 from __future__ import annotations
 
+import os
 import copy
-import json
-import threading
-from pathlib import Path
-from typing import Any, Dict, Optional, Set
+import logging
+from typing import Any, Dict, Optional, Set, List
+from datetime import datetime
 
-import pprint
+# Try importing pymongo, fail gracefully if not installed (for transitional states)
+try:
+    from pymongo import MongoClient
+    from pymongo.collection import Collection
+    HAS_MONGO = True
+except ImportError:
+    HAS_MONGO = False
 
-from seed_catalog import all_seeds, get_seed
 
-STATE_PATH = Path(__file__).resolve().parent / "state" / "descriptor_removed.txt"
-MANUAL_DESCRIPTOR_PATH = Path(__file__).resolve().parent / "manual_descriptors.json"
-_REMOVED_CACHE: Optional[Set[str]] = None
-_LOCK = threading.Lock()
 
+# Feature Flag for Transition
+USE_MONGO = os.getenv("USE_MONGO", "true").lower() in {"1", "true", "yes"}
+MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
+DB_NAME = os.getenv("MONGO_DB", "maxicourses")
+
+try:
+    from pipeline.normalizer import normalize_product
+except ImportError:
+    def normalize_product(d): return ""
+
+logger = logging.getLogger("ProductRepository")
+
+class ProductRepository:
+    _instance = None
+    
+    def find_substitutes(self, ean: str, limit: int = 5) -> List[Dict[str, Any]]:
+        """Find cheaper valid substitutes for a given EAN."""
+        if not self.enabled or self.products is None:
+            return []
+            
+        # 1. Get Source Product
+        source = self.get_product(ean)
+        if not source:
+            return []
+            
+        # 2. Get Signature
+        sig = source.get("canonical", {}).get("normalized_signature")
+        if not sig:
+            # Try to compute it on the fly if missing
+            sig = normalize_product(source)
+            if not sig:
+                return []
+                
+        # 3. Query
+        # We want same signature, different EAN
+        # Sort logic: we don't track price in Golden Record directly yet (stored in stores json?).
+        # Ideally we'd sort by price.
+        # For MVP, just return matching products.
+        cursor = self.products.find({
+            "canonical.normalized_signature": sig,
+            "ean": {"$ne": ean},
+            "removed": {"$ne": True}
+        }).limit(limit)
+        
+        return list(cursor)
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(ProductRepository, cls).__new__(cls)
+            cls._instance._init_db()
+        return cls._instance
+
+    def _init_db(self):
+        self.db = None
+        self.products: Optional[Collection] = None
+        self.enabled = False
+
+        if not HAS_MONGO:
+            print("WARNING:ProductRepository:pymongo not installed, Repository disabled.")
+            return
+
+        if not USE_MONGO:
+            print("WARNING:ProductRepository:USE_MONGO=False, Repository disabled.")
+            return
+
+        try:
+            client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=2000)
+            # Quick check
+            client.server_info()
+            self.db = client[DB_NAME]
+            self.products = self.db["products"]
+            self.enabled = True
+            print(f"INFO:ProductRepository:Connected to MongoDB [{DB_NAME}]")
+            
+            # Ensure index on EAN
+            self.products.create_index("ean", unique=True)
+            self.products.create_index("keywords")
+            
+            # Phase 7: Canonical Index for Substitution
+            self.products.create_index("canonical.normalized_signature")
+            
+            # Phase 8: AI & Scale
+            self.products.create_index("status")
+            self.products.create_index("ai_enriched")
+            
+        except Exception as e:
+            print(f"ERROR:ProductRepository:Connection failed: {e}")
+            self.enabled = False
+
+    def get_cheapest_substitute(self, ean: str) -> Optional[Dict[str, Any]]:
+        """
+        Finds the absolute cheapest substitute across all stores.
+        Returns a dict with: {product_title, brand, store, price, unit_price, url, is_substitute}
+        """
+        if not self.enabled:
+            return None
+            
+        # 1. Source Product
+        source = self.get_product(ean)
+        if not source:
+            return None
+            
+        # 2. Get Substitutes (Phase 7)
+        # Using a limit of 10 to check a good range, though more candidates = better price chance.
+        substitutes = self.find_substitutes(ean, limit=20)
+        
+        candidates = [source] + substitutes
+        offers = [] # List of tuples/dicts to sort
+        
+        for p in candidates:
+            # Check fields
+            p_ean = p.get("ean", "")
+            p_title = p.get("title", "Unknown")
+            p_brand = p.get("brand", "Unknown")
+            p_image = p.get("image") or p.get("image_url")
+            
+            is_sub = (p_ean != ean)
+            
+            stores = p.get("stores", {})
+            for store_name, data in stores.items():
+                price = data.get("price")
+                if not isinstance(price, (int, float)):
+                     # Try parsing "1.20€" ? Usually we store floats/null.
+                     continue
+                
+                # We assume quantities are normalized for substitutes (same canonical signature)
+                # So we can compare price directly.
+                # Ideally we calculate price_per_unit if quantity is known.
+                
+                offers.append({
+                    "ean": p_ean,
+                    "title": p_title,
+                    "brand": p_brand,
+                    "image": p_image,
+                    "store": store_name,
+                    "price": float(price),
+                    "url": data.get("url"),
+                    "is_substitute": is_sub
+                })
+        
+        if not offers:
+            return None
+            
+        # Sort by Price ASC
+        offers.sort(key=lambda x: x["price"])
+        
+        return offers[0]
+
+    def _init_db(self):
+        self.db = None
+        self.products: Optional[Collection] = None
+        self.enabled = False
+
+        if not HAS_MONGO:
+            print("WARNING:ProductRepository:pymongo not installed, Repository disabled.")
+            return
+
+        if not USE_MONGO:
+            print("WARNING:ProductRepository:USE_MONGO=False, Repository disabled.")
+            return
+
+        try:
+            client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=2000)
+            # Quick check
+            client.server_info()
+            self.db = client[DB_NAME]
+            self.products = self.db["products"]
+            self.enabled = True
+            print(f"INFO:ProductRepository:Connected to MongoDB [{DB_NAME}]")
+            
+            # Ensure index on EAN
+            self.products.create_index("ean", unique=True)
+            self.products.create_index("keywords")
+            
+            # Phase 7: Canonical Index for Substitution
+            self.products.create_index("canonical.normalized_signature")
+            
+        except Exception as e:
+            print(f"ERROR:ProductRepository:Connection failed: {e}")
+            self.enabled = False
+
+    def get_product(self, ean: str) -> Optional[Dict[str, Any]]:
+        """Retrieve a product by EAN (Classic Dict format)."""
+        ean = _normalize_ean(ean)
+        if not self.enabled or self.products is None:
+            return None
+        
+        try:
+            doc = self.products.find_one({"ean": ean})
+            if doc:
+                 return self._serialize(doc)
+        except Exception as e:
+            logger.error(f"DB Read Error {ean}: {e}")
+
+        # No fallback, strict DB logic
+        return None
+
+    def get_product_field(self, ean: str, field: str) -> Any:
+        """Retrieve a specific field (dot notation supported) from a product."""
+        ean = _normalize_ean(ean)
+        if not self.enabled or self.products is None:
+            return None
+        
+        try:
+            doc = self.products.find_one({"ean": ean}, {field: 1, "_id": 0})
+            if not doc:
+                return None
+            
+            # Navigate nested result
+            parts = field.split('.')
+            current = doc
+            for p in parts:
+                if isinstance(current, dict):
+                    current = current.get(p)
+                else:
+                    return None
+            return current
+        except Exception as e:
+            logger.error(f"DB Read Field Error {ean} {field}: {e}")
+            return None
+
+    def update_product_field(self, ean: str, field: str, value: Any) -> bool:
+        """Update a specific field (or dot.notation path) for a product."""
+        ean = _normalize_ean(ean)
+        if not ean or not self.enabled or self.products is None:
+            return False
+            
+        try:
+             self.products.update_one(
+                 {"ean": ean}, 
+                 {"$set": {field: value, "updated_at": datetime.utcnow()}}, 
+                 upsert=True
+             )
+             return True
+        except Exception as e:
+             logger.error(f"DB Field Update Error {ean} {field}: {e}")
+             return False
+
+    def upsert_product(self, ean: str, data: Dict[str, Any]) -> bool:
+        """Create or Update a product Golden Record."""
+        ean = _normalize_ean(ean)
+        if not ean or not self.enabled or self.products is None:
+            return False
+
+        now = datetime.utcnow()
+        payload = copy.deepcopy(data)
+        
+        # PROTECT CRITICAL FIELDS: Do not allow empty strings to overwrite existing data via $set
+        protected_fields = {"image", "title", "name", "brand", "quantity", "image_url"}
+        
+        # Prepare specific fields ensuring schemas match
+        update_doc = {
+            "$set": {
+                "ean": ean,
+                "updated_at": now,
+            },
+            "$setOnInsert": {
+                "created_at": now
+            }
+        }
+        
+        # Merge top level known fields with Protection
+        for field in ["title", "brand", "quantity", "image_url", "image", "source", "note", "raw_text", "nutriscore_grade", "nutriscore_image", "ecoscore_grade", "ecoscore_image", "nova_group", "categories", "status", "ai_enriched", "last_ai_check"]:
+            if field in payload: 
+                val = payload[field]
+                # HARDENING: If field is critical and value is empty, SKIP IT.
+                if field in protected_fields and not val:
+                    continue
+                update_doc["$set"][field] = val
+                
+        # Merge complex fields like 'stores' (links) and 'keywords'
+        if "keywords" in payload:
+            update_doc["$set"]["keywords"] = payload["keywords"]
+            
+        if "queries" in payload:
+            if isinstance(payload["queries"], dict):
+                for k, v in payload["queries"].items():
+                    update_doc["$set"][f"queries.{k}"] = v
+            else:
+                 update_doc["$set"]["queries"] = payload["queries"]
+
+        if "stores" in payload:
+            update_doc["$set"]["stores"] = payload["stores"]
+            
+        if "confirmed_titles" in payload:
+            if isinstance(payload["confirmed_titles"], dict):
+                for k, v in payload["confirmed_titles"].items():
+                    update_doc["$set"][f"confirmed_titles.{k}"] = v
+            else:
+                 update_doc["$set"]["confirmed_titles"] = payload["confirmed_titles"]
+        
+        # Canonical Form
+        current_name = payload.get("title") or payload.get("name")
+        current_qty = payload.get("quantity")
+        if current_name:
+            sig = normalize_product({"name": current_name, "quantity": current_qty})
+            if sig:
+                update_doc["$set"]["canonical.normalized_signature"] = sig
+                
+        # Removed flag
+        if "removed" in payload:
+             update_doc["$set"]["removed"] = bool(payload["removed"])
+
+        try:
+             self.products.update_one({"ean": ean}, update_doc, upsert=True)
+             return True
+        except Exception as e:
+             logger.error(f"DB Write Error {ean}: {e}")
+             return False
+
+    def mark_removed(self, ean: str, removed: bool = True) -> bool:
+        return self.upsert_product(ean, {"removed": removed})
+
+    def _serialize(self, doc: Dict[str, Any]) -> Dict[str, Any]:
+        """Convert Mongo doc to App Dict."""
+        out = dict(doc)
+        if "_id" in out:
+            out["_id"] = str(out["_id"])
+        
+        # Convert datetime to str and fix asset paths
+        for k, v in out.items():
+            if isinstance(v, datetime):
+                out[k] = v.isoformat()
+            if isinstance(v, str) and (k == "image" or k.endswith("_image")):
+                if v.startswith("../assets"):
+                    out[k] = v.replace("../assets", "/assets", 1)
+                elif v.startswith("./assets"):
+                    out[k] = v.replace("./assets", "/assets", 1)
+        return out
+
+
+
+# ---------------------------------------------------------------------------
+# Compat / Legacy Interface (for existing code support)
+# ---------------------------------------------------------------------------
+
+_repo = ProductRepository()
 
 def _normalize_ean(ean: Any) -> str:
     value = "".join(ch for ch in str(ean) if ch.isdigit())
     return value.strip()
 
-
-def _load_removed_set() -> Set[str]:
-    global _REMOVED_CACHE
-    if _REMOVED_CACHE is not None:
-        return set(_REMOVED_CACHE)
-    items: Set[str] = set()
-    if STATE_PATH.exists():
-        try:
-            content = STATE_PATH.read_text(encoding="utf-8")
-        except Exception:
-            content = ""
-        for line in content.splitlines():
-            entry = line.strip()
-            if entry:
-                items.add(entry)
-    _REMOVED_CACHE = set(items)
-    return set(items)
-
-
-def _write_removed_set(items: Set[str]) -> None:
-    global _REMOVED_CACHE
-    STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    sorted_items = sorted(items)
-    text = "\n".join(sorted_items)
-    if text:
-        text += "\n"
-    STATE_PATH.write_text(text, encoding="utf-8")
-    _REMOVED_CACHE = set(items)
-
-
-def _load_dynamic_seeds() -> Dict[str, Dict[str, Any]]:
-    return {}
-
-
-def _write_dynamic_seeds(data: Dict[str, Dict[str, Any]]) -> None:
-    # Dynamic seeds disabled
-    return
-
-
-def _load_manual_descriptors() -> Dict[str, Dict[str, Any]]:
-    return {}
-
-
 def descriptor_exists(ean: Any) -> bool:
-    key = _normalize_ean(ean)
-    if not key:
-        return False
-    if get_seed(key):
-        return True
-    dynamic = _load_dynamic_seeds()
-    return key in dynamic
-
+    data = _repo.get_product(ean)
+    return bool(data) and not data.get("removed")
 
 def get_descriptor(ean: Any) -> Dict[str, Any]:
-    key = _normalize_ean(ean)
-    base = get_seed(key)
-    descriptor: Dict[str, Any] = copy.deepcopy(base) if isinstance(base, dict) else {}
-    dynamic = _load_dynamic_seeds().get(key)
-    if isinstance(dynamic, dict):
-        descriptor.update(copy.deepcopy(dynamic))
-    descriptor.setdefault("ean", key)
-    descriptor.setdefault("source", descriptor.get("source") or ("seed" if base else "unknown"))
-    descriptor.setdefault("note", descriptor.get("note") or "")
-    descriptor.setdefault("removed", False)
-    descriptor["removed"] = key in _load_removed_set()
-    return descriptor
-
+    data = _repo.get_product(ean)
+    if data:
+        return data
+    # Empty default matching old behavior
+    return {"ean": _normalize_ean(ean), "source": "unknown"}
 
 def set_removed_flag(ean: Any, removed: bool) -> Dict[str, Any]:
-    key = _normalize_ean(ean)
-    if not key:
-        return {"ean": "", "removed": removed, "source": "unknown"}
-    with _LOCK:
-        current = _load_removed_set()
-        if removed:
-            current.add(key)
-        else:
-            current.discard(key)
-        _write_removed_set(current)
-    descriptor = get_descriptor(key)
-    descriptor["removed"] = removed
-    return descriptor
-
+    _repo.mark_removed(ean, removed)
+    return get_descriptor(ean)
 
 def all_descriptors() -> Dict[str, Dict[str, Any]]:
-    seeds = all_seeds()
-    dynamic = _load_dynamic_seeds()
-    manual: Dict[str, Dict[str, Any]] = {}
-    removed = _load_removed_set()
-    descriptors: Dict[str, Dict[str, Any]] = {}
-
-    def _merge(ean: str, payload: Dict[str, Any]) -> None:
-        if not isinstance(payload, dict):
-            return
-        base = descriptors.get(ean, {})
-        entry = copy.deepcopy(base)
-        entry.update(copy.deepcopy(payload))
-        entry.setdefault("ean", ean)
-        descriptors[ean] = entry
-
-    for source in (seeds, dynamic, manual):
-        for ean, payload in source.items():
-            _merge(ean, payload)
-
-    for ean, payload in descriptors.items():
-        payload["removed"] = ean in removed
-    return descriptors
-
+    # Caution: This might be heavy if DB is huge.
+    # Used mainly for debugging or bulk operations.
+    
+    results = {}
+    
+    # 1. Load from DB
+    if _repo.enabled and _repo.products is not None:
+        try:
+            cursor = _repo.products.find({})
+            for doc in cursor:
+                ean = doc.get("ean") or doc.get("_id")
+                if doc.get("removed"):
+                    results.pop(ean, None)
+                else:
+                    results[ean] = _repo._serialize(doc)
+        except Exception:
+            pass
+            
+    return results
 
 def removed_eans() -> Set[str]:
-    """Expose l’ensemble des EAN marqués comme retirés."""
-    return _load_removed_set()
-
+    if _repo.enabled and _repo.products is not None:
+        try:
+             docs = _repo.products.find({"removed": True}, {"_id": 1})
+             return {d["_id"] for d in docs}
+        except:
+            return set()
+    return set()
 
 def add_dynamic_seed_entry(entry: Dict[str, Any]) -> None:
-    # Dynamic seeds disabled
-    return
+    ean = entry.get("ean")
+    if ean:
+        _repo.upsert_product(ean, entry)

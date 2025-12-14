@@ -980,8 +980,13 @@ async def run() -> Result:
                 meta["abort_reason"] = abort_reason
             meta["ean_mismatch_hits"] = ean_mismatch_hits
         res._meta = meta
+        res._meta = meta
         if finder_candidates:
             res.candidates = finder_candidates
+            # [Brain] Fail Fast: If we had candidates but none matched, permit retry
+            if res.status == "NO_RESULTS":
+                res.status = "NO_MATCH"
+                res.note = f"Found {len(finder_candidates)} candidates, none matched EAN {EAN}"
         return res
 
     def register_ean_mismatch() -> bool:

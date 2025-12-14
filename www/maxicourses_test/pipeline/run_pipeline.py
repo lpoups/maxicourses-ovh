@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import copy
 import argparse
+import base64
+import hashlib
 import json
 import os
+from dotenv import load_dotenv; load_dotenv()
 import re
 import subprocess
 import sys
@@ -17,6 +21,22 @@ from types import SimpleNamespace
 from urllib.parse import urlparse
 from urllib.request import urlopen, Request
 from zoneinfo import ZoneInfo
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+sys.path.append(str(ROOT_DIR))
+
+from descriptor_store import ProductRepository
+from ai_helpers import compute_vision_similarity
+
+try:
+    from pipeline.vision import compare_images, download_image
+except ImportError:
+    # Graceful degradation if PIL/Vision not ready
+    def compare_images(a, b): return 0.0
+    def download_image(u, p): return False
+
+# Imports for process_queue
+
 
 try:
     from PIL import Image  # type: ignore
@@ -55,6 +75,121 @@ def _looks_like_size_token(raw: str) -> bool:
                 return True
     return False
 
+
+
+from playwright.sync_api import sync_playwright
+
+def _download_and_localize_image(ean: str, url: str, product_url: Optional[str] = None) -> Optional[str]:
+    """
+    Downloads an image to assets/{ean}.jpg.
+    Strategies from fastest to most robust:
+    1. Standard urllib (fast, low overhead).
+    2. Playwright direct fetch (better headers/TLS).
+    3. Playwright Page Screenshot (bypasses hotlink protection/403, requires product_url).
+    """
+    if not url or not ean:
+        return None
+        
+    # Create assets dir
+    ASSETS_DIR.mkdir(parents=True, exist_ok=True)
+    
+    # Determine extension
+    ext = "jpg"
+    if ".png" in url.lower():
+        ext = "png"
+    elif ".webp" in url.lower():
+        ext = "webp"
+        
+    local_filename = f"{ean}.{ext}"
+    local_path = ASSETS_DIR / local_filename
+    
+    # Strategy 1: Fast Urllib
+    try:
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "image/avif,image/webp,*/*"
+        }
+        req = Request(url, headers=headers)
+        with urlopen(req, timeout=5) as response:
+            data = response.read()
+            if len(data) > 1000: # Filter out tiny error responses
+                with open(local_path, "wb") as f:
+                    f.write(data)
+                return f"./assets/{local_filename}"
+    except Exception:
+        pass # Fallthrough to robust methods
+
+    # Strategy 2 & 3: Playwright (Heavy)
+    print(f"[INFO] engaging headless browser for image {ean}...")
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context(
+                user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                locale="fr-FR",
+                viewport={"width": 1280, "height": 720}
+            )
+            page = context.new_page()
+            
+            downloaded = False
+            
+            # Strategy 2: Direct Image Visit
+            try:
+                resp = page.goto(url, timeout=15000)
+                if resp.status == 200:
+                    body = resp.body()
+                    if len(body) > 1000:
+                        with open(local_path, "wb") as f:
+                            f.write(body)
+                        downloaded = True
+            except Exception:
+                pass
+            
+            # Strategy 3: Product Page Screenshot (The "Monoprix Fix")
+            if not downloaded and product_url:
+                print(f"[INFO] Direct image failed, trying screenshot on {product_url}...")
+                try:
+                    page.goto(product_url, timeout=30000)
+                    page.wait_for_load_state("networkidle")
+                    
+                    # Accept Cookies (Generic + Monoprix specific)
+                    try:
+                        page.click("#onetrust-accept-btn-handler", timeout=3000)
+                        time.sleep(1)
+                    except:
+                        pass
+                        
+                    # Find Image
+                    selectors = [
+                        f"img[src*='{url.split('/')[-1]}']", # Try to match filename
+                        "img[class*='product-image']",
+                        "div[class*='product-gallery'] img", 
+                        "img[alt*='Raid']", # Too specific? fallback
+                        ".product-cover img"
+                    ]
+                    
+                    for sel in selectors:
+                        try:
+                            el = page.wait_for_selector(sel, state="visible", timeout=2000)
+                            if el:
+                                el.screenshot(path=str(local_path), type="jpeg", quality=90)
+                                if local_path.stat().st_size > 1000:
+                                    downloaded = True
+                                    break
+                        except:
+                            continue
+                except Exception as e:
+                     print(f"[WARN] Screenshot strategy failed: {e}")
+            
+            browser.close()
+            
+            if downloaded:
+                return f"./assets/{local_filename}"
+                
+    except Exception as e:
+        print(f"[WARN] Playwright image download failed: {e}")
+
+    return None
 
 GENERIC_BRAND_TERMS = {
     "yaourt",
@@ -156,30 +291,31 @@ def _log_ai_response(log_dir: Optional[Path], slug: str, response: Any, *, extra
 
 
 def _load_query_cache() -> Dict[str, Any]:
-    global _QUERY_CACHE
-    if _QUERY_CACHE is not None:
-        return _QUERY_CACHE
-    if QUERY_CACHE_PATH.exists():
-        try:
-            _QUERY_CACHE = json.loads(QUERY_CACHE_PATH.read_text(encoding="utf-8"))
-        except Exception:
-            _QUERY_CACHE = {}
-    else:
-        _QUERY_CACHE = {}
-    return _QUERY_CACHE
+    # DEPRECATED: Query cache replaced by MongoDB Golden Record via _cached_query_for
+    return {}
 
 
 def _cached_query_for(adapter: str, ean: str) -> Optional[str]:
-    if adapter not in QUERY_CACHE_ADAPTERS:
+    """Retrieve verified query from MongoDB Golden Record."""
+    if not adapter or not ean:
         return None
-    cache = _load_query_cache()
-    entry = cache.get(adapter, {}).get(ean)
-    if isinstance(entry, dict):
-        value = entry.get("query")
-        if isinstance(value, str) and value.strip():
-            return value.strip()
-    elif isinstance(entry, str):
-        return entry.strip()
+    repo = ProductRepository()
+    if not repo.enabled:
+        return None
+    product = repo.get_product(ean)
+    if not product:
+        return None
+    
+    # Check 'queries' dictionary first
+    queries = product.get("queries")
+    if isinstance(queries, dict):
+        q = queries.get(adapter)
+        if isinstance(q, str) and q.strip():
+            return q.strip()
+        if isinstance(q, list) and q and isinstance(q[0], str):
+            return q[0].strip()
+            
+    # Fallback to seed_query if applicable? Maybe not strict enough.
     return None
 
 
@@ -200,6 +336,13 @@ def _store_cached_query(adapter: str, ean: str, query: Optional[str]) -> None:
     try:
         QUERY_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
         QUERY_CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    except Exception:
+        pass
+        
+    # Phase 4 Strict Rule: Persist to DB immediately
+    try:
+        if repo.enabled:
+             repo.upsert_product(ean, {"queries": {adapter: cleaned}})
     except Exception:
         pass
 
@@ -702,16 +845,12 @@ ADAPTER_SCRIPTS: Dict[str, Dict[str, Any]] = {
         },
     },
     "spar": {
-        "script": ROOT_DIR / "fetch_casino_price.py",
+        "script": ROOT_DIR / "fetch_spar_price.py",
         "env": lambda: {
-            "CASINO_STORE_CODE": os.getenv("SPAR_STORE_CODE", "TL832"),
-            "CASINO_STORE_SLUG": os.getenv("SPAR_STORE_SLUG", "spar-33160"),
-            "CASINO_STORE_LABEL": os.getenv(
-                "SPAR_STORE_LABEL", "Spar Super · Saint-Médard-en-Jalles"
-            ),
-            "CASINO_STORE_URL": os.getenv(
+            "SPAR_STORE_SLUG": os.getenv("SPAR_STORE_SLUG", "spar-merignac-33700"),
+            "STORE_URL": os.getenv(
                 "SPAR_STORE_URL",
-                "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+                "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-merignac-33700/TZ200",
             ),
         },
     },
@@ -723,8 +862,8 @@ EAN_ONLY_ADAPTERS = {
     "carrefour_super",
     "auchan",
     "chronodrive",
-    "courseu",
     "g20",
+    "courseu",
 }
 
 DEFAULT_ADAPTER_ORDER = [
@@ -738,8 +877,8 @@ DEFAULT_ADAPTER_ORDER = [
     "casino",
     "spar",
     "intermarche",
-    "leclerc",
     "monoprix",
+    "leclerc",
 ]
 
 NUTRISCORE_ADAPTER_PRIORITY = {
@@ -760,27 +899,18 @@ def decode_ean(image_path: Path) -> str:
 
 
 def refresh_descriptor_cache() -> None:
-    try:
-        catalog = descriptor_catalog_all()
-    except Exception:
-        return
-    try:
-        DESCRIPTOR_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
-        DESCRIPTOR_CACHE_PATH.write_text(
-            json.dumps(catalog, ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
-        )
-    except Exception:
-        pass
+    # DEPRECATED: Now handled by MongoDB Golden Record
+    pass
 
 
 def load_manual_descriptor(ean: str) -> Optional[Dict[str, Any]]:
-    # Legacy shim: always use descriptor_store (seed_catalog) as source of truth.
-    sanitized = sanitize_ean(ean)
-    if not sanitized:
+    """Loads the Golden Record from MongoDB."""
+    if not ean:
         return None
-    descriptor = get_seed_descriptor(sanitized)
-    return descriptor if descriptor else None
+    repo = ProductRepository()
+    if not repo.enabled:
+        return None
+    return repo.get_product(ean)
 
 
 def fetch_manual_descriptor(ean: str) -> Optional[Dict[str, Any]]:
@@ -797,8 +927,12 @@ def load_all_descriptors() -> Dict[str, Dict[str, Any]]:
 
 
 def save_manual_descriptor_entry(ean: str, entry: Dict[str, Any]) -> None:
-    # No-op: manual descriptors file is deprecated; rely on seed_catalog/descriptor_store.
-    return
+    """Saves learned data (Title, Brand, Keywords) to Golden Record in DB."""
+    if not ean or not entry:
+        return
+    repo = ProductRepository()
+    if repo.enabled:
+        repo.upsert_product(ean, entry)
 
 
 def merge_descriptor(base: Optional[Dict[str, Any]], updates: Dict[str, Any]) -> Dict[str, Any]:
@@ -1063,7 +1197,20 @@ def ensure_local_image_asset(ean: str, descriptor: Optional[Dict[str, Any]], ada
         asset_path = ASSETS_DIR / Path(image_value).name
         if asset_path.exists():
             return descriptor
-    elif isinstance(image_value, str) and image_value.strip().lower().startswith("http"):
+
+    # [PERSISTENCE] Check if we already have an image for this EAN on disk
+    # The user wants "stored once and for all".
+    for ext in [".jpg", ".jpeg", ".png", ".webp"]:
+        existing_path = ASSETS_DIR / f"{ean}{ext}"
+        if existing_path.exists():
+            if descriptor.get("image") == f"./assets/{existing_path.name}":
+                 return descriptor
+            updated = dict(descriptor)
+            updated["image"] = f"./assets/{existing_path.name}"
+            save_manual_descriptor_entry(ean, updated)
+            return updated
+
+    if isinstance(image_value, str) and image_value.strip().lower().startswith("http"):
         remote_url = html.unescape(image_value.strip())
 
     if not remote_url:
@@ -1087,8 +1234,18 @@ def ensure_local_image_asset(ean: str, descriptor: Optional[Dict[str, Any]], ada
     dest_path = ASSETS_DIR / dest_name
     try:
         ASSETS_DIR.mkdir(parents=True, exist_ok=True)
-        with urlopen(remote_url, timeout=15) as response:
-            data = response.read()
+        # Use requests with headers to avoid 403 (Cloudflare/CourseU)
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+            "Referer": "https://www.coursesu.com/",
+            "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+        }
+        import requests
+        resp = requests.get(remote_url, headers=headers, timeout=15)
+        if resp.status_code != 200:
+            return descriptor
+        data = resp.content
         if not data:
             return descriptor
         dest_path.write_bytes(data)
@@ -1321,7 +1478,7 @@ def build_finder_block(
         if not entries:
             fallback_pd = _payload_to_product_descriptor(res.payload, source=res.adapter)
             fallback_url = _stringify(res.payload.get("url") or res.payload.get("product_url") or res.payload.get("href"))
-            if fallback_pd and fallback_url and not is_pack_or_bundle(fallback_pd.title, fallback_pd.raw_text):
+            if fallback_pd and fallback_url:
                 entries = [
                     {
                         "url": fallback_url,
@@ -1329,7 +1486,9 @@ def build_finder_block(
                     }
                 ]
 
-        adapter_cls = next((cls for cls in KEYWORD_REGISTRY if getattr(cls, "name", "") == res.adapter), None)
+        from pipeline.finder import KEYWORD_REGISTRY, EAN_DIRECT_REGISTRY
+        all_adapters = KEYWORD_REGISTRY + EAN_DIRECT_REGISTRY
+        adapter_cls = next((cls for cls in all_adapters if getattr(cls, "name", "") == res.adapter), None)
         adapter_instance = adapter_cls() if adapter_cls else None
         if adapter_instance and adapter_instance.name == "leclerc" and not getattr(adapter_instance, "_html_provider", None):
             adapter_instance._html_provider = _default_html_provider
@@ -1590,7 +1749,15 @@ def run_ai_store_queries(
         return {}
     ai_profile = profile or descriptor.get("ai_profile")
     if not isinstance(ai_profile, dict):
-        return {}
+        # Fallback: create synthetic profile from descriptor for manual seeds
+        ai_profile = {
+            "name": descriptor.get("name") or descriptor.get("seed_primary_name") or "",
+            "brand": descriptor.get("brand") or "",
+            "quantity": descriptor.get("quantity") or descriptor.get("seed_primary_quantity") or "",
+            "description": descriptor.get("description") or "",
+        }
+        if not ai_profile["name"]:
+             return {}
     try:
         response = ai_suggest_search_queries(
             ai_profile,
@@ -1624,12 +1791,25 @@ def _apply_store_queries_to_descriptor(
 ) -> List[str]:
     if not queries_payload:
         return []
+    
+    # Priority: Structured keys first
+    structured = queries_payload.get("structured") or {}
+    prioritized_list: List[str] = []
+    if structured.get("golden"):
+        prioritized_list.append(str(structured["golden"]))
+    if structured.get("fallback_specific"):
+        prioritized_list.append(str(structured["fallback_specific"]))
+    if structured.get("fallback_broad"):
+        prioritized_list.append(str(structured["fallback_broad"]))
+    
+    # Then legacy queries
     queries_raw = queries_payload.get("queries")
-    if not isinstance(queries_raw, list):
-        return []
+    if isinstance(queries_raw, list):
+         prioritized_list.extend([str(q) for q in queries_raw])
+
     cleaned: List[str] = []
     seen_lower: set[str] = set()
-    for item in queries_raw:
+    for item in prioritized_list:
         if not isinstance(item, str):
             continue
         candidate = " ".join(item.split())
@@ -1640,8 +1820,10 @@ def _apply_store_queries_to_descriptor(
             continue
         seen_lower.add(lowered)
         cleaned.append(candidate)
+    
     if not cleaned:
         return []
+        
     descriptor[f"{store}_ai_queries"] = cleaned
     if store == "leclerc":
         descriptor["leclerc_queries"] = cleaned
@@ -1793,7 +1975,6 @@ def ensure_descriptor_via_seed(
             best_seed_score = 2
         else:
             descriptor_current.update(base_descriptor)
-            best_seed_score = 1
     if descriptor:
         descriptor_current = merge_descriptor(descriptor_current, descriptor)
     seed_missing = not seed_descriptor_exists(ean)
@@ -1810,7 +1991,13 @@ def ensure_descriptor_via_seed(
 
     # Fix: If we are targeting Leclerc (which needs keywords) but lack a descriptor,
     # we MUST run seed adapters even if they were not explicitly requested.
-    force_seed_for_leclerc = "leclerc" in adapters and _needs_enrichment(descriptor_current)
+    # [OPTIMIZATION 2025-12-13] If we already have leclerc keys in DB, we DO NOT force seed.
+    has_leclerc_keys = bool(descriptor_current.get("leclerc_query") or descriptor_current.get("leclerc_queries"))
+    force_enrichment = _needs_enrichment(descriptor_current)
+    if has_leclerc_keys:
+         force_enrichment = False
+    
+    force_seed_for_leclerc = "leclerc" in adapters and force_enrichment
 
     for adapter in seed_order:
         is_explicitly_requested = adapter in adapters
@@ -1896,6 +2083,66 @@ def build_search_query(ean: str, descriptor: Optional[Dict[str, str]]) -> str:
     return seed or ean
 
 
+def _perform_visual_check(descriptor: Optional[Dict[str, Any]], payload: Dict[str, Any], ean: str) -> Optional[float]:
+    """Downloads images and returns visual similarity score (0.0-1.0)."""
+    if not descriptor or not payload:
+        return None
+        
+    seed_img = descriptor.get("image_url") or descriptor.get("image")
+    found_img = payload.get("image_url") or payload.get("image")
+    
+    if not seed_img or not found_img:
+        return None
+        
+    # Heuristic: Don't check if we have confident EAN match?
+    # Actually, check anyway for quality assurance.
+    
+    try:
+        tmp = Path("/tmp")
+        seed_path = tmp / f"seed_{ean}.jpg"
+        # Sanitize found_img URL for filename
+        safe_suffix = hashlib.md5(found_img.encode()).hexdigest()[:8]
+        found_path = tmp / f"found_{ean}_{safe_suffix}.jpg"
+        
+        # Download (cached if possible, but simpler to overwrite)
+        if not seed_path.exists():
+            if not download_image(seed_img, seed_path):
+                return None
+        
+        if not download_image(found_img, found_path):
+            return None
+            
+        # 1. Fast Histogram Check
+        score = compare_images(seed_path, found_path)
+        
+        # 2. AI Vision Fallback (Smart Validator)
+        # If score is ambiguous (0.5 - 0.85), trust GPT-4 Vision
+        if 0.5 <= score <= 0.85:
+            print(f"[AI] Visual Score {score:.2f} is ambiguous. Engaging Vision AI...")
+            try:
+                with open(seed_path, "rb") as f1, open(found_path, "rb") as f2:
+                    b64_seed = base64.b64encode(f1.read()).decode()
+                    b64_found = base64.b64encode(f2.read()).decode()
+                
+                ai_res = compute_vision_similarity(b64_seed, b64_found)
+                if ai_res.status == "ok":
+                    match_confidence = ai_res.data.get("confidence", 0.0)
+                    is_match = ai_res.data.get("match", False)
+                    print(f"[AI] Vision verdict: Match={is_match}, Conf={match_confidence:.2f}")
+                    
+                    if is_match and match_confidence > 0.7:
+                        return max(score, 0.95) # Boost
+                    else:
+                        return min(score, 0.2) # Penalty
+                else:
+                     print(f"[WARN] Vision AI failed: {ai_res.error}")
+            except Exception as e:
+                print(f"[WARN] Vision AI exception: {e}")
+
+        return score
+    except Exception:
+        return None
+
 def run_adapter(
     adapter: str,
     ean: str,
@@ -1911,36 +2158,37 @@ def run_adapter(
         raise ValueError(f"Adaptateur inconnu: {adapter}")
     entry = ADAPTER_SCRIPTS[adapter]
     script_path = entry["script"]
+
     if not script_path.exists():
         raise FileNotFoundError(f"Script introuvable pour {adapter}: {script_path}")
 
     env = os.environ.copy()
     configured_env = entry.get("env", {})
+    search_brain = None
     if callable(configured_env):
         configured_env = configured_env()
     env.update(configured_env or {})
     if extra_env:
         env.update(extra_env)
-    env["EAN"] = ean
     env["HEADLESS"] = "1" if headless else "0"
-    env.setdefault("USE_CDP", "1")
     
-    # --- DUAL PORT HYBRID MODE ---
-    # Port 9222: Local Chrome on Server (Fast, Datacenter IP)
-    # Port 9223: Tunnel to Mac Chrome (Residential IP)
-    RESIDENTIAL_ADAPTERS = {
-        "intermarche", 
-        "carrefour_city", 
-        "carrefour_market", 
-        "carrefour_super", 
-        "carrefour_hyper"
-    }
+    # --- VISUALIZATION MODE VIA SSH TUNNEL ---
+    # User Requirement: "All stores must be visible via SSH tunnel"
+    # We force all adapters to use local Chrome via Tunnel (Port 9223 - USER CONFIG)
+    env["USE_CDP"] = "1"
+    env["CDP_URL"] = "http://127.0.0.1:9223"
     
-    # FORCED UNIVERSAL TUNNEL MODE (User Request)
-    # Always use the tunnel to local machine (port 9223 -> local 9222)
-    cdp_url = "http://127.0.0.1:9223"
-    print(f"[TUNNEL-FORCE] 🚇 Forcing ALL traffic via tunnel on port 9223 for {adapter}")
-            
+    # Legacy Residential logic removed/bypassed
+    # if adapter in RESIDENTIAL_ADAPTERS:
+    #     env["CDP_URL"] = "http://127.0.0.1:9223"
+    # else:
+    #     env["CDP_URL"] = "http://127.0.0.1:9222"
+
+    
+    
+    # Use CDP_URL from environment or default to 9222
+    # Only use 9223 if explicitly requested via env for debugging
+    cdp_url = os.environ.get("CDP_URL", "http://127.0.0.1:9222")
     env["CDP_URL"] = cdp_url
     if proxy:
         env["PROXY"] = proxy
@@ -1983,6 +2231,7 @@ def run_adapter(
         candidates: List[str] = []
         seen: set[str] = set()
         adapter_uses_ean_search = adapter not in {"leclerc"}
+        search_brain = None
         
         # CHECK: If USE_CACHED_URLS is set and we have a direct URL, use ONLY that
         use_cached_urls_mode = os.getenv("USE_CACHED_URLS") == "1"
@@ -2007,7 +2256,7 @@ def run_adapter(
                     print(f"[QUICK PRICE UPDATE] ❌ No cached URL for {adapter}, falling back to search")
         
         if not use_cached_urls_mode:
-            # Normal query building logic (when not using cached URLs)
+            # Helper to deduplicate candidates
             def add_candidate(value: Optional[str]) -> None:
                 if not isinstance(value, str):
                     return
@@ -2017,53 +2266,70 @@ def run_adapter(
                 seen.add(cleaned.lower())
                 candidates.append(cleaned)
 
-            cached_query = _cached_query_for(adapter, ean)
-            if cached_query:
-                add_candidate(cached_query)
+            # [Refactored] Intelligent Query Generation via SearchBrain
+            search_brain = None
+            if adapter in {"leclerc", "intermarche", "monoprix", "casino", "spar"}:
+                try:
+                    # Fix: Use absolute import (pipeline.search_brain) since relative imports fail in script mode
+                    from pipeline.search_brain import SearchBrain
+                    search_brain = SearchBrain()
+                    # Iteration 0 (Golden/Strict) + 1 (Broad)
+                    brain_queries = search_brain.get_next_queries(descriptor or {"ean": ean}, adapter, 0)
+                    brain_queries += search_brain.get_next_queries(descriptor or {"ean": ean}, adapter, 1)
+                    
+                    for q in brain_queries:
+                        add_candidate(q)
+                        
+                    print(f"[Brain] Loaded {len(brain_queries)} initial queries for {adapter}", file=sys.stderr)
+                except ImportError:
+                    pass
 
-            descriptor_leclerc_queries: List[str] = []
-            if adapter == "leclerc" and descriptor:
-                primary_leclerc = descriptor.get("leclerc_query")
-                if isinstance(primary_leclerc, str):
-                    descriptor_leclerc_queries.append(primary_leclerc)
-                leclerc_list = descriptor.get("leclerc_queries")
-                if isinstance(leclerc_list, list):
-                    for item in leclerc_list:
-                        if isinstance(item, str):
-                            descriptor_leclerc_queries.append(item)
+            # Legacy/Fallback Logic (only runs if Brain didn't populate or not supported)
+            if not candidates:
+                cached_query = _cached_query_for(adapter, ean)
+                if cached_query:
+                    add_candidate(cached_query)
 
-            # Priorité absolue aux requêtes Leclerc spécifiques
-            if adapter == "leclerc":
-                if descriptor_leclerc_queries:
-                    for leclerc_kw in descriptor_leclerc_queries:
-                        add_candidate(leclerc_kw)
-                # ELSE: On ne fait RIEN. Si pas de mots-clés Leclerc, on ne fallback PAS sur 'query' (qui est souvent l'EAN).
-                # Cela évite de chercher "310322..." sur Leclerc.
+                descriptor_leclerc_queries: List[str] = []
+                if adapter == "leclerc" and descriptor and not search_brain:
+                    primary_leclerc = descriptor.get("leclerc_query")
+                    if isinstance(primary_leclerc, str):
+                        descriptor_leclerc_queries.append(primary_leclerc)
+                    leclerc_list = descriptor.get("leclerc_queries")
+                    if isinstance(leclerc_list, list):
+                        for item in leclerc_list:
+                            if isinstance(item, str):
+                                descriptor_leclerc_queries.append(item)
 
-            if finder_keywords:
-                for kw in finder_keywords:
-                    add_candidate(kw)
+                if adapter == "leclerc" and not search_brain:
+                    if descriptor_leclerc_queries:
+                        for leclerc_kw in descriptor_leclerc_queries:
+                            add_candidate(leclerc_kw)
 
-            if adapter != "leclerc":
-                add_candidate(query)
+                if finder_keywords:
+                    for kw in finder_keywords:
+                        add_candidate(kw)
 
-            if descriptor:
                 if adapter != "leclerc":
-                    seed_q = descriptor.get("seed_query")
-                    add_candidate(seed_q)
-            if adapter_uses_ean_search:
-                add_candidate(ean)
+                    add_candidate(query)
+
+                if descriptor:
+                    if adapter != "leclerc":
+                        seed_q = descriptor.get("seed_query")
+                        add_candidate(seed_q)
+                if adapter_uses_ean_search:
+                    add_candidate(ean)
 
             if not candidates:
                 fallback = None
                 if not finder_keywords:
-                    # Si on n'a rien trouvé, on fallback sur 'query' SAUF pour Leclerc
-                    # Pour Leclerc, 'query' est souvent l'EAN, et on ne veut PAS chercher l'EAN.
                     if adapter != "leclerc":
                         fallback = query if query else (ean if adapter_uses_ean_search else None)
                 add_candidate(fallback)
-            if adapter == "monoprix" and len(candidates) > 4:
-                candidates = candidates[:4]
+            
+            if adapter == "monoprix" and len(candidates) > 6: # Slightly increased cap
+                candidates = candidates[:6]
+            
             query_candidates = candidates
 
     best_result: Optional[RawAdapterResult] = None
@@ -2076,12 +2342,23 @@ def run_adapter(
     if adapter in per_adapter_timeout_env:
         env_key, default_override = per_adapter_timeout_env[adapter]
         adapter_timeout_s = int(os.getenv(env_key, str(default_override)))
-    for candidate_query_idx, candidate_query in enumerate(query_candidates):
+    
+    # [Refactored] Loop converted to 'while' to support dynamic AI query injection
+    candidate_query_idx = 0
+    while candidate_query_idx < len(query_candidates):
+        candidate_query = query_candidates[candidate_query_idx]
         local_env = env.copy()
+        if adapter in EAN_ONLY_ADAPTERS:
+            local_env["QUERY"] = ean
         if adapter in EAN_ONLY_ADAPTERS:
             local_env["QUERY"] = ean
         else:
             local_env["QUERY"] = candidate_query
+        
+        # FIX: Always propagate the target EAN to the adapter environment
+        # This prevents adapters (like Carrefour) from falling back to hardcoded defaults
+        local_env["EAN"] = ean
+        print(f"[DEBUG] Adapter {adapter}: Trying query '{candidate_query}' (Env QUERY={local_env['QUERY']})", file=sys.stderr)
         
         # Check for direct URL in descriptor (e.g. "courseu_url")
         # If found, pass it to the adapter to potentially bypass search
@@ -2102,6 +2379,13 @@ def run_adapter(
         # DEBUG: Force detailed logs and screenshots for Auchan
         if adapter == "auchan":
             local_env["AUCHAN_DEBUG"] = "1"
+            
+        # VISUAL DEBUG: Force adapter debug flags if running with CDP
+        if local_env.get("USE_CDP") == "1":
+            if adapter == "courseu":
+                local_env["DEBUG_COURSEU"] = "1"
+            elif adapter == "auchan":
+                local_env["AUCHAN_DEBUG"] = "1"
 
         # FIX: Explicitly add venv site-packages to PYTHONPATH
         # This handles cases where subprocess loses access to venv modules (e.g. rich)
@@ -2110,7 +2394,8 @@ def run_adapter(
         venv_site_packages = ROOT_DIR.parent / ".venv" / "lib" / f"python{sys.version_info.major}.{sys.version_info.minor}" / "site-packages"
         if venv_site_packages.exists():
              current_pythonpath = local_env.get("PYTHONPATH", "")
-             local_env["PYTHONPATH"] = f"{venv_site_packages}:{current_pythonpath}"
+             # Important: Prepend ROOT_DIR to ensure local code (edits) takes precedence over installed packages
+             local_env["PYTHONPATH"] = f"{str(ROOT_DIR)}:{venv_site_packages}:{current_pythonpath}"
 
         command = [sys.executable, str(script_path)]
         started_at = datetime.now(PARIS_TZ)
@@ -2173,12 +2458,35 @@ def run_adapter(
         status = "ERROR"
         error = None
         if stdout:
-            brace_start = stdout.find('{')
-            brace_end = stdout.rfind('}')
-            if brace_start != -1 and brace_end != -1 and brace_end > brace_start:
-                json_candidate = stdout[brace_start:brace_end + 1]
-            else:
-                json_candidate = ""
+            # ROBUST STRATEGY: Scan lines backwards for the first valid JSON object
+            # This handles cases where 'rich' logs or other garbage precede the final JSON output.
+            json_candidate = ""
+            found_json = False
+            
+            # 1. Try reverse line scan (most reliable if JSON is on its own line)
+            lines = stdout.splitlines()
+            for line in reversed(lines):
+                cleaned = line.strip()
+                if not cleaned:
+                    continue
+                if cleaned.startswith("{") and cleaned.endswith("}"):
+                    # Potential JSON line
+                    try:
+                        json.loads(cleaned)
+                        json_candidate = cleaned
+                        found_json = True
+                        break
+                    except json.JSONDecodeError:
+                        pass
+            
+            # 2. Fallback to naive brace finding if line scan failed (e.g. multiline JSON)
+            if not found_json:
+                brace_start = stdout.find('{')
+                brace_end = stdout.rfind('}')
+                if brace_start != -1 and brace_end != -1 and brace_end > brace_start:
+                    json_candidate = stdout[brace_start:brace_end + 1]
+                else:
+                    json_candidate = ""
             try:
                 payload = json.loads(json_candidate)
                 status = payload.get("status", "UNKNOWN")
@@ -2207,6 +2515,19 @@ def run_adapter(
                 meta = raw_meta
         abort_requested = bool(meta and meta.get("abort_search"))
         abort_reason = meta.get("abort_reason") if isinstance(meta, dict) else None
+        
+        # Phase 8: Visual Intelligence Check
+        visual_score = None
+        if isinstance(payload, dict):
+            visual_score = _perform_visual_check(descriptor, payload, ean)
+            if visual_score is not None:
+                # Log only if significant mismatch or high confidence match?
+                # For now just log usage.
+                pass
+                
+        if local_env.get("USE_CDP") == "1" or local_env.get("DEBUG_COURSEU") == "1":
+            if stderr:
+                print(f"[{adapter} STDERR]\n{stderr}\n[/{adapter} STDERR]", file=sys.stderr)
 
         result = RawAdapterResult(
             adapter=adapter,
@@ -2236,6 +2557,7 @@ def run_adapter(
             error=error,
             metadata={
                 "attempt_query": candidate_query,
+                "visual_score": visual_score,
             },
         )
 
@@ -2254,6 +2576,30 @@ def run_adapter(
             # On loggue l'échec partiel mais on ne s'arrête pas
             if best_result is None or severity(result.status) > severity(best_result.status):
                 best_result = result
+            
+            # [Brain] AI Fallback Injection
+            # If this is the last candidate and we failed, ask Brain for help
+            is_last_attempt = (candidate_query_idx == len(query_candidates) - 1)
+            if is_last_attempt and search_brain:
+                try:
+                    print(f"[Brain] Heuristics exhausted for {adapter}. Engaging AI...", file=sys.stderr)
+                    ai_queries = search_brain.get_next_queries(descriptor or {"ean": ean}, adapter, 2)
+                    added_count = 0
+                    for ai_q in ai_queries:
+                        ai_q = ai_q.strip()
+                        # Avoid duplicates
+                        if ai_q and ai_q.lower() not in [c.lower() for c in query_candidates]:
+                            query_candidates.append(ai_q)
+                            added_count += 1
+                    if added_count > 0:
+                        print(f"[Brain] Injected {added_count} AI queries. Continued...", file=sys.stderr)
+                    else:
+                        print(f"[Brain] AI returned no new queries.", file=sys.stderr)
+                except Exception as e:
+                    print(f"[Brain] Error generating AI queries: {e}", file=sys.stderr)
+
+            # Move to next candidate
+            candidate_query_idx += 1
             continue
 
         # Fallback: si pas d'EAN mais titre proche du descriptif, marquer équivalent
@@ -2287,7 +2633,18 @@ def run_adapter(
                 if not last_query:
                     last_query = candidate_query
                 _store_cached_query(adapter, ean, last_query)
+                # [Brain] Record Success
+                if search_brain:
+                    search_brain.record_success(ean, adapter, last_query)
+                    # [Brain] Record Title
+                    if isinstance(result.payload, dict):
+                         found_title = result.payload.get("title")
+                         if found_title:
+                             search_brain.record_confirmed_product_details(ean, adapter, found_title)
             return result
+        
+        # Increment index for next iteration if we didn't return or continue
+        candidate_query_idx += 1
 
     if best_result is not None:
         if best_result.status == "OK":
@@ -2295,6 +2652,14 @@ def run_adapter(
             if not last_query:
                 last_query = best_result.env.get("QUERY")
             _store_cached_query(adapter, ean, last_query)
+            # [Brain] Record Success
+            if search_brain:
+                 search_brain.record_success(ean, adapter, last_query)
+                 # [Brain] Record Title
+                 if isinstance(best_result.payload, dict):
+                     found_title = best_result.payload.get("title")
+                     if found_title:
+                         search_brain.record_confirmed_product_details(ean, adapter, found_title)
         return best_result
 
     # Fallback: return last attempt result even if none succeeded
@@ -2431,11 +2796,65 @@ def export_dataset_snapshot(run: PipelineRun, *, results_dir: Path) -> None:
     dataset_summary_path.write_text(json.dumps(dataset_summary, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def process_queue(args: argparse.Namespace) -> int:
+    repo = ProductRepository()
+    if not repo.enabled:
+        print("[FATAL] Queue mode requires MongoDB.")
+        return 1
+
+    query = {"status": "READY_FOR_COLLECTION"}
+    sort_order = [("last_ai_check", 1)] # Oldest first (FIFO) or priority
+
+    # Count
+    total = repo.products.count_documents(query)
+    print(f"[QUEUE] {total} items pending collection.")
+    
+    if total == 0:
+        return 0
+
+    cursor = repo.products.find(query).sort("created_at", 1) # FIFO
+    if args.limit > 0:
+        cursor = cursor.limit(args.limit)
+
+    count = 0
+    for doc in cursor:
+        ean = doc["ean"]
+        print(f"\n[QUEUE] Processing {ean} ({count+1}/{args.limit or total})...")
+        
+        # We need to simulate the args for this specific EAN
+        # Main is designed to parse args from sys.argv or handle single run.
+        # We can subprocess effectively to ensure clean state per run (safer for browser resources)
+        # OR we can wrap the main loop. Given the size of main, subprocess is cleaner for stability.
+        
+        cmd = [sys.executable, __file__, "--ean", ean]
+        if args.headed: cmd.append("--headed")
+        if args.proxy: cmd.extend(["--proxy", args.proxy])
+        if args.adapters: cmd.extend(["--adapters"] + args.adapters)
+        
+        try:
+            print(f"[QUEUE] Exec: {' '.join(cmd)}")
+            subprocess.run(cmd, check=True)
+            # Update status on success (subprocess raises on failure)
+            # Actually run_pipeline should update status? 
+            # Ideally run_pipeline doesn't know about queue status, so we update it here on success.
+            # But wait, run_pipeline calls update_descriptor_cache... 
+            # Let's set status to COLLECTED.
+            repo.upsert_product(ean, {"status": "COLLECTED", "last_collection": datetime.utcnow()})
+            count += 1
+        except subprocess.CalledProcessError:
+            print(f"[QUEUE] Error processing {ean}")
+            repo.upsert_product(ean, {"status": "COLLECTION_FAILED"})
+            
+    return 0
+
+
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Pipeline MaxiCourses (proof of concept)")
     parser.add_argument("--ean", help="EAN à traiter")
     parser.add_argument("--image", help="Chemin vers l'image contenant le code-barres")
     parser.add_argument("--proxy", help="Proxy Playwright (ex: socks5://user:pass@host:port)")
+    parser.add_argument("--queue", action="store_true", help="Process products from DB queue (READY_FOR_COLLECTION)")
+    parser.add_argument("--limit", type=int, default=0, help="Limit number of items to process in queue mode")
     parser.add_argument("--headed", action="store_true", help="Affiche les navigateurs (HEADLESS=0)")
     parser.add_argument("--adapters", nargs="*", choices=list(ADAPTER_SCRIPTS.keys()), help="Liste d'adaptateurs à exécuter")
     parser.add_argument("--results-dir", default=str(DEFAULT_RESULTS_DIR), help="Répertoire de sortie pour les JSON")
@@ -2461,7 +2880,10 @@ def ensure_valid_ean(ean: str) -> str:
 
 def main(argv: Optional[List[str]] = None) -> int:
     args = parse_args(argv)
-
+    
+    if args.queue:
+        return process_queue(args)
+        
     if not args.ean and not args.image:
         print("[ERREUR] Fournir --ean ou --image")
         return 2
@@ -2504,7 +2926,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             print(f"[WARN] Failed to parse INITIAL_DESCRIPTOR_JSON: {e}")
 
     if descriptor:
-        print("Descriptor (manuel):", json.dumps(descriptor, ensure_ascii=False))
+        print("Descriptor (manuel):", json.dumps(descriptor, ensure_ascii=False, default=str))
     else:
         print("[WARN] Aucun descriptif manuel pour", ean)
 
@@ -2533,14 +2955,20 @@ def main(argv: Optional[List[str]] = None) -> int:
         debug_root.mkdir(parents=True, exist_ok=True)
     results: List[RawAdapterResult] = []
 
-    descriptor, seed_results, query = ensure_descriptor_via_seed(
-        ean=ean,
-        descriptor=descriptor,
-        query=query,
-        adapters=adapters,
-        headed=args.headed,
-        proxy=args.proxy,
-    )
+    # SKIP SEEDING if we have a manual descriptor (trusted source)
+    # This prevents blocking on seed adapters (like Auchan) if they hang.
+    if descriptor and descriptor.get("source") == "manual":
+        print("[INFO] Descriptor source is manual. Skipping seed phase.")
+        seed_results = {}
+    else:
+        descriptor, seed_results, query = ensure_descriptor_via_seed(
+            ean=ean,
+            descriptor=descriptor,
+            query=query,
+            adapters=adapters,
+            headed=args.headed,
+            proxy=args.proxy,
+        )
     run_ai_seed_summary(
         ean,
         descriptor,
@@ -2565,6 +2993,16 @@ def main(argv: Optional[List[str]] = None) -> int:
         profile=ai_profile_block,
     )
     monoprix_ai_queries = _apply_store_queries_to_descriptor(descriptor, "monoprix", monoprix_ai_payload)
+    intermarche_ai_payload = run_ai_store_queries(
+        "intermarche",
+        descriptor,
+        log_dir_provider=ensure_ai_log_dir,
+        profile=ai_profile_block,
+    )
+    intermarche_ai_queries = _apply_store_queries_to_descriptor(descriptor, "intermarche", intermarche_ai_payload)
+
+    # DEBUG: print generated queries
+    
 
     heuristic_keywords: List[str] = []
     seed_fp = FinderPipeline()
@@ -2592,15 +3030,17 @@ def main(argv: Optional[List[str]] = None) -> int:
     default_keywords = _merge_keyword_sources(ai_primary_keywords, heuristic_keywords, limit=8)
     leclerc_seed_keywords = build_leclerc_seed_keywords(descriptor)
     leclerc_keywords = _merge_keyword_sources(
-        leclerc_ai_queries,
         leclerc_seed_keywords,
+        leclerc_ai_queries,
         default_keywords,
         heuristic_keywords,
         limit=8,
     )
+    print(f"[DEBUG] Leclerc Keywords: {leclerc_keywords}", file=sys.stderr)
     adapter_keyword_map = {
         "leclerc": leclerc_keywords or leclerc_seed_keywords or default_keywords or heuristic_keywords,
         "monoprix": _merge_keyword_sources(monoprix_ai_queries, default_keywords, heuristic_keywords, limit=3),
+        "intermarche": _merge_keyword_sources(intermarche_ai_queries, default_keywords, heuristic_keywords, limit=4),
     }
     if not default_keywords:
         default_keywords = heuristic_keywords
@@ -2621,6 +3061,17 @@ def main(argv: Optional[List[str]] = None) -> int:
                 adapter_debug.mkdir(parents=True, exist_ok=True)
 
             adapter_query = query
+            
+            # [LECLERC FIX] Force usage of keywords for Leclerc queries
+            # The generic 'query' might be an EAN (especially in Solo mode), which fails on Leclerc.
+            # We explicitly use the specific keywords generated for Leclerc (or defaults).
+            if adapter == "leclerc" or adapter == "leclerc_drive":
+                 kw = adapter_keyword_map.get("leclerc")
+                 if kw and isinstance(kw, list) and len(kw) > 0:
+                      # Construct a clean query string from the top keywords
+                      # We take up to 5 keywords to form a search string
+                      adapter_query = " ".join(str(k) for k in kw[:6])
+                      print(f"[LECLERC_FIX] Overriding query with keywords: '{adapter_query}'")
             keywords_for_adapter = adapter_keyword_map.get(adapter) or default_keywords
             if not keywords_for_adapter:
                 keywords_for_adapter = heuristic_keywords
@@ -2637,6 +3088,32 @@ def main(argv: Optional[List[str]] = None) -> int:
             annotate_adapter_payload(adapter, res.payload, ean=ean)
             results.append(res)
             print(json.dumps(res.payload, ensure_ascii=False))
+
+            # --- DYNAMIC IMAGE PROPAGATION ---
+            # If this adapter found an image and we don't have a stable local asset,
+            # adopt it immediately so subsequent adapters (e.g. Leclerc) can use it for visual matching.
+            if res.status == "OK" and res.payload:
+                discovered_image = res.payload.get("image_url") or res.payload.get("image")
+                current_chk = descriptor.get("image") or ""
+                # Only update if we don't already have a local asset
+                is_local_asset = current_chk.startswith("./assets/") or current_chk.startswith("assets/")
+                
+                if discovered_image and not is_local_asset:
+                    # Basic validation
+                    if isinstance(discovered_image, str) and len(discovered_image) > 10:
+                        # DOWNLOAD IT IMMEDIATELY
+                        # Pass product_url (res.payload.get("url")) to allow screenshot fallback for 403 blocks
+                        product_url = res.payload.get("url")
+                        local_path = _download_and_localize_image(ean, discovered_image, product_url=product_url)
+                        if local_path:
+                             descriptor["image"] = local_path
+                             print(f"[INFO] Pipeline: Auto-localized image from {adapter}: {local_path}")
+                        else:
+                             # Fallback to URL if download failed (better than nothing, though risky for frontend)
+                             descriptor["image"] = discovered_image
+                             print(f"[INFO] Pipeline: Auto-propagated URL (download failed) from {adapter}: {discovered_image}")
+            # ---------------------------------
+
             if res.error:
                 print(f"[WARN] {adapter} -> {res.error}")
             if adapter_debug:
@@ -2663,23 +3140,85 @@ def main(argv: Optional[List[str]] = None) -> int:
         save_manual_descriptor_entry(ean, descriptor)
 
     # Update persistent cache with successful URLs and keywords
-    cache_updates = {}
+    # Update Descriptor from Results (Best Title/Image)
+    # Update Descriptor from Results (Best Title/Image)
+    best_title = descriptor.get("title") or descriptor.get("name") or ""
     
+    # CRITICAL: Preserve existing local assets. Do NOT overwrite them with remote URLs
+    # unless we are explicitly importing a new local asset (which this script doesn't do directly).
+    # If current image is ./assets/..., keep it.
+    current_image = descriptor.get("image") or ""
+    if current_image.startswith("./assets/") or current_image.startswith("assets/"):
+        best_image = current_image
+    else:
+        best_image = current_image
+    
+    # Heuristic: Prefer longest title from results (usually more descriptive)
+    # Heuristic: Only update image if we don't have a local one
+    for res in results:
+        payload = res.payload
+        if not payload:
+            continue
+        
+        p_title = payload.get("title") or payload.get("name")
+        p_image = payload.get("image_url") or payload.get("image")
+        
+        if p_title and len(p_title) > len(best_title):
+            best_title = p_title
+        
+        # Only adopt new image if we don't have a specific local asset
+        if p_image and not best_image.startswith("./assets/") and not best_image.startswith("assets/"):
+            best_image = p_image
+            
+    if best_title:
+        descriptor["title"] = best_title
+        descriptor["name"] = best_title # Normalize
+    if best_image:
+        descriptor["image"] = best_image
+
+    cache_updates = {}
     # 1. Store URLs
     for res in results:
         if res.status == "OK" and res.payload:
             store_url = res.payload.get("url") or res.payload.get("store_url")
-            if store_url:
-                # Map adapter name to cache key (e.g. "courseu" -> "courseu_url")
-                # Special cases if needed, otherwise default to {adapter}_url
-                key = f"{res.adapter}_url"
-                cache_updates[key] = store_url
+            price = res.payload.get("price")
+            status = res.payload.get("status")
+            
+            # Use a structured key for internal passing, or just raw dict if function supports it?
+            # update_descriptor_cache expects dict[str, Any].
+            # We can pass f"{res.adapter}_data" = {...}
+            # key = f"{res.adapter}_url" -> cache_updates[key] = store_url
+            
+            # Let's pass the whole payload for the store
+            # We prefix with "store:" to signal it's a store update
+            image_url = res.payload.get("image_url") or res.payload.get("image")
+            
+            key = f"store:{res.adapter}"
+            cache_updates[key] = {
+                "url": store_url,
+                "price": price,
+                "status": status,
+                "image_url": image_url,
+                "updated_at": datetime.now(PARIS_TZ).isoformat()
+            }
+            # Also promote image to top-level if missing
+            if image_url and "image_url" not in cache_updates:
+                cache_updates["image_url"] = image_url
 
-    # 2. Keywords (Leclerc, etc.)
+    # 2. Keywords AND Metadata (Leclerc, NutriScore, etc.)
     if descriptor:
-        for field in ("leclerc_query", "leclerc_queries", "primary_keywords", "secondary_keywords"):
+        # Whitelist of fields to persist from Descriptor to MongoDB
+        fields_to_persist = (
+            "leclerc_query", "leclerc_queries", 
+            "primary_keywords", "secondary_keywords",
+            "nutriscore_grade", "nutriscore_image",
+            "ecoscore_grade", "ecoscore_image",
+            "nova_group", "categories", "image", "brand", "quantity", "title", "name", 
+            "queries"
+        )
+        for field in fields_to_persist:
             val = descriptor.get(field)
-            if val:
+            if val is not None and field not in cache_updates:
                 cache_updates[field] = val
     
     if cache_updates:
@@ -2757,40 +3296,60 @@ def main(argv: Optional[List[str]] = None) -> int:
 
 
 def update_descriptor_cache(ean: str, updates: Dict[str, Any]) -> None:
-    """Updates the descriptor cache with new data (URLs, keywords) for a given EAN."""
+    """Updates the descriptor golden record in MongoDB with new data."""
     if not ean or not updates:
         return
+    
+    # Use the new Repository
+    repo = ProductRepository()
+    if not repo.enabled:
+        return
 
-    try:
-        if DESCRIPTOR_CACHE_PATH.exists():
-            data = json.loads(DESCRIPTOR_CACHE_PATH.read_text(encoding="utf-8"))
-        else:
-            data = {}
-    except Exception:
-        data = {}
-
-    entry = data.get(ean, {})
-    if not isinstance(entry, dict):
-        entry = {}
-
-    changed = False
-    for key, value in updates.items():
-        if value is None:
-            continue
-        if isinstance(value, str) and not value.strip():
-            continue
-        # Only update if value is different or new
-        if entry.get(key) != value:
-            entry[key] = value
-            changed = True
-
-    if changed:
-        entry["ean"] = ean
-        data[ean] = entry
-        try:
-            DESCRIPTOR_CACHE_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-        except Exception as e:
-            print(f"[WARN] Failed to update descriptor cache: {e}")
+    # Structure data for upsert
+    # run_pipeline often passes flat keys like 'carrefour_url', need to nest for DB?
+    # Actually, ProductRepository.upsert_product handles stores dict mapping if we pass strict format
+    # But run_pipeline updates usually come as {'carrefour_url': '...'} or {'primary_keywords': [...]}
+    
+    # We need to adapt the updates to the Golden Record schema
+    # Or rely on the fact migrate script handled legacy flat format.
+    # To be clean, we should normalize here.
+    
+    payload = {}
+    stores_update = {}
+    
+    for k, v in updates.items():
+        if k.endswith("_url") and "http" in str(v):
+            store = k.replace("_url", "")
+            if store not in stores_update:
+                 stores_update[store] = {}
+            stores_update[store]["url"] = v
+        elif k.startswith("store:"):
+            store = k.replace("store:", "")
+            if isinstance(v, dict):
+                stores_update[store] = v
+        elif k in ["title", "brand", "quantity", "image_url"]:
+            payload[k] = v
+        elif k == "primary_keywords":
+            payload["keywords"] = v
+        elif k == "queries":
+            payload["queries"] = v
+            
+    if stores_update:
+        # We need to merge with existing stores, not overwrite all
+        # upsert_product replaces keys. 
+        # For now, let's just pass what we have, implementation of upsert needs to handle deep merge?
+        # Our current upsert_product replaces 'stores'. 
+        # We should fetch first or improve upsert.
+        # Let's fetch first.
+        existing = repo.get_product(ean) or {}
+        existing_stores = existing.get("stores") or {}
+        for s, s_data in stores_update.items():
+            if s not in existing_stores:
+                existing_stores[s] = {}
+            existing_stores[s].update(s_data)
+        payload["stores"] = existing_stores
+            
+    repo.upsert_product(ean, payload)
 
 if __name__ == "__main__":
     sys.exit(main())
