@@ -1,0 +1,87 @@
+{
+  "ean": "8006540882351",
+  "image_path": null,
+  "started_at": "2025-12-08T15:21:20.222267+01:00",
+  "finished_at": "2025-12-08T15:21:33.228523+01:00",
+  "duration_seconds": 13.006256,
+  "reference": {
+    "title": null,
+    "description": "Entrée générée automatiquement – descriptif requis.",
+    "source": "unknown",
+    "brand": null,
+    "quantity": null,
+    "categories": null,
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8006540882351/debug/run-8006540882351-20251208-152120"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-08T15:21:20.222754+01:00",
+      "finished_at": "2025-12-08T15:21:31.790229+01:00",
+      "duration_seconds": 11.567475,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "8006540882351",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py",
+      "metadata": {
+        "attempt_query": "8006540882351"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "",
+      "brand": "",
+      "kind": "",
+      "qty": "",
+      "qualifiers": [],
+      "ean": "8006540882351",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Entrée générée automatiquement – descriptif requis.",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

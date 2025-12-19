@@ -1,0 +1,36 @@
+{
+  "timestamp": "2025-12-08T18:10:03.791677+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Raid Raid 400ML Raid aérosol R",
+      "Raid Aérosol Multi Insectes",
+      "Raid Multi Insectes 400ml",
+      "Raid Insectes 400ml",
+      "Raid Aérosol 400ml"
+    ],
+    "secondary_keywords": [
+      "raid",
+      "aérosol",
+      "multi",
+      "insectes",
+      "400ml",
+      "400",
+      "0.4",
+      "0.4l"
+    ],
+    "category": "generic",
+    "raw": {
+      "queries": [
+        "Raid Aérosol Multi Insectes",
+        "Raid Multi Insectes 400ml",
+        "Raid Insectes 400ml",
+        "Raid Aérosol 400ml",
+        "Raid Multi Insectes"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Raid Aérosol Multi Insectes\",\n    \"brand\": \"Raid\",\n    \"quantity\": \"400 ml\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"brand\": \"Raid\",\n    \"ean\": \"5000204343120\",\n    \"name\": \"Raid Aérosol Multi Insectes\",\n    \"quantity\": \"400 ml\",\n    \"image\": \"https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/79883652-540c-4467-9304-44583163359d/300x300.jpg\",\n    \"source\": \"manual\",\n    \"note\": \"Monoprix AI Test\",\n    \"removed\": false,\n    \"seed_query\": \"Raid Aérosol Multi Insectes 400 ml\",\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"leclerc_ai_queries\": [\n      \"Raid Raid 400ML Raid aérosol R\",\n      \"Raid Aérosol Multi Insectes\",\n      \"Raid Multi Insectes 400ml\",\n      \"Raid Insectes 400ml\",\n      \"Raid Aérosol 400ml\"\n    ],\n    \"leclerc_queries\": [\n      \"Raid Raid 400ML Raid aérosol R\",\n      \"Raid Aérosol Multi Insectes\",\n      \"Raid Multi Insectes 400ml\",\n      \"Raid Insectes 400ml\",\n      \"Raid Aérosol 400ml\"\n    ],\n    \"leclerc_query\": \"Raid Raid 400ML Raid aérosol R\",\n    \"leclerc_secondary_keywords\": [\n      \"raid\",\n      \"aérosol\",\n      \"multi\",\n      \"insectes\",\n      \"400ml\",\n      \"400\",\n      \"0.4\",\n      \"0.4l\"\n    ],\n    \"primary_keywords\": [\n      \"Raid Raid 400ML Raid aérosol R\",\n      \"Raid Aérosol Multi Insectes\",\n      \"Raid Multi Insectes 400ml\",\n      \"Raid Insectes 400ml\",\n      \"Raid Aérosol 400ml\"\n    ]\n  },\n  \"store\": \"monoprix\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkZ2IxZ0OxksINIc5MuiPIuUvoACX\", \"object\": \"chat.completion\", \"created\": 1765213802, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"queries\\\": [\\n    \\\"Raid Aérosol Multi Insectes\\\",\\n    \\\"Raid Multi Insectes 400ml\\\",\\n    \\\"Raid Insectes 400ml\\\",\\n    \\\"Raid Aérosol 400ml\\\",\\n    \\\"Raid Multi Insectes\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 649, \"completion_tokens\": 59, \"total_tokens\": 708, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

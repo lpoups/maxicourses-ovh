@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-12-10T10:54:36.694106+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Badoit Badoit 6L Badoit eau Ba",
+      "Badoit 6x1L Gazeuse",
+      "Badoit Eau Minérale 6L",
+      "Badoit Eau Gazeuse"
+    ],
+    "secondary_keywords": [
+      "badoit",
+      "eau",
+      "minérale",
+      "naturelle",
+      "finement",
+      "pétillante",
+      "6x1",
+      "pet",
+      "6l",
+      "6",
+      "600",
+      "600cl"
+    ],
+    "category": "generic",
+    "structured": {
+      "golden": "Badoit 6x1L Gazeuse",
+      "fallback_specific": "Badoit Eau Minérale 6L",
+      "fallback_broad": "Badoit Eau Gazeuse"
+    },
+    "raw": {
+      "golden": "Badoit 6x1L Gazeuse",
+      "fallback_specific": "Badoit Eau Minérale 6L",
+      "fallback_broad": "Badoit Eau Gazeuse"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"ean\": \"3068320114460\",\n    \"brand\": \"Badoit\",\n    \"name\": \"Badoit 6x1 L PET\",\n    \"quantity\": \"6 l\",\n    \"categories\": [\n      \"Beverages\",\n      \"Carbonated drinks\",\n      \"Waters\",\n      \"Spring waters\",\n      \"Mineral waters\",\n      \"Unsweetened beverages\",\n      \"Carbonated waters\",\n      \"Carbonated mineral waters\"\n    ],\n    \"nutriscore_grade\": \"e\",\n    \"ecoscore_grade\": \"not-applicable\",\n    \"nova_group\": \"1\",\n    \"description\": \"Eau Minérale Naturelle Gazeuse Finement Pétillante BADOIT\",\n    \"image\": \"https://cdn.auchan.fr/media/A0220150813000445677PRIMARY_1200x1200/B2CD/\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3068320114460\",\n    \"source\": \"carrefour_super\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-10T09:51:55Z\",\n    \"brand\": \"Badoit\",\n    \"name\": \"Badoit 6x1 L PET\",\n    \"quantity\": \"6 l\",\n    \"categories\": \"Beverages,Carbonated drinks,Waters,Spring waters,Mineral waters,Unsweetened beverages,Carbonated waters,Carbonated mineral waters\",\n    \"nutriscore_grade\": \"e\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"not-applicable\",\n    \"nova_group\": \"1\",\n    \"removed\": false,\n    \"seed_query\": \"Badoit 6x1 PET Eau Minérale Naturelle Gazeuse Finement\",\n    \"description\": \"Eau Minérale Naturelle Gazeuse Finement Pétillante BADOIT\",\n    \"leclerc_query\": \"Badoit Eau 6 L\",\n    \"leclerc_queries\": [\n      \"Badoit Eau 6 L\",\n      \"Badoit Eau Minérale 6 L\",\n      \"Badoit 6 L\",\n      \"Eau Minérale 6 L\"\n    ],\n    \"seed_primary_name\": \"Eau Minérale Naturelle Gazeuse Finement Pétillante BADOIT\",\n    \"seed_primary_quantity\": \"6x1L\",\n    \"image\": \"https://cdn.auchan.fr/media/A0220150813000445677PRIMARY_1200x1200/B2CD/\",\n    \"ai_profile\": {\n      \"ean\": \"3068320114460\",\n      \"brand\": \"Badoit\",\n      \"name\": \"Badoit 6x1 L PET\",\n      \"quantity\": \"6 l\",\n      \"categories\": [\n        \"Beverages\",\n        \"Carbonated drinks\",\n        \"Waters\",\n        \"Spring waters\",\n        \"Mineral waters\",\n        \"Unsweetened beverages\",\n        \"Carbonated waters\",\n        \"Carbonated mineral waters\"\n      ],\n      \"nutriscore_grade\": \"e\",\n      \"ecoscore_grade\": \"not-applicable\",\n      \"nova_group\": \"1\",\n      \"description\": \"Eau Minérale Naturelle Gazeuse Finement Pétillante BADOIT\",\n      \"image\": \"https://cdn.auchan.fr/media/A0220150813000445677PRIMARY_1200x1200/B2CD/\"\n    },\n    \"ai_keywords\": [\n      \"Badoit Eau Minérale 6x1L\",\n      \"Badoit Gazeuse 6x1L\",\n      \"Badoit Finement Pétillante\",\n      \"Badoit Verte 6x1L\",\n      \"Eau Minérale Badoit 6L\",\n      \"Badoit PET 6x1L\",\n      \"Badoit Carbonated Water\",\n      \"Badoit Natural Sparkling\"\n    ],\n    \"primary_keywords\": [\n      \"Badoit Badoit 6L Badoit eau Ba\",\n      \"Badoit Eau Minérale 6x1L\",\n      \"Badoit Gazeuse 6x1L\",\n      \"Badoit Finement Pétillante\",\n      \"Badoit Verte 6x1L\"\n    ],\n    \"secondary_keywords\": [\n      \"badoit\",\n      \"eau\",\n      \"minérale\",\n      \"naturelle\",\n      \"finement\",\n      \"pétillante\",\n      \"6x1\",\n      \"pet\",\n      \"6l\",\n      \"6\",\n      \"600\",\n      \"600cl\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-10T10:54:33.963189+01:00\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-ClBBycDpFPDmiVwuNXU6e4vzg1cVa\", \"object\": \"chat.completion\", \"created\": 1765360474, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Badoit 6x1L Gazeuse\\\",\\n    \\\"fallback_specific\\\": \\\"Badoit Eau Minérale 6L\\\",\\n    \\\"fallback_broad\\\": \\\"Badoit Eau Gazeuse\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1246, \"completion_tokens\": 51, \"total_tokens\": 1297, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_a4d13246c5\"}"
+}

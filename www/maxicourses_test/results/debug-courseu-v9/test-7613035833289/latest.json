@@ -1,0 +1,87 @@
+{
+  "ean": "7613035833289",
+  "image_path": null,
+  "started_at": "2025-12-14T12:20:14.735472+01:00",
+  "finished_at": "2025-12-14T12:20:47.410297+01:00",
+  "duration_seconds": 32.674825,
+  "reference": {
+    "title": "Eau minérale naturelle gazeuse",
+    "description": null,
+    "source": "carrefour_market",
+    "brand": "Perrier",
+    "quantity": "6*1 l",
+    "categories": "Beverages, Carbonated drinks, Waters, Spring waters, Mineral waters, Unsweetened beverages, Carbonated waters, en:carbonated-mineral-waters",
+    "image": "./assets/7613035833289.jpg",
+    "nutriscore_grade": "a",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "1"
+  },
+  "notes": [
+    "Human debug captures dans maxicourses_test/results/debug-courseu-v9/debug/run-7613035833289-20251214-122014"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-14T12:20:14.739442+01:00",
+      "finished_at": "2025-12-14T12:20:14.779729+01:00",
+      "duration_seconds": 0.040287,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py\", line 498\n    if not candidates and ean:\n                              ^\nIndentationError: unindent does not match any outer indentation level",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Eau minérale naturelle gazeuse",
+      "brand": "Perrier",
+      "kind": "",
+      "qty": "6*1 l",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "7613035833289",
+      "image_url": "./assets/7613035833289.jpg",
+      "source": "consolidated",
+      "raw_text": "Eau minérale naturelle gazeuse",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Perrier eau gazeuse 6x1l",
+      "Perrier gazeuse 6x1l",
+      "Perrier eau minérale",
+      "Eau minérale naturelle gazeuse",
+      "Eau minérale naturelle",
+      "Perrier naturelle 6*1 L",
+      "Perrier naturelle minerale",
+      "Perrier 6*1 L"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

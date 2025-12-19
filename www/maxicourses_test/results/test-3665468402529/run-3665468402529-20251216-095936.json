@@ -1,0 +1,113 @@
+{
+  "ean": "3665468402529",
+  "image_path": null,
+  "started_at": "2025-12-16T09:59:20.051747+01:00",
+  "finished_at": "2025-12-16T09:59:36.341291+01:00",
+  "duration_seconds": 16.289544,
+  "reference": {
+    "title": "Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate",
+    "description": "Entrée générée automatiquement – descriptif requis.",
+    "source": "carrefour_super",
+    "brand": "Finish",
+    "quantity": "x42",
+    "categories": null,
+    "image": "https://media.carrefour.fr/medias/cc199586e10c423c95b466f3ea533406/p_200x200/03665468402529_C1N1_s03.png",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3665468402529/debug/run-3665468402529-20251216-095920"
+  ],
+  "adapters": [
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "10,09",
+        "title": "Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate",
+        "url": "https://www.chronodrive.com/finish--powerball-utimate---tablettes-lave-vaissell e-tout-en-1-P543645",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": " 0,24 € / Pièce",
+        "quantity": "42 tablettes",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3665468402529",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate",
+          "brand": "Tablettes",
+          "kind": "",
+          "qty": "42 tablettes",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3665468402529",
+          "image_url": "https://media.carrefour.fr/medias/cc199586e10c423c95b466f3ea533406/p_200x200/03665468402529_C1N1_s03.png",
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-16T09:59:20.054594+01:00",
+      "finished_at": "2025-12-16T09:59:29.410309+01:00",
+      "duration_seconds": 9.355715,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "3665468402529",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='3665468402529'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/finish--powerball-utimate---tablettes-lave-vaisselle-tout-en-1-P543645",
+      "metadata": {
+        "attempt_query": "3665468402529",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate",
+      "brand": "Tablettes",
+      "kind": "",
+      "qty": "42 tablettes",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3665468402529",
+      "image_url": "https://media.carrefour.fr/medias/cc199586e10c423c95b466f3ea533406/p_200x200/03665468402529_C1N1_s03.png",
+      "source": "consolidated",
+      "raw_text": "Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate Entrée générée automatiquement – descriptif requis.",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Finish Powerball Ultimate 42",
+      "Finish Ultimate 42 tablettes",
+      "Finish lave-vaisselle",
+      "Tablettes lave-vaisselle tout en",
+      "Tablettes lave-vaisselle tout",
+      "Tablettes powerball",
+      "Tablettes powerball vaisselle",
+      "Tablettes 42 TABLETTES"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

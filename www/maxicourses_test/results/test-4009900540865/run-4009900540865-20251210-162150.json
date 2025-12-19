@@ -1,0 +1,110 @@
+{
+  "ean": "4009900540865",
+  "image_path": null,
+  "started_at": "2025-12-10T16:21:20.561694+01:00",
+  "finished_at": "2025-12-10T16:21:50.654359+01:00",
+  "duration_seconds": 30.092665,
+  "reference": {
+    "title": "Refreshers Chewing-gums sans sucres menthe verte",
+    "description": "Refreshers Chewing-gums sans sucres menthe verte",
+    "source": "auchan",
+    "brand": "Wrigley's",
+    "quantity": null,
+    "categories": null,
+    "image": "./assets/4009900540865.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "./assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "unknown",
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-4009900540865/debug/run-4009900540865-20251210-162120"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,35",
+        "unit_price": "75,00 € / KG",
+        "quantity": null,
+        "title": "Refreshers Chewing-gums sans sucres menthe verte",
+        "url": "https://www.auchan.fr/freedent-refreshers-chewing-gums-sans-sucres-menthe-verte/pr-C1535147",
+        "matched_ean": "4009900540865",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Refreshers Chewing-gums sans sucres menthe verte",
+          "brand": "Refreshers",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "4009900540865",
+          "image_url": "https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-10T16:21:20.564538+01:00",
+      "finished_at": "2025-12-10T16:21:39.488521+01:00",
+      "duration_seconds": 18.923983,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "4009900540865",
+        "QUERY": "4009900540865",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Page already on Auchan, checking if reload needed.\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] REQ_FAILED: https://c.contentsquare.net/v2/events?uu=38cbb368-a36f-aacb-b452-c30adce8aa71&sn=1&hd=1765380066&v=15.158.2&pid=1613&pn=3&str=73&di=3675&dc=3918&fl=3923&sr=23&mdh=5335&hlm=true&ct=0 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://bat.bing.com/actionp/0?ti=4065085&tm=gtm002&Ver=2&mid=63310b82-f6ec-43b8-a4bf-ba07822952c4&bo=10&sid=5a53daa0d36311f0b3404f6b71604f59&vid=8edb30e09e1111f085263b1c9ff63dc0&vids=0&msclkid=N&evt=pageHide&asc=G net::ERR_ABORTED\n[auchan] REQ_FAILED: https://c.contentsquare.net/display?cvars=%7B%221%22%3A%5B%22authenticated%22%2C%22not_authenticated%22%5D%2C%223%22%3A%5B%22pageType%22%2C%22product%22%5D%2C%224%22%3A%5B%22pageSubType%22%2C%22PRODUCT%22%5D%2C%228%22%3A%5B%22sellerID%22%2C%2237b5df86-ff8b-11ed-be56-0242ac120002%22%5D%2C%229%22%3A%5B%22sellerName%22%2C%22Auchan%20Drive%20Supermarch%C3%A9%20Talence-Gallieni%22%5D%2C%2210%22%3A%5B%22storeReference%22%2C%226117%22%5D%2C%2211%22%3A%5B%22sellerType%22%2C%22DRIVE%22%5D%2C%2219%22%3A%5B%22journeyType%22%2C%22GROCERY%22%5D%7D&cvarp=%7B%221%22%3A%5B%22authenticated%22%2C%22not_authenticated%22%5D%2C%223%22%3A%5B%22pageType%22%2C%22product%22%5D%2C%224%22%3A%5B%22pageSubType%22%2C%22PRODUCT%22%5D%2C%228%22%3A%5B%22sellerID%22%2C%2237b5df86-ff8b-11ed-be56-0242ac120002%22%5D%2C%229%22%3A%5B%22sellerName%22%2C%22Auchan%20Drive%20Supermarch%C3%A9%20Talence-Gallieni%22%5D%2C%2210%22%3A%5B%22storeReference%22%2C%226117%22%5D%2C%2211%22%3A%5B%22sellerType%22%2C%22DRIVE%22%5D%2C%2219%22%3A%5B%22journeyType%22%2C%22GROCERY%22%5D%7D&v=15.158.2&pid=1613&pn=3&sn=1&uu=38cbb368-a36f-aacb-b452-c30adce8aa71&ct=0 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://rt.flix360.com/beat/?newtrackv2&ver=v2&ts=traffic&d=219&l=fr&et=page_dwelltime&vtime=0&gvid=flixa1cc022680258f77b8d4dda6.0dd0aa91&cs=false&cp=OneTrust&cd=tp_true|ft_true|tt_true&sid=59C9822D-A1F8-6E0D-FC58-F4748FD2CEFC&ed=page_time_15382&mi=103035521&mt=2&ism=false&l1=fr&l2=b4&p=2346756&br=ORAL-B&price=5.25&ref=https%3A%2F%2Fwww.auchan.fr%2Frecherche%3Ftext%3D8006540882351&currency=EUR&pn=https%3A%2F%2Fwww.auchan.fr%2Foral-b-3d-white-advanced-dentifrice-menthe-fraiche-poivree%2Fpr-C1767558&h1=3D%20White%20advanced%20dentifrice%20menthe%20fra%C3%AEche%20poivr%C3%A9e&ti=ORAL-B%203D%20White%20advanced%20dentifrice%20menthe%20fra%C3%AEche%20poivr%C3%A9e%2075ml%20pas%20cher%20-%20Auchan.fr&img=https%3A%2F%2Fcdn.auchan.fr%2Fmedia%2FS01000000040F9XPRIMARY_1200x1200%2FB2CD%2F&r1.cat=&om=&mpn=56114&ean=8006540882351&ut=1765375221746&cb=1765375221746 net::ERR_ABORTED\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] Found cookie button with text: Accepter et fermer\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] CONSOLE: data =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: initData =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://ars-privacy.my.onetrust.com/request/v1/consentreceipts net::ERR_NAME_NOT_RESOLVED\n[auchan] CONSOLE: Failed to load resource: net::ERR_NAME_NOT_RESOLVED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dl=https%3A%2F%2Fwww.auchan.fr%2Fmagasins%2Fdrive%2Fauchan-drive-supermarche-talence-gallieni%2Fs-6117&scrsrc=www.googletagmanager.com&rnd=1069824779.1765380083&dt=Auchan%20Drive%20Supermarch%C3%A9%20Talence-Gallieni.%20Horaires%2C%20adresse%2C%20livraison%20courses%20%C3%A0%20domicile&auid=2020149384.1765380083&navt=n&npa=0&gtm=45He5c90h1v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528500~104684208~104684211~105391252~115583767~115616985~115938465~115938468~116184927~116184929~116217636~116217638~116251938~116251940&tft=1765380082664&tfd=994&apve=1&apvf=f net::ERR_ABORTED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ✅ Toast 'C'est noté' APPEARED.\n[auchan] Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ✅ Toast DISAPPEARED. Proceeding to search.\n[auchan] REQ_FAILED: https://bat.bing.com/actionp/0?ti=4020690&tm=gtm002&Ver=2&mid=31cb05d2-5ce3-42de-82f5-f55ebd3ce06f&bo=10&sid=5a53daa0d36311f0b3404f6b71604f59&vid=8edb30e09e1111f085263b1c9ff63dc0&vids=0&msclkid=N&evt=pageHide&asc=G net::ERR_ABORTED\n[auchan] REQ_FAILED: https://c.contentsquare.net/v2/events?uu=44d2d3e3-a36f-a92b-82dd-0a57c24f02e2&sn=1&hd=1765380082&v=15.158.2&pid=1613&pn=1&str=86&di=330&dc=683&fl=683&sr=40&mdh=3071&hlm=true&ct=0 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://analytics.tiktok.com/api/v2/pixel/inter net::ERR_ABORTED\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] CONSOLE: data =  {event_type: SEARCH, item_ids: Array(1), description: SRP, search_string:  4009900540865, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7}\n[auchan] CONSOLE: initData =  {event_type: SEARCH, item_ids: Array(1), description: SRP, search_string:  4009900540865, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7}\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: data =  {event_type: VIEW_CONTENT, item_ids: Array(1), description: PLP, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, item_category: }\n[auchan] CONSOLE: initData =  {event_type: VIEW_CONTENT, item_ids: Array(1), description: PLP, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, item_category: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=571261285.1765380094&dt=Votre%20recherche%204009900540865%20sur%20Auchan.fr&auid=2020149384.1765380083&navt=n&npa=0&gtm=45He5c90v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528500~104684208~104684211~105391252~115583767~115616985~115938466~115938468~116184927~116184929~116217636~116217638~116251938~116251940&tft=1765380094354&tfd=1329&apve=1&apvf=f net::ERR_ABORTED\n[auchan] CONSOLE: Firing Pinterest event: search\n[auchan] CONSOLE: Event Data:{\"np\":\"gtm\",\"gtm_version\":\"legacy\",\"search_query\":\" 4009900540865\"}\n[auchan] CONSOLE: Firing Pinterest event: viewcategory\n[auchan] CONSOLE: Event Data:{\"line_items\":{\"product_category\":\"\"},\"np\":\"gtm\",\"gtm_version\":\"legacy\"}\n[auchan] results visible, extracting price from search results\n[auchan] REQ_FAILED: https://analytics.tiktok.com/api/v2/pixel/act net::ERR_ABORTED\n[auchan] REQ_FAILED: https://c.contentsquare.net/v2/events?uu=44d2d3e3-a36f-a92b-82dd-0a57c24f02e2&sn=1&hd=1765380094&v=15.158.2&pid=1613&pn=2&str=499&di=1132&dc=1286&fl=1286&sr=72&mdh=1711&hlm=true&ct=0 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://api.auchan.fr/coupons/v1/events/b7015576-6817-440c-a941-8a404f87efa1?api-key=dfd9f7af-5ba1-4566-99f7-af5ba16566e7 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://bat.bing.com/actionp/0?ti=4065085&tm=gtm002&Ver=2&mid=831fa557-0366-40f8-ba57-4d42502e4db9&bo=10&sid=5a53daa0d36311f0b3404f6b71604f59&vid=8edb30e09e1111f085263b1c9ff63dc0&vids=0&msclkid=N&evt=pageHide&asc=G net::ERR_ABORTED\n[auchan] REQ_FAILED: https://analytics.tiktok.com/api/v2/pixel/inter net::ERR_ABORTED\n[auchan] Attempting to reveal price (clicking 'Afficher le prix')...\n[auchan] No reveal price button found on this attempt.\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] CONSOLE: data =  {event_type: VIEW_CONTENT, price: 1.35, item_ids: Array(1), description: PDP, currency: EUR}\n[auchan] CONSOLE: initData =  {event_type: VIEW_CONTENT, price: 1.35, item_ids: Array(1), description: PDP, currency: EUR}\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Ffreedent-refreshers-chewing-gums-sans-sucres-menthe-verte%2Fpr-C1535147&scrsrc=www.googletagmanager.com&rnd=893230309.1765380097&dt=FREEDENT%20Refreshers%20Chewing-gums%20sans%20sucres%20menthe%20verte%208%20cubes%2018g%20pas%20cher%20-%20Auchan.fr&auid=2020149384.1765380083&navt=n&npa=0&gtm=45He5c90v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527907~104528501~104684208~104684211~105391252~115583767~115938465~115938469~116184927~116184929~116217636~116217638~116251938~116251940~116682877&tft=1765380097178&tfd=1991&apve=1&apvf=f net::ERR_ABORTED\n[auchan] CONSOLE: Firing Pinterest event: pagevisit\n[auchan] CONSOLE: Event Data:{\"pageTitle\":\"FREEDENT Refreshers Chewing-gums sans sucres menthe verte 8 cubes 18g pas cher - Auchan.fr\",\"pageUrl\":\"https://www.auchan.fr/freedent-refreshers-chewing-gums-sans-sucres-menthe-verte/pr-C1535147\",\"np\":\"gtm\",\"gtm_version\":\"legacy\",\"line_items\":[{\"product_id\":\"b8849545-d393-4b32-b601-cda58b8e05e7\",\"product_category\":\"Epicerie sucrée > Bonbons  confiseries > Chewing gums\"}]}\n[auchan] Price revealed!\n[auchan] Attempt 1: price_text='1,35€' value='1.35'",
+      "metadata": {
+        "attempt_query": "4009900540865",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Refreshers Chewing-gums sans sucres menthe verte",
+      "brand": "Refreshers",
+      "kind": "",
+      "qty": "",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "4009900540865",
+      "image_url": "https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/",
+      "source": "consolidated",
+      "raw_text": "Refreshers Chewing-gums sans sucres menthe verte",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Refreshers Chewing-gums menthe",
+      "Chewing-gums Refreshers menthe",
+      "Refreshers Chewing-gums",
+      "Refreshers Chewing-gums sans sucres",
+      "Refreshers Chewing-gums sans",
+      "Refreshers chewing menthe"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

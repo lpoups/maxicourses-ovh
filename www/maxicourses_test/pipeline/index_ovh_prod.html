@@ -8,7 +8,7 @@
   <title>MaxiCourses - Comparateur de prix multi-enseignes</title>
   <script>
     // Force API base URL to Flask server (port 5001) instead of auto-detecting
-    window.MAXICOURSES_API_BASE = 'http://127.0.0.1:5001';
+    // window.MAXICOURSES_API_BASE = 'http://127.0.0.1:5001';
   </script>
   <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet" />
@@ -1835,6 +1835,30 @@
         </div>
       </div>
   </header>
+
+  <!-- Phase 9: Best Deal Banner -->
+  <div id="best-deal-banner" class="masthead__delta"
+    style="margin-bottom: 24px; background: linear-gradient(135deg, #10b981 0%, #34d399 100%); color: white; display: none; border: none; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.25);">
+    <div style="display: flex; align-items: center; gap: 16px; width: 100%;">
+      <div style="font-size: 2.2rem; flex: 0 0 auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">🏆</div>
+      <div style="display: flex; flex-direction: column; flex: 1;">
+        <span
+          style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.9;">Le
+          meilleur deal trouvé</span>
+        <div style="font-size: 1.4rem; font-weight: 800; line-height: 1.2;">
+          <span id="best-deal-price"></span> chez <span id="best-deal-store"></span>
+        </div>
+        <div id="best-deal-product" style="font-size: 0.95rem; font-weight: 500; opacity: 0.95; margin-top: 2px;"></div>
+      </div>
+      <div style="text-align: right;">
+        <a id="best-deal-link" href="#" target="_blank"
+          style="background: white; color: #059669; padding: 10px 20px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 0.9rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.1s; display: inline-block;">
+          Voir l'offre
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- End Phase 9 -->
   <section class="descriptor product-block" hidden="" id="primary-section"></section>
   <template id="product-card-template">
     <div class="product-card">
@@ -1912,7 +1936,8 @@
         bases.push(window.MAXICOURSES_RESULTS_BASE.trim());
       }
       if (window.location && window.location.protocol === 'file:') {
-        bases.push('http://127.0.0.1:5001/results');
+        // Only add localhost fallback when opening file locally (not in production)
+        // bases.push('http://127.0.0.1:5001/results');
       }
       bases.push('../results', `${DATA_BASE}/results`);
       return Array.from(new Set(bases.filter(Boolean)));
@@ -1982,13 +2007,12 @@
       }
     ];
 
-    const DESCRIPTORS_ENDPOINT = window.MAXICOURSES_DESCRIPTORS_ENDPOINT || 'http://127.0.0.1:5001/api/descriptors';
-
-    const MANUAL_COMPARISON = {};
-
     const isFileProto = window.location.protocol === 'file:';
     const apiBase = window.MAXICOURSES_API_BASE
-      || (isFileProto ? 'http://127.0.0.1:5001' : (window.location.origin || 'http://127.0.0.1:5001'));
+      || (isFileProto ? '' : (window.location.origin || ''));
+
+    const DESCRIPTORS_ENDPOINT = window.MAXICOURSES_DESCRIPTORS_ENDPOINT || `${apiBase}/api/descriptors`;
+    const MANUAL_COMPARISON = {};
     const REFRESH_ENDPOINT = window.MAXICOURSES_REFRESH_ENDPOINT || `${apiBase}/api/collect`;
     const REMOVE_ENDPOINT = window.MAXICOURSES_REMOVE_ENDPOINT || `${apiBase}/api/remove`;
     const CURRENCY_FORMATTER = new Intl.NumberFormat('fr-FR', {
@@ -2170,6 +2194,58 @@
       statusEl.dataset.status = '';
     }
 
+    // --- Phase 9: Best Deal Logic ---
+
+    function hideBestDealBanner() {
+      const banner = document.getElementById('best-deal-banner');
+      if (banner) banner.style.display = 'none';
+    }
+
+    function renderBestDealBanner(deal) {
+      const banner = document.getElementById('best-deal-banner');
+      if (!banner || !deal) return;
+
+      const price = typeof deal.price === 'number' ? deal.price.toFixed(2).replace('.', ',') : deal.price;
+      const storeKey = normalizeAdapterName(deal.store);
+      const storeName = DISPLAY_NAMES[storeKey] || deal.store;
+
+      const title = deal.title || '';
+      const brand = deal.brand || '';
+      const url = deal.url;
+
+      const priceEl = document.getElementById('best-deal-price');
+      if (priceEl) priceEl.textContent = price + ' €';
+
+      const storeEl = document.getElementById('best-deal-store');
+      if (storeEl) storeEl.textContent = storeName;
+
+      const productEl = document.getElementById('best-deal-product');
+      if (productEl) productEl.textContent = (brand ? brand + ' ' : '') + title;
+
+      const link = document.getElementById('best-deal-link');
+      if (link) {
+        if (url) {
+          link.href = url;
+          link.hidden = false;
+        } else {
+          link.hidden = true;
+        }
+      }
+
+      banner.style.display = 'block';
+    }
+
+    function normalizeAdapterName(raw) {
+      if (!raw) return '';
+      // Simple normalization: lowercase and replace non-alphanumeric with underscore if needed
+      // But looking at LOGOS keys, they are mostly just lowercase.
+      // e.g. "Carrefour City" -> "carrefour_city" might need mapping.
+      // Let's try basic lowercase first, assuming backend sends standard keys or store names.
+      // If backend sends "carrefour_city", this works.
+      return raw.toLowerCase().trim();
+    }
+    // --- End Phase 9 ---
+
     function setupEanSearch() {
       const form = document.getElementById('ean-search-form');
       if (!form) return;
@@ -2264,6 +2340,20 @@
             focusOnDataset(resolvedEan);
           } else {
             await Promise.all([reloadSummary(), reloadManualDescriptors()]);
+          }
+
+          // Phase 9: Fetch Best Deal
+          try {
+            // We use fetchJson helper
+            const descResp = await fetchJson(`${apiBase}/api/descriptors?ean=${resolvedEan}`);
+            if (descResp && descResp.best_deal) {
+              renderBestDealBanner(descResp.best_deal);
+            } else {
+              hideBestDealBanner();
+            }
+          } catch (e) {
+            console.warn("Best deal fetch failed", e);
+            hideBestDealBanner();
           }
 
           setServerWarningVisible(false);
@@ -2738,7 +2828,7 @@
         brandEl.hidden = true;
       }
 
-      titleEl.textContent = descriptor.title || descriptor.name || 'Produit';
+      titleEl.textContent = cleanProductName(descriptor.title || descriptor.name || 'Produit');
 
       const qtyEl = root.querySelector('[data-role="quantity"]');
       if (descriptor.quantity) {
@@ -3696,7 +3786,7 @@
       if (window.MAXICOURSES_REFRESH_ENDPOINT) {
         endpoints.add(window.MAXICOURSES_REFRESH_ENDPOINT);
       }
-      endpoints.add('http://127.0.0.1:5001/api/collect');
+      // endpoints.add('http://127.0.0.1:5001/api/collect'); // Disabled for production
       endpoints.add(REFRESH_ENDPOINT);
       if (protoOk) {
         endpoints.add(`${origin}/api/collect`);
@@ -4947,7 +5037,7 @@
 
     function formatStatus(status) {
       const upper = (status || '').toUpperCase();
-      if (upper === 'OK') return { label: 'dispo', className: 'status-ok' };
+      if (upper === 'OK' || upper === 'MATCHED') return { label: 'dispo', className: 'status-ok' };
       if (upper === 'NON DISPONIBLE' || upper === 'INDISPONIBLE' || upper === 'NO_RESULTS' || upper === 'NO_PRICE' || upper === 'NO_MATCH') {
         return { label: 'non dispo', className: 'status-error' };
       }
@@ -4984,7 +5074,12 @@
 
     function cleanProductName(value) {
       if (!value) return '';
-      return String(value).replace(/\s+/g, ' ').trim();
+      let s = String(value).replace(/\s+/g, ' ').trim();
+      // Remove specific CourseU suffix
+      s = s.replace(/\s*-\s*Super U, Hyper U, U Express.*$/i, '');
+      // Remove generic URL suffixes
+      s = s.replace(/\s*-\s*www\.[a-z0-9.-]+\.[a-z]{2,}.*$/i, '');
+      return s;
     }
 
     function toAbsolute(path) {

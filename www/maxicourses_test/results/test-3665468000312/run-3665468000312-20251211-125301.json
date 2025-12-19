@@ -1,0 +1,112 @@
+{
+  "ean": "3665468000312",
+  "image_path": null,
+  "started_at": "2025-12-11T12:52:31.077924+01:00",
+  "finished_at": "2025-12-11T12:53:01.690206+01:00",
+  "duration_seconds": 30.612282,
+  "reference": {
+    "title": "Gel déboucheur de canalisations à la soude",
+    "description": "Déboucheur liquide destop flacon 950ml",
+    "source": "auchan",
+    "brand": "Destop",
+    "quantity": "950 ml",
+    "categories": null,
+    "image": "./assets/3665468000312.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3665468000312/debug/run-3665468000312-20251211-125231"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,02",
+        "unit_price": "4,23 € / L",
+        "quantity": "950 ML",
+        "title": "Gel déboucheur de canalisations à la soude",
+        "url": "https://www.auchan.fr/destop-gel-deboucheur-de-canalisations-a-la-soude/pr-C1628937",
+        "matched_ean": "3665468000312",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S010000000403W3PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Gel déboucheur de canalisations à la soude",
+          "brand": "Gel",
+          "kind": "",
+          "qty": "950 ML",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3665468000312",
+          "image_url": "https://cdn.auchan.fr/media/S010000000403W3PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-11T12:52:31.080977+01:00",
+      "finished_at": "2025-12-11T12:52:51.698444+01:00",
+      "duration_seconds": 20.617467,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3665468000312",
+        "QUERY": "3665468000312",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] Found cookie button with text: Accepter et fermer\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] CONSOLE: data =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: initData =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dl=https%3A%2F%2Fwww.auchan.fr%2Fmagasins%2Fdrive%2Fauchan-drive-supermarche-talence-gallieni%2Fs-6117&scrsrc=www.googletagmanager.com&rnd=1493080676.1765453955&dt=Auchan%20Drive%20Supermarch%C3%A9%20Talence-Gallieni.%20Horaires%2C%20adresse%2C%20livraison%20courses%20%C3%A0%20domicile&auid=667546606.1765453955&navt=n&npa=0&gtm=45He5c92v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528501~104684208~104684211~105391252~115583767~115616986~115938465~115938469~116184927~116184929~116217636~116217638~116251938~116251940~116682876&tft=1765453955212&tfd=3023&apve=1&apvf=f net::ERR_ABORTED\n[auchan] REQ_FAILED: https://ars-privacy.my.onetrust.com/request/v1/consentreceipts net::ERR_NAME_NOT_RESOLVED\n[auchan] CONSOLE: Failed to load resource: net::ERR_NAME_NOT_RESOLVED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ✅ Toast 'C'est noté' APPEARED.\n[auchan] Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ✅ Toast DISAPPEARED. Proceeding to search.\n[auchan] REQ_FAILED: https://c.contentsquare.net/v2/events?uu=d5f8a967-a36f-a18d-e7b8-d482e22e100b&sn=1&hd=1765453955&v=15.158.2&pid=1613&pn=1&str=834&di=2287&dc=2612&fl=2613&sr=40&mdh=3071&hlm=true&ct=0 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://bat.bing.com/actionp/0?ti=4020690&tm=gtm002&Ver=2&mid=9f1e869e-692b-4953-9c8b-abeead74c81c&bo=10&sid=5a53daa0d36311f0b3404f6b71604f59&vid=8edb30e09e1111f085263b1c9ff63dc0&vids=0&msclkid=N&evt=pageHide&asc=G net::ERR_ABORTED\n[auchan] REQ_FAILED: https://analytics.tiktok.com/api/v2/pixel/inter net::ERR_ABORTED\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] CONSOLE: data =  {event_type: SEARCH, item_ids: Array(1), description: SRP, search_string:  3665468000312, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7}\n[auchan] CONSOLE: initData =  {event_type: SEARCH, item_ids: Array(1), description: SRP, search_string:  3665468000312, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7}\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: data =  {event_type: VIEW_CONTENT, item_ids: Array(1), description: PLP, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, item_category: }\n[auchan] CONSOLE: initData =  {event_type: VIEW_CONTENT, item_ids: Array(1), description: PLP, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, item_category: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: Firing Pinterest event: search\n[auchan] CONSOLE: Event Data:{\"np\":\"gtm\",\"gtm_version\":\"legacy\",\"search_query\":\" 3665468000312\"}\n[auchan] CONSOLE: Firing Pinterest event: viewcategory\n[auchan] CONSOLE: Event Data:{\"line_items\":{\"product_category\":\"\"},\"np\":\"gtm\",\"gtm_version\":\"legacy\"}\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=28697384.1765453966&dt=Votre%20recherche%203665468000312%20sur%20Auchan.fr&auid=667546606.1765453955&navt=n&npa=0&gtm=45He5c92v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528500~104684208~104684211~105391252~115583767~115938466~115938469~116184927~116184929~116217636~116217638~116251938~116251940~116682876&tft=1765453966497&tfd=813&apve=1&apvf=f net::ERR_ABORTED\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] results visible, extracting price from search results\n[auchan] REQ_FAILED: https://analytics.tiktok.com/api/v2/pixel/inter net::ERR_ABORTED\n[auchan] REQ_FAILED: https://api.auchan.fr/coupons/v1/events/7b421d3d-7b10-4c01-92ed-a0d202a5ef8c?api-key=dfd9f7af-5ba1-4566-99f7-af5ba16566e7 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://bat.bing.com/actionp/0?ti=4065085&tm=gtm002&Ver=2&mid=52450a86-42aa-4f16-bc62-396e2e83434b&bo=10&sid=5a53daa0d36311f0b3404f6b71604f59&vid=8edb30e09e1111f085263b1c9ff63dc0&vids=0&msclkid=N&evt=pageHide&asc=G net::ERR_ABORTED\n[auchan] REQ_FAILED: https://c.contentsquare.net/v2/events?uu=d5f8a967-a36f-a18d-e7b8-d482e22e100b&sn=1&hd=1765453966&v=15.158.2&pid=1613&pn=2&str=452&di=599&dc=751&fl=751&sr=72&mdh=1711&hlm=true&ct=0 net::ERR_ABORTED\n[auchan] Attempting to reveal price (clicking 'Afficher le prix')...\n[auchan] No reveal price button found on this attempt.\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] CONSOLE: data =  {event_type: VIEW_CONTENT, price: 4.02, item_ids: Array(1), description: PDP, currency: EUR}\n[auchan] CONSOLE: initData =  {event_type: VIEW_CONTENT, price: 4.02, item_ids: Array(1), description: PDP, currency: EUR}\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: Firing Pinterest event: pagevisit\n[auchan] CONSOLE: Event Data:{\"pageTitle\":\"DESTOP Gel déboucheur de canalisations à la soude 4 doses 950ml pas cher - Auchan.fr\",\"pageUrl\":\"https://www.auchan.fr/destop-gel-deboucheur-de-canalisations-a-la-soude/pr-C1628937\",\"np\":\"gtm\",\"gtm_version\":\"legacy\",\"line_items\":[{\"product_id\":\"b3824ba0-ecf1-4f62-b587-30f26448ba4e\",\"product_category\":\"Entretien  accessoires de la maison > Produits d'entretien > WC  canalisations > Déboucheurs  entretien canalisations\"}]}\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Fdestop-gel-deboucheur-de-canalisations-a-la-soude%2Fpr-C1628937&scrsrc=www.googletagmanager.com&rnd=2043395312.1765453969&dt=DESTOP%20Gel%20d%C3%A9boucheur%20de%20canalisations%20%C3%A0%20la%20soude%204%20doses%20950ml%20pas%20cher%20-%20Auchan.fr&auid=667546606.1765453955&navt=n&npa=0&gtm=45He5c92v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527907~104528501~104684208~104684211~105391253~115583767~115938465~115938469~116184927~116184929~116217636~116217638~116251938~116251940&tft=1765453969480&tfd=1876&apve=1&apvf=f net::ERR_ABORTED\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Price revealed!\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Attempt 1: price_text='4,02€' value='4.02'",
+      "metadata": {
+        "attempt_query": "3665468000312",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Gel déboucheur de canalisations à la soude",
+      "brand": "Gel",
+      "kind": "",
+      "qty": "950 ML",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3665468000312",
+      "image_url": "https://cdn.auchan.fr/media/S010000000403W3PRIMARY_1200x1200/B2CD/",
+      "source": "consolidated",
+      "raw_text": "Gel déboucheur de canalisations à la soude Déboucheur liquide destop flacon 950ml",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Gel déboucheur soude 950ml",
+      "Déboucheur Gel soude 950ml",
+      "Gel déboucheur canalisations",
+      "Gel déboucheur de canalisations",
+      "Gel déboucheur de",
+      "Gel canalisations 950 ML",
+      "Gel canalisations 0.95 L",
+      "Gel canalisations 0,95 L"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

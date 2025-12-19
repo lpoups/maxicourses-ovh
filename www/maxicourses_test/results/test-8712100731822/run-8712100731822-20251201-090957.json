@@ -1,0 +1,78 @@
+{
+  "ean": "8712100731822",
+  "image_path": null,
+  "started_at": "2025-12-01T09:08:27.142645+01:00",
+  "finished_at": "2025-12-01T09:09:57.927637+01:00",
+  "duration_seconds": 90.784992,
+  "reference": {
+    "title": "Moutarde aux aromates SAVORA 385 g",
+    "description": "Moutarde aux aromates SAVORA 385 g",
+    "source": "chronodrive",
+    "brand": "Savora",
+    "quantity": "385  g",
+    "categories": "Condiments, Sauces, Moutardes, en:groceries, Spécialité à la Moutarde",
+    "image": "./assets/8712100731822.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
+    "ecoscore_grade": "b",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
+    "nova_group": "3"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251201-090827"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-01T09:08:27.143664+01:00",
+      "finished_at": "2025-12-01T09:09:57.161897+01:00",
+      "duration_seconds": 90.018233,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8712100731822",
+        "QUERY": "8712100731822",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] --- Choose Drive Attempt 1/3 ---\n[auchan] Found visible button: button:has-text('Choisir ce Drive') (index 0)\n[auchan]   Attempting mouse click at (1130.0, 555.421875)\n[auchan] Attempting JS click...\n[auchan] Attempting dispatchEvent('click')...\n[auchan] Button still visible, trying force click...\n[auchan] --- Choose Drive Attempt 2/3 ---\n[auchan] Found visible button: button:has-text('Choisir ce Drive') (index 0)\n[auchan]   Attempting mouse click at (1130.0, 555.421875)\n[auchan] Attempting JS click...\n[auchan] Attempting dispatchEvent('click')...\n[auchan] Button still visible, trying force click...\n[auchan] --- Choose Drive Attempt 3/3 ---\n[auchan] Found visible button: button:has-text('Choisir ce Drive') (index 0)\n[auchan]   Attempting mouse click at (1130.0, 555.421875)\n[auchan] Attempting JS click...\n[auchan] Attempting dispatchEvent('click')...\n[auchan] Button still visible, trying force click...\n[auchan] ⚠️ Max attempts reached. Proceeding anyway...\n[auchan] ⚠️ No valid price found (Attempt 1/3). Retrying store selection...\n[auchan] --- Choose Drive Attempt 1/3 ---\n[auchan] Found visible button: button:has-text('Afficher le prix') (index 0)\n[auchan]   Attempting mouse click at (1073.9921875, 454.75)\n[auchan] Attempting JS click...\n[auchan] Attempting dispatchEvent('click')...\n[auchan] ✅ 'Afficher le prix' clicked. Reloading page to force update...\n[auchan] ⚠️ No valid price found (Attempt 2/3). Retrying store selection...\n[auchan] --- Choose Drive Attempt 1/3 ---\n[auchan] Found visible button: button:has-text('Afficher le prix') (index 0)\n[auchan]   Attempting mouse click at (1073.9921875, 454.75)\n[auchan] Attempting JS click...\n[auchan] Attempting dispatchEvent('click')...\n[auchan] ✅ 'Afficher le prix' clicked. Reloading page to force update...",
+      "metadata": {
+        "attempt_query": "8712100731822",
+        "timeout_s": 90
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Moutarde aux aromates SAVORA 385 g",
+      "brand": "Savora",
+      "kind": "",
+      "qty": "385 g",
+      "qualifiers": [],
+      "ean": "8712100731822",
+      "image_url": "./assets/8712100731822.jpg",
+      "source": "consolidated",
+      "raw_text": "Moutarde aux aromates SAVORA 385 g",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "timestamp": "2025-12-11T14:20:49.712240+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Studio Studio oréal Studio oré",
+      "Studio Line Invisi Fix Spray",
+      "Studio Line Spray Fixation",
+      "Studio Line Coiffant"
+    ],
+    "secondary_keywords": [
+      "studio",
+      "oréal",
+      "paris",
+      "line",
+      "spray",
+      "coiffant",
+      "invisi",
+      "fix",
+      "fixation",
+      "forte",
+      "150ml",
+      "entrée",
+      "générée",
+      "automatiquement",
+      "descriptif",
+      "requis"
+    ],
+    "category": "generic",
+    "structured": {
+      "golden": "Studio Line Invisi Fix Spray",
+      "fallback_specific": "Studio Line Spray Fixation",
+      "fallback_broad": "Studio Line Coiffant"
+    },
+    "raw": {
+      "golden": "Studio Line Invisi Fix Spray",
+      "fallback_specific": "Studio Line Spray Fixation",
+      "fallback_broad": "Studio Line Coiffant"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"L'Oréal Paris Studio Line Spray  Coiffant Invisi Fix Fixation forte 150ml\",\n    \"brand\": \"Studio\",\n    \"quantity\": \"\",\n    \"description\": \"Entrée générée automatiquement – descriptif requis.\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3600523177677\",\n    \"_id\": \"3600523177677\",\n    \"brand\": \"Studio\",\n    \"created_at\": \"2025-12-11T08:06:03.244000\",\n    \"image\": \"./assets/3600523177677.jpg\",\n    \"note\": \"Stub incomplet – lancer une collecte seed Carrefour/Auchan pour remplir le descriptif.\",\n    \"removed\": false,\n    \"source\": \"auchan\",\n    \"updated_at\": \"2025-12-11T13:17:57.719000\",\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"./assets/nutriscore/nutriscore-unknown.svg\",\n    \"queries\": {\n      \"monoprix\": [\n        \"Studio Line Invisi Fix Spray\",\n        \"L'Oréal Studio Fixation forte\",\n        \"Studio Line Coiffant Spray\",\n        \"Studio Studio oréal Studio oré\",\n        \"Studio L'Oréal Fixation forte\"\n      ],\n      \"intermarche\": [\n        \"Studio Line Invisi Fix Spray\",\n        \"Studio Line Spray Fixation\",\n        \"Studio Line Coiffant\",\n        \"Studio Studio oréal Studio oré\"\n      ]\n    },\n    \"keywords\": [\n      \"Studio Line Invisi Fix Spray\",\n      \"Studio Invisi Fix Spray\",\n      \"Studio Line Coiffant Spray\",\n      \"Studio Studio oréal Studio oré\"\n    ],\n    \"stores\": {\n      \"auchan\": {\n        \"url\": \"https://www.auchan.fr/l-oreal-studio-line-spray-coiffant-fixation-ultra-forte-force-8/pr-C1247407\",\n        \"price\": \"6,41\",\n        \"status\": \"OK\",\n        \"image_url\": \"https://cdn.auchan.fr/media/A0220150909000614863PRIMARY_1200x1200/B2CD/\",\n        \"updated_at\": \"2025-12-11T12:26:53.230304+01:00\"\n      },\n      \"image\": {\n        \"url\": \"https://cdn.auchan.fr/media/A0220150909000614863PRIMARY_1200x1200/B2CD/\"\n      },\n      \"intermarche\": {\n        \"url\": \"https://www.intermarche.com/produit/studio-line-spray-cheveux-coiffant-fixation -ultra-forte-gocreate-vapo/3600523177677\",\n        \"price\": \"5,69\",\n        \"status\": \"OK\",\n        \"image_url\": null,\n        \"updated_at\": \"2025-12-11T09:12:22.122204+01:00\"\n      },\n      \"monoprix\": {\n        \"url\": \"https://courses.monoprix.fr/products/l-or%C3%A9al-paris-studio-line-spray-coiff ant-invisi-fix-fixation-forte-150ml/MPX_79610\",\n        \"price\": \"5,55\",\n        \"status\": \"OK\",\n        \"image_url\": \"https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/1a4f b02c-2ca6-42a1-8456-94bb74cee794/300x300.jpg\",\n        \"updated_at\": \"2025-12-11T12:20:31.518771+01:00\"\n      }\n    },\n    \"title\": \"L'Oréal Paris Studio Line Spray  Coiffant Invisi Fix Fixation forte 150ml\",\n    \"description\": \"Entrée générée automatiquement – descriptif requis.\",\n    \"name\": \"L'Oréal Paris Studio Line Spray  Coiffant Invisi Fix Fixation forte 150ml\",\n    \"seed_query\": \"Studio L'Oréal Paris Line Spray Coiffant Invisi Fix Fixation\",\n    \"leclerc_query\": \"Studio Line Invisi Fix Spray\",\n    \"leclerc_queries\": [\n      \"Studio Line Invisi Fix Spray\",\n      \"Studio Invisi Fix Spray\",\n      \"Studio Line Coiffant\",\n      \"Studio Studio oréal Studio oré\"\n    ],\n    \"leclerc_ai_queries\": [\n      \"Studio Line Invisi Fix Spray\",\n      \"Studio Invisi Fix Spray\",\n      \"Studio Line Coiffant\",\n      \"Studio Studio oréal Studio oré\"\n    ],\n    \"leclerc_secondary_keywords\": [\n      \"studio\",\n      \"oréal\",\n      \"paris\",\n      \"line\",\n      \"spray\",\n      \"coiffant\",\n      \"invisi\",\n      \"fix\",\n      \"fixation\",\n      \"forte\",\n      \"150ml\",\n      \"entrée\",\n      \"générée\",\n      \"automatiquement\",\n      \"descriptif\",\n      \"requis\"\n    ],\n    \"primary_keywords\": [\n      \"Studio Line Invisi Fix Spray\",\n      \"Studio Invisi Fix Spray\",\n      \"Studio Line Coiffant\",\n      \"Studio Studio oréal Studio oré\"\n    ],\n    \"monoprix_ai_queries\": [\n      \"Studio Line Invisi Fix Spray\",\n      \"L'Oréal Studio Fixation forte\",\n      \"Studio Line Coiffant Spray\",\n      \"Studio Studio oréal Studio oré\",\n      \"Studio L'Oréal Fixation forte\"\n    ],\n    \"monoprix_queries\": [\n      \"Studio Line Invisi Fix Spray\",\n      \"L'Oréal Studio Fixation forte\",\n      \"Studio Line Coiffant Spray\",\n      \"Studio Studio oréal Studio oré\",\n      \"Studio L'Oréal Fixation forte\"\n    ],\n    \"monoprix_secondary_keywords\": [\n      \"studio\",\n      \"oréal\",\n      \"paris\",\n      \"line\",\n      \"spray\",\n      \"coiffant\",\n      \"invisi\",\n      \"fix\",\n      \"fixation\",\n      \"forte\",\n      \"150ml\",\n      \"entrée\",\n      \"générée\",\n      \"automatiquement\",\n      \"descriptif\",\n      \"requis\"\n    ]\n  },\n  \"store\": \"intermarche\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-Clat6hA7qif4I68jNwxJuS08XDtFN\", \"object\": \"chat.completion\", \"created\": 1765459248, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Studio Line Invisi Fix Spray\\\",\\n    \\\"fallback_specific\\\": \\\"Studio Line Spray Fixation\\\",\\n    \\\"fallback_broad\\\": \\\"Studio Line Coiffant\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1574, \"completion_tokens\": 40, \"total_tokens\": 1614, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

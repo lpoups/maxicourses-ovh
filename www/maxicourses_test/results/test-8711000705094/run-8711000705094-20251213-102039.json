@@ -1,0 +1,97 @@
+{
+  "ean": "8711000705094",
+  "image_path": null,
+  "started_at": "2025-12-13T10:20:29.886547+01:00",
+  "finished_at": "2025-12-13T10:20:39.536983+01:00",
+  "duration_seconds": 9.650436,
+  "reference": {
+    "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "description": null,
+    "source": "seed_catalog",
+    "brand": "L'Or",
+    "quantity": "50 capsules",
+    "categories": "Boissons et préparations de boissons,Boissons,Boissons chaudes,Cafés,Dosettes,Cafés en dosettes,Cafés en dosettes compatible Nespresso",
+    "image": "./assets/8711000705094.png",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "f",
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000705094/debug/run-8711000705094-20251213-102029"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "ERROR",
+      "payload": {
+        "status": "ERROR",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "CDP Connection Failed",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-13T10:20:29.889996+01:00",
+      "finished_at": "2025-12-13T10:20:30.678251+01:00",
+      "duration_seconds": 0.788255,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] CDP Connection failed: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9223",
+      "metadata": {
+        "attempt_query": "8711000705094",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+      "brand": "L'Or",
+      "kind": "",
+      "qty": "50 capsules",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "8711000705094",
+      "image_url": "./assets/8711000705094.png",
+      "source": "consolidated",
+      "raw_text": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "L'Or Ristretto Capsules 50",
+      "Ristretto Capsules L'Or 50",
+      "L'Or Café Capsules",
+      "Café Capsules Ristretto Intensité",
+      "Café Capsules Ristretto",
+      "L'Or nespresso 50 CAPSULES",
+      "L'Or nespresso ristretto",
+      "L'Or 50 CAPSULES"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "timestamp": "2025-12-10T11:46:57.864280+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Coca-Cola Coca-Cola 6X Coca-Co",
+      "Coca-Cola 6x330ml",
+      "Coca-Cola 6",
+      "Coca-Cola Sodas"
+    ],
+    "secondary_keywords": [
+      "coca",
+      "cola",
+      "extraits",
+      "végétaux",
+      "goût",
+      "original",
+      "boîte",
+      "6x",
+      "6"
+    ],
+    "category": "generic",
+    "structured": {
+      "golden": "Coca-Cola 6x330ml",
+      "fallback_specific": "Coca-Cola pack 6",
+      "fallback_broad": "Coca-Cola Sodas"
+    },
+    "raw": {
+      "golden": "Coca-Cola 6x330ml",
+      "fallback_specific": "Coca-Cola pack 6",
+      "fallback_broad": "Coca-Cola Sodas"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"brand\": \"Coca-Cola\",\n    \"name\": \"Coca-Cola\",\n    \"quantity\": \"6 x 330 ml\",\n    \"categories\": [\n      \"Boissons et préparations de boissons\",\n      \"Boissons\",\n      \"Boissons gazeuses\",\n      \"Sodas\",\n      \"Sodas au cola\",\n      \"Boissons avec sucre ajouté\"\n    ],\n    \"nutriscore_grade\": \"e\",\n    \"ecoscore_grade\": \"not-applicable\",\n    \"description\": \"Boisson gazeuse aux extraits végétaux goût original boîte\",\n    \"image\": \"https://cdn.auchan.fr/media/P02000000000ZYAPRIMARY_1200x1200/B2CD/\"\n  },\n  \"descriptor\": {\n    \"ean\": \"5449000283900\",\n    \"source\": \"auchan\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-10T10:46:27Z\",\n    \"brand\": \"Coca-Cola\",\n    \"name\": \"Coca-Cola\",\n    \"quantity\": \"6 x 330 ml\",\n    \"categories\": \"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Sodas, Sodas au cola, Boissons avec sucre ajouté\",\n    \"nutriscore_grade\": \"e\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"not-applicable\",\n    \"removed\": false,\n    \"seed_query\": \"Coca-Cola Coca Cola Boisson gazeuse extraits végétaux goût\",\n    \"image\": \"https://cdn.auchan.fr/media/P02000000000ZYAPRIMARY_1200x1200/B2CD/\",\n    \"description\": \"Boisson gazeuse aux extraits végétaux goût original boîte\",\n    \"leclerc_query\": \"Coca-Cola 6x330ml\",\n    \"leclerc_queries\": [\n      \"Coca-Cola 6x330ml\",\n      \"Coca-Cola 6 pack\",\n      \"Coca-Cola Sodas\",\n      \"Coca-Cola Coca-Cola 6X Coca-Co\",\n      \"Coca-Cola 6\"\n    ],\n    \"ai_profile\": {\n      \"brand\": \"Coca-Cola\",\n      \"name\": \"Coca-Cola\",\n      \"quantity\": \"6 x 330 ml\",\n      \"categories\": [\n        \"Boissons et préparations de boissons\",\n        \"Boissons\",\n        \"Boissons gazeuses\",\n        \"Sodas\",\n        \"Sodas au cola\",\n        \"Boissons avec sucre ajouté\"\n      ],\n      \"nutriscore_grade\": \"e\",\n      \"ecoscore_grade\": \"not-applicable\",\n      \"description\": \"Boisson gazeuse aux extraits végétaux goût original boîte\",\n      \"image\": \"https://cdn.auchan.fr/media/P02000000000ZYAPRIMARY_1200x1200/B2CD/\"\n    },\n    \"ai_keywords\": [\n      \"Coca-Cola Boisson gazeuse\",\n      \"Coca-Cola goût original\",\n      \"Coca-Cola 6 x 330 ml\",\n      \"Coca-Cola Sodas au cola\",\n      \"Coca-Cola Boissons sucrées\",\n      \"Coca-Cola Nutriscore E\",\n      \"Coca-Cola Extraits végétaux\",\n      \"Coca-Cola Boîte\"\n    ],\n    \"primary_keywords\": [\n      \"Coca-Cola Coca-Cola 6X Coca-Co\",\n      \"Coca-Cola Boisson gazeuse\",\n      \"Coca-Cola goût original\",\n      \"Coca-Cola 6 x 330 ml\",\n      \"Coca-Cola Sodas cola\"\n    ],\n    \"secondary_keywords\": [\n      \"coca\",\n      \"cola\",\n      \"extraits\",\n      \"végétaux\",\n      \"goût\",\n      \"original\",\n      \"boîte\",\n      \"6x\",\n      \"6\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-10T11:46:53.719135+01:00\",\n    \"leclerc_ai_queries\": [\n      \"Coca-Cola 6x330ml\",\n      \"Coca-Cola 6 pack\",\n      \"Coca-Cola Sodas\",\n      \"Coca-Cola Coca-Cola 6X Coca-Co\",\n      \"Coca-Cola 6\"\n    ],\n    \"leclerc_secondary_keywords\": [\n      \"coca\",\n      \"cola\",\n      \"extraits\",\n      \"végétaux\",\n      \"goût\",\n      \"original\",\n      \"boîte\",\n      \"6x\",\n      \"6\"\n    ],\n    \"monoprix_ai_queries\": [\n      \"Coca-Cola 6x330ml\",\n      \"Coca-Cola pack 6\",\n      \"Coca-Cola Sodas\",\n      \"Coca-Cola Coca-Cola 6X Coca-Co\",\n      \"Coca-Cola 6\"\n    ],\n    \"monoprix_queries\": [\n      \"Coca-Cola 6x330ml\",\n      \"Coca-Cola pack 6\",\n      \"Coca-Cola Sodas\",\n      \"Coca-Cola Coca-Cola 6X Coca-Co\",\n      \"Coca-Cola 6\"\n    ],\n    \"queries\": {\n      \"monoprix\": [\n        \"Coca-Cola 6x330ml\",\n        \"Coca-Cola pack 6\",\n        \"Coca-Cola Sodas\",\n        \"Coca-Cola Coca-Cola 6X Coca-Co\",\n        \"Coca-Cola 6\"\n      ]\n    },\n    \"monoprix_secondary_keywords\": [\n      \"coca\",\n      \"cola\",\n      \"extraits\",\n      \"végétaux\",\n      \"goût\",\n      \"original\",\n      \"boîte\",\n      \"6x\",\n      \"6\"\n    ]\n  },\n  \"store\": \"intermarche\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-ClC0fx9Q7G1c5DwIQ2CO2vGmmvLQj\", \"object\": \"chat.completion\", \"created\": 1765363617, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Coca-Cola 6x330ml\\\",\\n    \\\"fallback_specific\\\": \\\"Coca-Cola pack 6\\\",\\n    \\\"fallback_broad\\\": \\\"Coca-Cola Sodas\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1434, \"completion_tokens\": 43, \"total_tokens\": 1477, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

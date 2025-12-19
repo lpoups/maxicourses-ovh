@@ -1,0 +1,71 @@
+[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117
+[auchan] CONSOLE: current window outer height 720
+[auchan] CONSOLE: new window outer height 805
+[auchan] CONSOLE: current window outer height 720
+[auchan] CONSOLE: new window outer height 85
+[auchan] Checking for 'Choisir ce drive' button...
+[auchan] CONSOLE: [iAdvize deprecation warning]
+"idzCustomData" is deprecated.
+Please use "iAdvize.set("customData", { ... })" instead
+
+[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED
+[auchan] Found visible button: button.journey-button
+[auchan] Clicking 'Choisir ce drive'...
+[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[auchan] ⚠️ Button still visible after click.
+[auchan] CONSOLE: current window outer height 720
+[auchan] CONSOLE: new window outer height 805
+[auchan] CONSOLE: current window outer height 720
+[auchan] CONSOLE: new window outer height 85
+[auchan] CONSOLE: [iAdvize deprecation warning]
+"idzCustomData" is deprecated.
+Please use "iAdvize.set("customData", { ... })" instead
+
+[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED
+[auchan] results visible, extracting price from search results
+[auchan] CONSOLE: current window outer height 720
+[auchan] CONSOLE: new window outer height 805
+[auchan] CONSOLE: current window outer height 720
+[auchan] CONSOLE: new window outer height 85
+[auchan] CONSOLE: [iAdvize deprecation warning]
+"idzCustomData" is deprecated.
+Please use "iAdvize.set("customData", { ... })" instead
+
+[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED
+[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+[auchan] Attempt 1: price_text=None value=None
+[auchan] --- DEBUG: Smart Price Scan ---
+[auchan] Body Text Snippet: "Aller directement au contenu\nAller directement à la recherche\nAller directement à la navigation\nAller directement à la rubrique besoin d'aide\nChoisir vos courses\nMe connecter\nRayons\nPromos\nLancer la recherche\nAnnuler\nMes produits\n  \nAccueil\nAnimalerie\nChat\nCroquettes chat\nStérilisé\nAgrandir l'illustration à 200 %\nRéduire l'illustration à 100 %\nPartager le produit\n4.7\n(31)\nULTIMA\nCroquettes au saumon pour chat stérilisé\n1,5kg\nVous voulez connaître le prix de ce produit ?\nAfficher le prix\nVous pou"
+[auchan] Cookies: ['connect.sid=s%3ASLRmTj...', 'GCLB="c1811e250...', 'lark-consent=0...', 'lark-consentId=e94ee5f9-2...', 'lark-session=d21878ff-d...']
+[auchan] LocalStorage: {"storeName":"Auchan Drive Supermarché Talence-Gallieni","journeyStoreId":"6117","storeSlug":"auchan-drive-supermarche-talence-gallieni","storeId":"6117"}
+[auchan] ------------------------------
+[auchan] ⚠️ No valid price found (Attempt 1/3). Retrying store selection...
+[auchan] Checking for 'Choisir ce drive' button...
+[auchan] No 'Choisir ce drive' button found. Maybe already selected?
+[auchan] Attempt 2: price_text=None value=None
+[auchan] --- DEBUG: Smart Price Scan ---
+[auchan] Body Text Snippet: "Aller directement au contenu\nAller directement à la recherche\nAller directement à la navigation\nAller directement à la rubrique besoin d'aide\nChoisir vos courses\nMe connecter\nRayons\nPromos\nLancer la recherche\nAnnuler\nMes produits\n  \nAccueil\nAnimalerie\nChat\nCroquettes chat\nStérilisé\nAgrandir l'illustration à 200 %\nRéduire l'illustration à 100 %\nPartager le produit\n4.7\n(31)\nULTIMA\nCroquettes au saumon pour chat stérilisé\n1,5kg\nVous voulez connaître le prix de ce produit ?\nAfficher le prix\nVous pou"
+[auchan] Cookies: ['connect.sid=s%3ASLRmTj...', 'GCLB="c1811e250...', 'lark-consent=0...', 'lark-consentId=e94ee5f9-2...', 'lark-session=d21878ff-d...']
+[auchan] LocalStorage: {"storeName":"Auchan Drive Supermarché Talence-Gallieni","journeyStoreId":"6117","storeSlug":"auchan-drive-supermarche-talence-gallieni","storeId":"6117"}
+[auchan] ------------------------------
+[auchan] ⚠️ No valid price found (Attempt 2/3). Retrying store selection...
+[auchan] Checking for 'Choisir ce drive' button...
+[auchan] No 'Choisir ce drive' button found. Maybe already selected?
+[auchan] Attempt 3: price_text=None value=None
+[auchan] --- DEBUG: Smart Price Scan ---
+[auchan] Body Text Snippet: "Aller directement au contenu\nAller directement à la recherche\nAller directement à la navigation\nAller directement à la rubrique besoin d'aide\nChoisir vos courses\nMe connecter\nRayons\nPromos\nLancer la recherche\nAnnuler\nMes produits\n  \nAccueil\nAnimalerie\nChat\nCroquettes chat\nStérilisé\nAgrandir l'illustration à 200 %\nRéduire l'illustration à 100 %\nPartager le produit\n4.7\n(31)\nULTIMA\nCroquettes au saumon pour chat stérilisé\n1,5kg\nVous voulez connaître le prix de ce produit ?\nAfficher le prix\nVous pou"
+[auchan] Cookies: ['connect.sid=s%3ASLRmTj...', 'GCLB="c1811e250...', 'lark-consent=0...', 'lark-consentId=e94ee5f9-2...', 'lark-session=d21878ff-d...']
+[auchan] LocalStorage: {"storeName":"Auchan Drive Supermarché Talence-Gallieni","journeyStoreId":"6117","storeSlug":"auchan-drive-supermarche-talence-gallieni","storeId":"6117"}
+[auchan] ------------------------------
+[auchan] ⚠️ No valid price found (Attempt 3/3). Retrying store selection...
+[auchan] Checking for 'Choisir ce drive' button...
+[auchan] No 'Choisir ce drive' button found. Maybe already selected?
+{"status": "NO_PRICE", "price": null, "unit_price": null, "quantity": null, "title": null, "url": "https://www.auchan.fr/ultima-croquettes-au-saumon-pour-chat-sterilise/pr-C1187263", "matched_ean": null, "store": "Auchan Drive Supermarché Talence-Gallieni", "note": "price_missing", "image": null}

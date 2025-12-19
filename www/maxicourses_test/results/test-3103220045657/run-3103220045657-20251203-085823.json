@@ -1,0 +1,83 @@
+{
+  "ean": "3103220045657",
+  "image_path": null,
+  "started_at": "2025-12-03T08:58:17.762632+01:00",
+  "finished_at": "2025-12-03T08:58:23.437653+01:00",
+  "duration_seconds": 5.675021,
+  "reference": {
+    "title": "Tirlibibi",
+    "description": null,
+    "source": "test",
+    "brand": "Haribo",
+    "quantity": "750g",
+    "categories": "snacks, snacks-sucrés, cacao-et-dérivés, confiseries, confiseries-chocolatées, bonbons-de-chocolat, bonbons, bonbons-gélifiés, en:bonbons-gélifiés, fr:confiseries, en:snacks-sucrés",
+    "image": null,
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "c",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-c.svg",
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251203-085817"
+  ],
+  "adapters": [
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Haribo%20Tirlibibi%20750g",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Haribo Tirlibibi 750g",
+          "timestamp": "2025-12-03T07:58:19.779477+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-03T08:58:19.452514+01:00",
+      "finished_at": "2025-12-03T08:58:20.889163+01:00",
+      "duration_seconds": 1.436649,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "Haribo Tirlibibi 750g",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Haribo Tirlibibi 750g",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251203-085817/01-casino"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Tirlibibi",
+      "brand": "Haribo",
+      "kind": "",
+      "qty": "750g",
+      "qualifiers": [],
+      "ean": "3103220045657",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

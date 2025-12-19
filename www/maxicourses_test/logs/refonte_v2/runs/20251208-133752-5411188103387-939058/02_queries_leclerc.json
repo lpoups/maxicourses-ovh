@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-12-08T13:37:52.814705+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Alpro Alpro 500G Alpro dessert",
+      "Alpro Dessert soja vanille",
+      "Alpro Dessert végétal 500g",
+      "Alpro Soja vanille 500g",
+      "Alpro Dessert 500g"
+    ],
+    "secondary_keywords": [
+      "alpro",
+      "dessert",
+      "végétal",
+      "soja",
+      "vanille",
+      "500g",
+      "500"
+    ],
+    "category": "generic",
+    "raw": {
+      "queries": [
+        "Alpro Dessert soja vanille",
+        "Alpro Dessert végétal 500g",
+        "Alpro Soja vanille 500g",
+        "Alpro Dessert 500g",
+        "Alpro Soja vanille"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Dessert végétal soja vanille ALPRO - 500g\",\n    \"brand\": \"Alpro\",\n    \"quantity\": \"500  g\",\n    \"description\": \"Dessert végétal soja vanille ALPRO - 500g\"\n  },\n  \"descriptor\": {\n    \"ean\": \"5411188103387\",\n    \"brand\": \"Alpro\",\n    \"description\": \"Dessert végétal soja vanille ALPRO - 500g\",\n    \"image\": \"./assets/5411188103387.jpg\",\n    \"leclerc_queries\": [\n      \"Alpro Dessert 500 G\",\n      \"Alpro Dessert végétal 500 G\",\n      \"Alpro 500 G\",\n      \"Dessert végétal 500 G\"\n    ],\n    \"leclerc_query\": \"Alpro Dessert 500 G\",\n    \"name\": \"Dessert végétal soja vanille ALPRO - 500g\",\n    \"note\": \"2025-10-31T15:36:51Z · Super U Eysines\",\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"primary_keywords\": [\n      \"Alpro 500 G\"\n    ],\n    \"quantity\": \"500  g\",\n    \"secondary_keywords\": [\n      \"végétal\",\n      \"soja\",\n      \"vanille\",\n      \"500 G\"\n    ],\n    \"seed_primary_name\": \"Dessert végétal soja vanille ALPRO\",\n    \"seed_primary_quantity\": \"500 G\",\n    \"seed_query\": \"Alpro Dessert végétal soja vanille 500 g\",\n    \"source\": \"courseu\",\n    \"removed\": false,\n    \"categories\": \"Aliments et boissons à base de végétaux,Produits fermentés,Substituts de produits laitiers,Desserts,Produits veganes,Desserts végétaliens,Produits végétaux fermentés,Desserts végétaliens fermentés,Desserts de jus de soja fermenté\",\n    \"ecoscore_grade\": \"a\",\n    \"ecoscore_image\": \"https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg\",\n    \"nova_group\": \"4\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkUmruHzsLlJBEd4CkjLChpUFIQ2n\", \"object\": \"chat.completion\", \"created\": 1765197469, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"queries\\\": [\\n    \\\"Alpro Dessert soja vanille\\\",\\n    \\\"Alpro Dessert végétal 500g\\\",\\n    \\\"Alpro Soja vanille 500g\\\",\\n    \\\"Alpro Dessert 500g\\\",\\n    \\\"Alpro Soja vanille\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 636, \"completion_tokens\": 59, \"total_tokens\": 695, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e5bb698939\"}"
+}

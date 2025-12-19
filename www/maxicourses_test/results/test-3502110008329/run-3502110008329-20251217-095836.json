@@ -1,0 +1,100 @@
+{
+  "ean": "3502110008329",
+  "image_path": null,
+  "started_at": "2025-12-17T09:57:07.790560+01:00",
+  "finished_at": "2025-12-17T09:58:36.619757+01:00",
+  "duration_seconds": 88.829197,
+  "reference": {
+    "title": "Soda au Cola PEPSI",
+    "description": null,
+    "source": "carrefour_super",
+    "brand": "Pepsi",
+    "quantity": "1500 ml",
+    "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté",
+    "image": "https://media.carrefour.fr/media/referential/media/a4d672e7484749aaaf3f77fd9a53 5ac8/03502110009357_H1N1_s05.jpeg",
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251217-095707"
+  ],
+  "adapters": [
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-12-17T09:57:12.929565+01:00",
+      "finished_at": "2025-12-17T09:57:26.412333+01:00",
+      "duration_seconds": 13.482768,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "Pepsi Cola 1,5L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Raw DESCRIPTOR_JSON received (len=2728)\n[DEBUG] Intermarche Descriptor keys: ['_id', 'ean', 'brand', 'categories', 'created_at', 'ecoscore_grade', 'note', 'nova_group', 'nutriscore_grade', 'nutriscore_image', 'quantity', 'removed', 'source', 'updated_at', 'queries', 'confirmed_titles', 'canonical', 'keywords', 'stores', 'title', 'image', 'name', 'seed_query', 'leclerc_query', 'leclerc_queries', 'leclerc_ai_queries', 'leclerc_secondary_keywords', 'primary_keywords', 'monoprix_ai_queries', 'monoprix_queries', 'monoprix_secondary_keywords', 'intermarche_ai_queries', 'intermarche_queries', 'intermarche_secondary_keywords']\n[DEBUG] Intermarche query keys: {'monoprix': ['pepsi cola 1,5l', 'pepsi soda 1,5l', 'pepsi boissons', 'Pepsi Pepsi 1'], 'intermarche': ['Pepsi Cola 1,5L', 'Pepsi Soda 1,5L', 'Pepsi Boissons', 'Pepsi Pepsi 1']}\n[DEBUG] Leclerc fallback queries: ['Pepsi Cola 1,5L', 'Pepsi Soda 1,5L', 'Pepsi Boissons', 'Pepsi Pepsi 1']",
+      "metadata": {
+        "attempt_query": "Pepsi Cola 1,5L",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251217-095707/01-intermarche"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda au Cola PEPSI",
+      "brand": "Pepsi",
+      "kind": "",
+      "qty": "1500 ml",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3502110008329",
+      "image_url": "https://media.carrefour.fr/media/referential/media/a4d672e7484749aaaf3f77fd9a53 5ac8/03502110009357_H1N1_s05.jpeg",
+      "source": "consolidated",
+      "raw_text": "Soda au Cola PEPSI",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Pepsi Soda Cola",
+      "Soda Pepsi Cola",
+      "Pepsi Soda",
+      "Soda au Cola PEPSI",
+      "Soda au Cola",
+      "Pepsi cola 1500 ML",
+      "Pepsi cola 1.50 L",
+      "Pepsi cola 1,50 L"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

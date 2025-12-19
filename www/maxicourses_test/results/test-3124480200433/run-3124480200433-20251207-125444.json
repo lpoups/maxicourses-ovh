@@ -1,0 +1,98 @@
+{
+  "ean": "3124480200433",
+  "image_path": null,
+  "started_at": "2025-12-07T12:54:29.531593+01:00",
+  "finished_at": "2025-12-07T12:54:44.124808+01:00",
+  "duration_seconds": 14.593215,
+  "reference": {
+    "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
+    "description": "Soda à  l'Orange et sa Pulpe ORANGINA",
+    "source": "carrefour_super",
+    "brand": "Orangina",
+    "quantity": "1,5 L",
+    "categories": "Beverages and beverages preparations, Plant-based foods and beverages, Beverages, Plant-based beverages, Carbonated drinks, Fruit-based beverages, Sodas, Fruit sodas, Orange soft drinks, en:sweetened-beverages",
+    "image": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03124480200433_C1N1_s04.jpeg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3124480200433/debug/run-3124480200433-20251207-125429"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,15",
+        "unit_price": "1,43 € / L",
+        "quantity": "1.5 L",
+        "title": "Boisson gazeuse à l'orange",
+        "url": "https://www.auchan.fr/orangina-boisson-gazeuse-a-l-orange/pr-C1820950",
+        "matched_ean": "3124480200433",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S010000000419TMPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson gazeuse à l'orange",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1.5 L",
+          "qualifiers": [],
+          "ean": "3124480200433",
+          "image_url": "https://cdn.auchan.fr/media/S010000000419TMPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-07T12:54:29.532320+01:00",
+      "finished_at": "2025-12-07T12:54:43.369296+01:00",
+      "duration_seconds": 13.836976,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3124480200433",
+        "QUERY": "3124480200433",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Page already on Auchan, checking if reload needed.\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] Found cookie button with text: Accepter et fermer\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] CONSOLE: data =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: initData =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://ars-privacy.my.onetrust.com/request/v1/consentreceipts net::ERR_NAME_NOT_RESOLVED\n[auchan] CONSOLE: Failed to load resource: net::ERR_NAME_NOT_RESOLVED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dl=https%3A%2F%2Fwww.auchan.fr%2Fmagasins%2Fdrive%2Fauchan-drive-supermarche-talence-gallieni%2Fs-6117&scrsrc=www.googletagmanager.com&rnd=1975946451.1765108472&dt=Auchan%20Drive%20Supermarch%C3%A9%20Talence-Gallieni.%20Horaires%2C%20adresse%2C%20livraison%20courses%20%C3%A0%20domicile&auid=1126849216.1765108472&navt=n&npa=0&ep.ads_data_redaction=0&gtm=45He5c31v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527907~104528501~104684208~104684211~105391252~115583767~115938466~115938468~116184927~116184929~116217636~116217638~116251935~116251937~116427946~116682875&apve=1&apvf=f&apvc=1&tft=1765108471623&tfd=903 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&dl=https%3A%2F%2Fwww.auchan.fr%2Fmagasins%2Fdrive%2Fauchan-drive-supermarche-talence-gallieni%2Fs-6117&scrsrc=www.googletagmanager.com&rnd=1975946451.1765108472&dt=Auchan%20Drive%20Supermarch%C3%A9%20Talence-Gallieni.%20Horaires%2C%20adresse%2C%20livraison%20courses%20%C3%A0%20domicile&auid=1126849216.1765108472&navt=n&npa=0&uid=undefined&_tu=CA&gtm=45be5c31v9181459238z8810240695za200zb810240695zd810240695xea&gcs=G111&gcd=13r3rPr2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527907~104528500~104684208~104684211~105391252~115583767~115616985~115938466~115938469~116184927~116184929~116217636~116217638~116251935~116251937~116427946~116682875&apve=1&apvf=f&apvc=0&tids=AW-995142496&tid=AW-995142496&tft=1765108471665&tfd=945 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&dl=https%3A%2F%2Fwww.auchan.fr%2Fmagasins%2Fdrive%2Fauchan-drive-supermarche-talence-gallieni%2Fs-6117&scrsrc=www.googletagmanager.com&rnd=1975946451.1765108472&dt=Auchan%20Drive%20Supermarch%C3%A9%20Talence-Gallieni.%20Horaires%2C%20adresse%2C%20livraison%20courses%20%C3%A0%20domicile&auid=1126849216.1765108472&navt=n&npa=0&ep.u1=place&ep.u2=PLACE&ep.u3=undefined&ep.u4=undefined&ep.u5=undefined&ep.u15=%2Fmagasins%2Fdrive%2Fauchan-drive-supermarche-talence-gallieni%2Fs-6117&gtm=45fe5c31v9206597865z8810240695za200zb810240695zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527907~104528500~104684208~104684211~105391253~115583767~115938466~115938468~116184927~116184929~116217636~116217638~116427946~116682875&apve=1&apvf=f&apvc=0&tids=DC-15217296&tid=DC-15217296&tft=1765108471685&tfd=964 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=conversion&dl=https%3A%2F%2Fwww.auchan.fr%2Fmagasins%2Fdrive%2Fauchan-drive-supermarche-talence-gallieni%2Fs-6117&scrsrc=www.googletagmanager.com&rnd=1975946451.1765108472&dt=Auchan%20Drive%20Supermarch%C3%A9%20Talence-Gallieni.%20Horaires%2C%20adresse%2C%20livraison%20courses%20%C3%A0%20domicile&auid=1126849216.1765108472&navt=n&npa=0&epn.value=0&_tu=CA&gtm=45be5c31v9167950749z8810240695za200zb810240695zd810240695xea&gcs=G111&gcd=13r3rPr2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527907~104528501~104684208~104684211~105391253~115583767~115616985~115938466~115938468~116184927~116184929~116217636~116217638~116427946~116682875&apve=1&apvf=f&apvc=0&tids=AW-11360339372&tid=AW-11360339372&tft=1765108471699&tfd=979 net::ERR_ABORTED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ✅ Toast 'C'est noté' APPEARED.\n[auchan] Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ✅ Toast DISAPPEARED. Proceeding to search.\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] CONSOLE: data =  {event_type: VIEW_CONTENT, price: 2.15, item_ids: Array(1), description: PDP, currency: EUR}\n[auchan] CONSOLE: initData =  {event_type: VIEW_CONTENT, price: 2.15, item_ids: Array(1), description: PDP, currency: EUR}\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: Firing Pinterest event: pagevisit\n[auchan] CONSOLE: Event Data:{\"pageTitle\":\"ORANGINA Boisson gazeuse à l'orange 1,5l pas cher - Auchan.fr\",\"pageUrl\":\"https://www.auchan.fr/orangina-boisson-gazeuse-a-l-orange/pr-C1820950\",\"np\":\"gtm\",\"gtm_version\":\"legacy\",\"line_items\":[{\"product_id\":\"c14dabf6-44d1-489c-a00c-0b1d18bbaabb\",\"product_category\":\"Eaux  jus  soda  thés glacés > Colas  boissons gazeuses  énergisantes > Sodas aux fruits  thés gazeux > Soda orange\"}]}\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dl=https%3A%2F%2Fwww.auchan.fr%2Forangina-boisson-gazeuse-a-l-orange%2Fpr-C1820950&scrsrc=www.googletagmanager.com&rnd=2136306081.1765108481&dt=ORANGINA%20Boisson%20gazeuse%20%C3%A0%20l%27orange%201%2C5l%20pas%20cher%20-%20Auchan.fr&auid=1126849216.1765108472&navt=n&npa=0&gtm=45He5c31v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527907~104528501~104684208~104684211~105391253~115583767~115938465~115938469~116184927~116184929~116217636~116217638~116251935~116251937~116514482&tft=1765108480902&tfd=474&apve=1&apvf=f net::ERR_ABORTED\n[auchan] Attempting to reveal price (clicking 'Afficher le prix')...\n[auchan] Price revealed!\n[auchan] Attempt 1: price_text='2,15€' value='2.15'",
+      "metadata": {
+        "attempt_query": "3124480200433"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Boisson gazeuse à l'orange",
+      "brand": "Boisson",
+      "kind": "",
+      "qty": "1.5 L",
+      "qualifiers": [],
+      "ean": "3124480200433",
+      "image_url": "https://cdn.auchan.fr/media/S010000000419TMPRIMARY_1200x1200/B2CD/",
+      "source": "consolidated",
+      "raw_text": "Soda à  l'Orange et sa Pulpe ORANGINA",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

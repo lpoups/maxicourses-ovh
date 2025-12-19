@@ -23,7 +23,7 @@ print("--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---", file=sys.stderr)
 
 from rich import print
 import requests
-from pipeline.image_matching import descriptor_matches_candidate
+from pipeline.image_matching import descriptor_matches_candidate, hash_reference
 
 try:  # Pillow est optionnel mais requis pour le matching visuel
     from PIL import Image  # type: ignore
@@ -40,6 +40,10 @@ try:
 except Exception:  # pragma: no cover - provider optional
     MonoprixAdapter = None  # type: ignore
 
+try:
+    from ai_helpers import compute_vision_similarity
+except ImportError:
+    compute_vision_similarity = None
 
 EAN = os.environ.get("EAN", "").strip()
 QUERY = os.environ.get("QUERY", "").strip()
@@ -128,9 +132,13 @@ VARIANT_PATTERNS: dict[str, list[re.Pattern[str]]] = {
         re.compile(r"\brouge\b", re.IGNORECASE),
         re.compile(r"\bsanguine\b", re.IGNORECASE),
     ],
+    "fines bulles": [
+        re.compile(r"\bfines\s+bulles\b", re.IGNORECASE),
+        re.compile(r"\bfine\s+bulle\b", re.IGNORECASE),
+    ],
 }
 
-SEED_VARIANTS = ["nature", "vanille", "amande", "coco", "mangue", "chocolat", "orange", "sans sucre", "rouge"]
+SEED_VARIANTS = ["nature", "vanille", "amande", "coco", "mangue", "chocolat", "orange", "sans sucre", "rouge", "fines bulles"]
 MAX_PRODUCTS_PER_TERM = int(os.environ.get("MONOPRIX_MAX_PRODUCTS", "12"))
 DESCRIPTOR_MATCH_COVERAGE = float(os.environ.get("MONOPRIX_DESCRIPTOR_COVERAGE", "0.7"))
 
@@ -171,6 +179,28 @@ def _ahash_js() -> str:
     """
 
 
+def _fetch_b64_js() -> str:
+    return """
+    async (imgUrl) => {
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      const loaded = new Promise((res, rej) => {
+        img.onload = () => res();
+        img.onerror = (e) => rej(e);
+      });
+      img.src = imgUrl;
+      await loaded;
+
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width; canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      // Return data URL (base64)
+      return canvas.toDataURL("image/jpeg", 0.8);
+    }
+    """
+
+
 def _hamming64(a: int, b: int) -> int:
     x = a ^ b
     count = 0
@@ -180,21 +210,94 @@ def _hamming64(a: int, b: int) -> int:
     return count
 
 
+import base64
+
 async def _compute_ahash(ctx: BrowserContext, url: Optional[str]) -> Optional[int]:
+    """Compute perceptual hash using Python first (robust request), then Browser fallback."""
+    if not url:
+        return None
+    
+    try:
+        # 1. Fetch remote content using Playwright (bypasses 403/Cloudflare/CORS)
+        target_url = url
+        if not url.startswith("data:"):
+            # Use browser context request to fetch bytes
+            try:
+                # specific timeout for image fetch
+                resp = await ctx.request.get(url, timeout=10000)
+                if resp.status == 200:
+                    body_bytes = await resp.body()
+                    # Convert to Base64 Data URI for hash_reference
+                    b64_data = base64.b64encode(body_bytes).decode('utf-8')
+                    # We assume jpeg/png is fine, PIL detects header. 
+                    # But data URI needs header. 'image/jpeg' is a safe default guess for generic logic, 
+                    # or extract from headers.
+                    mime = resp.headers.get("content-type", "image/jpeg")
+                    target_url = f"data:{mime};base64,{b64_data}"
+                else:
+                    sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] Fetch failed {resp.status} for {url}\n")
+            except Exception as e_fetch:
+                 sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] Context fetch error: {e_fetch}\n")
+                 # If fetch fails, target_url remains original url, requests might fail too but we try.
+
+        # 2. Compute Hash
+        py_hash = hash_reference(target_url)
+        if py_hash is not None:
+            return py_hash
+        sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] hash_reference returned None for {url[:30]}...\n")
+
+    except Exception as e:
+        sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] Python hash exception: {e}\n")
+
+    # 3. Fallback to Browser-side hashing (Last resort)
+    if url.startswith("data:"):
+        return None 
+
+    sys.stderr.write("[MONOPRIX_IMG_DEBUG] Python hash returned None. Falling back to Browser.\n")
+    page = await ctx.new_page()
+    try:
+        # Navigate to HOME_URL to set same-origin context for CORS (Monoprix images)
+        try:
+            await page.goto(HOME_URL, wait_until="domcontentloaded", timeout=15000)
+        except Exception:
+            pass 
+
+        script = _ahash_js()
+        h_str = await page.evaluate(
+            f"""async (targetUrl) => {{
+                try {{
+                    const fn = {script};
+                    return await fn(targetUrl);
+                }} catch (e) {{
+                    return null;
+                }}
+            }}""",
+            url,
+        )
+        return int(h_str) if h_str is not None else None
+    except Exception as e_br:
+        sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] Browser hash failed: {e_br}\n")
+        return None
+    finally:
+        await page.close()
+
+
+async def _get_image_b64(ctx: BrowserContext, url: Optional[str]) -> Optional[str]:
     if not url:
         return None
     page = await ctx.new_page()
     try:
         await page.goto("about:blank")
-        script = _ahash_js()
-        h_str = await page.evaluate(
-            f"""async (targetUrl) => {{
-                const fn = {script};
-                return await fn(targetUrl);
-            }}""",
+        # Ensure we can fetch cross-origin or same-origin
+        script = _fetch_b64_js()
+        b64 = await page.evaluate(
+            f"async (targetUrl) => {{ const fn = {script}; return await fn(targetUrl); }}",
             url,
         )
-        return int(h_str) if h_str is not None else None
+        # remove "data:image/jpeg;base64," prefix if desired, but helper handles it
+        if isinstance(b64, str) and "," in b64:
+             return b64.split(",", 1)[1]
+        return b64
     except Exception:
         return None
     finally:
@@ -206,7 +309,26 @@ async def _compare_images_async(ctx: BrowserContext, seed_url: Optional[str], ca
     b = await _compute_ahash(ctx, cand_url)
     if a is None or b is None:
         return False
-    return _hamming64(a, b) <= 8
+    dist = _hamming64(a, b)
+    sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] Hash Distance: {dist} (Threshold: 22)\n")
+    sys.stderr.flush()
+    if dist <= 22:
+        return True
+    
+    # Fallback AI
+    if compute_vision_similarity:
+        print(f"[DEBUG] Hash mismatch (dist={dist}), trying AI Vision...", file=sys.stderr)
+        b64_seed = await _get_image_b64(ctx, seed_url)
+        b64_cand = await _get_image_b64(ctx, cand_url)
+        if b64_seed and b64_cand:
+            resp = compute_vision_similarity(b64_seed, b64_cand)
+            if resp.status == "ok" and resp.data.get("match") is True:
+                print(f"[DEBUG] AI Vision MATCH conf={resp.data.get('confidence')}", file=sys.stderr)
+                return True
+            else:
+                print(f"[DEBUG] AI Vision NO MATCH: {resp.data}", file=sys.stderr)
+    
+    return False
 
 
 def compare_images_via_playwright(ctx: BrowserContext, seed_url: Optional[str], cand_url: Optional[str]) -> bool:
@@ -903,21 +1025,126 @@ def _compare_image_with_descriptor(descriptor: dict[str, typing.Any], image_url:
 
     descriptor_copy = dict(descriptor)
     img = descriptor_copy.get("image")
+    
+    # ARCHITECTURE 100% OVH: Si l'image est une URL HTTP, la passer directement
+    # Ne pas essayer de la convertir en chemin local
     if isinstance(img, str) and img.strip():
-        path = Path(img.strip())
-        if not path.is_absolute():
-            script_root = Path(__file__).resolve().parent
-            candidate1 = script_root / path
-            candidate2 = script_root / "pipeline" / "assets" / path.name
-            if candidate1.exists():
-                descriptor_copy["image"] = str(candidate1)
-            elif candidate2.exists():
-                descriptor_copy["image"] = str(candidate2)
+        img_stripped = img.strip()
+        if img_stripped.startswith("http") or img_stripped.startswith("data:"):
+            # URL HTTP ou Data URI - utiliser directement
+            descriptor_copy["image"] = img_stripped
+        else:
+            # Ancien format (chemin local) - essayer de résoudre pour compatibilité
+            path = Path(img_stripped)
+            if not path.is_absolute():
+                script_root = Path(__file__).resolve().parent
+                candidate1 = script_root / path
+                candidate2 = script_root / "pipeline" / "assets" / path.name
+                if candidate1.exists():
+                    descriptor_copy["image"] = str(candidate1)
+                elif candidate2.exists():
+                    descriptor_copy["image"] = str(candidate2)
 
-    try:
-        return descriptor_matches_candidate(descriptor_copy, cleaned, ean=current_ean, threshold=threshold)
-    except Exception:
+    # DIAGNOSTIC: Log les URLs pour débugger le matching
+    seed_img = descriptor_copy.get("image")
+    sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] Seed image: {seed_img[:80] if seed_img else 'MISSING'}...\n")
+    sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] Candidate image: {cleaned[:80] if cleaned else 'MISSING'}...\n")
+    
+    if not seed_img:
+        sys.stderr.write("[MONOPRIX_IMG_DEBUG] ❌ ÉCHEC: Pas d'image seed dans le descriptor!\n")
         return False
+    
+    # ÉTAPE 1: Matching par hash (rapide)
+    try:
+        result = descriptor_matches_candidate(descriptor_copy, cleaned, ean=current_ean, threshold=threshold)
+        sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] Hash match result: {result}\n")
+        if result:
+            return True
+    except Exception as e:
+        sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] Hash matching exception: {e}\n")
+    
+    # ÉTAPE 2: Fallback AI Vision (GPT-4o) si le hash matching échoue
+    sys.stderr.write("[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n")
+    try:
+        from ai_helpers import _call_openai, _extract_json_content
+        import base64
+        import requests
+        
+        # Télécharger les deux images avec headers complets
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+            "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+        }
+        
+        # Helper to get bytes from URL or Data URI
+        def get_image_bytes(url_in):
+            if not url_in: return None, 0
+            if url_in.startswith("data:"):
+                try:
+                    _, b64Part = url_in.split(",", 1)
+                    return base64.b64decode(b64Part), 200
+                except:
+                    return None, 0
+            # Fallback for http
+            try:
+                resp = requests.get(url_in, headers=headers, timeout=15)
+                return resp.content, resp.status_code
+            except:
+                return None, 0
+
+        seed_content, seed_status = get_image_bytes(seed_img)
+        cand_content, cand_status = get_image_bytes(cleaned)
+        
+        sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] Download status: seed={seed_status}, candidate={cand_status}\n")
+        
+        # AUTO-HEAL LOGIC: If seed is broken (404), we CANNOT compare.
+        # We must trust the text matching and return True to allow the Pipeline 
+        # to capture this candidate's image and repair the DB.
+        if seed_status == 404 or seed_status == 0:
+             sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] ⚠️ SEED BROKEN ({seed_status}). TRUSTING TEXT MATCH to allow Auto-Heal.\n")
+             return True
+
+        if seed_status == 200 and cand_status == 200:
+            seed_b64 = base64.b64encode(seed_content).decode('utf-8')
+            candidate_b64 = base64.b64encode(cand_content).decode('utf-8')
+            
+            # Appel direct à GPT-4o Vision
+            messages = [
+                {
+                    "role": "system",
+                    "content": (
+                        "Tu es un expert en comparaison de produits supermarché."
+                        " Compare les deux images de produits."
+                        " Détermine si c'est le MÊME produit (marque, nom, quantité)."
+                        " Ignore les différences mineures d'emballage ou d'éclairage."
+                        " Réponds en JSON: {\"match\": boolean, \"confidence\": float, \"reason\": string}."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": "Ces deux produits sont-ils identiques?"},
+                        {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{seed_b64}"}},
+                        {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{candidate_b64}"}},
+                    ],
+                },
+            ]
+            
+            response = _call_openai(model="gpt-4o", messages=messages, temperature=0.0)
+            data = _extract_json_content(response)
+            match = data.get("match", False)
+            confidence = data.get("confidence", 0.0)
+            reason = data.get("reason", "")
+            
+            sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] AI Vision result: match={match}, confidence={confidence}, reason={reason}\n")
+            return match
+        else:
+            sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] AI Vision: failed to get images (seed={len(seed_content) if seed_content else 0} bytes, candidate={len(cand_content) if cand_content else 0} bytes)\n")
+    except Exception as e:
+        sys.stderr.write(f"[MONOPRIX_IMG_DEBUG] AI Vision exception: {e}\n")
+    
+    return False
 
 
 async def _image_matches_descriptor_async(descriptor: dict[str, typing.Any], image_url: typing.Optional[str]) -> bool:
@@ -1431,6 +1658,24 @@ def build_query_terms() -> list[str]:
     descriptor = MANUAL_DESCRIPTOR.get(EAN) if EAN else {}
     if not isinstance(descriptor, dict):
         descriptor = {}
+    seen: set[str] = set()
+    
+    def add(term: typing.Optional[str]) -> None:
+        candidate = _prepare_query(term, max_len)
+        if not candidate:
+            return
+        if _looks_like_ean(candidate):
+            return
+        normalized_candidate = candidate.lower()
+        if normalized_candidate in seen:
+            return
+        seen.add(normalized_candidate)
+        terms.append(candidate)
+
+    # 0. AI / Finder Query (HIGHEST PRIORITY)
+    if QUERY:
+        add(QUERY)
+
     # Terme prioritaire : 3 premiers mots du descriptif seed
     seed_title = descriptor.get("seed_primary_name") or descriptor.get("name") or descriptor.get("seed_query")
     if (not descriptor.get("brand")) and seed_title:
@@ -1440,9 +1685,7 @@ def build_query_terms() -> list[str]:
     if isinstance(seed_title, str) and seed_title.strip():
         first3 = " ".join(seed_title.split()[:3])
         if first3:
-            candidate = _prepare_query(first3, max_len)
-            if candidate:
-                terms.append(candidate)
+            add(first3) # Use add() to ensure consistency
 
     # 1) Si Finder fournit explicitement les mots-clés, on les utilise en priorité
     finder_keywords_raw = os.environ.get("FINDER_KEYWORDS", "")
@@ -1451,14 +1694,9 @@ def build_query_terms() -> list[str]:
             parsed = json.loads(finder_keywords_raw)
             if isinstance(parsed, list):
                 for item in parsed:
-                    candidate = _prepare_query(item, max_len)
-                    if candidate:
-                        terms.append(candidate)
-            # on ne retourne plus immédiatement pour permettre les fallbacks
+                     add(item)
         except Exception:
             pass
-
-    seen: set[str] = set()
 
     def primary_tokens_from_descriptor(data: dict[str, typing.Any]) -> list[str]:
         raw_fields: list[str] = []
@@ -1482,20 +1720,6 @@ def build_query_terms() -> list[str]:
                     tokens.append(normalized)
         return tokens
 
-    def add(term: typing.Optional[str]) -> None:
-        candidate = _prepare_query(term, max_len)
-        if not candidate:
-            return
-        if _looks_like_ean(candidate):
-            return
-        normalized_candidate = candidate.lower()
-        if normalized_candidate in seen:
-            return
-        seen.add(normalized_candidate)
-        terms.append(candidate)
-        if max_terms > 0 and len(terms) >= max_terms:
-            return
-
     primary_tokens = primary_tokens_from_descriptor(descriptor)
     qty = descriptor.get("quantity") or descriptor.get("seed_primary_quantity")
     if isinstance(qty, str):
@@ -1511,10 +1735,6 @@ def build_query_terms() -> list[str]:
     derived_keywords = _derive_keywords_from_descriptor(descriptor)
     for keyword in derived_keywords:
         add(keyword)
-
-    # 1. Finder-provided term from the environment (primary source)
-    if QUERY:
-        add(QUERY)
 
     # 2. Minimal fallback built from descriptor (brand + function)
     if max_terms <= 0 or len(terms) < max_terms:
@@ -2063,6 +2283,11 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
                 if brand_ok and quantity_ok:
                     if url not in filtered_urls:
                         filtered_urls.append(url)
+                        sys.stderr.write(f"[MONOPRIX_DEBUG] [Card {idx}] OK | Title: '{title}' | URL: {url}\n")
+                    else:
+                        sys.stderr.write(f"[MONOPRIX_DEBUG] [Card {idx}] DUPLICATE | URL: {url}\n")
+                else:
+                    sys.stderr.write(f"[MONOPRIX_DEBUG] [Card {idx}] REJECTED | Brand: {brand_ok} Qty: {quantity_ok} | Title: '{title}'\n")
 
         if filtered_urls:
             product_urls = filtered_urls
@@ -2229,23 +2454,22 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
                     extras.setdefault("missing_core_tokens", missing_core)
                     extras["vetoes"].append("core_token")
 
-            # Image match = validation absolue (pas d'EAN côté Monoprix)
+            # Image match = validation ABSOLUE (AI Vision ou hash)
+            # Si image_match=True, on accepte le produit même avec core_gap
+            # Car l'image est la seule validation fiable pour Monoprix (pas d'EAN)
             final_plausible = image_match
 
             has_core_gap = bool(extras.get("missing_core_tokens"))
-            final_plausible = image_match and not has_core_gap
             coverage = extras.get("descriptor_token_coverage", {}).get("coverage", 0)
-            if image_match and coverage >= 0.6 and has_core_gap:
-                final_plausible = True
+            
+            # Si image match ET core gap, on accepte quand même (image = priorité absolue)
+            if image_match and has_core_gap:
                 extras.setdefault("notes", []).append("accepted_with_image_match_despite_core_gap")
                 extras["equivalent"] = True
-            if not final_plausible and coverage >= 0.7 and "image_mismatch" in extras["vetoes"]:
-                product_result.status = "OK"
-                extras.setdefault("notes", []).append("accepted_without_image_match_high_coverage")
-                extras["equivalent"] = True
-                product_result.extras = extras
-                product_result.candidates = list(candidate_records)
-                return product_result
+            # STRICT IMAGE VALIDATION ENFORCEMENT:
+            # We do NOT accept products based solely on text coverage anymore.
+            # If image_match is False, we fall through to rejection/fallback.
+            # (Deleted "accepted_without_image_match_high_coverage" block)
 
             if final_plausible:
                 product_result.status = "OK"
@@ -2260,21 +2484,6 @@ async def find_best_product(page, context, base_url: str, terms: list[str]) -> t
 
             if fallback_results:
                 fallback_results.sort(key=lambda x: x[0], reverse=True)
-                top_score, top_result = fallback_results[0]
-                sys.stderr.write(
-                    f"[MONOPRIX_DEBUG]  - Best rejected candidate '{top_result.title}' (Score: {top_score}) | vetoes={top_result.extras.get('vetoes')}\n"
-                )
-                vetoes = set(top_result.extras.get("vetoes") or [])
-                baseline_ok = bool(top_result.extras.get("plausible_baseline"))
-                if baseline_ok and vetoes.issubset({"image_mismatch"}) and top_result.price:
-                    top_result.status = "OK"
-                    top_result.extras.setdefault("notes", []).append("accepted_without_image_match")
-                    top_result.extras["equivalent"] = True  # produit différent, laissé au choix humain
-                    sys.stderr.write(
-                        f"[MONOPRIX_DEBUG]  - Accepting fallback candidate despite image mismatch: '{top_result.title}'.\n"
-                    )
-                    top_result.candidates = list(candidate_records)
-                    return top_result
         else:
             sys.stderr.write("[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n")
 
@@ -2453,6 +2662,12 @@ def evaluate_candidate(
             elif not candidate_variant:
                 extras["variant_ok"] = False
                 extras["vetoes"].append("variant_missing")
+    else:
+        # Seed has no variant implies "Standard" / "Nature"
+        # If candidate HAS a variant (other than nature), it's a mismatch
+        if candidate_variant and candidate_variant != "nature":
+            extras["variant_ok"] = False
+            extras["vetoes"].append("variant_mismatch_unexpected")
 
     # Unit family & size tolerance
     descriptor_quantity = descriptor.get("seed_primary_quantity") or descriptor.get("quantity")
@@ -2489,6 +2704,8 @@ def evaluate_candidate(
     missing_tokens: list[str] = []
     considered_tokens = 0
     if validation_tokens:
+        # Filter out poisoning tokens like 'none', 'null'
+        validation_tokens = [t for t in validation_tokens if t.lower() not in ("none", "null", "undefined")]
         for token in validation_tokens:
             if not token:
                 continue
@@ -2511,6 +2728,13 @@ def evaluate_candidate(
             else:
                 missing_tokens.append(token)
         coverage = len(matched_tokens) / considered_tokens if considered_tokens else 0.0
+        
+        # DEBUG COVERAGE
+        if coverage < 1.0:
+             sys.stderr.write(f"[MONOPRIX_COVERAGE_DEBUG] Coverage {coverage:.2f} ({len(matched_tokens)}/{considered_tokens}). Missing: {missing_tokens}\n")
+             sys.stderr.write(f"  - Validation Tokens: {validation_tokens}\n")
+             sys.stderr.write(f"  - Normalized Blob: {normalized_blob}\n")
+
         extras["descriptor_token_coverage"] = {
             "coverage": coverage,
             "matched": matched_tokens,

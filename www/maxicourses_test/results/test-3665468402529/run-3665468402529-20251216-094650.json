@@ -1,0 +1,114 @@
+{
+  "ean": "3665468402529",
+  "image_path": null,
+  "started_at": "2025-12-16T09:46:06.684399+01:00",
+  "finished_at": "2025-12-16T09:46:50.669321+01:00",
+  "duration_seconds": 43.984922,
+  "reference": {
+    "title": "Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate",
+    "description": "Entrée générée automatiquement – descriptif requis.",
+    "source": "carrefour_super",
+    "brand": "Finish",
+    "quantity": "x42",
+    "categories": null,
+    "image": "https://media.carrefour.fr/media/referential/media/95848c7abe3b44efb0bc58d63ebf 78df/08720182787132_H1N1_s09.jpeg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3665468402529/debug/run-3665468402529-20251216-094606"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "10,99",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/capsules-lave-vaisselle-tout-en-1-regular-ecolabel-s un-8720182787132",
+        "note": "json_state_extraction",
+        "unit_price": "20,28 € /  KG",
+        "quantity": "x42",
+        "title": "Capsules Lave-vaisselle Ultimate 48h FINISH",
+        "matched_ean": "3665468402529",
+        "image": "https://media.carrefour.fr/media/referential/media/95848c7abe3b44efb0bc58d63ebf 78df/08720182787132_H1N1_s09.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules Lave-vaisselle Ultimate 48h FINISH",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "x42",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3665468402529",
+          "image_url": "https://media.carrefour.fr/media/referential/media/95848c7abe3b44efb0bc58d63ebf 78df/08720182787132_H1N1_s09.jpeg",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-16T09:46:06.687682+01:00",
+      "finished_at": "2025-12-16T09:46:42.199473+01:00",
+      "duration_seconds": 35.511791,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "3665468402529",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Successfully extracted data from JSON State: {'title': 'Capsules \nLave-vaisselle Ultimate 48h FINISH', 'quantity': 'x42', 'price': 10.99, \n'unit_price': '20.28 € / KG', 'image': None}\n[INFO] JSON State has no image, navigating to PDP...\n[INFO] Now on PDP: \nhttps://www.carrefour.fr/p/capsules-lave-vaisselle-ultimate-48h-finish-366546840\n2529\n[INFO] Got image from PDP og:image: \nhttps://media.carrefour.fr/medias/cc199586e10c423c95b466f3ea...\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 3665468402529. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Capsules \nLave-vaisselle Ultimate 48h FINISH', 'quantity': 'x42', 'price': 10.99, \n'unit_price': '20.28 € / KG', 'image': None}\n[INFO] JSON State has no image, navigating to PDP...\n[INFO] Now on PDP: \nhttps://www.carrefour.fr/p/capsules-lave-vaisselle-tout-en-1-regular-ecolabel-su\nn-8720182787132\n[INFO] Got image from PDP og:image: \nhttps://media.carrefour.fr/media/referential/media/95848c7ab...",
+      "metadata": {
+        "attempt_query": "3665468402529",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Capsules Lave-vaisselle Ultimate 48h FINISH",
+      "brand": "Capsules",
+      "kind": "",
+      "qty": "x42",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3665468402529",
+      "image_url": "https://media.carrefour.fr/media/referential/media/95848c7abe3b44efb0bc58d63ebf 78df/08720182787132_H1N1_s09.jpeg",
+      "source": "consolidated",
+      "raw_text": "Capsules Lave-vaisselle Ultimate 48h FINISH Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate Entrée générée automatiquement – descriptif requis.",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Finish Ultimate 48h x42",
+      "Finish Powerball Ultimate x42",
+      "Finish lave-vaisselle x42",
+      "Capsules Lave-vaisselle Ultimate 48h",
+      "Capsules Lave-vaisselle Ultimate",
+      "Capsules vaisselle X42",
+      "Capsules vaisselle ultimate",
+      "Capsules X42"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

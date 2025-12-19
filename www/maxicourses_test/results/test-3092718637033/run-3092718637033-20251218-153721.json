@@ -1,0 +1,160 @@
+{
+  "ean": "3092718637033",
+  "image_path": null,
+  "started_at": "2025-12-18T15:28:47.521757+01:00",
+  "finished_at": "2025-12-18T15:37:21.035251+01:00",
+  "duration_seconds": 513.513494,
+  "reference": {
+    "title": null,
+    "description": null,
+    "source": "carrefour_super",
+    "brand": "Teisseire",
+    "quantity": "60cL",
+    "categories": null,
+    "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_200x200/03092718637033_C1N1_s03.png",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251218-152847"
+  ],
+  "adapters": [
+    {
+      "adapter": "leclerc",
+      "status": "NO_MATCH",
+      "payload": {
+        "status": "NO_MATCH",
+        "title": "Sirop Teisseire Menthe verte - 60cl",
+        "price": null,
+        "unit_price": null,
+        "quantity": "60 CL",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206139-Sirop-Teisseire.aspx",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-12-18T14:30:34Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206163-Sirop-Teisseire-.aspx",
+            "product": {
+              "title": "Sirop Teisseire Menthe verte - 60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3564700427064",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2772726&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5ca1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5ca1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206169-Sirop-Tesseire.aspx",
+            "product": {
+              "title": "Sirop Tesseire Citron - 60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3092718637002",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2771747&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5ca1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5ca1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206142-Sirop-Teisseire-.aspx",
+            "product": {
+              "title": "Sirop Teisseire Fraise - 60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3092718637392",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2771750&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5ca1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5ca1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206140-Sirop-concentre-Teisseire.aspx",
+            "product": {
+              "title": "Sirop concentré Teisseire Citron vert - 60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3092718637361",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2508591&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5ca1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5ca1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206139-Sirop-Teisseire.aspx",
+            "product": {
+              "title": "Sirop Teisseire Cassis - 60cl",
+              "brand": "Teisseire",
+              "kind": "Sirop menthe verte TEISSEIRE",
+              "qty": "60 CL",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3092718637309",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2508588&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5ca1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5ca1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-12-18T15:28:48.256903+01:00",
+      "finished_at": "2025-12-18T15:30:34.789798+01:00",
+      "duration_seconds": 106.532895,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "Teisseire menthe 60CL",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Teisseire menthe 60CL' direct_url:False\nDEBUG: descriptor={'auchan_url': 'https://www.auchan.fr/teisseire-sirop-de-menthe/pr-C1628583', 'brand': 'Teisseire', 'canonical': {'brand': 'Teisseire', 'ean': '3092718637033', 'features': [], 'flavor_color': 'menthe', 'form': 'sirop', 'images': ['https://cdn.auchan.fr/media/S01000000028624PRIMARY_1200x1200/B2CD/'], 'line': None, 'name_core': 'Sirop menthe verte', 'normalized_signature': '3092718637033 teisseire sirop menthe verte 0.6l', 'pack_count': None, 'size_unit': 'l', 'size_value': 0.6, 'variant': 'verte'}, 'description': 'Sirop menthe verte TEISSEIRE – 60 CL', 'ean': '3092718637033', 'image': './assets/3092718637033.jpg', 'leclerc_queries': ['Sirop Menthe 60 CL', 'Teisseire Menthe 60 CL', 'Sirop Menthe Teisseire 60 CL', 'Menthe Teisseire 60 CL', '3092718637033'], 'leclerc_query': 'Sirop Menthe 60 CL', 'name': 'Sirop menthe verte TEISSEIRE – 60 CL', 'primary_keywords': ['Sirop Menthe 60 CL'], 'quantity': '60 CL', 'seed_primary_name': 'Sirop menthe verte TEISSEIRE', 'seed_primary_quantity': '60 CL', 'seed_query': 'Sirop Menthe 60 CL', 'source': 'carrefour'}\nDEBUG: candidates=['Sirop Menthe 60 CL']\n[LECLERC_DEBUG] after home human pause -> 2.94s\n[LECLERC_DEBUG] after focus -> 3.72s\n[LECLERC_DEBUG] results visible -> 9.61s\n[LECLERC_DEBUG] after result pause -> 9.61s\n[LECLERC_SCORE] 'Sirop Teisseire\nPêche - 60cl' Score: 76 (Brand: True)\n[LECLERC_SCORE] 'Sirop Teisseire\nMenthe verte - 60cl' Score: 114 (Brand: True)\n[LECLERC_SCORE] 'Sirop Tesseire\nCitron - 60cl' Score: -13 (Brand: False)\n[LECLERC_SCORE] 'Sirop Teisseire\nFraise - 60cl' Score: 76 (Brand: True)\n[LECLERC_SCORE] 'Sirop concentré Teisseire\nCitron vert - 60cl' Score: 76 (Brand: True)\n[LECLERC_SCORE] 'Sirop Teisseire\nCassis - 60cl' Score: 76 (Brand: True)\n[LECLERC_SCORE] 'Boisson concentrée Teisseire\nMenthe verte sans sucres - 60cl' Score: 95 (Brand: True)\n[LECLERC_DEBUG] Best Score: 114",
+      "metadata": {
+        "attempt_query": "Teisseire menthe 60CL",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251218-152847/01-leclerc"
+      }
+    }
+  ],
+  "finder": null
+}

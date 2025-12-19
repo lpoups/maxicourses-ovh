@@ -1,0 +1,478 @@
+{
+  "ean": "5449000000439",
+  "image_path": null,
+  "started_at": "2025-12-10T19:48:20.761657+01:00",
+  "finished_at": "2025-12-10T20:07:31.172100+01:00",
+  "duration_seconds": 1150.410443,
+  "reference": {
+    "title": "Coca-Cola Original Goût Original 1,75L",
+    "description": null,
+    "source": "bulk_import",
+    "brand": "Coca-Cola",
+    "quantity": "1,75L",
+    "categories": "generic",
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "Connecting to CDP: http://127.0.0.1:9222",
+        "last_line": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:48:20.764659+01:00",
+      "finished_at": "2025-12-10T19:48:27.822092+01:00",
+      "duration_seconds": 7.057433,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5449000000439",
+        "QUERY": "Coca-Cola Original 1,75L",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1355, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1137, in run\n    title_check = await page.title()\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 9509, in title\n    return mapping.from_maybe_impl(await self._impl_obj.title())\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_page.py\", line 747, in title\n    return await self._main_frame.title()\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 775, in title\n    return await self._channel.send(\"title\")\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.title: Execution context was destroyed, most likely because of a navigation\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1355, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1134, in run\n    resp = await page.goto(search_url, wait_until=\"domcontentloaded\")\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 8805, in goto\n    await self._impl_obj.goto(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_page.py\", line 524, in goto\n    return await self._main_frame.goto(**locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 145, in goto\n    await self._channel.send(\"goto\", locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TargetClosedError: Page.goto: Target page, context or browser has been closed",
+      "metadata": {
+        "attempt_query": "Coca-Cola Original 1,75L",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "Connecting to CDP: http://127.0.0.1:9222",
+        "last_line": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:48:37.003755+01:00",
+      "finished_at": "2025-12-10T19:48:40.417776+01:00",
+      "duration_seconds": 3.414021,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5449000000439",
+        "QUERY": "Coca-Cola Original 1,75L",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1355, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1134, in run\n    resp = await page.goto(search_url, wait_until=\"domcontentloaded\")\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 8805, in goto\n    await self._impl_obj.goto(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_page.py\", line 524, in goto\n    return await self._main_frame.goto(**locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 145, in goto\n    await self._channel.send(\"goto\", locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TargetClosedError: Page.goto: Target page, context or browser has been closed\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1355, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1134, in run\n    resp = await page.goto(search_url, wait_until=\"domcontentloaded\")\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 8805, in goto\n    await self._impl_obj.goto(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_page.py\", line 524, in goto\n    return await self._main_frame.goto(**locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 145, in goto\n    await self._channel.send(\"goto\", locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TargetClosedError: Page.goto: Target page, context or browser has been closed",
+      "metadata": {
+        "attempt_query": "Coca-Cola Original 1,75L",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "Connecting to CDP: http://127.0.0.1:9222",
+        "last_line": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:48:50.959937+01:00",
+      "finished_at": "2025-12-10T19:48:53.276072+01:00",
+      "duration_seconds": 2.316135,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5449000000439",
+        "QUERY": "Coca-Cola Original 1,75L",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1355, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1134, in run\n    resp = await page.goto(search_url, wait_until=\"domcontentloaded\")\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 8805, in goto\n    await self._impl_obj.goto(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_page.py\", line 524, in goto\n    return await self._main_frame.goto(**locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 145, in goto\n    await self._channel.send(\"goto\", locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TargetClosedError: Page.goto: Target page, context or browser has been closed\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1355, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1134, in run\n    resp = await page.goto(search_url, wait_until=\"domcontentloaded\")\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 8805, in goto\n    await self._impl_obj.goto(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_page.py\", line 524, in goto\n    return await self._main_frame.goto(**locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 145, in goto\n    await self._channel.send(\"goto\", locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TargetClosedError: Page.goto: Target page, context or browser has been closed",
+      "metadata": {
+        "attempt_query": "Coca-Cola Original 1,75L",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:49:03.985910+01:00",
+      "finished_at": "2025-12-10T19:50:33.993080+01:00",
+      "duration_seconds": 90.00717,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000439",
+        "QUERY": "Coca-Cola Original 1,75L",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9222\n[auchan] Page already on Auchan, checking if reload needed.\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ⚠️ Toast did not appear yet. Retrying click...\n[auchan] Clicking 'Choisir ce drive' (Attempt 2/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] RESP: 403 https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 (OK)\n[auchan] RESP: 403 https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 (OK)\n[auchan] ⚠️ Toast did not appear yet. Retrying click...\n[auchan] Clicking 'Choisir ce drive' (Attempt 3/5)...\n[auchan] RESP: 404 https://cdn.cookielaw.org/consent/c42f5de3-b3ef-463d-b6a7-631c0506d97e/OtAutoBlock.js\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] REQ_FAILED: https://cdn.cookielaw.org/consent/c42f5de3-b3ef-463d-b6a7-631c0506d97e/OtAutoBlock.js net::ERR_ABORTED\n[auchan] REQ_FAILED: https://client.monoprix.fr/monoprix-plus?error=login_required&error_description=The+user+is+not+logged+in&state=web__5a78866c-d86a-4a7d-8c79-7303acbcc7a9_silent&nonce=b1c551ae1d94 net::ERR_BLOCKED_BY_RESPONSE\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: Refused to display 'https://client.monoprix.fr/' in a frame because it set 'X-Frame-Options' to 'sameorigin'.\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 235\n[auchan] RESP: 404 https://cdn.cookielaw.org/consent/c42f5de3-b3ef-463d-b6a7-631c0506d97e/OtAutoBlock.js\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] REQ_FAILED: https://cdn.cookielaw.org/consent/c42f5de3-b3ef-463d-b6a7-631c0506d97e/OtAutoBlock.js net::ERR_ABORTED\n[auchan] REQ_FAILED: https://client.monoprix.fr/monoprix-plus?error=login_required&error_description=The+user+is+not+logged+in&state=web__265f1775-ba30-4556-be10-c4dc8103506f_silent&nonce=1f9e4165e62c3 net::ERR_BLOCKED_BY_RESPONSE\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: Refused to display 'https://client.monoprix.fr/' in a frame because it set 'X-Frame-Options' to 'sameorigin'.\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 235\n[auchan] RESP: 404 https://cdn.cookielaw.org/consent/c42f5de3-b3ef-463d-b6a7-631c0506d97e/OtAutoBlock.js\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] REQ_FAILED: https://cdn.cookielaw.org/consent/c42f5de3-b3ef-463d-b6a7-631c0506d97e/OtAutoBlock.js net::ERR_ABORTED\n[auchan] REQ_FAILED: https://client.monoprix.fr/monoprix-plus?error=login_required&error_description=The+user+is+not+logged+in&state=web__54042441-3a44-4a08-b0d1-653084e54e98_silent&nonce=3645e076b5e95 net::ERR_BLOCKED_BY_RESPONSE\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: Refused to display 'https://client.monoprix.fr/' in a frame because it set 'X-Frame-Options' to 'sameorigin'.\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 235\n[auchan] Click failed: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\nwaiting for locator(\"button:has-text('Choisir ce Drive')\").first\n\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] RESP: 404 https://cdn.cookielaw.org/consent/c42f5de3-b3ef-463d-b6a7-631c0506d97e/OtAutoBlock.js\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] REQ_FAILED: https://cdn.cookielaw.org/consent/c42f5de3-b3ef-463d-b6a7-631c0506d97e/OtAutoBlock.js net::ERR_ABORTED\n[auchan] REQ_FAILED: https://client.monoprix.fr/monoprix-plus?error=login_required&error_description=The+user+is+not+logged+in&state=web__9110d1b3-d5a5-4afa-96a1-5303a1fc46b4_silent&nonce=28d96e84baa62 net::ERR_BLOCKED_BY_RESPONSE\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: Refused to display 'https://client.monoprix.fr/' in a frame because it set 'X-Frame-Options' to 'sameorigin'.\n[auchan] ⚠️ Toast did not appear yet. Retrying click...\n[auchan] Clicking 'Choisir ce drive' (Attempt 4/5)...\n[auchan] RESP: 403 https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 (OK)\n[auchan] RESP: 403 https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 (OK)\n[auchan] Click failed: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\nwaiting for locator(\"button:has-text('Choisir ce Drive')\").first\n\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ⚠️ Toast did not appear yet. Retrying click...\n[auchan] RESP: 404 https://cdn.cookielaw.org/consent/c42f5de3-b3ef-463d-b6a7-631c0506d97e/OtAutoBlock.js\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] REQ_FAILED: https://cdn.cookielaw.org/consent/c42f5de3-b3ef-463d-b6a7-631c0506d97e/OtAutoBlock.js net::ERR_ABORTED\n[auchan] Clicking 'Choisir ce drive' (Attempt 5/5)...\n[auchan] REQ_FAILED: https://client.monoprix.fr/monoprix-plus?error=login_required&error_description=The+user+is+not+logged+in&state=web__f3044178-877f-4011-b14d-1250970a5755_silent&nonce=288c3ff7cc21c net::ERR_BLOCKED_BY_RESPONSE\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: Refused to display 'https://client.monoprix.fr/' in a frame because it set 'X-Frame-Options' to 'sameorigin'.\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 235\n[auchan] RESP: 404 https://cdn.cookielaw.org/consent/c42f5de3-b3ef-463d-b6a7-631c0506d97e/OtAutoBlock.js\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] REQ_FAILED: https://cdn.cookielaw.org/consent/c42f5de3-b3ef-463d-b6a7-631c0506d97e/OtAutoBlock.js net::ERR_ABORTED\n[auchan] REQ_FAILED: https://client.monoprix.fr/monoprix-plus?error=login_required&error_description=The+user+is+not+logged+in&state=web__48c9e58a-1bc8-4c68-8154-9135293f55f5_silent&nonce=34e780af04dd net::ERR_BLOCKED_BY_RESPONSE\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: Refused to display 'https://client.monoprix.fr/' in a frame because it set 'X-Frame-Options' to 'sameorigin'.\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 235\n[auchan] RESP: 403 https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 (OK)\n[auchan] REQ_FAILED: https://courses.monoprix.fr/ net::ERR_ABORTED\n[auchan] RESP: 403 https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 (OK)\n[auchan] CONSOLE: WebGPU is experimental on this platform. See https://github.com/gpuweb/gpuweb/wiki/Implementation-Status#implementation-status\n[auchan] CONSOLE: Failed to create WebGPU Context Provider\n[auchan] CONSOLE:  \n[auchan] RESP: 403 https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 (OK)\n[auchan] CONSOLE: WebGPU is experimental on this platform. See https://github.com/gpuweb/gpuweb/wiki/Implementation-Status#implementation-status\n[auchan] CONSOLE: Failed to create WebGPU Context Provider\n[auchan] CONSOLE:  \n[auchan] CONSOLE:",
+      "metadata": {
+        "attempt_query": "Coca-Cola Original 1,75L",
+        "timeout_s": 90
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:50:33.997052+01:00",
+      "finished_at": "2025-12-10T19:52:04.011989+01:00",
+      "duration_seconds": 90.014937,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000439",
+        "QUERY": "Coca-Cola Original 1,75L",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "[CHRONO_DEBUG] term='5449000000439'",
+      "metadata": {
+        "attempt_query": "Coca-Cola Original 1,75L",
+        "timeout_s": 90
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T19:52:04.019330+01:00",
+      "finished_at": "2025-12-10T19:53:34.119194+01:00",
+      "duration_seconds": 90.099864,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000439",
+        "QUERY": "Coca-Cola Original 1,75L",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "",
+      "metadata": {
+        "attempt_query": "Coca-Cola Original 1,75L",
+        "timeout_s": 90
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:53:34.127806+01:00",
+      "finished_at": "2025-12-10T19:53:35.118315+01:00",
+      "duration_seconds": 0.990509,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000439",
+        "QUERY": "Coca-Cola Original 1,75L",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Coca-Cola Original 1,75L",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Coca-Cola%20Original%201%2C75L",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Coca-Cola Original 1,75L",
+          "timestamp": "2025-12-10T18:53:38.413584+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T19:53:38.188532+01:00",
+      "finished_at": "2025-12-10T19:53:39.663225+01:00",
+      "duration_seconds": 1.474693,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000439",
+        "QUERY": "Coca-Cola Original 1,75L",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Coca-Cola Original 1,75L",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Coca-Cola%20Original%201%2C75L",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Coca-Cola Original 1,75L",
+          "timestamp": "2025-12-10T18:53:47.278371+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T19:53:47.087172+01:00",
+      "finished_at": "2025-12-10T19:53:48.172014+01:00",
+      "duration_seconds": 1.084842,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000439",
+        "QUERY": "Coca-Cola Original 1,75L",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Coca-Cola Original 1,75L",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-12-10T19:53:55.165177+01:00",
+      "finished_at": "2025-12-10T19:55:18.500456+01:00",
+      "duration_seconds": 83.335279,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000439",
+        "QUERY": "Coca-Cola Coca-Cola 1,75L Coca",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Coca-Cola Coca-Cola 1,75L Coca",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-12-10T20:01:21.522554+01:00",
+      "finished_at": "2025-12-10T20:01:40.112810+01:00",
+      "duration_seconds": 18.590256,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000439",
+        "QUERY": "coca",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5449000000439'.\n[MONOPRIX_DEBUG] Search terms: ['coca', 'cola']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/2: 'coca'\n[MONOPRIX_DEBUG]  - Typing 'coca' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=coca\n[MONOPRIX_DEBUG]  - Fallback search navigation failed: Locator.all: Execution context was destroyed, most likely because of a navigation\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/2: 'cola'\n[MONOPRIX_DEBUG]  - Search simulation failed: Locator.count: Execution context was destroyed, most likely because of a navigation\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, image=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=None)\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "coca",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "ERROR",
+      "payload": {
+        "status": "ERROR",
+        "error": "Crash: Locator.type: Timeout 15000ms exceeded.\nCall log:\nwaiting for locator(\"input[id*='rechercheTexte']\").first\n",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T20:02:22.586365+01:00",
+      "finished_at": "2025-12-10T20:02:59.029580+01:00",
+      "duration_seconds": 36.443215,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000439",
+        "QUERY": "Coca-Cola Coca-Cola 1,75L Coca",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Coca-Cola Coca-Cola 1,75L Coca' direct_url:False\n[LECLERC_DEBUG] after home human pause -> 0.78s\n[LECLERC_DEBUG] after focus -> 5.84s\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py\", line 64, in <module>\n    payload = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py\", line 43, in run\n    result = await run_manual_leclerc(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/manual_leclerc_cdp.py\", line 727, in run_manual_leclerc\n    await search_field.type(ch, delay=random.randint(type_min_delay, type_max_delay))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 17136, in type\n    await self._impl_obj.type(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_locator.py\", line 621, in type\n    return await self._frame.type(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 719, in type\n    await self._channel.send(\"type\", locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Locator.type: Timeout 15000ms exceeded.\nCall log:\nwaiting for locator(\"input[id*='rechercheTexte']\").first",
+      "metadata": {
+        "attempt_query": "Coca-Cola Coca-Cola 1,75L Coca",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Coca-Cola Original Goût Original 1,75L",
+      "brand": "Coca-Cola",
+      "kind": "",
+      "qty": "1,75L",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "5449000000439",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Coca-Cola Original Goût Original 1,75L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Coca-Cola Original 1,75L",
+      "Coca-Cola Goût Original 1,75L",
+      "Coca-Cola Boisson",
+      "Coca-Cola Original Goût Original",
+      "Coca-Cola Original Goût",
+      "Coca-Cola coca 1.75L",
+      "Coca-Cola coca 1.75 L",
+      "Coca-Cola coca 1,75 L"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

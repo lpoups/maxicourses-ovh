@@ -1,0 +1,96 @@
+{
+  "ean": "4009900540865",
+  "image_path": null,
+  "started_at": "2025-12-10T11:59:01.520764+01:00",
+  "finished_at": "2025-12-10T12:00:08.308368+01:00",
+  "duration_seconds": 66.787604,
+  "reference": {
+    "title": "Refreshers",
+    "description": null,
+    "source": "auchan",
+    "brand": "Wrigley's",
+    "quantity": null,
+    "categories": null,
+    "image": "./assets/4009900540865.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "unknown",
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-4009900540865/debug/run-4009900540865-20251210-115901"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "note": "2025-12-10T10:59:33Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T11:59:01.525203+01:00",
+      "finished_at": "2025-12-10T11:59:33.990564+01:00",
+      "duration_seconds": 32.465361,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "4009900540865",
+        "QUERY": "4009900540865",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "4009900540865",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Refreshers",
+      "brand": "Wrigley's",
+      "kind": "",
+      "qty": "",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "4009900540865",
+      "image_url": "./assets/4009900540865.jpg",
+      "source": "consolidated",
+      "raw_text": "Refreshers",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Wrigley's Refreshers",
+      "Refreshers Wrigley's",
+      "Wrigley's Candy",
+      "Refreshers"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

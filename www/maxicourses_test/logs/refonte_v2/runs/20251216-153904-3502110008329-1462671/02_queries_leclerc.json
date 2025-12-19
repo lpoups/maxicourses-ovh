@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-12-16T15:39:04.035266+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Pepsi Pepsi 1",
+      "Pepsi 1,5L",
+      "Pepsi 1500ml",
+      "Pepsi Soda"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "Pepsi 1,5L",
+      "fallback_specific": "Pepsi 1500ml",
+      "fallback_broad": "Pepsi Soda"
+    },
+    "raw": {
+      "golden": "Pepsi 1,5L",
+      "fallback_specific": "Pepsi 1500ml",
+      "fallback_broad": "Pepsi Soda"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Pepsi 1,5L\",\n    \"brand\": \"Pepsi\",\n    \"quantity\": \"1500 ml\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3502110008329\",\n    \"source\": \"unknown\",\n    \"leclerc_query\": \"Pepsi 1500 ML\",\n    \"leclerc_queries\": [\n      \"Pepsi 1500 ML\"\n    ],\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-16T14:39:02Z\",\n    \"brand\": \"Pepsi\",\n    \"name\": \"Pepsi 1,5L\",\n    \"quantity\": \"1500 ml\",\n    \"categories\": \"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté\",\n    \"nutriscore_grade\": \"d\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"not-applicable\",\n    \"nova_group\": \"4\",\n    \"removed\": false,\n    \"carrefour_market_url\": \"https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329\",\n    \"chronodrive_url\": \"https://www.chronodrive.com/pepsi--boisson-gazeuse-aux-extraits-vegetaux-P16714\",\n    \"courseu_url\": \"https://www.coursesu.com/p/soda-regular-pepsi-15l/987379.html\",\n    \"g20_url\": \"https://www.g20-minute.com/products/3502110008329/pepsi-1-5-l-3502110008329\",\n    \"casino_url\": \"https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-casino-shop-33130/TZ193/274462\",\n    \"spar_url\": \"https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462\",\n    \"leclerc_url\": \"https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx\",\n    \"intermarche_url\": \"https://www.intermarche.com/produit/soda-saveur-cola/3502110008329\",\n    \"seed_query\": \"Pepsi 1500 ml\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CnQUZcdnvPe1D4GT387GoFwtuzoHV\", \"object\": \"chat.completion\", \"created\": 1765895943, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Pepsi 1,5L\\\",\\n    \\\"fallback_specific\\\": \\\"Pepsi 1500ml\\\",\\n    \\\"fallback_broad\\\": \\\"Pepsi Soda\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 914, \"completion_tokens\": 40, \"total_tokens\": 954, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e413f45763\"}"
+}

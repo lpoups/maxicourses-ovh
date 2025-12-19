@@ -1,0 +1,111 @@
+{
+  "ean": "3103220045640",
+  "image_path": null,
+  "started_at": "2025-12-13T13:23:36.747352+01:00",
+  "finished_at": "2025-12-13T13:24:08.554667+01:00",
+  "duration_seconds": 31.807315,
+  "reference": {
+    "title": "Bonbons gélifiés Schtroumpfs",
+    "description": "Bonbons gélifiés Schtroumpfs",
+    "source": "auchan",
+    "brand": "Haribo",
+    "quantity": "300 g",
+    "categories": "Snacks, Sweet snacks, Confectioneries, Candies, Gummi candies",
+    "image": "./assets/3103220045640.jpg",
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "b",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3103220045640/debug/run-3103220045640-20251213-132336"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,79",
+        "unit_price": "5,97 € / KG",
+        "quantity": null,
+        "title": "Bonbons gélifiés Schtroumpfs",
+        "url": "https://www.auchan.fr/haribo-bonbons-gelifies-schtroumpfs/pr-C1257461",
+        "matched_ean": "3103220045640",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/A0220190628000061720PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Bonbons gélifiés Schtroumpfs",
+          "brand": "Bonbons",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3103220045640",
+          "image_url": "https://cdn.auchan.fr/media/A0220190628000061720PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-13T13:23:36.750323+01:00",
+      "finished_at": "2025-12-13T13:23:59.979135+01:00",
+      "duration_seconds": 23.228812,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045640",
+        "QUERY": "3103220045640",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Attached to existing page (avoiding Captcha).\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Found cookie button with text: Accepter\n[auchan] REQ_FAILED: https://ars-privacy.my.onetrust.com/request/v1/consentreceipts net::ERR_NAME_NOT_RESOLVED\n[auchan] CONSOLE: Failed to load resource: net::ERR_NAME_NOT_RESOLVED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ✅ Toast 'C'est noté' APPEARED.\n[auchan] Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ✅ Toast DISAPPEARED. Proceeding to search.\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] results visible, extracting price from search results\n[auchan] Attempting to reveal price (clicking 'Afficher le prix')...\n[auchan] No reveal price button found on this attempt.\n[auchan] No reveal price button found on this attempt.\n[auchan] No reveal price button found on this attempt.\n[auchan] Failed to reveal price after retries.\n[auchan] Attempt 1: price_text='1,79€' value='1.79'",
+      "metadata": {
+        "attempt_query": "3103220045640",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Bonbons gélifiés Schtroumpfs",
+      "brand": "Bonbons",
+      "kind": "",
+      "qty": "300 g",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3103220045640",
+      "image_url": "https://cdn.auchan.fr/media/A0220190628000061720PRIMARY_1200x1200/B2CD/",
+      "source": "consolidated",
+      "raw_text": "Bonbons gélifiés Schtroumpfs",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Schtroumpfs bonbons gélifiés",
+      "Bonbons Schtroumpfs gélifiés",
+      "Schtroumpfs bonbons",
+      "Bonbons gélifiés Schtroumpfs",
+      "Bonbons schtroumpfs 300 G",
+      "Bonbons schtroumpfs gelifies",
+      "Bonbons 300 G"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

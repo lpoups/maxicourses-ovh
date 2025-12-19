@@ -1,0 +1,110 @@
+{
+  "ean": "3700260216148",
+  "image_path": null,
+  "started_at": "2025-12-10T12:36:24.995709+01:00",
+  "finished_at": "2025-12-10T12:36:48.336060+01:00",
+  "duration_seconds": 23.340351,
+  "reference": {
+    "title": "Croquettes au saumon pour chat stérilisé",
+    "description": "Entrée générée automatiquement – descriptif requis.",
+    "source": "auchan",
+    "brand": "Croquettes",
+    "quantity": null,
+    "categories": null,
+    "image": "./assets/3700260216148.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3700260216148/debug/run-3700260216148-20251210-123624"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "7,55",
+        "unit_price": "5,03 € / KG",
+        "quantity": null,
+        "title": "Croquettes au saumon pour chat stérilisé",
+        "url": "https://www.auchan.fr/ultima-croquettes-au-saumon-pour-chat-sterilise/pr-C1187263",
+        "matched_ean": "3700260216148",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/A0220080612000538201PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Croquettes au saumon pour chat stérilisé",
+          "brand": "Croquettes",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3700260216148",
+          "image_url": "https://cdn.auchan.fr/media/A0220080612000538201PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-10T12:36:24.999812+01:00",
+      "finished_at": "2025-12-10T12:36:44.567403+01:00",
+      "duration_seconds": 19.567591,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3700260216148",
+        "QUERY": "3700260216148",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Page already on Auchan, checking if reload needed.\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] REQ_FAILED: https://bat.bing.com/actionp/0?ti=4065085&tm=gtm002&Ver=2&mid=e5e2bfe6-3cb2-4d55-b7cd-ee6b4ba5d481&bo=10&sid=5a53daa0d36311f0b3404f6b71604f59&vid=8edb30e09e1111f085263b1c9ff63dc0&vids=0&msclkid=N&evt=pageHide&asc=G net::ERR_ABORTED\n[auchan] REQ_FAILED: https://c.contentsquare.net/v2/events?uu=fc6d4457-a36f-abe4-b809-883a7c0f728e&sn=1&hd=1765366263&v=15.158.2&pid=1613&pn=3&str=80&di=828&dc=1124&fl=1130&sr=20&mdh=6202&hlm=true&ct=0 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://analytics.tiktok.com/api/v2/pixel/inter net::ERR_ABORTED\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Found cookie button with text: Accepter\n[auchan] REQ_FAILED: https://ars-privacy.my.onetrust.com/request/v1/consentreceipts net::ERR_NAME_NOT_RESOLVED\n[auchan] CONSOLE: Failed to load resource: net::ERR_NAME_NOT_RESOLVED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ✅ Toast 'C'est noté' APPEARED.\n[auchan] Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ✅ Toast DISAPPEARED. Proceeding to search.\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] results visible, extracting price from search results\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Attempting to reveal price (clicking 'Afficher le prix')...\n[auchan] Price revealed!\n[auchan] Attempt 1: price_text='7,55€' value='7.55'",
+      "metadata": {
+        "attempt_query": "3700260216148",
+        "visual_score": 1.0
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Croquettes au saumon pour chat stérilisé",
+      "brand": "Croquettes",
+      "kind": "",
+      "qty": "",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3700260216148",
+      "image_url": "https://cdn.auchan.fr/media/A0220080612000538201PRIMARY_1200x1200/B2CD/",
+      "source": "consolidated",
+      "raw_text": "Croquettes au saumon pour chat stérilisé Entrée générée automatiquement – descriptif requis.",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Croquettes saumon chat stérilisé",
+      "Saumon croquettes chat stérilisé",
+      "Croquettes chat saumon",
+      "Croquettes au saumon pour",
+      "Croquettes au saumon",
+      "Croquettes sterilise saumon"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

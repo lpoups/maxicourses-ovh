@@ -1,0 +1,94 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-12-19T13:31:50.532066+01:00",
+  "finished_at": "2025-12-19T13:32:03.538014+01:00",
+  "duration_seconds": 13.005948,
+  "reference": {
+    "title": "PET 1.75L COCA",
+    "description": null,
+    "source": "carrefour_market",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": "Beverages,Carbonated drinks,Sodas,Colas",
+    "image": "/assets/5000112611861.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251219-133150"
+  ],
+  "adapters": [
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Cola%20bouteille%201.75%20L",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Cola bouteille 1.75 L",
+          "timestamp": "2025-12-19T12:31:51.552638+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-19T13:31:51.350848+01:00",
+      "finished_at": "2025-12-19T13:31:53.466811+01:00",
+      "duration_seconds": 2.115963,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "Cola bouteille 1.75 L",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Cola bouteille 1.75 L",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251219-133150/01-casino"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "brand": "Cola",
+      "kind": "",
+      "qty": "1,75 L",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "5000112611861",
+      "image_url": "/assets/5000112611861.jpg",
+      "source": "consolidated",
+      "raw_text": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Coca-Cola Original 1,75L",
+      "Coca-Cola 1,75L",
+      "Coca-Cola Soda",
+      "Soda COCA-COLA Original -",
+      "Soda COCA-COLA Original",
+      "Cola bouteille 1.75 L",
+      "Cola bouteille 1,75 L",
+      "Cola bouteille 175 CL"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

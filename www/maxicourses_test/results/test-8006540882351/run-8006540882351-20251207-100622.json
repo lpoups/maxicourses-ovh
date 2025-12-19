@@ -1,0 +1,93 @@
+{
+  "ean": "8006540882351",
+  "image_path": null,
+  "started_at": "2025-12-07T10:06:21.374265+01:00",
+  "finished_at": "2025-12-07T10:06:22.313699+01:00",
+  "duration_seconds": 0.939434,
+  "reference": {
+    "title": null,
+    "description": "Entrée générée automatiquement – descriptif requis.",
+    "source": "unknown",
+    "brand": null,
+    "quantity": null,
+    "categories": null,
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8006540882351/debug/run-8006540882351-20251207-100621"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-07T10:06:21.374645+01:00",
+      "finished_at": "2025-12-07T10:06:21.565912+01:00",
+      "duration_seconds": 0.191267,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "LANG": "C.UTF-8",
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin",
+        "HOME": "/home/ubuntu",
+        "LOGNAME": "ubuntu",
+        "USER": "ubuntu",
+        "SHELL": "/bin/bash",
+        "INVOCATION_ID": "92ee74ee48d34c948c18795a7e627ed2",
+        "JOURNAL_STREAM": "8:7231803",
+        "SYSTEMD_EXEC_PID": "836308",
+        "PYTHONUNBUFFERED": "1",
+        "PORT": "5001",
+        "WERKZEUG_SERVER_FD": "3",
+        "USE_CDP": "1",
+        "LECLERC_MAX_DURATION_S": "45",
+        "LECLERC_FAST_MODE": "1",
+        "LECLERC_NO_DELAY": "1",
+        "INITIAL_DESCRIPTOR_JSON": "{\"ean\": \"8006540882351\", \"source\": \"unknown\", \"note\": \"\", \"removed\": false, \"leclerc_query\": \"B Dentifrice 75 ML\", \"leclerc_queries\": [\"B Dentifrice 75 ML\", \"B Dentifrice White 75 ML\", \"B 75 ML\", \"Dentifrice White 75 ML\"], \"description\": \"Entrée générée automatiquement – descriptif requis.\", \"brand\": \"\", \"name\": \"\", \"quantity\": \"\", \"categories\": \"\", \"image\": null, \"nutriscore_grade\": null, \"nutriscore_image\": null, \"ecoscore_grade\": null, \"ecoscore_image\": null, \"nova_group\": null, \"carrefour_super_url\": \"https://www.carrefour.fr/p/dentifrice-3d-white-advanced-luxe-perfection-oral-b- 8006540882351\", \"auchan_url\": \"https://www.auchan.fr/oral-b-3d-white-advanced-dentifrice-menthe-fraiche-poivre e/pr-C1767558\", \"chronodrive_url\": \"https://www.chronodrive.com/oral-b--3d-white-advanced---dentifrice-blancheur-lu xe-perfection-P344444\", \"courseu_url\": \"https://www.coursesu.com/p/cafetiere-mini-tefal-cm340811/7443551.html\", \"intermarche_url\": \"https://www.intermarche.com/produit/3d-white-advanced-dentifrice-doux-pour-l'em ail/8006540882351\", \"leclerc_url\": \"https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-215207-Dentifrice-Oral-B-3D-White.aspx\"}",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "EAN": "8006540882351",
+        "QUERY": "8006540882351",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py\", line 14, in <module>\n    from rich import print\nModuleNotFoundError: No module named 'rich'\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py\", line 14, in <module>\n    from rich import print\nModuleNotFoundError: No module named 'rich'\n",
+      "metadata": {
+        "attempt_query": "8006540882351"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "",
+      "brand": "",
+      "kind": "",
+      "qty": "",
+      "qualifiers": [],
+      "ean": "8006540882351",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Entrée générée automatiquement – descriptif requis.",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

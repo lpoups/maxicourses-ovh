@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-12-12T12:52:01.928658+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Fulgator Aérosol anti",
+      "Fulgator Aérosol puces larves",
+      "Fulgator Aérosol insectes",
+      "Fulgator anti-insectes"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "Fulgator Aérosol puces larves",
+      "fallback_specific": "Fulgator Aérosol insectes",
+      "fallback_broad": "Fulgator anti-insectes"
+    },
+    "raw": {
+      "golden": "Fulgator Aérosol puces larves",
+      "fallback_specific": "Fulgator Aérosol insectes",
+      "fallback_broad": "Fulgator anti-insectes"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"brand\": \"Fulgator\",\n    \"name\": \"Aérosol anti-insectes puces et larves\",\n    \"quantity\": \"500ml\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3449120070307\",\n    \"_id\": \"3449120070307\",\n    \"brand\": \"Aérosol\",\n    \"created_at\": \"2025-12-12T10:51:08.295000\",\n    \"image\": \"/assets/3449120070307.jpg\",\n    \"note\": \"Stub incomplet – lancer une collecte seed Carrefour/Auchan pour remplir le descriptif.\",\n    \"removed\": false,\n    \"source\": \"auchan\",\n    \"updated_at\": \"2025-12-12T11:45:44.306000\",\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"/assets/nutriscore/nutriscore-unknown.svg\",\n    \"queries\": {\n      \"monoprix\": [\n        \"fulgator aérosol puces 500ml\",\n        \"fulgator anti-insectes 500ml\",\n        \"fulgator aérosol insectes\",\n        \"Fulgator Aérosol anti\"\n      ],\n      \"intermarche\": [\n        \"Fulgator Aérosol puces larves\",\n        \"Fulgator Aérosol insectes\",\n        \"Fulgator anti-insectes\",\n        \"Fulgator Aérosol anti\"\n      ]\n    },\n    \"title\": \"Drive, Courses en ligne et Livraison à Domicile Super U, Hyper U, U express - www.coursesu.com\",\n    \"description\": \"Entrée générée automatiquement – descriptif requis.\",\n    \"name\": \"Drive, Courses en ligne et Livraison à Domicile Super U, Hyper U, U express - www.coursesu.com\",\n    \"seed_query\": \"Aérosol Drive Courses ligne Livraison Domicile Super Hyper\",\n    \"leclerc_query\": \"Fulgator Aérosol puces larves\",\n    \"leclerc_queries\": [\n      \"Fulgator Aérosol puces larves\",\n      \"Fulgator Aérosol insectes\",\n      \"Fulgator anti-insectes\",\n      \"Fulgator Aérosol anti\"\n    ],\n    \"ai_profile\": {\n      \"brand\": \"Fulgator\",\n      \"name\": \"Aérosol anti-insectes puces et larves\",\n      \"quantity\": \"500ml\"\n    },\n    \"ai_keywords\": [\n      \"Fulgator Aérosol anti-insectes\",\n      \"Fulgator Aérosol puces et larv\",\n      \"Fulgator Anti-insectes puces 5\"\n    ],\n    \"primary_keywords\": [\n      \"Fulgator Aérosol anti\",\n      \"Fulgator Aérosol anti-insectes\",\n      \"Fulgator Aérosol puces et larv\",\n      \"Fulgator Anti-insectes puces 5\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-12T12:51:57.628749+01:00\",\n    \"leclerc_ai_queries\": [\n      \"Fulgator Aérosol puces larves\",\n      \"Fulgator Aérosol insectes\",\n      \"Fulgator anti-insectes\",\n      \"Fulgator Aérosol anti\"\n    ],\n    \"leclerc_secondary_keywords\": [],\n    \"monoprix_ai_queries\": [\n      \"fulgator aérosol puces 500ml\",\n      \"fulgator anti-insectes 500ml\",\n      \"fulgator aérosol insectes\",\n      \"Fulgator Aérosol anti\"\n    ],\n    \"monoprix_queries\": [\n      \"fulgator aérosol puces 500ml\",\n      \"fulgator anti-insectes 500ml\",\n      \"fulgator aérosol insectes\",\n      \"Fulgator Aérosol anti\"\n    ],\n    \"monoprix_secondary_keywords\": []\n  },\n  \"store\": \"intermarche\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-ClvyiPRaz5tW40sOU9JjE19J9HC62\", \"object\": \"chat.completion\", \"created\": 1765540320, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Fulgator Aérosol puces larves\\\",\\n    \\\"fallback_specific\\\": \\\"Fulgator Aérosol insectes\\\",\\n    \\\"fallback_broad\\\": \\\"Fulgator anti-insectes\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1179, \"completion_tokens\": 49, \"total_tokens\": 1228, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

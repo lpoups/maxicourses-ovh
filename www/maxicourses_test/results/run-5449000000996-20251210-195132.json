@@ -1,0 +1,483 @@
+{
+  "ean": "5449000000996",
+  "image_path": null,
+  "started_at": "2025-12-10T19:45:17.809632+01:00",
+  "finished_at": "2025-12-10T19:51:32.737521+01:00",
+  "duration_seconds": 374.927889,
+  "reference": {
+    "title": "Coca-Cola Original Goût Original 1.5L",
+    "description": null,
+    "source": "bulk_import",
+    "brand": "Coca-Cola",
+    "quantity": "1.5L",
+    "categories": "generic",
+    "image": "./assets/5449000000996.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "./assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "Connecting to CDP: http://127.0.0.1:9222\nCDP Connection Failed: BrowserType.connect_over_cdp: connect ECONNREFUSED \n127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222",
+        "last_line": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:45:17.812676+01:00",
+      "finished_at": "2025-12-10T19:45:20.034409+01:00",
+      "duration_seconds": 2.221733,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "5449000000996",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1355, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1134, in run\n    resp = await page.goto(search_url, wait_until=\"domcontentloaded\")\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 8805, in goto\n    await self._impl_obj.goto(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_page.py\", line 524, in goto\n    return await self._main_frame.goto(**locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 145, in goto\n    await self._channel.send(\"goto\", locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TargetClosedError: Page.goto: Target page, context or browser has been closed\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py",
+      "metadata": {
+        "attempt_query": "5449000000996",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "Connecting to CDP: http://127.0.0.1:9222\nCDP Connection Failed: BrowserType.connect_over_cdp: connect ECONNREFUSED \n127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222",
+        "last_line": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:45:20.035183+01:00",
+      "finished_at": "2025-12-10T19:45:21.656297+01:00",
+      "duration_seconds": 1.621114,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "5449000000996",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py",
+      "metadata": {
+        "attempt_query": "5449000000996",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "Connecting to CDP: http://127.0.0.1:9222\nCDP Connection Failed: BrowserType.connect_over_cdp: connect ECONNREFUSED \n127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222",
+        "last_line": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:45:21.656697+01:00",
+      "finished_at": "2025-12-10T19:45:23.196101+01:00",
+      "duration_seconds": 1.539404,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "5449000000996",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py",
+      "metadata": {
+        "attempt_query": "5449000000996",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "ERROR",
+      "payload": {
+        "status": "ERROR",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "CDP Connection Failed",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:45:23.196501+01:00",
+      "finished_at": "2025-12-10T19:45:23.949153+01:00",
+      "duration_seconds": 0.752652,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "5449000000996",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9222\n[auchan] CDP Connection failed: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222",
+      "metadata": {
+        "attempt_query": "5449000000996",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:45:23.949518+01:00",
+      "finished_at": "2025-12-10T19:45:24.823601+01:00",
+      "duration_seconds": 0.874083,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "5449000000996",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py\", line 950, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py\", line 636, in run\n    p, browser, context, page = await make_context(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222",
+      "metadata": {
+        "attempt_query": "5449000000996",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "note": "2025-12-10T18:46:05Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T19:45:24.827310+01:00",
+      "finished_at": "2025-12-10T19:46:05.826800+01:00",
+      "duration_seconds": 40.99949,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "Coca-Cola Original 1.5L",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Coca-Cola Original 1.5L",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:47:48.335964+01:00",
+      "finished_at": "2025-12-10T19:47:48.769001+01:00",
+      "duration_seconds": 0.433037,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "5449000000996",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5449000000996",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Coca-Cola%20Original%201.5L",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Coca-Cola Original 1.5L",
+          "timestamp": "2025-12-10T18:47:49.625421+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T19:47:49.453168+01:00",
+      "finished_at": "2025-12-10T19:47:50.783401+01:00",
+      "duration_seconds": 1.330233,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "Coca-Cola Original 1.5L",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Coca-Cola Original 1.5L",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Coca-Cola%20Original%201.5L",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Coca-Cola Original 1.5L",
+          "timestamp": "2025-12-10T18:47:59.643524+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T19:47:59.376731+01:00",
+      "finished_at": "2025-12-10T19:48:00.939692+01:00",
+      "duration_seconds": 1.562961,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "Coca-Cola Original 1.5L",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Coca-Cola Original 1.5L",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T19:48:10.549226+01:00",
+      "finished_at": "2025-12-10T19:48:17.096788+01:00",
+      "duration_seconds": 6.547562,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "Coca-Cola Coca-Cola 1,5L Coca-",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py\", line 1636, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py\", line 1034, in run\n    await page.wait_for_timeout(1200)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 11149, in wait_for_timeout\n    await self._impl_obj.wait_for_timeout(timeout=timeout)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_page.py\", line 1023, in wait_for_timeout\n    await self._main_frame.wait_for_timeout(timeout)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 757, in wait_for_timeout\n    await self._channel.send(\"waitForTimeout\", locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TargetClosedError: Page.wait_for_timeout: Target page, context or browser has been closed",
+      "metadata": {
+        "attempt_query": "Coca-Cola Coca-Cola 1,5L Coca-",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-12-10T19:50:20.463990+01:00",
+      "finished_at": "2025-12-10T19:50:27.616065+01:00",
+      "duration_seconds": 7.152075,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "Coca-Cola coca 1.50 L",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5449000000996'.\n[MONOPRIX_DEBUG] Search terms: ['coca', 'cola']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/2: 'coca'\n[MONOPRIX_DEBUG]  - Search simulation failed: Locator.count: Execution context was destroyed, most likely because of a navigation\n[MONOPRIX_DEBUG]  - Term 2/2: 'cola'\n[MONOPRIX_DEBUG]  - Search simulation failed: Page.goto: net::ERR_ABORTED at https://courses.monoprix.fr/\nCall log:\nnavigating to \"https://courses.monoprix.fr/\", waiting until \"domcontentloaded\"\n\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, image=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=None)\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Coca-Cola coca 1.50 L",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "query": "Coca-Cola Coca 1.5 L",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T19:50:50.008940+01:00",
+      "finished_at": "2025-12-10T19:50:54.849641+01:00",
+      "duration_seconds": 4.840701,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "Coca-Cola Coca 1.5 L",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Coca-Cola Coca 1.5 L' direct_url:False\n[LECLERC_DEBUG] after home human pause -> 1.61s\n[LECLERC_DEBUG] after focus -> 1.80s\n[LECLERC_DEBUG] search results timeout after 4.32s\n[LECLERC_DEBUG] after result pause -> 4.32s\n[LECLERC_DEBUG] no cards after 4.33s",
+      "metadata": {
+        "attempt_query": "Coca-Cola Coca 1.5 L",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Coca-Cola Original Goût Original 1.5L",
+      "brand": "Coca-Cola",
+      "kind": "",
+      "qty": "1.5L",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "5449000000996",
+      "image_url": "./assets/5449000000996.jpg",
+      "source": "consolidated",
+      "raw_text": "Coca-Cola Original Goût Original 1.5L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Coca-Cola Original 1.5L",
+      "Coca-Cola Goût Original 1.5L",
+      "Coca-Cola Boisson 1.5L",
+      "Coca-Cola Original Goût Original",
+      "Coca-Cola Original Goût",
+      "Coca-Cola coca 1.5L",
+      "Coca-Cola coca 1.50 L",
+      "Coca-Cola coca 1,50 L"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

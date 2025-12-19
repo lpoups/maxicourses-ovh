@@ -1,0 +1,44 @@
+{
+  "timestamp": "2025-12-10T16:18:26.308563+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Alpro Alpro 500G Alpro joghurt",
+      "Alpro dessert soja amande",
+      "Alpro végétal nature 500G",
+      "Alpro dessert végétal"
+    ],
+    "secondary_keywords": [
+      "alpro",
+      "joghurtalternative",
+      "auf",
+      "sojabasis",
+      "natur",
+      "mit",
+      "mandeln",
+      "500",
+      "g",
+      "31",
+      "dessert",
+      "végétal",
+      "nature",
+      "soja",
+      "amande",
+      "500g"
+    ],
+    "category": "generic",
+    "structured": {
+      "golden": "Alpro dessert soja amande",
+      "fallback_specific": "Alpro végétal nature 500G",
+      "fallback_broad": "Alpro dessert végétal"
+    },
+    "raw": {
+      "golden": "Alpro dessert soja amande",
+      "fallback_specific": "Alpro végétal nature 500G",
+      "fallback_broad": "Alpro dessert végétal"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"ean\": \"5411188118961\",\n    \"brand\": \"Alpro\",\n    \"product_name\": \"Dessert végétal nature au soja & amande\",\n    \"quantity\": \"500 G\",\n    \"price\": \"2,30\",\n    \"unit_price\": \"4,60 € / KG\",\n    \"nutriscore_grade\": \"a\",\n    \"ecoscore_grade\": \"a\",\n    \"image_url\": \"https://cdn.auchan.fr/media/P0200000000059YPRIMARY_1200x1200/B2CD/\",\n    \"store\": \"Auchan Drive Supermarché Talence-Gallieni\",\n    \"categories\": [\n      \"Pflanzliche Lebensmittel und Getränke\",\n      \"Fermentierte Lebensmittel\",\n      \"Dairy substitutes\",\n      \"Desserts\",\n      \"Vegan products\",\n      \"Milchfreie Nachtische\",\n      \"Fermentierte Lebensmittel ohne Milch\",\n      \"Pflanzenbasierte Joghurts\",\n      \"Sojajoghurt\",\n      \"Einfacher Soja-Joghurt\"\n    ]\n  },\n  \"descriptor\": {\n    \"ean\": \"5411188118961\",\n    \"_id\": \"5411188118961\",\n    \"brand\": \"Alpro\",\n    \"categories\": \"Pflanzliche Lebensmittel und Getränke, Fermentierte Lebensmittel, en:Dairy substitutes, Desserts, en:Vegan products, Milchfreie Nachtische, Fermentierte Lebensmittel ohne Milch, Pflanzenbasierte Joghurts, Sojajoghurt, Einfacher Soja-Joghurt\",\n    \"created_at\": \"2025-12-10T10:43:41.139000\",\n    \"ecoscore_grade\": \"a\",\n    \"ecoscore_image\": \"https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg\",\n    \"image\": \"./assets/5411188118961.jpg\",\n    \"note\": \"2025-10-31T15:29:31Z · Super U Eysines\",\n    \"nutriscore_grade\": \"a\",\n    \"nutriscore_image\": \"./assets/nutriscore/nutriscore-a.svg\",\n    \"quantity\": \"500  g\",\n    \"queries\": {\n      \"monoprix\": [\n        \"Alpro amande\",\n        \"Dessert amande Alpro\"\n      ],\n      \"casino\": [\n        \"alpro amande 500g\",\n        \"alpro dessert amande\",\n        \"dessert vegetal amande\"\n      ]\n    },\n    \"removed\": false,\n    \"source\": \"auchan\",\n    \"updated_at\": \"2025-12-10T15:09:55.165000\",\n    \"name\": \"Alpro Joghurtalternative auf Sojabasis, Natur mit Mandeln, 500 g, 31\",\n    \"nova_group\": \"4\",\n    \"seed_query\": \"Alpro Joghurtalternative auf Sojabasis Natur mit Mandeln\",\n    \"description\": \"Dessert végétal nature au soja & amande\",\n    \"leclerc_query\": \"Alpro Joghurtalternative 500 G\",\n    \"leclerc_queries\": [\n      \"Alpro Joghurtalternative 500 G\",\n      \"Alpro Joghurtalternative auf 500 G\",\n      \"Alpro 500 G\",\n      \"Joghurtalternative auf 500 G\"\n    ],\n    \"ai_profile\": {\n      \"ean\": \"5411188118961\",\n      \"brand\": \"Alpro\",\n      \"product_name\": \"Dessert végétal nature au soja & amande\",\n      \"quantity\": \"500 G\",\n      \"price\": \"2,30\",\n      \"unit_price\": \"4,60 € / KG\",\n      \"nutriscore_grade\": \"a\",\n      \"ecoscore_grade\": \"a\",\n      \"image_url\": \"https://cdn.auchan.fr/media/P0200000000059YPRIMARY_1200x1200/B2CD/\",\n      \"store\": \"Auchan Drive Supermarché Talence-Gallieni\",\n      \"categories\": [\n        \"Pflanzliche Lebensmittel und Getränke\",\n        \"Fermentierte Lebensmittel\",\n        \"Dairy substitutes\",\n        \"Desserts\",\n        \"Vegan products\",\n        \"Milchfreie Nachtische\",\n        \"Fermentierte Lebensmittel ohne Milch\",\n        \"Pflanzenbasierte Joghurts\",\n        \"Sojajoghurt\",\n        \"Einfacher Soja-Joghurt\"\n      ]\n    },\n    \"ai_keywords\": [\n      \"Alpro dessert soja amande\",\n      \"Alpro végétal nature 500G\",\n      \"Dessert végétal Alpro 500G\",\n      \"Alpro soja amande 500G\",\n      \"Alpro nature soja amande\",\n      \"Alpro dessert végétal 500G\",\n      \"Alpro amande dessert 500G\",\n      \"Alpro soja dessert 500G\"\n    ],\n    \"primary_keywords\": [\n      \"Alpro Alpro 500G Alpro joghurt\",\n      \"Alpro dessert soja amande\",\n      \"Alpro végétal nature 500G\",\n      \"Alpro Dessert végétal 500G\",\n      \"Alpro soja amande 500G\"\n    ],\n    \"secondary_keywords\": [\n      \"alpro\",\n      \"joghurtalternative\",\n      \"auf\",\n      \"sojabasis\",\n      \"natur\",\n      \"mit\",\n      \"mandeln\",\n      \"500\",\n      \"g\",\n      \"31\",\n      \"dessert\",\n      \"végétal\",\n      \"nature\",\n      \"soja\",\n      \"amande\",\n      \"500g\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-10T16:18:24.209350+01:00\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-ClGFMhWn0PRvTLcbyn2kqgxxhO0JU\", \"object\": \"chat.completion\", \"created\": 1765379904, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Alpro dessert soja amande\\\",\\n    \\\"fallback_specific\\\": \\\"Alpro végétal nature 500G\\\",\\n    \\\"fallback_broad\\\": \\\"Alpro dessert végétal\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1439, \"completion_tokens\": 43, \"total_tokens\": 1482, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_a4d13246c5\"}"
+}

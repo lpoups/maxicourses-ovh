@@ -1,0 +1,77 @@
+{
+  "ean": "8712100731822",
+  "image_path": null,
+  "started_at": "2025-12-12T11:10:36.843138+01:00",
+  "finished_at": "2025-12-12T11:11:25.291141+01:00",
+  "duration_seconds": 48.448003,
+  "reference": {
+    "title": "Moutarde aux aromates SAVORA 385 g",
+    "description": "Moutarde aux aromates SAVORA 385 g",
+    "source": "seed_catalog",
+    "brand": "Savora",
+    "quantity": "385  g",
+    "categories": "Condiments, Sauces, Moutardes, en:groceries, Spécialité à la Moutarde",
+    "image": "./assets/8712100731822.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
+    "ecoscore_grade": "b",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
+    "nova_group": "3"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251212-111036"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_market",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "Connecting to CDP: http://127.0.0.1:9223\n[INFO] Successfully extracted data from JSON State: {'title': 'Chicorée Soluble \nOriginal RICORE', 'quantity': '260g', 'price': 6.57, 'unit_price': '25.27 € / \nKG'}\n{\"status\": \"OK\", \"price\": \"6,57\", \"store\": \"Market Fondaudège\", \"url\": \n\"https://www.carrefour.fr/s?q=7613035676497\", \"note\": \"json_state_extraction\", \n\"unit_price\": \"25,27 € / KG\", \"quantity\": \"260g\", \"title\": \"Chicorée Soluble \nOriginal RICORE\", \"matched_ean\": \"7613035676497\", \"image\": null, \n\"nutriscore_grade\": null, \"nutriscore_image\": null}",
+        "last_line": "{'title': 'Chicorée Soluble \nOriginal RICORE', 'quantity': '260g', 'price': 6.57, 'unit_price': '25.27 € / \nKG'}\n{\"status\": \"OK\", \"price\": \"6,57\", \"store\": \"Market Fondaudège\", \"url\": \n\"https://www.carrefour.fr/s?q=7613035676497\", \"note\": \"json_state_extraction\", \n\"unit_price\": \"25,27 € / KG\", \"quantity\": \"260g\", \"title\": \"Chicorée Soluble \nOriginal RICORE\", \"matched_ean\": \"7613035676497\", \"image\": null, \n\"nutriscore_grade\": null, \"nutriscore_image\": null}",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-12T11:10:36.847350+01:00",
+      "finished_at": "2025-12-12T11:11:19.289718+01:00",
+      "duration_seconds": 42.442368,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "QUERY": "8712100731822",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": "JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)",
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8712100731822",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Moutarde aux aromates SAVORA 385 g",
+      "brand": "Savora",
+      "kind": "",
+      "qty": "385 g",
+      "qualifiers": [],
+      "ean": "8712100731822",
+      "image_url": "./assets/8712100731822.jpg",
+      "source": "consolidated",
+      "raw_text": "Moutarde aux aromates SAVORA 385 g",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

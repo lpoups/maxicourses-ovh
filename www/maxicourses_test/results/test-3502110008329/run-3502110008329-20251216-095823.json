@@ -1,0 +1,113 @@
+{
+  "ean": "3502110008329",
+  "image_path": null,
+  "started_at": "2025-12-16T09:58:09.086000+01:00",
+  "finished_at": "2025-12-16T09:58:23.661767+01:00",
+  "duration_seconds": 14.575767,
+  "reference": {
+    "title": "Boisson gazeuse aux extraits  végétaux PEPSI",
+    "description": "Boisson gazeuse aux extraits  végétaux PEPSI",
+    "source": "chronodrive",
+    "brand": "Pepsi",
+    "quantity": "1500 ml",
+    "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté",
+    "image": null,
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251216-095809"
+  ],
+  "adapters": [
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,39",
+        "title": "Boisson gazeuse aux extraits  végétaux PEPSI",
+        "url": "https://www.chronodrive.com/pepsi--boisson-gazeuse-aux-extraits-vegetaux-P16714 ",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "0,93 € / L",
+        "quantity": "1,5 L",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3502110008329",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson gazeuse aux extraits  végétaux PEPSI",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1,5 L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3502110008329",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-16T09:58:09.088946+01:00",
+      "finished_at": "2025-12-16T09:58:15.425387+01:00",
+      "duration_seconds": 6.336441,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "3502110008329",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3502110008329",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Boisson gazeuse aux extraits  végétaux PEPSI",
+      "brand": "Boisson",
+      "kind": "",
+      "qty": "1,5 L",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3502110008329",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Boisson gazeuse aux extraits  végétaux PEPSI",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Pepsi boisson gazeuse 1,5L",
+      "Pepsi 1,5L boisson gazeuse",
+      "Pepsi boisson gazeuse",
+      "Boisson gazeuse aux extraits",
+      "Boisson gazeuse aux",
+      "Boisson extraits 1.5 L",
+      "Boisson extraits 1.50 L",
+      "Boisson extraits 1,50 L"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

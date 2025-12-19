@@ -1,0 +1,159 @@
+{
+  "ean": "5000204343120",
+  "image_path": null,
+  "started_at": "2025-12-11T07:39:57.301905+01:00",
+  "finished_at": "2025-12-11T07:40:42.881185+01:00",
+  "duration_seconds": 45.57928,
+  "reference": {
+    "title": "Aéro multi insectes RAID MAX TP18 400ML",
+    "description": "Aéro multi insectes RAID MAX TP18 400ML",
+    "source": "courseu",
+    "brand": "Raid",
+    "quantity": "400 ml",
+    "categories": null,
+    "image": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digi talu-master-catalog/default/dw64ff8493/5000204343120_A1N1_5657195_S13.png?sw=388 &sh=388&sm=fit",
+    "nutriscore_grade": "c",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251211-073957"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "6,52",
+        "unit_price": "16,30 € / L",
+        "quantity": "400  ML",
+        "title": "Aéro multi insectes RAID MAX TP18 400ML",
+        "url": "https://www.coursesu.com/p/aero-multi-insectes-raid-max-tp18-400ml/5657195.html ",
+        "note": "2025-12-11T06:40:31Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "5000204343120",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "image": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digi talu-master-catalog/default/dw64ff8493/5000204343120_A1N1_5657195_S13.png?sw=388 &sh=388&sm=fit",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://www.coursesu.com/p/aero-multi-insectes-raid-max-tp18-400ml/5657195.html",
+            "product": {
+              "title": "Aéro multi insectes RAID MAX TP18 400ML",
+              "brand": "Aéro",
+              "kind": "",
+              "qty": "400 ML",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "5000204343120",
+              "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digi talu-master-catalog/default/dw64ff8493/5000204343120_A1N1_5657195_S13.png?sw=388 &sh=388&sm=fit",
+              "source": "courseu",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-12-11T07:39:57.306140+01:00",
+      "finished_at": "2025-12-11T07:40:32.281275+01:00",
+      "duration_seconds": 34.975135,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000204343120",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Aéro multi insectes RAID MAX TP18 400ML",
+      "brand": "Raid",
+      "kind": "",
+      "qty": "400 ml",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "5000204343120",
+      "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digi talu-master-catalog/default/dw64ff8493/5000204343120_A1N1_5657195_S13.png?sw=388 &sh=388&sm=fit",
+      "source": "consolidated",
+      "raw_text": "Aéro multi insectes RAID MAX TP18 400ML",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Raid MAX Aéro multi insectes",
+      "Aéro multi insectes Raid MAX",
+      "Raid insecticide 400ml",
+      "Aéro multi insectes RAID",
+      "Aéro multi insectes",
+      "Raid insectes 400 ML",
+      "Raid insectes 0.40 L",
+      "Raid insectes 0,40 L"
+    ],
+    "candidates": [
+      {
+        "adapter": "courseu",
+        "url": "https://www.coursesu.com/p/aero-multi-insectes-raid-max-tp18-400ml/5657195.html",
+        "score": 1.0,
+        "product": {
+          "title": "Aéro multi insectes RAID MAX TP18 400ML",
+          "brand": "Aéro",
+          "kind": "",
+          "qty": "400 ML",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "5000204343120",
+          "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digi talu-master-catalog/default/dw64ff8493/5000204343120_A1N1_5657195_S13.png?sw=388 &sh=388&sm=fit",
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      }
+    ],
+    "decision": {
+      "adapter": "courseu",
+      "url": "https://www.coursesu.com/p/aero-multi-insectes-raid-max-tp18-400ml/5657195.html",
+      "score": 1.0,
+      "product": {
+        "title": "Aéro multi insectes RAID MAX TP18 400ML",
+        "brand": "Aéro",
+        "kind": "",
+        "qty": "400 ML",
+        "price": null,
+        "quantity": null,
+        "qualifiers": [],
+        "ean": "5000204343120",
+        "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digi talu-master-catalog/default/dw64ff8493/5000204343120_A1N1_5657195_S13.png?sw=388 &sh=388&sm=fit",
+        "source": "courseu",
+        "raw_text": "",
+        "seed_query": "",
+        "leclerc_queries": []
+      }
+    },
+    "audit": []
+  }
+}

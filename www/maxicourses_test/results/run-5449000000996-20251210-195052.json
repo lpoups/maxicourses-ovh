@@ -1,0 +1,666 @@
+{
+  "ean": "5449000000996",
+  "image_path": null,
+  "started_at": "2025-12-10T19:42:51.319133+01:00",
+  "finished_at": "2025-12-10T19:50:52.134069+01:00",
+  "duration_seconds": 480.814936,
+  "reference": {
+    "title": "Coca-Cola Original Goût Original 1.5L",
+    "description": null,
+    "source": "bulk_import",
+    "brand": "Coca-Cola",
+    "quantity": "1.5L",
+    "categories": "generic",
+    "image": "./assets/5449000000996.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "./assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:42:51.322104+01:00",
+      "finished_at": "2025-12-10T19:42:57.814694+01:00",
+      "duration_seconds": 6.49259,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "5449000000996",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[WARN] Cloudflare challenge detected (Title: Un instant…). Attempting to \nsolve...\n[INFO] Challenge passed! New title: intermarche.com",
+      "metadata": {
+        "attempt_query": "5449000000996",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "CF_BLOCK",
+      "payload": {
+        "status": "CF_BLOCK",
+        "price": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=5449000000996",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:42:57.815678+01:00",
+      "finished_at": "2025-12-10T19:43:19.437867+01:00",
+      "duration_seconds": 21.622189,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "5449000000996",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[WARN] Cloudflare challenge detected (Title: Un instant…). Attempting to \nsolve...\n[ERROR] Challenge failed after 15s",
+      "metadata": {
+        "attempt_query": "5449000000996",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "CF_BLOCK",
+      "payload": {
+        "status": "CF_BLOCK",
+        "price": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=5449000000996",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:43:19.439230+01:00",
+      "finished_at": "2025-12-10T19:44:14.585151+01:00",
+      "duration_seconds": 55.145921,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "5449000000996",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 5449000000996. Reloading \nto refresh store...\n[INFO] Optimization active: Attempting direct DOM extraction.\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1355, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1244, in run\n    count = await cards.count()\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 16233, in count\n    return mapping.from_maybe_impl(await self._impl_obj.count())\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_locator.py\", line 392, in count\n    return await self._frame._query_count(self._selector)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 128, in _query_count\n    return await self._channel.send(\"queryCount\", {\"selector\": selector})\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TargetClosedError: Locator.count: Target page, context or browser has been closed",
+      "metadata": {
+        "attempt_query": "5449000000996",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "search_failed:5449000000996",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:44:14.586734+01:00",
+      "finished_at": "2025-12-10T19:44:34.680091+01:00",
+      "duration_seconds": 20.093357,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "5449000000996",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9222\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.cookielaw.org/consent/86c21506-0b09-4826-a344-338a924b0f26/86c21506-0b09-4826-a344-338a924b0f26.json' from origin 'https://www.auchan.fr' has been blocked by CORS policy: Request header field upgrade-insecure-requests is not allowed by Access-Control-Allow-Headers in preflight response.\n[auchan] REQ_FAILED: https://cdn.cookielaw.org/consent/86c21506-0b09-4826-a344-338a924b0f26/86c21506-0b09-4826-a344-338a924b0f26.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] RESP: 404 https://www.auchan.fr/navigation?x-cms-page-template=STORE_PAGE_TEMPLATE&x-cms-store-reference=6117&x-cms-page-type=PLACE&x-cms-ua-device=MOBILEFIRST\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] RESP: 404 https://www.auchan.fr/cms/slot?x-cms-page-template=STORE_PAGE_TEMPLATE&x-cms-store-reference=6117&x-cms-page-type=PLACE&x-cms-ua-device=MOBILEFIRST&position=applicationSlot&pageSelector=store\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] RESP: 404 https://www.auchan.fr/cms/slot?x-cms-page-template=STORE_PAGE_TEMPLATE&x-cms-store-reference=6117&x-cms-page-type=PLACE&x-cms-ua-device=MOBILEFIRST&position=topSlot&pageSelector=store\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] RESP: 404 https://www.auchan.fr/cms/slot?x-cms-page-template=STORE_PAGE_TEMPLATE&x-cms-store-reference=6117&x-cms-page-type=PLACE&x-cms-ua-device=MOBILEFIRST&position=bottomSlot&pageSelector=store\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] RESP: 404 https://www.auchan.fr/header-reminder\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] RESP: 404 https://www.auchan.fr/cms/slot?x-cms-page-template=STORE_PAGE_TEMPLATE&x-cms-store-reference=6117&x-cms-page-type=PLACE&x-cms-ua-device=MOBILEFIRST&position=topCommonSlot&pageSelector=store\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] RESP: 404 https://www.auchan.fr/cms/slot?x-cms-page-template=STORE_PAGE_TEMPLATE&x-cms-store-reference=6117&x-cms-page-type=PLACE&x-cms-ua-device=MOBILEFIRST&position=bottomCommonSlot&pageSelector=store\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] ✅ Toast 'C'est noté' APPEARED.\n[auchan] Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...\n[auchan] RESP: 404 https://www.auchan.fr/cms/slot?x-cms-page-template=STORE_PAGE_TEMPLATE&x-cms-store-reference=6117&x-cms-page-type=PLACE&x-cms-ua-device=MOBILEFIRST&position=footerSlot&pageSelector=store\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] RESP: 404 https://www.auchan.fr/cms/slot?x-cms-page-template=STORE_PAGE_TEMPLATE&x-cms-store-reference=6117&x-cms-page-type=PLACE&x-cms-ua-device=MOBILEFIRST&position=applicationSlot&pageSelector=store\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] RESP: 404 https://www.auchan.fr/cms/slot?x-cms-page-template=STORE_PAGE_TEMPLATE&x-cms-store-reference=6117&x-cms-page-type=PLACE&x-cms-ua-device=MOBILEFIRST&position=topCommonSlot&pageSelector=store\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] RESP: 404 https://www.auchan.fr/cms/slot?x-cms-page-template=STORE_PAGE_TEMPLATE&x-cms-store-reference=6117&x-cms-page-type=PLACE&x-cms-ua-device=MOBILEFIRST&position=topSlot&pageSelector=store\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] RESP: 404 https://www.auchan.fr/cms/slot?x-cms-page-template=STORE_PAGE_TEMPLATE&x-cms-store-reference=6117&x-cms-page-type=PLACE&x-cms-ua-device=MOBILEFIRST&position=bottomCommonSlot&pageSelector=store\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] RESP: 404 https://www.auchan.fr/cms/slot?x-cms-page-template=STORE_PAGE_TEMPLATE&x-cms-store-reference=6117&x-cms-page-type=PLACE&x-cms-ua-device=MOBILEFIRST&position=footerSlot&pageSelector=store\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] RESP: 404 https://www.auchan.fr/cms/slot?x-cms-page-template=STORE_PAGE_TEMPLATE&x-cms-store-reference=6117&x-cms-page-type=PLACE&x-cms-ua-device=MOBILEFIRST&position=bottomSlot&pageSelector=store\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] CONSOLE: Can't add consent update listener Error: TCF API is not loaded\n    at t.checkTCFAPIAvailability (https://www.auchan.fr/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js:9:14471)\n    at https://www.auchan.fr/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js:9:14433\n[auchan] CONSOLE: Can't check consent for vendor: 820 Error: TCF API is not loaded\n    at t.checkTCFAPIAvailability (https://www.auchan.fr/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js:9:14471)\n    at https://www.auchan.fr/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js:9:14433\n[auchan] CONSOLE: Can't load customer's consent Error: TCF API is not loaded\n    at t.checkTCFAPIAvailability (https://www.auchan.fr/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js:9:14471)\n    at https://www.auchan.fr/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js:9:14433\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ✅ Toast DISAPPEARED. Proceeding to search.\n[auchan] RESP: 404 https://www.auchan.fr/suggest?text=5449000000996\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 404 ()\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.cookielaw.org/consent/86c21506-0b09-4826-a344-338a924b0f26/86c21506-0b09-4826-a344-338a924b0f26.json' from origin 'https://www.auchan.fr' has been blocked by CORS policy: Request header field upgrade-insecure-requests is not allowed by Access-Control-Allow-Headers in preflight response.\n[auchan] REQ_FAILED: https://cdn.cookielaw.org/consent/86c21506-0b09-4826-a344-338a924b0f26/86c21506-0b09-4826-a344-338a924b0f26.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://api.auchan.fr/third-party/merchandising/v0/areas?language=fr-FR' from origin 'https://www.auchan.fr' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://api.auchan.fr/third-party/merchandising/v0/areas?language=fr-FR net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: Can't add consent update listener Error: TCF API is not loaded\n    at t.checkTCFAPIAvailability (https://www.auchan.fr/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js:9:14471)\n    at https://www.auchan.fr/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js:9:14433\n[auchan] CONSOLE: Can't check consent for vendor: 820 Error: TCF API is not loaded\n    at t.checkTCFAPIAvailability (https://www.auchan.fr/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js:9:14471)\n    at https://www.auchan.fr/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js:9:14433\n[auchan] CONSOLE: Can't load customer's consent Error: TCF API is not loaded\n    at t.checkTCFAPIAvailability (https://www.auchan.fr/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js:9:14471)\n    at https://www.auchan.fr/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js:9:14433\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] results not visible\n[auchan] Search typing failed, but fallback (refresh) is DISABLE per user request.",
+      "metadata": {
+        "attempt_query": "5449000000996",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:44:34.681294+01:00",
+      "finished_at": "2025-12-10T19:45:19.150547+01:00",
+      "duration_seconds": 44.469253,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "5449000000996",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "[CHRONO_DEBUG] term='5449000000996'\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py\", line 950, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py\", line 766, in run\n    typed = await _type_search_query(page, typed_term, submit=False)\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py\", line 258, in _type_search_query\n    if target is None or not await target.count():\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 16233, in count\n    return mapping.from_maybe_impl(await self._impl_obj.count())\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_locator.py\", line 392, in count\n    return await self._frame._query_count(self._selector)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 128, in _query_count\n    return await self._channel.send(\"queryCount\", {\"selector\": selector})\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TargetClosedError: Locator.count: Target page, context or browser has been closed",
+      "metadata": {
+        "attempt_query": "5449000000996",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "INFO:ProductRepository:Connected to MongoDB [maxicourses]",
+        "last_line": "",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T19:45:19.154616+01:00",
+      "finished_at": "2025-12-10T19:45:20.117190+01:00",
+      "duration_seconds": 0.962574,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "5449000000996",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 1,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py\", line 886, in <module>\n    result = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py\", line 877, in run\n    result = await _collect_once(initial_cdp)\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py\", line 747, in _collect_once\n    p, browser, context, page = await make_context(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/pipeline/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222",
+      "metadata": {
+        "attempt_query": "5449000000996",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T19:45:21.009110+01:00",
+      "finished_at": "2025-12-10T19:45:21.507629+01:00",
+      "duration_seconds": 0.498519,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "5449000000996",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5449000000996",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Coca-Cola%20coca%201.5L",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Coca-Cola coca 1.5L",
+          "timestamp": "2025-12-10T18:45:22.324718+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T19:45:22.110964+01:00",
+      "finished_at": "2025-12-10T19:45:23.656827+01:00",
+      "duration_seconds": 1.545863,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "Coca-Cola coca 1.5L",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Coca-Cola coca 1.5L",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Coca-Cola%20coca%201.5L",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Coca-Cola coca 1.5L",
+          "timestamp": "2025-12-10T18:45:30.321084+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T19:45:30.095019+01:00",
+      "finished_at": "2025-12-10T19:45:31.357698+01:00",
+      "duration_seconds": 1.262679,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "Coca-Cola coca 1.5L",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Coca-Cola coca 1.5L",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-12-10T19:45:36.865569+01:00",
+      "finished_at": "2025-12-10T19:46:58.486120+01:00",
+      "duration_seconds": 81.620551,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "Coca-Cola Coca-Cola 1,5L Coca-",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Coca-Cola Coca-Cola 1,5L Coca-",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,99",
+        "title": "Coca-Cola Original 6x33cl",
+        "url": "https://courses.monoprix.fr/products/coca-cola-original-6x33cl/MPX_4112285",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5ae4 16f1-b920-4ad6-81d1-90224b72d9a2/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5ae4 16f1-b920-4ad6-81d1-90224b72d9a2/300x300.jpg",
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": "6 X",
+        "store": null,
+        "raw_text": "Aller  directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nMenu des onglets du haut de l’écran\nPage d’accueil\nRechercher un article\nSe connecter\nRéserver un  créneau\nRéserver un créneau\nAller au paiement\nNombre total d’articles dans  votre panier 0. Montant du panier 0,00 €.\n0,00 €\nMin 60,00 €\nNos  Rayons\nFavoris\nListe de courses\nProduits réguliers\nIdées  repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison  offerte*\nEN SAVOIR +\nAccueil\nBoissons et Lait\nSoda et Boisson  aromatisée\nColas\nCoca-Cola Original 6x33cl\n1 m+\n1 mois de garantie de vie du produit\n6 x 33cl 2,52 € / litre\n6 x 33cl\n(2,52 € / litre)\n4,99  €\nAjouter\nInformations produit\n\n\nDescription Produit\nCréée en 1886,  Coca-Cola, la légendaire boisson pétillante, fait le bonheur de plusieurs  générations. Cette boisson intemporelle et délicieuse a été conçue pour  rafraîchir ses consommateurs. Elle est faite pour être partagée. Installez-vous, détendez-vous et savourez. À servir bien frais pour un maximum de  plaisir.\n\n\nOrigine\nFrance\nMarque\nCoca-Cola\nService  consommateur\nCoca-Cola Europacific Partners France 9 chemin de Bretagne, CS  80050, 92784 Issy-Les-Moulineaux Cedex 9.\nConseils d'utilisation\nNe pas  agiter.\nIngredients\nIngrédients : Ingrédients: eau gazéifiée ; sucre ;  colorant : E150d ; acidifiant : acide phosphorique ; arômes naturels ; arôme  caféine.\nA propos de la marque\nCoca-Cola est la boisson pétillante  emblématique, créée en 1886 à Atlanta, en Géorgie, par le Dr John S. Pemberton.  Coca-Cola a d’abord été proposé comme boisson à la fontaine à la pharmacie  Jacobs sous forme d’un mélange de sirop de Coca-Cola et d’eau pétillante, la  fameuse recette secrète du Coca-Cola. Au fil des ans, cette boisson pétillante  légendaire est devenue culte. Le Coca-Cola est célèbre non seulement pour son  goût irrésistible mais aussi pour la sensation qu'il procure. Chaque gorgée de  cette légendaire boisson pétillante évoque des souvenirs heureux. Aujourd'hui,  sa popularité l'a rendu universel.\nType d’emballage\nemballé sous  film\nProducteur\nCOCA COLA EUROPEAN PARTNERS FRAN 9 CHEMIN DE  BRETAGNE///92784/ISSY LES MOULINEAUX CEDEX 9/FRANCE\nConseil de  conservation\nConserver au frais, au sec et à l'abri du soleil.\nAutres  informations\n(None)\nConseils d'utilisation\nNe pas agiter.\nValeurs  nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 ml\tpour  330MLT\nValeurs Energétique en Kilojoules\t~ 180 kJ\t594 kJ\nValeurs Energétique en Kilocalories\t~ 42 kcal\t139 kcal\nValeurs Nutritionnelles\nGlucides\t~ 10.6  g\t35 g\nDont Sucres\t~ 10.6 g\t35 g\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos  catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)\nMonoprix et  ses partenaires vous offrent une expérience sur mesure\nMonoprix et ses  partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs  types de cookies afin de vous offrir l’expérience la plus fluide possible. Le  dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous  proposer des offres et contenus adaptés, des publicités personnalisées, de  proposer certaines fonctionnalités, d’analyser la performance du site et  d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en  bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans  notreCharte des données personnelles\nVoir la liste de nos  partenaires\nPERSONNALISER MES COOKIES\nJ'ACCEPTE\nCONTINUER SANS ACCEPTER",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": "nature",
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": false,
+          "vetoes": [
+            "category",
+            "image_mismatch",
+            "core_token"
+          ],
+          "candidate_quantity": "6 X",
+          "descriptor_token_coverage": {
+            "coverage": 1.0,
+            "matched": [
+              "coca",
+              "cola"
+            ],
+            "missing": [],
+            "total": 2
+          },
+          "missing_tokens": [],
+          "image_match": false,
+          "final_score": 30,
+          "plausible_baseline": false,
+          "missing_core_tokens": [
+            "1.5l"
+          ],
+          "notes": [
+            "accepted_without_image_match_high_coverage"
+          ],
+          "equivalent": true
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/coca-cola-classic-1-25l/MPX_3870837",
+            "product": {
+              "title": "",
+              "brand": "Coca-Cola",
+              "kind": "",
+              "qty": "1.5L",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/coca-cola-original-6x20cl/MPX_6718285",
+            "product": {
+              "title": "",
+              "brand": "Coca-Cola",
+              "kind": "",
+              "qty": "1.5L",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719",
+            "product": {
+              "title": "",
+              "brand": "Coca-Cola",
+              "kind": "",
+              "qty": "1.5L",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "equivalent": true,
+        "difference_note": "Match sans EAN (couverture mots-clés)",
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-12-10T19:47:56.550954+01:00",
+      "finished_at": "2025-12-10T19:48:22.229341+01:00",
+      "duration_seconds": 25.678387,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "cola",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '5449000000996'.\n[MONOPRIX_DEBUG] Search terms: ['coca', 'cola']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/2: 'coca'\n[MONOPRIX_DEBUG]  - Typing 'coca' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=coca\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 24 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/coca-cola-classic-1-25l/MPX_3870837\n[MONOPRIX_DEBUG] Error parsing product page https://courses.monoprix.fr/products/coca-cola-classic-1-25l/MPX_3870837: Page.goto: net::ERR_ABORTED; maybe frame was detached?\nCall log:\nnavigating to \"https://courses.monoprix.fr/products/coca-cola-classic-1-25l/MPX_3870837\", waiting until \"networkidle\"\n\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/coca-cola-classic-1-25l/MPX_3870837\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/coca-cola-original-6x33cl/MPX_4112285\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5ae416f1-b920-4ad6-81d1-90224b72d9a2/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/coca-cola-original-6x33cl/MPX_4112285\n[MONOPRIX_DEBUG][SCORE] - Title: 'Coca-Cola Original 6x33cl' | Brand: 'coca-cola' | Variant(seed/cand)=(None/nature) | Vetoes=['category'] | NegHits=[] | Score=30 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Coca-Cola Original 6x33cl'.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='4,99', title='Coca-Cola Original 6x33cl', url='https://courses.monoprix.fr/products/coca-cola-original-6x33cl/MPX_4112285', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5ae416f1-b920-4ad6-81d1-90224b72d9a2/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5ae416f1-b920-4ad6-81d1-90224b72d9a2/300x300.jpg', matched_ean=None, unit_price=None, quantity='6 X', store=None, raw_text='Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nMenu des onglets du haut de l’écran\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nSoda et Boisson aromatisée\\nColas\\nCoca-Cola Original 6x33cl\\n1\\xa0m+\\n1\\xa0mois de garantie de vie du produit\\n6 x 33cl 2,52\\xa0€ / litre\\n6 x 33cl\\n(2,52\\xa0€ / litre)\\n4,99\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nCréée en 1886, Coca-Cola, la légendaire boisson pétillante, fait le bonheur de plusieurs générations. Cette boisson intemporelle et délicieuse a été conçue pour rafraîchir ses consommateurs. Elle est faite pour être partagée. Installez-vous, détendez-vous et savourez. À servir bien frais pour un maximum de plaisir.\\n\\n\\nOrigine\\nFrance\\nMarque\\nCoca-Cola\\nService consommateur\\nCoca-Cola Europacific Partners France 9 chemin de Bretagne, CS 80050, 92784 Issy-Les-Moulineaux Cedex 9.\\nConseils d\\'utilisation\\nNe pas agiter.\\nIngredients\\nIngrédients : Ingrédients: eau gazéifiée ; sucre ; colorant : E150d ; acidifiant : acide phosphorique ; arômes naturels ; arôme caféine.\\nA propos de la marque\\nCoca-Cola est la boisson pétillante emblématique, créée en 1886 à Atlanta, en Géorgie, par le Dr John S. Pemberton. Coca-Cola a d’abord été proposé comme boisson à la fontaine à la pharmacie Jacobs sous forme d’un mélange de sirop de Coca-Cola et d’eau pétillante, la fameuse recette secrète du Coca-Cola. Au fil des ans, cette boisson pétillante légendaire est devenue culte. Le Coca-Cola est célèbre non seulement pour son goût irrésistible mais aussi pour la sensation qu\\'il procure. Chaque gorgée de cette légendaire boisson pétillante évoque des souvenirs heureux. Aujourd\\'hui, sa popularité l\\'a rendu universel.\\nType d’emballage\\nemballé sous film\\nProducteur\\nCOCA COLA EUROPEAN PARTNERS FRAN 9 CHEMIN DE BRETAGNE///92784/ISSY LES MOULINEAUX CEDEX 9/FRANCE\\nConseil de conservation\\nConserver au frais, au sec et à l\\'abri du soleil.\\nAutres informations\\n(None)\\nConseils d\\'utilisation\\nNe pas agiter.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\tpour 330MLT\\nValeurs Energétique en Kilojoules\\t~ 180 kJ\\t594 kJ\\nValeurs Energétique en Kilocalories\\t~ 42 kcal\\t139 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 10.6 g\\t35 g\\nDont Sucres\\t~ 10.6 g\\t35 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', extras={'seed_variant': None, 'candidate_variant': 'nature', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': False, 'vetoes': ['category', 'image_mismatch', 'core_token'], 'candidate_quantity': '6 X', 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['coca', 'cola'], 'missing': [], 'total': 2}, 'missing_tokens': [], 'image_match': False, 'final_score': 30, 'plausible_baseline': False, 'missing_core_tokens': ['1.5l'], 'notes': ['accepted_without_image_match_high_coverage'], 'equivalent': True}, candidates=[{'url': 'https://courses.monoprix.fr/products/coca-cola-classic-1-25l/MPX_3870837', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Coca-Cola', 'kind': '', 'qty': '1.5L', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}, {'url': 'https://courses.monoprix.fr/products/coca-cola-original-6x33cl/MPX_4112285', 'status': 'OK_PARTIAL', 'product': {'title': 'Coca-Cola Original 6x33cl', 'brand': 'Coca-Cola', 'kind': '', 'qty': '6 X', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/5ae416f1-b920-4ad6-81d1-90224b72d9a2/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nMenu des onglets du haut de l’écran\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nBoissons et Lait\\nSoda et Boisson aromatisée\\nColas\\nCoca-Cola Original 6x33cl\\n1\\xa0m+\\n1\\xa0mois de garantie de vie du produit\\n6 x 33cl 2,52\\xa0€ / litre\\n6 x 33cl\\n(2,52\\xa0€ / litre)\\n4,99\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nCréée en 1886, Coca-Cola, la légendaire boisson pétillante, fait le bonheur de plusieurs générations. Cette boisson intemporelle et délicieuse a été conçue pour rafraîchir ses consommateurs. Elle est faite pour être partagée. Installez-vous, détendez-vous et savourez. À servir bien frais pour un maximum de plaisir.\\n\\n\\nOrigine\\nFrance\\nMarque\\nCoca-Cola\\nService consommateur\\nCoca-Cola Europacific Partners France 9 chemin de Bretagne, CS 80050, 92784 Issy-Les-Moulineaux Cedex 9.\\nConseils d\\'utilisation\\nNe pas agiter.\\nIngredients\\nIngrédients : Ingrédients: eau gazéifiée ; sucre ; colorant : E150d ; acidifiant : acide phosphorique ; arômes naturels ; arôme caféine.\\nA propos de la marque\\nCoca-Cola est la boisson pétillante emblématique, créée en 1886 à Atlanta, en Géorgie, par le Dr John S. Pemberton. Coca-Cola a d’abord été proposé comme boisson à la fontaine à la pharmacie Jacobs sous forme d’un mélange de sirop de Coca-Cola et d’eau pétillante, la fameuse recette secrète du Coca-Cola. Au fil des ans, cette boisson pétillante légendaire est devenue culte. Le Coca-Cola est célèbre non seulement pour son goût irrésistible mais aussi pour la sensation qu\\'il procure. Chaque gorgée de cette légendaire boisson pétillante évoque des souvenirs heureux. Aujourd\\'hui, sa popularité l\\'a rendu universel.\\nType d’emballage\\nemballé sous film\\nProducteur\\nCOCA COLA EUROPEAN PARTNERS FRAN 9 CHEMIN DE BRETAGNE///92784/ISSY LES MOULINEAUX CEDEX 9/FRANCE\\nConseil de conservation\\nConserver au frais, au sec et à l\\'abri du soleil.\\nAutres informations\\n(None)\\nConseils d\\'utilisation\\nNe pas agiter.\\nValeurs nutritionnelles\\nINFORMATIONS NUTRITIONNELLES MOYENNES\\n\\tpour 100 ml\\tpour 330MLT\\nValeurs Energétique en Kilojoules\\t~ 180 kJ\\t594 kJ\\nValeurs Energétique en Kilocalories\\t~ 42 kcal\\t139 kcal\\nValeurs Nutritionnelles\\nGlucides\\t~ 10.6 g\\t35 g\\nDont Sucres\\t~ 10.6 g\\t35 g\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'price': '4,99'}, 'score': 30.0, 'extras': {'seed_variant': None, 'candidate_variant': 'nature', 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': False, 'vetoes': ['category', 'image_mismatch', 'core_token'], 'candidate_quantity': '6 X', 'descriptor_token_coverage': {'coverage': 1.0, 'matched': ['coca', 'cola'], 'missing': [], 'total': 2}, 'missing_tokens': [], 'image_match': False, 'final_score': 30, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/coca-cola-original-6x20cl/MPX_6718285', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Coca-Cola', 'kind': '', 'qty': '1.5L', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}, {'url': 'https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719', 'status': 'PENDING', 'product': {'title': '', 'brand': 'Coca-Cola', 'kind': '', 'qty': '1.5L', 'qualifiers': [], 'ean': None, 'image_url': None, 'source': 'monoprix', 'raw_text': ''}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "cola",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "ERROR",
+      "payload": {
+        "status": "ERROR",
+        "error": "Crash: Locator.type: Target page, context or browser has been closed",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T19:48:22.239196+01:00",
+      "finished_at": "2025-12-10T19:48:28.165523+01:00",
+      "duration_seconds": 5.926327,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5449000000996",
+        "QUERY": "Coca-Cola Coca-Cola 1,5L Coca-",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Coca-Cola Coca-Cola 1,5L Coca-' direct_url:False\n[LECLERC_DEBUG] after home human pause -> 1.54s\n[LECLERC_DEBUG] after focus -> 2.71s\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py\", line 64, in <module>\n    payload = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py\", line 43, in run\n    result = await run_manual_leclerc(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/manual_leclerc_cdp.py\", line 727, in run_manual_leclerc\n    await search_field.type(ch, delay=random.randint(type_min_delay, type_max_delay))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 17136, in type\n    await self._impl_obj.type(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_locator.py\", line 621, in type\n    return await self._frame.type(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 719, in type\n    await self._channel.send(\"type\", locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TargetClosedError: Locator.type: Target page, context or browser has been closed",
+      "metadata": {
+        "attempt_query": "Coca-Cola Coca-Cola 1,5L Coca-",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Coca-Cola Original Goût Original 1.5L",
+      "brand": "Coca-Cola",
+      "kind": "",
+      "qty": "1.5L",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "5449000000996",
+      "image_url": "./assets/5449000000996.jpg",
+      "source": "consolidated",
+      "raw_text": "Coca-Cola Original Goût Original 1.5L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Coca-Cola Original 1.5L",
+      "Coca-Cola Goût Original 1.5L",
+      "Coca-Cola Boisson 1.5L",
+      "Coca-Cola Original Goût Original",
+      "Coca-Cola Original Goût",
+      "Coca-Cola coca 1.5L",
+      "Coca-Cola coca 1.50 L",
+      "Coca-Cola coca 1,50 L"
+    ],
+    "candidates": [
+      {
+        "adapter": "monoprix",
+        "url": "https://courses.monoprix.fr/products/coca-cola-classic-1-25l/MPX_3870837",
+        "score": 0.6,
+        "product": {
+          "title": "",
+          "brand": "Coca-Cola",
+          "kind": "",
+          "qty": "1.5L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": null,
+          "image_url": null,
+          "source": "monoprix",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "monoprix",
+        "url": "https://courses.monoprix.fr/products/coca-cola-original-6x20cl/MPX_6718285",
+        "score": 0.6,
+        "product": {
+          "title": "",
+          "brand": "Coca-Cola",
+          "kind": "",
+          "qty": "1.5L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": null,
+          "image_url": null,
+          "source": "monoprix",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "monoprix",
+        "url": "https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719",
+        "score": 0.6,
+        "product": {
+          "title": "",
+          "brand": "Coca-Cola",
+          "kind": "",
+          "qty": "1.5L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": null,
+          "image_url": null,
+          "source": "monoprix",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      }
+    ],
+    "decision": null,
+    "audit": []
+  }
+}

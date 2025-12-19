@@ -1,0 +1,102 @@
+{
+  "ean": "3502110008329",
+  "image_path": null,
+  "started_at": "2025-12-11T18:10:08.649559+01:00",
+  "finished_at": "2025-12-11T18:10:21.789980+01:00",
+  "duration_seconds": 13.140421,
+  "reference": {
+    "title": "Soda regular PEPSI, 1,5l - Super U, Hyper U, U Express - www.coursesu.com",
+    "description": null,
+    "source": "unknown",
+    "brand": "Pepsi",
+    "quantity": "1500 ml",
+    "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté",
+    "image": "./assets/3502110008329.jpg",
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251211-181008"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": "Soda regular PEPSI, 1,5l - Super U, Hyper U, U Express - www.coursesu.com",
+        "url": "https://www.coursesu.com/p/soda-regular-pepsi-15l/987379.html",
+        "note": "2025-12-11T17:10:13Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "equivalent": true,
+        "difference_note": "Match sans EAN (couverture mots-clés)",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda regular PEPSI, 1,5l - Super U, Hyper U, U Express - www.coursesu.com",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "3502110008329",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-11T18:10:08.653412+01:00",
+      "finished_at": "2025-12-11T18:10:14.097462+01:00",
+      "duration_seconds": 5.44405,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "QUERY": "3502110008329",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3502110008329",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda regular PEPSI, 1,5l - Super U, Hyper U, U Express - www.coursesu.com",
+      "brand": "Pepsi",
+      "kind": "",
+      "qty": "1500 ml",
+      "qualifiers": [],
+      "ean": "3502110008329",
+      "image_url": "./assets/3502110008329.jpg",
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

@@ -1936,10 +1936,13 @@ def run_adapter(
         "carrefour_hyper"
     }
     
-    # FORCED UNIVERSAL TUNNEL MODE (User Request)
-    # Always use the tunnel to local machine (port 9223 -> local 9222)
-    cdp_url = "http://127.0.0.1:9223"
-    print(f"[TUNNEL-FORCE] 🚇 Forcing ALL traffic via tunnel on port 9223 for {adapter}")
+    cdp_url = os.getenv("CDP_URL")
+    if not cdp_url:
+        if adapter in RESIDENTIAL_ADAPTERS:
+            cdp_url = "http://127.0.0.1:9223"
+            print(f"[HYBRID] 🏠 {adapter} requires residential IP -> Switching to Tunnel on port 9223")
+        else:
+            cdp_url = "http://127.0.0.1:9222"
             
     env["CDP_URL"] = cdp_url
     if proxy:
@@ -2098,19 +2101,6 @@ def run_adapter(
 
         if adapter == "leclerc":
             local_env.setdefault("LECLERC_NO_DELAY", "1")
-        
-        # DEBUG: Force detailed logs and screenshots for Auchan
-        if adapter == "auchan":
-            local_env["AUCHAN_DEBUG"] = "1"
-
-        # FIX: Explicitly add venv site-packages to PYTHONPATH
-        # This handles cases where subprocess loses access to venv modules (e.g. rich)
-        # ROOT_DIR is .../www/maxicourses_test
-        # Venv is expected at .../www/.venv (i.e. ROOT_DIR / ".." / ".venv")
-        venv_site_packages = ROOT_DIR.parent / ".venv" / "lib" / f"python{sys.version_info.major}.{sys.version_info.minor}" / "site-packages"
-        if venv_site_packages.exists():
-             current_pythonpath = local_env.get("PYTHONPATH", "")
-             local_env["PYTHONPATH"] = f"{venv_site_packages}:{current_pythonpath}"
 
         command = [sys.executable, str(script_path)]
         started_at = datetime.now(PARIS_TZ)

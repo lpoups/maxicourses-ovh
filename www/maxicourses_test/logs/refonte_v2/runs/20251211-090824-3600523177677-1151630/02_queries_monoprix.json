@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-12-11T09:08:28.737242+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Studio Studio Line Studio Line",
+      "Studio Line spray force 8",
+      "Studio spray coiffant force 8",
+      "Studio Line coiffant"
+    ],
+    "secondary_keywords": [
+      "studio",
+      "line",
+      "spray",
+      "coiffant",
+      "fixation",
+      "ultra",
+      "forte",
+      "force",
+      "8",
+      "entrée",
+      "générée",
+      "automatiquement",
+      "descriptif",
+      "requis"
+    ],
+    "category": "generic",
+    "structured": {
+      "golden": "Studio Line spray force 8",
+      "fallback_specific": "Studio spray coiffant force 8",
+      "fallback_broad": "Studio Line coiffant"
+    },
+    "raw": {
+      "golden": "Studio Line spray force 8",
+      "fallback_specific": "Studio spray coiffant force 8",
+      "fallback_broad": "Studio Line coiffant"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"title\": \"Studio Line spray coiffant fixation ultra-forte force 8\",\n    \"brand\": \"Studio\",\n    \"price\": \"6,41\",\n    \"unit_price\": \"42,73 € / L\",\n    \"ean\": \"3600523177677\",\n    \"store\": \"Auchan Drive Supermarché Talence-Gallieni\",\n    \"image\": \"https://cdn.auchan.fr/media/A0220150909000614863PRIMARY_1200x1200/B2CD/\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3600523177677\",\n    \"source\": \"auchan\",\n    \"note\": \"Stub incomplet – lancer une collecte seed Carrefour/Auchan pour remplir le descriptif.\",\n    \"description\": \"Entrée générée automatiquement – descriptif requis.\",\n    \"removed\": false,\n    \"seed_query\": \"Studio Line spray coiffant fixation ultra forte force Entrée\",\n    \"name\": \"Studio Line spray coiffant fixation ultra-forte force 8\",\n    \"image\": \"https://cdn.auchan.fr/media/A0220150909000614863PRIMARY_1200x1200/B2CD/\",\n    \"brand\": \"Studio\",\n    \"leclerc_query\": \"Studio Line spray force 8\",\n    \"leclerc_queries\": [\n      \"Studio Line spray force 8\",\n      \"Studio spray coiffant force 8\",\n      \"Studio Line coiffant\",\n      \"Studio Studio Line Studio Line\"\n    ],\n    \"ai_profile\": {\n      \"title\": \"Studio Line spray coiffant fixation ultra-forte force 8\",\n      \"brand\": \"Studio\",\n      \"price\": \"6,41\",\n      \"unit_price\": \"42,73 € / L\",\n      \"ean\": \"3600523177677\",\n      \"store\": \"Auchan Drive Supermarché Talence-Gallieni\",\n      \"image\": \"https://cdn.auchan.fr/media/A0220150909000614863PRIMARY_1200x1200/B2CD/\"\n    },\n    \"ai_keywords\": [\n      \"Studio spray coiffant\",\n      \"fixation ultra-forte\",\n      \"force 8\",\n      \"Studio Line spray\",\n      \"coiffant fixation forte\",\n      \"spray coiffant Studio\",\n      \"Studio Line force 8\",\n      \"spray fixation ultra-forte\"\n    ],\n    \"primary_keywords\": [\n      \"Studio Studio Line Studio Line\",\n      \"Studio spray coiffant\",\n      \"Studio fixation ultra-forte\",\n      \"Studio force 8\",\n      \"Studio Line spray\"\n    ],\n    \"secondary_keywords\": [\n      \"studio\",\n      \"line\",\n      \"spray\",\n      \"coiffant\",\n      \"fixation\",\n      \"ultra\",\n      \"forte\",\n      \"force\",\n      \"8\",\n      \"entrée\",\n      \"générée\",\n      \"automatiquement\",\n      \"descriptif\",\n      \"requis\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-11T09:08:24.698573+01:00\",\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"leclerc_ai_queries\": [\n      \"Studio Line spray force 8\",\n      \"Studio spray coiffant force 8\",\n      \"Studio Line coiffant\",\n      \"Studio Studio Line Studio Line\"\n    ],\n    \"leclerc_secondary_keywords\": [\n      \"studio\",\n      \"line\",\n      \"spray\",\n      \"coiffant\",\n      \"fixation\",\n      \"ultra\",\n      \"forte\",\n      \"force\",\n      \"8\",\n      \"entrée\",\n      \"générée\",\n      \"automatiquement\",\n      \"descriptif\",\n      \"requis\"\n    ]\n  },\n  \"store\": \"monoprix\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-ClW0p4fwyCouwjOPPpxRq4OSTULd4\", \"object\": \"chat.completion\", \"created\": 1765440507, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Studio Line spray force 8\\\",\\n    \\\"fallback_specific\\\": \\\"Studio spray coiffant force 8\\\",\\n    \\\"fallback_broad\\\": \\\"Studio Line coiffant\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1033, \"completion_tokens\": 41, \"total_tokens\": 1074, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_a4d13246c5\"}"
+}

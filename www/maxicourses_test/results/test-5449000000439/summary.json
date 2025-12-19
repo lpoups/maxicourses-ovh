@@ -1,0 +1,254 @@
+{
+  "5449000000439": {
+    "carrefour_city": {
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "Connecting to CDP: http://127.0.0.1:9222\nCDP Connection Failed: BrowserType.connect_over_cdp: connect ECONNREFUSED \n127.0.0.1:9222\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222",
+        "last_line": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-10T20:29:31.605482+01:00",
+      "duration_seconds": 2.538318,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "Connecting to CDP: http://127.0.0.1:9222",
+        "last_line": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-10T20:29:31.605482+01:00",
+      "duration_seconds": 2.661518,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "store_query": null
+    },
+    "carrefour_super": {
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "Connecting to CDP: http://127.0.0.1:9222",
+        "last_line": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-10T20:29:31.605482+01:00",
+      "duration_seconds": 3.328125,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "store_query": null
+    },
+    "auchan": {
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-10T20:29:31.605482+01:00",
+      "duration_seconds": 90.014009,
+      "error": "timeout_after_90s",
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-10T20:29:31.605482+01:00",
+      "duration_seconds": 90.084869,
+      "error": "timeout_after_90s",
+      "store_query": null
+    },
+    "courseu": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "note": "2025-12-10T19:12:29Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-10T20:29:31.605482+01:00",
+      "duration_seconds": 39.476299,
+      "error": null,
+      "store_query": null
+    },
+    "g20": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-10T20:29:31.605482+01:00",
+      "duration_seconds": 0.398714,
+      "error": null,
+      "store_query": null
+    },
+    "casino": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Coca-Cola%20Original%201%2C75L",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Coca-Cola Original 1,75L",
+          "timestamp": "2025-12-10T19:14:53.340236+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-10T20:29:31.605482+01:00",
+      "duration_seconds": 1.469666,
+      "error": null,
+      "store_query": null
+    },
+    "spar": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Coca-Cola%20Original%201%2C75L",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Coca-Cola Original 1,75L",
+          "timestamp": "2025-12-10T19:15:02.824957+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-10T20:29:31.605482+01:00",
+      "duration_seconds": 0.973672,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-12-10T20:29:31.605482+01:00",
+      "duration_seconds": 88.694654,
+      "error": null,
+      "store_query": null
+    },
+    "monoprix": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "updated_at": "2025-12-10T20:29:31.605482+01:00",
+      "duration_seconds": 7.714842,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "ERROR",
+      "payload": {
+        "status": "ERROR",
+        "error": "Crash: Locator.type: Timeout 15000ms exceeded.\nCall log:\nwaiting for locator(\"input[id*='rechercheTexte']\").first\n  -   locator resolved to <input type=\"text\" tabindex=\"3\" maxlength=\"40\" id=\"inputWRSL301_rechercheTexte\" title=\"Rechercher un produit (ex. : riz, pâtes, …)\" aria-label=\"Rechercher un produit (ex. : riz, pâtes, …)\" placeholder=\"Rechercher un produit (ex. : riz, pâtes, …)\" class=\"inpWRSL301_TextBox_Rechercher ui-autocomplete-input\"/>\n",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-10T20:29:31.605482+01:00",
+      "duration_seconds": 17.962152,
+      "error": null,
+      "store_query": null
+    },
+    "_finder": {
+      "consolidated": {
+        "title": "Coca-Cola Original Goût Original 1,75L",
+        "brand": "Coca-Cola",
+        "kind": "",
+        "qty": "1,75L",
+        "price": null,
+        "quantity": null,
+        "qualifiers": [],
+        "ean": "5449000000439",
+        "image_url": null,
+        "source": "consolidated",
+        "raw_text": "Coca-Cola Original Goût Original 1,75L",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": [
+        "Coca-Cola Original 1,75L",
+        "Coca-Cola Goût Original 1,75L",
+        "Coca-Cola Boisson",
+        "Coca-Cola Original Goût Original",
+        "Coca-Cola Original Goût",
+        "Coca-Cola coca 1.75L",
+        "Coca-Cola coca 1.75 L",
+        "Coca-Cola coca 1,75 L"
+      ],
+      "candidates": [],
+      "decision": null,
+      "audit": []
+    }
+  }
+}

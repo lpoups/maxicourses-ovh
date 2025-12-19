@@ -1,17 +1,17 @@
 {
   "ean": "3502110008329",
   "image_path": null,
-  "started_at": "2025-11-30T14:04:36.783302+01:00",
-  "finished_at": "2025-11-30T14:04:48.913753+01:00",
-  "duration_seconds": 12.130451,
+  "started_at": "2025-12-17T17:06:42.120195+01:00",
+  "finished_at": "2025-12-17T17:07:21.571809+01:00",
+  "duration_seconds": 39.451614,
   "reference": {
-    "title": "Pepsi 1,5L",
-    "description": null,
-    "source": "unknown",
+    "title": "Soda au Cola PEPSI",
+    "description": "Soda au Cola PEPSI",
+    "source": "carrefour_super",
     "brand": "Pepsi",
     "quantity": "1500 ml",
     "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté",
-    "image": null,
+    "image": "https://media.carrefour.fr/media/referential/media/a4d672e7484749aaaf3f77fd9a53 5ac8/03502110009357_H1N1_s05.jpeg",
     "nutriscore_grade": "d",
     "nutriscore_score": null,
     "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
@@ -20,105 +20,66 @@
     "nova_group": "4"
   },
   "notes": [
-    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251130-140436"
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251217-170642"
   ],
   "adapters": [
     {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-12-17T10:02:13.042849+01:00",
+      "finished_at": "2025-12-17T10:02:23.007402+01:00",
+      "duration_seconds": 9.964553,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "Pepsi Cola 1,5L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Raw DESCRIPTOR_JSON received (len=2708)\n[DEBUG] Intermarche Descriptor keys: ['_id', 'ean', 'brand', 'categories', 'created_at', 'ecoscore_grade', 'note', 'nova_group', 'nutriscore_grade', 'nutriscore_image', 'quantity', 'removed', 'source', 'updated_at', 'queries', 'confirmed_titles', 'canonical', 'keywords', 'stores', 'title', 'image', 'name', 'seed_query', 'leclerc_query', 'leclerc_queries', 'leclerc_ai_queries', 'leclerc_secondary_keywords', 'primary_keywords', 'monoprix_ai_queries', 'monoprix_queries', 'monoprix_secondary_keywords', 'intermarche_ai_queries', 'intermarche_queries', 'intermarche_secondary_keywords']\n[DEBUG] Intermarche query keys: {'monoprix': ['pepsi cola 1,5l', 'pepsi soda 1,5l', 'pepsi boissons', 'Pepsi Pepsi 1'], 'intermarche': ['Pepsi Cola 1,5L', 'Pepsi Soda 1,5L', 'Pepsi Boissons', 'Pepsi Pepsi 1']}\n[DEBUG] Leclerc fallback queries: ['Pepsi 1,5L', 'Pepsi Cola 1,5L', 'Pepsi Boissons', 'Pepsi Pepsi 1']",
+      "metadata": {
+        "attempt_query": "Pepsi Cola 1,5L",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251217-100208/01-intermarche"
+      }
+    },
+    {
       "adapter": "carrefour_super",
-      "status": "NO_PRICE",
-      "payload": {
-        "status": "NO_PRICE",
-        "price": null,
-        "store": "Lormont",
-        "url": null,
-        "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
-        "_meta": {
-          "supports_ean": true
-        }
-      },
-      "started_at": "2025-11-30T13:01:09.831619+01:00",
-      "finished_at": "2025-11-30T13:01:26.266831+01:00",
-      "duration_seconds": 16.435212,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
-      ],
-      "env": {
-        "EAN": "3502110008329",
-        "QUERY": "3502110008329",
-        "CARREFOUR_STATE_VARIANT": "carrefour_super",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "3502110008329"
-      }
-    },
-    {
-      "adapter": "carrefour_city",
-      "status": "NO_PRICE",
-      "payload": {
-        "status": "NO_PRICE",
-        "price": null,
-        "store": "City Bordeaux Balguerie",
-        "url": null,
-        "note": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "matched_ean": null,
-        "image": null,
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
-        "_meta": {
-          "supports_ean": true
-        }
-      },
-      "started_at": "2025-11-30T13:00:45.715842+01:00",
-      "finished_at": "2025-11-30T13:01:02.210167+01:00",
-      "duration_seconds": 16.494325,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
-      ],
-      "env": {
-        "EAN": "3502110008329",
-        "QUERY": "3502110008329",
-        "CARREFOUR_STATE_VARIANT": "carrefour_city",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "3502110008329"
-      }
-    },
-    {
-      "adapter": "carrefour_market",
       "status": "OK",
       "payload": {
         "status": "OK",
-        "price": "2,03",
-        "store": "Market Fondaudège",
-        "url": "https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329",
-        "note": null,
-        "unit_price": "1,35 € / L",
-        "quantity": "1,5 L",
+        "price": "1,25",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-zero-sucres-pepsi-3502110009357",
+        "note": "json_state_extraction",
+        "unit_price": "0,83 € / L",
+        "quantity": "1,5L",
         "title": "Soda au Cola PEPSI",
         "matched_ean": "3502110008329",
-        "image": "https://media.carrefour.fr/medias/980f01ab270549e6be2310ff13f54b76/p_540x540/03502110008329_H1N1_s07.jp eg",
+        "image": "https://media.carrefour.fr/media/referential/media/a4d672e7484749aaaf3f77fd9a53 5ac8/03502110009357_H1N1_s05.jpeg",
         "nutriscore_grade": null,
         "nutriscore_image": null,
         "_meta": {
@@ -128,608 +89,67 @@
           "title": "Soda au Cola PEPSI",
           "brand": "Soda",
           "kind": "",
-          "qty": "1,5 L",
-          "qualifiers": [],
-          "ean": "3502110008329",
-          "image_url": "https://media.carrefour.fr/medias/980f01ab270549e6be2310ff13f54b76/p_540x540/03502110008329_H1N1_s07.jp eg",
-          "source": "carrefour_market",
-          "raw_text": "",
-          "seed_query": "",
-          "leclerc_queries": []
-        }
-      },
-      "started_at": "2025-11-30T13:01:02.212038+01:00",
-      "finished_at": "2025-11-30T13:01:09.829885+01:00",
-      "duration_seconds": 7.617847,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
-      ],
-      "env": {
-        "EAN": "3502110008329",
-        "QUERY": "3502110008329",
-        "CARREFOUR_STATE_VARIANT": "carrefour_market",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "3502110008329"
-      }
-    },
-    {
-      "adapter": "auchan",
-      "status": "NO_PRICE",
-      "payload": {
-        "status": "NO_PRICE",
-        "price": null,
-        "unit_price": null,
-        "quantity": null,
-        "title": null,
-        "url": "https://www.auchan.fr/pepsi-boisson-gazeuse-cola-aux-extraits-vegetaux/pr-C1209689",
-        "matched_ean": null,
-        "store": "Auchan Drive Supermarché Talence-Gallieni",
-        "note": "price_missing",
-        "image": null,
-        "_meta": {
-          "supports_ean": true
-        }
-      },
-      "started_at": "2025-11-30T14:04:36.783736+01:00",
-      "finished_at": "2025-11-30T14:04:48.352205+01:00",
-      "duration_seconds": 11.568469,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
-      ],
-      "env": {
-        "EAN": "3502110008329",
-        "QUERY": "3502110008329",
-        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] Found 1 button(s) matching: button:has-text('Choisir ce Drive')\n[auchan]   Button 0: visible=True, enabled=True\n[auchan]   Button 0 text: 'Choisir ce Drive'\n[auchan]   ✅ Button 0 clicked via page.mouse at (890.99609375, 510.0)\n[auchan] results visible, extracting price from search results",
-      "metadata": {
-        "attempt_query": "3502110008329"
-      }
-    },
-    {
-      "adapter": "chronodrive",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "1,39",
-        "title": "Boisson gazeuse aux extraits végétaux PEPSI",
-        "url": "https://www.chronodrive.com/pepsi--boisson-gazeuse-aux-extraits-vegetaux-P16714",
-        "note": "Chronodrive  Le Haillan",
-        "unit_price": "0,93 € / L",
-        "quantity": "1,5 L",
-        "store": "Chronodrive Le Haillan",
-        "matched_ean": "3502110008329",
-        "nutriscore_grade": "e",
-        "nutriscore_image": null,
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "Boisson gazeuse aux extraits végétaux PEPSI",
-          "brand": "Boisson",
-          "kind": "",
-          "qty": "1,5 L",
-          "qualifiers": [],
-          "ean": "3502110008329",
-          "image_url": null,
-          "source": "chronodrive",
-          "raw_text": "",
-          "seed_query": "",
-          "leclerc_queries": []
-        }
-      },
-      "started_at": "2025-11-30T13:01:40.345492+01:00",
-      "finished_at": "2025-11-30T13:01:43.829500+01:00",
-      "duration_seconds": 3.484008,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
-      ],
-      "env": {
-        "EAN": "3502110008329",
-        "QUERY": "3502110008329",
-        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "3502110008329"
-      }
-    },
-    {
-      "adapter": "courseu",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "1,19",
-        "unit_price": "0,79 € / L",
-        "quantity": "1,5 l",
-        "title": "Soda  regular PEPSI, 1,5l",
-        "url": "https://www.coursesu.com/p/soda-regular-pepsi-15l/987379.html",
-        "note": "2025-11-30T12:01:50Z · Super U Eysines",
-        "store": "Super U Eysines",
-        "matched_ean": "3502110008329",
-        "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-naviga tion/nutrition_et_regimes_alimentaires.png",
-        "_meta": {
-          "supports_ean": true
-        },
-        "product": {
-          "title": "Soda  regular PEPSI, 1,5l",
-          "brand": "Soda",
-          "kind": "",
-          "qty": "1,5 l",
-          "qualifiers": [],
-          "ean": "3502110008329",
-          "image_url": null,
-          "source": "courseu",
-          "raw_text": "",
-          "seed_query": "",
-          "leclerc_queries": []
-        }
-      },
-      "started_at": "2025-11-30T13:01:43.832119+01:00",
-      "finished_at": "2025-11-30T13:01:50.615401+01:00",
-      "duration_seconds": 6.783282,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
-      ],
-      "env": {
-        "EAN": "3502110008329",
-        "QUERY": "3502110008329",
-        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "3502110008329"
-      }
-    },
-    {
-      "adapter": "g20",
-      "status": "NO_RESULTS",
-      "payload": {
-        "status": "NO_RESULTS",
-        "price": null,
-        "title": null,
-        "url": null,
-        "note": "G20 Minute",
-        "unit_price": null,
-        "quantity": null,
-        "matched_ean": null,
-        "image": null,
-        "_meta": {
-          "supports_ean": true
-        }
-      },
-      "started_at": "2025-11-30T13:01:50.616468+01:00",
-      "finished_at": "2025-11-30T13:01:51.111942+01:00",
-      "duration_seconds": 0.495474,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
-      ],
-      "env": {
-        "EAN": "3502110008329",
-        "QUERY": "3502110008329",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
-      "metadata": {
-        "attempt_query": "3502110008329"
-      }
-    },
-    {
-      "adapter": "casino",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "1,99",
-        "unit_price": "1,33 €/LITRE",
-        "quantity": "1,5L",
-        "title": "Pepsi Soda au Cola Classique 1,5L",
-        "url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-casino-shop-33130/TZ193/274462",
-        "note": "Casino Shop · Bègles Pruniers",
-        "store": "Casino Shop · Bègles Pruniers",
-        "matched_ean": "3502110008329",
-        "product": {
-          "title": "Pepsi Soda au Cola Classique 1,5L",
-          "brand": "PEPSI",
           "qty": "1,5L",
-          "ean": "3502110008329",
-          "image_url": null,
-          "source": "casino"
-        },
-        "_meta": {
-          "store_code": "TZ193",
-          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
-          "query": "Pepsi 1500 ML",
-          "timestamp": "2025-11-30T12:01:51.741088+00:00",
-          "direct_url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-casino-shop-33130/TZ193/274462",
-          "supports_keywords": true
-        },
-        "candidates": [
-          {
-            "url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-casino-shop-33130/TZ193/274462",
-            "product": {
-              "title": "Pepsi Soda au Cola Classique 1,5L",
-              "brand": "PEPSI",
-              "kind": "",
-              "qty": "1,5L",
-              "qualifiers": [],
-              "ean": "3502110008329",
-              "image_url": null,
-              "source": "casino",
-              "raw_text": "",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          }
-        ]
-      },
-      "started_at": "2025-11-30T13:01:51.586246+01:00",
-      "finished_at": "2025-11-30T13:01:52.712544+01:00",
-      "duration_seconds": 1.126298,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
-      ],
-      "env": {
-        "EAN": "3502110008329",
-        "QUERY": "Pepsi 1500 ML",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "Pepsi 1500 ML",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251130-130045/08-casino"
-      }
-    },
-    {
-      "adapter": "spar",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "2,17",
-        "unit_price": "1,45 €/LITRE",
-        "quantity": "1,5L",
-        "title": "Pepsi Soda au Cola Classique 1,5L",
-        "url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462",
-        "note": "Spar Super · Saint-Médard-en-Jalles",
-        "store": "Spar Super · Saint-Médard-en-Jalles",
-        "matched_ean": "3502110008329",
-        "product": {
-          "title": "Pepsi Soda au Cola Classique 1,5L",
-          "brand": "PEPSI",
-          "qty": "1,5L",
-          "ean": "3502110008329",
-          "image_url": null,
-          "source": "casino"
-        },
-        "_meta": {
-          "store_code": "TL832",
-          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
-          "query": "Pepsi 1500 ML",
-          "timestamp": "2025-11-30T12:01:52.889116+00:00",
-          "direct_url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462",
-          "supports_keywords": true
-        },
-        "candidates": [
-          {
-            "url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462",
-            "product": {
-              "title": "Pepsi Soda au Cola Classique 1,5L",
-              "brand": "PEPSI",
-              "kind": "",
-              "qty": "1,5L",
-              "qualifiers": [],
-              "ean": "3502110008329",
-              "image_url": null,
-              "source": "spar",
-              "raw_text": "",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          }
-        ]
-      },
-      "started_at": "2025-11-30T13:01:52.713380+01:00",
-      "finished_at": "2025-11-30T13:01:53.611696+01:00",
-      "duration_seconds": 0.898316,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
-      ],
-      "env": {
-        "EAN": "3502110008329",
-        "QUERY": "Pepsi 1500 ML",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "Pepsi 1500 ML",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251130-130045/09-spar"
-      }
-    },
-    {
-      "adapter": "intermarche",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "price": "1,19",
-        "title": "Soda saveur cola",
-        "url": "https://www.intermarche.com/produit/soda-saveur-cola/3502110008329",
-        "note": "Intermarché · Super  Talence",
-        "matched_ean": "3502110008329",
-        "unit_price": "0,79 € / L",
-        "quantity": null,
-        "store": "Super  Talence",
-        "candidates": [
-          {
-            "url": "https://www.intermarche.com/produit/soda-saveur-cola-sans-sucres/3502110009357",
-            "product": {
-              "title": "PepsiSoda saveur  cola sans sucres",
-              "brand": "PepsiSoda",
-              "kind": "",
-              "qty": "",
-              "qualifiers": [],
-              "ean": "3502110009357",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/ramequins-125-ml/3250390139034",
-            "product": {
-              "title": "Apta, une marque IntermarchéRamequins 125 ml",
-              "brand": "Apta,",
-              "kind": "",
-              "qty": "",
-              "qualifiers": [],
-              "ean": "3250390139034",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/soda-saveur-cola-sans-sucres/3168930175957",
-            "product": {
-              "title": "PepsiSoda saveur cola sans sucres",
-              "brand": "PepsiSoda",
-              "kind": "",
-              "qty": "",
-              "qualifiers": [],
-              "ean": "3168930175957",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/biberon-poignees-col-large-300-ml-0m+/3250393107481",
-            "product": {
-              "title": "Pommette, une marque IntermarchéBiberon poignées col large 300  ml 0m+",
-              "brand": "Pommette,",
-              "kind": "",
-              "qty": "",
-              "qualifiers": [],
-              "ean": "3250393107481",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://www.intermarche.com/produit/soda-saveur-cola/3502110008329",
-            "product": {
-              "title": "PepsiSoda saveur cola",
-              "brand": "PepsiSoda",
-              "kind": "",
-              "qty": "",
-              "qualifiers": [],
-              "ean": "3502110008329",
-              "image_url": null,
-              "source": "intermarche",
-              "raw_text": "<!DOCTYPE  html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          }
-        ],
-        "_meta": {
-          "supports_keywords": true
-        },
-        "nutriscore_grade": "e",
-        "nutriscore_image": null
-      },
-      "started_at": "2025-11-30T13:01:53.612496+01:00",
-      "finished_at": "2025-11-30T13:02:46.614559+01:00",
-      "duration_seconds": 53.002063,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
-      ],
-      "env": {
-        "EAN": "3502110008329",
-        "QUERY": "Pepsi 1500 ML",
-        "HOME_URL": "https://www.intermarche.com/accueil",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": null,
-      "metadata": {
-        "attempt_query": "Pepsi 1500 ML",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251130-130045/10-intermarche"
-      }
-    },
-    {
-      "adapter": "leclerc",
-      "status": "OK",
-      "payload": {
-        "status": "OK",
-        "title": "Soda au cola Pepsi La bouteille de 1.5L",
-        "price": "1,17",
-        "unit_price": "0,78 € / l",
-        "quantity": null,
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx",
-        "matched_ean": "3502110008329",
-        "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-30T12:02:48Z · E.Leclerc Drive · Bruges",
-        "_meta": {
-          "supports_keywords": true
-        },
-        "equivalent": false,
-        "product": {
-          "title": "Soda au cola Pepsi La bouteille de 1.5L",
-          "brand": "",
-          "kind": "",
-          "qty": "",
+          "price": null,
+          "quantity": null,
           "qualifiers": [],
           "ean": "3502110008329",
-          "image_url": null,
-          "source": "leclerc",
-          "raw_text": ""
-        },
-        "candidates": [
-          {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx",
-            "product": {
-              "title": "Soda au cola Pepsi La bouteille de 1.5L",
-              "brand": "Soda",
-              "kind": "",
-              "qty": "",
-              "qualifiers": [],
-              "ean": "3502110008329",
-              "image_url": null,
-              "source": "leclerc",
-              "raw_text": "",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          }
-        ]
-      },
-      "started_at": "2025-11-30T13:02:46.618486+01:00",
-      "finished_at": "2025-11-30T13:02:48.440195+01:00",
-      "duration_seconds": 1.821709,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
-      "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
-      ],
-      "env": {
-        "EAN": "3502110008329",
-        "QUERY": "Pepsi Soda 1.5 L",
-        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
-        "HEADLESS": "0"
-      },
-      "exit_code": 0,
-      "error": null,
-      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[LECLERC_DEBUG] DIRECT_URL mode: https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Pepsi Soda 1.5 L' direct_url:True\n[LECLERC_DEBUG] Navigating directly to https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx\n[LECLERC_DEBUG] Direct navigation successful -> 1.03s",
-      "metadata": {
-        "attempt_query": "Pepsi Soda 1.5 L",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251130-130045/11-leclerc"
-      }
-    },
-    {
-      "adapter": "monoprix",
-      "status": "NO_RESULTS",
-      "payload": {
-        "status": "NO_RESULTS",
-        "price": null,
-        "title": null,
-        "url": null,
-        "note": null,
-        "image": null,
-        "matched_ean": null,
-        "unit_price": null,
-        "quantity": null,
-        "store": null,
-        "raw_text": null,
-        "extras": null,
-        "candidates": [],
-        "_meta": {
-          "supports_keywords": true
+          "image_url": "https://media.carrefour.fr/media/referential/media/a4d672e7484749aaaf3f77fd9a53 5ac8/03502110009357_H1N1_s05.jpeg",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-30T13:02:48.442179+01:00",
-      "finished_at": "2025-11-30T13:03:20.330929+01:00",
-      "duration_seconds": 31.88875,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "started_at": "2025-12-17T17:06:42.122879+01:00",
+      "finished_at": "2025-12-17T17:07:10.422518+01:00",
+      "duration_seconds": 28.299639,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
       ],
       "env": {
         "EAN": "3502110008329",
-        "QUERY": "Pepsi 1500 ML",
-        "HOME_URL": "https://courses.monoprix.fr/",
+        "QUERY": "3502110008329",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
         "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] ERROR: EAN '3502110008329' not found in descriptor store. Scoring will fail.\n[MONOPRIX_DEBUG] Search terms: ['Pepsi 1500 ML', 'Pepsi 1,50 L', 'Pepsi 1,50 L']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/3: 'Pepsi 1500 ML'\n[MONOPRIX_DEBUG]  - Typing 'Pepsi 1500 ML' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Pepsi%201500%20ML\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'Pepsi 1,50 L'\n[MONOPRIX_DEBUG]  - Typing 'Pepsi 1,50 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Pepsi%201%2C50%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 3/3: 'Pepsi 1,50 L'\n[MONOPRIX_DEBUG]  - Typing 'Pepsi 1,50 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Pepsi%201%2C50%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, image=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=None)\n[MONOPRIX_DEBUG] Closing browser",
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Successfully extracted data from JSON State: {'title': 'Soda au Cola \nPEPSI', 'quantity': '1,5L', 'price': 1.25, 'unit_price': '0.83 € / L', 'image': \nNone}\n[INFO] JSON State has no image, navigating to PDP...\n[INFO] Now on PDP: https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329\n[INFO] Got image from PDP og:image: \nhttps://media.carrefour.fr/media/referential/media/d9ddb464b...\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 3502110008329. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Soda au Cola \nPEPSI', 'quantity': '1,5L', 'price': 1.25, 'unit_price': '0.83 € / L', 'image': \nNone}\n[INFO] JSON State has no image, navigating to PDP...\n[INFO] Now on PDP: \nhttps://www.carrefour.fr/p/soda-au-cola-zero-sucres-pepsi-3502110009357\n[INFO] Got image from PDP og:image: \nhttps://media.carrefour.fr/media/referential/media/a4d672e74...",
       "metadata": {
-        "attempt_query": "Pepsi 1500 ML",
-        "debug_dir": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251130-130045/12-monoprix"
+        "attempt_query": "3502110008329",
+        "visual_score": null
       }
     }
   ],
   "finder": {
     "consolidated": {
-      "title": "Pepsi 1,5L",
-      "brand": "Pepsi",
+      "title": "Soda au Cola PEPSI",
+      "brand": "Soda",
       "kind": "",
-      "qty": "1500 ml",
+      "qty": "1,5L",
+      "price": null,
+      "quantity": null,
       "qualifiers": [],
       "ean": "3502110008329",
-      "image_url": null,
+      "image_url": "https://media.carrefour.fr/media/referential/media/a4d672e7484749aaaf3f77fd9a53 5ac8/03502110009357_H1N1_s05.jpeg",
       "source": "consolidated",
-      "raw_text": "",
+      "raw_text": "Soda au Cola PEPSI",
       "seed_query": "",
       "leclerc_queries": []
     },
-    "keywords": null,
+    "keywords": [
+      "Pepsi Cola 1,5L",
+      "Cola Pepsi 1,5L",
+      "Pepsi Soda",
+      "Soda au Cola PEPSI",
+      "Soda au Cola",
+      "Soda pepsi 1.5L",
+      "Soda pepsi 1.50 L",
+      "Soda pepsi 1,50 L"
+    ],
     "candidates": [],
     "decision": null,
     "audit": []

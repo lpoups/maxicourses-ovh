@@ -1,0 +1,108 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-12-10T09:52:12.076317+01:00",
+  "finished_at": "2025-12-10T09:52:38.588666+01:00",
+  "duration_seconds": 26.512349,
+  "reference": {
+    "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "description": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "source": "auchan",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": "Beverages,Carbonated drinks,Sodas,Colas",
+    "image": "./assets/5000112611861.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251210-095212"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,39",
+        "unit_price": "1,37 € / L",
+        "quantity": "1.75 L",
+        "title": "Boisson gazeuse aux extraits végétaux goût original",
+        "url": "https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-original/pr-C1211988",
+        "matched_ean": "5000112611861",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Boisson gazeuse aux extraits végétaux goût original",
+          "brand": "Boisson",
+          "kind": "",
+          "qty": "1.75 L",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-10T09:52:12.079825+01:00",
+      "finished_at": "2025-12-10T09:52:27.046054+01:00",
+      "duration_seconds": 14.966229,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Page already on Auchan, checking if reload needed.\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Found cookie button with text: Accepter et fermer\n[auchan] CONSOLE: data =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: initData =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] REQ_FAILED: https://ars-privacy.my.onetrust.com/request/v1/consentreceipts net::ERR_NAME_NOT_RESOLVED\n[auchan] CONSOLE: Failed to load resource: net::ERR_NAME_NOT_RESOLVED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dl=https%3A%2F%2Fwww.auchan.fr%2Fmagasins%2Fdrive%2Fauchan-drive-supermarche-talence-gallieni%2Fs-6117&scrsrc=www.googletagmanager.com&rnd=361178715.1765356734&dt=Auchan%20Drive%20Supermarch%C3%A9%20Talence-Gallieni.%20Horaires%2C%20adresse%2C%20livraison%20courses%20%C3%A0%20domicile&auid=291873728.1765356734&navt=n&npa=0&gtm=45He5c90h1v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528500~104573694~104684208~104684211~105391252~115583767~115938466~115938469~116184927~116184929~116217636~116217638~116251938~116251940~116744867&tft=1765356734155&tfd=916&apve=1&apvf=f net::ERR_ABORTED\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ✅ Toast 'C'est noté' APPEARED.\n[auchan] Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ✅ Toast DISAPPEARED. Proceeding to search.\n[auchan] REQ_FAILED: https://bat.bing.com/actionp/0?ti=4020690&tm=gtm002&Ver=2&mid=2311b252-9dbb-41b0-8122-ffe8928edb0f&bo=10&sid=5a53daa0d36311f0b3404f6b71604f59&vid=8edb30e09e1111f085263b1c9ff63dc0&vids=0&msclkid=N&evt=pageHide&asc=G net::ERR_ABORTED\n[auchan] REQ_FAILED: https://c.contentsquare.net/display?cvars=%7B%221%22%3A%5B%22authenticated%22%2C%22not_authenticated%22%5D%2C%223%22%3A%5B%22pageType%22%2C%22place%22%5D%2C%224%22%3A%5B%22pageSubType%22%2C%22PLACE%22%5D%2C%2211%22%3A%5B%22sellerType%22%2C%22Non%20renseigne%22%5D%2C%2219%22%3A%5B%22journeyType%22%2C%22GROCERY%22%5D%7D&cvarp=%7B%221%22%3A%5B%22authenticated%22%2C%22not_authenticated%22%5D%2C%223%22%3A%5B%22pageType%22%2C%22place%22%5D%2C%224%22%3A%5B%22pageSubType%22%2C%22PLACE%22%5D%2C%2211%22%3A%5B%22sellerType%22%2C%22Non%20renseigne%22%5D%2C%2219%22%3A%5B%22journeyType%22%2C%22GROCERY%22%5D%7D&v=15.154.4&pid=1613&pn=1&sn=1&uu=eab495c8-a36f-a663-a15c-1e32632790df&ct=0 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://c.contentsquare.net/v2/events?uu=eab495c8-a36f-a663-a15c-1e32632790df&sn=1&hd=1765356734&v=15.154.4&pid=1613&pn=1&str=96&di=220&dc=529&fl=529&sr=35&mdh=3492&hlm=true&ct=0 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://analytics.tiktok.com/api/v2/pixel/inter net::ERR_ABORTED\n[auchan] CONSOLE: data =  {event_type: VIEW_CONTENT, price: 2.39, item_ids: Array(1), description: PDP, currency: EUR}\n[auchan] CONSOLE: initData =  {event_type: VIEW_CONTENT, price: 2.39, item_ids: Array(1), description: PDP, currency: EUR}\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dl=https%3A%2F%2Fwww.auchan.fr%2Fcoca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-original%2Fpr-C1211988&scrsrc=www.googletagmanager.com&rnd=420059863.1765356745&dt=COCA-COLA%20Boisson%20gazeuse%20aux%20extraits%20v%C3%A9g%C3%A9taux%20go%C3%BBt%20original%201%2C75l%20pas%20cher%20-%20Auchan.fr&auid=291873728.1765356734&navt=n&npa=0&gtm=45He5c90v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528501~104684208~104684211~105391253~115583767~115616986~115938466~115938468~116184927~116184929~116217636~116217638~116251938~116251940&tft=1765356744572&tfd=1986&apve=1&apvf=f net::ERR_ABORTED\n[auchan] CONSOLE: Firing Pinterest event: pagevisit\n[auchan] CONSOLE: Event Data:{\"pageTitle\":\"COCA-COLA Boisson gazeuse aux extraits végétaux goût original 1,75l pas cher - Auchan.fr\",\"pageUrl\":\"https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-original/pr-C1211988\",\"np\":\"gtm\",\"gtm_version\":\"legacy\",\"line_items\":[{\"product_id\":\"a9dc7385-5d5d-444e-9dfa-315f64397849\",\"product_category\":\"Eaux  jus  soda  thés glacés > Colas  boissons gazeuses  énergisantes > Colas > Colas classiques\"}]}\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Attempting to reveal price (clicking 'Afficher le prix')...\n[auchan] Price revealed!\n[auchan] Attempt 1: price_text='2,39€' value='2.39'",
+      "metadata": {
+        "attempt_query": "5000112611861",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Boisson gazeuse aux extraits végétaux goût original",
+      "brand": "Boisson",
+      "kind": "",
+      "qty": "1.75 L",
+      "qualifiers": [],
+      "ean": "5000112611861",
+      "image_url": "https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/",
+      "source": "consolidated",
+      "raw_text": "Soda COCA-COLA Original - Bouteille 1,75L Boisson gazeuse aux extraits végétaux goût original",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Coca-Cola Original 1.75L",
+      "Coca-Cola 1.75L",
+      "Coca-Cola Boisson gazeuse",
+      "Boisson gazeuse aux extraits",
+      "Boisson gazeuse aux",
+      "Boisson extraits 1.75 L",
+      "Boisson extraits 1,75 L",
+      "Boisson extraits 175 CL"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

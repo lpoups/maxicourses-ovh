@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-12-17T06:48:14.585787+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Perrier Eau 6*1 L",
+      "Perrier Eau minérale 6*1 L",
+      "Perrier Eau minérale"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "Perrier Eau 6*1 L",
+      "fallback_specific": "Perrier Eau minérale 6*1 L",
+      "fallback_broad": "Perrier Eau minérale"
+    },
+    "raw": {
+      "golden": "Perrier Eau 6*1 L",
+      "fallback_specific": "Perrier Eau minérale 6*1 L",
+      "fallback_broad": "Perrier Eau minérale"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Eau minérale naturelle gazeuse\",\n    \"brand\": \"Perrier\",\n    \"quantity\": \"6*1 l\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"ean\": \"7613035833289\",\n    \"source\": \"unknown\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-17T05:48:13Z\",\n    \"brand\": \"Perrier\",\n    \"name\": \"Eau minérale naturelle gazeuse\",\n    \"quantity\": \"6*1 l\",\n    \"categories\": \"Beverages, Carbonated drinks, Waters, Spring waters, Mineral waters, Unsweetened beverages, Carbonated waters, en:carbonated-mineral-waters\",\n    \"nutriscore_grade\": \"a\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"not-applicable\",\n    \"nova_group\": \"1\",\n    \"removed\": false,\n    \"seed_query\": \"Perrier Eau minérale naturelle gazeuse 6*1 l\",\n    \"leclerc_query\": \"Perrier Eau 6*1 L\",\n    \"leclerc_queries\": [\n      \"Perrier Eau 6*1 L\",\n      \"Perrier Eau minérale 6*1 L\",\n      \"Perrier 6*1 L\",\n      \"Eau minérale 6*1 L\"\n    ]\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CnegPGjCR8vNuguezCodYFX3VeYmF\", \"object\": \"chat.completion\", \"created\": 1765950493, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Perrier Eau 6*1 L\\\",\\n    \\\"fallback_specific\\\": \\\"Perrier Eau minérale 6*1 L\\\",\\n    \\\"fallback_broad\\\": \\\"Perrier Eau minérale\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 629, \"completion_tokens\": 50, \"total_tokens\": 679, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e413f45763\"}"
+}

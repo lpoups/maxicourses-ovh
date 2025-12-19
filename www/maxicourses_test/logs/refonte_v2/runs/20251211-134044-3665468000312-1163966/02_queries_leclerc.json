@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-12-11T13:40:44.654550+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Destop Destop 950ML Destop déb",
+      "Destop Gel déboucheur 950ml",
+      "Destop déboucheur 950ml",
+      "Destop déboucheur"
+    ],
+    "secondary_keywords": [
+      "destop",
+      "déboucheur",
+      "liquide",
+      "multi",
+      "usages",
+      "gel",
+      "canalisations",
+      "à",
+      "soude",
+      "entrée",
+      "générée",
+      "automatiquement",
+      "descriptif",
+      "requis",
+      "950ml",
+      "950",
+      "0.95",
+      "0.95l"
+    ],
+    "category": "generic",
+    "structured": {
+      "golden": "Destop Gel déboucheur 950ml",
+      "fallback_specific": "Destop déboucheur 950ml",
+      "fallback_broad": "Destop déboucheur"
+    },
+    "raw": {
+      "golden": "Destop Gel déboucheur 950ml",
+      "fallback_specific": "Destop déboucheur 950ml",
+      "fallback_broad": "Destop déboucheur"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Gel déboucheur de canalisations à la soude\",\n    \"brand\": \"Destop\",\n    \"quantity\": \"950 ml\",\n    \"description\": \"Entrée générée automatiquement – descriptif requis.\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3665468000312\",\n    \"_id\": \"3665468000312\",\n    \"brand\": \"Destop\",\n    \"created_at\": \"2025-12-11T11:52:51.701000\",\n    \"image\": \"/assets/3665468000312.jpg\",\n    \"note\": \"2025-11-01T11:32:40Z · Monoprix auto\",\n    \"nutriscore_grade\": \"e\",\n    \"nutriscore_image\": \"/assets/nutriscore/nutriscore-unknown.svg\",\n    \"quantity\": \"950 ml\",\n    \"queries\": {\n      \"monoprix\": [\n        \"destop déboucheur 950ml\",\n        \"déboucheur liquide destop\",\n        \"destop ménagers\",\n        \"Destop\",\n        \"Destop 950ML\",\n        \"Destop déboucheur\",\n        \"Destop déboucheur Liquide\"\n      ],\n      \"casino\": [\n        \"destop 950 ml\",\n        \"destop deboucheur 950\",\n        \"deboucheur liquide destop\"\n      ],\n      \"intermarche\": [\n        \"Destop Déboucheur Liquide\",\n        \"Déboucheur Liquide Destop\",\n        \"Destop Ménagers\",\n        \"Destop\",\n        \"Destop 950ML\",\n        \"Destop déboucheur\",\n        \"Destop déboucheur 950ML\"\n      ]\n    },\n    \"removed\": false,\n    \"source\": \"carrefour_super\",\n    \"updated_at\": \"2025-12-11T12:35:17.057000\",\n    \"keywords\": [\n      \"Destop Destop 950ML Destop déb\",\n      \"Destop déboucheur 950ml\",\n      \"Destop Déboucheur liquide\",\n      \"Destop multi-usages 950ml\",\n      \"Destop Gel déboucheur\"\n    ],\n    \"stores\": {\n      \"auchan\": {\n        \"url\": \"https://www.auchan.fr/destop-gel-deboucheur-de-canalisations-a-la-soude/pr-C1628937\",\n        \"price\": \"4,02\",\n        \"status\": \"OK\",\n        \"image_url\": \"https://cdn.auchan.fr/media/S010000000403W3PRIMARY_1200x1200/B2CD/\",\n        \"updated_at\": \"2025-12-11T12:53:00.728805+01:00\"\n      },\n      \"image\": {\n        \"url\": \"https://media.carrefour.fr/medias/28bb940e3a8b49b58446338e8f270c3f/p_540x540/03 665468000312_A1N1_s03.jpeg\"\n      },\n      \"intermarche\": {\n        \"url\": \"https://www.intermarche.com/produit/deboucheur-liquide/3665468000312\",\n        \"price\": \"3,68\",\n        \"status\": \"OK\",\n        \"image_url\": null,\n        \"updated_at\": \"2025-12-11T12:54:37.292641+01:00\"\n      },\n      \"carrefour_market\": {\n        \"url\": \"https://www.carrefour.fr/p/deboucheur-liquide-multi-usages-destop-3665468000312 \",\n        \"price\": \"3,79\",\n        \"status\": \"OK\",\n        \"image_url\": \"https://media.carrefour.fr/medias/28bb940e3a8b49b58446338e8f270c3f/p_540x540/03 665468000312_A1N1_s03.jpeg\",\n        \"updated_at\": \"2025-12-11T13:26:59.458083+01:00\"\n      }\n    },\n    \"title\": \"Gel déboucheur de canalisations à la soude\",\n    \"leclerc_query\": \"Destop Déboucheur 950 ML\",\n    \"leclerc_queries\": [\n      \"Destop Déboucheur 950 ML\",\n      \"Destop Déboucheur Liquide 950 ML\",\n      \"Destop 950 ML\",\n      \"Déboucheur Liquide 950 ML\"\n    ],\n    \"primary_keywords\": [\n      \"Destop 950 ML\"\n    ],\n    \"secondary_keywords\": [\n      \"Liquide\",\n      \"Multi\",\n      \"Usages\",\n      \"flacon\",\n      \"950 ML\"\n    ],\n    \"seed_query\": \"Destop Gel déboucheur canalisations soude Entrée générée\",\n    \"seed_primary_name\": \"Déboucheur Liquide Multi-Usages DESTOP\",\n    \"seed_primary_quantity\": \"950 ML\",\n    \"description\": \"Entrée générée automatiquement – descriptif requis.\",\n    \"name\": \"Gel déboucheur de canalisations à la soude\",\n    \"courseu_url\": \"https://www.coursesu.com/p/deboucheur-liquide-destop-flacon-950ml/3867435.html\",\n    \"leclerc_url\": \"https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-209859-Deboucheur-Liquide-Destop-.aspx\",\n    \"carrefour_city_url\": \"https://www.carrefour.fr/p/deboucheur-liquide-multi-usages-destop-3665468000312\",\n    \"carrefour_market_url\": \"https://www.carrefour.fr/p/deboucheur-liquide-multi-usages-destop-3665468000312\",\n    \"carrefour_super_url\": \"https://www.carrefour.fr/p/deboucheur-liquide-multi-usages-destop-3665468000312\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-ClaGJFWLVxFWonbC7HYnxtS3ytE5s\", \"object\": \"chat.completion\", \"created\": 1765456843, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Destop Gel déboucheur 950ml\\\",\\n    \\\"fallback_specific\\\": \\\"Destop déboucheur 950ml\\\",\\n    \\\"fallback_broad\\\": \\\"Destop déboucheur\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1524, \"completion_tokens\": 46, \"total_tokens\": 1570, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_a4d13246c5\"}"
+}

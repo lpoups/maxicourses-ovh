@@ -1,0 +1,85 @@
+{
+  "ean": "8006540882351",
+  "image_path": null,
+  "started_at": "2025-12-07T15:05:20.057360+01:00",
+  "finished_at": "2025-12-07T15:05:24.937429+01:00",
+  "duration_seconds": 4.880069,
+  "reference": {
+    "title": null,
+    "description": "Entrée générée automatiquement – descriptif requis.",
+    "source": "unknown",
+    "brand": null,
+    "quantity": null,
+    "categories": null,
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8006540882351/debug/run-8006540882351-20251207-150520"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "search_failed:8006540882351",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-07T15:05:20.057755+01:00",
+      "finished_at": "2025-12-07T15:05:24.225082+01:00",
+      "duration_seconds": 4.167327,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "8006540882351",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.cookielaw.org/consent/86c21506-0b09-4826-a344-338a924b0f26/86c21506-0b09-4826-a344-338a924b0f26.json' from origin 'https://www.auchan.fr' has been blocked by CORS policy: Request header field upgrade-insecure-requests is not allowed by Access-Control-Allow-Headers in preflight response.\n[auchan] REQ_FAILED: https://cdn.cookielaw.org/consent/86c21506-0b09-4826-a344-338a924b0f26/86c21506-0b09-4826-a344-338a924b0f26.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Error in choose_drive: Locator.count: Execution context was destroyed, most likely because of a navigation\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-1/init.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-1/init.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-1/layout.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-1/layout.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-1/common.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-1/common.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to font at 'https://cdn.intermarche.com/web/assets/92-0-4-1/_next/static/media/OpenSans-VariableFont_wght_sliced-subset.aa05de0b.woff2' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/web/assets/92-0-4-1/_next/static/media/OpenSans-VariableFont_wght_sliced-subset.aa05de0b.woff2 net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-1/uikit.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-1/uikit.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-1/fidelity.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-1/fidelity.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] search input not found\n[auchan] Search typing failed, but fallback (refresh) is DISABLE per user request.",
+      "metadata": {
+        "attempt_query": "8006540882351"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "",
+      "brand": "",
+      "kind": "",
+      "qty": "",
+      "qualifiers": [],
+      "ean": "8006540882351",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Entrée générée automatiquement – descriptif requis.",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

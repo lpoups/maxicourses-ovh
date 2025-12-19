@@ -1,0 +1,69 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-12-18T10:44:32.782726+01:00",
+  "finished_at": "2025-12-18T10:44:54.985843+01:00",
+  "duration_seconds": 22.203117,
+  "reference": {
+    "title": null,
+    "description": null,
+    "source": "courseu",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": null,
+    "image": "/assets/5000112611861.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251218-104432"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_super",
+      "status": "CF_BLOCK",
+      "payload": {
+        "status": "CF_BLOCK",
+        "price": null,
+        "store": null,
+        "url": "https://www.carrefour.fr/s?q=5000112611861",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-18T10:44:32.786268+01:00",
+      "finished_at": "2025-12-18T10:44:54.343975+01:00",
+      "duration_seconds": 21.557707,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[WARN] Cloudflare challenge detected (Title: Un instant…). Attempting to \nsolve...\n[ERROR] Challenge failed after 15s",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    }
+  ],
+  "finder": null
+}

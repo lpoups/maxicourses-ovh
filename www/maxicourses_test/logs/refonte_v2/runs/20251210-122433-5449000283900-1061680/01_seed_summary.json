@@ -1,0 +1,86 @@
+{
+  "timestamp": "2025-12-10T12:24:33.605009+01:00",
+  "status": "ok",
+  "data": {
+    "profile": {
+      "brand": "Coca-Cola",
+      "name": "Coca-Cola",
+      "quantity": "6 x 330 ml",
+      "categories": [
+        "Boissons et préparations de boissons",
+        "Boissons",
+        "Boissons gazeuses",
+        "Sodas",
+        "Sodas au cola",
+        "Boissons avec sucre ajouté"
+      ],
+      "nutriscore_grade": "e",
+      "nutriscore_image": "https://static.openfoodfacts.org/images/attributes/nutriscore-e.svg",
+      "ecoscore_grade": "not-applicable",
+      "description": "Boisson gazeuse aux extraits végétaux goût original boîte",
+      "image": "https://cdn.auchan.fr/media/P02000000000ZYAPRIMARY_1200x1200/B2CD/"
+    },
+    "keywords": [
+      "Coca-Cola Boisson gazeuse",
+      "Coca-Cola 6 x 330 ml",
+      "Coca-Cola Sodas au cola",
+      "Coca-Cola goût original",
+      "Coca-Cola extrait végétaux",
+      "Coca-Cola sucre ajouté",
+      "Coca-Cola boîte",
+      "Coca-Cola nutriscore e"
+    ],
+    "primary_keywords": [
+      "Coca-Cola Coca-Cola 6X Coca-Co",
+      "Coca-Cola Boisson gazeuse",
+      "Coca-Cola 6 x 330 ml",
+      "Coca-Cola Sodas cola",
+      "Coca-Cola goût original"
+    ],
+    "secondary_keywords": [
+      "coca",
+      "cola",
+      "extraits",
+      "végétaux",
+      "goût",
+      "original",
+      "boîte",
+      "6x",
+      "6"
+    ],
+    "category": "generic",
+    "raw": {
+      "profile": {
+        "brand": "Coca-Cola",
+        "name": "Coca-Cola",
+        "quantity": "6 x 330 ml",
+        "categories": [
+          "Boissons et préparations de boissons",
+          "Boissons",
+          "Boissons gazeuses",
+          "Sodas",
+          "Sodas au cola",
+          "Boissons avec sucre ajouté"
+        ],
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://static.openfoodfacts.org/images/attributes/nutriscore-e.svg",
+        "ecoscore_grade": "not-applicable",
+        "description": "Boisson gazeuse aux extraits végétaux goût original boîte",
+        "image": "https://cdn.auchan.fr/media/P02000000000ZYAPRIMARY_1200x1200/B2CD/"
+      },
+      "keywords": [
+        "Coca-Cola Boisson gazeuse",
+        "Coca-Cola 6 x 330 ml",
+        "Coca-Cola Sodas au cola",
+        "Coca-Cola goût original",
+        "Coca-Cola extrait végétaux",
+        "Coca-Cola sucre ajouté",
+        "Coca-Cola boîte",
+        "Coca-Cola nutriscore e"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"seeds\": [\n    {\n      \"adapter\": \"auchan\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"4,26\",\n        \"unit_price\": \"2,15 € / L\",\n        \"quantity\": null,\n        \"title\": \"Boisson gazeuse aux extraits végétaux goût original boîte\",\n        \"url\": \"https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-original-boite/pr-C1394089\",\n        \"matched_ean\": \"5449000283900\",\n        \"store\": \"Auchan Drive Supermarché Talence-Gallieni\",\n        \"note\": \"Auchan Talence\",\n        \"image\": \"https://cdn.auchan.fr/media/P02000000000ZYAPRIMARY_1200x1200/B2CD/\",\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Boisson gazeuse aux extraits végétaux goût original boîte\",\n          \"brand\": \"Boisson\",\n          \"kind\": \"\",\n          \"qty\": \"\",\n          \"price\": null,\n          \"quantity\": null,\n          \"qualifiers\": [],\n          \"ean\": \"5449000283900\",\n          \"image_url\": \"https://cdn.auchan.fr/media/P02000000000ZYAPRIMARY_1200x1200/B2CD/\",\n          \"source\": \"auchan\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"5449000283900\",\n        \"visual_score\": null\n      }\n    }\n  ],\n  \"context\": {\n    \"descriptor\": {\n      \"ean\": \"5449000283900\",\n      \"source\": \"auchan\",\n      \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-10T11:24:09Z\",\n      \"brand\": \"Coca-Cola\",\n      \"name\": \"Coca-Cola\",\n      \"quantity\": \"6 x 330 ml\",\n      \"categories\": \"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Sodas, Sodas au cola, Boissons avec sucre ajouté\",\n      \"nutriscore_grade\": \"e\",\n      \"nutriscore_image\": \"https://static.openfoodfacts.org/images/attributes/nutriscore-e.svg\",\n      \"ecoscore_grade\": \"not-applicable\",\n      \"removed\": false,\n      \"seed_query\": \"Coca-Cola Coca Cola Boisson gazeuse extraits végétaux goût\",\n      \"image\": \"https://cdn.auchan.fr/media/P02000000000ZYAPRIMARY_1200x1200/B2CD/\",\n      \"description\": \"Boisson gazeuse aux extraits végétaux goût original boîte\",\n      \"leclerc_query\": \"Coca-Cola Coca 6 ML\",\n      \"leclerc_queries\": [\n        \"Coca-Cola Coca 6 ML\",\n        \"Coca-Cola Coca Cola 6 ML\",\n        \"Coca-Cola 6 ML\",\n        \"Coca Cola 6 ML\"\n      ]\n    },\n    \"ean\": \"5449000283900\"\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-ClCb017HVZhAWr7PrLT04nKJ7Wbtu\", \"object\": \"chat.completion\", \"created\": 1765365870, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"profile\\\": {\\n    \\\"brand\\\": \\\"Coca-Cola\\\",\\n    \\\"name\\\": \\\"Coca-Cola\\\",\\n    \\\"quantity\\\": \\\"6 x 330 ml\\\",\\n    \\\"categories\\\": [\\n      \\\"Boissons et préparations de boissons\\\",\\n      \\\"Boissons\\\",\\n      \\\"Boissons gazeuses\\\",\\n      \\\"Sodas\\\",\\n      \\\"Sodas au cola\\\",\\n      \\\"Boissons avec sucre ajouté\\\"\\n    ],\\n    \\\"nutriscore_grade\\\": \\\"e\\\",\\n    \\\"nutriscore_image\\\": \\\"https://static.openfoodfacts.org/images/attributes/nutriscore-e.svg\\\",\\n    \\\"ecoscore_grade\\\": \\\"not-applicable\\\",\\n    \\\"description\\\": \\\"Boisson gazeuse aux extraits végétaux goût original boîte\\\",\\n    \\\"image\\\": \\\"https://cdn.auchan.fr/media/P02000000000ZYAPRIMARY_1200x1200/B2CD/\\\"\\n  },\\n  \\\"keywords\\\": [\\n    \\\"Coca-Cola Boisson gazeuse\\\",\\n    \\\"Coca-Cola 6 x 330 ml\\\",\\n    \\\"Coca-Cola Sodas au cola\\\",\\n    \\\"Coca-Cola goût original\\\",\\n    \\\"Coca-Cola extrait végétaux\\\",\\n    \\\"Coca-Cola sucre ajouté\\\",\\n    \\\"Coca-Cola boîte\\\",\\n    \\\"Coca-Cola nutriscore e\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 770, \"completion_tokens\": 262, \"total_tokens\": 1032, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

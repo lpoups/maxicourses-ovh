@@ -1,0 +1,43 @@
+{
+  "timestamp": "2025-12-14T11:37:43.746925+01:00",
+  "status": "ok",
+  "data": {
+    "profile": {
+      "brand": "Perrier",
+      "name": "Eau minérale naturelle gazeuse",
+      "quantity": "6x1L"
+    },
+    "keywords": [
+      "Perrier Eau minérale gazeuse 6",
+      "Perrier Eau gazeuse 6x1L",
+      "Perrier Eau minérale 6x1L",
+      "Perrier Eau 6x1L"
+    ],
+    "primary_keywords": [
+      "Perrier Eau minérale",
+      "Perrier Eau minérale gazeuse 6",
+      "Perrier Eau gazeuse 6x1L",
+      "Perrier Eau minérale 6x1L"
+    ],
+    "secondary_keywords": [
+      "Perrier Eau 6x1L"
+    ],
+    "category": "generic",
+    "raw": {
+      "profile": {
+        "brand": "Perrier",
+        "name": "Eau minérale naturelle gazeuse",
+        "quantity": "6x1L"
+      },
+      "keywords": [
+        "Perrier Eau minérale gazeuse 6x1L",
+        "Perrier Eau gazeuse 6x1L",
+        "Perrier Eau minérale 6x1L",
+        "Perrier Eau 6x1L"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"seeds\": [\n    {\n      \"adapter\": \"carrefour_market\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"4,14\",\n        \"store\": \"Market Fondaudège\",\n        \"url\": \"https://www.carrefour.fr/s?q=7613035833289\",\n        \"note\": \"json_state_extraction\",\n        \"unit_price\": \"0,69 € / L\",\n        \"quantity\": \"6x1L\",\n        \"title\": \"Eau Minérale Naturelle Gazeuse PERRIER\",\n        \"matched_ean\": \"7613035833289\",\n        \"image\": null,\n        \"nutriscore_grade\": null,\n        \"nutriscore_image\": null,\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Eau Minérale Naturelle Gazeuse PERRIER\",\n          \"brand\": \"Eau\",\n          \"kind\": \"\",\n          \"qty\": \"6x1L\",\n          \"price\": null,\n          \"quantity\": null,\n          \"qualifiers\": [],\n          \"ean\": \"7613035833289\",\n          \"image_url\": null,\n          \"source\": \"carrefour_market\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"7613035833289\",\n        \"visual_score\": null\n      }\n    }\n  ],\n  \"context\": {\n    \"descriptor\": {\n      \"ean\": \"7613035833289\",\n      \"source\": \"carrefour_market\",\n      \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-14T10:37:01Z\",\n      \"brand\": \"Perrier\",\n      \"name\": \"Eau minérale naturelle gazeuse\",\n      \"quantity\": \"6*1 l\",\n      \"categories\": \"Beverages, Carbonated drinks, Waters, Spring waters, Mineral waters, Unsweetened beverages, Carbonated waters, en:carbonated-mineral-waters\",\n      \"nutriscore_grade\": \"a\",\n      \"nutriscore_image\": \"https://static.openfoodfacts.org/images/attributes/nutriscore-a.svg\",\n      \"ecoscore_grade\": \"not-applicable\",\n      \"nova_group\": \"1\",\n      \"removed\": false,\n      \"seed_query\": \"Perrier Eau minérale naturelle gazeuse 6*1 l\",\n      \"description\": \"Eau Minérale Naturelle Gazeuse PERRIER\",\n      \"leclerc_query\": \"Perrier Eau 6 L\",\n      \"leclerc_queries\": [\n        \"Perrier Eau 6 L\",\n        \"Perrier Eau Minérale 6 L\",\n        \"Perrier 6 L\",\n        \"Eau Minérale 6 L\"\n      ],\n      \"seed_primary_name\": \"Eau Minérale Naturelle Gazeuse PERRIER\",\n      \"seed_primary_quantity\": \"6x1L\"\n    },\n    \"ean\": \"7613035833289\"\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-Cmdlu74K4jHuagZXRUjHRppTMG7nl\", \"object\": \"chat.completion\", \"created\": 1765708662, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"profile\\\": {\\n    \\\"brand\\\": \\\"Perrier\\\",\\n    \\\"name\\\": \\\"Eau minérale naturelle gazeuse\\\",\\n    \\\"quantity\\\": \\\"6x1L\\\"\\n  },\\n  \\\"keywords\\\": [\\n    \\\"Perrier Eau minérale gazeuse 6x1L\\\",\\n    \\\"Perrier Eau gazeuse 6x1L\\\",\\n    \\\"Perrier Eau minérale 6x1L\\\",\\n    \\\"Perrier Eau 6x1L\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 917, \"completion_tokens\": 104, \"total_tokens\": 1021, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

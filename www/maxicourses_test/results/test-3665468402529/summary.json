@@ -1,0 +1,525 @@
+{
+  "3665468402529": {
+    "carrefour_city": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/s?q=3665468402529",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-16T08:16:07.983237+01:00",
+      "duration_seconds": 21.039297,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "12,45",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/s?q=3665468402529",
+        "note": "json_state_extraction",
+        "unit_price": "22,97 € / KG",
+        "quantity": "x42",
+        "title": "Capsules  Lave-vaisselle Ultimate 48h FINISH",
+        "matched_ean": "3665468402529",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules  Lave-vaisselle Ultimate 48h FINISH",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "x42",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3665468402529",
+          "image_url": null,
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-12-16T08:16:07.983237+01:00",
+      "duration_seconds": 19.392617,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_super": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "11,65",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/capsules-lave-vaisselle-tout-en-1-regular-ecolabel-s un-8720182787132",
+        "note": "json_state_extraction",
+        "unit_price": "21,49 € /  KG",
+        "quantity": "x42",
+        "title": "Capsules Lave-vaisselle Ultimate 48h FINISH",
+        "matched_ean": "3665468402529",
+        "image": "https://media.carrefour.fr/media/referential/media/95848c7abe3b44efb0bc58d63ebf 78df/08720182787132_H1N1_s09.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules Lave-vaisselle Ultimate 48h FINISH",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "x42",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3665468402529",
+          "image_url": "https://media.carrefour.fr/media/referential/media/95848c7abe3b44efb0bc58d63ebf 78df/08720182787132_H1N1_s09.jpeg",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-12-17T17:08:18.054394+01:00",
+      "duration_seconds": 29.247034,
+      "error": null,
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "10,99",
+          "store": "Lormont",
+          "url": "https://www.carrefour.fr/p/capsules-lave-vaisselle-tout-en-1-regular-ecolabel-s un-8720182787132",
+          "note": "json_state_extraction",
+          "unit_price": "20,28 € /  KG",
+          "quantity": "x42",
+          "title": "Capsules Lave-vaisselle Ultimate 48h FINISH",
+          "matched_ean": "3665468402529",
+          "image": "https://media.carrefour.fr/media/referential/media/95848c7abe3b44efb0bc58d63ebf 78df/08720182787132_H1N1_s09.jpeg",
+          "nutriscore_grade": null,
+          "nutriscore_image": null,
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Capsules Lave-vaisselle Ultimate 48h FINISH",
+            "brand": "Capsules",
+            "kind": "",
+            "qty": "x42",
+            "price": null,
+            "quantity": null,
+            "qualifiers": [],
+            "ean": "3665468402529",
+            "image_url": "https://media.carrefour.fr/media/referential/media/95848c7abe3b44efb0bc58d63ebf 78df/08720182787132_H1N1_s09.jpeg",
+            "source": "carrefour_super",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-12-16T09:46:50.669321+01:00",
+        "error": null,
+        "store_query": null
+      }
+    },
+    "auchan": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "search_failed:3665468402529",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-16T08:16:07.983237+01:00",
+      "duration_seconds": 25.921562,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "10,09",
+        "title": "Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate",
+        "url": "https://www.chronodrive.com/finish--powerball-utimate---tablettes-lave-vaissell e-tout-en-1-P543645",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": " 0,24 € / Pièce",
+        "quantity": "42 tablettes",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3665468402529",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate",
+          "brand": "Tablettes",
+          "kind": "",
+          "qty": "42 tablettes",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3665468402529",
+          "image_url": "https://media.carrefour.fr/medias/cc199586e10c423c95b466f3ea533406/p_200x200/03665468402529_C1N1_s03.png",
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-12-16T09:59:36.341291+01:00",
+      "duration_seconds": 9.355715,
+      "error": null,
+      "store_query": null,
+      "previous": {
+        "status": "OK",
+        "payload": {
+          "status": "OK",
+          "price": "10,09",
+          "title": "Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate",
+          "url": "https://www.chronodrive.com/finish--powerball-utimate---tablettes-lave-vaissell e-tout-en-1-P543645",
+          "note": "Chronodrive Le Haillan",
+          "unit_price": " 0,24 € / Pièce",
+          "quantity": "42 tablettes",
+          "store": "Chronodrive Le Haillan",
+          "matched_ean": "3665468402529",
+          "nutriscore_grade": "e",
+          "nutriscore_image": null,
+          "_meta": {
+            "supports_ean": true
+          },
+          "product": {
+            "title": "Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate",
+            "brand": "Tablettes",
+            "kind": "",
+            "qty": "42 tablettes",
+            "price": null,
+            "quantity": null,
+            "qualifiers": [],
+            "ean": "3665468402529",
+            "image_url": null,
+            "source": "chronodrive",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        },
+        "updated_at": "2025-12-16T08:16:07.983237+01:00",
+        "error": null,
+        "store_query": null
+      }
+    },
+    "courseu": {
+      "status": "NO_MATCH",
+      "payload": {
+        "status": "NO_MATCH",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": "https://www.coursesu.com/recherche?q=3665468402529",
+        "note": "No EAN found on product page - cannot validate",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-16T08:16:07.983237+01:00",
+      "duration_seconds": 16.732638,
+      "error": null,
+      "store_query": null
+    },
+    "g20": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-16T08:16:07.983237+01:00",
+      "duration_seconds": 0.584785,
+      "error": null,
+      "store_query": null
+    },
+    "casino": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Finish%20Capsules%20Lave-vaisselle",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Finish Capsules Lave-vaisselle",
+          "timestamp": "2025-12-16T07:11:24.966059+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-16T08:16:07.983237+01:00",
+      "duration_seconds": 1.614074,
+      "error": null,
+      "store_query": null
+    },
+    "spar": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Spar (404)",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/UNKNOWN?produit_recherche=Finish%20Tablettes%20lave-vaisselle",
+          "store_code": "UNKNOWN",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-merignac-33700/UNKNOWN",
+          "query": "Finish Tablettes lave-vaisselle",
+          "timestamp": "2025-12-16T08:55:07.123371+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-16T09:55:10.361968+01:00",
+      "duration_seconds": 0.645144,
+      "error": null,
+      "store_query": null,
+      "previous": {
+        "status": "NO_RESULTS",
+        "payload": {
+          "status": "NO_RESULTS",
+          "note": "Spar (404)",
+          "_meta": {
+            "search_url": "https://www.mescoursesdeproximite.com/recherche/UNKNOWN?produit_recherche=Finish%20Capsules%20Lave-vaisselle",
+            "store_code": "UNKNOWN",
+            "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-merignac-33700/UNKNOWN",
+            "query": "Finish Capsules Lave-vaisselle",
+            "timestamp": "2025-12-16T07:11:28.690354+00:00",
+            "supports_keywords": true
+          },
+          "candidates": []
+        },
+        "updated_at": "2025-12-16T08:16:07.983237+01:00",
+        "error": null,
+        "store_query": null
+      }
+    },
+    "intermarche": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-12-17T09:50:49.426050+01:00",
+      "duration_seconds": 11.011246,
+      "error": null,
+      "store_query": null,
+      "previous": {
+        "status": "NO_RESULTS",
+        "payload": {
+          "status": "NO_RESULTS",
+          "price": null,
+          "title": null,
+          "url": null,
+          "note": null,
+          "matched_ean": null,
+          "unit_price": null,
+          "quantity": null,
+          "store": null,
+          "candidates": [],
+          "_meta": {
+            "supports_keywords": true
+          },
+          "nutriscore_grade": null,
+          "nutriscore_image": null
+        },
+        "updated_at": "2025-12-17T06:50:43.722365+01:00",
+        "error": null,
+        "store_query": null
+      }
+    },
+    "leclerc": {
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_120s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-16T08:16:07.983237+01:00",
+      "duration_seconds": 120.082603,
+      "error": "timeout_after_120s",
+      "store_query": null
+    },
+    "monoprix": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "14,65",
+        "title": "Finish Capsules Lave-vaisselle  Ultimate 48H x42",
+        "url": "https://courses.monoprix.fr/products/finish-capsules-lave-vaisselle-ultimate-48 h-x42/MPX_6700380",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d82d 7874-a7d5-4352-ad7c-e376dc7b07df/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d82d 7874-a7d5-4352-ad7c-e376dc7b07df/300x300.jpg",
+        "matched_ean": "3665468402529",
+        "unit_price": null,
+        "quantity": "42 PARPACK",
+        "store": null,
+        "raw_text": "Aller  directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nMenu des onglets du haut de l’écran\nPage d’accueil\nRechercher un article\nSe connecter\nRéserver un  créneau\nRéserver un créneau\nAller au paiement\nNombre total d’articles dans  votre panier 0. Montant du panier 0,00 €.\n0,00 €\nMin 60,00 €\nNos  Rayons\nFavoris\nListe de courses\nProduits réguliers\nNEW-NOEL202520€ offerts  dès 80€ d'achats + 2 mois de livraison offerte*\nEN SAVOIR +\nAccueil\nEntretien & Nettoyage\nProduits Nettoyants et Multi Usages\nProduit Vaisselle\nEntretien  lave vaisselle\nFinish Capsules Lave-vaisselle Ultimate 48H x42\n42 par pack  0,35 € / article\n42 par pack\n(0,35 € / article)\n14,65  €\nAjouter\nInformations produit\n\n\nDescription Produit\nAvec Finish Ultimate  All in 1, obtenez une brillance ultime et une propreté exceptionnelle du 1er  coup, à chaque lavage ! Notre technologie ACTIVELIFT™ est efficace contre tous  les types de résidus de nourriture, même les taches incrustées depuis 48 heures, et cela sans besoin de pré-laver. Nos capsules protègent et prennent soin de  votre vaisselle tout en conservant sa brillance lavage après lavage. Notre  performance Ultimate avec 15% (en poids) de composés chimiques en moins que nos  tablettes classiques de poudre compacte Finish (en moyenne vs Finish Power).  Finish est la marque N°1 sur la base des ventes valeur globales de la catégorie  lave-vaisselle (source : NielsenIQ RMS data). Grâce à notre expertise, de  grandes marques de lave-vaisselle nous font confiance et nous  recommandent.\n\n\nOrigine\nPologne\nMarque\nFinish\nService consommateur\nRB  HYGIENE HOME FRANCE SAS 38 RUE VICTOR BASCH, CS11018, 91300 MASSY 01 69 93 17 00 euconsumercarefr@rb.com\nIngredients\n15 - <30% agents de surface non ioniques 5 - <15% agents de blanchiment oxygénés 5 - <15% polycarboxylates, phosphonates  Contient Enzymes (subtilisine, amylase), parfums (Benzyl Benzoate,  Geraniol)\nProducteur\nRECKITT BENCKISER FRANCE SAS 38 RUE VICTOR BASCH  91300MASSY\nAutres informations\nNe pas ingérer, en cas d'ingestion consulter un médecin. SGH07 - Nocif. Provoque une sévére irritation des yeux. Provoque une  irritation cutanée\nConseils d'utilisation\nToujours utiliser avec des mains  sèches pour éviter d'introduire de l'humidité dans l'emballage, ce qui pourrait  faire coller les capsules entre elles. Ultimate est emballé avec un film  biodégradable, 100 % soluble dans l'eau, qui ne nécessite pas de déballage. Ne  déchirez pas le film avant de l'utiliser, afin d'éviter le déversement de  produits chimiques. Placez le produit dans le bac à détergent sec pour éviter  que la capsule ne s'active avant le début du prélavage. Ne pas placer dans le  panier à couverts pour éviter d'affecter la performance ou la dissolution du  produit. Les capsules se collent les unes aux autres en cas d'humidité. Pour  éviter cela, toujours utiliser avec des mains sèches et conserver dans un  environnement sec, comme notre emballage d'origine. Ne pas les séparer si elles  sont collées les unes aux autres. Il est possible de placer jusqu'à deux  capsules collées dans le fond de la machine. Ce produit est conçu pour  fonctionner en cycle éco, ce qui permet d'économiser de l'énergie et de  l'eau.\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une  nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos  magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos  magasins avec Parapharmacie\nAide & Mentions\nDonnées personnelles et  cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": null,
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [
+            "descriptor_coverage"
+          ],
+          "candidate_quantity": "42 PARPACK",
+          "descriptor_token_coverage": {
+            "coverage": 0.3333333333333333,
+            "matched": [
+              "finish"
+            ],
+            "missing": [
+              "cafe",
+              "none"
+            ],
+            "total": 3
+          },
+          "missing_tokens": [
+            "cafe",
+            "none"
+          ],
+          "image_match": true,
+          "final_score": 45,
+          "plausible_baseline": false
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/finish-capsules-lave-vaisselle-ultimate-48 h-x42/MPX_6700380",
+            "product": {
+              "title": "Finish  Capsules Lave-vaisselle Ultimate 48H x42",
+              "brand": "Finish",
+              "kind": "",
+              "qty": "42 PARPACK",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3665468402529",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d82d 7874-a7d5-4352-ad7c-e376dc7b07df/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Menu des onglets du haut de l’écran Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers NEW-NOEL202520€ offerts dès 80€ d'achats",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "updated_at": "2025-12-16T08:46:00.377599+01:00",
+      "duration_seconds": 36.654008,
+      "error": null,
+      "store_query": null,
+      "previous": {
+        "status": "TIMEOUT",
+        "payload": {
+          "status": "TIMEOUT",
+          "error": "timeout_after_90s",
+          "_meta": {
+            "supports_keywords": true
+          },
+          "candidates": []
+        },
+        "updated_at": "2025-12-16T08:16:07.983237+01:00",
+        "error": "timeout_after_90s",
+        "store_query": null
+      }
+    },
+    "_finder": {
+      "consolidated": {
+        "title": "Capsules Lave-vaisselle Ultimate 48h FINISH",
+        "brand": "Capsules",
+        "kind": "",
+        "qty": "x42",
+        "price": null,
+        "quantity": null,
+        "qualifiers": [],
+        "ean": "3665468402529",
+        "image_url": "https://media.carrefour.fr/media/referential/media/95848c7abe3b44efb0bc58d63ebf 78df/08720182787132_H1N1_s09.jpeg",
+        "source": "consolidated",
+        "raw_text": "Entrée générée automatiquement – descriptif requis. Capsules Lave-vaisselle Ultimate 48h FINISH",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": [
+        "Finish Ultimate 48h x42",
+        "Finish Capsules Ultimate 48h",
+        "Finish Lave-vaisselle Capsules",
+        "Capsules Lave-vaisselle Ultimate 48h",
+        "Capsules Lave-vaisselle Ultimate",
+        "Capsules vaisselle X42",
+        "Capsules vaisselle ultimate",
+        "Capsules X42"
+      ],
+      "candidates": [],
+      "decision": null,
+      "audit": []
+    }
+  }
+}

@@ -242,6 +242,8 @@ async def focus_search_input(page):
     for selector in selectors:
         field = page.locator(selector).first
         try:
+            # Add wait to handle slow loading pages (especially if browser is busy)
+            await field.wait_for(state="visible", timeout=5000)
             if await field.count():
                 await field.click()
                 return field
@@ -716,8 +718,22 @@ async def extract_from_pdp(page) -> Optional[Result]:
     if not unit_price:
         unit_price = compute_unit_price_from_quantity(price_amount, quantity)
 
+    final_status = "OK"
+    try:
+        # Check for unavailability indicators
+        # 1. "Indisponible" text
+        # 2. "Bientôt disponible" text
+        # 3. Disabled "Ajouter" button
+        if await page.locator("text=Indisponible").count() > 0 or \
+           await page.locator("text=Bientôt disponible").count() > 0 or \
+           await page.locator("button[disabled]:has-text('Ajouter')").count() > 0:
+            log("Product appears unavailable (button disabled or text found). Setting status to INDISPONIBLE.")
+            final_status = "INDISPONIBLE"
+    except Exception:
+        pass
+
     return Result(
-        status="OK",
+        status=final_status,
         price=output_price,
         unit_price=unit_price,
         quantity=quantity,
@@ -751,8 +767,17 @@ async def run() -> Result:
     context = browser.contexts[0] if browser.contexts else await browser.new_context()
     if context.pages:
         page = context.pages[0]
+        log("Attached to existing page (avoiding Captcha).")
     else:
         page = await context.new_page()
+        log("Created new page.")
+    
+    try:
+        # Force clear state
+        await page.goto("about:blank")
+        await page.wait_for_timeout(500)
+    except:
+        pass
         
     start_url = page.url
     if "auchan.fr" in start_url:

@@ -1,0 +1,667 @@
+{
+  "ean": "8711000547342",
+  "image_path": null,
+  "started_at": "2025-12-02T16:29:34.235865+01:00",
+  "finished_at": "2025-12-02T16:36:54.031655+01:00",
+  "duration_seconds": 439.79579,
+  "reference": {
+    "title": "capsule espresso ristretto",
+    "description": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "source": "carrefour_super",
+    "brand": "L'Or",
+    "quantity": "5 L",
+    "categories": "Cafés en dosettes compatible Nespresso",
+    "image": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "f",
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251202-162934"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "11,40",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000547342",
+        "note": null,
+        "unit_price": "73,08 € / KG",
+        "quantity": null,
+        "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+        "matched_ean": "8711000547342",
+        "image": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+          "source": "carrefour_city",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T16:29:34.236649+01:00",
+      "finished_at": "2025-12-02T16:29:43.032246+01:00",
+      "duration_seconds": 8.795597,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,55",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000547342",
+        "note": null,
+        "unit_price": "61,22 € / KG",
+        "quantity": null,
+        "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+        "matched_ean": "8711000547342",
+        "image": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T16:29:43.036194+01:00",
+      "finished_at": "2025-12-02T16:29:51.634921+01:00",
+      "duration_seconds": 8.598727,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,35",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000547342",
+        "note": null,
+        "unit_price": "59,94 € / KG",
+        "quantity": null,
+        "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+        "matched_ean": "8711000547342",
+        "image": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T16:29:51.637254+01:00",
+      "finished_at": "2025-12-02T16:29:59.994298+01:00",
+      "duration_seconds": 8.357044,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "18,73",
+        "unit_price": "120,06 € / KG",
+        "quantity": "5 L",
+        "title": "Capsules de café Ristretto intensité 11 compatibles Nespresso",
+        "url": "https://www.auchan.fr/l-or-espresso-capsules-de-cafe-ristretto-intensite-11-com patibles-nespresso/pr-C1777914",
+        "matched_ean": "8711000547342",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S01000000040J8WPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café Ristretto intensité 11 compatibles Nespresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "5 L",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://cdn.auchan.fr/media/S01000000040J8WPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T16:29:59.995913+01:00",
+      "finished_at": "2025-12-02T16:30:12.736690+01:00",
+      "duration_seconds": 12.740777,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button.journey-button\n[auchan] Clicking 'Choisir ce drive'...\n[auchan] ⚠️ Button still visible after click.",
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "title": null,
+        "url": "https://www.chronodrive.com/lor--espresso---capsules-de-cafe-ristretto-n11-P540 %20702",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": null,
+        "quantity": null,
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-02T16:30:12.739452+01:00",
+      "finished_at": "2025-12-02T16:30:36.510790+01:00",
+      "duration_seconds": 23.771338,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,53",
+        "unit_price": null,
+        "quantity": null,
+        "title": "Café Capsules L'OR RISTRETTO N°11 - compatible NESPRESSO - x30",
+        "url": "https://www.coursesu.com/p/cafe-capsules-lor-ristretto-n11---compatible-nespres so---x30/6590200.html",
+        "note": "2025-12-02T15:30:50Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "8711000547342",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules L'OR RISTRETTO N°11 - compatible NESPRESSO - x30",
+          "brand": "Café",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T16:30:36.512049+01:00",
+      "finished_at": "2025-12-02T16:30:50.524069+01:00",
+      "duration_seconds": 14.01202,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-02T16:30:50.525725+01:00",
+      "finished_at": "2025-12-02T16:30:51.042367+01:00",
+      "duration_seconds": 0.516642,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=L%27Or%20ristretto%205%20L",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "L'Or ristretto 5 L",
+          "timestamp": "2025-12-02T15:30:51.942302+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-02T16:30:51.740256+01:00",
+      "finished_at": "2025-12-02T16:31:02.759221+01:00",
+      "duration_seconds": 11.018965,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or ristretto 5 L",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "L'Or ristretto 5 L",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251202-162934/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=L%27Or%20ristretto%205%20L",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "L'Or ristretto 5 L",
+          "timestamp": "2025-12-02T15:31:47.396655+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-02T16:31:47.176515+01:00",
+      "finished_at": "2025-12-02T16:31:55.582787+01:00",
+      "duration_seconds": 8.406272,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or ristretto 5 L",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "L'Or ristretto 5 L",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251202-162934/09-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "title": null,
+        "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-rist retto-intensite-11/8711000705094",
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-rist retto-intensite-11/8711000705094",
+            "product": {
+              "title": "L'OrCapsules de café compatibles Nespresso Ristretto  Intensité 11",
+              "brand": "L'OrCapsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000705094",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-rist retto-intensite-11/8711000705094",
+            "product": {
+              "title": "L'OrCapsules de café compatibles Nespresso Ristretto  Intensité 11",
+              "brand": "L'OrCapsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000705094",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-rist retto-intensite-11/8711000705094",
+            "product": {
+              "title": "L'OrCapsules de café compatibles Nespresso Ristretto  Intensité 11",
+              "brand": "L'OrCapsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000705094",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/capsules-de-cafe-compatibles-nespresso-rist retto-intensite-11/8711000705094",
+            "product": {
+              "title": "L'OrCapsules de café compatibles Nespresso Ristretto  Intensité 11",
+              "brand": "L'OrCapsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000705094",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-12-02T16:32:29.750223+01:00",
+      "finished_at": "2025-12-02T16:33:37.616425+01:00",
+      "duration_seconds": 67.866202,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or ristretto 5 L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "L'Or ristretto 5 L",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251202-162934/10-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Capsules de café espresso L'Or Ristretto x30 - 156g",
+        "price": "9,09",
+        "unit_price": "58,27 € / kg",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231370-Capsules-de-cafe-espresso-LOr.aspx",
+        "matched_ean": "8711000547342",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-12-02T15:33:44Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "product": {
+          "title": "Capsules de café espresso L'Or Ristretto x30 - 156g",
+          "brand": "",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": null,
+          "source": "leclerc",
+          "raw_text": ""
+        },
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231370-Capsules-de-cafe-espresso-LOr.aspx",
+            "product": {
+              "title": "Capsules de café espresso L'Or Ristretto x30 - 156g",
+              "brand": "Capsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000547342",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-12-02T16:33:37.624415+01:00",
+      "finished_at": "2025-12-02T16:33:44.855251+01:00",
+      "duration_seconds": 7.230836,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or Café 5 L",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] DIRECT_URL mode: https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231370-Capsules-de-cafe-espresso-LOr.aspx\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'L'Or Café 5 L' direct_url:True\n[LECLERC_DEBUG] Navigating directly to https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231370-Capsules-de-cafe-espresso-LOr.aspx\n[LECLERC_DEBUG] Direct navigation successful -> 5.53s",
+      "metadata": {
+        "attempt_query": "L'Or Café 5 L",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251202-162934/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-12-02T16:33:44.857024+01:00",
+      "finished_at": "2025-12-02T16:34:28.291352+01:00",
+      "duration_seconds": 43.434328,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or ristretto 5 L",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] ERROR: EAN '8711000547342' not found in descriptor store. Scoring will fail.\n[MONOPRIX_DEBUG] Search terms: [\"L'Or ristretto 5 L\", \"L'Or ristretto 5,00 L\", \"L'Or ristretto 5,00 L\"]\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/3: 'L'Or ristretto 5 L'\n[MONOPRIX_DEBUG]  - Typing 'L'Or ristretto 5 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=L%27Or%20ristretto%205%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'L'Or ristretto 5,00 L'\n[MONOPRIX_DEBUG]  - Typing 'L'Or ristretto 5,00 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=L%27Or%20ristretto%205%2C00%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 3/3: 'L'Or ristretto 5,00 L'\n[MONOPRIX_DEBUG]  - Typing 'L'Or ristretto 5,00 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=L%27Or%20ristretto%205%2C00%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, image=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=None)\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "L'Or ristretto 5 L",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251202-162934/12-monoprix"
+      }
+    }
+  ],
+  "finder": {
+    "error": "'FinderPipeline' object has no attribute 'decide'"
+  }
+}

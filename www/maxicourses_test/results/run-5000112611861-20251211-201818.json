@@ -1,0 +1,100 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-12-11T20:18:11.973294+01:00",
+  "finished_at": "2025-12-11T20:18:18.095533+01:00",
+  "duration_seconds": 6.122239,
+  "reference": {
+    "title": "Soda COCA-COLA Original - Bouteille 1,75L - Super U, Hyper U, U Express - www.coursesu.com",
+    "description": null,
+    "source": "seed_catalog",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": null,
+    "image": "./assets/5000112611861.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611861-20251211-201811"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": "Attention Required! | Cloudflare",
+        "url": "https://www.coursesu.com/",
+        "note": "2025-12-11T19:18:16Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Attention Required! | Cloudflare",
+          "brand": "Attention",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "/assets/5000112611861.jpg",
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-11T20:18:11.976669+01:00",
+      "finished_at": "2025-12-11T20:18:16.419022+01:00",
+      "duration_seconds": 4.442353,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "QUERY": "5000112611861",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[COURSEU_DEBUG] Starting context with PROXY=None\n[COURSEU_DEBUG] Navigating to https://www.coursesu.com",
+      "metadata": {
+        "attempt_query": "5000112611861",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda COCA-COLA Original - Bouteille 1,75L - Super U, Hyper U, U Express - www.coursesu.com",
+      "brand": "Cola",
+      "kind": "",
+      "qty": "1,75 L",
+      "qualifiers": [],
+      "ean": "5000112611861",
+      "image_url": "./assets/5000112611861.jpg",
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

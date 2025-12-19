@@ -1,0 +1,99 @@
+{
+  "ean": "7613035833289",
+  "image_path": null,
+  "started_at": "2025-12-14T12:42:52.598702+01:00",
+  "finished_at": "2025-12-14T12:43:15.811824+01:00",
+  "duration_seconds": 23.213122,
+  "reference": {
+    "title": "Eau minérale naturelle gazeuse",
+    "description": null,
+    "source": "carrefour_market",
+    "brand": "Perrier",
+    "quantity": "6*1 l",
+    "categories": "Beverages, Carbonated drinks, Waters, Spring waters, Mineral waters, Unsweetened beverages, Carbonated waters, en:carbonated-mineral-waters",
+    "image": "./assets/7613035833289.jpg",
+    "nutriscore_grade": "a",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "1"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251214-124252"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "CF_BLOCK",
+      "payload": {
+        "status": "CF_BLOCK",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "note": "2025-12-14T11:43:10Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-14T12:42:52.601377+01:00",
+      "finished_at": "2025-12-14T12:43:11.073103+01:00",
+      "duration_seconds": 18.471726,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[COURSEU_VERSION_CHECK] Script loaded with RESET logic + HUMANE SEARCH (v2)\n[COURSEU_DEBUG] Starting context with PROXY=None\n[ENGINE_DEBUG] Connecting to CDP at http://127.0.0.1:9223...\n[ENGINE_DEBUG] Reusing existing context (Total: 1)\n[COURSEU_RESET] Requesting state reset (Cookies & Storage)...\n[COURSEU_DEBUG] Resetting Course U state (Cookies & Storage)...\n[COURSEU_RESET] Browser cookies cleared.\n[COURSEU_RESET] Storage cleared for https://www.coursesu.com\n[COURSEU_RESET] Storage cleared for https://coursesu.com\n[COURSEU_RESET] Storage cleared for https://mon-compte.coursesu.com\n[COURSEU_DEBUG] State reset successful.\n[COURSEU_DEBUG] Performing Human Search for EAN: 7613035833289\n[COURSEU_DEBUG] Landed on search page (https://www.coursesu.com/recherche?q=7613035833289), executing strict selection for 7613035833289...\n[COURSEU_DEBUG] Strict EAN search for 7613035833289 in results...\n[COURSEU_DEBUG] Strict EAN verification failed: EAN not found in text/html. Trying fallback to first result...\n[COURSEU_DEBUG] Fallback: selector 'a[href*='/p/']' found 0 items\n[COURSEU_DEBUG] Fallback: selector 'article a[href*='/product']' found 0 items\n[COURSEU_DEBUG] Fallback: selector 'li a.product-tile__link' found 0 items\n[COURSEU_DEBUG] Fallback: selector 'div.product-tile a' found 0 items\n[COURSEU_ERROR] Error during collection: Fallback failed to find any products. Page might be empty or blocked.\n[COURSEU_DEBUG] Error during collection details: Fallback failed to find any products. Page might be empty or blocked.\n[COURSEU_DEBUG] Keeping page OPEN for inspection (Visual Mode)",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Eau minérale naturelle gazeuse",
+      "brand": "Perrier",
+      "kind": "",
+      "qty": "6*1 l",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "7613035833289",
+      "image_url": "./assets/7613035833289.jpg",
+      "source": "consolidated",
+      "raw_text": "Eau minérale naturelle gazeuse",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Perrier eau gazeuse 6x1L",
+      "Perrier eau minérale 6x1L",
+      "Perrier eau gazeuse",
+      "Eau minérale naturelle gazeuse",
+      "Eau minérale naturelle",
+      "Perrier naturelle 6*1 L",
+      "Perrier naturelle minerale",
+      "Perrier 6*1 L"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

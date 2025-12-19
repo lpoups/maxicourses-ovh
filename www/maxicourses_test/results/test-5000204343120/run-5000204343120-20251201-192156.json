@@ -1,0 +1,494 @@
+{
+  "ean": "5000204343120",
+  "image_path": null,
+  "started_at": "2025-12-01T19:16:55.553843+01:00",
+  "finished_at": "2025-12-01T19:21:56.641887+01:00",
+  "duration_seconds": 301.088044,
+  "reference": {
+    "title": "Aérosol anti multi insectes RAID  Max",
+    "description": "Entrée générée automatiquement – descriptif requis.",
+    "source": "courseu",
+    "brand": "Raid",
+    "quantity": "400  ml",
+    "categories": null,
+    "image": null,
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251201-191655"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-01T19:16:55.554392+01:00",
+      "finished_at": "2025-12-01T19:16:57.288855+01:00",
+      "duration_seconds": 1.734463,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9223\n\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9223",
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-01T19:16:57.289502+01:00",
+      "finished_at": "2025-12-01T19:16:58.885250+01:00",
+      "duration_seconds": 1.595748,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9223\n\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9223",
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-01T19:16:58.885679+01:00",
+      "finished_at": "2025-12-01T19:17:00.605982+01:00",
+      "duration_seconds": 1.720303,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9223\n\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 1005, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\", line 508, in run\n    p, browser, context, page = await make_context(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9223",
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": "https://www.auchan.fr/raid-max-aerosol-anti-insectes-action-rapide/pr-C1779317",
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "price_missing",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-01T19:17:00.606567+01:00",
+      "finished_at": "2025-12-01T19:17:33.032207+01:00",
+      "duration_seconds": 32.42564,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button.journey-button\n[auchan] Clicking 'Choisir ce drive'...\n[auchan] ⚠️ Button still visible after click.\n[auchan] results visible, extracting price from search results\n[auchan] ⚠️ No valid price found (Attempt 1/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?\n[auchan] ⚠️ No valid price found (Attempt 2/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?\n[auchan] ⚠️ No valid price found (Attempt 3/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?",
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "6,49",
+        "title": "Aérosol anti multi insectes RAID  Max",
+        "url": "https://www.chronodrive.com/raid--max---aerosol-anti-multi-insectes-P541564",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "16,23 € / L",
+        "quantity": "400  ml",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "5000204343120",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Aérosol anti multi insectes RAID  Max",
+          "brand": "Aérosol",
+          "kind": "",
+          "qty": "400 ml",
+          "qualifiers": [],
+          "ean": "5000204343120",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-01T19:17:33.033000+01:00",
+      "finished_at": "2025-12-01T19:17:40.869519+01:00",
+      "duration_seconds": 7.836519,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "6,52",
+        "unit_price": "16,30 € / L",
+        "quantity": "400  ML",
+        "title": "Aéro multi insectes RAID MAX TP18 400ML",
+        "url": "https://www.coursesu.com/p/aero-multi-insectes-raid-max-tp18-400ml/5657195.html ",
+        "note": "2025-12-01T18:17:54Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "5000204343120",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Aéro multi insectes RAID MAX TP18 400ML",
+          "brand": "Aéro",
+          "kind": "",
+          "qty": "400 ML",
+          "qualifiers": [],
+          "ean": "5000204343120",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-01T19:17:40.873576+01:00",
+      "finished_at": "2025-12-01T19:17:54.250108+01:00",
+      "duration_seconds": 13.376532,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-01T19:17:54.251414+01:00",
+      "finished_at": "2025-12-01T19:17:54.860938+01:00",
+      "duration_seconds": 0.609524,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Raid%20insectes%20400%20ML",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Raid insectes 400 ML",
+          "timestamp": "2025-12-01T18:17:55.679017+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-01T19:17:55.496504+01:00",
+      "finished_at": "2025-12-01T19:17:56.668455+01:00",
+      "duration_seconds": 1.171951,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "Raid insectes 400 ML",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Raid insectes 400 ML",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251201-191655/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Raid%20insectes%20400%20ML",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Raid insectes 400 ML",
+          "timestamp": "2025-12-01T18:18:01.548439+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-01T19:18:01.377968+01:00",
+      "finished_at": "2025-12-01T19:18:02.194643+01:00",
+      "duration_seconds": 0.816675,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "Raid insectes 400 ML",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Raid insectes 400 ML",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251201-191655/09-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-01T19:18:06.420525+01:00",
+      "finished_at": "2025-12-01T19:18:07.224675+01:00",
+      "duration_seconds": 0.80415,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "Raid insectes 400 ML",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py\", line 1636, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py\", line 827, in run\n    p, browser, context, page = await make_context(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:9223\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9223",
+      "metadata": {
+        "attempt_query": "Raid insectes 400 ML",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251201-191655/10-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-01T19:18:11.086852+01:00",
+      "finished_at": "2025-12-01T19:18:19.204593+01:00",
+      "duration_seconds": 8.117741,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "Raid Aérosol 400 ML",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Raid Aérosol 400 ML' direct_url:False\n[LECLERC_DEBUG] after home human pause -> 3.67s\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py\", line 64, in <module>\n    payload = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py\", line 43, in run\n    result = await run_manual_leclerc(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/manual_leclerc_cdp.py\", line 712, in run_manual_leclerc\n    await search_field.click()\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 15063, in click\n    await self._impl_obj.click(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_locator.py\", line 156, in click\n    return await self._frame.click(self._selector, strict=True, **params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 488, in click\n    await self._channel.send(\"click\", locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Locator.click: Timeout 4000ms exceeded.\nCall log:\nwaiting for locator(\"input[id*='rechercheTexte']\").first",
+      "metadata": {
+        "attempt_query": "Raid Aérosol 400 ML",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251201-191655/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-12-01T19:19:14.585462+01:00",
+      "finished_at": "2025-12-01T19:19:55.655276+01:00",
+      "duration_seconds": 41.069814,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "Raid insectes 400 ML",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] ERROR: EAN '5000204343120' not found in descriptor store. Scoring will fail.\n[MONOPRIX_DEBUG] Search terms: ['Raid insectes 400 ML', 'Raid insectes 0,40 L', 'Raid insectes 0,40 L']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/3: 'Raid insectes 400 ML'\n[MONOPRIX_DEBUG]  - Typing 'Raid insectes 400 ML' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Raid%20insectes%20400%20ML\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'Raid insectes 0,40 L'\n[MONOPRIX_DEBUG]  - Typing 'Raid insectes 0,40 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Raid%20insectes%200%2C40%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 3/3: 'Raid insectes 0,40 L'\n[MONOPRIX_DEBUG]  - Typing 'Raid insectes 0,40 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Raid%20insectes%200%2C40%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, image=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=None)\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Raid insectes 400 ML",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251201-191655/12-monoprix"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Aérosol anti multi insectes RAID  Max",
+      "brand": "Aérosol",
+      "kind": "",
+      "qty": "400 ml",
+      "qualifiers": [],
+      "ean": "5000204343120",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Entrée générée automatiquement – descriptif requis.",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

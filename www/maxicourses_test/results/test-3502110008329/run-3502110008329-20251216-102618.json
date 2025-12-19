@@ -1,0 +1,114 @@
+{
+  "ean": "3502110008329",
+  "image_path": null,
+  "started_at": "2025-12-16T10:25:30.995264+01:00",
+  "finished_at": "2025-12-16T10:26:18.244036+01:00",
+  "duration_seconds": 47.248772,
+  "reference": {
+    "title": "Boisson gazeuse aux extraits  végétaux PEPSI",
+    "description": "Soda au Cola PEPSI",
+    "source": "carrefour_super",
+    "brand": "Pepsi",
+    "quantity": "1500 ml",
+    "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté",
+    "image": "https://media.carrefour.fr/media/referential/media/d9ddb464b6544aaab5c85a96cfb8 b59d/03502110008329_H1N1_s07.jpeg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-e.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251216-102530"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,25",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329",
+        "note": "json_state_extraction",
+        "unit_price": "0,83 € / L",
+        "quantity": "1,5L",
+        "title": "Soda au Cola PEPSI",
+        "matched_ean": "3502110008329",
+        "image": "https://media.carrefour.fr/media/referential/media/d9ddb464b6544aaab5c85a96cfb8 b59d/03502110008329_H1N1_s07.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda au Cola PEPSI",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "1,5L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3502110008329",
+          "image_url": "https://media.carrefour.fr/media/referential/media/d9ddb464b6544aaab5c85a96cfb8 b59d/03502110008329_H1N1_s07.jpeg",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-16T10:25:30.998226+01:00",
+      "finished_at": "2025-12-16T10:26:08.682075+01:00",
+      "duration_seconds": 37.683849,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "3502110008329",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 3502110008329. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Soda au Cola \nPEPSI', 'quantity': '1,5L', 'price': 1.25, 'unit_price': '0.83 € / L', 'image': \nNone}\n[INFO] JSON State has no image, navigating to PDP...\n[INFO] Now on PDP: \nhttps://www.carrefour.fr/p/soda-au-cola-zero-sucres-pepsi-3502110009357\n[INFO] Got image from PDP og:image: \nhttps://media.carrefour.fr/media/referential/media/a4d672e74...\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Successfully extracted data from JSON State: {'title': 'Soda au Cola \nPEPSI', 'quantity': '1,5L', 'price': 1.25, 'unit_price': '0.83 € / L', 'image': \nNone}\n[INFO] JSON State has no image, navigating to PDP...\n[INFO] Now on PDP: https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329\n[INFO] Got image from PDP og:image: \nhttps://media.carrefour.fr/media/referential/media/d9ddb464b...",
+      "metadata": {
+        "attempt_query": "3502110008329",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda au Cola PEPSI",
+      "brand": "Soda",
+      "kind": "",
+      "qty": "1,5L",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3502110008329",
+      "image_url": "https://media.carrefour.fr/media/referential/media/d9ddb464b6544aaab5c85a96cfb8 b59d/03502110008329_H1N1_s07.jpeg",
+      "source": "consolidated",
+      "raw_text": "Boisson gazeuse aux extraits  végétaux PEPSI Soda au Cola PEPSI",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Pepsi Soda Cola 1.5L",
+      "Soda Pepsi Cola 1.5L",
+      "Pepsi Boisson Gazeuse",
+      "Soda au Cola PEPSI",
+      "Soda au Cola",
+      "Soda pepsi 1.5L",
+      "Soda pepsi 1.50 L",
+      "Soda pepsi 1,50 L"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

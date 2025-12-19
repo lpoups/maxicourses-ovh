@@ -1,0 +1,517 @@
+{
+  "ean": "3017620424403",
+  "image_path": null,
+  "started_at": "2025-12-10T20:14:46.608027+01:00",
+  "finished_at": "2025-12-10T20:30:27.661198+01:00",
+  "duration_seconds": 941.053171,
+  "reference": {
+    "title": "Nutella Pâte à tartiner 400g",
+    "description": null,
+    "source": "bulk_import",
+    "brand": "Nutella",
+    "quantity": "400g",
+    "categories": "generic",
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T20:14:46.611815+01:00",
+      "finished_at": "2025-12-10T20:14:57.346501+01:00",
+      "duration_seconds": 10.734686,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "3017620424403",
+        "QUERY": "Nutella pâte à tartiner 400g",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[WARN] Cloudflare challenge detected (Title: Carrefour). Attempting to solve...\n[INFO] Challenge passed! New title: Carrefour\n[WARN] Cloudflare challenge detected (Title: Carrefour). Attempting to solve...\n[INFO] Challenge passed! New title: Carrefour",
+      "metadata": {
+        "attempt_query": "Nutella pâte à tartiner 400g",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Market Fondaudège",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T20:14:57.349508+01:00",
+      "finished_at": "2025-12-10T20:15:07.355727+01:00",
+      "duration_seconds": 10.006219,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3017620424403",
+        "QUERY": "Nutella pâte à tartiner 400g",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[WARN] Cloudflare challenge detected (Title: Carrefour). Attempting to solve...\n[INFO] Challenge passed! New title: Carrefour\n[WARN] Cloudflare challenge detected (Title: Carrefour). Attempting to solve...\n[INFO] Challenge passed! New title: Carrefour",
+      "metadata": {
+        "attempt_query": "Nutella pâte à tartiner 400g",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Lormont",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T20:15:07.359890+01:00",
+      "finished_at": "2025-12-10T20:15:33.203611+01:00",
+      "duration_seconds": 25.843721,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3017620424403",
+        "QUERY": "Nutella pâte à tartiner 400g",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[WARN] Cloudflare challenge detected (Title: Carrefour). Attempting to solve...\n[INFO] Challenge passed! New title: Carrefour\n[WARN] Cloudflare challenge detected (Title: Carrefour). Attempting to solve...\n[INFO] Challenge passed! New title: Carrefour",
+      "metadata": {
+        "attempt_query": "Nutella pâte à tartiner 400g",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T20:15:54.765910+01:00",
+      "finished_at": "2025-12-10T20:17:24.778793+01:00",
+      "duration_seconds": 90.012883,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3017620424403",
+        "QUERY": "3017620424403",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9222\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location' from origin 'https://www.auchan.fr' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] REQ_FAILED: https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ⚠️ Toast did not appear yet. Retrying click...\n[auchan] Clicking 'Choisir ce drive' (Attempt 2/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] RESP: 403 https://www.intermarche.com/accueil\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 403 https://www.intermarche.com/recherche/nutella%20pate%20400g\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] ⚠️ Toast did not appear yet. Retrying click...\n[auchan] Clicking 'Choisir ce drive' (Attempt 3/5)...\n[auchan] RESP: 403 https://www.intermarche.com/accueil\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 403 https://www.intermarche.com/recherche/coca-cola%20coca%20175%20cl\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: jQuery.Deferred exception: opts is not defined ReferenceError: opts is not defined\n    at Navigator.get [as userAgent] (<anonymous>:10:42)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:538281)\n    at e (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:513132)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:517961)\n    at e (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:513132)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:513489)\n    at 3318 (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:513499)\n    at a (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:565696)\n    at 2431 (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:7731)\n    at a (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:565696) undefined\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE:  \n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] RESP: 403 https://www.intermarche.com/accueil\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: jQuery.Deferred exception: opts is not defined ReferenceError: opts is not defined\n    at Navigator.get [as userAgent] (<anonymous>:10:42)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:538281)\n    at e (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:513132)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:517961)\n    at e (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:513132)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:513489)\n    at 3318 (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:513499)\n    at a (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:565696)\n    at 2431 (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:7731)\n    at a (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:565696) undefined\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] RESP: 403 https://www.intermarche.com/recherche/nutella%20nutella%20400g%20nutella%20p\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] REQ_FAILED: https://www.coursesu.com/on/demandware.store/Sites-DigitalU-Site/fr_FR/Login-OAuthSilentReentryForgerock?error_description=The%20request%20requires%20some%20interaction%20that%20is%20not%20allowed.&state=657ea922955144658c74b4eba21cd554&error=interaction_required net::ERR_ABORTED\n[auchan] RESP: 403 https://www.intermarche.com/recherche/nutella%20nutella%20400g%20nutella%20p\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 403 https://www.intermarche.com/accueil\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 403 https://www.intermarche.com/recherche/coca-cola%20coca-cola%201%2C75l%20coca\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] Click failed: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\nwaiting for locator(\"button:has-text('Choisir ce Drive')\").first\n\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] RESP: 403 https://www.intermarche.com/recherche/coca-cola%20coca-cola%201%2C75l%20coca\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] ⚠️ Toast did not appear yet. Retrying click...\n[auchan] Clicking 'Choisir ce drive' (Attempt 4/5)...\n[auchan] RESP: 403 https://www.intermarche.com/recherche/coca-cola%20coca-cola%201%2C75l%20coca\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 403 https://www.intermarche.com/accueil\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 403 https://www.intermarche.com/recherche/nutella%20tartiner%20400g\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 403 https://www.intermarche.com/accueil\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 410 https://www.coursesu.com/drive-superu-eysines/recherche?q=3017620424403\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 410 ()\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: jQuery.Deferred exception: opts is not defined ReferenceError: opts is not defined\n    at Navigator.get [as userAgent] (<anonymous>:10:42)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:525103)\n    at e (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:499954)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:504783)\n    at e (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:499954)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:500311)\n    at 3318 (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:500321)\n    at a (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:552518)\n    at 6522 (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:7731)\n    at a (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:552518) undefined\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE:  \n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: Loading the script 'https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/espaceclient/oidc-client-ts.min.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-O9xeaovnSkeR2TvcpvZR+2Qj/jBGare1HcB6CuEd5z0='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-Qj+1Wxh3VQC7XU2P9T2s9RVKGVtBg7DI+e9rgbgvQW8='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/internal/jscript/dwanalytics-22.2.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/internal/jscript/dwac-21.7.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://cdn.cquotient.com/js/v2/gretel.min.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-oCcEDn7YN3Y9jqlAqMT+XugFQEtuP9IegKkCzAX+7Xk='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: Executing inline event handler violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution. Note that hashes do not apply to event handlers, style attributes and javascript: navigations unless the 'unsafe-hashes' keyword is present. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-hYHL2AdiHvgR794X5SKe0mhx88nKjcwVTw+ZqaMwR8w='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://www.coursesu.com/cdn-cgi/challenge-platform/scripts/jsd/main.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://try.abtasty.com/23dd5b817455adea4569e3381593d5a1.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://try.abtasty.com/shared/commons.d84c8e650350f4f4f457.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://try.abtasty.com/23dd5b817455adea4569e3381593d5a1/main.11ce00029e3d093dae23.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://try.abtasty.com/shared/me.5386b5d034f35275c61d.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-HfLrK57YFI5EcNKrlK8+eAyU6w98qpe+sEVJjY1Uk3I='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline event handler violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution. Note that hashes do not apply to event handlers, style attributes and javascript: navigations unless the 'unsafe-hashes' keyword is present. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline event handler violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution. Note that hashes do not apply to event handlers, style attributes and javascript: navigations unless the 'unsafe-hashes' keyword is present. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-4qjWeIXum6Z7qZHPfoUFlGN3FBH+Q2oB2Hdm0qWLgzA='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-DeQGvh+IjM7zdQuTS5qjqLjVxoiQjSIY4/zb34OsYLc='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/lib/tc-container-reload.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://try.abtasty.com/shared/analytics.e9ca6dca33ed511e470f.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://try.abtasty.com/shared/me.5386b5d034f35275c61d.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-FR99NAZMpT0bRQqwh/NL4JaFogdO0KV9CyTadJ26XGQ='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://cdn.tagcommander.com/3692/tc_CoursesU_20.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-h/uate4Hhpef66xnBSJaKPpRbOuIpdiauJow4kN02hM='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-4MBiG3T6ULPVLiedoedWmF0sH5pRQc4L6cOz64SRjMc='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-oObbjF5z/1CQHCDzUnGPvK/axvOrtFqpVp7V+0s+fwo='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Executing inline script violates the following Content Security Policy directive 'script-src 'none''. Either the 'unsafe-inline' keyword, a hash ('sha256-tEGVKOwoFOVgzeLlGVlA5hx8F3Dq6G6klxY6GtQ9quQ='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://dd.coursesu.com/tags.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://apps.bazaarvoice.com/deployments/coursesu/produits/production/fr_FR/bv.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.29/vue.global.prod.min.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] CONSOLE: Loading the script 'https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/espaceclient/espaceclient.js' violates the following Content Security Policy directive: \"script-src 'none'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The policy is report-only, so the violation has been logged but no further action has been taken.\n[auchan] RESP: 403 https://www.intermarche.com/recherche/coca-cola%20coca%201.75l\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: jQuery.Deferred exception: opts is not defined ReferenceError: opts is not defined\n    at Navigator.get [as userAgent] (<anonymous>:10:42)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:538281)\n    at e (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:513132)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:517961)\n    at e (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:513132)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:513489)\n    at 3318 (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:513499)\n    at a (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:565696)\n    at 2431 (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:7731)\n    at a (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/homepage.js:2:565696) undefined\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE:  \n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] RESP: 403 https://www.intermarche.com/accueil\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 403 https://www.intermarche.com/recherche/nutella%20400g\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 403 https://www.intermarche.com/accueil\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 403 https://www.intermarche.com/accueil\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 403 https://www.intermarche.com/recherche/coca-cola%20coca%201.75%20l\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] Click failed: Locator.scroll_into_view_if_needed: Timeout 30000ms exceeded.\nCall log:\nwaiting for locator(\"button:has-text('Choisir ce Drive')\").first\n\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] RESP: 403 https://www.intermarche.com/accueil\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] ⚠️ Toast did not appear yet. Retrying click...\n[auchan] Clicking 'Choisir ce drive' (Attempt 5/5)...\n[auchan] RESP: 403 https://www.intermarche.com/recherche/nutella%20pate%20400g\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 403 https://www.intermarche.com/accueil\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 403 https://www.intermarche.com/recherche/coca-cola%20coca%201%2C75%20l\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] RESP: 410 https://www.coursesu.com/drive-superu-eysines/recherche?q=3017620424403\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 410 ()\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: jQuery.Deferred exception: opts is not defined ReferenceError: opts is not defined\n    at Navigator.get [as userAgent] (<anonymous>:10:42)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:525103)\n    at e (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:499954)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:504783)\n    at e (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:499954)\n    at t.exports (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:500311)\n    at 3318 (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:500321)\n    at a (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:552518)\n    at 6522 (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:7731)\n    at a (https://www.coursesu.com/on/demandware.static/Sites-DigitalU-Site/-/fr_FR/v1765355684024/js/notfounderror.js:2:552518) undefined\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE:  \n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: current window outer height 767\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86\n[auchan] CONSOLE: current window outer height 86\n[auchan] CONSOLE: new window outer height 86",
+      "metadata": {
+        "attempt_query": "3017620424403",
+        "timeout_s": 90
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T20:17:40.692184+01:00",
+      "finished_at": "2025-12-10T20:19:10.781378+01:00",
+      "duration_seconds": 90.089194,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3017620424403",
+        "QUERY": "Nutella spread 400g",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "[CHRONO_DEBUG] term='3017620424403'",
+      "metadata": {
+        "attempt_query": "Nutella spread 400g",
+        "timeout_s": 90
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "note": "2025-12-10T19:19:47Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T20:19:10.789552+01:00",
+      "finished_at": "2025-12-10T20:19:47.808866+01:00",
+      "duration_seconds": 37.019314,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3017620424403",
+        "QUERY": "Nutella pâte à tartiner 400g",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Nutella pâte à tartiner 400g",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Non disponible",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T20:20:47.337178+01:00",
+      "finished_at": "2025-12-10T20:20:48.564239+01:00",
+      "duration_seconds": 1.227061,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "3017620424403",
+        "QUERY": "Nutella pâte à tartiner 400g",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Nutella pâte à tartiner 400g",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Nutella%20p%C3%A2te%20%C3%A0%20tartiner%20400g",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Nutella pâte à tartiner 400g",
+          "timestamp": "2025-12-10T19:20:51.796719+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T20:20:51.610857+01:00",
+      "finished_at": "2025-12-10T20:20:53.102858+01:00",
+      "duration_seconds": 1.492001,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "3017620424403",
+        "QUERY": "Nutella pâte à tartiner 400g",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Nutella pâte à tartiner 400g",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Nutella%20p%C3%A2te%20%C3%A0%20tartiner%20400g",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Nutella pâte à tartiner 400g",
+          "timestamp": "2025-12-10T19:20:58.928371+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T20:20:58.720709+01:00",
+      "finished_at": "2025-12-10T20:20:59.837767+01:00",
+      "duration_seconds": 1.117058,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "3017620424403",
+        "QUERY": "Nutella pâte à tartiner 400g",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Nutella pâte à tartiner 400g",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-12-10T20:21:13.154849+01:00",
+      "finished_at": "2025-12-10T20:22:05.844745+01:00",
+      "duration_seconds": 52.689896,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3017620424403",
+        "QUERY": "Nutella tartiner 400G",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Nutella tartiner 400G",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-12-10T20:24:12.682683+01:00",
+      "finished_at": "2025-12-10T20:24:17.175987+01:00",
+      "duration_seconds": 4.493304,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "3017620424403",
+        "QUERY": "nutella",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '3017620424403'.\n[MONOPRIX_DEBUG] Search terms: ['nutella', 'pâte']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/2: 'nutella'\n[MONOPRIX_DEBUG]  - Search simulation failed: Page.goto: Target page, context or browser has been closed\n[MONOPRIX_DEBUG]  - Term 2/2: 'pâte'\n[MONOPRIX_DEBUG]  - Search simulation failed: Page.goto: Target page, context or browser has been closed\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, image=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=None)\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "nutella",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "ERROR",
+      "payload": {
+        "status": "ERROR",
+        "error": "Crash: Locator.type: Timeout 15000ms exceeded.\nCall log:\nwaiting for locator(\"input[id*='rechercheTexte']\").first\n",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-10T20:26:09.442798+01:00",
+      "finished_at": "2025-12-10T20:26:45.917711+01:00",
+      "duration_seconds": 36.474913,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3017620424403",
+        "QUERY": "Nutella Nutella 400G Nutella p",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Nutella Nutella 400G Nutella p' direct_url:False\n[LECLERC_DEBUG] after home human pause -> 0.71s\n[LECLERC_DEBUG] after focus -> 5.78s\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py\", line 64, in <module>\n    payload = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py\", line 43, in run\n    result = await run_manual_leclerc(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/manual_leclerc_cdp.py\", line 727, in run_manual_leclerc\n    await search_field.type(ch, delay=random.randint(type_min_delay, type_max_delay))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 17136, in type\n    await self._impl_obj.type(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_locator.py\", line 621, in type\n    return await self._frame.type(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_frame.py\", line 719, in type\n    await self._channel.send(\"type\", locals_to_params(locals()))\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 59, in send\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Locator.type: Timeout 15000ms exceeded.\nCall log:\nwaiting for locator(\"input[id*='rechercheTexte']\").first",
+      "metadata": {
+        "attempt_query": "Nutella Nutella 400G Nutella p",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Nutella Pâte à tartiner 400g",
+      "brand": "Nutella",
+      "kind": "",
+      "qty": "400g",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3017620424403",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Nutella Pâte à tartiner 400g",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Nutella Pâte à tartiner 400g",
+      "Pâte à tartiner Nutella 400g",
+      "Nutella pâte à tartiner",
+      "Nutella Pâte à",
+      "Nutella tartiner 400G",
+      "Nutella 400G",
+      "Nutella pate 400G"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

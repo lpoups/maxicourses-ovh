@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-12-09T11:35:37.102692+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Hollywood Hollywood Pack Holly",
+      "Hollywood Chewing Gum"
+    ],
+    "secondary_keywords": [
+      "hollywood",
+      "chewing",
+      "gum",
+      "refreshers",
+      "pack"
+    ],
+    "category": "generic",
+    "structured": {
+      "golden": "Hollywood Chewing Gum Refreshers",
+      "fallback_specific": "Chewing Gum Hollywood Refreshers",
+      "fallback_broad": "Hollywood Chewing Gum"
+    },
+    "raw": {
+      "golden": "Hollywood Chewing Gum Refreshers",
+      "fallback_specific": "Chewing Gum Hollywood Refreshers",
+      "fallback_broad": "Hollywood Chewing Gum"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Hollywood Chewing Gum Refreshers\",\n    \"brand\": \"Hollywood\",\n    \"quantity\": \"Pack\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"ean\": \"4009900540865\",\n    \"brand\": \"Hollywood\",\n    \"name\": \"Hollywood Chewing Gum Refreshers\",\n    \"quantity\": \"Pack\",\n    \"source\": \"manual\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-09T10:35:33Z\",\n    \"removed\": false,\n    \"leclerc_query\": \"Hollywood Chewing PACK\",\n    \"leclerc_queries\": [\n      \"Hollywood Chewing PACK\",\n      \"Hollywood Chewing Gum PACK\",\n      \"Chewing Gum PACK\"\n    ],\n    \"primary_keywords\": [\n      \"Refreshers Refreshers Pack Ref\",\n      \"Refreshers Chewing-gums menthe\",\n      \"Refreshers sans sucres\",\n      \"Refreshers Chewing-gums\",\n      \"Refreshers menthe verte\"\n    ],\n    \"secondary_keywords\": [\n      \"refreshers\",\n      \"hollywood\",\n      \"chewing\",\n      \"gum\",\n      \"gums\",\n      \"sans\",\n      \"sucres\",\n      \"menthe\",\n      \"verte\",\n      \"pack\"\n    ],\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"unknown\",\n    \"auchan_url\": \"https://www.auchan.fr/freedent-refreshers-chewing-gums-sans-sucres-menthe-verte/pr-C1535147\",\n    \"seed_query\": \"Hollywood Chewing Gum Refreshers Pack\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkpM6YnAruprQ0aGh1hUee8JYVBSX\", \"object\": \"chat.completion\", \"created\": 1765276534, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Hollywood Chewing Gum Refreshers\\\",\\n    \\\"fallback_specific\\\": \\\"Chewing Gum Hollywood Refreshers\\\",\\n    \\\"fallback_broad\\\": \\\"Hollywood Chewing Gum\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 590, \"completion_tokens\": 40, \"total_tokens\": 630, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

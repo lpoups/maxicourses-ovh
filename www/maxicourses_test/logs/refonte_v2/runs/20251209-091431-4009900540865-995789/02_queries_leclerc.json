@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-12-09T09:14:32.361062+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Wrigley's Wrigley's 18G Wrigle",
+      "Wrigley's Refreshers 18g",
+      "Wrigley's FREEDENT Menthe Vert",
+      "Wrigley's Chewing-Gum"
+    ],
+    "secondary_keywords": [
+      "wrigley",
+      "s",
+      "chewing",
+      "gum",
+      "menthe",
+      "verte",
+      "sans",
+      "sucres",
+      "freedent",
+      "refreshers",
+      "18g",
+      "18"
+    ],
+    "category": "generic",
+    "structured": {
+      "golden": "Wrigley's Refreshers 18g",
+      "fallback_specific": "FREEDENT Menthe Verte 18g",
+      "fallback_broad": "Wrigley's Chewing-Gum"
+    },
+    "raw": {
+      "golden": "Wrigley's Refreshers 18g",
+      "fallback_specific": "FREEDENT Menthe Verte 18g",
+      "fallback_broad": "Wrigley's Chewing-Gum"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"ean\": \"4009900540865\",\n    \"brand\": \"Wrigley's\",\n    \"name\": \"Refreshers\",\n    \"description\": \"Chewing-Gum Menthe Verte Sans Sucres FREEDENT REFRESHERS\",\n    \"quantity\": \"18g\",\n    \"nutriscore_grade\": \"unknown\",\n    \"ecoscore_grade\": \"unknown\",\n    \"image\": \"https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/\"\n  },\n  \"descriptor\": {\n    \"ean\": \"4009900540865\",\n    \"source\": \"carrefour_market\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-09T08:10:29Z\",\n    \"removed\": false,\n    \"brand\": \"Wrigley's\",\n    \"name\": \"Refreshers\",\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"unknown\",\n    \"seed_query\": \"Wrigley's Refreshers Chewing Gum Menthe Verte Sans Sucres\",\n    \"quantity\": \"18g\",\n    \"description\": \"Chewing-Gum Menthe  Verte Sans Sucres FREEDENT REFRESHERS\",\n    \"leclerc_query\": \"Wrigley's Chewing 18 G\",\n    \"leclerc_queries\": [\n      \"Wrigley's Chewing 18 G\",\n      \"Wrigley's Chewing Gum 18 G\",\n      \"Wrigley's 18 G\",\n      \"Chewing Gum 18 G\"\n    ],\n    \"seed_primary_name\": \"Chewing-Gum Menthe  Verte Sans Sucres FREEDENT REFRESHERS\",\n    \"seed_primary_quantity\": \"18g\",\n    \"image\": \"https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/\",\n    \"ai_profile\": {\n      \"ean\": \"4009900540865\",\n      \"brand\": \"Wrigley's\",\n      \"name\": \"Refreshers\",\n      \"description\": \"Chewing-Gum Menthe Verte Sans Sucres FREEDENT REFRESHERS\",\n      \"quantity\": \"18g\",\n      \"nutriscore_grade\": \"unknown\",\n      \"ecoscore_grade\": \"unknown\",\n      \"image\": \"https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/\"\n    },\n    \"ai_keywords\": [\n      \"Wrigley's Refreshers 18g\",\n      \"FREEDENT Menthe Verte 18g\",\n      \"Chewing-Gum Sans Sucres\",\n      \"Refreshers Menthe Verte\",\n      \"Wrigley's Chewing-Gum\",\n      \"FREEDENT Refreshers 18g\",\n      \"Chewing-Gum Menthe 18g\",\n      \"Wrigley's Menthe Verte\"\n    ],\n    \"primary_keywords\": [\n      \"Wrigley's Wrigley's 18G Wrigle\",\n      \"Wrigley's Refreshers 18g\",\n      \"Wrigley's FREEDENT Menthe Vert\",\n      \"Wrigley's Chewing-Gum Sans Suc\",\n      \"Wrigley's Refreshers Menthe Ve\"\n    ],\n    \"secondary_keywords\": [\n      \"wrigley\",\n      \"s\",\n      \"chewing\",\n      \"gum\",\n      \"menthe\",\n      \"verte\",\n      \"sans\",\n      \"sucres\",\n      \"freedent\",\n      \"refreshers\",\n      \"18g\",\n      \"18\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-09T09:14:31.074015+01:00\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-Ckn9bcMgkDwOy12JqiKPwLS52zfkJ\", \"object\": \"chat.completion\", \"created\": 1765268071, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Wrigley's Refreshers 18g\\\",\\n    \\\"fallback_specific\\\": \\\"FREEDENT Menthe Verte 18g\\\",\\n    \\\"fallback_broad\\\": \\\"Wrigley's Chewing-Gum\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1029, \"completion_tokens\": 49, \"total_tokens\": 1078, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

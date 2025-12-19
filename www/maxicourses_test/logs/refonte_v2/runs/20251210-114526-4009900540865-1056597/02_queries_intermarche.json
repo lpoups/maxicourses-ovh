@@ -1,0 +1,37 @@
+{
+  "timestamp": "2025-12-10T11:45:32.080976+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Wrigley's Wrigley's refreshers",
+      "Wrigley's Refreshers menthe",
+      "Wrigley's Refreshers sans sucr",
+      "Wrigley's Chewing-gums"
+    ],
+    "secondary_keywords": [
+      "wrigley",
+      "s",
+      "refreshers",
+      "chewing",
+      "gums",
+      "sans",
+      "sucres",
+      "menthe",
+      "verte"
+    ],
+    "category": "generic",
+    "structured": {
+      "golden": "Wrigley's Refreshers menthe",
+      "fallback_specific": "Refreshers sans sucres menthe",
+      "fallback_broad": "Wrigley's Chewing-gums"
+    },
+    "raw": {
+      "golden": "Wrigley's Refreshers menthe",
+      "fallback_specific": "Refreshers sans sucres menthe",
+      "fallback_broad": "Wrigley's Chewing-gums"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"ean\": \"4009900540865\",\n    \"brand\": \"Wrigley's\",\n    \"product_name\": \"Refreshers Chewing-gums sans sucres menthe verte\",\n    \"price\": \"1,35\",\n    \"unit_price\": \"75,00 € / KG\",\n    \"store\": \"Auchan Drive Supermarché Talence-Gallieni\",\n    \"image_url\": \"https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/\",\n    \"nutriscore_grade\": \"unknown\",\n    \"ecoscore_grade\": \"unknown\"\n  },\n  \"descriptor\": {\n    \"ean\": \"4009900540865\",\n    \"source\": \"auchan\",\n    \"leclerc_query\": \"Wrigley's Refreshers menthe\",\n    \"leclerc_queries\": [\n      \"Wrigley's Refreshers menthe\",\n      \"Refreshers sans sucres menthe\",\n      \"Wrigley's Chewing-gums\",\n      \"Wrigley's Wrigley's refreshers\",\n      \"Wrigley's Refreshers sans sucr\"\n    ],\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-10T10:45:02Z\",\n    \"brand\": \"Wrigley's\",\n    \"name\": \"Refreshers\",\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"unknown\",\n    \"removed\": false,\n    \"seed_query\": \"Wrigley's Refreshers Chewing gums sans sucres menthe verte\",\n    \"image\": \"https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/\",\n    \"description\": \"Refreshers Chewing-gums sans sucres menthe verte\",\n    \"ai_profile\": {\n      \"ean\": \"4009900540865\",\n      \"brand\": \"Wrigley's\",\n      \"product_name\": \"Refreshers Chewing-gums sans sucres menthe verte\",\n      \"price\": \"1,35\",\n      \"unit_price\": \"75,00 € / KG\",\n      \"store\": \"Auchan Drive Supermarché Talence-Gallieni\",\n      \"image_url\": \"https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/\",\n      \"nutriscore_grade\": \"unknown\",\n      \"ecoscore_grade\": \"unknown\"\n    },\n    \"ai_keywords\": [\n      \"Wrigley's Refreshers Chewing-g\",\n      \"Refreshers sans sucres menthe\",\n      \"Chewing-gums menthe verte\",\n      \"Wrigley's sans sucres\",\n      \"Refreshers menthe verte\",\n      \"Chewing-gums Wrigley's\",\n      \"Refreshers Chewing-gums\",\n      \"Wrigley's menthe verte\"\n    ],\n    \"primary_keywords\": [\n      \"Wrigley's Wrigley's refreshers\",\n      \"Wrigley's Refreshers Chewing-g\",\n      \"Wrigley's Refreshers sans sucr\",\n      \"Wrigley's Chewing-gums menthe\",\n      \"Wrigley's sans sucres\"\n    ],\n    \"secondary_keywords\": [\n      \"wrigley\",\n      \"s\",\n      \"refreshers\",\n      \"chewing\",\n      \"gums\",\n      \"sans\",\n      \"sucres\",\n      \"menthe\",\n      \"verte\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-10T11:45:26.716376+01:00\",\n    \"leclerc_ai_queries\": [\n      \"Wrigley's Refreshers menthe\",\n      \"Refreshers sans sucres menthe\",\n      \"Wrigley's Chewing-gums\",\n      \"Wrigley's Wrigley's refreshers\",\n      \"Wrigley's Refreshers sans sucr\"\n    ],\n    \"leclerc_secondary_keywords\": [\n      \"wrigley\",\n      \"s\",\n      \"refreshers\",\n      \"chewing\",\n      \"gums\",\n      \"sans\",\n      \"sucres\",\n      \"menthe\",\n      \"verte\"\n    ],\n    \"monoprix_ai_queries\": [\n      \"Wrigley's Refreshers menthe\",\n      \"Refreshers sans sucres menthe\",\n      \"Wrigley's Chewing-gums\",\n      \"Wrigley's Wrigley's refreshers\",\n      \"Wrigley's Refreshers sans sucr\"\n    ],\n    \"monoprix_queries\": [\n      \"Wrigley's Refreshers menthe\",\n      \"Refreshers sans sucres menthe\",\n      \"Wrigley's Chewing-gums\",\n      \"Wrigley's Wrigley's refreshers\",\n      \"Wrigley's Refreshers sans sucr\"\n    ],\n    \"queries\": {\n      \"monoprix\": [\n        \"Wrigley's Refreshers menthe\",\n        \"Refreshers sans sucres menthe\",\n        \"Wrigley's Chewing-gums\",\n        \"Wrigley's Wrigley's refreshers\",\n        \"Wrigley's Refreshers sans sucr\"\n      ]\n    },\n    \"monoprix_secondary_keywords\": [\n      \"wrigley\",\n      \"s\",\n      \"refreshers\",\n      \"chewing\",\n      \"gums\",\n      \"sans\",\n      \"sucres\",\n      \"menthe\",\n      \"verte\"\n    ]\n  },\n  \"store\": \"intermarche\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-ClBzGmFgymCYCY42Oksj8KXbdi1t6\", \"object\": \"chat.completion\", \"created\": 1765363530, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Wrigley's Refreshers menthe\\\",\\n    \\\"fallback_specific\\\": \\\"Refreshers sans sucres menthe\\\",\\n    \\\"fallback_broad\\\": \\\"Wrigley's Chewing-gums\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1363, \"completion_tokens\": 45, \"total_tokens\": 1408, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

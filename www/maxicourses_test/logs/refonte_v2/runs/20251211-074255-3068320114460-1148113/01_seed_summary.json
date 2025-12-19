@@ -1,0 +1,95 @@
+{
+  "timestamp": "2025-12-11T07:42:55.301951+01:00",
+  "status": "ok",
+  "data": {
+    "profile": {
+      "brand": "Badoit",
+      "product_name": "Eau Minérale Naturelle Gazeuse Finement Pétillante",
+      "quantity": "6x1L",
+      "categories": [
+        "Beverages",
+        "Carbonated drinks",
+        "Waters",
+        "Spring waters",
+        "Mineral waters",
+        "Unsweetened beverages",
+        "Carbonated waters",
+        "Carbonated mineral waters"
+      ],
+      "nutriscore_grade": "a",
+      "ecoscore_grade": "not-applicable",
+      "nova_group": "1",
+      "price": "3,6",
+      "unit_price": "0,60 € / L",
+      "store": "Carrefour Lormont",
+      "url": "https://www.carrefour.fr/s?q=3068320114460"
+    },
+    "keywords": [
+      "Badoit Eau Minérale 6x1L",
+      "Badoit Gazeuse Finement",
+      "Badoit 6x1L PET",
+      "Badoit Carbonated Water",
+      "Badoit Spring Water",
+      "Badoit Unsweetened",
+      "Badoit Mineral Water",
+      "Badoit 6 L"
+    ],
+    "primary_keywords": [
+      "Badoit Badoit 6X Badoit eau Ba",
+      "Badoit Eau Minérale 6x1L",
+      "Badoit Gazeuse Finement",
+      "Badoit 6x1L PET",
+      "Badoit Carbonated Water"
+    ],
+    "secondary_keywords": [
+      "badoit",
+      "eau",
+      "minérale",
+      "naturelle",
+      "finement",
+      "pétillante",
+      "6x1",
+      "pet",
+      "6x",
+      "6"
+    ],
+    "category": "generic",
+    "raw": {
+      "profile": {
+        "brand": "Badoit",
+        "product_name": "Eau Minérale Naturelle Gazeuse Finement Pétillante",
+        "quantity": "6x1L",
+        "categories": [
+          "Beverages",
+          "Carbonated drinks",
+          "Waters",
+          "Spring waters",
+          "Mineral waters",
+          "Unsweetened beverages",
+          "Carbonated waters",
+          "Carbonated mineral waters"
+        ],
+        "nutriscore_grade": "a",
+        "ecoscore_grade": "not-applicable",
+        "nova_group": "1",
+        "price": "3,6",
+        "unit_price": "0,60 € / L",
+        "store": "Carrefour Lormont",
+        "url": "https://www.carrefour.fr/s?q=3068320114460"
+      },
+      "keywords": [
+        "Badoit Eau Minérale 6x1L",
+        "Badoit Gazeuse Finement",
+        "Badoit 6x1L PET",
+        "Badoit Carbonated Water",
+        "Badoit Spring Water",
+        "Badoit Unsweetened",
+        "Badoit Mineral Water",
+        "Badoit 6 L"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"seeds\": [\n    {\n      \"adapter\": \"carrefour_super\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"3,6\",\n        \"store\": \"Lormont\",\n        \"url\": \"https://www.carrefour.fr/s?q=3068320114460\",\n        \"note\": \"json_state_extraction\",\n        \"unit_price\": \"0,60 € / L\",\n        \"quantity\": \"6x1L\",\n        \"title\": \"Eau Minérale Naturelle Gazeuse Finement Pétillante BADOIT\",\n        \"matched_ean\": \"3068320114460\",\n        \"image\": null,\n        \"nutriscore_grade\": null,\n        \"nutriscore_image\": null,\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Eau Minérale Naturelle Gazeuse Finement Pétillante BADOIT\",\n          \"brand\": \"Eau\",\n          \"kind\": \"\",\n          \"qty\": \"6x1L\",\n          \"price\": null,\n          \"quantity\": null,\n          \"qualifiers\": [],\n          \"ean\": \"3068320114460\",\n          \"image_url\": null,\n          \"source\": \"carrefour_super\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"3068320114460\",\n        \"visual_score\": null\n      }\n    }\n  ],\n  \"context\": {\n    \"descriptor\": {\n      \"ean\": \"3068320114460\",\n      \"source\": \"carrefour_super\",\n      \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-11T06:42:22Z\",\n      \"brand\": \"Badoit\",\n      \"name\": \"Badoit 6x1 L PET\",\n      \"quantity\": \"6 l\",\n      \"categories\": \"Beverages,Carbonated drinks,Waters,Spring waters,Mineral waters,Unsweetened beverages,Carbonated waters,Carbonated mineral waters\",\n      \"nutriscore_grade\": \"a\",\n      \"nutriscore_image\": \"https://static.openfoodfacts.org/images/attributes/nutriscore-a.svg\",\n      \"ecoscore_grade\": \"not-applicable\",\n      \"nova_group\": \"1\",\n      \"removed\": false,\n      \"seed_query\": \"Badoit 6x1 PET Eau Minérale Naturelle Gazeuse Finement\",\n      \"description\": \"Eau Minérale Naturelle Gazeuse Finement Pétillante BADOIT\",\n      \"leclerc_query\": \"Badoit Eau 6 L\",\n      \"leclerc_queries\": [\n        \"Badoit Eau 6 L\",\n        \"Badoit Eau Minérale 6 L\",\n        \"Badoit 6 L\",\n        \"Eau Minérale 6 L\"\n      ],\n      \"seed_primary_name\": \"Eau Minérale Naturelle Gazeuse Finement Pétillante BADOIT\",\n      \"seed_primary_quantity\": \"6x1L\"\n    },\n    \"ean\": \"3068320114460\"\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-ClUg0XhBxdJkw4vpmlfz76GvvYjgF\", \"object\": \"chat.completion\", \"created\": 1765435372, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"profile\\\": {\\n    \\\"brand\\\": \\\"Badoit\\\",\\n    \\\"product_name\\\": \\\"Eau Minérale Naturelle Gazeuse Finement Pétillante\\\",\\n    \\\"quantity\\\": \\\"6x1L\\\",\\n    \\\"categories\\\": [\\n      \\\"Beverages\\\",\\n      \\\"Carbonated drinks\\\",\\n      \\\"Waters\\\",\\n      \\\"Spring waters\\\",\\n      \\\"Mineral waters\\\",\\n      \\\"Unsweetened beverages\\\",\\n      \\\"Carbonated waters\\\",\\n      \\\"Carbonated mineral waters\\\"\\n    ],\\n    \\\"nutriscore_grade\\\": \\\"a\\\",\\n    \\\"ecoscore_grade\\\": \\\"not-applicable\\\",\\n    \\\"nova_group\\\": \\\"1\\\",\\n    \\\"price\\\": \\\"3,6\\\",\\n    \\\"unit_price\\\": \\\"0,60 € / L\\\",\\n    \\\"store\\\": \\\"Carrefour Lormont\\\",\\n    \\\"url\\\": \\\"https://www.carrefour.fr/s?q=3068320114460\\\"\\n  },\\n  \\\"keywords\\\": [\\n    \\\"Badoit Eau Minérale 6x1L\\\",\\n    \\\"Badoit Gazeuse Finement\\\",\\n    \\\"Badoit 6x1L PET\\\",\\n    \\\"Badoit Carbonated Water\\\",\\n    \\\"Badoit Spring Water\\\",\\n    \\\"Badoit Unsweetened\\\",\\n    \\\"Badoit Mineral Water\\\",\\n    \\\"Badoit 6 L\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 767, \"completion_tokens\": 273, \"total_tokens\": 1040, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e819e3438b\"}"
+}

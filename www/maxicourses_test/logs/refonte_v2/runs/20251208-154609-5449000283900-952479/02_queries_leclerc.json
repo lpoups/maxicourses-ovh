@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-12-08T15:46:10.990201+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Coca-Cola Coca-Cola 6X Coca-Co",
+      "Coca-Cola Soda 6x33cl",
+      "Coca-Cola Original 6x33cl",
+      "Coca-Cola 6x33cl",
+      "Coca-Cola Soda 6x33"
+    ],
+    "secondary_keywords": [
+      "coca",
+      "cola",
+      "original",
+      "6x33cl",
+      "goût",
+      "6x",
+      "6"
+    ],
+    "category": "generic",
+    "raw": {
+      "queries": [
+        "Coca-Cola Soda 6x33cl",
+        "Coca-Cola Original 6x33cl",
+        "Coca-Cola 6x33cl",
+        "Coca-Cola Soda 6x33",
+        "Coca-Cola 6x33"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"ean\": \"5449000283900\",\n    \"brand\": \"Coca-Cola\",\n    \"name\": \"Soda COCA-COLA Original - 6x33cl\",\n    \"quantity\": \"6x33 cl\",\n    \"categories\": \"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Sodas, Sodas au cola, Boissons avec sucre ajouté\",\n    \"nutriscore_grade\": \"c\",\n    \"ecoscore_grade\": \"not-applicable\",\n    \"description\": \"Soda au Cola Goût Original COCA-COLA\",\n    \"image\": \"https://cdn.auchan.fr/media/P02000000000ZYAPRIMARY_1200x1200/B2CD/\"\n  },\n  \"descriptor\": {\n    \"ean\": \"5449000283900\",\n    \"brand\": \"Cola\",\n    \"leclerc_queries\": [\n      \"Cola Soda 6 CL\",\n      \"Cola Soda COCA 6 CL\",\n      \"Cola 6 CL\",\n      \"Soda COCA 6 CL\"\n    ],\n    \"leclerc_query\": \"Cola Soda 6 CL\",\n    \"name\": \"Soda COCA-COLA Original - 6x33cl\",\n    \"primary_keywords\": [\n      \"Coca-Cola Coca-Cola 6X Coca-Co\",\n      \"Coca-Cola Soda 6x33cl\",\n      \"Coca-Cola Original 6x33cl\",\n      \"Coca-Cola Boisson 6x33cl\",\n      \"Coca-Cola Canettes 6x33cl\"\n    ],\n    \"quantity\": \"6x33 cl\",\n    \"seed_primary_name\": \"Soda COCA-COLA Original\",\n    \"seed_primary_quantity\": \"6x33 cl\",\n    \"seed_query\": \"Cola Soda COCA Original 6x33cl Goût 6x33\",\n    \"source\": \"carrefour_super\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-08T14:44:08Z\",\n    \"removed\": false,\n    \"secondary_keywords\": [\n      \"coca\",\n      \"cola\",\n      \"original\",\n      \"6x33cl\",\n      \"goût\",\n      \"6x\",\n      \"6\"\n    ],\n    \"categories\": \"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Sodas, Sodas au cola, Boissons avec sucre ajouté\",\n    \"nutriscore_grade\": \"c\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"not-applicable\",\n    \"courseu_url\": \"https://www.coursesu.com/p/soda-coca-cola-original---pack-canettes-6x33cl/24290 52.html\",\n    \"description\": \"Soda au Cola Goût  Original COCA-COLA\",\n    \"image\": \"https://cdn.auchan.fr/media/P02000000000ZYAPRIMARY_1200x1200/B2CD/\",\n    \"ai_profile\": {\n      \"ean\": \"5449000283900\",\n      \"brand\": \"Coca-Cola\",\n      \"name\": \"Soda COCA-COLA Original - 6x33cl\",\n      \"quantity\": \"6x33 cl\",\n      \"categories\": \"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Sodas, Sodas au cola, Boissons avec sucre ajouté\",\n      \"nutriscore_grade\": \"c\",\n      \"ecoscore_grade\": \"not-applicable\",\n      \"description\": \"Soda au Cola Goût Original COCA-COLA\",\n      \"image\": \"https://cdn.auchan.fr/media/P02000000000ZYAPRIMARY_1200x1200/B2CD/\"\n    },\n    \"ai_keywords\": [\n      \"Coca-Cola Soda 6x33cl\",\n      \"Coca-Cola Original 6x33cl\",\n      \"Coca-Cola Boisson 6x33cl\",\n      \"Coca-Cola Canettes 6x33cl\",\n      \"Coca-Cola Gazeuse 6x33cl\",\n      \"Coca-Cola Extraits 6x33cl\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-08T15:46:09.333247+01:00\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkWn3Y6YTJg3Kv9nI3j1KR2N2tRKk\", \"object\": \"chat.completion\", \"created\": 1765205169, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"queries\\\": [\\n    \\\"Coca-Cola Soda 6x33cl\\\",\\n    \\\"Coca-Cola Original 6x33cl\\\",\\n    \\\"Coca-Cola 6x33cl\\\",\\n    \\\"Coca-Cola Soda 6x33\\\",\\n    \\\"Coca-Cola 6x33\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1087, \"completion_tokens\": 65, \"total_tokens\": 1152, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e5bb698939\"}"
+}

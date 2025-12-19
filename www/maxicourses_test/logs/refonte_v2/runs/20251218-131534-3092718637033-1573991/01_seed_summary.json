@@ -1,0 +1,39 @@
+{
+  "timestamp": "2025-12-18T13:15:34.125111+01:00",
+  "status": "ok",
+  "data": {
+    "profile": {
+      "brand": "Teisseire",
+      "name": "Sirop Menthe Verte",
+      "quantity": "60cL"
+    },
+    "keywords": [
+      "Teisseire Sirop Menthe Verte 6",
+      "Teisseire Menthe Sirop 60cL",
+      "Teisseire Sirop Menthe 60cL"
+    ],
+    "primary_keywords": [
+      "Teisseire Sirop Menthe",
+      "Teisseire Sirop Menthe Verte 6",
+      "Teisseire Menthe Sirop 60cL",
+      "Teisseire Sirop Menthe 60cL"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "raw": {
+      "profile": {
+        "brand": "Teisseire",
+        "name": "Sirop Menthe Verte",
+        "quantity": "60cL"
+      },
+      "keywords": [
+        "Teisseire Sirop Menthe Verte 60cL",
+        "Teisseire Menthe Sirop 60cL",
+        "Teisseire Sirop Menthe 60cL"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"seeds\": [\n    {\n      \"adapter\": \"carrefour_super\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"2,45\",\n        \"store\": \"Lormont\",\n        \"url\": \"https://www.carrefour.fr/p/sirop-menthe-zero-sucres-teisseire-3092718637958\",\n        \"note\": \"json_state_extraction\",\n        \"unit_price\": \"4,08 € / L\",\n        \"quantity\": \"60cL\",\n        \"title\": \"Sirop Menthe Verte TEISSEIRE\",\n        \"matched_ean\": \"3092718637033\",\n        \"image\": \"https://media.carrefour.fr/medias/938a71cd4ad64ba89ff4deead5be3d71/p_200x200/03 092718637958_C1N1_s03.png\",\n        \"nutriscore_grade\": null,\n        \"nutriscore_image\": null,\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Sirop Menthe Verte TEISSEIRE\",\n          \"brand\": \"Sirop\",\n          \"kind\": \"\",\n          \"qty\": \"60cL\",\n          \"price\": null,\n          \"quantity\": null,\n          \"qualifiers\": [],\n          \"ean\": \"3092718637033\",\n          \"image_url\": \"https://media.carrefour.fr/medias/938a71cd4ad64ba89ff4deead5be3d71/p_200x200/03 092718637958_C1N1_s03.png\",\n          \"source\": \"carrefour_super\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"3092718637033\"\n      }\n    }\n  ],\n  \"context\": {\n    \"descriptor\": {\n      \"ean\": \"3092718637033\",\n      \"_id\": \"6943b72bf55566d88df56710\",\n      \"brand\": \"Teisseire\",\n      \"created_at\": \"2025-12-18T08:11:23.809000\",\n      \"image\": \"https://media.carrefour.fr/medias/938a71cd4ad64ba89ff4deead5be3d71/p_200x200/03 092718637958_C1N1_s03.png\",\n      \"keywords\": [\n        \"Sirop Menthe 60 CL\"\n      ],\n      \"quantity\": \"60 CL\",\n      \"queries\": {\n        \"leclerc\": [\n          \"Sirop Menthe 60 CL\",\n          \"Teisseire Menthe 60 CL\",\n          \"Sirop Menthe Teisseire 60 CL\",\n          \"Menthe Teisseire 60 CL\",\n          \"3092718637033\"\n        ]\n      },\n      \"source\": \"carrefour_super\",\n      \"updated_at\": \"2025-12-18T12:09:29.595000\",\n      \"removed\": false,\n      \"name\": \"Sirop Menthe Verte TEISSEIRE\",\n      \"description\": \"Sirop Menthe Verte TEISSEIRE\",\n      \"note\": \"json_state_extraction\",\n      \"seed_query\": \"Teisseire Sirop Menthe Verte 60 CL\",\n      \"leclerc_query\": \"Teisseire 60 CL\",\n      \"leclerc_queries\": [\n        \"Teisseire 60 CL\",\n        \"Teisseire Sirop 60 CL\",\n        \"Teisseire Sirop Menthe 60 CL\",\n        \"Sirop Menthe 60 CL\",\n        \"Teisseire Menthe 60 CL\",\n        \"Teisseire Sirop Menthe Verte 60 CL\",\n        \"Sirop Menthe Verte TEISSEIRE\",\n        \"3092718637033\"\n      ],\n      \"seed_primary_name\": \"Sirop Menthe Verte TEISSEIRE\",\n      \"seed_primary_quantity\": \"60cL\"\n    },\n    \"ean\": \"3092718637033\"\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-Co7Cm21baL7zlOsQULt3EIpjzQ2ty\", \"object\": \"chat.completion\", \"created\": 1766060132, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"profile\\\": {\\n    \\\"brand\\\": \\\"Teisseire\\\",\\n    \\\"name\\\": \\\"Sirop Menthe Verte\\\",\\n    \\\"quantity\\\": \\\"60cL\\\"\\n  },\\n  \\\"keywords\\\": [\\n    \\\"Teisseire Sirop Menthe Verte 60cL\\\",\\n    \\\"Teisseire Menthe Sirop 60cL\\\",\\n    \\\"Teisseire Sirop Menthe 60cL\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1131, \"completion_tokens\": 88, \"total_tokens\": 1219, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e413f45763\"}"
+}

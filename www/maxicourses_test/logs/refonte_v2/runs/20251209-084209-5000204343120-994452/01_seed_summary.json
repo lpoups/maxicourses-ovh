@@ -1,0 +1,76 @@
+{
+  "timestamp": "2025-12-09T08:42:09.990521+01:00",
+  "status": "ok",
+  "data": {
+    "profile": {
+      "ean": "5000204343120",
+      "brand": "Raid",
+      "name": "Raid Aérosol Multi Insectes",
+      "quantity": "400 ml",
+      "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/79883652-540c-4467-9304-44583163359d/300x300.jpg",
+      "source": "carrefour_super",
+      "description": "Entrée générée automatiquement – descriptif requis."
+    },
+    "keywords": [
+      "Raid Insecticide 400ml",
+      "Raid Aérosol Multi Insectes",
+      "Raid Spray Multi-Insectes",
+      "Insecticide Spray 400ml",
+      "Raid Insecticide Spray",
+      "Raid 400ml",
+      "Multi-Insectes Action Max",
+      "Raid Insecticide Aérosol"
+    ],
+    "primary_keywords": [
+      "Raid Raid 400ML Raid insectici",
+      "Raid Insecticide 400ml",
+      "Raid Aérosol Multi Insectes",
+      "Raid Spray Multi-Insectes",
+      "Raid Insecticide Spray 400ml"
+    ],
+    "secondary_keywords": [
+      "raid",
+      "insecticide",
+      "spray",
+      "multi",
+      "insectes",
+      "action",
+      "max",
+      "aérosol",
+      "entrée",
+      "générée",
+      "automatiquement",
+      "descriptif",
+      "requis",
+      "400ml",
+      "400",
+      "0.4",
+      "0.4l"
+    ],
+    "category": "generic",
+    "raw": {
+      "profile": {
+        "ean": "5000204343120",
+        "brand": "Raid",
+        "name": "Raid Aérosol Multi Insectes",
+        "quantity": "400 ml",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/79883652-540c-4467-9304-44583163359d/300x300.jpg",
+        "source": "carrefour_super",
+        "description": "Entrée générée automatiquement – descriptif requis."
+      },
+      "keywords": [
+        "Raid Insecticide 400ml",
+        "Raid Aérosol Multi Insectes",
+        "Raid Spray Multi-Insectes",
+        "Insecticide Spray 400ml",
+        "Raid Insecticide Spray",
+        "Raid 400ml",
+        "Multi-Insectes Action Max",
+        "Raid Insecticide Aérosol"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"seeds\": [\n    {\n      \"adapter\": \"carrefour_super\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"6,55\",\n        \"store\": \"Lormont\",\n        \"url\": \"https://www.carrefour.fr/s?q=5000204343120\",\n        \"note\": \"json_state_extraction\",\n        \"unit_price\": \"16,38 € / L\",\n        \"quantity\": \"400mL\",\n        \"title\": \"Insecticide Spray  Multi-Insectes Action Max RAID\",\n        \"matched_ean\": \"5000204343120\",\n        \"image\": null,\n        \"nutriscore_grade\": null,\n        \"nutriscore_image\": null,\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Insecticide Spray  Multi-Insectes Action Max RAID\",\n          \"brand\": \"Insecticide\",\n          \"kind\": \"\",\n          \"qty\": \"400mL\",\n          \"qualifiers\": [],\n          \"ean\": \"5000204343120\",\n          \"image_url\": \"https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/79883652-540c-4467-9304-44583163359d/300x300.jpg\",\n          \"source\": \"carrefour_super\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"5000204343120\"\n      }\n    }\n  ],\n  \"context\": {\n    \"descriptor\": {\n      \"ean\": \"5000204343120\",\n      \"brand\": \"Raid\",\n      \"name\": \"Raid Aérosol Multi Insectes\",\n      \"quantity\": \"400 ml\",\n      \"image\": \"https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/79883652-540c-4467-9304-44583163359d/300x300.jpg\",\n      \"source\": \"carrefour_super\",\n      \"note\": \"Monoprix AI Test\",\n      \"removed\": false,\n      \"description\": \"Entrée générée automatiquement – descriptif requis.\",\n      \"seed_query\": \"Raid Aérosol Multi Insectes Entrée générée automatiquement\",\n      \"leclerc_query\": \"Raid Insecticide 400 ML\",\n      \"leclerc_queries\": [\n        \"Raid Insecticide 400 ML\",\n        \"Raid Insecticide Spray 400 ML\",\n        \"Raid 400 ML\",\n        \"Insecticide Spray 400 ML\"\n      ],\n      \"seed_primary_name\": \"Insecticide Spray  Multi-Insectes Action Max RAID\",\n      \"seed_primary_quantity\": \"400mL\"\n    },\n    \"ean\": \"5000204343120\"\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkmeF8ZjTz84Ks1G6dFEPyfxuBmeQ\", \"object\": \"chat.completion\", \"created\": 1765266127, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"profile\\\": {\\n    \\\"ean\\\": \\\"5000204343120\\\",\\n    \\\"brand\\\": \\\"Raid\\\",\\n    \\\"name\\\": \\\"Raid Aérosol Multi Insectes\\\",\\n    \\\"quantity\\\": \\\"400 ml\\\",\\n    \\\"image\\\": \\\"https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/79883652-540c-4467-9304-44583163359d/300x300.jpg\\\",\\n    \\\"source\\\": \\\"carrefour_super\\\",\\n    \\\"description\\\": \\\"Entrée générée automatiquement – descriptif requis.\\\"\\n  },\\n  \\\"keywords\\\": [\\n    \\\"Raid Insecticide 400ml\\\",\\n    \\\"Raid Aérosol Multi Insectes\\\",\\n    \\\"Raid Spray Multi-Insectes\\\",\\n    \\\"Insecticide Spray 400ml\\\",\\n    \\\"Raid Insecticide Spray\\\",\\n    \\\"Raid 400ml\\\",\\n    \\\"Multi-Insectes Action Max\\\",\\n    \\\"Raid Insecticide Aérosol\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 730, \"completion_tokens\": 220, \"total_tokens\": 950, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

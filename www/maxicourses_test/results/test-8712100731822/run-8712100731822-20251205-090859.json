@@ -1,0 +1,98 @@
+{
+  "ean": "8712100731822",
+  "image_path": null,
+  "started_at": "2025-12-05T09:08:41.909771+01:00",
+  "finished_at": "2025-12-05T09:08:59.913120+01:00",
+  "duration_seconds": 18.003349,
+  "reference": {
+    "title": "Moutarde aux aromates SAVORA 385 g",
+    "description": "Moutarde aux aromates SAVORA 385 g",
+    "source": "chronodrive",
+    "brand": "Savora",
+    "quantity": "385  g",
+    "categories": "Condiments, Sauces, Moutardes, en:groceries, Spécialité à la Moutarde",
+    "image": "./assets/8712100731822.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
+    "ecoscore_grade": "b",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
+    "nova_group": "3"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251205-090841"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "NO_STOCK",
+      "payload": {
+        "status": "NO_STOCK",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": "Spécialité à la moutarde savora en bocal",
+        "url": "https://www.auchan.fr/savora-specialite-a-la-moutarde-savora-en-bocal/pr-C12300 73",
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "unavailable",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Spécialité à la moutarde savora en bocal",
+          "brand": "Spécialité",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8712100731822",
+          "image_url": "./assets/8712100731822.jpg",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-05T09:08:41.910727+01:00",
+      "finished_at": "2025-12-05T09:08:59.121072+01:00",
+      "duration_seconds": 17.210345,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8712100731822",
+        "QUERY": "8712100731822",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button.journey-button\n[auchan] Clicking 'Choisir ce drive'...\n[auchan] Waiting 12.0s on store page after selection\n[auchan] Detected unavailability flag on page",
+      "metadata": {
+        "attempt_query": "8712100731822"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Moutarde aux aromates SAVORA 385 g",
+      "brand": "Savora",
+      "kind": "",
+      "qty": "385 g",
+      "qualifiers": [],
+      "ean": "8712100731822",
+      "image_url": "./assets/8712100731822.jpg",
+      "source": "consolidated",
+      "raw_text": "Moutarde aux aromates SAVORA 385 g",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

@@ -97,7 +97,24 @@ def _adaptive_delay(ms: int, minimum: int = 100) -> int:
         return max(minv, max(1, ms) // 10)
     return max(minv, ms)
 
-MANUAL_DESCRIPTOR: dict[str, dict] = all_seeds()
+from descriptor_store import ProductRepository
+
+# Fallback only
+MANUAL_DESCRIPTOR_STATIC: dict[str, dict] = all_seeds()
+REPO = ProductRepository()
+
+def get_descriptor_for_ean(ean: str) -> Optional[dict]:
+    # 1. Try DB (Golden Record)
+    try:
+        doc = REPO.get_product(ean)
+        if doc:
+            return doc
+    except Exception as e:
+        print(f"DEBUG: DB Lookup failed: {e}", file=sys.stderr)
+        pass
+    # 2. Fallback to static
+    return MANUAL_DESCRIPTOR_STATIC.get(ean)
+
 EAN_PATTERN = re.compile(r"(?<!\d)(\d{13})(?!\d)")
 
 
@@ -291,37 +308,59 @@ def _score_card(
     ean: str,
 ) -> int:
     haystack = f"{href} {label}".lower()
+    # DEBUG BRAND
+    if brand_tokens:
+        sys.stderr.write(f"[DEBUG_BRAND] tokens={brand_tokens} haystack_snippet={haystack[:100]}\n")
+    
     score = 0
+    
+    # EAN Match: Definitive proof.
     if ean and ean in haystack:
-        score += 100
+        score += 500  # Massive bonus, overrides almost everything
+        return score
+
+    # Query tokens
     for tok in query_tokens:
         if tok in haystack:
             score += 6
+            
+    # Descriptor tokens
     descriptor_core = [tok for tok in descriptor_tokens if len(tok) >= 4]
     descriptor_hits = 0
     for tok in descriptor_core:
         if tok in haystack:
             score += 8
             descriptor_hits += 1
+            
+    # Missing descriptor penalty
     if descriptor_core:
         missing = len(descriptor_core) - descriptor_hits
         if missing > 0:
-            score -= missing * 12
+            score -= missing * 5 # Reduced penalty (was 12)
+
+    # Supremo sanity check
     if 'supremo' in descriptor_tokens and 'supremo' not in haystack:
         score -= 60
+        
+    # Brand check: Important but shouldn't kill a good visual match
     brand_present = False
     for tok in brand_tokens:
         if tok and tok in haystack:
             score += 30
             brand_present = True
+            
     if brand_tokens and not brand_present:
-        score -= 80
+        score -= 40 # Reduced penalty (was 80) to allow for weird title formatting
+        
+    # Quantity numbers check
     if descriptor_numbers:
         card_numbers = set(_numeric_tokens(label) + _numeric_tokens(href))
         if card_numbers & set(descriptor_numbers):
             score += 10
         else:
-            score -= 25
+            score -= 10 # Reduced penalty (was 25)
+
+    sys.stderr.write(f"[LECLERC_SCORE] '{label}' Score: {score} (Brand: {brand_present})\n")
     return score
 
 
@@ -391,14 +430,17 @@ def _normalized_unit_price(price: Optional[str], quantity: Optional[str]) -> Opt
     except Exception:
         return None
     q = str(quantity).upper().replace(" ", "")
-    match = re.search(r"([0-9]+(?:[.,][0-9]+)?)(L|CL|ML|KG|G)", q)
+    # Handle multipack: "6X33CL" or "4X1.5L"
+    match = re.search(r"(?:(\d+)[X])?([0-9]+(?:[.,][0-9]+)?)(L|CL|ML|KG|G)", q)
     if not match:
         return None
     try:
-        qty_val = float(match.group(1).replace(",", "."))
+        count = float(match.group(1)) if match.group(1) else 1.0
+        unit_val = float(match.group(2).replace(",", "."))
+        qty_val = count * unit_val
     except Exception:
         return None
-    unit = match.group(2)
+    unit = match.group(3)
     if unit == "L":
         per = price_val / max(qty_val, 1e-6)
         return f"{per:.2f} € / L"
@@ -465,7 +507,30 @@ async def run_manual_leclerc(
         f"query:'{query}' direct_url:{bool(direct_url)}\n"
     )
 
-    descriptor_entry = MANUAL_DESCRIPTOR.get(ean.strip()) if ean else None
+    descriptor_entry = get_descriptor_for_ean(ean.strip()) if ean else None
+
+    # [NEW] Ensure local image asset if descriptor has a remote URL
+    if descriptor_entry and descriptor_entry.get("image"):
+        img_val = descriptor_entry.get("image")
+        if isinstance(img_val, str) and img_val.startswith("http"):
+             try:
+                 from urllib.request import urlopen, Request
+                 # Simple local cache strategy
+                 fname = f"{ean.strip()}.jpg"
+                 local_p = Path(f"pipeline/assets/{fname}")
+                 if not local_p.parent.exists():
+                     local_p.parent.mkdir(parents=True, exist_ok=True)
+                 
+                 print(f"[LECLERC_DEBUG] Downloading fresh image asset from {img_val}...", file=sys.stderr)
+                 req = Request(img_val, headers={'User-Agent': 'Mozilla/5.0'})
+                 with urlopen(req, timeout=10) as r:
+                     data = r.read()
+                     if data:
+                         local_p.write_bytes(data)
+                         descriptor_entry["image"] = f"./assets/{fname}"
+             except Exception as e:
+                 print(f"[LECLERC_DEBUG] Failed to download asset: {e}", file=sys.stderr)
+
     descriptor_tokens = _descriptor_tokens(descriptor_entry)
     descriptor_numbers = []
     if isinstance(descriptor_entry, dict):
@@ -477,11 +542,19 @@ async def run_manual_leclerc(
     if isinstance(descriptor_entry, dict):
         brand_raw = descriptor_entry.get('brand')
         brand_tokens = _tokenize(brand_raw)
+        print(f"DEBUG: brand_raw='{brand_raw}' tokens={brand_tokens}", file=sys.stderr)
         if isinstance(brand_raw, str):
             sanitized = re.sub(r"[^0-9a-z]+", "", brand_raw.lower())
-            if len(sanitized) >= 2 and sanitized not in brand_tokens:
-                brand_tokens.append(sanitized)
     query_candidates = _build_query_candidates(descriptor_entry, query, ean)
+    print(f"DEBUG: descriptor={descriptor_entry}", file=sys.stderr)
+    print(f"DEBUG: candidates={query_candidates}", file=sys.stderr)
+
+    sys.stdout.flush()
+    if not query:
+        if isinstance(descriptor_entry, dict) and descriptor_entry.get("seed_query"):
+             query = descriptor_entry["seed_query"]
+        elif query_candidates:
+             query = query_candidates[0]
     descriptor_negatives: List[str] = []
     leclerc_negatives = None
     if isinstance(descriptor_entry, dict):
@@ -530,8 +603,8 @@ async def run_manual_leclerc(
         browser = await p.chromium.connect_over_cdp(cdp_url)
         context = browser.contexts[0] if browser.contexts else await browser.new_context()
         try:
-            context.set_default_timeout(4000)
-            context.set_default_navigation_timeout(4000)
+            context.set_default_timeout(15000)
+            context.set_default_navigation_timeout(15000)
         except Exception:
             pass
 
@@ -709,10 +782,16 @@ async def run_manual_leclerc(
         expected_tokens = list(dict.fromkeys(expected_tokens))
 
         search_field = page.locator("input[id*='rechercheTexte']").first
-        await search_field.click()
+        try:
+            await search_field.click(force=True, timeout=5000)
+        except Exception:
+            pass
         await human_pause(page, _adaptive_delay(1000))
         sys.stderr.write(f"[LECLERC_DEBUG] after focus -> {time.perf_counter()-started:.2f}s\n")
-        await search_field.fill("")
+        try:
+            await search_field.evaluate("el => el.value = ''")
+        except Exception:
+            pass
         await human_pause(page, _adaptive_delay(500))
         for ch in query:
             await search_field.type(ch, delay=random.randint(type_min_delay, type_max_delay))
@@ -759,6 +838,30 @@ async def run_manual_leclerc(
                 brand_tokens,
                 ean,
             )
+            
+            # [NEW] Visual Matching Fallback
+            # If text score is mediocre but not terrible, and we have a seed image, try visual match
+            if score < 100 and descriptor_entry and descriptor_entry.get("image"):
+                try:
+                    img_node = cards.nth(idx).locator("img").first
+                    if await img_node.count():
+                        cand_img_url = await img_node.get_attribute("src")
+                        if cand_img_url:
+                            # Cleanup URL if needed
+                            if cand_img_url.startswith("//"):
+                                cand_img_url = "https:" + cand_img_url
+                            
+                            print(f"[LECLERC_DEBUG] Checking visual match for '{label}'...", file=sys.stderr)
+                            # Minimal candidate dict for matcher
+                            cand_obj = {"image_url": cand_img_url, "title": label}
+                            if descriptor_matches_candidate(descriptor_entry, cand_obj, ean=ean):
+                                print(f"[LECLERC_DEBUG] VISUAL MATCH CONFIRMED for '{label}'!", file=sys.stderr)
+                                score += 400 # Treat as almost-EAN match
+                            else:
+                                print(f"[LECLERC_DEBUG] Visual match failed for '{label}'", file=sys.stderr)
+                except Exception as e:
+                    print(f"[LECLERC_DEBUG] Visual check error: {e}", file=sys.stderr)
+
             penalty = 0
             if descriptor_negatives:
                 for token in descriptor_negatives:
@@ -786,6 +889,25 @@ async def run_manual_leclerc(
                     "snippet": snippet,
                 }
             )
+
+        # [Optim] Fail Fast: Check if any candidate is worthy
+        if not candidate_rows:
+             sys.stderr.write(f"[LECLERC_DEBUG] no usable cards after filtering\n")
+             return {"status": "NO_RESULTS", "query": query}
+
+        max_score = max(c["score"] for c in candidate_rows)
+        sys.stderr.write(f"[LECLERC_DEBUG] Best Score: {max_score}\n")
+
+        # Threshold to even consider clicking (40 is barely above brand match)
+        # 30 = Brand (30) + nothing else. Weak.
+        # 46 = Brand (30) + 2 query tokens (6+6) + 1 descriptor (8) - penalties...
+        # if max_score < 10:
+        #      sys.stderr.write(f"[LECLERC_DEBUG] FAIL FAST: Max score {max_score} < 40. Aborting search for this query.\n")
+        #      return {
+        #          "status": "NO_MATCH", 
+        #          "query": query, 
+        #          "note": f"Low relevance score ({max_score})"
+        #      }
 
         if not candidate_rows:
             sys.stderr.write(f"[LECLERC_DEBUG] no usable cards after filtering\n")
@@ -1116,9 +1238,15 @@ async def run_manual_leclerc(
                 if matched_candidate_ean and matched_candidate_ean == ean:
                     candidate_entry["status"] = "MATCHED"
                     candidate_entry["reason"] = "ean_match"
-                else:
+                elif matched_candidate_ean and matched_candidate_ean != ean:
                     candidate_entry["status"] = "REJECTED"
                     candidate_entry["reason"] = "ean_mismatch"
+                elif image_match:
+                    candidate_entry["status"] = "MATCHED"
+                    candidate_entry["reason"] = "image_match_fallback"
+                else:
+                    candidate_entry["status"] = "REJECTED"
+                    candidate_entry["reason"] = "ean_not_found_and_no_image_match"
             else:
                 if matched_candidate_ean:
                     candidate_entry["status"] = "MATCHED"
@@ -1270,6 +1398,7 @@ async def run_manual_leclerc(
 
 
 async def _main() -> None:
+    print(f"DEBUG: EAN='{EAN}', QUERY='{QUERY}'")
     result = await run_manual_leclerc(
         query=QUERY,
         ean=EAN,

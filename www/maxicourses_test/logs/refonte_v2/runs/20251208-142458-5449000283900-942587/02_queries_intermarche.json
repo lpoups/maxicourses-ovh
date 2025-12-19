@@ -1,0 +1,34 @@
+{
+  "timestamp": "2025-12-08T14:25:01.778275+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Cola Cola 6X Cola coca Cola co",
+      "Cola Original 6x33cl",
+      "Cola 6x33cl",
+      "Cola 6x33",
+      "Cola Original"
+    ],
+    "secondary_keywords": [
+      "cola",
+      "coca",
+      "original",
+      "6x33cl",
+      "6x",
+      "6"
+    ],
+    "category": "generic",
+    "raw": {
+      "queries": [
+        "Cola Original 6x33cl",
+        "Cola 6x33cl",
+        "Cola 6x33",
+        "Cola Original",
+        "Cola 6x"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Soda COCA-COLA Original - 6x33cl\",\n    \"brand\": \"Cola\",\n    \"quantity\": \"6x33 cl\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"brand\": \"Cola\",\n    \"ean\": \"5449000283900\",\n    \"leclerc_queries\": [\n      \"Cola Cola 6X Cola coca Cola co\",\n      \"Cola Original 6x33cl\",\n      \"Cola 6x33cl\",\n      \"Cola 6x33\",\n      \"Cola Original 6x33\"\n    ],\n    \"leclerc_query\": \"Cola Cola 6X Cola coca Cola co\",\n    \"name\": \"Soda COCA-COLA Original - 6x33cl\",\n    \"primary_keywords\": [\n      \"Coca Cola 6x33cl\"\n    ],\n    \"quantity\": \"6x33 cl\",\n    \"seed_primary_name\": \"Soda COCA-COLA Original\",\n    \"seed_primary_quantity\": \"6x33 cl\",\n    \"seed_query\": \"Cola Soda COCA Original 6x33cl 6x33\",\n    \"source\": \"manual\",\n    \"note\": \"\",\n    \"removed\": false,\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"leclerc_ai_queries\": [\n      \"Cola Cola 6X Cola coca Cola co\",\n      \"Cola Original 6x33cl\",\n      \"Cola 6x33cl\",\n      \"Cola 6x33\",\n      \"Cola Original 6x33\"\n    ],\n    \"leclerc_secondary_keywords\": [\n      \"cola\",\n      \"coca\",\n      \"original\",\n      \"6x33cl\",\n      \"6x\",\n      \"6\"\n    ],\n    \"monoprix_ai_queries\": [\n      \"Cola Cola 6X Cola coca Cola co\",\n      \"Cola Original 6x33cl\",\n      \"Cola 6x33cl\",\n      \"Cola 6x33\",\n      \"Cola Original 6x33\"\n    ],\n    \"monoprix_queries\": [\n      \"Cola Cola 6X Cola coca Cola co\",\n      \"Cola Original 6x33cl\",\n      \"Cola 6x33cl\",\n      \"Cola 6x33\",\n      \"Cola Original 6x33\"\n    ],\n    \"queries\": {\n      \"monoprix\": [\n        \"Cola Cola 6X Cola coca Cola co\",\n        \"Cola Original 6x33cl\",\n        \"Cola 6x33cl\",\n        \"Cola 6x33\",\n        \"Cola Original 6x33\"\n      ]\n    },\n    \"monoprix_secondary_keywords\": [\n      \"cola\",\n      \"coca\",\n      \"original\",\n      \"6x33cl\",\n      \"6x\",\n      \"6\"\n    ]\n  },\n  \"store\": \"intermarche\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkVWW1vGfKGff6dv88NCTCeXCmFxY\", \"object\": \"chat.completion\", \"created\": 1765200300, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\\"queries\\\":[\\\"Cola Original 6x33cl\\\",\\\"Cola 6x33cl\\\",\\\"Cola 6x33\\\",\\\"Cola Original\\\",\\\"Cola 6x\\\"]}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 800, \"completion_tokens\": 38, \"total_tokens\": 838, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_a4d13246c5\"}"
+}

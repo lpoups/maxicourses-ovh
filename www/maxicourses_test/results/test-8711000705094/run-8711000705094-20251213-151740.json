@@ -1,0 +1,94 @@
+{
+  "ean": "8711000705094",
+  "image_path": null,
+  "started_at": "2025-12-13T15:17:32.888132+01:00",
+  "finished_at": "2025-12-13T15:17:40.736683+01:00",
+  "duration_seconds": 7.848551,
+  "reference": {
+    "title": "Drive, Courses en ligne et Livraison à Domicile Super U, Hyper U, U express - www.coursesu.com",
+    "description": null,
+    "source": "unknown",
+    "brand": "L'Or",
+    "quantity": null,
+    "categories": "Boissons et préparations de boissons,Boissons,Boissons chaudes,Cafés,Dosettes,Cafés en dosettes,Cafés en dosettes compatible Nespresso",
+    "image": "./assets/8711000705094.png",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "f",
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000705094/debug/run-8711000705094-20251213-151732"
+  ],
+  "adapters": [
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Spar (404)",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/UNKNOWN?produit_recherche=L%27Or",
+          "store_code": "UNKNOWN",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-merignac-33700/UNKNOWN",
+          "query": "L'Or",
+          "timestamp": "2025-12-13T14:17:37.736052+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-13T15:17:37.510698+01:00",
+      "finished_at": "2025-12-13T15:17:38.354830+01:00",
+      "duration_seconds": 0.844132,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_spar_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_spar_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "L'Or",
+        "STORE_URL": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-merignac-33700/TZ200",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "L'Or",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000705094/debug/run-8711000705094-20251213-151732/01-spar"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Drive, Courses en ligne et Livraison à Domicile Super U, Hyper U, U express - www.coursesu.com",
+      "brand": "L'Or",
+      "kind": "",
+      "qty": "",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "8711000705094",
+      "image_url": "./assets/8711000705094.png",
+      "source": "consolidated",
+      "raw_text": "Drive, Courses en ligne et Livraison à Domicile Super U, Hyper U, U express - www.coursesu.com",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "L'Or café",
+      "café L'Or",
+      "L'Or boisson",
+      "Drive, Courses en ligne",
+      "Drive, Courses en",
+      "L'Or livraison coursesu"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

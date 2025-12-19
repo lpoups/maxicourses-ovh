@@ -1,0 +1,84 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-12-18T10:40:59.497826+01:00",
+  "finished_at": "2025-12-18T10:41:23.762816+01:00",
+  "duration_seconds": 24.26499,
+  "reference": {
+    "title": null,
+    "description": null,
+    "source": "courseu",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": null,
+    "image": "/assets/5000112611861.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251218-104059"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "MATCHED",
+      "payload": {
+        "status": "MATCHED",
+        "price": "2,38 €",
+        "unit_price": "1,36 €/l",
+        "quantity": "",
+        "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+        "url": "https://www.coursesu.com/p/soda-coca-cola-original---bouteille-175l/5192990.html",
+        "note": "2025-12-18T09:41:22Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "5000112611861",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dwdcb701f0/5000112611861_H1N1_5192990_S10.png?sw=388&sh=388&sm=fit",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+          "brand": "Soda",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dwdcb701f0/5000112611861_H1N1_5192990_S10.png?sw=388&sh=388&sm=fit",
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-18T10:40:59.501123+01:00",
+      "finished_at": "2025-12-18T10:41:22.904343+01:00",
+      "duration_seconds": 23.40322,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[COURSEU] Connecting to CDP at http://127.0.0.1:9222\n[COURSEU] Resetting cache, cookies and storage...\n[COURSEU] Cache/cookies reset complete\n[COURSEU] Current: https://www.carrefour.fr/s?q=5000112611861 - Un instant…\n[COURSEU] Navigating to https://www.coursesu.com/drive-superu-eysines\n[COURSEU] Clicked cookie button: button:has-text('Accepter & Fermer')\n[COURSEU] Searched for: 5000112611861 (human typing)\n[COURSEU] Clicked product, now on: https://www.coursesu.com/p/soda-coca-cola-original---bouteille-175l/5192990.html\n[COURSEU] JSON-LD extraction failed, trying CSS selectors...\n[COURSEU] .product-price raw text: '2,38 €\n1,36 €/l'\n[COURSEU] Extracted: price=2,38 €, title=Soda COCA-COLA Original - Bout..., ean=5000112611861",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    }
+  ],
+  "finder": null
+}

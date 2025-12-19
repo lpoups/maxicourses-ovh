@@ -1,0 +1,14 @@
+[stripped] Connecting to CDP: http://127.0.0.1:9223
+[stripped] Goto https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117
+[stripped] Checking for 'Choisir ce drive' button...
+[stripped] Found 1 buttons with text 'Choisir ce Drive'
+[stripped] Button 0: Visible=True
+[stripped] Found Visible Button. Attempting HUMAN CLICK...
+[stripped] Waiting for Toast 'C'est noté'...
+[stripped] Toast fail: Locator.wait_for: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator("div:has-text(\"C'est noté\")").first to be visible
+
+[stripped] Dumping Body Text to check for Toast presence:
+[stripped] CRITICAL: 'C'est noté' NOT found in text.
+{'status': 'FAILED'}

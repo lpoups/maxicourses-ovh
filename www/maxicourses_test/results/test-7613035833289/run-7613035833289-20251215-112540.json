@@ -1,0 +1,655 @@
+{
+  "ean": "7613035833289",
+  "image_path": null,
+  "started_at": "2025-12-15T11:18:04.753186+01:00",
+  "finished_at": "2025-12-15T11:25:40.444949+01:00",
+  "duration_seconds": 455.691763,
+  "reference": {
+    "title": "Eau minérale naturelle gazeuse PERRIER - 6x1L",
+    "description": "Eau Minérale Naturelle Gazeuse PERRIER",
+    "source": "carrefour_super",
+    "brand": "Perrier",
+    "quantity": "6*1 l",
+    "categories": "Beverages, Carbonated drinks, Waters, Spring waters, Mineral waters, Unsweetened beverages, Carbonated waters, en:carbonated-mineral-waters",
+    "image": "https://www.g20-minute.com/media/cache/product_box_image/f4/e5/eb52e0e28a61640be7765b288e5b.jpg",
+    "nutriscore_grade": "a",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "1"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251215-111804"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/s?q=7613035833289",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-15T11:18:04.756177+01:00",
+      "finished_at": "2025-12-15T11:18:28.707693+01:00",
+      "duration_seconds": 23.951516,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 7613035833289. Reloading \nto refresh store...\n[INFO] Optimization active: Attempting direct DOM extraction.",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,14",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/s?q=7613035833289",
+        "note": "json_state_extraction",
+        "unit_price": "0,69 € / L",
+        "quantity": "6x1L",
+        "title": "Eau Minérale Naturelle Gazeuse PERRIER",
+        "matched_ean": "7613035833289",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Eau Minérale Naturelle Gazeuse PERRIER",
+          "brand": "Eau",
+          "kind": "",
+          "qty": "6x1L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "7613035833289",
+          "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw46326480/7613035833289_H1N1_2545301_S10.png?sw=388&sh=388&sm=fit",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-15T11:18:28.711435+01:00",
+      "finished_at": "2025-12-15T11:18:56.233140+01:00",
+      "duration_seconds": 27.521705,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 7613035833289. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Eau Minérale \nNaturelle Gazeuse PERRIER', 'quantity': '6x1L', 'price': 4.14, 'unit_price': \n'0.69 € / L'}\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 7613035833289. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Eau Minérale \nNaturelle Gazeuse PERRIER', 'quantity': '6x1L', 'price': 4.14, 'unit_price': \n'0.69 € / L'}",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,08",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/s?q=7613035833289",
+        "note": "json_state_extraction",
+        "unit_price": "0,68 € / L",
+        "quantity": "6x1L",
+        "title": "Eau Minérale Naturelle Gazeuse PERRIER",
+        "matched_ean": "7613035833289",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Eau Minérale Naturelle Gazeuse PERRIER",
+          "brand": "Eau",
+          "kind": "",
+          "qty": "6x1L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "7613035833289",
+          "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw46326480/7613035833289_H1N1_2545301_S10.png?sw=388&sh=388&sm=fit",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-15T11:18:56.241365+01:00",
+      "finished_at": "2025-12-15T11:19:12.559407+01:00",
+      "duration_seconds": 16.318042,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 7613035833289. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Eau Minérale \nNaturelle Gazeuse PERRIER', 'quantity': '6x1L', 'price': 4.08, 'unit_price': \n'0.68 € / L'}\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 7613035833289. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Eau Minérale \nNaturelle Gazeuse PERRIER', 'quantity': '6x1L', 'price': 4.08, 'unit_price': \n'0.68 € / L'}",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "search_failed:7613035833289",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-15T11:19:12.564763+01:00",
+      "finished_at": "2025-12-15T11:19:37.247169+01:00",
+      "duration_seconds": 24.682406,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Attached to existing page (avoiding Captcha).\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Found cookie button with text: Accepter\n[auchan] REQ_FAILED: https://ars-privacy.my.onetrust.com/request/v1/consentreceipts net::ERR_NAME_NOT_RESOLVED\n[auchan] CONSOLE: Failed to load resource: net::ERR_NAME_NOT_RESOLVED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ✅ Toast 'C'est noté' APPEARED.\n[auchan] Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...\n[auchan] ✅ Toast DISAPPEARED. Proceeding to search.\n[auchan] CONSOLE: Access to font at 'https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/OpenSans-VariableFont_wght_sliced-subset.aa05de0b.woff2' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/OpenSans-VariableFont_wght_sliced-subset.aa05de0b.woff2 net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to font at 'https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/INTERMARCHE-Regular.948344d0.woff2' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/INTERMARCHE-Regular.948344d0.woff2 net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to font at 'https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/INTERMARCHE-Bold.082aee59.woff2' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/INTERMARCHE-Bold.082aee59.woff2 net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/init.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/init.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/layout.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/layout.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/common.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/common.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/uikit.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/uikit.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/fidelity.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/fidelity.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: {time: 2025-12-15T10:19:24.136Z, level: 30, channel: error, message: Object, context: Object}\n[auchan] CONSOLE: current window outer height 1227\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: ReferenceError: opts is not defined\n    at Navigator.get [as userAgent] (<anonymous>:10:42)\n    at t.getDeviceOS (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4063.28a78f6fe8fcd9e0.js:1:48033)\n    at e.init (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4063.28a78f6fe8fcd9e0.js:1:44416)\n    at https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/2840.f47e83c04d5c9d64.js:1:302\n    at ob (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:80086)\n    at e (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:96574)\n    at e (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:96561)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:96845)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n[auchan] CONSOLE: {time: 2025-12-15T10:19:24.658Z, level: 50, channel: error, message: Object, context: Object}\n[auchan] REQ_FAILED: https://www.intermarche.com/accueil net::ERR_ABORTED\n[auchan] REQ_FAILED: https://indice-reparabilite.intermarche.com/js_inter.php?a=https://www.intermarche.com net::ERR_BLOCKED_BY_ORB\n[auchan] REQ_FAILED: https://www.intermarche.com/accueil net::ERR_ABORTED\n[auchan] CONSOLE: current window outer height 1227\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE:  \n[auchan] REQ_FAILED: https://www.intermarche.com/accueil net::ERR_ABORTED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/init.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/init.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/layout.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/layout.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/common.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/common.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/uikit.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/uikit.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to font at 'https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/OpenSans-VariableFont_wght_sliced-subset.aa05de0b.woff2' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/OpenSans-VariableFont_wght_sliced-subset.aa05de0b.woff2 net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to font at 'https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/INTERMARCHE-Regular.948344d0.woff2' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/INTERMARCHE-Regular.948344d0.woff2 net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to font at 'https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/INTERMARCHE-Bold.082aee59.woff2' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/INTERMARCHE-Bold.082aee59.woff2 net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/fidelity.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/fidelity.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: {time: 2025-12-15T10:19:27.623Z, level: 30, channel: error, message: Object, context: Object}\n[auchan] CONSOLE: ReferenceError: opts is not defined\n    at Navigator.get [as userAgent] (<anonymous>:10:42)\n    at t.getDeviceOS (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4063.28a78f6fe8fcd9e0.js:1:48033)\n    at e.init (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4063.28a78f6fe8fcd9e0.js:1:44416)\n    at https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/2840.f47e83c04d5c9d64.js:1:302\n    at ob (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:80086)\n    at e (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:96574)\n    at e (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:96561)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:96845)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95804)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n    at oX (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95708)\n    at oG (https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/chunks/4bd1b696-1663b87c36d518cb.js:1:95861)\n[auchan] CONSOLE: {time: 2025-12-15T10:19:27.800Z, level: 50, channel: error, message: Object, context: Object}\n[auchan] RESP: 403 https://www.intermarche.com/accueil\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] CONSOLE: current window outer height 1227\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: current window outer height 1227\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE:  \n[auchan] RESP: 403 https://www.intermarche.com/accueil\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] REQ_FAILED: https://indice-reparabilite.intermarche.com/js_inter.php?a=https://www.intermarche.com net::ERR_BLOCKED_BY_ORB\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/init.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/init.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/layout.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/layout.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/common.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/common.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to font at 'https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/OpenSans-VariableFont_wght_sliced-subset.aa05de0b.woff2' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/OpenSans-VariableFont_wght_sliced-subset.aa05de0b.woff2 net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to font at 'https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/INTERMARCHE-Bold.082aee59.woff2' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/INTERMARCHE-Bold.082aee59.woff2 net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/uikit.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/uikit.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/productlist.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/productlist.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: If you do not provide children, you must specify an aria-label for accessibility\n[auchan] CONSOLE: If you do not provide children, you must specify an aria-label for accessibility\n[auchan] CONSOLE: Access to XMLHttpRequest at 'https://cdn.intermarche.com/trad/fr/92-0-4-0/fidelity.json' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/trad/fr/92-0-4-0/fidelity.json net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: If you do not provide children, you must specify an aria-label for accessibility\n[auchan] CONSOLE: If you do not provide children, you must specify an aria-label for accessibility\n[auchan] CONSOLE: If you do not provide children, you must specify an aria-label for accessibility\n[auchan] CONSOLE: Access to font at 'https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/INTERMARCHE-Regular.948344d0.woff2' from origin 'https://www.intermarche.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.\n[auchan] REQ_FAILED: https://cdn.intermarche.com/web/assets/92-0-4-0/_next/static/media/INTERMARCHE-Regular.948344d0.woff2 net::ERR_FAILED\n[auchan] CONSOLE: Failed to load resource: net::ERR_FAILED\n[auchan] CONSOLE: {time: 2025-12-15T10:19:31.230Z, level: 50, channel: error, message: Object, context: Object}\n[auchan] CONSOLE: current window outer height 1227\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: current window outer height 1227\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE:  \n[auchan] RESP: 403 https://www.intermarche.com/recherche/perrier%20eau%20min%C3%A9rale%206x1l\n[auchan] CONSOLE: Failed to load resource: the server responded with a status of 403 ()\n[auchan] REQ_FAILED: https://indice-reparabilite.intermarche.com/js_inter.php?a=https://www.intermarche.com net::ERR_BLOCKED_BY_ORB\n[auchan] CONSOLE: The resource https://www.intermarche.com/fpm/ssmtg.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] search input not found\n[auchan] Search typing failed, but fallback (refresh) is DISABLE per user request.",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-15T11:19:37.248268+01:00",
+      "finished_at": "2025-12-15T11:19:58.487770+01:00",
+      "duration_seconds": 21.239502,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='7613035833289'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/perrier--eau-minerale-naturelle-gazeuse-P24883",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "note": "2025-12-15T10:20:05Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-15T11:19:58.488771+01:00",
+      "finished_at": "2025-12-15T11:20:05.656721+01:00",
+      "duration_seconds": 7.16795,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[COURSEU] Connecting to CDP at http://127.0.0.1:9223\n[COURSEU] Resetting cache, cookies and storage...\n[COURSEU] Cache/cookies reset complete\n[COURSEU] Current: https://www.intermarche.com/produit/eau-minerale-n - Eau minérale naturelle gazeuse\n[COURSEU] Navigating to https://www.coursesu.com/drive-superu-eysines\n[COURSEU] JSON-LD extraction failed, trying CSS selectors...\n[COURSEU] Extracted: price=None, title=None..., ean=None",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,20",
+        "title": "PERRIER eau minérale naturelle gazeuse 6 x 1L",
+        "url": "https://www.g20-minute.com/products/7613035833289/perrier-eau-minerale-naturelle-gazeuse-6-x-1l-7613035833289",
+        "note": "G20 Minute",
+        "unit_price": "0,7 €/L",
+        "quantity": "6L",
+        "matched_ean": "7613035833289",
+        "image": "https://www.g20-minute.com/media/cache/product_box_image/f4/e5/eb52e0e28a61640be7765b288e5b.jpg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "PERRIER eau minérale naturelle gazeuse 6 x 1L",
+          "brand": "PERRIER",
+          "kind": "",
+          "qty": "6L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "7613035833289",
+          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/f4/e5/eb52e0e28a61640be7765b288e5b.jpg",
+          "source": "g20",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-15T11:20:05.657215+01:00",
+      "finished_at": "2025-12-15T11:20:06.231537+01:00",
+      "duration_seconds": 0.574322,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": 0.95
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Perrier%206%2A1%20l",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Perrier 6*1 l",
+          "timestamp": "2025-12-15T10:20:15.155548+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-15T11:20:14.976921+01:00",
+      "finished_at": "2025-12-15T11:20:21.168927+01:00",
+      "duration_seconds": 6.192006,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "Perrier 6*1 l",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Perrier 6*1 l",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251215-111804/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Spar (404)",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/UNKNOWN?produit_recherche=Perrier%206%2A1%20l",
+          "store_code": "UNKNOWN",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-merignac-33700/UNKNOWN",
+          "query": "Perrier 6*1 l",
+          "timestamp": "2025-12-15T10:20:23.734552+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-15T11:20:23.550212+01:00",
+      "finished_at": "2025-12-15T11:20:24.049592+01:00",
+      "duration_seconds": 0.49938,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_spar_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_spar_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "Perrier 6*1 l",
+        "STORE_URL": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-merignac-33700/TZ200",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Perrier 6*1 l",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251215-111804/09-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,93",
+        "title": "Eau minérale naturelle gazeuse",
+        "url": "https://www.intermarche.com/produit/eau-minerale-naturelle-gazeuse/761303583328 9",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "7613035833289",
+        "unit_price": "0,66 € / L",
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/eau-minerale-gazeuse-fines-bulles/761303583 3319",
+            "product": {
+              "title": "PerrierEau minérale gazeuse fines  bulles",
+              "brand": "PerrierEau",
+              "kind": "",
+              "qty": "",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "761303583",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/eau-minerale-naturelle-gazeuse/761303583328 9",
+            "product": {
+              "title": "PerrierEau minérale naturelle gazeuse",
+              "brand": "PerrierEau",
+              "kind": "",
+              "qty": "",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "761303583328",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://www.intermarche.com/icons/nutriscore/score=A.svg"
+      },
+      "started_at": "2025-12-15T11:20:25.228646+01:00",
+      "finished_at": "2025-12-15T11:21:14.949671+01:00",
+      "duration_seconds": 49.721025,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "Perrier Eau gazeuse 6x1L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Perrier Eau gazeuse 6x1L",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251215-111804/10-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_120s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-15T11:22:08.899298+01:00",
+      "finished_at": "2025-12-15T11:24:09.010604+01:00",
+      "duration_seconds": 120.111306,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "Perrier Eau minérale",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_120s",
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Perrier Eau minérale' direct_url:False\n[LECLERC_DEBUG] after home human pause -> 1.51s\n[LECLERC_DEBUG] after focus -> 2.39s\n[LECLERC_DEBUG] results visible -> 8.04s\n[LECLERC_DEBUG] after result pause -> 8.04s\n[LECLERC_SCORE] 'Eau minérale gazeuse St Diery\nNaturelle - 6x1,25L' Score: 12 (Brand: False)\n[LECLERC_SCORE] 'Eau gazeuse La Pétillante\nCitron vert sans sucre - 1L' Score: 6 (Brand: False)\n[LECLERC_SCORE] 'Eau gazeuse La Pétillante\nCitron sans sucre - 1L' Score: 6 (Brand: False)\n[LECLERC_SCORE] 'Eau minérale gazeuse Perrier\nNaturelle - 6x50cl' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Eau minérale gazeuse Perrier\nFines bulles - 6x1L' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Eau minérale gazeuse Perrier\nNaturelle - 6x1L' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Eau minérale gazeuse Perrier\nCanettes - 6x33cl' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Boisson Gazeuse Maison Perrier\nForever Citron 6x33cl' Score: 6 (Brand: False)\n[LECLERC_SCORE] 'Boisson Gazeuse Maison Perrier\nForever Citron Vert 6x33cl' Score: 6 (Brand: False)\n[LECLERC_SCORE] 'Boisson Gazeuse Maison Perrier\nForever Citron Vert 6x50cl' Score: 6 (Brand: False)\n[LECLERC_SCORE] 'Boisson Gazeuse Maison Perrier\nForever Orange 1L' Score: 6 (Brand: False)\n[LECLERC_SCORE] 'Eau gazeuse San Pellegrino\nMinérale naturelle - 6x1L' Score: 12 (Brand: False)\n[LECLERC_DEBUG] Best Score: 6",
+      "metadata": {
+        "attempt_query": "Perrier Eau minérale",
+        "timeout_s": 120,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251215-111804/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-15T11:24:09.017962+01:00",
+      "finished_at": "2025-12-15T11:25:39.034584+01:00",
+      "duration_seconds": 90.016622,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "perrier eau gazeuse 6x1l",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '7613035833289'.\n[MONOPRIX_DEBUG] Search terms: ['perrier eau gazeuse 6x1l', 'perrier eau minérale 6x1l', 'perrier boissons']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/3: 'perrier eau gazeuse 6x1l'\n[MONOPRIX_DEBUG]  - Typing 'perrier eau gazeuse 6x1l' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=perrier%20eau%20gazeuse%206x1l\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 2 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097d24-2315-4751-b3bb-071a62201234/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images (seed=403, candidate=200)\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-6x1l/MPX_2439318\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a7907b-d63d-4f1d-bb9d-89efb28bd076/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-6x1l/MPX_2439318\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a79...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images (seed=403, candidate=200)\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n[MONOPRIX_DEBUG]  - Term 2/3: 'perrier eau minérale 6x1l'\n[MONOPRIX_DEBUG]  - Typing 'perrier eau minérale 6x1l' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 2 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097d24-2315-4751-b3bb-071a62201234/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images (seed=403, candidate=200)\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-6x1l/MPX_2439318\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a7907b-d63d-4f1d-bb9d-89efb28bd076/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-6x1l/MPX_2439318\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a79...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images (seed=403, candidate=200)\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n[MONOPRIX_DEBUG]  - Term 3/3: 'perrier boissons'\n[MONOPRIX_DEBUG]  - Typing 'perrier boissons' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=perrier%20boissons\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 4 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419",
+      "metadata": {
+        "attempt_query": "perrier eau gazeuse 6x1l",
+        "timeout_s": 90,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251215-111804/12-monoprix"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Eau Minérale Naturelle Gazeuse PERRIER",
+      "brand": "Eau",
+      "kind": "",
+      "qty": "6x1L",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "7613035833289",
+      "image_url": "https://www.g20-minute.com/media/cache/product_box_image/f4/e5/eb52e0e28a61640be7765b288e5b.jpg",
+      "source": "consolidated",
+      "raw_text": "Eau minérale naturelle gazeuse PERRIER - 6x1L Eau Minérale Naturelle Gazeuse PERRIER PERRIER eau minérale naturelle gazeuse 6 x 1L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Perrier eau gazeuse 6x1L",
+      "Eau gazeuse Perrier 6x1L",
+      "Perrier eau minérale",
+      "Eau Minérale Naturelle Gazeuse",
+      "Eau Minérale Naturelle",
+      "Eau naturelle 6X1L",
+      "Eau naturelle minerale",
+      "Eau 6X1L"
+    ],
+    "candidates": [
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/eau-minerale-gazeuse-fines-bulles/761303583 3319",
+        "score": 0.0,
+        "product": {
+          "title": "PerrierEau minérale gazeuse fines  bulles",
+          "brand": "PerrierEau",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "761303583",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/eau-minerale-naturelle-gazeuse/761303583328 9",
+        "score": 0.0,
+        "product": {
+          "title": "PerrierEau minérale naturelle gazeuse",
+          "brand": "PerrierEau",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "761303583328",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      }
+    ],
+    "decision": null,
+    "audit": []
+  }
+}

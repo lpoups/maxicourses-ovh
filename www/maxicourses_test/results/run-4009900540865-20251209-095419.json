@@ -1,0 +1,68 @@
+{
+  "ean": "4009900540865",
+  "image_path": null,
+  "started_at": "2025-12-09T09:54:17.936785+01:00",
+  "finished_at": "2025-12-09T09:54:19.100206+01:00",
+  "duration_seconds": 1.163421,
+  "reference": {
+    "title": null,
+    "description": null,
+    "source": "unknown",
+    "brand": null,
+    "quantity": null,
+    "categories": null,
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "monoprix",
+      "status": "ERROR",
+      "payload": {
+        "status": "ERROR",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "USE_CDP=1 obligatoire pour  Monoprix",
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-12-09T09:54:18.536271+01:00",
+      "finished_at": "2025-12-09T09:54:19.098884+01:00",
+      "duration_seconds": 0.562613,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "4009900540865",
+        "QUERY": "4009900540865",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] ERROR: USE_CDP=1 is not set",
+      "metadata": {
+        "attempt_query": "4009900540865"
+      }
+    }
+  ],
+  "finder": null
+}

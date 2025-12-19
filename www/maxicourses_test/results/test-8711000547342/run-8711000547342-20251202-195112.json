@@ -1,0 +1,585 @@
+{
+  "ean": "8711000547342",
+  "image_path": null,
+  "started_at": "2025-12-02T19:44:38.349661+01:00",
+  "finished_at": "2025-12-02T19:51:12.182873+01:00",
+  "duration_seconds": 393.833212,
+  "reference": {
+    "title": "capsule espresso ristretto",
+    "description": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+    "source": "carrefour_super",
+    "brand": "L'Or",
+    "quantity": "156 g",
+    "categories": "Cafés en dosettes compatible Nespresso",
+    "image": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "f",
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251202-194438"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "11,40",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000547342",
+        "note": null,
+        "unit_price": "73,08 € / KG",
+        "quantity": null,
+        "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+        "matched_ean": "8711000547342",
+        "image": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+          "source": "carrefour_city",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T19:44:38.350832+01:00",
+      "finished_at": "2025-12-02T19:44:47.582746+01:00",
+      "duration_seconds": 9.231914,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,55",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000547342",
+        "note": null,
+        "unit_price": "61,22 € / KG",
+        "quantity": null,
+        "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+        "matched_ean": "8711000547342",
+        "image": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T19:44:47.586163+01:00",
+      "finished_at": "2025-12-02T19:44:57.141853+01:00",
+      "duration_seconds": 9.55569,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,35",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000547342",
+        "note": null,
+        "unit_price": "59,94 € / KG",
+        "quantity": null,
+        "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+        "matched_ean": "8711000547342",
+        "image": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T19:44:57.142901+01:00",
+      "finished_at": "2025-12-02T19:45:05.923105+01:00",
+      "duration_seconds": 8.780204,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "18,73",
+        "unit_price": "120,06 € / KG",
+        "quantity": "30 CAPSULES",
+        "title": "Capsules de café Ristretto intensité 11 compatibles  Nespresso",
+        "url": "https://www.auchan.fr/l-or-espresso-capsules-de-cafe-ristretto-intensite-11-com patibles-nespresso/pr-C1777914",
+        "matched_ean": "8711000547342",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S01000000040J8WPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café Ristretto intensité 11 compatibles  Nespresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "30 CAPSULES",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://cdn.auchan.fr/media/S01000000040J8WPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T19:45:05.924967+01:00",
+      "finished_at": "2025-12-02T19:45:26.062781+01:00",
+      "duration_seconds": 20.137814,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button.journey-button\n[auchan] Clicking 'Choisir ce drive'...\n[auchan] ⚠️ Button still visible, retrying selection...\n[auchan] ⚠️ Button still visible, retrying selection...\n[auchan] ⚠️ Button still visible, retrying selection...\n[auchan] ⚠️ Unable to confirm store selection (button still visible).\n[auchan] localStorage after selection: {\"auc_bls_segments\":\"{\\\"last_modified_ts\\\":1764442507159,\\\"segments\\\":[{\\\"name\\\":\\\"muppet-carolina-pip-alabama\\\"},{\\\"name\\\":\\\"sixteen-march-earth-alanine\\\"}]}\",\"u_sclid\":\"JNVuHdvWrhqwtQGZBv-HUQ7pKp-401lYxNpAYkF_pKSSm6hcKH0XeM5vDOPp5pjV42Ukvw\",\"_uetvid_exp\":\"Thu, 24 Dec 2026 18:55:13 GMT\",\"topicsLastReferenceTime\":\"1764442513393\",\"_gcl_ls\":\"{\\\"schema\\\":\\\"gcl\\\",\\\"version\\\":1,\\\"gcl_ctr\\\":{\\\"value\\\":{\\\"value\\\":13,\\\"timeouts\\\":0,\\\"creationTimeMs\\\":1764442512817},\\\"expires\\\":1772218512817}}\",\"is_enabled\":\"true\",\"_uetsid\":\"ba2ab600cd4e11f0b844f7835d81bbf5\",\"searchRedirectsExpireDate\":\"1765298368935\",\"storeId\":\"6117\",\"storeName\":\"Auchan Drive Supermarché Talence-Gallieni\",\"u_sclid_r\":\"OFVuHdvWrhqwtQGZBv-HUQ7pKp-401lYweeUm8HaQGJBf6SkkpuoXCh9F3jObwzj6eaY1eNlJMs\",\"lastExternalReferrerTime\":\"1764442513349\",\"lark-suggest\":\"[]\",\"journeyStoreId\":\"6117\",\"_uetsid_exp\":\"Sun, 30 Nov 2025 18:55:13 GMT\",\"searchRedirects\":\"[{\\\"name\\\":\\\"Redirection Auchan Telecom\\\",\\\"description\\\":\\\"Les redirections sur Auchan Telecom\\\",\\\"keywords\\\":[\\\"auchan telecom\\\",\\\"Auchan telecom\\\",\\\"auchan télécom\\\",\\\"Auchan télécom\\\",\\\"forfait mobile\\\",\\\"forfait telephone\\\",\\\"forfait telephonique\\\",\\\"forfait mobile auchan\\\",\\\"forfait tel\\\"],\\\"redirectUrl\\\":\\\"https://www.auchantelecom.fr/\\\"},{\\\"name\\\":\\\"Redirection Billeterie\\\",\\\"description\\\":\\\"Les redirections sur billeterie\\\",\\\"keywords\\\":[\\\"Billets\\\",\\\"billets\\\",\\\"Billets Disney\\\",\\\"Billets center parc\\\",\\\"Billets concert\\\",\\\"Billets d entree Disneyland\\\",\\\"Billets de cinemz\\\",\\\"billets de spectacle\\\",\\\"Billets Disneyland\\\",\\\"Billets Disneyland Paris\\\",\\\"billets jouet\\\",\\\"billets spectacle\\\",\\\"Billets spectacle\\\",\\\"billets spectacles\\\",\\\"Disney billets\\\",\\\"billet parc asterix\\\",\\\"Billet parc asterix\\\",\\\"parc asterix\\\",\\\"Parc asterix\\\",\\\"Parc asterix bietri\\\",\\\"PARC ASTERIX JOURNEE\\\",\\\"Billetterie\\\",\\\"billetterie\\\",\\\"Billetteries\\\",\\\"BILLETTERIE\\\",\\\"billetterie disney\\\",\\\"Billetterie Disney\\\",\\\"Billetterie football\\\",\\\"billetterie lens psg\\\",\\\"Billetterie nautiland\\\",\\\"billetteries\\\",\\\"Billetterie disney\\\",\\\"Billetterie Disneyland\\\",\\\"Auchan billetterie\\\",\\\"billetterie cinema\\\",\\\"billetterie et spectacles\\\",\\\"billetterie et spectacle\\\",\\\"billetterie concert\\\",\\\"billetrie\\\",\\\"billeterie auchan\\\",\\\"billetterie auchan\\\",\\\"billetrie auchan\\\",\\\"billet asterix\\\",\\\"billet europa park\\\",\\\"billet de cinéma\\\",\\\"place de concert\\\",\\\"place disney\\\",\\\"place de cinéma\\\",\\\"place de cinema\\\",\\\"place concert\\\",\\\"place cinema\\\",\\\"spectacle\\\",\\\"spectacles\\\",\\\"places spectacle\\\",\\\"place spectacle\\\",\\\"concert\\\",\\\"concerts\\\",\\\"concert jul\\\",\\\"place concert jul\\\",\\\"jul concert\\\",\\\"place de concert jul\\\",\\\"concert\\\",\\\"billet concert jul\\\",\\\"ticket concert\\\",\\\"auchan spectacle\\\",\\\"auchan spectacles\\\",\\\"billet jul\\\"],\\\"redirectUrl\\\":\\\"https://billetterie.auchan.fr/fr\\\"},{\\\"name\\\":\\\"Redirection Voyages Auchan\\\",\\\"description\\\":\\\"Les redirections sur Voyages Auchan\\\",\\\"keywords\\\":[\\\"auchan voyage\\\",\\\"billet d'avion\\\",\\\"circuit voyage\\\"],\\\"redirectUrl\\\":\\\"https://www.voyages-auchan.com/\\\"},{\\\"name\\\":\\\"Redirection Auchan Photo\\\",\\\"description\\\":\\\"Les redirections sur Auchan Photo\\\",\\\"keywords\\\":[\\\"livre photo\\\",\\\"Livre photos\\\",\\\"Livre photo\\\",\\\"livre photos\\\",\\\"developpement livre photo\\\",\\\"livre photo bebe\\\",\\\"livre photo bebe\\\",\\\"Livre photo en tissu\\\",\\\"MON LIVRE PHOTO\\\",\\\"Agrandissements photo\\\",\\\"auchan photo\\\",\\\"AUCHAN PHOTO\\\",\\\"Auchan photos\\\",\\\"tirage photo\\\",\\\"Tirage photo\\\",\\\"tirage photos\\\",\\\"TIRAGE PHOTO\\\",\\\"Tirage photos\\\",\\\"tirages photos\\\",\\\"photo tirage\\\",\\\"photos tirages\\\",\\\"tirage phorto\\\",\\\"TIRAGE POSTAIRE\\\",\\\"tirage rapide\\\",\\\"tirages\\\",\\\"Tirages photo\\\"],\\\"redirectUrl\\\":\\\"https://photo.auchan.fr/\\\"},{\\\"name\\\":\\\"Redirection Carte cadeau Auchan\\\",\\\"description\\\":\\\"Les redirections sur Carte cadeau Auchan\\\",\\\"keywords\\\":[\\\"carte cadeau\\\",\\\"Carte cadeau\\\",\\\"carte cadeaux\\\",\\\"Carte cadeaux\\\",\\\"cartes cadeaux\\\",\\\"cartes cadeau\\\",\\\"carte cadeau auchan\\\",\\\"cartes cadeaux Auchan\\\"],\\\"redirectUrl\\\":\\\"https://carte-cadeau.auchan.fr/\\\"},{\\\"name\\\":\\\"Redirection Auchan Traiteur\\\",\\\"description\\\":\\\"Les redirections sur Auchan Traiteur\\\",\\\"keywords\\\":[\\\"commande traiteur\\\",\\\"menus traiteur\\\",\\\"service traiteur\\\",\\\"menu noel traiteur\\\",\\\"carte traiteur\\\",\\\"devis traiteur\\\",\\\"traiteur menu noel\\\",\\\"commande traiteur auchan\\\",\\\"traiteur pour noel\\\",\\\"traiteur fête\\\",\\\"traiteur fete\\\",\\\"traiteur fetes\\\",\\\"commande traiteur aperitif\\\",\\\"traiteur pour les reveillons\\\",\\\"traiteur pour noël\\\",\\\"menu traiteur noel\\\",\\\"traiteur commande\\\",\\\"repas traiteur reveillon\\\",\\\"menu traiteur saint-sylvestre\\\",\\\"traiteur pour reveillon\\\",\\\"traiteur menu jour de l an\\\",\\\"traiteur mariage\\\",\\\"traiteur pot de depart\\\",\\\"traiteur pour repas des fetes\\\",\\\"repas noel traiteur\\\",\\\"menu de noel traiteur\\\"],\\\"redirectUrl\\\":\\\"https://traiteur.auchan.fr/\\\"}]\",\"lastSearchTable\":\"[\\\"5000112611861\\\"]\",\"mics_sgt\":\"{\\\"last_modified_ts\\\":1764442507159,\\\"segments\\\":[{\\\"name\\\":\\\"muppet-carolina-pip-alabama\\\"}]}\",\"_uetvid\":\"8edb30e09e1111f085263b1c9ff63dc0\",\"lastExternalReferrer\":\"empty\",\"storeSlug\":\"auchan-drive-supermarche-talence-gallieni\"}\n[auchan] cookies after selection: ['storeId:95524', 'FRONTAL_STORE:1911']\n[auchan] PDP url: https://www.auchan.fr/l-or-espresso-capsules-de-cafe-ristretto-intensite-11-compatibles-nespresso/pr-C1777914\n[auchan] price candidates: ['18,73€', '120,06€ / kg', '18,73€', '120,06€ / kg']\n[auchan] price_node='18,73€' meta_price=None => value='18.73'\n[auchan] quantity chosen: '30 CAPSULES'",
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "title": null,
+        "url": "https://www.chronodrive.com/lor--espresso---capsules-de-cafe-ristretto-n11-P540 %20702",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": null,
+        "quantity": null,
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-02T19:45:26.065461+01:00",
+      "finished_at": "2025-12-02T19:45:50.042970+01:00",
+      "duration_seconds": 23.977509,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,53",
+        "unit_price": null,
+        "quantity": null,
+        "title": "Café Capsules L'OR RISTRETTO N°11 - compatible NESPRESSO - x30",
+        "url": "https://www.coursesu.com/p/cafe-capsules-lor-ristretto-n11---compatible-nespres so---x30/6590200.html",
+        "note": "2025-12-02T18:46:06Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "8711000547342",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules L'OR RISTRETTO N°11 - compatible NESPRESSO - x30",
+          "brand": "Café",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T19:45:50.046315+01:00",
+      "finished_at": "2025-12-02T19:46:07.049858+01:00",
+      "duration_seconds": 17.003543,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-02T19:46:07.056043+01:00",
+      "finished_at": "2025-12-02T19:46:07.680476+01:00",
+      "duration_seconds": 0.624433,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=L%27Or%20ristretto%20156%20G",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "L'Or ristretto 156 G",
+          "timestamp": "2025-12-02T18:46:09.724820+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-02T19:46:09.410315+01:00",
+      "finished_at": "2025-12-02T19:46:20.183290+01:00",
+      "duration_seconds": 10.772975,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or ristretto 156 G",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "L'Or ristretto 156 G",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251202-194438/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=L%27Or%20ristretto%20156%20G",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "L'Or ristretto 156 G",
+          "timestamp": "2025-12-02T18:47:04.233929+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-02T19:47:04.071471+01:00",
+      "finished_at": "2025-12-02T19:47:11.824550+01:00",
+      "duration_seconds": 7.753079,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or ristretto 156 G",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "L'Or ristretto 156 G",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251202-194438/09-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-02T19:47:44.665810+01:00",
+      "finished_at": "2025-12-02T19:49:14.727496+01:00",
+      "duration_seconds": 90.061686,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or ristretto 156 G",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "",
+      "metadata": {
+        "attempt_query": "L'Or ristretto 156 G",
+        "timeout_s": 90,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251202-194438/10-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Capsules de café espresso L'Or Ristretto x30 - 156g",
+        "price": "9,09",
+        "unit_price": "58,27 € / kg",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231370-Capsules-de-cafe-espresso-LOr.aspx",
+        "matched_ean": "8711000547342",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-12-02T18:49:24Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "product": {
+          "title": "Capsules de café espresso L'Or Ristretto x30 - 156g",
+          "brand": "",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": null,
+          "source": "leclerc",
+          "raw_text": ""
+        },
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231370-Capsules-de-cafe-espresso-LOr.aspx",
+            "product": {
+              "title": "Capsules de café espresso L'Or Ristretto x30 - 156g",
+              "brand": "Capsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000547342",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-12-02T19:49:14.730571+01:00",
+      "finished_at": "2025-12-02T19:49:24.731231+01:00",
+      "duration_seconds": 10.00066,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or Café 156 G",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] DIRECT_URL mode: https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231370-Capsules-de-cafe-espresso-LOr.aspx\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'L'Or Café 156 G' direct_url:True\n[LECLERC_DEBUG] Navigating directly to https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231370-Capsules-de-cafe-espresso-LOr.aspx\n[LECLERC_DEBUG] Direct navigation successful -> 7.31s",
+      "metadata": {
+        "attempt_query": "L'Or Café 156 G",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251202-194438/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-02T19:49:24.743421+01:00",
+      "finished_at": "2025-12-02T19:50:54.758462+01:00",
+      "duration_seconds": 90.015041,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or ristretto 156 G",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] ERROR: EAN '8711000547342' not found in descriptor store. Scoring will fail.\n[MONOPRIX_DEBUG] Search terms: [\"L'Or ristretto 156 G\", \"L'Or ristretto espresso\", \"L'Or 156 G\"]\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/3: 'L'Or ristretto 156 G'\n[MONOPRIX_DEBUG]  - Typing 'L'Or ristretto 156 G' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=L%27Or%20ristretto%20156%20G\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'L'Or ristretto espresso'\n[MONOPRIX_DEBUG]  - Typing 'L'Or ristretto espresso' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=L%27Or%20ristretto%20espresso\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 4 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/l-or-espresso-ristretto-café-en-capsules-x50-intensite-11-260g/MPX_6630701\n[MONOPRIX_DEBUG] Error parsing product page https://courses.monoprix.fr/products/l-or-espresso-ristretto-café-en-capsules-x50-intensite-11-260g/MPX_6630701: Page.goto: Timeout 30000ms exceeded.\nCall log:\nnavigating to \"https://courses.monoprix.fr/products/l-or-espresso-ristretto-caf%C3%A9-en-capsules-x50-intensite-11-260g/MPX_6630701\", waiting until \"networkidle\"\n\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/l-or-espresso-ristretto-café-en-capsules-x50-intensite-11-260g/MPX_6630701\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/l-or-espresso-ristretto-café-en-capsules-intensité-11-en-capsules-x30-156g/MPX_6710407",
+      "metadata": {
+        "attempt_query": "L'Or ristretto 156 G",
+        "timeout_s": 90,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251202-194438/12-monoprix"
+      }
+    }
+  ],
+  "finder": {
+    "error": "'FinderPipeline' object has no attribute 'decide'"
+  }
+}

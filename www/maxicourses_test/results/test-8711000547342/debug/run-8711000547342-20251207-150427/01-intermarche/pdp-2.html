@@ -1,0 +1,1360 @@
+<!DOCTYPE html><html lang="fr"><head prefix="og: http://ogp.me/ns#"><link rel="stylesheet" href="/asset-server/sav_2025.04.16-0/webjars/a_styleguide2/dist/main.min.css"><link rel="stylesheet" href="/asset-server/sav_2025.04.16-0/webjars/a_carousel3/dist/main.min.css"><link rel="stylesheet" href="/asset-server/sav_2025.04.16-0/webjars/a_collapsible2/dist/main.min.css"><link rel="stylesheet" href="/asset-server/sav_2025.04.16-0/webjars/a_overlay2/dist/main.min.css"><link rel="stylesheet" href="/asset-server/sav_2025.04.16-0/webjars/a_notifier2/dist/main.min.css"><link rel="stylesheet" href="/asset-server/sav_2025.04.16-0/webjars/a_tooltip1/dist/main.min.css"><link rel="preconnect" href="https://cdn.auchan.fr"><link rel="preconnect" href="https://api.auchan.fr"><link rel="preload" href="/xch/v8/cart-renderer/sav_2025-11-21-1/css/header-cart-styles.min.css" as="style"><link rel="preload" href="/xch/v8/content-renderer/sav_2025.09.26-0/css/common-styles.min.css" as="style"><link rel="preload" href="/xch/v8/content-renderer/sav_2025.09.26-0/css/smartbanner-styles.min.css" as="style"><link rel="preload" href="/xch/v8/customer-renderer/sav_2025.11.14-02/css/customer-menu.min.css" as="style"><link rel="preload" href="/xch/v8/customer-renderer/sav_2025.11.14-02/css/customer-newsletters-styles.min.css" as="style"><link rel="preload" href="/xch/v8/journey-renderer/sav_2025.11.05-0/css/journey-reminder-styles.min.css" as="style"><link rel="preload" href="/xch/v8/journey-renderer/sav_2025.11.05-0/css/locator-styles.min.css" as="style"><link rel="preload" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/discovery-styles.min.css" as="style"><link rel="preload" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/fuel-selling-price.min.css" as="style"><link rel="preload" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/layout-styles.min.css" as="style"><link rel="preload" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/opening-status-styles.min.css" as="style"><link rel="preload" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/point-of-service-styles.min.css" as="style"><link rel="preload" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/special-schedule-styles.min.css" as="style"><link rel="preload" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/store-page-styles.min.css" as="style"><link rel="preload" href="/xch/v8/search-renderer/sav_2025.10.10-1/css/search-suggest-styles.min.css" as="style"><link rel="preload" href="/xch/v8/webalog-renderer/sav_2025.12.01-1/css/carousel-styles.min.css" as="style"><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-TT2KL3D&amp;gtm_auth=tsgUTfJXVlV5LrQHghe4Mw&amp;gtm_preview=env-2&amp;gtm_cookies_win=x"></script><script src="/asset-server/webjars/requirejs/2.3.6/require.min.js" crossorigin=""></script>
+<script>var Pipe=(function(d,n){function e(){}var u={},c={},r=[],l=[],o=[],s={onStart:e,onBeforeInit:e,onAfterInit:e,onDone:e},p="complete"===d.readyState||"interactive"===d.readyState,h=[];function t(){r=d.getElementsByTagName("script");for(var e=0;e<h.length;e++)h[e].call()}function v(e,t){for(var n,o=r.length-1;0<=o;o--)if((n=r[o]).hasAttribute("data-pipe")&&parseInt(n.dataset.index)===e&&n.dataset.type===t)return n.removeAttribute("data-pipe"),n.removeAttribute("data-index"),n.removeAttribute("data-type"),n}function m(){0!==l.length||!d.readyState||"complete"!==d.readyState&&"interactive"!==d.readyState||s.onDone()}function i(e,t){!1 in n||o.push({name:e,duration:Number(t),entryType:"tailor",startTime:n.now()||Date.now()-n.timing.navigationStart})}function a(t){return function(e){s[t]=e}}return p?t():d.addEventListener("DOMContentLoaded",function(){p=!0,t()}),{placeholder:function e(t){p?u[t]=v(t,"placeholder"):h.push(function(){e(t)})},start:function e(t,n,o){p?(c[t]=v(t,"start"),n&&(l.push(t),s.onStart(o,t),require([n]))):h.push(function(){e(t,n,o)})},end:function e(t,n,o){if(p){var r,i=u[t],a=c[t],f=v(t,"end"),d=a;if(i){for(;d=(r=d).nextSibling,i.parentNode.insertBefore(r,i),r!==f;);i.parentNode.removeChild(i),delete u[t]}(r=a.nextElementSibling)===f&&(r=void 0),a.parentNode.removeChild(a),f.parentNode.removeChild(f),n&&require([n],function(e){return"function"!=typeof(e=e&&e.__esModule?e.default:e)?(l.pop(),s.onBeforeInit(o,t),s.onAfterInit(o,t),void m()):void function(e,t,n,o){s.onBeforeInit(n,o);var r=e(t),e=function(){l.pop(),s.onAfterInit(n,o),m()};null!=(t=r)&&"object"==typeof t&&"function"==typeof t.then?r.then(e).catch(e):e()}(e,r,o,t)})}else h.push(function(){e(t,n,o)})}
+/* @preserve - loadCSS: load a CSS file asynchronously. [c]2016 @scottjehl, Filament Group, Inc. Licensed MIT */,loadCSS:function e(t){if(p){if(!function(t){return t&&document.styleSheets&&void 0!==[].slice.call(document.styleSheets).find(function(e){return e.href&&e.href.endsWith(t)})}(t)){var o=d.createElement("link"),n=(d.body||d.getElementsByTagName("head")[0]).childNodes,r=n[n.length-1],i=d.styleSheets;o.rel="stylesheet",o.href=t,o.media="only x",function e(t){return d.body?t():void setTimeout(function(){e(t)})}(function(){r.parentNode.insertBefore(o,r.nextSibling)});var a=function(e){for(var t=o.href,n=i.length;n--;)if(i[n].href===t)return e();setTimeout(function(){a(e)})};return o.addEventListener&&o.addEventListener("load",f),(o.onloadcssdefined=a)(f),o}}else h.push(function(){e(t)});function f(){o.addEventListener&&o.removeEventListener("load",f),o.media="all"}},onStart:a("onStart"),onBeforeInit:a("onBeforeInit"),onAfterInit:a("onAfterInit"),onDone:function(e){var t=s.onDone;s.onDone=function(){t(),e()}},addPerfEntry:i,addTTFMPEntry:function(e){i("ttfmp",e)},getEntries:function(){return o}}})(window.document,window.performance);</script>
+<link rel="stylesheet" href="/xch/v8/cart-renderer/sav_2025-11-21-1/css/header-cart-styles.min.css"><link rel="stylesheet" href="/xch/v8/content-renderer/sav_2025.09.26-0/css/common-styles.min.css"><link rel="stylesheet" href="/xch/v8/content-renderer/sav_2025.09.26-0/css/smartbanner-styles.min.css"><link rel="stylesheet" href="/xch/v8/customer-renderer/sav_2025.11.14-02/css/customer-menu.min.css"><link rel="stylesheet" href="/xch/v8/customer-renderer/sav_2025.11.14-02/css/customer-newsletters-styles.min.css"><link rel="stylesheet" href="/xch/v8/journey-renderer/sav_2025.11.05-0/css/journey-reminder-styles.min.css"><link rel="stylesheet" href="/xch/v8/journey-renderer/sav_2025.11.05-0/css/locator-styles.min.css"><link rel="stylesheet" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/discovery-styles.min.css"><link rel="stylesheet" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/fuel-selling-price.min.css"><link rel="stylesheet" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/layout-styles.min.css"><link rel="stylesheet" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/opening-status-styles.min.css"><link rel="stylesheet" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/point-of-service-styles.min.css"><link rel="stylesheet" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/special-schedule-styles.min.css"><link rel="stylesheet" href="/xch/v8/place-renderer/sav_2025.09.30-0/css/store-page-styles.min.css"><link rel="stylesheet" href="/xch/v8/search-renderer/sav_2025.10.10-1/css/search-suggest-styles.min.css"><link rel="stylesheet" href="/xch/v8/webalog-renderer/sav_2025.12.01-1/css/carousel-styles.min.css"><title>Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile</title><meta charset="UTF-8"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="msapplication-tap-highlight" content="no"><meta name="format-detection" content="telephone=no"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="description" content="Supermarché, hypermarché, drive, click &amp; collect, consigne... retrouvez toutes les informations des établissements Auchan : adresses, horaires, services..."><link href="https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117" rel="canonical"><script type="text/javascript">
+    
+	var G = G || {};
+	G.configuration = G.configuration || {};
+	G.configuration.type = "PLACE";
+	G.configuration.subType = "PLACE";
+	G.configuration.lastProjectBuildTime = null;
+
+    
+	var G = G || {};
+	G.configuration = G.configuration || {};
+	G.configuration.placeMapConfiguration = {
+		apiKey: "AIzaSyDQII3Y-4PgQyE7Y_kZAO9PY_w7Uya037E",
+		center: {
+			lat: 46,
+			lng: 3
+		},
+		zoomControl: true,
+		mapTypeControl: true,
+		scaleControl: true,
+		streetViewControl: true,
+		rotateControl: true,
+		fullscreenControl: true,
+		zoom: 6,
+		zoomSelected: 13,
+		autoFitMarkers: true,
+		autoFitPadding: 300,
+		markerClustererConfig: {
+			enabled: false,
+		},
+		icons: [
+			{
+				type: "BUSINESS_LOCKER",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-business-locker.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-business-locker-active.svg"
+				}
+			},
+			{
+				type: "DRIVE",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-active.svg"
+				}
+			},
+			{
+				type: "LOCKERS",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-locker.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-locker-active.svg"
+				}
+			},
+			{
+				type: "PICKUP_POINT",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-pedestrian.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-pedestrian-active.svg"
+				}
+			},
+			{
+				type: "HYPER",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store-active.svg"
+				}
+			},
+			{
+				type: "SUPER",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store-active.svg"
+				}
+			},
+			{
+				type: "PROXY",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store-active.svg"
+				}
+			},
+			{
+				type: "PICKUP_POINT",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store-active.svg"
+				}
+			},
+		],
+	}
+
+</script>
+    <script type="text/javascript">
+		 document.addEventListener("DOMContentLoaded", function() {
+			 (function(w, d, s, l, i) {
+				 w[l] = w[l] || [];
+				 w[l].push({
+					 'gtm.start': new Date().getTime(),
+					 event: 'gtm.js'
+				 });
+				 var f = d.getElementsByTagName(s)[0],
+					 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+				 j.async = true;
+				 j.src =
+					 'https://www.googletagmanager.com/gtm.js?id=' + i + dl + '&gtm_auth=' + "tsgUTfJXVlV5LrQHghe4Mw" + '&gtm_preview=' + "env-2" + '&gtm_cookies_win=x';
+				 f.parentNode.insertBefore(j, f);
+			 })(window, document, 'script', 'dataLayer', "GTM-TT2KL3D");
+		 });
+    </script>
+<meta charset="UTF-8"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"><script src="/asset-server/sav_2025.04.16-0/webjars//ungap__custom-elements/1.2.0/es.js"></script><script type="text/javascript">
+  var G = G || {};
+  G.configuration = G.configuration || {};
+  G.configuration.productGlobal = {};
+  G.configuration.productGlobal.flaps = {};
+  G.configuration.productGlobal.flaps.modalTitle = "Conditions";
+  G.configuration.productGlobal.flaps.modalCloseAriaLabelPlp = "Fermer les conditions et r\u00E9ouvrir le d\u00E9tails du produit";
+  G.configuration.productGlobal.flaps.modalCloseAriaLabelPdp = "Fermer les conditions";
+  G.configuration.productGlobal.notification = {};
+  G.configuration.productGlobal.notification.enabled = true;
+  G.configuration.productGlobal.notification.total = 3;
+  G.configuration.productGlobal.gallery = {};
+  G.configuration.productGlobal.gallery.zoomIn = "Agrandir l'illustration \u00E0 ";
+  G.configuration.productGlobal.gallery.zoomOut = "R\u00E9duire l'illustration \u00E0 ";
+  G.configuration.productGlobal.images = {};
+  G.configuration.productGlobal.images.onError = function (image) {
+    if (image && image.dataset.fallback) {
+      var imageParentEl = image.parentElement;
+      if (imageParentEl && imageParentEl.tagName === "PICTURE") {
+        for (var i = 0; i < imageParentEl.children.length; i++) {
+          var child = imageParentEl.children[i];
+          if (child && child.tagName === "SOURCE") {
+            child.srcset = image.dataset.fallback;
+			child.removeAttribute("type");
+          }
+        }
+      }
+	  image.removeAttribute("type");
+      image.src = image.dataset.fallback;
+      image.srcset = image.dataset.fallback;
+      image.onerror = null;
+    }
+  };
+</script><script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+		window.G = window.G || {};
+		window.G.authConfig = {"url":"https://compte.auchan.fr/auth","realm":"auchan.fr"};
+		window.G.initialAuthInfo = {"authenticated":false,"skipCheckSso":false};
+
+    </script><!-- /* Add opensearch directive */ --><!-- /*
+    <link  rel="search"
+           type="application/opensearchdescription+xml"
+           href="https://www.auchan.fr/assets/assets/opensearch.xml"
+           title="Product search"/>
+     */ --><!--start <cms:component uuid='2ce3f330-b202-4d9f-a3f3-30b2025d9f8c' typename='HTMLComponent' name='RUM-PingDom-DebugBear-Component' version='0' />--><!--    <script src="//rum-static.pingdom.net/pa-5452242cabe53d9e0542aec4.js" async></script>--><script>(function(){var dbpr=10;   if(Math.random()*100>100-dbpr){      var d="dbbRum",w=window;     w[d]=w[d]||[];     w[d].push(["presampling",dbpr]);     var scr=document.createElement("script");     scr.src="https://cdn.debugbear.com/l7hF06FEboms.js?v=4";     document.head.appendChild(scr);}})()</script><!--end <cms:component uuid='2ce3f330-b202-4d9f-a3f3-30b2025d9f8c' typename='HTMLComponent' name='RUM-PingDom-DebugBear-Component' version='0' />--><!--start <cms:component uuid='f98dc6ff-36ae-4b55-8fa6-691d8de9e072' typename='HTMLComponent' name='Polylifill regenerator runtime' version='0' />--><script type="text/javascript">var runtime=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o=Object.defineProperty||function(t,r,e){t[r]=e.value},i="function"==typeof Symbol?Symbol:{},a=i.iterator||"@@iterator",c=i.asyncIterator||"@@asyncIterator",u=i.toStringTag||"@@toStringTag";function h(t,r,e){return Object.defineProperty(t,r,{value:e,enumerable:!0,configurable:!0,writable:!0}),t[r]}try{h({},"")}catch(t){h=function(t,r,e){return t[r]=e}}function l(t,r,e,n){var i=r&&r.prototype instanceof g?r:g,a=Object.create(i.prototype),c=new N(n||[]);return o(a,"_invoke",{value:_(t,e,c)}),a}function f(t,r,e){try{return{type:"normal",arg:t.call(r,e)}}catch(t){return{type:"throw",arg:t}}}t.wrap=l;var s="suspendedStart",p="executing",y="completed",v={};function g(){}function d(){}function m(){}var w={};h(w,a,(function(){return this}));var b=Object.getPrototypeOf,L=b&&b(b(P([])));L&&L!==e&&n.call(L,a)&&(w=L);var x=m.prototype=g.prototype=Object.create(w);function E(t){["next","throw","return"].forEach((function(r){h(t,r,(function(t){return this._invoke(r,t)}))}))}function j(t,r){function e(o,i,a,c){var u=f(t[o],t,i);if("throw"!==u.type){var h=u.arg,l=h.value;return l&&"object"==typeof l&&n.call(l,"__await")?r.resolve(l.__await).then((function(t){e("next",t,a,c)}),(function(t){e("throw",t,a,c)})):r.resolve(l).then((function(t){h.value=t,a(h)}),(function(t){return e("throw",t,a,c)}))}c(u.arg)}var i;o(this,"_invoke",{value:function(t,n){function o(){return new r((function(r,o){e(t,n,r,o)}))}return i=i?i.then(o,o):o()}})}function _(t,r,e){var n=s;return function(o,i){if(n===p)throw new Error("Generator is already running");if(n===y){if("throw"===o)throw i;return T()}for(e.method=o,e.arg=i;;){var a=e.delegate;if(a){var c=O(a,e);if(c){if(c===v)continue;return c}}if("next"===e.method)e.sent=e._sent=e.arg;else if("throw"===e.method){if(n===s)throw n=y,e.arg;e.dispatchException(e.arg)}else"return"===e.method&&e.abrupt("return",e.arg);n=p;var u=f(t,r,e);if("normal"===u.type){if(n=e.done?y:"suspendedYield",u.arg===v)continue;return{value:u.arg,done:e.done}}"throw"===u.type&&(n=y,e.method="throw",e.arg=u.arg)}}}function O(t,e){var n=e.method,o=t.iterator[n];if(o===r)return e.delegate=null,"throw"===n&&t.iterator.return&&(e.method="return",e.arg=r,O(t,e),"throw"===e.method)||"return"!==n&&(e.method="throw",e.arg=new TypeError("The iterator does not provide a '"+n+"' method")),v;var i=f(o,t.iterator,e.arg);if("throw"===i.type)return e.method="throw",e.arg=i.arg,e.delegate=null,v;var a=i.arg;return a?a.done?(e[t.resultName]=a.value,e.next=t.nextLoc,"return"!==e.method&&(e.method="next",e.arg=r),e.delegate=null,v):a:(e.method="throw",e.arg=new TypeError("iterator result is not an object"),e.delegate=null,v)}function k(t){var r={tryLoc:t[0]};1 in t&&(r.catchLoc=t[1]),2 in t&&(r.finallyLoc=t[2],r.afterLoc=t[3]),this.tryEntries.push(r)}function G(t){var r=t.completion||{};r.type="normal",delete r.arg,t.completion=r}function N(t){this.tryEntries=[{tryLoc:"root"}],t.forEach(k,this),this.reset(!0)}function P(t){if(t){var e=t[a];if(e)return e.call(t);if("function"==typeof t.next)return t;if(!isNaN(t.length)){var o=-1,i=function e(){for(;++o<t.length;)if(n.call(t,o))return e.value=t[o],e.done=!1,e;return e.value=r,e.done=!0,e};return i.next=i}}return{next:T}}function T(){return{value:r,done:!0}}return d.prototype=m,o(x,"constructor",{value:m,configurable:!0}),o(m,"constructor",{value:d,configurable:!0}),d.displayName=h(m,u,"GeneratorFunction"),t.isGeneratorFunction=function(t){var r="function"==typeof t&&t.constructor;return!!r&&(r===d||"GeneratorFunction"===(r.displayName||r.name))},t.mark=function(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,m):(t.__proto__=m,h(t,u,"GeneratorFunction")),t.prototype=Object.create(x),t},t.awrap=function(t){return{__await:t}},E(j.prototype),h(j.prototype,c,(function(){return this})),t.AsyncIterator=j,t.async=function(r,e,n,o,i){void 0===i&&(i=Promise);var a=new j(l(r,e,n,o),i);return t.isGeneratorFunction(e)?a:a.next().then((function(t){return t.done?t.value:a.next()}))},E(x),h(x,u,"Generator"),h(x,a,(function(){return this})),h(x,"toString",(function(){return"[object Generator]"})),t.keys=function(t){var r=Object(t),e=[];for(var n in r)e.push(n);return e.reverse(),function t(){for(;e.length;){var n=e.pop();if(n in r)return t.value=n,t.done=!1,t}return t.done=!0,t}},t.values=P,N.prototype={constructor:N,reset:function(t){if(this.prev=0,this.next=0,this.sent=this._sent=r,this.done=!1,this.delegate=null,this.method="next",this.arg=r,this.tryEntries.forEach(G),!t)for(var e in this)"t"===e.charAt(0)&&n.call(this,e)&&!isNaN(+e.slice(1))&&(this[e]=r)},stop:function(){this.done=!0;var t=this.tryEntries[0].completion;if("throw"===t.type)throw t.arg;return this.rval},dispatchException:function(t){if(this.done)throw t;var e=this;function o(n,o){return c.type="throw",c.arg=t,e.next=n,o&&(e.method="next",e.arg=r),!!o}for(var i=this.tryEntries.length-1;i>=0;--i){var a=this.tryEntries[i],c=a.completion;if("root"===a.tryLoc)return o("end");if(a.tryLoc<=this.prev){var u=n.call(a,"catchLoc"),h=n.call(a,"finallyLoc");if(u&&h){if(this.prev<a.catchLoc)return o(a.catchLoc,!0);if(this.prev<a.finallyLoc)return o(a.finallyLoc)}else if(u){if(this.prev<a.catchLoc)return o(a.catchLoc,!0)}else{if(!h)throw new Error("try statement without catch or finally");if(this.prev<a.finallyLoc)return o(a.finallyLoc)}}}},abrupt:function(t,r){for(var e=this.tryEntries.length-1;e>=0;--e){var o=this.tryEntries[e];if(o.tryLoc<=this.prev&&n.call(o,"finallyLoc")&&this.prev<o.finallyLoc){var i=o;break}}i&&("break"===t||"continue"===t)&&i.tryLoc<=r&&r<=i.finallyLoc&&(i=null);var a=i?i.completion:{};return a.type=t,a.arg=r,i?(this.method="next",this.next=i.finallyLoc,v):this.complete(a)},complete:function(t,r){if("throw"===t.type)throw t.arg;return"break"===t.type||"continue"===t.type?this.next=t.arg:"return"===t.type?(this.rval=this.arg=t.arg,this.method="return",this.next="end"):"normal"===t.type&&r&&(this.next=r),v},finish:function(t){for(var r=this.tryEntries.length-1;r>=0;--r){var e=this.tryEntries[r];if(e.finallyLoc===t)return this.complete(e.completion,e.afterLoc),G(e),v}},catch:function(t){for(var r=this.tryEntries.length-1;r>=0;--r){var e=this.tryEntries[r];if(e.tryLoc===t){var n=e.completion;if("throw"===n.type){var o=n.arg;G(e)}return o}}throw new Error("illegal catch attempt")},delegateYield:function(t,e,n){return this.delegate={iterator:P(t),resultName:e,nextLoc:n},"next"===this.method&&(this.arg=r),v}},t}("object"==typeof module?module.exports:{});try{regeneratorRuntime=runtime}catch(t){"object"==typeof globalThis?globalThis.regeneratorRuntime=runtime:Function("r","regeneratorRuntime = r")(runtime)}</script><!--end <cms:component uuid='f98dc6ff-36ae-4b55-8fa6-691d8de9e072' typename='HTMLComponent' name='Polylifill regenerator runtime' version='0' />--><!--start <cms:component uuid='ad7b60c4-bfd6-4830-8532-d9431a504622' typename='HTMLComponent' name='Fix Icon 19042024' version='0' />--><style>[class*=" icon-"]:before,[class^=icon-]:before {
+    font-family: icons!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1
+}</style><!--end <cms:component uuid='ad7b60c4-bfd6-4830-8532-d9431a504622' typename='HTMLComponent' name='Fix Icon 19042024' version='0' />-->
+        <!-- Start SmartBanner configuration -->
+        <meta name="auchan-smartbanner:title" content="Auchan France">
+        <meta name="auchan-smartbanner:description" content="Achat en ligne et magasin">
+        <meta name="auchan-smartbanner:icon-apple" content="/static/images/icon-smart-banner.png">
+        <meta name="auchan-smartbanner:icon-google" content="/static/images/icon-smart-banner.png">
+        <meta name="auchan-smartbanner:button" content="Vers l'App">
+        <meta name="auchan-smartbanner:button-url-apple" content="https://apps.apple.com/fr/app/auchan-france/id393068659">
+        <meta name="auchan-smartbanner:button-url-google" content="https://play.google.com/store/apps/details?id=com.auchan.android">
+        <meta name="auchan-smartbanner:enabled-platforms" content="android,ios">
+        <meta name="auchan-smartbanner:close-label" content="Fermer">
+        <meta name="auchan-smartbanner:disable-positioning" content="true">
+        <meta name="auchan-smartbanner:hide-ttl" content="2592000000">
+        <meta name="auchan-smartbanner:number-stars-google" content="4.3">
+        <meta name="auchan-smartbanner:number-stars-apple" content="4">
+        <meta name="auchan-smartbanner:rating-number-google" content="38,4 K">
+        <meta name="auchan-smartbanner:rating-number-apple" content="14,2 K">
+        <meta name="auchan-smartbanner:not-available-url-paths" content="/checkout/">
+        <!-- End SmartBanner configuration -->
+    
+    <script type="text/javascript">
+        
+        var G = G || {};
+        G.configuration = G.configuration || {};
+        G.configuration.informations = G.configuration.informations || {};
+
+        G.configuration.informations.device = "DESKTOP";
+        G.configuration.informations.token = "";
+        G.configuration.informations.host = "https:\/\/consent.valiuz.com";
+        G.configuration.informations.retailerId = "auc";
+
+        G.configuration.notification = G.configuration.notification || {};
+        G.configuration.notification.valiuz = G.configuration.notification.valiuz || {};
+        G.configuration.notification.valiuz.header = "Partage de donn\u00E9es";
+        G.configuration.notification.valiuz.body = "Vous b\u00E9n\u00E9ficiez d\u00E9j\u00E0 de notre exp\u00E9rience multi-marques";
+        G.configuration.notification.valiuz.link = "G\u00E9rer mes pr\u00E9f\u00E9rences";
+        G.configuration.notification.valiuz.pageType = "HOMEPAGE";
+
+        G.configuration.notification.valiuz.popin = G.configuration.notification.valiuz.popin || {};
+        G.configuration.notification.valiuz.popin.tracking = G.configuration.notification.valiuz.popin.tracking || {};
+
+        G.configuration.notification.valiuz.popin.tracking[ 'popin-event-category' ] = "customer";
+        G.configuration.notification.valiuz.popin.tracking[ 'popin-event-action' ] = "display";
+        G.configuration.notification.valiuz.popin.tracking[ 'popin-event-label' ] = "valiuz_popin_hp";
+
+        G.configuration.notification.valiuz.preference = G.configuration.notification.valiuz.preference || {};
+        G.configuration.notification.valiuz.preference.tracking = G.configuration.notification.valiuz.preference.tracking || {};
+
+        G.configuration.notification.valiuz.preference.tracking[ 'preference-event-category' ] = "customer";
+        G.configuration.notification.valiuz.preference.tracking[ 'preference-event-action' ] = "customize_preference";
+        G.configuration.notification.valiuz.preference.tracking[ 'preference-event-label' ] = "valiuz_popin_hp";
+
+        G.configuration.notification.valiuz.authorize = G.configuration.notification.valiuz.authorize || {};
+
+        G.configuration.notification.valiuz.authorize.triggerModal = "";
+    
+    </script>
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/tracking-renderer/analytics.js" src="/tracking-renderer/analytics.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/tracking-renderer/plugins/ua/ec.js" src="/tracking-renderer/plugins/ua/ec.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js" src="/xch/v8/tracking-renderer/sav_20230913-17/webjars/lark-tracking-js-api/js/tracking-service.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/content-renderer/sav_2025.09.26-0/js/smartbanner-scripts.min.js" src="/xch/v8/content-renderer/sav_2025.09.26-0/js/smartbanner-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/customer-renderer/sav_2025.11.14-02/js/customer-valiuz-notification-scripts.min.js" src="/xch/v8/customer-renderer/sav_2025.11.14-02/js/customer-valiuz-notification-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/tracking-renderer/sav_20230913-17/js/consent-scripts.min.js" src="/xch/v8/tracking-renderer/sav_20230913-17/js/consent-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/tracking-renderer/sav_20230913-17/js/session-scripts.min.js" src="/xch/v8/tracking-renderer/sav_20230913-17/js/session-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/tracking-renderer/sav_20230913-17/js/auto-tracker-scripts.min.js" src="/xch/v8/tracking-renderer/sav_20230913-17/js/auto-tracker-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/tracking-renderer/sav_20230913-17/js/iadvize-scripts.min.js" src="/xch/v8/tracking-renderer/sav_20230913-17/js/iadvize-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/content-renderer/sav_2025.09.26-0/js/common-scripts.min.js" src="/xch/v8/content-renderer/sav_2025.09.26-0/js/common-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/journey-renderer/sav_2025.11.05-0/js/journey-reminder-scripts.min.js" src="/xch/v8/journey-renderer/sav_2025.11.05-0/js/journey-reminder-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/customer-renderer/sav_2025.11.14-02/js/customer-auth.min.js" src="/xch/v8/customer-renderer/sav_2025.11.14-02/js/customer-auth.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/search-renderer/sav_2025.10.10-1/js/search-suggest-scripts.min.js" src="/xch/v8/search-renderer/sav_2025.10.10-1/js/search-suggest-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/cart-renderer/sav_2025-11-21-1/js/header-cart-scripts.min.js" src="/xch/v8/cart-renderer/sav_2025-11-21-1/js/header-cart-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/place-renderer/sav_2025.09.30-0/js/special-schedule-scripts.min.js" src="/xch/v8/place-renderer/sav_2025.09.30-0/js/special-schedule-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/place-renderer/sav_2025.09.30-0/js/discovery-scripts.min.js" src="/xch/v8/place-renderer/sav_2025.09.30-0/js/discovery-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/journey-renderer/sav_2025.11.05-0/js/journey-button-scripts.min.js" src="/xch/v8/journey-renderer/sav_2025.11.05-0/js/journey-button-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/webalog-renderer/sav_2025.12.01-1/js/carousel-script.min.js" src="/xch/v8/webalog-renderer/sav_2025.12.01-1/js/carousel-script.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/webalog-renderer/sav_2025.12.01-1/js/carousel-styles.min.js" src="/xch/v8/webalog-renderer/sav_2025.12.01-1/js/carousel-styles.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/place-renderer/sav_2025.09.30-0/js/point-of-service-scripts.min.js" src="/xch/v8/place-renderer/sav_2025.09.30-0/js/point-of-service-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/customer-renderer/sav_2025.11.14-02/js/customer-newsletters-scripts.min.js" src="/xch/v8/customer-renderer/sav_2025.11.14-02/js/customer-newsletters-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/place-renderer/sav_2025.09.30-0/js/layout-scripts.min.js" src="/xch/v8/place-renderer/sav_2025.09.30-0/js/layout-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/customer-renderer/sav_2025.11.14-02/js/customer-tracking.min.js" src="/xch/v8/customer-renderer/sav_2025.11.14-02/js/customer-tracking.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/third-party-renderer/sav_2025.09.26-0/js/merchandising-scripts.min.js" src="/xch/v8/third-party-renderer/sav_2025.09.26-0/js/merchandising-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/content-renderer/sav_2025.09.26-0/js/testing-consent-scripts.min.js" src="/xch/v8/content-renderer/sav_2025.09.26-0/js/testing-consent-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/journey-renderer/sav_2025.11.05-0/js/journey-tracking-scripts.min.js" src="/xch/v8/journey-renderer/sav_2025.11.05-0/js/journey-tracking-scripts.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/lark-auth-js-api/js/auth-service.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/lark-auth-js-api/js/auth-service.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/cart-renderer/sav_2025-11-21-1/webjars/lark-cart-js-api/js/cart-service.min.js" src="/xch/v8/cart-renderer/sav_2025-11-21-1/webjars/lark-cart-js-api/js/cart-service.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/axios/0.18.1/dist/axios.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/axios/0.18.1/dist/axios.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/journey-renderer/sav_2025.11.05-0/webjars/lark-journey-service-js-api/js/journey-service.min.js" src="/xch/v8/journey-renderer/sav_2025.11.05-0/webjars/lark-journey-service-js-api/js/journey-service.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_trackingservice2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_trackingservice2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_smartbanner2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_smartbanner2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_notifier2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_notifier2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_valiuzModal0/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_valiuzModal0/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_overlay2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_overlay2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_collapsible2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_collapsible2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/content-renderer/sav_2025.09.26-0/webjars/lark-content-js-api/js/content-service.min.js" src="/xch/v8/content-renderer/sav_2025.09.26-0/webjars/lark-content-js-api/js/content-service.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_crestfragment2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_crestfragment2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/crm-renderer/sav_2025.7.7-1/webjars/lark-crm-feedback-form-js-api/js/crm-feedback-form.min.js" src="/xch/v8/crm-renderer/sav_2025.7.7-1/webjars/lark-crm-feedback-form-js-api/js/crm-feedback-form.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_scroll2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_scroll2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_carousel3/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_carousel3/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/journey-renderer/sav_2025.11.05-0/webjars/lark-journey-locator-js-api/js/journey-locator.min.js" src="/xch/v8/journey-renderer/sav_2025.11.05-0/webjars/lark-journey-locator-js-api/js/journey-locator.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_maps1/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_maps1/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_tracking2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_tracking2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/third-party-renderer/sav_2025.09.26-0/webjars/lark-third-party-service-js-api/js/third-party-service.min.js" src="/xch/v8/third-party-renderer/sav_2025.09.26-0/webjars/lark-third-party-service-js-api/js/third-party-service.min.js"></script><script src="https://halc.iadvize.com/iadvize.js" async=""></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_hashmanager2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_hashmanager2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_geolocate2/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_geolocate2/dist/index.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_autosuggests1/dist/index.min.js" src="/xch/v8/asset-server/sav_2025.04.16-0/webjars/a_autosuggests1/dist/index.min.js"></script></head><body>
+    <script type="text/javascript">
+      var G = G || {};
+      G.trackingConfig = {"trackerName":"lark_tracker","endpoint":"https:\/\/api.auchan.fr\/tracking\/v1\/tracking","siteSpeedSampleRate":100,"initTimeout":3000,"interactiveTimeout":5000,"authTimeout":2000,"maxProductsPerImpression":30,"consentCookieName":"lark-consent","sessionIdCookieName":"lark-session","enabledForAll":true,"eventActionToHash":["reorder_details","details_order","contacter le vendeur"],"allowPixelPartner":[{"name":"facebkd","allowed":false,"id":"747149552053540"}]};
+      G.trackingKaminoApiKey = "947e27d1-e8ac-48be-be27-d1e8aca8be6d";
+      G.trackingJs = "\/tracking-renderer\/analytics.js";
+      G.trackingServiceJs = "\/xch\/v8\/tracking-renderer\/sav_20230913-17\/webjars\/lark-tracking-js-api\/js\/tracking-service.min.js";
+      G.trackingEcPluginJs = "\/tracking-renderer\/plugins\/ua\/ec.js";
+      require([G.trackingJs,G.trackingEcPluginJs,G.trackingServiceJs])
+      G.configuration = G.configuration || {};
+      G.configuration.tracking = {};
+      G.configuration.tracking.search = {};
+      G.configuration.tracking.search.eventCategory = "search";
+      G.configuration.tracking.search.suggest = {};
+      G.configuration.tracking.search.suggest.productDetailsEventAction = "suggest_productdetails";
+      G.configuration.tracking.search.suggest.addToCartEventAction = "suggest_addtocart";
+      G.configuration.tracking.search.suggest.removeFromCartEventAction = "suggest_removefromcart";
+      G.configuration.tracking.search.suggest.showPriceEventAction = "suggest_showprice";
+    </script>
+
+    <!-- OneTrust Cookies Consent Notice start for www.auchan.fr -->
+    
+    <script charset="UTF-8" defer="" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" data-domain-script="86c21506-0b09-4826-a344-338a924b0f26"></script>
+    <script type="text/javascript">
+		function OptanonWrapper() {
+			window.dataLayer.push({event: 'OneTrustGroupsUpdated'})
+		}
+
+    </script>
+    <div id="pixel_list" style="display:none"></div>
+    <!-- OneTrust Cookies Consent Notice end for www.auchan.fr -->
+
+    <!-- Iadvize chatbot start -->
+    <script type="text/javascript">
+        var G = G || {};
+        G.configuration = G.configuration || {};
+        G.configuration.iAdvize = G.configuration.iAdvize || {};
+        G.configuration.iAdvize.sid = null;
+        G.configuration.iAdvize.consentMessage = "Cookie de consentement iAdvize supprim\u00E9";
+    </script>
+    <!-- Iadvize chatbot end -->
+<script type="text/javascript">
+    var G = G || {};
+    G.configuration = G.configuration || {};
+    G.configuration.iAdvize = G.configuration.iAdvize || {};
+    G.configuration.iAdvize.sid = 8632;
+    G.configuration.iAdvize.enabled = true;
+    G.configuration.iAdvize.consentMessage = "Cookie de consentement iAdvize supprim\u00E9";
+</script><div id="overlay"></div><div class="container-fluid"><ul class="site-header__skipLinks hide-access"><li><a href="#wrapper">Aller directement au contenu</a></li><li><a href="#search">Aller directement à la recherche</a></li><li><a href="#navigation">Aller directement à la navigation</a></li><li><a href="#footer-help">Aller directement à la rubrique besoin d'aide</a></li></ul><header class="site-header"><div class="context-header"><div class="context-header__context-block"><div class="journey-reminder-header"><button class="context-header__button context-header__context layerTriggerJourneyReminder" aria-label="Choisir mon mode de livraison" autotrack-event-action="journey_reminder_header" autotrack-event-category="navigation" autotrack-event-label="choose_journey"><span>Choisir vos courses</span><i class="icon-arrowRight"></i></button></div></div>
+        <div class="context-header__account-block">
+            <button type="button" class="a-headerMenuBtn icon-account layerTriggerAjax isAnonymous" data-href="/client/panel" data-activated="true" data-id="customer-panel" data-layer-css-class="layer--sidebar rtl" data-use-hash="false" data-renderer="customer-renderer" autotrack-event-category="navigation" autotrack-event-action="account_connection" autotrack-event-label="my_account_anonymous">
+            <span class="a-headerMenuBtn__text">Me connecter</span>
+            </button>
+        </div>
+        <script type="text/javascript">
+        var G = G || {};
+        G.configuration = G.configuration || {};
+        G.configuration.customerId = null;
+    </script>
+    </div><div class="navigation-header"><div class="navigation-header__wrapper"><a class="navigation-header__link header-home" aria-label="Page d'accueil du site Auchan" href="/"><picture><source media="(min-width: 768px)" srcset="/xch/v8/content-renderer/sav_2025.09.26-0/images/auchan-logo-desktop.svg"><img class="navigation-header__link-logo" alt="Auchan" src="/xch/v8/content-renderer/sav_2025.09.26-0/images/auchan-logo-mobile.svg" srcset="/xch/v8/content-renderer/sav_2025.09.26-0/images/auchan-logo-mobile.svg"></picture></a><button id="navigation" class="navigation-header__link header-menu navigation__trigger" data-layerid="navigation_layer" popovertarget="navigation_layer" autotrack-event-action="layer_navigation" autotrack-event-category="navigation" autotrack-event-label="click" data-tracking-action="ouverture" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="clic"><i class="navigation-header__icon icon-menu"></i><span class="navigation-header__linkLabel">Rayons</span></button><a class="navigation-header__link header-discounts" href="/boutique/promos" autotrack-event-category="navigation" autotrack-event-action="promos" autotrack-event-label="click"><i class="header-search__discounts-link__icon icon-discount red-txt"></i><span class="header-search__discounts-link__text red-txt">Promos</span></a><div class="navigation-header__link header-search"><button class="header-search__button searchTrigger" type="button" aria-label="Ouvrir la recherche"><i class="navigation-header__icon icon-search"></i><span class="navigation-header__linkLabel header-search__label">Recherche</span></button><form id="search" autotrack-event-label-from-query="input.header-search__input" class="header-search__form" data-search-tracking-label="" method="get" tabindex="-1" action="/recherche" autotrack-event-action="submit_search" autotrack-event-category="search" data-tracking-action="default" data-tracking-category="search" data-tracking-event="gaSearch"><input autocomplete="off" autotrack-only-if-empty="" class="header-search__input outerTarget mainHeaderSearchInput" name="text" required="required" autotrack-event-action="start_search" autotrack-event-category="search" autotrack-event-label="click" title="Rechercher un produit..." type="search" placeholder="Rechercher un produit...">
+    <script type="text/javascript">
+	
+	var G = G || {};
+	G.configuration = G.configuration || {};
+	G.configuration.searchSuggest = {};
+	G.configuration.searchSuggest.suggestEndpoint = "\/suggest";
+	G.configuration.searchSuggest.searchInputQuerySelector = ".header-search__input";
+	G.configuration.searchSuggest.lastProjectBuildTime = "2025-10-10T09:17:22.805Z";
+	G.configuration.searchSuggest.tracking = {};
+	G.configuration.searchSuggest.tracking.eventCategory = "search";
+	G.configuration.searchSuggest.tracking.suggestActiveEventAction = "suggest_active";
+    G.configuration.searchSuggest.tracking.productDetailsEventAction = "suggest_productdetails";
+    G.configuration.redirectList = null;
+
+</script>
+    <div class="search-suggestion"></div>
+<button class="header-search__search-button" type="submit"><span class="hide-access">Lancer la recherche</span><i aria-hidden="true" class="icon-search"></i></button><button class="header-search__cancel-button searchClose" aria-label="Annuler la recherche" type="button">Annuler</button></form></div><a class="navigation-header__link header-product" autotrack-event-action="shopping_list" autotrack-event-category="navigation" autotrack-event-label="click" href="/client/mes-produits-preferes"><i class="navigation-header__icon icon-myProducts"></i><span class="navigation-header__linkLabel">Mes produits</span></a>
+    <a href="/checkout/cart/" class="navigation-header__link header-cart loading" aria-label="Aller � la page panier">
+        <i class="navigation-header__icon icon-shoppingCart"></i>
+        <span class="navigation-header__linkLabel cartAmount">0,00 ?</span>
+        <div class="header-cart__loader">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </a>
+</div></div></header><aside class="layer layer--full appear" id="navigation_layer" popover=""><div class="layer__wrapper navigation-layer navigation-layer-sorted"><header class="layer__header navigation-layer-sorted-header"><button class="navigation-layer-sorted-header__back sublevelHeadBack hidden" aria-label="Retour au niveau principal de navigation"><i class="sublebel-head-sorted__back--arrow icon-back"></i></button><h2 class="navigation-layer__title--main navigationLayerTitleMain" data-main-title="Nos rayons">Nos rayons</h2><div class="layer__buttons navigation-layer-sorted-header__buttons"><button class="btn btn--dark btn--round btn--small icon-close navigationLayerSortedClose" popovertarget="navigation_layer" popovertargetaction="hide" aria-label="Fermer le menu de navigation"></button></div></header><main class="layer__main navigation-layer__main navigation-layer-sorted__main navigationLayerMain"><nav role="navigation" class="navigation-layer__container-sorted navigationLayerContainer"><div class="navigation-layer-sorted__wrapper navigationLayerSortedWrapper"><div class="navigation-layer-category navigationLayerNodes" data-navigation-id="37a5d139-0cd3-4eae-a088-035a51210315"><h2 class="navigation-layer__title--main">En ce moment</h2><div class="navigation-layer-sorted__nodes navigation-layer-sorted__nodes--carousel"><div class="navigation-node-sorted navigationNode" data-navigation-parent-id="37a5d139-0cd3-4eae-a088-035a51210315" data-navigation-node-id="8a8277e9-74df-4bde-b43a-aab2e2c12b72" data-root-link="/boutique/promos" data-node-title="Promos"><a class="navigation-layer-sorted__link navigationLayerLink navigation-layer-sorted__link--carousel" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Promos" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Promos" href="/boutique/promos"><img aria-hidden="true" class="lazy navigation-node__picture--carousel" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/8a8277e974df4bdeb43aaab2e2c12b72/binary/picto?version=published&amp;cs=bc1dfe6&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  navigation-node__title--carousel">
+                                                                Promos
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="37a5d139-0cd3-4eae-a088-035a51210315" data-navigation-node-id="a6a4e0f6-7c92-4e49-a8e9-4aba88fce76e" data-root-link="/au-coeur-de-noel/ca-b202011041100" data-node-title="Au cœur des fêtes"><a class="navigation-layer-sorted__link navigationLayerLink navigation-layer-sorted__link--carousel" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Au cœur des fêtes" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Au cœur des fêtes" href="/au-coeur-de-noel/ca-b202011041100" aria-expanded="false" aria-controls="a6a4e0f6-7c92-4e49-a8e9-4aba88fce76e"><img aria-hidden="true" class="lazy navigation-node__picture--carousel" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/a6a4e0f67c924e49a8e94aba88fce76e/binary/picto?version=published&amp;cs=514da16&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  navigation-node__title--carousel">
+                                                                Au cœur des fêtes
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode" data-navigation-parent-id="37a5d139-0cd3-4eae-a088-035a51210315" data-navigation-node-id="e915471c-8bff-4b4b-af8d-10fd9c99724b" data-root-link="/jouets-jeux-video-loisirs/ca-101042021?sort=default&amp;catalogue_jouet01=catalogue_jouet01__greater__1" data-node-title="Jouets de Noël"><a class="navigation-layer-sorted__link navigationLayerLink navigation-layer-sorted__link--carousel" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Jouets de Noël" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Jouets de Noël" href="/jouets-jeux-video-loisirs/ca-101042021?sort=default&amp;catalogue_jouet01=catalogue_jouet01__greater__1"><img aria-hidden="true" class="lazy navigation-node__picture--carousel" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/e915471c8bff4b4baf8d10fd9c99724b/binary/picto?version=published&amp;cs=933ea92&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  navigation-node__title--carousel">
+                                                                Jouets de Noël
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode" data-navigation-parent-id="37a5d139-0cd3-4eae-a088-035a51210315" data-navigation-node-id="9ec2dff6-4ada-42ef-a6b8-727c5df83717" data-root-link="/epicerie-sucree/chocolats-confiseries/chocolats-de-noel/ca-n050710" data-node-title="Sélection Chocolats"><a class="navigation-layer-sorted__link navigationLayerLink navigation-layer-sorted__link--carousel" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Sélection Chocolats" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Sélection Chocolats" href="/epicerie-sucree/chocolats-confiseries/chocolats-de-noel/ca-n050710"><img aria-hidden="true" class="lazy navigation-node__picture--carousel" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/9ec2dff64ada42efa6b8727c5df83717/binary/picto?version=published&amp;cs=8fd452f&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  navigation-node__title--carousel">
+                                                                Sélection Chocolats
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode" data-navigation-parent-id="37a5d139-0cd3-4eae-a088-035a51210315" data-navigation-node-id="63d4416b-1b65-4704-b642-e862bbe271bd" data-root-link="/marques-auchan/ep-marques-auchan" data-node-title="Nos marques Auchan"><a class="navigation-layer-sorted__link navigationLayerLink navigation-layer-sorted__link--carousel" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Nos marques Auchan" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Nos marques Auchan" href="/marques-auchan/ep-marques-auchan"><img aria-hidden="true" class="lazy navigation-node__picture--carousel" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/63d4416b1b654704b642e862bbe271bd/binary/picto?version=published&amp;cs=50664be&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  navigation-node__title--carousel">
+                                                                Nos marques Auchan
+                                                                
+                                                    </span></a></div></div></div><div class="navigation-layer-category navigationLayerNodes" data-navigation-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc"><h2 class="navigation-layer__title--main">Mes courses</h2><div class="navigation-layer-sorted__nodes" style="--number-of-columns:2"><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="e3a165a5-b171-4929-92b4-e818ddddc1db" data-root-link="/oeufs-produits-laitiers/ca-n01" data-node-title="Produits laitiers, oeufs, fromages"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Produits laitiers, oeufs, fromages" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Produits laitiers, oeufs, fromages" href="/oeufs-produits-laitiers/ca-n01" aria-expanded="false" aria-controls="e3a165a5-b171-4929-92b4-e818ddddc1db"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/e3a165a5b171492992b4e818ddddc1db/binary/picto?version=published&amp;cs=b61806e&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Produits laitiers, oeufs, fromages
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="53b7805d-acff-4d27-8fe4-0122f3866280" data-root-link="/fruits-legumes/ca-n03" data-node-title="Fruits, légumes"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Fruits, légumes" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Fruits, légumes" href="/fruits-legumes/ca-n03" aria-expanded="false" aria-controls="53b7805d-acff-4d27-8fe4-0122f3866280"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/53b7805dacff4d278fe40122f3866280/binary/picto?version=published&amp;cs=a85e905&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Fruits, légumes
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="6fc1cc83-cd7d-418b-8431-f13ae92428e2" data-root-link="/boucherie-volaille-poissonnerie/ca-n02" data-node-title="Boucherie, volaille, poissonnerie"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Boucherie, volaille, poissonnerie" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Boucherie, volaille, poissonnerie" href="/boucherie-volaille-poissonnerie/ca-n02" aria-expanded="false" aria-controls="6fc1cc83-cd7d-418b-8431-f13ae92428e2"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/6fc1cc83cd7d418b8431f13ae92428e2/binary/picto?version=published&amp;cs=bd55b52&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Boucherie, volaille, poissonnerie
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="4348c5e9-dd95-40ae-9c99-16b58f5595a9" data-root-link="/charcuterie-traiteur-pain/ca-n12" data-node-title="Charcuterie, traiteur"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Charcuterie, traiteur" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Charcuterie, traiteur" href="/charcuterie-traiteur-pain/ca-n12" aria-expanded="false" aria-controls="4348c5e9-dd95-40ae-9c99-16b58f5595a9"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/4348c5e9dd9540ae9c9916b58f5595a9/binary/picto?version=published&amp;cs=ce93004&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Charcuterie, traiteur
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="fe71f868-c47c-40aa-b3a9-e46d39c1424b" data-root-link="/pain-patisserie/ca-n1203" data-node-title="Pain, pâtisserie"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Pain, pâtisserie" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Pain, pâtisserie" href="/pain-patisserie/ca-n1203" aria-expanded="false" aria-controls="fe71f868-c47c-40aa-b3a9-e46d39c1424b"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/fe71f868c47c40aab3a9e46d39c1424b/binary/picto?version=published&amp;cs=5e7a1b0&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Pain, pâtisserie
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="d9e88924-2488-4215-9b5a-d91d2cce47d0" data-root-link="/surgeles/ca-n04" data-node-title="Surgelés"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Surgelés" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Surgelés" href="/surgeles/ca-n04" aria-expanded="false" aria-controls="d9e88924-2488-4215-9b5a-d91d2cce47d0"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/d9e88924248842159b5ad91d2cce47d0/binary/picto?version=published&amp;cs=420a1d1&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Surgelés
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="470935bb-66ea-42f9-98e3-bfc1b971a321" data-root-link="/epicerie-sucree/ca-n05" data-node-title="Epicerie sucrée"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Epicerie sucrée" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Epicerie sucrée" href="/epicerie-sucree/ca-n05" aria-expanded="false" aria-controls="470935bb-66ea-42f9-98e3-bfc1b971a321"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/470935bb66ea42f998e3bfc1b971a321/binary/picto?version=published&amp;cs=558e905&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Epicerie sucrée
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="ceba69fb-0f4e-4067-87cd-0120a24ab3f4" data-root-link="/epicerie-salee/ca-n06" data-node-title="Epicerie salée"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Epicerie salée" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Epicerie salée" href="/epicerie-salee/ca-n06" aria-expanded="false" aria-controls="ceba69fb-0f4e-4067-87cd-0120a24ab3f4"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/ceba69fb0f4e406787cd0120a24ab3f4/binary/picto?version=published&amp;cs=e352e42&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Epicerie salée
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="f60fac4c-9570-4883-b2a4-4dbc114a1a01" data-root-link="/boissons-sans-alcool/ca-n13" data-node-title="Eaux, jus, soda, thés glacés"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Eaux, jus, soda, thés glacés" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Eaux, jus, soda, thés glacés" href="/boissons-sans-alcool/ca-n13" aria-expanded="false" aria-controls="f60fac4c-9570-4883-b2a4-4dbc114a1a01"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/f60fac4c95704883b2a44dbc114a1a01/binary/picto?version=published&amp;cs=d34da6e&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Eaux, jus, soda, thés glacés
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="e9258944-72e4-4fd0-a95f-cbdb5792ec83" data-root-link="/vins-bieres-alcool/ca-n07" data-node-title="Vins, bières, alcools"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Vins, bières, alcools" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Vins, bières, alcools" href="/vins-bieres-alcool/ca-n07" aria-expanded="false" aria-controls="e9258944-72e4-4fd0-a95f-cbdb5792ec83"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/e925894472e44fd0a95fcbdb5792ec83/binary/picto?version=published&amp;cs=72f81b4&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Vins, bières, alcools
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="0c2727db-1f78-4147-a011-10888c12969c" data-root-link="/hygiene-beaute-parapharmacie/ca-n09" data-node-title="Hygiène, beauté"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Hygiène, beauté" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Hygiène, beauté" href="/hygiene-beaute-parapharmacie/ca-n09" aria-expanded="false" aria-controls="0c2727db-1f78-4147-a011-10888c12969c"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/0c2727db1f784147a01110888c12969c/binary/picto?version=published&amp;cs=decbb50&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Hygiène, beauté
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="e0eae11e-b129-42ce-958e-3d7c4b9ff63c" data-root-link="/entretien-maison/ca-n10" data-node-title="Entretien, accessoires de la maison"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Entretien, accessoires de la maison" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Entretien, accessoires de la maison" href="/entretien-maison/ca-n10" aria-expanded="false" aria-controls="e0eae11e-b129-42ce-958e-3d7c4b9ff63c"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/e0eae11eb12942ce958e3d7c4b9ff63c/binary/picto?version=published&amp;cs=99e8889&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Entretien, accessoires de la maison
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="90c5ef0d-d4de-412c-a485-607969fc9b9a" data-root-link="/bebe/ca-n08" data-node-title="Tout pour bébé"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Tout pour bébé" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Tout pour bébé" href="/bebe/ca-n08" aria-expanded="false" aria-controls="90c5ef0d-d4de-412c-a485-607969fc9b9a"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/90c5ef0dd4de412ca485607969fc9b9a/binary/picto?version=published&amp;cs=d3d2a12&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Tout pour bébé
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="df102b97-7cb4-483d-8adb-45f64fb37f9e" data-root-link="/parapharmacie/ca-n14" data-node-title="Parapharmacie"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Parapharmacie" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Parapharmacie" href="/parapharmacie/ca-n14"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/df102b977cb4483d8adb45f64fb37f9e/binary/picto?version=published&amp;cs=9a8825b&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Parapharmacie
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="2cd430ca-c719-496a-8924-9c9f02dd41a1" data-root-link="/animalerie/ca-n11" data-node-title="Animalerie"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Animalerie" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Animalerie" href="/animalerie/ca-n11" aria-expanded="false" aria-controls="2cd430ca-c719-496a-8924-9c9f02dd41a1"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/2cd430cac719496a89249c9f02dd41a1/binary/picto?version=published&amp;cs=e613d18&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Animalerie
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="8f9d5c8e-e0a9-402b-8c8d-8fc48ae773ca" data-root-link="/produits-de-nos-regions-et-du-monde/ca-b08" data-node-title="Produits du monde"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Produits du monde" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Produits du monde" href="/produits-de-nos-regions-et-du-monde/ca-b08" aria-expanded="false" aria-controls="8f9d5c8e-e0a9-402b-8c8d-8fc48ae773ca"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/8f9d5c8ee0a9402b8c8d8fc48ae773ca/binary/picto?version=published&amp;cs=d13590f&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Produits du monde
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="dcb38d4a-de47-40e4-86a2-568ac5160ba8" data-root-link="/produits-de-nos-regions/ca-b202406051513" data-node-title="Produits de nos régions"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Produits de nos régions" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Produits de nos régions" href="/produits-de-nos-regions/ca-b202406051513"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/dcb38d4ade4740e486a2568ac5160ba8/binary/picto?version=published&amp;cs=6ab56a3&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Produits de nos régions
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="13e83cb8-4abe-4502-b2d8-cd5c9bb120cc" data-navigation-node-id="03eee8d2-36b0-49c8-a0f6-d62ae644b834" data-root-link="/bio-et-nutrition/ca-b04" data-node-title="Bio et nutrition"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Bio et nutrition" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Bio et nutrition" href="/bio-et-nutrition/ca-b04" aria-expanded="false" aria-controls="03eee8d2-36b0-49c8-a0f6-d62ae644b834"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/03eee8d236b049c8a0f6d62ae644b834/binary/picto?version=published&amp;cs=beb57bf&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Bio et nutrition
+                                                                
+                                                    </span></a></div></div></div><div class="navigation-layer-category navigationLayerNodes" data-navigation-id="6fb8ca4b-14f5-403e-beda-d937f2c3485e"><h2 class="navigation-layer__title--main">Maison &amp; Loisirs</h2><div class="navigation-layer-sorted__nodes"><div class="navigation-node-sorted navigationNode" data-navigation-parent-id="6fb8ca4b-14f5-403e-beda-d937f2c3485e" data-navigation-node-id="8cfc6eb0-4ad0-4932-9a27-0a682a13eb37" data-root-link="/boutique/baf-maison-loisirs" data-node-title="Promos maison &amp; loisirs"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Promos maison &amp; loisirs" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Promos maison &amp; loisirs" href="/boutique/baf-maison-loisirs"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/8cfc6eb04ad049329a270a682a13eb37/binary/picto?version=published&amp;cs=050e726&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Promos maison &amp; loisirs
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="6fb8ca4b-14f5-403e-beda-d937f2c3485e" data-navigation-node-id="6335bb40-012f-4b37-aaaf-8994d4f0929c" data-root-link="/jardin-auto-brico/ca-2903202116100" data-node-title="Jardin, auto, brico"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Jardin, auto, brico" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Jardin, auto, brico" href="/jardin-auto-brico/ca-2903202116100" aria-expanded="false" aria-controls="6335bb40-012f-4b37-aaaf-8994d4f0929c"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/6335bb40012f4b37aaaf8994d4f0929c/binary/picto?version=published&amp;cs=9d141ff&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Jardin, auto, brico
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="6fb8ca4b-14f5-403e-beda-d937f2c3485e" data-navigation-node-id="f91bdf6c-6441-4c71-a098-b061729e09ec" data-root-link="/jouets-jeux-video-loisirs/ca-101042021" data-node-title="Jouets, jeux vidéo, livres"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Jouets, jeux vidéo, livres" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Jouets, jeux vidéo, livres" href="/jouets-jeux-video-loisirs/ca-101042021" aria-expanded="false" aria-controls="f91bdf6c-6441-4c71-a098-b061729e09ec"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/f91bdf6c64414c71a098b061729e09ec/binary/picto?version=published&amp;cs=9eab795&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Jouets, jeux vidéo, livres
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="6fb8ca4b-14f5-403e-beda-d937f2c3485e" data-navigation-node-id="5aa9e120-1400-4864-a989-d77eb33f7c52" data-root-link="/high-tech-audio-tv-telephonie/ca-29032021170201" data-node-title="High-tech, téléphonie"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="High-tech, téléphonie" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_High-tech, téléphonie" href="/high-tech-audio-tv-telephonie/ca-29032021170201" aria-expanded="false" aria-controls="5aa9e120-1400-4864-a989-d77eb33f7c52"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/5aa9e12014004864a989d77eb33f7c52/binary/picto?version=published&amp;cs=03ada25&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                High-tech, téléphonie
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="6fb8ca4b-14f5-403e-beda-d937f2c3485e" data-navigation-node-id="766ddf98-2071-446a-aab2-339026fe20d3" data-root-link="/electromenager-cuisine/ca-201612151000" data-node-title="Electroménager, cuisine"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Electroménager, cuisine" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Electroménager, cuisine" href="/electromenager-cuisine/ca-201612151000" aria-expanded="false" aria-controls="766ddf98-2071-446a-aab2-339026fe20d3"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/766ddf982071446aaab2339026fe20d3/binary/picto?version=published&amp;cs=c9ac47c&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Electroménager, cuisine
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="6fb8ca4b-14f5-403e-beda-d937f2c3485e" data-navigation-node-id="40b2783f-82db-4777-8727-20d4368907e5" data-root-link="/meuble-deco-linge-de-maison/ca-302202115" data-node-title="Meuble, linge de maison"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Meuble, linge de maison" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Meuble, linge de maison" href="/meuble-deco-linge-de-maison/ca-302202115" aria-expanded="false" aria-controls="40b2783f-82db-4777-8727-20d4368907e5"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/40b2783f82db4777872720d4368907e5/binary/picto?version=published&amp;cs=7cda5a0&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Meuble, linge de maison
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="6fb8ca4b-14f5-403e-beda-d937f2c3485e" data-navigation-node-id="119a34ca-1795-4355-a262-1b77532076a7" data-root-link="/mode-bijoux-bagagerie/ca-31032021153703" data-node-title="Mode, bijoux, bagagerie"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Mode, bijoux, bagagerie" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Mode, bijoux, bagagerie" href="/mode-bijoux-bagagerie/ca-31032021153703" aria-expanded="false" aria-controls="119a34ca-1795-4355-a262-1b77532076a7"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/119a34ca17954355a2621b77532076a7/binary/picto?version=published&amp;cs=1ea5266&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Mode, bijoux, bagagerie
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="6fb8ca4b-14f5-403e-beda-d937f2c3485e" data-navigation-node-id="4b7bc05b-9d88-4b62-863f-b0e8dc8e6db7" data-root-link="/puericulture/ca-7135353" data-node-title="Puériculture"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Puériculture" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Puériculture" href="/puericulture/ca-7135353" aria-expanded="false" aria-controls="4b7bc05b-9d88-4b62-863f-b0e8dc8e6db7"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/4b7bc05b9d884b62863fb0e8dc8e6db7/binary/picto?version=published&amp;cs=774a490&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Puériculture
+                                                                
+                                                    </span></a></div><div class="navigation-node-sorted navigationNode trigger-sublevel not-loaded" data-navigation-parent-id="6fb8ca4b-14f5-403e-beda-d937f2c3485e" data-navigation-node-id="99cf1806-38d3-42ed-802d-6d5c0cfe52c2" data-root-link="#" data-node-title="Billetterie, traiteur, voyage"><a class="navigation-layer-sorted__link navigationLayerLink" role="button" data-tracking-action="N1" data-tracking-category="layer_navigation" data-tracking-event="gaEvent" data-tracking-label="Billetterie, traiteur, voyage" autotrack-event-category="navigation" autotrack-event-action="layer_navigation" autotrack-event-label="N1_Billetterie, traiteur, voyage" href="#" aria-expanded="false" aria-controls="99cf1806-38d3-42ed-802d-6d5c0cfe52c2"><img aria-hidden="true" class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/content-getmesh/api/v1/larkcontent/nodes/99cf180638d342ed802d6d5c0cfe52c2/binary/picto?version=published&amp;cs=4cd9afb&amp;format=rw&amp;quality=75"><span class="navigation-node__title navigation-node__title--sorted  ">
+                                                                Billetterie, traiteur, voyage
+                                                                
+                                                    </span></a></div></div></div></div></nav></main><button class="navigation-layer-sorted__close btn btn--dark btn--round btn--small icon-close navigationLayerSortedClose" popovertarget="navigation_layer" popovertargetaction="hide"><span class="hide-access">Fermer le menu de navigation</span></button><div tabindex="0" class="layerFocusTrap" style="position: absolute;"></div></div></aside><div class="flex-wrapper"><div class="cms-slot" data-page-id="773e584b-5dd0-43ba-805f-e0633aefc49d" data-page-selector="store" data-position="topCommonSlot" id="cms-slot-topCommonSlot"></div><div class="main-wrapper store-page" id="wrapper"><div class="site-breadcrumb__container"><div class="site-breadcrumb__wrapper"><nav class="site-breadcrumb__nav" itemscope="itemscope" itemtype="http://schema.org/BreadcrumbList"><span class="site-breadcrumb__item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem"><meta itemprop="name" content="Accueil"><meta content="1" itemprop="position"><a itemprop="item" href="/">Accueil</a><i aria-hidden="true" class="icon-arrowRight"></i></span><span class="site-breadcrumb__item" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem"><meta itemprop="name" content="Nos magasins, drives, points de retrait"><meta content="2" itemprop="position"><a itemprop="item" href="/nos-magasins">Nos magasins, drives, points de retrait</a><i aria-hidden="true" class="icon-arrowRight"></i></span><span class="site-breadcrumb__item site-breadcrumb__item--last" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem"><meta itemprop="name" content="Auchan Drive Supermarché Talence-Gallieni"><meta content="3" itemprop="position"><h1 class="site-breadcrumb__title--ellipsis"><a itemprop="item" href="/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117">Auchan Drive Supermarché Talence-Gallieni</a></h1></span></nav></div></div><div itemscope="itemscope" itemtype="http://schema.org/GroceryStore" itemid="https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117"><meta itemprop="name" content="Auchan Drive Supermarché Talence-Gallieni"><meta itemprop="image" content="https://www.auchan.fr/xch/v8/place-renderer/sav_2025.09.30-0/images/auchan-logo.png"><div class="store-page__container posItem" id="pos_37b5df86-ff8b-11ed-be56-0242ac120002" data-lat="44.822251" data-lng="-0.593073" data-type="DRIVE" data-id="pos_37b5df86-ff8b-11ed-be56-0242ac120002"><div class="store-page__wrapper"><div class="store-schedule__special-wrapper">
+    
+</div><div class="cms-slot" data-page-id="773e584b-5dd0-43ba-805f-e0633aefc49d" data-page-selector="store" data-position="topSlot" id="cms-slot-topSlot"></div><div class="discovery-map"><script type="text/javascript">
+	var G = G || {};
+	G.configuration = G.configuration || {};
+	G.configuration.placeMapConfiguration = {
+		apiKey: "AIzaSyDQII3Y-4PgQyE7Y_kZAO9PY_w7Uya037E",
+		center: {
+			lat: 46,
+			lng: 3
+		},
+		zoomControl: true,
+		mapTypeControl: true,
+		scaleControl: true,
+		streetViewControl: true,
+		rotateControl: true,
+		fullscreenControl: true,
+		zoom: 6,
+		zoomSelected: 13,
+		autoFitMarkers: true,
+		autoFitPadding: 300,
+		markerClustererConfig: {
+			enabled: false,
+		},
+		icons: [
+			{
+				type: "BUSINESS_LOCKER",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-business-locker.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-business-locker-active.svg"
+				}
+			},
+			{
+				type: "DRIVE",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-active.svg"
+				}
+			},
+			{
+				type: "LOCKERS",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-locker.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-locker-active.svg"
+				}
+			},
+			{
+				type: "PICKUP_POINT",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-pedestrian.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/drive-pedestrian-active.svg"
+				}
+			},
+			{
+				type: "HYPER",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store-active.svg"
+				}
+			},
+			{
+				type: "SUPER",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store-active.svg"
+				}
+			},
+			{
+				type: "PROXY",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store-active.svg"
+				}
+			},
+			{
+				type: "PICKUP_POINT",
+				icon: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store.svg"
+				},
+				active: {
+					url: "\/xch\/v8\/place-renderer\/sav_2025.09.30-0\/images\/store-icon\/store-active.svg"
+				}
+			},
+		],
+	}
+</script><div class="discovery-map__wrapper shadow"><div class="layer layer--inline discovery-map__layer" id="discoveryMapLayer"><div class="layer__wrapper"><div class="layer__header discovery-map__desktop-hidden"><div class="layer__title"></div><div class="layer__buttons"><button class="layer__close layer__close--icon" aria-label="Fermer"><i class="icon-close"></i></button></div></div><main class="layer__main layer__main--discovery-map"><div id="discovery-map" class="discovery-map__map_store discoveryMapStore"><img class="discovery-map__map_img discoveryMapClick" fetchpriority="high" src="https://maps.googleapis.com/maps/api/staticmap?center=44.822251%2C-0.593073&amp;size=600x256&amp;zoom=12&amp;scale=2&amp;markers=color%3Ared%7C44.822251%2C-0.593073&amp;key=AIzaSyDQII3Y-4PgQyE7Y_kZAO9PY_w7Uya037E&amp;signature=nsryY2-737ANjX4OF7-buhhvmck%3D" alt="Carte du magasin Auchan Drive Supermarché Talence-Gallieni"></div></main></div></div><button class="btn btn--small btn--white icon-map discovery-map__map-button discovery-map__desktop-hidden" data-activated="true" data-layer-id="discoveryMapLayer" aria-hidden="true">Afficher sur la carte</button><div class="discovery-map__results discoveryPOS" data-type="DRIVE" data-id="discoveryResult_37b5df86-ff8b-11ed-be56-0242ac120002" data-lat="44.822251" data-lng="-0.593073" data-restricted="false"><div class="store-info"><div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><meta itemprop="streetAddress" content="114 Cours Du Maréchal Galliéni"><meta itemprop="postalCode" content="33400"><meta itemprop="addressLocality" content="Talence"><div class="store-info__address">114 Cours Du Maréchal Galliéni 
+            33400 Talence
+        </div></div><div class="store-schedule"><div class="store-schedule__current-status" aria-label="Voir les horaires d'ouverture" aria-expanded="false">
+                    <span class="store-schedule__status store-schedule__status--closed">
+                    <span class="bolder red-txt">Fermé</span>
+                    
+                        
+                        
+                            
+                                Ouvre demain
+                                
+                            
+                        
+                    
+                    
+                        
+                            
+                                
+                                à <b>08:00</b>
+                            
+                        
+                        
+                    
+
+                    </span>
+    </div></div><ul class="store-weekSchedule" itemprop="openingHours" content="Mo 08:00-19:30, Tu 08:00-19:30, We 08:00-19:30, Th 08:00-19:30, Fr 08:00-19:30, Sa 08:00-19:30, Su 08:30-12:00"><li><span class="store-weekSchedule__days bold">Lundi</span><span class="store-weekSchedule__hours"><span class="store-weekSchedule__hours-value">08:00 - 19:30</span></span></li><li><span class="store-weekSchedule__days bold">Mardi</span><span class="store-weekSchedule__hours"><span class="store-weekSchedule__hours-value">08:00 - 19:30</span></span></li><li><span class="store-weekSchedule__days bold">Mercredi</span><span class="store-weekSchedule__hours"><span class="store-weekSchedule__hours-value">08:00 - 19:30</span></span></li><li><span class="store-weekSchedule__days bold">Jeudi</span><span class="store-weekSchedule__hours"><span class="store-weekSchedule__hours-value">08:00 - 19:30</span></span></li><li><span class="store-weekSchedule__days bold">Vendredi</span><span class="store-weekSchedule__hours"><span class="store-weekSchedule__hours-value">08:00 - 19:30</span></span></li><li><span class="store-weekSchedule__days bold">Samedi</span><span class="store-weekSchedule__hours"><span class="store-weekSchedule__hours-value">08:00 - 19:30</span></span></li><li><span class="store-weekSchedule__days bold">Dimanche</span><span class="store-weekSchedule__hours"><span class="store-weekSchedule__hours-value">08:30 - 12:00</span></span></li></ul><button type="button" class="btn journey-button btn--small store-info__button" data-store-reference="6117" data-catalog-type="GROCERY" data-delivery-channel="PICK_UP">Choisir ce Drive</button></div></div></div><div class="discovery-contact shadow"><a class="discovery-contact__link" href="https://www.auchan.fr/contactez-nous"><i aria-hidden="true" class="icon-message"></i><span class="discovery-contact__label">Contact</span></a><a class="discovery-contact__link" href="https://auchan.sourdline.com/"><i aria-hidden="true" class="icon-logoSourdline"></i><span class="discovery-contact__label">Espace sourds</span></a><a href="https://maps.google.com/maps?q=114%20Cours%20Du%20Mar%C3%A9chal%20Galli%C3%A9ni%2033400%20Talence" class="discovery-contact__link"><i aria-hidden="true" class="icon-map"></i><span class="discovery-contact__label">Voir l'itinéraire</span></a></div><div class="discovery-element"><div class="discovery-delivery"><h2 class="discovery-delivery-title">Livraison de vos courses à domicile</h2><span class="discovery-delivery-content">Le saviez-vous ? En plus de la mise au coffre de vos courses en point de retrait, votre drive Auchan vous propose également la livraison de vos courses directement à domicile.</span><span class="discovery-delivery-content">Avec Auchan Faites vos courses avec plaisir !</span></div></div><div class="discovery-element">
+            
+    </div><div class="discovery-element">
+    
+</div></div><div class="store-list__title">
+                        Autour de votre point de retrait
+                        
+                    </div><ul class="store-list"><li id="pos_c333306b-c93e-4ccb-92a1-751a835fc719" class="store-list__item"><div class="place-pos" data-type="PICKUP_POINT"><div class="place-pos__wrapper"><div class="place-pos__wrapper place-pos__wrapper--row"><i aria-hidden="true" class="place-pos__type-logo icon-pickup_point"></i><div class="place-pos__main-infos"><span class="place-pos__type-name">Click &amp; Collect</span><span class="place-pos__name">Auchan Click&amp;collect Supermarché Talence-Gambetta</span><span>125 Cours Gambetta</span><div class="place-pos__address"><span>33400 Talence</span></div></div><div class="place-pos__more"><a class="btn btn--small btn--white place-pos__btn" aria-label="Aller à la page du magasin : Auchan Click&amp;collect Supermarché Talence-Gambetta" href="/magasins/click-and-collect/auchan-click-collect-supermarche-talence-gambetta/s-6033">+ d'infos</a></div></div></div><section class="place-pos__details"><button aria-expanded="false" class="place-pos__details-expander" autotrack-event-action="place" autotrack-event-category="navigation" autotrack-event-label="details_1368ba9b-54f5-4c53-ad58-4af4e528ca6b" type="button"><div class="place-pos__details-expander-label">Infos et Tarifs</div><i aria-hidden="true" class="place-pos__details-expander-icon icon-arrowLeft"></i></button><main class="place-pos__details-content"><span class="pos-details__line pos-details__line--small"><span class="pos-details__line-start"><span class="bolder green-txt">Ouverture exceptionnelle</span>
+        mercredi 24 décembre
+        
+            de 08:30 à 18:00
+        
+        </span></span><div class="pos-details__line" for="Lundi_c333306b-c93e-4ccb-92a1-751a835fc719"><span class="pos-details__line-start">Lundi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;08:30&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Mardi_c333306b-c93e-4ccb-92a1-751a835fc719"><span class="pos-details__line-start">Mardi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;08:30&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Mercredi_c333306b-c93e-4ccb-92a1-751a835fc719"><span class="pos-details__line-start">Mercredi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;08:30&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Jeudi_c333306b-c93e-4ccb-92a1-751a835fc719"><span class="pos-details__line-start">Jeudi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;08:30&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Vendredi_c333306b-c93e-4ccb-92a1-751a835fc719"><span class="pos-details__line-start">Vendredi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;08:30&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Samedi_c333306b-c93e-4ccb-92a1-751a835fc719"><span class="pos-details__line-start">Samedi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;08:30&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Dimanche_c333306b-c93e-4ccb-92a1-751a835fc719"><span class="pos-details__line-start">Dimanche</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;12:00
+                            
+                        
+                    
+                    
+                
+             </span></div></main></section></div></li><li id="pos_f7df0747-a69e-4813-9aeb-7b73d3efbf46" class="store-list__item"><div class="place-pos" data-type="PICKUP_POINT"><div class="place-pos__wrapper"><div class="place-pos__wrapper place-pos__wrapper--row"><i aria-hidden="true" class="place-pos__type-logo icon-pickup_point"></i><div class="place-pos__main-infos"><span class="place-pos__type-name">Click &amp; Collect</span><span class="place-pos__name">Auchan Click&amp;collect Supermarché Talence Libération</span><span>412 Cours De La Libération</span><div class="place-pos__address"><span>33400 Talence</span></div></div><div class="place-pos__more"><a class="btn btn--small btn--white place-pos__btn" aria-label="Aller à la page du magasin : Auchan Click&amp;collect Supermarché Talence Libération" href="/magasins/click-and-collect/auchan-click-collect-supermarche-talence-liberation/s-6377">+ d'infos</a></div></div></div><section class="place-pos__details"><button aria-expanded="false" class="place-pos__details-expander" autotrack-event-action="place" autotrack-event-category="navigation" autotrack-event-label="details_b42b52bf-7204-4e02-a7ba-c692121c75cb" type="button"><div class="place-pos__details-expander-label">Infos et Tarifs</div><i aria-hidden="true" class="place-pos__details-expander-icon icon-arrowLeft"></i></button><main class="place-pos__details-content"><div class="pos-details__line" for="Lundi_f7df0747-a69e-4813-9aeb-7b73d3efbf46"><span class="pos-details__line-start">Lundi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;14:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Mardi_f7df0747-a69e-4813-9aeb-7b73d3efbf46"><span class="pos-details__line-start">Mardi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;14:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Mercredi_f7df0747-a69e-4813-9aeb-7b73d3efbf46"><span class="pos-details__line-start">Mercredi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;14:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Jeudi_f7df0747-a69e-4813-9aeb-7b73d3efbf46"><span class="pos-details__line-start">Jeudi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;14:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Vendredi_f7df0747-a69e-4813-9aeb-7b73d3efbf46"><span class="pos-details__line-start">Vendredi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;14:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Samedi_f7df0747-a69e-4813-9aeb-7b73d3efbf46"><span class="pos-details__line-start">Samedi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;14:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Dimanche_f7df0747-a69e-4813-9aeb-7b73d3efbf46"><span class="pos-details__line-start">Dimanche</span><span class="bolder pos-details__line-end"><span class="bolder red-txt">Fermé</span></span></div></main></section></div></li><li id="pos_6e199eff-529b-4b85-afd9-543ae6d3be10" class="store-list__item"><div class="place-pos" data-type="PICKUP_POINT"><div class="place-pos__wrapper"><div class="place-pos__wrapper place-pos__wrapper--row"><i aria-hidden="true" class="place-pos__type-logo icon-pickup_point"></i><div class="place-pos__main-infos"><span class="place-pos__type-name">Click &amp; Collect</span><span class="place-pos__name">Auchan Click&amp;collect Bordeaux Mériadeck</span><span>Cc Meriadeck, Rue Claude Bonnier</span><div class="place-pos__address"><span>33000 Bordeaux</span></div></div><div class="place-pos__more"><a class="btn btn--small btn--white place-pos__btn" aria-label="Aller à la page du magasin : Auchan Click&amp;collect Bordeaux Mériadeck" href="/magasins/click-and-collect/auchan-click-collect-bordeaux-meriadeck/s-969">+ d'infos</a></div></div></div><section class="place-pos__details"><button aria-expanded="false" class="place-pos__details-expander" autotrack-event-action="place" autotrack-event-category="navigation" autotrack-event-label="details_7e22e908-15e4-4d3f-8713-7955d19fa28b" type="button"><div class="place-pos__details-expander-label">Infos et Tarifs</div><i aria-hidden="true" class="place-pos__details-expander-icon icon-arrowLeft"></i></button><main class="place-pos__details-content"><span class="pos-details__line pos-details__line--small"><span class="pos-details__line-start"><span class="bolder red-txt">Fermeture exceptionnelle</span>
+        jeudi 25 décembre
+        
+        </span></span><div class="pos-details__line" for="Lundi_6e199eff-529b-4b85-afd9-543ae6d3be10"><span class="pos-details__line-start">Lundi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Mardi_6e199eff-529b-4b85-afd9-543ae6d3be10"><span class="pos-details__line-start">Mardi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Mercredi_6e199eff-529b-4b85-afd9-543ae6d3be10"><span class="pos-details__line-start">Mercredi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Jeudi_6e199eff-529b-4b85-afd9-543ae6d3be10"><span class="pos-details__line-start">Jeudi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Vendredi_6e199eff-529b-4b85-afd9-543ae6d3be10"><span class="pos-details__line-start">Vendredi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Samedi_6e199eff-529b-4b85-afd9-543ae6d3be10"><span class="pos-details__line-start">Samedi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Dimanche_6e199eff-529b-4b85-afd9-543ae6d3be10"><span class="pos-details__line-start">Dimanche</span><span class="bolder pos-details__line-end"><span class="bolder red-txt">Fermé</span></span></div></main></section></div></li><li id="pos_db2d0a03-67f7-4aee-ac0b-b6a361dbe099" class="store-list__item"><div class="place-pos" data-type="PICKUP_POINT"><div class="place-pos__wrapper"><div class="place-pos__wrapper place-pos__wrapper--row"><i aria-hidden="true" class="place-pos__type-logo icon-pickup_point"></i><div class="place-pos__main-infos"><span class="place-pos__type-name">Click &amp; Collect</span><span class="place-pos__name">Auchan Click&amp;collect Supermarché Merignac</span><span>2 Rue Des Conviviales</span><div class="place-pos__address"><span>33700 Merignac</span></div></div><div class="place-pos__more"><a class="btn btn--small btn--white place-pos__btn" aria-label="Aller à la page du magasin : Auchan Click&amp;collect Supermarché Merignac" href="/magasins/click-and-collect/auchan-click-collect-supermarche-merignac/s-6356">+ d'infos</a></div></div></div><section class="place-pos__details"><button aria-expanded="false" class="place-pos__details-expander" autotrack-event-action="place" autotrack-event-category="navigation" autotrack-event-label="details_a49b3931-fe5e-498e-bfc0-081333a31730" type="button"><div class="place-pos__details-expander-label">Infos et Tarifs</div><i aria-hidden="true" class="place-pos__details-expander-icon icon-arrowLeft"></i></button><main class="place-pos__details-content"><div class="pos-details__line" for="Lundi_db2d0a03-67f7-4aee-ac0b-b6a361dbe099"><span class="pos-details__line-start">Lundi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;14:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Mardi_db2d0a03-67f7-4aee-ac0b-b6a361dbe099"><span class="pos-details__line-start">Mardi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;14:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Mercredi_db2d0a03-67f7-4aee-ac0b-b6a361dbe099"><span class="pos-details__line-start">Mercredi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;14:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Jeudi_db2d0a03-67f7-4aee-ac0b-b6a361dbe099"><span class="pos-details__line-start">Jeudi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;14:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Vendredi_db2d0a03-67f7-4aee-ac0b-b6a361dbe099"><span class="pos-details__line-start">Vendredi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;14:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Samedi_db2d0a03-67f7-4aee-ac0b-b6a361dbe099"><span class="pos-details__line-start">Samedi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;14:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Dimanche_db2d0a03-67f7-4aee-ac0b-b6a361dbe099"><span class="pos-details__line-start">Dimanche</span><span class="bolder pos-details__line-end"><span class="bolder red-txt">Fermé</span></span></div></main></section></div></li><li id="pos_6b7830e7-cce2-45d2-89c7-291f5275b513" class="store-list__item"><div class="place-pos" data-type="DRIVE"><div class="place-pos__wrapper"><div class="place-pos__wrapper place-pos__wrapper--row"><i aria-hidden="true" class="place-pos__type-logo icon-drive"></i><div class="place-pos__main-infos"><span class="place-pos__type-name">Drive</span><span class="place-pos__name">Auchan Drive Supermarché Mondésir</span><div class="place-pos__address"><span>33700 Mérignac</span></div></div><div class="place-pos__more"><a class="btn btn--small btn--white place-pos__btn" aria-label="Aller à la page du magasin : Auchan Drive Supermarché Mondésir" href="/magasins/drive/auchan-drive-supermarche-mondesir/s-6110">+ d'infos</a></div></div></div><section class="place-pos__details"><button aria-expanded="false" class="place-pos__details-expander" autotrack-event-action="place" autotrack-event-category="navigation" autotrack-event-label="details_08e83fea-886c-4afd-bca4-491b9bfa78bf" type="button"><div class="place-pos__details-expander-label">Infos et Tarifs</div><i aria-hidden="true" class="place-pos__details-expander-icon icon-arrowLeft"></i></button><main class="place-pos__details-content"><div class="pos-details__line" for="Lundi_6b7830e7-cce2-45d2-89c7-291f5275b513"><span class="pos-details__line-start">Lundi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;08:30&nbsp;-&nbsp;19:30
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Mardi_6b7830e7-cce2-45d2-89c7-291f5275b513"><span class="pos-details__line-start">Mardi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;08:30&nbsp;-&nbsp;19:30
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Mercredi_6b7830e7-cce2-45d2-89c7-291f5275b513"><span class="pos-details__line-start">Mercredi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;08:30&nbsp;-&nbsp;19:30
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Jeudi_6b7830e7-cce2-45d2-89c7-291f5275b513"><span class="pos-details__line-start">Jeudi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;08:30&nbsp;-&nbsp;19:30
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Vendredi_6b7830e7-cce2-45d2-89c7-291f5275b513"><span class="pos-details__line-start">Vendredi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;08:30&nbsp;-&nbsp;19:30
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Samedi_6b7830e7-cce2-45d2-89c7-291f5275b513"><span class="pos-details__line-start">Samedi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;08:30&nbsp;-&nbsp;19:30
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Dimanche_6b7830e7-cce2-45d2-89c7-291f5275b513"><span class="pos-details__line-start">Dimanche</span><span class="bolder pos-details__line-end"><span class="bolder red-txt">Fermé</span></span></div></main></section></div></li><li id="pos_11a7782c-b1f3-4fd0-9965-06352a940470" class="store-list__item"><div class="place-pos" data-type="DRIVE"><div class="place-pos__wrapper"><div class="place-pos__wrapper place-pos__wrapper--row"><i aria-hidden="true" class="place-pos__type-logo icon-drive"></i><div class="place-pos__main-infos"><span class="place-pos__type-name">Drive</span><span class="place-pos__name">Auchan Click&amp;collect Supermarché Bordeaux Counord</span><div class="place-pos__address"><span>33000 Bordeaux</span></div></div><div class="place-pos__more"><a class="btn btn--small btn--white place-pos__btn" aria-label="Aller à la page du magasin : Auchan Click&amp;collect Supermarché Bordeaux Counord" href="/magasins/drive/auchan-click-collect-supermarche-bordeaux-counord/s-6012">+ d'infos</a></div></div></div><section class="place-pos__details"><button aria-expanded="false" class="place-pos__details-expander" autotrack-event-action="place" autotrack-event-category="navigation" autotrack-event-label="details_2607444a-d366-4631-b0cc-d3ca93b3cd4d" type="button"><div class="place-pos__details-expander-label">Infos et Tarifs</div><i aria-hidden="true" class="place-pos__details-expander-icon icon-arrowLeft"></i></button><main class="place-pos__details-content"><span class="pos-details__line pos-details__line--small"><span class="pos-details__line-start"><span class="bolder green-txt">Ouverture exceptionnelle</span>
+        mercredi 24 décembre
+        
+            de 09:00 à 18:30
+        
+        </span></span><div class="pos-details__line" for="Lundi_11a7782c-b1f3-4fd0-9965-06352a940470"><span class="pos-details__line-start">Lundi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Mardi_11a7782c-b1f3-4fd0-9965-06352a940470"><span class="pos-details__line-start">Mardi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Mercredi_11a7782c-b1f3-4fd0-9965-06352a940470"><span class="pos-details__line-start">Mercredi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Jeudi_11a7782c-b1f3-4fd0-9965-06352a940470"><span class="pos-details__line-start">Jeudi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Vendredi_11a7782c-b1f3-4fd0-9965-06352a940470"><span class="pos-details__line-start">Vendredi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Samedi_11a7782c-b1f3-4fd0-9965-06352a940470"><span class="pos-details__line-start">Samedi</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:00&nbsp;-&nbsp;20:00
+                            
+                        
+                    
+                    
+                
+             </span></div><div class="pos-details__line" for="Dimanche_11a7782c-b1f3-4fd0-9965-06352a940470"><span class="pos-details__line-start">Dimanche</span><span class="bolder pos-details__line-end">
+                
+                    
+                        
+                            
+                                    &nbsp;09:30&nbsp;-&nbsp;12:00
+                            
+                        
+                    
+                    
+                
+             </span></div></main></section></div></li></ul><div class="cms-slot" data-page-id="773e584b-5dd0-43ba-805f-e0633aefc49d" data-page-selector="store" data-position="applicationSlot" id="cms-slot-applicationSlot"><!--start <cms:component uuid='c9b8ee18-4707-4f41-ae27-da1465835e9a' typename='HTMLComponent' name='store_html_bottom_triptych_04032025_none' version='0' />--><style>
+	@media screen and (max-width: 767px) {
+		[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content {justify-content: flex-start!important;}
+	    [id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content .bloc-content-img {flex: 0 0;}
+	}
+</style><div id="landing-agglo-bottom"><section class="landing-bloc bloc-bottom"><div class="landing-bloc-container"><article class="bloc-content appli shadow--light"><div class="bloc-content-img"><picture><source srcset="https://cdn.auchan.fr/assets/b2c/sua/edito/agglo/general_oct2020/footer_appli_desk.jpg?format=rw&amp;quality=75" media="(min-width:768px)"><img src="https://cdn.auchan.fr/assets/b2c/sua/edito/agglo/general_oct2020/footer_appli_desk.jpg?format=rw&amp;quality=75" srcset="https://cdn.auchan.fr/assets/b2c/sua/edito/agglo/general_oct2020/footer_appli_mob.jpg?format=rw&amp;quality=75 768w" alt=""></picture></div><div class="bloc-content-txt"><p class="font-black">Encore plus simple et plus rapide découvrez la nouvelle application Auchan France</p><div class="links"><a href="https://apps.apple.com/fr/app/auchan-france/id393068659" target="_blank" aria-label="Télécharger l'application iOS dans l'App Store"><img src="https://cdn.auchan.fr/assets/b2c/sua/edito/agglo/general_oct2020/bouton_applestore.png" alt=""></a><a href="https://play.google.com/store/apps/details?id=com.auchan.android" target="_blank" aria-label="Télécharger l'application Androïd sur Google Play"><img src="https://cdn.auchan.fr/assets/b2c/sua/edito/agglo/general_oct2020/bouton_googleplay.png" alt=""></a></div></div></article><article class="bloc-content waaoh shadow--light"><div class="bloc-content-img"><picture><source srcset="https://cdn.auchan.fr/assets/b2c/sua/edito/magasins/footer_waaoh_04032025_desk.png" media="(min-width:768px)"><img src="https://cdn.auchan.fr/assets/b2c/sua/edito/magasins/footer_waaoh_04032025_desk.png" srcset="https://cdn.auchan.fr/assets/b2c/sua/edito/magasins/footer_waaoh_04032025_mob.png 768w" alt=""></picture></div><div class="bloc-content-txt lp-padding-style"><p class="font-black">NOUVEAU PROGRAMME</p><p>Des économies à la carte, ça c'est WAAOH!</p><a href="https://mon-compte.auchan.fr/programme-de-fidelite-auchan" target="_blank" class="btn btn--small btn--white">Je crée / j’active ma carte</a></div></article><article class="bloc-content faq shadow--light"><div class="bloc-content-img"><picture><source srcset="https://cdn.auchan.fr/assets/b2c/sua/edito/agglo/general_oct2020/footer_faq_desk.jpg?format=rw&amp;quality=75" media="(min-width:768px)"><img src="https://cdn.auchan.fr/assets/b2c/sua/edito/agglo/general_oct2020/footer_faq_desk.jpg?format=rw&amp;quality=75" srcset="https://cdn.auchan.fr/assets/b2c/sua/edito/agglo/general_oct2020/footer_faq_mob.jpg?format=rw&amp;quality=75 768w" alt=""></picture></div><div class="bloc-content-txt"><p class="font-black">Questions &amp; Réponses</p><p>Votre réponse se trouve peut-être déjà dans notre FAQ.</p><a href="/faq/" class="btn btn--small btn--white">Voir la FAQ</a></div></article></div></section></div><style type="text/css">
+
+/*-------------------------- GENERAL ---------------------------*/
+
+[id^="landing-agglo"] .landing-bloc{
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+[id^="landing-agglo"] .landing-bloc > .landing-bloc-container {
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+    flex-flow: row nowrap;
+    justify-content: center;
+	align-items: center;
+	position:relative;
+	overflow: hidden;
+	padding:0 20px;
+}	
+[id^="landing-agglo"] .landing-titre {
+    font-family: Sana Sans Black,Helvetica,Arial,sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 0 20px 30px;
+	margin:0 auto;
+	font-weight: normal;
+	color:#2b3336;
+	width:100%;
+}
+	
+	
+[id^="landing-agglo"] .color-red{
+	color:#d6180b;
+}	
+[id^="landing-agglo"] .font-black{	
+	font-family: Sana Sans Black,Helvetica,Arial,sans-serif;	
+	font-weight: normal !important;
+}
+	
+@media screen and (max-width:767px) {
+	[id^="landing-agglo"] .landing-titre {font-size: 2.2rem;}
+}
+	
+
+/*-------------------------- BLOC BOTTOM ---------------------------*/		
+[id^="landing-agglo"] .landing-bloc.bloc-bottom {margin:20px auto;}		
+[id^="landing-agglo"] .bloc-bottom .landing-bloc-container {align-items: flex-start; justify-content: space-between; padding:0}
+[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content {
+	background: #fff;	
+	border-radius:.4rem;
+	width:450px;
+	display:flex;
+	justify-content: center;
+	align-items:center;
+	margin:8px;	
+	flex-flow: column nowrap;
+}
+
+[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content .bloc-content-img{width:100%}	
+[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content .bloc-content-img picture,
+[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content .bloc-content-img img {vertical-align: middle; width:100%;border-radius:.4rem .4rem 0 0;}	
+[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content .bloc-content-txt {
+	display:flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	min-height: 180px;
+	padding: 20px 30px;
+	}
+[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content .bloc-content-txt p {margin:0 0 1em 0}	
+[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content .bloc-content-txt .font-black {font-size: 1.8rem}	
+[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content .bloc-content-txt.appli .links {
+	display: flex;
+	flex-flow: row wrap;
+	width:100%;
+	justify-content: space-between;
+}
+
+/* .lp-padding-style {padding: 34px 30px !important;} */
+	
+@media screen and (max-width:1023px) {
+.landing-bloc-container .bloc-content.waaoh .bloc-content-txt {padding: 15px 20px;}
+}		
+	
+@media screen and (max-width:767px) {
+	[id^="landing-agglo"] .bloc-bottom .landing-bloc-container {flex-flow: column nowrap;}
+	[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content {margin:1px auto 0;flex-flow: row nowrap; width: 100%; padding:10px;}
+	[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content .bloc-content-img {width:30%; min-width: 140px}
+	[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content .bloc-content-img picture,
+	[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content .bloc-content-img img {border-radius:.4rem}	
+	[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content .bloc-content-txt {padding:0 0 0 10px;justify-content: center;text-align: left;align-items: flex-start;min-height: inherit}
+	[id^="landing-agglo"] .bloc-bottom .landing-bloc-container .bloc-content .bloc-content-txt .font-black {font-size: 1.6rem; margin-bottom:0.8em}	
+}
+	
+	
+	
+</style><!--end <cms:component uuid='c9b8ee18-4707-4f41-ae27-da1465835e9a' typename='HTMLComponent' name='store_html_bottom_triptych_04032025_none' version='0' />--><!--start <cms:component uuid='a4097236-4dbc-411e-b65b-34bf3991e543' typename='HTMLComponent' name='store_css_fix_webalogue' version='0' />--><style>
+	.webalog__img{width: 100%; height: auto;}
+	.webalog__link{width: 100%;}
+</style><!--end <cms:component uuid='a4097236-4dbc-411e-b65b-34bf3991e543' typename='HTMLComponent' name='store_css_fix_webalogue' version='0' />--><!--start <cms:component uuid='0942f104-3a58-4248-be3f-567c781e8fbb' typename='HTMLComponent' name='store_css_fix_banner_fermeture_exceptionnelle_intemperie_1116_sceauxcharaire' version='0' />--><style>
+	div[itemid$="s-1116"] #pos_ea483626-db00-0a21-1361-cbb6a55fa593 .store-page__wrapper #cms-slot-topSlot::after{display:block;background:#d6180c;color:#fff;border-radius:5px;padding:1rem;margin:2rem;font-size:14px;content:"Votre magasin Auchan Sceaux Charaire est momentanément fermé. Les équipes sont mobilisées pour rouvrir le magasin dans les plus brefs délais. Nous nous excusons pour la gène occasionnée et nous vous invitons, dans l'attente de la réouverture, à vous rendre à Auchan Sceaux Blagis ouvert du lundi au samedi de 9h à 20h30 et le dimanche de 9h à 12h30 et de 13h à 20h30. Au plaisir de vous revoir bientôt.";}
+</style><!--end <cms:component uuid='0942f104-3a58-4248-be3f-567c781e8fbb' typename='HTMLComponent' name='store_css_fix_banner_fermeture_exceptionnelle_intemperie_1116_sceauxcharaire' version='0' />--></div><div class="cms-slot" data-page-id="773e584b-5dd0-43ba-805f-e0633aefc49d" data-page-selector="store" data-position="bottomSlot" id="cms-slot-bottomSlot"></div></div></div></div></div></div></div><div class="cms-slot" data-page-id="773e584b-5dd0-43ba-805f-e0633aefc49d" data-page-selector="store" data-position="footerSlot" id="cms-slot-footerSlot"><!--start <cms:component uuid='6953c7ba-908f-45fb-9525-40f46d59cdc9' typename='FooterComponent' name='New Footer Component : 1-reinsurance' version='0' />--><footer class="footer-container"><style>
+	.footer-reinsurance__scroller {flex-wrap: wrap!important;padding:0 1.5rem;}
+	.footer-reinsurance__item {flex : 0 0 50%!important;margin:2rem auto!important;}
+	.footer-reinsurance__text {color:#000!important;font-size:1.4rem!important;font-weight: normal!important;padding:0 1.5rem!important; max-width: 20rem!important;}
+	.footer-reinsurance__picture {height:6rem!important;}
+	@media only screen and (min-width: 1024px){
+	.footer-reinsurance__item {flex : 0 0 25%!important;}
+	}
+</style><div class="footer-reinsurance"><div class="footer-wrapper"><div class="footer-reinsurance__scroller"><a class="footer-reinsurance__item" href="/courses"><div class="footer-reinsurance__picture"><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/reassurance/retrait.svg" alt="Vos courses à domicile, en drive ou click &amp; collect"></div><div class="footer-reinsurance__text">Vos courses à domicile, en drive ou click &amp; collect</div></a><div class="footer-reinsurance__item"><div class="footer-reinsurance__picture"><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/reassurance/paiement_securise.svg" alt="Paiement sécurisé en ligne ou au retrait"></div><div class="footer-reinsurance__text">Paiement sécurisé en ligne ou au retrait</div></div><div class="footer-reinsurance__item"><div class="footer-reinsurance__picture"><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/reassurance/retour.svg" alt="Retour produits : 30 jours pour changer d’avis"></div><div class="footer-reinsurance__text">Retour produits&nbsp;: 30&nbsp;jours pour changer d’avis</div></div><a class="footer-reinsurance__item" href="/contactez-nous"><div class="footer-reinsurance__picture"><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/reassurance/service_client.svg" alt="Service client 7j/7 au 03 59 30 59 30 de 8h&gt;21h, dimanche 8h30&gt;13h"></div><div class="footer-reinsurance__text">Service client 7j/7<br>03&nbsp;59&nbsp;30&nbsp;59&nbsp;30<br>8h&gt;21h, dimanche 8h30&gt;13h</div></a></div></div></div></footer><!--end <cms:component uuid='6953c7ba-908f-45fb-9525-40f46d59cdc9' typename='FooterComponent' name='New Footer Component : 1-reinsurance' version='0' />--><!--start <cms:component uuid='cc625b0e-31e5-4140-9d61-6d75c7420884' typename='FooterComponent' name='New Footer Component : 2-newsletter' version='0' />--><footer class="footer-container">
+        <script type="text/javascript">
+        var G = G || {};
+        G.configuration = G.configuration || {};
+        G.configuration.recaptcha = G.configuration.recaptcha || {};
+        G.configuration.recaptcha.newsletterSiteKey = "6LdahqcUAAAAAO0QdBWvRj6vGxSS8zCTVvmKsCoZ";
+        G.configuration.recaptcha.newsletterAction = "NEWSLETTER_SUBSCRIBE";
+        G.configuration.recaptcha.newsletterUrl = "\/\/www.google.com\/recaptcha\/enterprise.js?render=6LdahqcUAAAAAO0QdBWvRj6vGxSS8zCTVvmKsCoZ";
+    </script>
+        <form action="/customer/modal/newsletter-form" id="footerSubscriptions" class="o-subscriptions">
+            <label for="newsletterEmail" class="o-subscriptions__text">
+                <div class="o-subscriptions__title">Oui à la newsletter !</div>
+                <div class="o-subscriptions__subtitle">Recevez les meilleures offres des magasins Auchan et d'Auchan.fr <sup>(1)</sup></div>
+            </label>
+            <div class="o-subscriptions__form">
+                <div class="o-subscriptions__input formElement">
+                    <input name="email" placeholder="Votre e-mail" type="email" id="newsletterEmail" class="formElement__input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" required="">
+                </div>
+                <button class="o-subscriptions__btn btn btn--small" type="submit" autotrack-event-category="navigation" autotrack-event-action="newsletter" autotrack-event-label="validation mail">Ok</button>
+            </div>
+        </form>
+    <style>
+.o-subscriptions__title {white-space:nowrap}
+/*.o-subscriptions__subtitle{text-indent:-5000px;margin:0;font-size:0;}
+.o-subscriptions__text:after{content:"Recevez les meilleures offres des magasins Auchan et d'Auchan.fr (1)";font-size: 1.6rem;margin:0 1.5rem;text-align:initial;font-weight:normal;text-indent:0;}*/
+</style></footer><!--end <cms:component uuid='cc625b0e-31e5-4140-9d61-6d75c7420884' typename='FooterComponent' name='New Footer Component : 2-newsletter' version='0' />--><!--start <cms:component uuid='de3255b2-6a98-4456-85ed-56ebc4514698' typename='FooterComponent' name='New Footer Component : 3-links' version='0' />--><footer class="footer-container"><style>
+	.footer-links .collapsible__text {font-size: 1.6rem!important; color:#262626!important; font-family: Sana Sans Black,Helvetica,Arial,sans-serif; font-weight: normal; }
+	.footer-links .footer-links__link {
+			font-size:1.4rem!important;
+		    min-height: 4.5rem!important;
+			display: flex!important;
+			color: #262626!important;
+			font-weight: normal!important;
+		}
+	.footer-links .footer-links__content {
+		font-weight: normal!important;
+		background-color: #fff!important;
+		}
+	.footer-links .footer-links__link:last-child {border-bottom:0.1rem solid #cfd8dc!important;}    
+	.footer-links .footer-links__socials {padding:0 1.5rem 1rem 1.75rem;display:flex}
+	.footer-links .footer-links__social-item {margin-right:1.5rem;height:2.4rem}
+	.footer-links .footer-links__app {padding:0 1.5rem 1rem 2rem;display:flex;align-items: center}
+	.footer-links .footer-links__app img {margin-right:1.5rem;height:3.7rem;border: 1px solid #bebebe;border-radius: 0.6rem;}
+	.footer-links .footer-links__app span {text-decoration: underline; font-size:1.4rem}
+	.footer-links .footer-links__app:hover span {text-decoration: none;}
+	.footer-links .footer-links__mention {padding:0 1.5rem 0.5rem 2rem;display:flex;align-items: center}
+	.footer-links .footer-links__mention img {margin-right:1.5rem;height:2.4rem}
+	.footer-links .footer-links__mention span {text-decoration: none; font-size:1.4rem}
+	
+	@media only screen and (min-width: 768px){
+		.footer-links {border-bottom: 0!important;}
+		.footer-links .footer-links__title {
+			height: auto!important;
+			font-size: 1.6rem!important;
+			margin:0!important;
+			padding: 1.5rem 2.25rem 1rem!important;
+			cursor:default;
+		}
+		.footer-links .collapsible__icon {display:none}
+		.footer-links .footer-links__mob {display:none}
+		.footer-links .footer-links__content {
+			display: block!important;
+			position:relative!important;
+			bottom:auto!important;
+			box-shadow:none!important;
+			margin:0!important;
+			padding:0 0.75rem!important;
+			width:100%!important;
+		}
+		.footer-links .footer-links__link {
+			padding: 0!important;
+			width:fit-content!important;
+			min-height: auto!important;
+			padding:0.5rem 0!important;
+			margin: 0 1.5rem!important;
+		}
+		.footer-links .footer-links__link:last-child {border-bottom:0!important;}   		
+		.footer-links .footer-links__content:after {
+			display:none;
+		}
+	}
+	
+	@media only screen and (max-width: 767px){	
+		.footer-links .footer-links__nomob {display:none!important;}
+	}
+		
+</style><div class="footer-links"><div class="footer-wrapper footer-links__wrapper"><section class="collapsible footer-links__collapsible"><button class="collapsible__label footer-links__title" aria-expanded="false" type="button"><span class="collapsible__text">Besoin d'aide&nbsp;?</span><span class="collapsible__icon icon-arrowLeft" aria-hidden="true"></span></button><main class="collapsible__content footer-links__content"><a href="/contactez-nous" class="footer-links__link">Nous contacter</a><a href="/faq" class="footer-links__link">Questions fréquentes</a><a href="/sav-auchan/ep-sav-auchan" class="footer-links__link">Service après-vente</a><a href="/rappel-qualite/ep-rappel-qualite" class="footer-links__link">Rappel produit</a><a href="/avis-auchan/ep-avis-auchan" class="footer-links__link">Avis client</a><a href="/informations-produits/ep-informations-produits" class="footer-links__link">Informations produits</a><a href="/informations-marketplace/ep-informations-marketplace" class="footer-links__link">Informations marketplace</a><a href="/nos-rayons" class="footer-links__link">Nos rayons</a></main></section><section class="collapsible footer-links__collapsible"><button class="collapsible__label footer-links__title" aria-expanded="false" type="button"><span class="collapsible__text">Nos services</span><span class="collapsible__icon icon-arrowLeft" aria-hidden="true"></span></button><main class="collapsible__content footer-links__content"><a href="/nos-magasins?types=HYPER" class="footer-links__link">Nos magasins, drives et points de retrait</a><a href="/courses" class="footer-links__link">Tous nos modes de livraison</a><a href="/programme-fidelite/ep-programme-fidelite" class="footer-links__link footer-links__nomob">Programme de fidélité Waaoh!</a><a href="/financement/ep-financement" class="footer-links__link">Offres de financement</a><a href="https://traiteur.auchan.fr/" target="_blank" class="footer-links__link" title="">Auchan Traiteur</a><a href="https://www.voyages-auchan.com/bonsplans?utm_source=auchan&amp;utm_medium=site&amp;utm_campaign=homepage-footer-auchan-fr" target="_blank" class="footer-links__link" title="">Auchan Voyages</a><a href="https://billetterie.auchan.fr/fr" target="_blank" class="footer-links__link" title="">Auchan Billetterie</a><a href="https://photo.auchan.fr/" target="_blank" class="footer-links__link" title="">Auchan Photo</a><a href="/services-auchan/ep-services-auchan" class="footer-links__link" title="">Tous nos services</a></main></section><section class="collapsible footer-links__collapsible"><button class="collapsible__label footer-links__title" aria-expanded="false" type="button"><span class="collapsible__text">À propos d'Auchan</span><span class="collapsible__icon icon-arrowLeft" aria-hidden="true"></span></button><main class="collapsible__content footer-links__content"><a href="https://www.auchan-retail.com/fr/" target="_blank" class="footer-links__link">Qui sommes-nous&nbsp;?</a><a href="/marques-auchan/ep-marques-auchan" class="footer-links__link">Nos marques Auchan</a><a href="https://auchan-agit.fr/" target="_blank" class="footer-links__link">Nos engagements</a><a href="https://www.auchan-recrute.fr/" target="_blank" class="footer-links__link" title="">Recrutement</a><a href="/application-auchan/ep-application-auchan" class="footer-links__link" title="">Application Auchan</a></main></section><section class="footer-links__mob"><a href="/programme-fidelite/ep-programme-fidelite" class="collapsible__label collapsible__text">Programme de fidélité Waaoh!</a></section><section class="footer-links__collapsible footer-links__static"><div class="collapsible__label footer-links__title"><span class="collapsible__text">Nous suivre</span></div><div class="footer-links__socials"><a href="https://www.facebook.com/auchan" target="_blank"><img class="lazy footer-links__social-item" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/reseaux/facebook.svg" alt="Facebook"></a><a href="https://www.instagram.com/auchan_france/" target="_blank"><img class="lazy footer-links__social-item" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/reseaux/instagram.svg" alt="Instagram"></a><a href="https://www.tiktok.com/@auchan_fr" target="_blank"><img class="lazy footer-links__social-item" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/reseaux/tiktok.svg" alt="Tiktok"></a><a href="https://www.youtube.com/user/AuchanFrance" target="_blank"><img class="lazy footer-links__social-item" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/reseaux/youtube.svg" alt="Youtube"></a><a href="https://twitter.com/AUCHAN_France" target="_blank"><img class="lazy footer-links__social-item" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/reseaux/x.svg" alt="X"></a><a href="https://www.pinterest.fr/auchanfrance/_saved/" target="_blank"><img class="lazy footer-links__social-item" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/reseaux/pinterest.svg" alt="Pinterest"></a></div><div class="collapsible__label footer-links__title"><span class="collapsible__text">Notre application</span></div><a href="/application-auchan/ep-application-auchan" class="footer-links__app footer-links__nomob"><img data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/logo_appli.svg" src="/static/images/pixel.png" class="lazy" alt="App iOS et Android"><span>Télécharger</span></a><a href="https://europe-west1-projet-1-187608.cloudfunctions.net/myAuchanStore" target="_blank" class="footer-links__app footer-links__mob"><img class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/logo_appli.svg" alt="App iOS et Android"><span>Télécharger</span></a><a href="/accessibilite/ep-accessibilite" class="footer-links__mention"><img class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/accessibility.svg" alt=""><span>Accessibilité&nbsp;: non conforme</span></a><a href="https://auchan.sourdline.com/" target="_blank" class="footer-links__mention"><img class="lazy" src="/static/images/pixel.png" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/sourd.svg" alt=""><span>Espace sourds et malentendants</span></a></section></div></div></footer><!--end <cms:component uuid='de3255b2-6a98-4456-85ed-56ebc4514698' typename='FooterComponent' name='New Footer Component : 3-links' version='0' />--><!--start <cms:component uuid='8b01f1a4-ce67-4336-a57a-6d71051dc1ef' typename='FooterComponent' name='New Footer Component : 4-law' version='0' />--><footer class="footer-container"><style>
+	.footer-legal .footer-wrapper{padding:1.5rem!important;}
+	.footer-alcohol{flex-direction:row!important; margin: 1.5rem auto!important; padding: 1.5rem!important;width:100%!important;    border: 0.1rem solid #000!important;}
+	.footer-alcohol__message {font-size:1.4rem!important;justify-content: center!important; margin-top:0!important; padding-left:1rem!important;}
+	.footer-alcohol__message small{display:block!important;font-size:1.1rem!important;margin-top: 1.75rem!important}
+	.footer-legal__paragraph {
+		font-size:1.2rem!important;
+		padding: 0.75rem 0!important;
+		white-space: normal!important;
+		color:#262626!important;
+	}	
+	.footer-legal__paragraph a {
+		text-decoration: none!important;
+		color:#262626!important;
+	}	
+	.footer-legal__paragraph	{
+		text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+		-moz-text-size-adjust: 100%;
+		-ms-text-size-adjust: 100%;
+	}
+</style><div class="footer-legal"><div class="footer-wrapper"><!--<div class="information-message information-message--blue">
+			<div class="information-message__icon">
+				<i class="icon-info" aria-hidden="true"></i>
+			</div>
+			<div class="information-message__content">Info conso : des personnes clientes ou non d'Auchan sont en ce moment victimes d'emails, de SMS, de messages sur les réseaux sociaux et/ou d'appels malveillants. <a href="/alerte-consommateurs/ep-alerte-consommateurs">Plus d’infos</a>
+			</div>
+		</div>--><div class="footer-alcohol"><div class="footer-alcohol__image"><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/devise_france.svg" alt="Interdiction de vente de boissons alcooliques aux mineurs de moins de 18&nbsp;ans"></div><p class="footer-alcohol__message"><strong>Interdiction de vente de boissons alcooliques aux mineurs de moins de 18 ans</strong><small>La preuve de majorité de l'acheteur est exigée au moment de la vente en ligne.</small><!--<br><span>CODE DE LA SANTÉ PUBLIQUE : ART. L. 3342-1. L. 3342-3</span>--></p></div><p class="footer-legal__paragraph">
+			* Voir les conditions <a href="/reductions/ep-reductions">en cliquant ici</a><br>
+			** L’abus d’alcool est dangereux pour la santé, à consommer avec modération<br>
+			*** Catégories VAD généraliste et marketplace,  et VAD alimentaire – Étude BVA – Viséo CI – Plus d’infos sur <a href="https://escda.fr/" target="_blank">escda.fr</a></p><p class="footer-legal__paragraph">		
+			 (1) Votre adresse de messagerie est uniquement utilisée pour vous envoyer les lettres d'information et de promotion d’Auchan. Vous pouvez à tout moment utiliser le lien de désabonnement intégré dans la newsletter. <br>Auchan Hypermarché, Auchan Supermarché Auchan e-Commerce France et Auchan Retail Services, responsables conjoints de traitement, traitent vos données personnelles afin de permettre votre abonnement à la newsletter Auchan. Pour en savoir plus sur la gestion de vos données personnelles et pour exercer vos droits : <a href="/mentions-legales/ep-mentions-legales">cliquez ici</a>.<br>Votre adresse de messagerie sera utilisée pour le suivi de notre relation commerciale, ainsi que pour l'envoi de nos offres promotionnelles.
+		</p></div></div></footer><!--end <cms:component uuid='8b01f1a4-ce67-4336-a57a-6d71051dc1ef' typename='FooterComponent' name='New Footer Component : 4-law' version='0' />--><!--start <cms:component uuid='4fc7a4d9-9f6b-43d9-9bdc-675c9b0a9fab' typename='FooterComponent' name='New Footer Component : 7-bottom' version='0' />--><footer class="footer-container"><style>
+	.footer-bottom {display: flex;background: #2b3336;padding:1.5rem;}
+	.footer-bottom .footer-bottom-cards {display:flex; flex-wrap: nowrap; padding :0; margin: 0 auto; align-items: center; justify-content: center;}
+	.footer-bottom .footer-bottom-cards li {list-style: none; padding :0; margin: 0 1vw; flex : 1 0; padding: 0}
+	.footer-bottom .footer-bottom-cards img {width:100%;max-width: 2.6rem;border-radius:0.3rem}	
+	.footer-bottom .footer-bottom-menu {display:flex; flex-wrap: wrap; padding : 2rem 0; margin: 0 auto; align-items: center; justify-content: center;max-width: 134rem}
+	.footer-bottom .footer-bottom-menu li {color:#fff;list-style: none; padding :0; margin: 0 0.8rem; padding: 0; font-size:1.4rem; line-height: 1.5!important; white-space: nowrap}
+	.footer-bottom .footer-bottom-menu a {cursor:pointer; color:#fff;text-decoration: none}	
+	.footer-bottom .footer-bottom__copyright {color:#fff; font-size: 1.6rem; text-align: center; margin:0 auto}		
+	@media only screen and (min-width: 1400px){
+		.footer-bottom .footer-bottom-cards li {margin: 0 0.8rem; }
+	}
+</style><div class="footer-bottom"><div class="footer-wrapper"><ul class="footer-bottom-cards"><li><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/cartes/visa.svg" alt="carte Visa"></li><li><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202505/cb.png" alt="carte bancaire"></li><li><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/cartes/amex.svg" alt="carte American Express"></li><li><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/cartes/mastercard.svg" alt="carte Mastercard"></li><li><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/cartes/paypal.svg" alt="Paypal"></li><li><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202404/cartes/apple_pay.svg" alt="Apple Pay"></li><li><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/cartes/oney.svg" alt="Oney"></li><li><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/cartes/carte_cadeaux.svg" alt="Carte cadeau Auchan"></li><li><img src="/content-renderer/sav_2025.09.26-0/images/pixel.png" class="lazy" data-src="https://cdn.auchan.fr/assets/b2c/sua/footer/202402/cartes/carte_waaoh2.png" alt="carte Waaoh" style="background:#fff;"></li></ul><ul class="footer-bottom-menu"><li><a href="/conditions-generales/ep-conditions-generales">Nos conditions générales</a></li><li><a href="/mentions-legales/ep-mentions-legales">Mentions légales</a></li><li><a href="/reductions/ep-reductions">Conditions des offres et promotions</a></li><li><a class="ot-sdk-show-settings">Gestion des cookies</a></li><li><a href="/politique-de-confidentialite/ep-politique-de-confidentialite">Politique de confidentialité</a></li><li><a href="/informations-legales-marketplace/ep-informations-legales-marketplace">Informations légales marketplace</a></li></ul><p class="footer-bottom__copyright">Auchan 2025 © Tous droits réservés</p></div></div></footer><!--end <cms:component uuid='4fc7a4d9-9f6b-43d9-9bdc-675c9b0a9fab' typename='FooterComponent' name='New Footer Component : 7-bottom' version='0' />--></div>
+
+<div class="notifier" role="status" aria-live="polite" aria-relevant="additions"></div><div class="asyncNotifications"></div><div class="cms-slot" data-page-id="773e584b-5dd0-43ba-805f-e0633aefc49d" data-page-selector="store" data-position="bottomCommonSlot" id="cms-slot-bottomCommonSlot"><!--start <cms:component uuid='0582c971-75fd-437c-b8dd-04d0c64f6856' typename='HTMLComponent' name='Fix Hide Substitution button for no wast product ids' version='0' />--><style>.productSubstitution[data-product-id="f23895a6-6eba-423e-82cc-100287327f39"], .productSubstitution[data-product-id="a1e1de41-2e6f-4202-b7c7-5b762c376924"], .productSubstitution[data-product-id="844c01de-fa56-422a-8602-f13bf04837bf"] {
+	display: none;
+}</style><!--end <cms:component uuid='0582c971-75fd-437c-b8dd-04d0c64f6856' typename='HTMLComponent' name='Fix Hide Substitution button for no wast product ids' version='0' />--><!--start <cms:component uuid='ad7b60c4-bfd6-4830-8532-d9431a504622' typename='HTMLComponent' name='Fix Icon 19042024' version='0' />--><style>[class*=" icon-"]:before,[class^=icon-]:before {
+    font-family: icons!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1
+}</style><!--end <cms:component uuid='ad7b60c4-bfd6-4830-8532-d9431a504622' typename='HTMLComponent' name='Fix Icon 19042024' version='0' />--><!--start <cms:component uuid='8568e389-8241-4b41-a97f-db16fde95040' typename='HTMLComponent' name='FIX OneTrust INP Optimization' version='0' />--><script>  (() => { const handle = (e) => { if (!e.target || !e.target.matches('.onetrust-close-btn-handler, #onetrust-accept-btn-handler')) { return; } const container = document.getElementById("onetrust-consent-sdk" ); if (!container) { return; } container.style.display = 'none'; document.removeEventListener('click', handle); }; document.addEventListener('click', handle); })();</script><!--end <cms:component uuid='8568e389-8241-4b41-a97f-db16fde95040' typename='HTMLComponent' name='FIX OneTrust INP Optimization' version='0' />--><!--start <cms:component uuid='18239702-5c88-4e50-9da9-11c50a425162' typename='HTMLComponent' name='Fix Navigation Overflow Mobile' version='0' />--><style>
+#navigation_layer[popover] .layer__wrapper {
+ height: calc(100svh - 11rem);
+}
+
+.navigation-block-sorted__container .navigationLink:nth-child(n+8) {
+display: block;
+}
+
+.navigation-layer__container-sorted {
+	flex: 1 0 100%;
+  overflow: auto;
+}
+
+@media only screen and (min-width: 1024px) {
+    .navigation-layer__container-sorted {
+        overflow: hidden;
+    }
+}
+</style><!--end <cms:component uuid='18239702-5c88-4e50-9da9-11c50a425162' typename='HTMLComponent' name='Fix Navigation Overflow Mobile' version='0' />--><!--start <cms:component uuid='81ec1c88-f8a9-406b-baca-c82eb6805705' typename='HTMLComponent' name='cssfix_fullsite_nav_baf_mea' version='0' />--><style>
+
+/* Mettre les liens de navigation en rouge */
+
+/* N1 Jouets, jeux vidéo, livres */
+/* baf jeux et jouets, baf jeux vidéo, baf sport, camping, baf livres, baf loisirs créatifs, baf déguisements, articles de fête, baf coffret cadeau */
+
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131602"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131615"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131616"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131621"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131618"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131617"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131619"]{color:#e0001a !important;font-weight:bold !important;}
+
+/* N1 High tech téléphonie */
+/* baf téléphonie, baf informatique, baf téléviseur, home cinéma, baf audio, baf photo caméra, baf mobilité urbaine, baf objet connecté, */
+
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131594"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131588"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131597"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131598"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131599"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131600"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131601"]{color:#e0001a !important;font-weight:bold !important}
+
+/* N1 Electroménager, cuisine */
+/* baf téléphonie, baf petit appareil de cuisine, baf cuisine - art de la table, baf aspirateur - laveur, baf climatisation - chauffage, baf repassage - couture, baf appareil de beauté */
+
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131540"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131544"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131547"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131552"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131555"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131553"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131554"]{color:#e0001a !important;font-weight:bold !important}
+
+/* N1 Meuble, linge de maison */
+/* baf meuble, baf literie, baf linge de maison, baf décoration */
+
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131511"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131520"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131525"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131532"]{color:#e0001a !important;font-weight:bold !important}
+
+/* N2 Puériculture */
+/* baf puériculture */
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-9991325"]{color:#e0001a !important;font-weight:bold !important}
+
+/* N1 Mode, bijoux, bagagerie */
+/* baf bagages, maroquinerie, baf bijoux, baf mode enfant, baf mode femme, baf mode homme */
+
+
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131584"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131576"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131556"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131563"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131570"]{color:#e0001a !important;font-weight:bold !important}
+
+/* N1 Jardin, auto, brico */
+/* baf jardin, baf bricolage, baf auto moto */
+
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131622"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131638"], 
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-202408131644"]{color:#e0001a !important;font-weight:bold !important}
+
+/* N2 Animalerie */
+/* baf Accessoires animalerie */
+nav.navigationLayerContainer div.navigationLayerSortedWrapper div.subNavigationBlock a[href$="/ca-201806111357"]{color:#e0001a !important;font-weight:bold !important}
+
+</style><!--end <cms:component uuid='81ec1c88-f8a9-406b-baca-c82eb6805705' typename='HTMLComponent' name='cssfix_fullsite_nav_baf_mea' version='0' />--><!--start <cms:component uuid='53e93436-2885-41c4-b77a-d45c48a4269f' typename='HTMLComponent' name='cssfix_push_nav_displayed_sponso_vide' version='0' />--><style>
+nav.navigationLayerContainer .navigation-layer-sorted__wrapper .navigation-banners-sorted .navigation-banners__banner .navigation-banners__text span.navigation-banner__sponsor{display:none ! important;}
+</style><!--end <cms:component uuid='53e93436-2885-41c4-b77a-d45c48a4269f' typename='HTMLComponent' name='cssfix_push_nav_displayed_sponso_vide' version='0' />--><!--start <cms:component uuid='d73d6204-4a5e-4bfa-9623-23c36c5930b5' typename='HTMLComponent' name='Fix notifier' version='0' />--><style>
+.notifier {
+    z-index: 10000;
+}
+</style><!--end <cms:component uuid='d73d6204-4a5e-4bfa-9623-23c36c5930b5' typename='HTMLComponent' name='Fix notifier' version='0' />--></div><aside id="spinner" class="spinner spinner-overlay icon-auchanBird spinner-icon" aria-live="assertive">
+        <span class="hide-access">Chargement en cours...</span>
+</aside><script type="text/javascript">
+        var G = G || {};
+        G.configuration = G.configuration || {};
+        G.configuration.endpoints = G.configuration.endpoints || {};
+
+        G.configuration.endpoints.getCustomerInformations = "\/customer\/ajax\/userinfo";
+    </script>
+    <div id="cms-context" data-x-cms-page-template="STORE_PAGE_TEMPLATE" data-x-cms-store-reference="6117" data-x-cms-page-type="PLACE" data-x-cms-ua-device="MOBILEFIRST" data-x-cms-active-contexts="GROCERY,ONLINE,STORE"></div>
+<script type="text/javascript">
+	var G = G || {};
+	G.configuration = G.configuration || {};
+	G.configuration.onboarding = {
+        messages: {
+			  understood: "Merci pour l\u2019information :)",
+			  skip: "Pas besoin d\u2019aide, je connais le site par coeur !"
+        },
+        images: {
+        	bulb: "\/xch\/v8\/content-renderer\/sav_2025.09.26-0\/images\/onboarding\/bulb.svg"
+        }
+	};
+</script><div id="lark-browser-uuid" data-lark-browser-uuid="50d3135e-c3f2-4542-ad38-9fe5910884d6"></div>
+<div class="journeyTrackingAuthenticated hidden" data-authenticated="false">
+</div></body></html>

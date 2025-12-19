@@ -1,79 +1,81 @@
 {
   "ean": "8712100731822",
   "image_path": null,
-  "started_at": "2025-11-29T12:30:47.414464+01:00",
-  "finished_at": "2025-11-29T12:30:48.817001+01:00",
-  "duration_seconds": 1.402537,
+  "started_at": "2025-12-19T13:40:47.632190+01:00",
+  "finished_at": "2025-12-19T13:40:50.495945+01:00",
+  "duration_seconds": 2.863755,
   "reference": {
-    "title": "Moutarde aux aromates SAVORA 385 g",
-    "description": "Moutarde aux aromates SAVORA 385 g",
+    "title": "Amora Spécialité à la moutarde de Dijon aux épices et aromates Savora Bocal 385g",
+    "description": null,
     "source": "chronodrive",
     "brand": "Savora",
     "quantity": "385  g",
     "categories": "Condiments, Sauces, Moutardes, en:groceries, Spécialité à la Moutarde",
-    "image": "./assets/8712100731822.jpg",
+    "image": "/assets/8712100731822.jpg",
     "nutriscore_grade": "e",
     "nutriscore_score": null,
-    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
+    "nutriscore_image": "/assets/nutriscore/nutriscore-e.svg",
     "ecoscore_grade": "b",
     "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
     "nova_group": "3"
   },
   "notes": [
-    "Human debug captures dans /Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251129-123047"
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251219-134047"
   ],
   "adapters": [
     {
       "adapter": "courseu",
-      "status": "OK",
+      "status": "MATCHED",
       "payload": {
-        "status": "OK",
+        "status": "MATCHED",
         "price": "2,32",
         "unit_price": "6,03 € / KG",
         "quantity": "385 g",
-        "title": "Moutarde  savora N°4 AMORA, bocal de 385g",
+        "title": "Moutarde savora N°4 AMORA, bocal de 385g",
         "url": "https://www.coursesu.com/p/moutarde-savora-n4-amora-bocal-de-385g/7591393.html",
-        "note": "2025-11-28T18:24:13Z · Super U Eysines",
+        "note": "2025-12-12T11:12:17Z · Super U Eysines",
         "store": "Super U Eysines",
         "matched_ean": "8712100731822",
-        "nutriscore_grade": null,
-        "nutriscore_image": null,
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "image": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw32867e5e/8712100731822_H1N1_7591393_S10.png?sw=388&sh=388&sm=fit",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Moutarde  savora N°4 AMORA, bocal de 385g",
+          "title": "Moutarde savora N°4 AMORA, bocal de 385g",
           "brand": "Moutarde",
           "kind": "",
           "qty": "385 g",
           "qualifiers": [],
           "ean": "8712100731822",
-          "image_url": "./assets/8712100731822.jpg",
+          "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw32867e5e/8712100731822_H1N1_7591393_S10.png?sw=388&sh=388&sm=fit",
           "source": "courseu",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-28T19:24:05.000855+01:00",
-      "finished_at": "2025-11-28T19:24:13.197400+01:00",
-      "duration_seconds": 8.196545,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "started_at": "2025-12-12T12:12:11.114865+01:00",
+      "finished_at": "2025-12-12T12:12:17.587675+01:00",
+      "duration_seconds": 6.47281,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
       ],
       "env": {
         "EAN": "8712100731822",
         "QUERY": "8712100731822",
         "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
-        "HEADLESS": "1"
+        "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": null,
+      "stderr": "[COURSEU_DEBUG] Starting context with PROXY=None\n[COURSEU_DEBUG] Navigating to https://www.coursesu.com/p/moutarde-savora-n4-amora-bocal-de-385g/7591393.html\n[COURSEU_DEBUG] Keeping page OPEN for inspection (Visual Mode)",
       "metadata": {
-        "attempt_query": "8712100731822"
+        "attempt_query": "8712100731822",
+        "visual_score": null
       }
     },
     {
@@ -139,11 +141,11 @@
         "store": "Market Fondaudège",
         "url": "https://www.carrefour.fr/p/moutarde-epices-amorates-savora-amora-8712100731822",
         "note": null,
-        "unit_price": "7,38 € / KG",
-        "quantity": "385 G",
+        "unit_price": "4,47 € / KG",
+        "quantity": "0.64KG",
         "title": "Moutarde Epices & Amorates Savora AMORA",
         "matched_ean": "8712100731822",
-        "image": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24cc85e/08712100731822_C1N1 _s05.png",
+        "image": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24c c85e/08712100731822_C1N1_s05.png",
         "nutriscore_grade": "d",
         "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg",
         "_meta": {
@@ -153,35 +155,36 @@
           "title": "Moutarde Epices & Amorates Savora AMORA",
           "brand": "Moutarde",
           "kind": "",
-          "qty": "385 G",
+          "qty": "0.64KG",
           "qualifiers": [],
           "ean": "8712100731822",
-          "image_url": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24cc85e/08712100731822_C1N1 _s05.png",
+          "image_url": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24c c85e/08712100731822_C1N1_s05.png",
           "source": "carrefour_market",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-28T19:21:36.220393+01:00",
-      "finished_at": "2025-11-28T19:23:01.700021+01:00",
-      "duration_seconds": 85.479628,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "started_at": "2025-12-12T11:23:40.161895+01:00",
+      "finished_at": "2025-12-12T11:24:19.352942+01:00",
+      "duration_seconds": 39.191047,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
       ],
       "env": {
         "EAN": "8712100731822",
         "QUERY": "8712100731822",
         "CARREFOUR_STATE_VARIANT": "carrefour_market",
-        "HEADLESS": "1"
+        "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
       "stderr": null,
       "metadata": {
-        "attempt_query": "8712100731822"
+        "attempt_query": "8712100731822",
+        "visual_score": null
       }
     },
     {
@@ -193,11 +196,11 @@
         "store": "Lormont",
         "url": "https://www.carrefour.fr/p/moutarde-epices-amorates-savora-amora-8712100731822",
         "note": null,
-        "unit_price": "5,95 € / KG",
-        "quantity": "385 G",
+        "unit_price": "3,93 € / KG",
+        "quantity": "0.58KG",
         "title": "Moutarde Epices & Amorates Savora AMORA",
         "matched_ean": "8712100731822",
-        "image": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24cc85e/08712100731822_C1N1 _s05.png",
+        "image": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24c c85e/08712100731822_C1N1_s05.png",
         "nutriscore_grade": "d",
         "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-d.svg",
         "_meta": {
@@ -207,35 +210,38 @@
           "title": "Moutarde Epices & Amorates Savora AMORA",
           "brand": "Moutarde",
           "kind": "",
-          "qty": "385 G",
+          "qty": "0.58KG",
+          "price": null,
+          "quantity": null,
           "qualifiers": [],
           "ean": "8712100731822",
-          "image_url": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24cc85e/08712100731822_C1N1 _s05.png",
+          "image_url": "https://media.carrefour.fr/media/referential/media/65e12a5f5005487292dab12af24c c85e/08712100731822_C1N1_s05.png",
           "source": "carrefour_super",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "started_at": "2025-11-28T19:23:01.870396+01:00",
-      "finished_at": "2025-11-28T19:23:52.035577+01:00",
-      "duration_seconds": 50.165181,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "started_at": "2025-12-13T12:51:44.975771+01:00",
+      "finished_at": "2025-12-13T12:51:54.148049+01:00",
+      "duration_seconds": 9.172278,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
       ],
       "env": {
         "EAN": "8712100731822",
         "QUERY": "8712100731822",
         "CARREFOUR_STATE_VARIANT": "carrefour_super",
-        "HEADLESS": "1"
+        "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
-      "stderr": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 8712100731822. Reloading \nto refresh store...",
       "metadata": {
-        "attempt_query": "8712100731822"
+        "attempt_query": "8712100731822",
+        "visual_score": null
       }
     },
     {
@@ -360,13 +366,13 @@
           "supports_ean": true
         }
       },
-      "started_at": "2025-11-29T12:30:47.415664+01:00",
-      "finished_at": "2025-11-29T12:30:47.844889+01:00",
-      "duration_seconds": 0.429225,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "started_at": "2025-12-19T13:40:26.964964+01:00",
+      "finished_at": "2025-12-19T13:40:27.456243+01:00",
+      "duration_seconds": 0.491279,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
       ],
       "env": {
         "EAN": "8712100731822",
@@ -375,7 +381,7 @@
       },
       "exit_code": 0,
       "error": null,
-      "stderr": "/Users/laurentpoupet/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n  warnings.warn(",
+      "stderr": null,
       "metadata": {
         "attempt_query": "8712100731822"
       }
@@ -404,8 +410,8 @@
         "_meta": {
           "store_code": "TZ193",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
-          "query": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-casino-shop-33130/TZ193/798533",
-          "timestamp": "2025-11-28T18:24:14.499491+00:00",
+          "query": "Savora 385 G",
+          "timestamp": "2025-12-19T12:40:40.360170+00:00",
           "direct_url": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-casino-shop-33130/TZ193/798533",
           "supports_keywords": true
         },
@@ -417,6 +423,8 @@
               "brand": "Amora",
               "kind": "",
               "qty": "385g",
+              "price": null,
+              "quantity": null,
               "qualifiers": [],
               "ean": "8712100731822",
               "image_url": null,
@@ -428,24 +436,25 @@
           }
         ]
       },
-      "started_at": "2025-11-28T19:24:14.330423+01:00",
-      "finished_at": "2025-11-28T19:24:15.692597+01:00",
-      "duration_seconds": 1.362174,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "started_at": "2025-12-19T13:40:40.162881+01:00",
+      "finished_at": "2025-12-19T13:40:41.198009+01:00",
+      "duration_seconds": 1.035128,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
       ],
       "env": {
         "EAN": "8712100731822",
-        "QUERY": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-casino-shop-33130/TZ193/798533",
-        "HEADLESS": "1"
+        "QUERY": "Savora 385 G",
+        "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
       "stderr": null,
       "metadata": {
-        "attempt_query": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-casino-shop-33130/TZ193/798533"
+        "attempt_query": "Savora 385 G",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251219-134039/01-casino"
       }
     },
     {
@@ -472,8 +481,8 @@
         "_meta": {
           "store_code": "TL832",
           "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
-          "query": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-spar-33160/TL832/798533",
-          "timestamp": "2025-11-28T18:24:15.838394+00:00",
+          "query": "Savora 385 G",
+          "timestamp": "2025-12-19T12:40:48.474480+00:00",
           "direct_url": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-spar-33160/TL832/798533",
           "supports_keywords": true
         },
@@ -485,6 +494,8 @@
               "brand": "Amora",
               "kind": "",
               "qty": "385g",
+              "price": null,
+              "quantity": null,
               "qualifiers": [],
               "ean": "8712100731822",
               "image_url": null,
@@ -496,24 +507,25 @@
           }
         ]
       },
-      "started_at": "2025-11-28T19:24:15.694224+01:00",
-      "finished_at": "2025-11-28T19:24:16.550622+01:00",
-      "duration_seconds": 0.856398,
-      "script_path": "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "started_at": "2025-12-19T13:40:48.240350+01:00",
+      "finished_at": "2025-12-19T13:40:49.027073+01:00",
+      "duration_seconds": 0.786723,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
       "command": [
-        "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
-        "/Users/laurentpoupet/Sites/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
       ],
       "env": {
         "EAN": "8712100731822",
-        "QUERY": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-spar-33160/TL832/798533",
-        "HEADLESS": "1"
+        "QUERY": "Savora 385 G",
+        "HEADLESS": "0"
       },
       "exit_code": 0,
       "error": null,
       "stderr": null,
       "metadata": {
-        "attempt_query": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-spar-33160/TL832/798533"
+        "attempt_query": "Savora 385 G",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251219-134047/01-spar"
       }
     },
     {
@@ -736,16 +748,48 @@
       "brand": "Savora",
       "kind": "",
       "qty": "385 g",
+      "price": null,
+      "quantity": null,
       "qualifiers": [],
       "ean": "8712100731822",
-      "image_url": "./assets/8712100731822.jpg",
+      "image_url": "/assets/8712100731822.jpg",
       "source": "consolidated",
       "raw_text": "Moutarde aux aromates SAVORA 385 g",
       "seed_query": "",
       "leclerc_queries": []
     },
-    "keywords": null,
-    "candidates": [],
+    "keywords": [
+      "Savora Moutarde Aromates 385g",
+      "Moutarde Savora Aromates 385g",
+      "Savora Moutarde",
+      "Moutarde aux aromates SAVORA",
+      "Moutarde aux aromates",
+      "Savora aromates 385 G",
+      "Savora aromates moutarde",
+      "Savora 385 G"
+    ],
+    "candidates": [
+      {
+        "adapter": "spar",
+        "url": "https://www.mescoursesdeproximite.com/produit/amora-specialite-a-la-moutarde-savora-bocal-385g-le-pot-de-385g-spar-33160/TL832/798533",
+        "score": 0.0,
+        "product": {
+          "title": "Amora Spécialité à la Moutarde Savora Bocal 385g",
+          "brand": "Amora",
+          "kind": "",
+          "qty": "385g",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "8712100731822",
+          "image_url": null,
+          "source": "spar",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      }
+    ],
     "decision": null,
     "audit": []
   }

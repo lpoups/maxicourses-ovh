@@ -1,0 +1,636 @@
+{
+  "ean": "3665468402529",
+  "image_path": null,
+  "started_at": "2025-12-17T17:07:39.645685+01:00",
+  "finished_at": "2025-12-17T17:08:18.054394+01:00",
+  "duration_seconds": 38.408709,
+  "reference": {
+    "title": "Capsules Lave-vaisselle Ultimate 48h FINISH",
+    "description": "Entrée générée automatiquement – descriptif requis.",
+    "source": "carrefour_super",
+    "brand": "Finish",
+    "quantity": "x42",
+    "categories": null,
+    "image": "https://media.carrefour.fr/media/referential/media/95848c7abe3b44efb0bc58d63ebf 78df/08720182787132_H1N1_s09.jpeg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3665468402529/debug/run-3665468402529-20251217-170739"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/s?q=3665468402529",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-16T08:09:27.616479+01:00",
+      "finished_at": "2025-12-16T08:09:48.655776+01:00",
+      "duration_seconds": 21.039297,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "3665468402529",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 3665468402529. Reloading \nto refresh store...\n[INFO] Optimization active: Attempting direct DOM extraction.",
+      "metadata": {
+        "attempt_query": "3665468402529",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "12,45",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/s?q=3665468402529",
+        "note": "json_state_extraction",
+        "unit_price": "22,97 € / KG",
+        "quantity": "x42",
+        "title": "Capsules  Lave-vaisselle Ultimate 48h FINISH",
+        "matched_ean": "3665468402529",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules  Lave-vaisselle Ultimate 48h FINISH",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "x42",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3665468402529",
+          "image_url": null,
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-16T08:09:48.657413+01:00",
+      "finished_at": "2025-12-16T08:10:08.050030+01:00",
+      "duration_seconds": 19.392617,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "3665468402529",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 3665468402529. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Capsules \nLave-vaisselle Ultimate 48h FINISH', 'quantity': 'x42', 'price': 12.45, \n'unit_price': '22.97 € / KG'}\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 3665468402529. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Capsules \nLave-vaisselle Ultimate 48h FINISH', 'quantity': 'x42', 'price': 12.45, \n'unit_price': '22.97 € / KG'}",
+      "metadata": {
+        "attempt_query": "3665468402529",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "11,65",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/capsules-lave-vaisselle-tout-en-1-regular-ecolabel-s un-8720182787132",
+        "note": "json_state_extraction",
+        "unit_price": "21,49 € /  KG",
+        "quantity": "x42",
+        "title": "Capsules Lave-vaisselle Ultimate 48h FINISH",
+        "matched_ean": "3665468402529",
+        "image": "https://media.carrefour.fr/media/referential/media/95848c7abe3b44efb0bc58d63ebf 78df/08720182787132_H1N1_s09.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules Lave-vaisselle Ultimate 48h FINISH",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "x42",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3665468402529",
+          "image_url": "https://media.carrefour.fr/media/referential/media/95848c7abe3b44efb0bc58d63ebf 78df/08720182787132_H1N1_s09.jpeg",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-17T17:07:39.648325+01:00",
+      "finished_at": "2025-12-17T17:08:08.895359+01:00",
+      "duration_seconds": 29.247034,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "3665468402529",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Successfully extracted data from JSON State: {'title': 'Capsules \nLave-vaisselle Ultimate 48h FINISH', 'quantity': 'x42', 'price': 11.65, \n'unit_price': '21.49 € / KG', 'image': None}\n[INFO] JSON State has no image, navigating to PDP...\n[INFO] Now on PDP: \nhttps://www.carrefour.fr/p/capsules-lave-vaisselle-ultimate-48h-finish-366546840\n2529\n[INFO] Got image from PDP og:image: \nhttps://media.carrefour.fr/medias/cc199586e10c423c95b466f3ea...\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 3665468402529. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Capsules \nLave-vaisselle Ultimate 48h FINISH', 'quantity': 'x42', 'price': 11.65, \n'unit_price': '21.49 € / KG', 'image': None}\n[INFO] JSON State has no image, navigating to PDP...\n[INFO] Now on PDP: \nhttps://www.carrefour.fr/p/capsules-lave-vaisselle-tout-en-1-regular-ecolabel-su\nn-8720182787132\n[INFO] Got image from PDP og:image: \nhttps://media.carrefour.fr/media/referential/media/95848c7ab...",
+      "metadata": {
+        "attempt_query": "3665468402529",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "search_failed:3665468402529",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-16T08:10:25.620939+01:00",
+      "finished_at": "2025-12-16T08:10:51.542501+01:00",
+      "duration_seconds": 25.921562,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "3665468402529",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Attached to existing page (avoiding Captcha).\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] Found cookie button via selector: #onetrust-banner-sdk button#onetrust-accept-btn-handler\n[auchan] CONSOLE: data =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: initData =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dl=https%3A%2F%2Fwww.auchan.fr%2Fmagasins%2Fdrive%2Fauchan-drive-supermarche-talence-gallieni%2Fs-6117&scrsrc=www.googletagmanager.com&rnd=1210330781.1765869030&dt=Auchan%20Drive%20Supermarch%C3%A9%20Talence-Gallieni.%20Horaires%2C%20adresse%2C%20livraison%20courses%20%C3%A0%20domicile&auid=190046754.1765869030&navt=n&npa=0&gtm=45He5ca1v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527907~104528501~104684208~104684211~105391252~115583767~115938465~115938468~116184927~116184929~116251938~116251940~116682876&tft=1765869030260&tfd=1306&apve=1&apvf=f net::ERR_ABORTED\n[auchan] REQ_FAILED: https://ars-privacy.my.onetrust.com/request/v1/consentreceipts net::ERR_NAME_NOT_RESOLVED\n[auchan] CONSOLE: Failed to load resource: net::ERR_NAME_NOT_RESOLVED\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ✅ Toast 'C'est noté' APPEARED.\n[auchan] Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ✅ Toast DISAPPEARED. Proceeding to search.\n[auchan] CONSOLE: data =  {event_type: SEARCH, item_ids: null, description: SRP, search_string:  3665468402529, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7}\n[auchan] CONSOLE: initData =  {event_type: SEARCH, item_ids: null, description: SRP, search_string:  3665468402529, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7}\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: data =  {event_type: VIEW_CONTENT, item_ids: null, description: PLP, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, item_category: }\n[auchan] CONSOLE: initData =  {event_type: VIEW_CONTENT, item_ids: null, description: PLP, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, item_category: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: Firing Pinterest event: search\n[auchan] CONSOLE: Event Data:{\"np\":\"gtm\",\"gtm_version\":\"legacy\",\"search_query\":\" 3665468402529\"}\n[auchan] CONSOLE: Firing Pinterest event: viewcategory\n[auchan] CONSOLE: Event Data:{\"line_items\":{\"product_category\":\"\"},\"np\":\"gtm\",\"gtm_version\":\"legacy\"}\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] results not visible\n[auchan] Search typing failed, but fallback (refresh) is DISABLE per user request.",
+      "metadata": {
+        "attempt_query": "3665468402529",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "10,09",
+        "title": "Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate",
+        "url": "https://www.chronodrive.com/finish--powerball-utimate---tablettes-lave-vaissell e-tout-en-1-P543645",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": " 0,24 € / Pièce",
+        "quantity": "42 tablettes",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3665468402529",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate",
+          "brand": "Tablettes",
+          "kind": "",
+          "qty": "42 tablettes",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3665468402529",
+          "image_url": "https://media.carrefour.fr/medias/cc199586e10c423c95b466f3ea533406/p_200x200/03665468402529_C1N1_s03.png",
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-16T09:59:20.054594+01:00",
+      "finished_at": "2025-12-16T09:59:29.410309+01:00",
+      "duration_seconds": 9.355715,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "3665468402529",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='3665468402529'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/finish--powerball-utimate---tablettes-lave-vaisselle-tout-en-1-P543645",
+      "metadata": {
+        "attempt_query": "3665468402529",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "NO_MATCH",
+      "payload": {
+        "status": "NO_MATCH",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": "https://www.coursesu.com/recherche?q=3665468402529",
+        "note": "No EAN found on product page - cannot validate",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-16T08:11:00.410079+01:00",
+      "finished_at": "2025-12-16T08:11:17.142717+01:00",
+      "duration_seconds": 16.732638,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "3665468402529",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[COURSEU] Connecting to CDP at http://127.0.0.1:9223\n[COURSEU] Resetting cache, cookies and storage...\n[COURSEU] Cache/cookies reset complete\n[COURSEU] Current: https://www.chronodrive.com/finish--powerball-utim - FINISH : Tablettes lave-vaisse\n[COURSEU] Navigating to https://www.coursesu.com/drive-superu-eysines\n[COURSEU] Clicked cookie button: button:has-text('Accepter & Fermer')\n[COURSEU] Searched for: 3665468402529 (human typing)\n[COURSEU] JSON-LD extraction failed, trying CSS selectors...\n[COURSEU] Extracted: price=None, title=Sorry, you have been blocked..., ean=None\n[COURSEU] WARNING: No EAN found on page - cannot validate product",
+      "metadata": {
+        "attempt_query": "3665468402529",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-16T08:11:17.143595+01:00",
+      "finished_at": "2025-12-16T08:11:17.728380+01:00",
+      "duration_seconds": 0.584785,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "3665468402529",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3665468402529",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Finish%20Capsules%20Lave-vaisselle",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Finish Capsules Lave-vaisselle",
+          "timestamp": "2025-12-16T07:11:24.966059+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-16T08:11:24.763146+01:00",
+      "finished_at": "2025-12-16T08:11:26.377220+01:00",
+      "duration_seconds": 1.614074,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "Finish Capsules Lave-vaisselle",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Finish Capsules Lave-vaisselle",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3665468402529/debug/run-3665468402529-20251216-080927/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Spar (404)",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/UNKNOWN?produit_recherche=Finish%20Tablettes%20lave-vaisselle",
+          "store_code": "UNKNOWN",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-merignac-33700/UNKNOWN",
+          "query": "Finish Tablettes lave-vaisselle",
+          "timestamp": "2025-12-16T08:55:07.123371+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-16T09:55:06.968199+01:00",
+      "finished_at": "2025-12-16T09:55:07.613343+01:00",
+      "duration_seconds": 0.645144,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_spar_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_spar_price.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "Finish Tablettes lave-vaisselle",
+        "STORE_URL": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-merignac-33700/TZ200",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Finish Tablettes lave-vaisselle",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3665468402529/debug/run-3665468402529-20251216-095456/01-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-12-17T09:50:29.375222+01:00",
+      "finished_at": "2025-12-17T09:50:40.386468+01:00",
+      "duration_seconds": 11.011246,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "Entrée générée automatiquement descriptif requis",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Raw DESCRIPTOR_JSON received (len=592)\n[DEBUG] Intermarche Descriptor keys: ['_id', 'ean', 'created_at', 'note', 'removed', 'source', 'updated_at', 'nutriscore_grade', 'nutriscore_image', 'description', 'seed_query', 'leclerc_query', 'leclerc_queries']\n[DEBUG] Intermarche query keys: None\n[DEBUG] Leclerc fallback queries: ['Entrée générée automatiquement descriptif requis', 'Entrée générée automatiquement – descriptif requis.']",
+      "metadata": {
+        "attempt_query": "Entrée générée automatiquement descriptif requis",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3665468402529/debug/run-3665468402529-20251217-095028/01-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_120s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-16T08:12:36.117941+01:00",
+      "finished_at": "2025-12-16T08:14:36.200544+01:00",
+      "duration_seconds": 120.082603,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "Finish Capsules Lave-vaisselle",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_120s",
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Finish Capsules Lave-vaisselle' direct_url:False\n[LECLERC_DEBUG] after home human pause -> 1.98s\n[LECLERC_DEBUG] after focus -> 2.61s\n[LECLERC_DEBUG] results visible -> 10.41s\n[LECLERC_DEBUG] after result pause -> 10.41s\n[LECLERC_SCORE] 'Capsules Lave-Vaisselle SUN\nPro-Expert Regular 38 lavages' Score: 12 (Brand: False)\n[LECLERC_SCORE] 'Capsules Lave-Vaisselle SUN\nPro-Expert Citron 38 lavages' Score: 12 (Brand: False)\n[LECLERC_SCORE] 'Sun Capsules Lave-Vaisselle\nTout en 1 Absolu Brillance x28' Score: 12 (Brand: False)\n[LECLERC_SCORE] 'Sun Capsules Lave-Vaisselle\nTout en1 Absolu Dégraissant x28' Score: 12 (Brand: False)\n[LECLERC_SCORE] 'Capsules lave-vaisselle Finish\nUltimate Plus - x47 - 573g' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Capsules lave-vaisselle Finish\nQuantum - 707g - x68' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Capsules lave-vaisselle Finish\nUltimate Plus Citron x22 - 268g' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Capsules lave-vaisselle Finish\nUltimate citron - x26 - 335g' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Capsules lave-vaisselle Finish\nQuantum - x30 - 312g' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Capsules lave-vaisselle Finish\nQuantum Citron - x30 - 312g' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Capsules lave-vaisselle Finish\nUltimate Plus Citron - x35' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Capsules lave-vaisselle Finish\nQuantum - x46' Score: 18 (Brand: False)\n[LECLERC_DEBUG] Best Score: 12",
+      "metadata": {
+        "attempt_query": "Finish Capsules Lave-vaisselle",
+        "timeout_s": 120,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3665468402529/debug/run-3665468402529-20251216-080927/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "14,65",
+        "title": "Finish Capsules Lave-vaisselle  Ultimate 48H x42",
+        "url": "https://courses.monoprix.fr/products/finish-capsules-lave-vaisselle-ultimate-48 h-x42/MPX_6700380",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d82d 7874-a7d5-4352-ad7c-e376dc7b07df/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d82d 7874-a7d5-4352-ad7c-e376dc7b07df/300x300.jpg",
+        "matched_ean": "3665468402529",
+        "unit_price": null,
+        "quantity": "42 PARPACK",
+        "store": null,
+        "raw_text": "Aller  directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nMenu des onglets du haut de l’écran\nPage d’accueil\nRechercher un article\nSe connecter\nRéserver un  créneau\nRéserver un créneau\nAller au paiement\nNombre total d’articles dans  votre panier 0. Montant du panier 0,00 €.\n0,00 €\nMin 60,00 €\nNos  Rayons\nFavoris\nListe de courses\nProduits réguliers\nNEW-NOEL202520€ offerts  dès 80€ d'achats + 2 mois de livraison offerte*\nEN SAVOIR +\nAccueil\nEntretien & Nettoyage\nProduits Nettoyants et Multi Usages\nProduit Vaisselle\nEntretien  lave vaisselle\nFinish Capsules Lave-vaisselle Ultimate 48H x42\n42 par pack  0,35 € / article\n42 par pack\n(0,35 € / article)\n14,65  €\nAjouter\nInformations produit\n\n\nDescription Produit\nAvec Finish Ultimate  All in 1, obtenez une brillance ultime et une propreté exceptionnelle du 1er  coup, à chaque lavage ! Notre technologie ACTIVELIFT™ est efficace contre tous  les types de résidus de nourriture, même les taches incrustées depuis 48 heures, et cela sans besoin de pré-laver. Nos capsules protègent et prennent soin de  votre vaisselle tout en conservant sa brillance lavage après lavage. Notre  performance Ultimate avec 15% (en poids) de composés chimiques en moins que nos  tablettes classiques de poudre compacte Finish (en moyenne vs Finish Power).  Finish est la marque N°1 sur la base des ventes valeur globales de la catégorie  lave-vaisselle (source : NielsenIQ RMS data). Grâce à notre expertise, de  grandes marques de lave-vaisselle nous font confiance et nous  recommandent.\n\n\nOrigine\nPologne\nMarque\nFinish\nService consommateur\nRB  HYGIENE HOME FRANCE SAS 38 RUE VICTOR BASCH, CS11018, 91300 MASSY 01 69 93 17 00 euconsumercarefr@rb.com\nIngredients\n15 - <30% agents de surface non ioniques 5 - <15% agents de blanchiment oxygénés 5 - <15% polycarboxylates, phosphonates  Contient Enzymes (subtilisine, amylase), parfums (Benzyl Benzoate,  Geraniol)\nProducteur\nRECKITT BENCKISER FRANCE SAS 38 RUE VICTOR BASCH  91300MASSY\nAutres informations\nNe pas ingérer, en cas d'ingestion consulter un médecin. SGH07 - Nocif. Provoque une sévére irritation des yeux. Provoque une  irritation cutanée\nConseils d'utilisation\nToujours utiliser avec des mains  sèches pour éviter d'introduire de l'humidité dans l'emballage, ce qui pourrait  faire coller les capsules entre elles. Ultimate est emballé avec un film  biodégradable, 100 % soluble dans l'eau, qui ne nécessite pas de déballage. Ne  déchirez pas le film avant de l'utiliser, afin d'éviter le déversement de  produits chimiques. Placez le produit dans le bac à détergent sec pour éviter  que la capsule ne s'active avant le début du prélavage. Ne pas placer dans le  panier à couverts pour éviter d'affecter la performance ou la dissolution du  produit. Les capsules se collent les unes aux autres en cas d'humidité. Pour  éviter cela, toujours utiliser avec des mains sèches et conserver dans un  environnement sec, comme notre emballage d'origine. Ne pas les séparer si elles  sont collées les unes aux autres. Il est possible de placer jusqu'à deux  capsules collées dans le fond de la machine. Ce produit est conçu pour  fonctionner en cycle éco, ce qui permet d'économiser de l'énergie et de  l'eau.\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une  nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos  magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos  magasins avec Parapharmacie\nAide & Mentions\nDonnées personnelles et  cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": null,
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [
+            "descriptor_coverage"
+          ],
+          "candidate_quantity": "42 PARPACK",
+          "descriptor_token_coverage": {
+            "coverage": 0.3333333333333333,
+            "matched": [
+              "finish"
+            ],
+            "missing": [
+              "cafe",
+              "none"
+            ],
+            "total": 3
+          },
+          "missing_tokens": [
+            "cafe",
+            "none"
+          ],
+          "image_match": true,
+          "final_score": 45,
+          "plausible_baseline": false
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/finish-capsules-lave-vaisselle-ultimate-48 h-x42/MPX_6700380",
+            "product": {
+              "title": "Finish  Capsules Lave-vaisselle Ultimate 48H x42",
+              "brand": "Finish",
+              "kind": "",
+              "qty": "42 PARPACK",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3665468402529",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d82d 7874-a7d5-4352-ad7c-e376dc7b07df/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Menu des onglets du haut de l’écran Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers NEW-NOEL202520€ offerts dès 80€ d'achats",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-12-16T08:45:19.336476+01:00",
+      "finished_at": "2025-12-16T08:45:55.990484+01:00",
+      "duration_seconds": 36.654008,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "3665468402529",
+        "QUERY": "finish powerball ultimate x42",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '3665468402529'.\n[MONOPRIX_DEBUG] Search terms: ['finish powerball ultimate x42', 'finish tablettes ultimate x42', 'finish lave-vaisselle x42']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/3: 'finish powerball ultimate x42'\n[MONOPRIX_DEBUG]  - Typing 'finish powerball ultimate x42' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=finish%20powerball%20ultimate%20x42\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 1 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/finish-capsules-lave-vaisselle-ultimate-48h-x42/MPX_6700380\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d82d7874-a7d5-4352-ad7c-e376dc7b07df/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/finish-capsules-lave-vaisselle-ultimate-48h-x42/MPX_6700380\n[MONOPRIX_DEBUG][SCORE] - Title: 'Finish Capsules Lave-vaisselle Ultimate 48H x42' | Brand: 'finish' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=15 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://media.carrefour.fr/medias/cc199586e10c423c95b466f3ea533406/p_200x200/03 ...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d82d7...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] Download status: seed=200, candidate=200\n[MONOPRIX_IMG_DEBUG] AI Vision result: match=True, confidence=0.95, reason=Les deux produits sont de la marque Finish Powerball Ultimate, contiennent 42 capsules, et sont des packs maxi. Les différences d'emballage sont mineures.\n[MONOPRIX_DEBUG]  - Image match FOUND for 'Finish Capsules Lave-vaisselle Ultimate 48H x42'.\n[MONOPRIX_DEBUG] Best match (early return): 'Finish Capsules Lave-vaisselle Ultimate 48H x42' (Score: 45)\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='OK', price='14,65', title='Finish Capsules Lave-vaisselle Ultimate 48H x42', url='https://courses.monoprix.fr/products/finish-capsules-lave-vaisselle-ultimate-48h-x42/MPX_6700380', note='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d82d7874-a7d5-4352-ad7c-e376dc7b07df/300x300.jpg', image='https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d82d7874-a7d5-4352-ad7c-e376dc7b07df/300x300.jpg', matched_ean='3665468402529', unit_price=None, quantity='42 PARPACK', store=None, raw_text=\"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nMenu des onglets du haut de l’écran\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEntretien & Nettoyage\\nProduits Nettoyants et Multi Usages\\nProduit Vaisselle\\nEntretien lave vaisselle\\nFinish Capsules Lave-vaisselle Ultimate 48H x42\\n42 par pack 0,35\\xa0€ / article\\n42 par pack\\n(0,35\\xa0€ / article)\\n14,65\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAvec Finish Ultimate All in 1, obtenez une brillance ultime et une propreté exceptionnelle du 1er coup, à chaque lavage ! Notre technologie ACTIVELIFT™ est efficace contre tous les types de résidus de nourriture, même les taches incrustées depuis 48 heures, et cela sans besoin de pré-laver. Nos capsules protègent et prennent soin de votre vaisselle tout en conservant sa brillance lavage après lavage. Notre performance Ultimate avec 15% (en poids) de composés chimiques en moins que nos tablettes classiques de poudre compacte Finish (en moyenne vs Finish Power). Finish est la marque N°1 sur la base des ventes valeur globales de la catégorie lave-vaisselle (source : NielsenIQ RMS data). Grâce à notre expertise, de grandes marques de lave-vaisselle nous font confiance et nous recommandent.\\n\\n\\nOrigine\\nPologne\\nMarque\\nFinish\\nService consommateur\\nRB HYGIENE HOME FRANCE SAS 38 RUE VICTOR BASCH, CS11018, 91300 MASSY 01 69 93 17 00 euconsumercarefr@rb.com\\nIngredients\\n15 - <30% agents de surface non ioniques 5 - <15% agents de blanchiment oxygénés 5 - <15% polycarboxylates, phosphonates Contient Enzymes (subtilisine, amylase), parfums (Benzyl Benzoate, Geraniol)\\nProducteur\\nRECKITT BENCKISER FRANCE SAS 38 RUE VICTOR BASCH 91300MASSY\\nAutres informations\\nNe pas ingérer, en cas d'ingestion consulter un médecin. SGH07 - Nocif. Provoque une sévére irritation des yeux. Provoque une irritation cutanée\\nConseils d'utilisation\\nToujours utiliser avec des mains sèches pour éviter d'introduire de l'humidité dans l'emballage, ce qui pourrait faire coller les capsules entre elles. Ultimate est emballé avec un film biodégradable, 100 % soluble dans l'eau, qui ne nécessite pas de déballage. Ne déchirez pas le film avant de l'utiliser, afin d'éviter le déversement de produits chimiques. Placez le produit dans le bac à détergent sec pour éviter que la capsule ne s'active avant le début du prélavage. Ne pas placer dans le panier à couverts pour éviter d'affecter la performance ou la dissolution du produit. Les capsules se collent les unes aux autres en cas d'humidité. Pour éviter cela, toujours utiliser avec des mains sèches et conserver dans un environnement sec, comme notre emballage d'origine. Ne pas les séparer si elles sont collées les unes aux autres. Il est possible de placer jusqu'à deux capsules collées dans le fond de la machine. Ce produit est conçu pour fonctionner en cycle éco, ce qui permet d'économiser de l'énergie et de l'eau.\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", extras={'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['descriptor_coverage'], 'candidate_quantity': '42 PARPACK', 'descriptor_token_coverage': {'coverage': 0.3333333333333333, 'matched': ['finish'], 'missing': ['cafe', 'none'], 'total': 3}, 'missing_tokens': ['cafe', 'none'], 'image_match': True, 'final_score': 45, 'plausible_baseline': False}, candidates=[{'url': 'https://courses.monoprix.fr/products/finish-capsules-lave-vaisselle-ultimate-48h-x42/MPX_6700380', 'status': 'OK_PARTIAL', 'product': {'title': 'Finish Capsules Lave-vaisselle Ultimate 48H x42', 'brand': 'Finish', 'kind': '', 'qty': '42 PARPACK', 'qualifiers': [], 'ean': '3665468402529', 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d82d7874-a7d5-4352-ad7c-e376dc7b07df/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nMenu des onglets du haut de l’écran\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEntretien & Nettoyage\\nProduits Nettoyants et Multi Usages\\nProduit Vaisselle\\nEntretien lave vaisselle\\nFinish Capsules Lave-vaisselle Ultimate 48H x42\\n42 par pack 0,35\\xa0€ / article\\n42 par pack\\n(0,35\\xa0€ / article)\\n14,65\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nAvec Finish Ultimate All in 1, obtenez une brillance ultime et une propreté exceptionnelle du 1er coup, à chaque lavage ! Notre technologie ACTIVELIFT™ est efficace contre tous les types de résidus de nourriture, même les taches incrustées depuis 48 heures, et cela sans besoin de pré-laver. Nos capsules protègent et prennent soin de votre vaisselle tout en conservant sa brillance lavage après lavage. Notre performance Ultimate avec 15% (en poids) de composés chimiques en moins que nos tablettes classiques de poudre compacte Finish (en moyenne vs Finish Power). Finish est la marque N°1 sur la base des ventes valeur globales de la catégorie lave-vaisselle (source : NielsenIQ RMS data). Grâce à notre expertise, de grandes marques de lave-vaisselle nous font confiance et nous recommandent.\\n\\n\\nOrigine\\nPologne\\nMarque\\nFinish\\nService consommateur\\nRB HYGIENE HOME FRANCE SAS 38 RUE VICTOR BASCH, CS11018, 91300 MASSY 01 69 93 17 00 euconsumercarefr@rb.com\\nIngredients\\n15 - <30% agents de surface non ioniques 5 - <15% agents de blanchiment oxygénés 5 - <15% polycarboxylates, phosphonates Contient Enzymes (subtilisine, amylase), parfums (Benzyl Benzoate, Geraniol)\\nProducteur\\nRECKITT BENCKISER FRANCE SAS 38 RUE VICTOR BASCH 91300MASSY\\nAutres informations\\nNe pas ingérer, en cas d'ingestion consulter un médecin. SGH07 - Nocif. Provoque une sévére irritation des yeux. Provoque une irritation cutanée\\nConseils d'utilisation\\nToujours utiliser avec des mains sèches pour éviter d'introduire de l'humidité dans l'emballage, ce qui pourrait faire coller les capsules entre elles. Ultimate est emballé avec un film biodégradable, 100 % soluble dans l'eau, qui ne nécessite pas de déballage. Ne déchirez pas le film avant de l'utiliser, afin d'éviter le déversement de produits chimiques. Placez le produit dans le bac à détergent sec pour éviter que la capsule ne s'active avant le début du prélavage. Ne pas placer dans le panier à couverts pour éviter d'affecter la performance ou la dissolution du produit. Les capsules se collent les unes aux autres en cas d'humidité. Pour éviter cela, toujours utiliser avec des mains sèches et conserver dans un environnement sec, comme notre emballage d'origine. Ne pas les séparer si elles sont collées les unes aux autres. Il est possible de placer jusqu'à deux capsules collées dans le fond de la machine. Ce produit est conçu pour fonctionner en cycle éco, ce qui permet d'économiser de l'énergie et de l'eau.\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'price': '14,65'}, 'score': 45.0, 'extras': {'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['descriptor_coverage'], 'candidate_quantity': '42 PARPACK', 'descriptor_token_coverage': {'coverage': 0.3333333333333333, 'matched': ['finish'], 'missing': ['cafe', 'none'], 'total': 3}, 'missing_tokens': ['cafe', 'none'], 'image_match': True, 'final_score': 45, 'plausible_baseline': False}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "finish powerball ultimate x42",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3665468402529/debug/run-3665468402529-20251216-084514/01-monoprix"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Capsules Lave-vaisselle Ultimate 48h FINISH",
+      "brand": "Capsules",
+      "kind": "",
+      "qty": "x42",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3665468402529",
+      "image_url": "https://media.carrefour.fr/media/referential/media/95848c7abe3b44efb0bc58d63ebf 78df/08720182787132_H1N1_s09.jpeg",
+      "source": "consolidated",
+      "raw_text": "Entrée générée automatiquement – descriptif requis. Capsules Lave-vaisselle Ultimate 48h FINISH",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Finish Ultimate 48h x42",
+      "Finish Capsules Ultimate 48h",
+      "Finish Lave-vaisselle Capsules",
+      "Capsules Lave-vaisselle Ultimate 48h",
+      "Capsules Lave-vaisselle Ultimate",
+      "Capsules vaisselle X42",
+      "Capsules vaisselle ultimate",
+      "Capsules X42"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

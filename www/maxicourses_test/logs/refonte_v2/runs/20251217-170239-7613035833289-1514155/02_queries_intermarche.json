@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-12-17T17:02:42.833166+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Perrier Eau Gazeuse 6x1L",
+      "Perrier 6x1L",
+      "Perrier Eau Minérale"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "Perrier Eau Gazeuse 6x1L",
+      "fallback_specific": "Perrier 6x1L",
+      "fallback_broad": "Perrier Eau Minérale"
+    },
+    "raw": {
+      "golden": "Perrier Eau Gazeuse 6x1L",
+      "fallback_specific": "Perrier 6x1L",
+      "fallback_broad": "Perrier Eau Minérale"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Eau minérale naturelle gazeuse\",\n    \"brand\": \"Perrier\",\n    \"quantity\": \"6x1L\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"ean\": \"7613035833289\",\n    \"_id\": \"6942d27df55566d88df50141\",\n    \"brand\": \"Perrier\",\n    \"canonical\": {\n      \"normalized_signature\": \"eau_gazeuse 6x\"\n    },\n    \"created_at\": \"2025-12-17T15:55:41.631000\",\n    \"image\": \"https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a7907b-d63d-4f1d-bb9d-89efb28bd 076/300x300.jpg\",\n    \"keywords\": [\n      \"Perrier\",\n      \"6x1L\",\n      \"Gazeuse\"\n    ],\n    \"quantity\": \"6x1L\",\n    \"queries\": {\n      \"monoprix\": [\n        \"perrier eau gazeuse 6x1l\",\n        \"perrier 6x1l\",\n        \"perrier eau gazeuse\",\n        \"Perrier Eau minérale\"\n      ]\n    },\n    \"source\": \"manual\",\n    \"updated_at\": \"2025-12-17T15:56:07.271000\",\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"/assets/nutriscore/nutriscore-unknown.svg\",\n    \"confirmed_titles\": {\n      \"monoprix\": \"Perrier Eau Minérale Naturelle Gazeuse 6x1L\"\n    },\n    \"stores\": {\n      \"monoprix\": {\n        \"url\": \"https://courses.monoprix.fr/products/perrier-eau-min%C3%A9rale-naturelle-gazeuse-6x1l/MPX_2439318\",\n        \"price\": \"4,89\",\n        \"status\": \"OK\",\n        \"image_url\": \"https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a7907b-d63d-4f1d-bb9d-89efb28bd 076/300x300.jpg\",\n        \"updated_at\": \"2025-12-17T16:56:07.253313+01:00\"\n      },\n      \"image\": {\n        \"url\": \"https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a7907b-d63d-4f1d-bb9d-89efb28bd 076/300x300.jpg\"\n      }\n    },\n    \"title\": \"Perrier Eau Minérale Naturelle Gazeuse 6x1L\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-17T16:02:37Z\",\n    \"name\": \"Eau minérale naturelle gazeuse\",\n    \"categories\": \"Beverages, Carbonated drinks, Waters, Spring waters, Mineral waters, Unsweetened beverages, Carbonated waters, en:carbonated-mineral-waters\",\n    \"ecoscore_grade\": \"not-applicable\",\n    \"nova_group\": \"1\",\n    \"removed\": false,\n    \"seed_query\": \"Perrier Eau minérale naturelle gazeuse 6x1L\",\n    \"leclerc_query\": \"Perrier Eau Gazeuse 6x1L\",\n    \"leclerc_queries\": [\n      \"Perrier Eau Gazeuse 6x1L\",\n      \"Perrier 6x1L\",\n      \"Perrier Eau Minérale\"\n    ],\n    \"leclerc_ai_queries\": [\n      \"Perrier Eau Gazeuse 6x1L\",\n      \"Perrier 6x1L\",\n      \"Perrier Eau Minérale\"\n    ],\n    \"leclerc_secondary_keywords\": [],\n    \"primary_keywords\": [\n      \"Perrier Eau Gazeuse 6x1L\",\n      \"Perrier 6x1L\",\n      \"Perrier Eau Minérale\"\n    ],\n    \"monoprix_ai_queries\": [\n      \"perrier eau gazeuse 6x1l\",\n      \"perrier 6x1l\",\n      \"perrier eau gazeuse\",\n      \"Perrier Eau minérale\"\n    ],\n    \"monoprix_queries\": [\n      \"perrier eau gazeuse 6x1l\",\n      \"perrier 6x1l\",\n      \"perrier eau gazeuse\",\n      \"Perrier Eau minérale\"\n    ],\n    \"monoprix_secondary_keywords\": []\n  },\n  \"store\": \"intermarche\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CnoH3d2q2htD90sjgUpedigCSBVws\", \"object\": \"chat.completion\", \"created\": 1765987361, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Perrier Eau Gazeuse 6x1L\\\",\\n    \\\"fallback_specific\\\": \\\"Perrier 6x1L\\\",\\n    \\\"fallback_broad\\\": \\\"Perrier Eau Minérale\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1374, \"completion_tokens\": 50, \"total_tokens\": 1424, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e413f45763\"}"
+}

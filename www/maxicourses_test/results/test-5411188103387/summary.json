@@ -436,28 +436,41 @@
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-23T17:51:05.189018+01:00",
-      "duration_seconds": 0.984521,
+      "updated_at": "2025-12-12T11:25:11.189632+01:00",
+      "duration_seconds": 0.495825,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "ERROR",
+        "status": "OK",
         "payload": {
-          "status": "ERROR",
-          "price": null,
-          "title": null,
-          "url": null,
-          "note": "Requête échouée: HTTPSConnectionPool(host='www.g20-minute.com', port=443): Max retries exceeded with url: /search/5411188103387 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x106affdc0>, 'Connection to www.g20-minute.com timed out. (connect timeout=5)'))",
-          "unit_price": null,
-          "quantity": null,
-          "matched_ean": null,
-          "image": null,
+          "status": "OK",
+          "price": "2,09",
+          "title": "ALPRO SOJA VANILLE 500 G X 1",
+          "url": "https://www.g20-minute.com/products/5411188103387/alpro-soja-vanille-500-g-x-1-5411188103387",
+          "note": "G20 Minute",
+          "unit_price": "4,18 €/Kg",
+          "quantity": "500g",
+          "matched_ean": "5411188103387",
+          "image": "https://www.g20-minute.com/media/cache/product_box_image/a9/5c/dd21e655fc146ab275647b51679b.jpg",
           "_meta": {
             "supports_ean": true
+          },
+          "product": {
+            "title": "ALPRO SOJA VANILLE 500 G X 1",
+            "brand": "ALPRO",
+            "kind": "",
+            "qty": "500g",
+            "qualifiers": [],
+            "ean": "5411188103387",
+            "image_url": "https://www.g20-minute.com/media/cache/product_box_image/a9/5c/dd21e655fc146ab275647b51679b.jpg",
+            "source": "g20",
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
           }
         },
-        "updated_at": "2025-11-23T17:24:14.972573+01:00",
-        "error": "exit_code=1",
+        "updated_at": "2025-11-23T17:51:05.189018+01:00",
+        "error": null,
         "store_query": null
       }
     },
@@ -1081,13 +1094,13 @@
     },
     "_finder": {
       "consolidated": {
-        "title": "Dessert végétal soja vanille ALPRO",
-        "brand": "Dessert",
+        "title": "ALPRO SOJA VANILLE 500 G X 1",
+        "brand": "ALPRO",
         "kind": "",
-        "qty": "500 G",
+        "qty": "500g",
         "qualifiers": [],
         "ean": "5411188103387",
-        "image_url": "https://media.carrefour.fr/media/referential/media/6a0107c75e5f467487579e47ac194cb6/05411188103387_H1N1 _s42.png",
+        "image_url": "https://www.g20-minute.com/media/cache/product_box_image/a9/5c/dd21e655fc146ab275647b51679b.jpg",
         "source": "consolidated",
         "raw_text": "Dessert végétal soja vanille ALPRO - 500g",
         "seed_query": "",

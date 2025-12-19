@@ -1,0 +1,98 @@
+{
+  "ean": "5411188118961",
+  "image_path": null,
+  "started_at": "2025-12-08T10:40:36.753566+01:00",
+  "finished_at": "2025-12-08T10:40:56.846605+01:00",
+  "duration_seconds": 20.093039,
+  "reference": {
+    "title": "Dessert végétal soja nature à l'amande ALPRO - 500g",
+    "description": "Dessert végétal soja nature à l'amande ALPRO - 500g",
+    "source": "auchan",
+    "brand": "Alpro",
+    "quantity": "500  g",
+    "categories": "Pflanzliche Lebensmittel und Getränke, Fermentierte Lebensmittel, en:Dairy substitutes, Desserts, en:Vegan products, Milchfreie Nachtische, Fermentierte Lebensmittel ohne Milch, Pflanzenbasierte Joghurts, Sojajoghurt, Einfacher Soja-Joghurt",
+    "image": "./assets/5411188118961.jpg",
+    "nutriscore_grade": "a",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-a.svg",
+    "ecoscore_grade": "a",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg",
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251208-104036"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,30",
+        "unit_price": "4,60 € / KG",
+        "quantity": "500 G",
+        "title": "Dessert végétal nature au soja & amande",
+        "url": "https://www.auchan.fr/alpro-dessert-vegetal-nature-au-soja-amande/pr-C1170063",
+        "matched_ean": "5411188118961",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/P0200000000059YPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Dessert végétal nature au soja & amande",
+          "brand": "Dessert",
+          "kind": "",
+          "qty": "500 G",
+          "qualifiers": [],
+          "ean": "5411188118961",
+          "image_url": "https://cdn.auchan.fr/media/P0200000000059YPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-08T10:40:36.754540+01:00",
+      "finished_at": "2025-12-08T10:40:55.992400+01:00",
+      "duration_seconds": 19.23786,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "5411188118961",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Page already on Auchan, checking if reload needed.\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Found cookie button with text: Accepter et fermer\n[auchan] CONSOLE: data =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: initData =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://ars-privacy.my.onetrust.com/request/v1/consentreceipts net::ERR_NAME_NOT_RESOLVED\n[auchan] CONSOLE: Failed to load resource: net::ERR_NAME_NOT_RESOLVED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ✅ Toast 'C'est noté' APPEARED.\n[auchan] Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ✅ Toast DISAPPEARED. Proceeding to search.\n[auchan] CONSOLE: data =  {event_type: SEARCH, item_ids: Array(1), description: SRP, search_string:  5411188118961, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7}\n[auchan] CONSOLE: initData =  {event_type: SEARCH, item_ids: Array(1), description: SRP, search_string:  5411188118961, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7}\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: data =  {event_type: VIEW_CONTENT, item_ids: Array(1), description: PLP, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, item_category: }\n[auchan] CONSOLE: initData =  {event_type: VIEW_CONTENT, item_ids: Array(1), description: PLP, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, item_category: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: Firing Pinterest event: search\n[auchan] CONSOLE: Event Data:{\"np\":\"gtm\",\"gtm_version\":\"legacy\",\"search_query\":\" 5411188118961\"}\n[auchan] CONSOLE: Firing Pinterest event: viewcategory\n[auchan] CONSOLE: Event Data:{\"line_items\":{\"product_category\":\"\"},\"np\":\"gtm\",\"gtm_version\":\"legacy\"}\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=802519690.1765186851&dt=Votre%20recherche%205411188118961%20sur%20Auchan.fr&auid=830045910.1765186839&navt=n&npa=0&ep.ads_data_redaction=0&gtm=45He5c31v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528501~104684208~104684211~105391252~115583767~115938466~115938469~116184927~116184929~116217636~116217638~116682875&apve=1&apvf=f&apvc=1&tft=1765186850943&tfd=865 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=view_item_list&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=802519690.1765186851&dt=Votre%20recherche%205411188118961%20sur%20Auchan.fr&auid=830045910.1765186839&navt=n&npa=0&uid=undefined&_tu=CA&gtm=45be5c31v9115476006z8810240695za200zb810240695zd810240695xea&gcs=G111&gcd=13r3rPr2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528501~104684208~104684211~105391253~115583767~115938466~115938468~116184927~116184929~116217636~116217638~116251935~116251937~116682875&apve=1&apvf=f&apvc=0&tids=AW-997317827&tid=AW-997317827&tft=1765186850963&tfd=886 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=802519690.1765186851&dt=Votre%20recherche%205411188118961%20sur%20Auchan.fr&auid=830045910.1765186839&navt=n&npa=0&uid=undefined&_tu=CA&gtm=45be5c31v9115476006z8810240695za200zb810240695zd810240695xea&gcs=G111&gcd=13r3rPr2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528501~104684208~104684211~105391253~115583767~115938466~115938468~116184927~116184929~116217636~116217638~116251935~116251937~116682875&apve=1&apvf=f&apvc=0&tids=AW-997317827&tid=AW-997317827&tft=1765186850964&tfd=886 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=view_search_results&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=802519690.1765186851&dt=Votre%20recherche%205411188118961%20sur%20Auchan.fr&auid=830045910.1765186839&navt=n&npa=0&uid=undefined&_tu=CA&gtm=45be5c31v9115476006z8810240695za200zb810240695zd810240695xea&gcs=G111&gcd=13r3rPr2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528501~104684208~104684211~105391253~115583767~115938466~115938468~116184927~116184929~116217636~116217638~116251935~116251937~116682875&apve=1&apvf=f&apvc=0&tids=AW-997317827&tid=AW-997317827&tft=1765186850964&tfd=886 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=802519690.1765186851&dt=Votre%20recherche%205411188118961%20sur%20Auchan.fr&auid=830045910.1765186839&navt=n&npa=0&ep.u1=product_list&ep.u2=SEARCH&ep.u3=undefined&ep.u4=undefined&ep.u5=undefined&ep.u15=%2Frecherche&gtm=45fe5c31v9206597865z8810240695za200zb810240695zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528501~104684208~104684211~105391253~115583767~115938466~115938468~116184927~116184929~116217636~116217638~116682875&apve=1&apvf=f&apvc=0&tids=DC-15217296&tid=DC-15217296&tft=1765186850991&tfd=914 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=conversion&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=802519690.1765186851&dt=Votre%20recherche%205411188118961%20sur%20Auchan.fr&auid=830045910.1765186839&navt=n&npa=0&epn.value=0&_tu=CA&gtm=45be5c31v9167950749z8810240695za200zb810240695zd810240695xea&gcs=G111&gcd=13r3rPr2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528500~104684208~104684211~105391252~115583767~115938466~115938469~116184927~116184929~116217636~116217638~116251935~116251937~116682875&apve=1&apvf=f&apvc=0&tids=AW-11360339372&tid=AW-11360339372&tft=1765186850978&tfd=901 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] results visible, extracting price from search results\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Attempting to reveal price (clicking 'Afficher le prix')...\n[auchan] CONSOLE: data =  {event_type: VIEW_CONTENT, price: 2.3, item_ids: Array(1), description: PDP, currency: EUR}\n[auchan] CONSOLE: initData =  {event_type: VIEW_CONTENT, price: 2.3, item_ids: Array(1), description: PDP, currency: EUR}\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: Firing Pinterest event: pagevisit\n[auchan] CONSOLE: Event Data:{\"pageTitle\":\"ALPRO Dessert végétal nature au soja & amande 500g pas cher - Auchan.fr\",\"pageUrl\":\"https://www.auchan.fr/alpro-dessert-vegetal-nature-au-soja-amande/pr-C1170063\",\"np\":\"gtm\",\"gtm_version\":\"legacy\",\"line_items\":[{\"product_id\":\"0d5c05af-a07e-4fb7-a78d-6c2b5b783c52\",\"product_category\":\"Produits laitiers  oeufs  fromages > Yaourts  desserts > Desserts soja  végétal > Desserts végétaux soja\"}]}\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] Price revealed!\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Falpro-dessert-vegetal-nature-au-soja-amande%2Fpr-C1170063&scrsrc=www.googletagmanager.com&rnd=655020987.1765186854&dt=ALPRO%20Dessert%20v%C3%A9g%C3%A9tal%20nature%20au%20soja%20%26%20amande%20500g%20pas%20cher%20-%20Auchan.fr&auid=830045910.1765186839&navt=n&npa=0&gtm=45He5c31v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527907~104528501~104684208~104684211~105391253~115583767~115938465~115938468~116184927~116184929~116217636~116217638~116514483~116518834&tft=1765186853789&tfd=1818&apve=1&apvf=f net::ERR_ABORTED\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Attempt 1: price_text='2,30€' value='2.30'",
+      "metadata": {
+        "attempt_query": "5411188118961"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Dessert végétal nature au soja & amande",
+      "brand": "Dessert",
+      "kind": "",
+      "qty": "500 G",
+      "qualifiers": [],
+      "ean": "5411188118961",
+      "image_url": "https://cdn.auchan.fr/media/P0200000000059YPRIMARY_1200x1200/B2CD/",
+      "source": "consolidated",
+      "raw_text": "Dessert végétal soja nature à l'amande ALPRO - 500g",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

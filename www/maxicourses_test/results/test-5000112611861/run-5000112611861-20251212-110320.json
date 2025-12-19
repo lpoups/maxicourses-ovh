@@ -1,0 +1,77 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-12-12T11:01:12.272873+01:00",
+  "finished_at": "2025-12-12T11:03:20.846840+01:00",
+  "duration_seconds": 128.573967,
+  "reference": {
+    "title": "Soda COCA-COLA Original - Bouteille 1,75L - Super U, Hyper U, U Express - www.coursesu.com",
+    "description": null,
+    "source": "seed_catalog",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": "Beverages,Carbonated drinks,Sodas,Colas",
+    "image": "./assets/5000112611861.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251212-110112"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "INFO:ProductRepository:Connected to MongoDB [maxicourses]",
+        "last_line": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-12T11:01:12.276239+01:00",
+      "finished_at": "2025-12-12T11:01:43.205693+01:00",
+      "duration_seconds": 30.929454,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "QUERY": "5000112611861",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "stderr": "[COURSEU_DEBUG] Starting context with PROXY=None\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py\", line 884, in <module>\n    result = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py\", line 871, in run\n    result = await _collect_once(initial_cdp)\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py\", line 772, in _collect_once\n    p, browser, context, page = await engine.make_context(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/pipeline/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: BrowserType.connect_over_cdp: Timeout 30000ms exceeded.\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9223\n  - <ws connecting> ws://127.0.0.1:9223/devtools/browser/b38df35c-176d-4a86-993f-a1be6c3fb603\n  - <ws connected> ws://127.0.0.1:9223/devtools/browser/b38df35c-176d-4a86-993f-a1be6c3fb603",
+      "metadata": {
+        "attempt_query": "5000112611861",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda COCA-COLA Original - Bouteille 1,75L - Super U, Hyper U, U Express - www.coursesu.com",
+      "brand": "Cola",
+      "kind": "",
+      "qty": "1,75 L",
+      "qualifiers": [],
+      "ean": "5000112611861",
+      "image_url": "./assets/5000112611861.jpg",
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

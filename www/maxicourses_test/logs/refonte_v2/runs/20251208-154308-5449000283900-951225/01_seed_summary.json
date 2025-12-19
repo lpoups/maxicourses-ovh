@@ -1,0 +1,71 @@
+{
+  "timestamp": "2025-12-08T15:43:08.167106+01:00",
+  "status": "ok",
+  "data": {
+    "profile": {
+      "title": "Soda COCA-COLA Original - Pack Canettes 6x33cl",
+      "price": "4,18",
+      "unit_price": "2,04 € / KG",
+      "quantity": "2,052 kg",
+      "store": "Super U Eysines",
+      "nutriscore_grade": "c",
+      "image": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw07ab2a45/5449000283900_H1L1_2429052_S10.png?sw=388&sh=388&sm=fit",
+      "url": "https://www.coursesu.com/p/soda-coca-cola-original---pack-canettes-6x33cl/2429052.html",
+      "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Sodas, Sodas au cola, Boissons avec sucre ajouté"
+    },
+    "keywords": [
+      "Coca Cola Original 6x33cl",
+      "Soda COCA-COLA 6x33cl",
+      "Cola Soda Pack 6x33cl",
+      "Boisson gazeuse Coca 6x33cl",
+      "Soda au cola 6x33cl",
+      "Coca Cola canettes 6x33cl",
+      "Soda sucré Coca 6x33cl",
+      "Coca Cola pack 6x33cl"
+    ],
+    "primary_keywords": [
+      "Cola Cola 2,052KG Cola coca Co",
+      "Cola Coca Original 6x33cl",
+      "Cola Soda COCA-COLA 6x33cl",
+      "Cola Soda 6x33cl",
+      "Cola Boisson gazeuse Coca 6x33"
+    ],
+    "secondary_keywords": [
+      "cola",
+      "coca",
+      "original",
+      "6x33cl",
+      "canettes",
+      "2,052kg",
+      "2,052",
+      "2.052"
+    ],
+    "category": "generic",
+    "raw": {
+      "profile": {
+        "title": "Soda COCA-COLA Original - Pack Canettes 6x33cl",
+        "price": "4,18",
+        "unit_price": "2,04 € / KG",
+        "quantity": "2,052 kg",
+        "store": "Super U Eysines",
+        "nutriscore_grade": "c",
+        "image": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw07ab2a45/5449000283900_H1L1_2429052_S10.png?sw=388&sh=388&sm=fit",
+        "url": "https://www.coursesu.com/p/soda-coca-cola-original---pack-canettes-6x33cl/2429052.html",
+        "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Sodas, Sodas au cola, Boissons avec sucre ajouté"
+      },
+      "keywords": [
+        "Coca Cola Original 6x33cl",
+        "Soda COCA-COLA 6x33cl",
+        "Cola Soda Pack 6x33cl",
+        "Boisson gazeuse Coca 6x33cl",
+        "Soda au cola 6x33cl",
+        "Coca Cola canettes 6x33cl",
+        "Soda sucré Coca 6x33cl",
+        "Coca Cola pack 6x33cl"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"seeds\": [\n    {\n      \"adapter\": \"courseu\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"4,18\",\n        \"unit_price\": \"2,04 € / KG\",\n        \"quantity\": \"2,052 kg\",\n        \"title\": \"Soda COCA-COLA Original - Pack Canettes 6x33cl\",\n        \"url\": \"https://www.coursesu.com/p/soda-coca-cola-original---pack-canettes-6x33cl/24290 52.html\",\n        \"note\": \"2025-12-08T14:43:02Z · Super U Eysines\",\n        \"store\": \"Super U  Eysines\",\n        \"matched_ean\": \"5449000283900\",\n        \"nutriscore_grade\": \"c\",\n        \"nutriscore_image\": \"https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png\",\n        \"image\": \"https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digi talu-master-catalog/default/dw07ab2a45/5449000283900_H1L1_2429052_S10.png?sw=388 &sh=388&sm=fit\",\n        \"_meta\": {\n          \"supports_keywords\": true\n        },\n        \"candidates\": []\n      },\n      \"metadata\": {\n        \"attempt_query\": \"Coca Cola Original 6x33cl\"\n      }\n    }\n  ],\n  \"context\": {\n    \"descriptor\": {\n      \"ean\": \"5449000283900\",\n      \"brand\": \"Cola\",\n      \"leclerc_queries\": [\n        \"Cola Soda 6 CL\",\n        \"Cola Soda COCA 6 CL\",\n        \"Cola 6 CL\",\n        \"Soda COCA 6 CL\"\n      ],\n      \"leclerc_query\": \"Cola Soda 6 CL\",\n      \"name\": \"Soda COCA-COLA Original - 6x33cl\",\n      \"primary_keywords\": [\n        \"Coca Cola 6x33cl\"\n      ],\n      \"quantity\": \"6x33 cl\",\n      \"seed_primary_name\": \"Soda COCA-COLA Original\",\n      \"seed_primary_quantity\": \"6x33 cl\",\n      \"seed_query\": \"Cola Soda COCA Original 6x33cl Pack Canettes 6x33\",\n      \"source\": \"courseu\",\n      \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-08T14:41:49Z\",\n      \"removed\": false,\n      \"categories\": \"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Sodas, Sodas au cola, Boissons avec sucre ajouté\",\n      \"nutriscore_grade\": \"c\",\n      \"nutriscore_image\": \"https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png\",\n      \"ecoscore_grade\": \"not-applicable\",\n      \"courseu_url\": \"https://www.coursesu.com/p/soda-coca-cola-original---pack-canettes-6x33cl/24290 52.html\",\n      \"image\": \"https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digi talu-master-catalog/default/dw07ab2a45/5449000283900_H1L1_2429052_S10.png?sw=388 &sh=388&sm=fit\",\n      \"description\": \"Soda COCA-COLA Original - Pack Canettes 6x33cl\"\n    },\n    \"ean\": \"5449000283900\"\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkWk2PF4Aff6yrC2HezTLDv0NhrCF\", \"object\": \"chat.completion\", \"created\": 1765204982, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"profile\\\": {\\n    \\\"title\\\": \\\"Soda COCA-COLA Original - Pack Canettes 6x33cl\\\",\\n    \\\"price\\\": \\\"4,18\\\",\\n    \\\"unit_price\\\": \\\"2,04 € / KG\\\",\\n    \\\"quantity\\\": \\\"2,052 kg\\\",\\n    \\\"store\\\": \\\"Super U Eysines\\\",\\n    \\\"nutriscore_grade\\\": \\\"c\\\",\\n    \\\"image\\\": \\\"https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw07ab2a45/5449000283900_H1L1_2429052_S10.png?sw=388&sh=388&sm=fit\\\",\\n    \\\"url\\\": \\\"https://www.coursesu.com/p/soda-coca-cola-original---pack-canettes-6x33cl/2429052.html\\\",\\n    \\\"categories\\\": \\\"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Sodas, Sodas au cola, Boissons avec sucre ajouté\\\"\\n  },\\n  \\\"keywords\\\": [\\n    \\\"Coca Cola Original 6x33cl\\\",\\n    \\\"Soda COCA-COLA 6x33cl\\\",\\n    \\\"Cola Soda Pack 6x33cl\\\",\\n    \\\"Boisson gazeuse Coca 6x33cl\\\",\\n    \\\"Soda au cola 6x33cl\\\",\\n    \\\"Coca Cola canettes 6x33cl\\\",\\n    \\\"Soda sucré Coca 6x33cl\\\",\\n    \\\"Coca Cola pack 6x33cl\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 931, \"completion_tokens\": 337, \"total_tokens\": 1268, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_a4d13246c5\"}"
+}

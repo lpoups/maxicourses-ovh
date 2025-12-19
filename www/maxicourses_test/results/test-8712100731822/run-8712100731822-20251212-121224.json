@@ -1,0 +1,101 @@
+{
+  "ean": "8712100731822",
+  "image_path": null,
+  "started_at": "2025-12-12T12:12:11.111801+01:00",
+  "finished_at": "2025-12-12T12:12:24.304822+01:00",
+  "duration_seconds": 13.193021,
+  "reference": {
+    "title": "Moutarde savora N°4 AMORA, bocal de 385g",
+    "description": null,
+    "source": "carrefour_market",
+    "brand": "Savora",
+    "quantity": "385  g",
+    "categories": "Condiments, Sauces, Moutardes, en:groceries, Spécialité à la Moutarde",
+    "image": "./assets/8712100731822.png",
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-d.svg",
+    "ecoscore_grade": "b",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
+    "nova_group": "3"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251212-121211"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "MATCHED",
+      "payload": {
+        "status": "MATCHED",
+        "price": "2,32",
+        "unit_price": "6,03 € / KG",
+        "quantity": "385 g",
+        "title": "Moutarde savora N°4 AMORA, bocal de 385g",
+        "url": "https://www.coursesu.com/p/moutarde-savora-n4-amora-bocal-de-385g/7591393.html",
+        "note": "2025-12-12T11:12:17Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "8712100731822",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "image": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw32867e5e/8712100731822_H1N1_7591393_S10.png?sw=388&sh=388&sm=fit",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Moutarde savora N°4 AMORA, bocal de 385g",
+          "brand": "Moutarde",
+          "kind": "",
+          "qty": "385 g",
+          "qualifiers": [],
+          "ean": "8712100731822",
+          "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw32867e5e/8712100731822_H1N1_7591393_S10.png?sw=388&sh=388&sm=fit",
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-12T12:12:11.114865+01:00",
+      "finished_at": "2025-12-12T12:12:17.587675+01:00",
+      "duration_seconds": 6.47281,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "8712100731822",
+        "QUERY": "8712100731822",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[COURSEU_DEBUG] Starting context with PROXY=None\n[COURSEU_DEBUG] Navigating to https://www.coursesu.com/p/moutarde-savora-n4-amora-bocal-de-385g/7591393.html\n[COURSEU_DEBUG] Keeping page OPEN for inspection (Visual Mode)",
+      "metadata": {
+        "attempt_query": "8712100731822",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Moutarde savora N°4 AMORA, bocal de 385g",
+      "brand": "Savora",
+      "kind": "",
+      "qty": "385 g",
+      "qualifiers": [],
+      "ean": "8712100731822",
+      "image_url": "./assets/8712100731822.png",
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

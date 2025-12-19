@@ -1,0 +1,44 @@
+{
+  "timestamp": "2025-12-08T17:15:11.023260+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Raid Raid 400ML Raid insectici",
+      "Raid Insecticide 400ml",
+      "Raid Spray Multi-Insectes",
+      "Raid Max Insecticide 400ml",
+      "Raid Multi-Insectes 400ml"
+    ],
+    "secondary_keywords": [
+      "raid",
+      "insecticide",
+      "spray",
+      "multi",
+      "insectes",
+      "action",
+      "max",
+      "entrée",
+      "générée",
+      "automatiquement",
+      "descriptif",
+      "requis",
+      "400ml",
+      "400",
+      "0.4",
+      "0.4l"
+    ],
+    "category": "generic",
+    "raw": {
+      "queries": [
+        "Raid Insecticide 400ml",
+        "Raid Spray Multi-Insectes",
+        "Raid Max Insecticide 400ml",
+        "Raid Multi-Insectes 400ml",
+        "Raid Anti-Insectes 400ml"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"ean\": \"5000204343120\",\n    \"name\": \"Insecticide Spray Multi-Insectes Action Max RAID\",\n    \"brand\": \"Raid\",\n    \"quantity\": \"400ml\",\n    \"price\": \"6,39\",\n    \"unit_price\": \"15,98 €/L\",\n    \"nutriscore_grade\": \"e\",\n    \"image\": \"https://www.g20-minute.com/media/cache/product_box_image/c4/6a/31af5b7da97d7e041a38a139f516.jpg\",\n    \"stores\": [\n      {\n        \"name\": \"Carrefour Lormont\",\n        \"price\": \"6,55\",\n        \"unit_price\": \"16,38 € / L\",\n        \"url\": \"https://www.carrefour.fr/s?q=5000204343120\"\n      },\n      {\n        \"name\": \"Chronodrive Le Haillan\",\n        \"price\": \"6,49\",\n        \"unit_price\": \"16,23 € / L\",\n        \"url\": \"https://www.chronodrive.com/raid--max---aerosol-anti-multi-insectes-P541564\"\n      },\n      {\n        \"name\": \"G20 Minute\",\n        \"price\": \"6,39\",\n        \"unit_price\": \"15,98 €/L\",\n        \"url\": \"https://www.g20-minute.com/products/5000204343120/raid-max-aerosol-multi-insectes-400ml-5000204343120\"\n      }\n    ]\n  },\n  \"descriptor\": {\n    \"ean\": \"5000204343120\",\n    \"source\": \"carrefour_super\",\n    \"note\": \"json_state_extraction\",\n    \"removed\": false,\n    \"description\": \"Entrée générée automatiquement – descriptif requis.\",\n    \"seed_query\": \"Raid Insecticide Spray Multi Insectes Action Max Entrée\",\n    \"name\": \"Insecticide Spray  Multi-Insectes Action Max RAID\",\n    \"quantity\": \"400  ml\",\n    \"brand\": \"Raid\",\n    \"leclerc_query\": \"Raid Insecticide 400 ML\",\n    \"leclerc_queries\": [\n      \"Raid Insecticide 400 ML\",\n      \"Raid Insecticide Spray 400 ML\",\n      \"Raid 400 ML\",\n      \"Insecticide Spray 400 ML\"\n    ],\n    \"seed_primary_name\": \"Insecticide Spray  Multi-Insectes Action Max RAID\",\n    \"seed_primary_quantity\": \"400mL\",\n    \"nutriscore_grade\": \"e\",\n    \"image\": \"https://www.g20-minute.com/media/cache/product_box_image/c4/6a/31af5b7da97d7e041a38a139f516.jpg\",\n    \"ai_profile\": {\n      \"ean\": \"5000204343120\",\n      \"name\": \"Insecticide Spray Multi-Insectes Action Max RAID\",\n      \"brand\": \"Raid\",\n      \"quantity\": \"400ml\",\n      \"price\": \"6,39\",\n      \"unit_price\": \"15,98 €/L\",\n      \"nutriscore_grade\": \"e\",\n      \"image\": \"https://www.g20-minute.com/media/cache/product_box_image/c4/6a/31af5b7da97d7e041a38a139f516.jpg\",\n      \"stores\": [\n        {\n          \"name\": \"Carrefour Lormont\",\n          \"price\": \"6,55\",\n          \"unit_price\": \"16,38 € / L\",\n          \"url\": \"https://www.carrefour.fr/s?q=5000204343120\"\n        },\n        {\n          \"name\": \"Chronodrive Le Haillan\",\n          \"price\": \"6,49\",\n          \"unit_price\": \"16,23 € / L\",\n          \"url\": \"https://www.chronodrive.com/raid--max---aerosol-anti-multi-insectes-P541564\"\n        },\n        {\n          \"name\": \"G20 Minute\",\n          \"price\": \"6,39\",\n          \"unit_price\": \"15,98 €/L\",\n          \"url\": \"https://www.g20-minute.com/products/5000204343120/raid-max-aerosol-multi-insectes-400ml-5000204343120\"\n        }\n      ]\n    },\n    \"ai_keywords\": [\n      \"Raid Insecticide Spray 400ml\",\n      \"RAID Max Multi-Insectes 400ml\",\n      \"Insecticide RAID 400ml\",\n      \"RAID Aérosol Multi-Insectes\",\n      \"RAID Anti-Insectes 400ml\",\n      \"RAID Max Insecticide Spray\",\n      \"RAID Multi-Insectes Spray\",\n      \"RAID 400ml Insecticide\"\n    ],\n    \"primary_keywords\": [\n      \"Raid Raid 400ML Raid insectici\",\n      \"Raid Insecticide Spray 400ml\",\n      \"Raid Max Multi-Insectes 400ml\",\n      \"Raid Insecticide 400ml\",\n      \"Raid Aérosol Multi-Insectes\"\n    ],\n    \"secondary_keywords\": [\n      \"raid\",\n      \"insecticide\",\n      \"spray\",\n      \"multi\",\n      \"insectes\",\n      \"action\",\n      \"max\",\n      \"entrée\",\n      \"générée\",\n      \"automatiquement\",\n      \"descriptif\",\n      \"requis\",\n      \"400ml\",\n      \"400\",\n      \"0.4\",\n      \"0.4l\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-08T17:15:07.295822+01:00\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkYB9wTPtjQw1DslHpDd2XnMp0k6D\", \"object\": \"chat.completion\", \"created\": 1765210507, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"queries\\\": [\\n    \\\"Raid Insecticide 400ml\\\",\\n    \\\"Raid Spray Multi-Insectes\\\",\\n    \\\"Raid Max Insecticide 400ml\\\",\\n    \\\"Raid Multi-Insectes 400ml\\\",\\n    \\\"Raid Anti-Insectes 400ml\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1389, \"completion_tokens\": 61, \"total_tokens\": 1450, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e5bb698939\"}"
+}

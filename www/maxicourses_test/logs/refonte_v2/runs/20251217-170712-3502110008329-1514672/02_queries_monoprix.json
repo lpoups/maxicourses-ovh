@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-12-17T17:07:16.101073+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Pepsi Soda Cola",
+      "pepsi soda cola 1,5l",
+      "pepsi cola soda 1,5l",
+      "pepsi boissons gazeuses"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "pepsi soda cola 1,5l",
+      "fallback_specific": "pepsi cola soda 1,5l",
+      "fallback_broad": "pepsi boissons gazeuses"
+    },
+    "raw": {
+      "golden": "pepsi soda cola 1,5l",
+      "fallback_specific": "pepsi cola soda 1,5l",
+      "fallback_broad": "pepsi boissons gazeuses"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"brand\": \"Pepsi\",\n    \"name\": \"Soda au Cola\",\n    \"quantity\": \"1,5L\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3502110008329\",\n    \"_id\": \"6942d27ef55566d88df50172\",\n    \"created_at\": \"2025-12-17T15:55:42.763000\",\n    \"stores\": {\n      \"carrefour_market\": {\n        \"url\": \"https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329\"\n      },\n      \"chronodrive\": {\n        \"url\": \"https://www.chronodrive.com/pepsi--boisson-gazeuse-aux-extraits-vegetaux-P16714\"\n      },\n      \"courseu\": {\n        \"url\": \"https://www.coursesu.com/p/soda-regular-pepsi-15l/987379.html\"\n      },\n      \"g20\": {\n        \"url\": \"https://www.g20-minute.com/products/3502110008329/pepsi-1-5-l-3502110008329\"\n      },\n      \"casino\": {\n        \"url\": \"https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-casino-shop-33130/TZ193/274462\"\n      },\n      \"spar\": {\n        \"url\": \"https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462\"\n      },\n      \"leclerc\": {\n        \"url\": \"https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx\"\n      },\n      \"intermarche\": {\n        \"url\": \"https://www.intermarche.com/produit/soda-saveur-cola/3502110008329\"\n      }\n    },\n    \"updated_at\": \"2025-12-17T15:55:42.763000\",\n    \"source\": \"carrefour_super\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-17T16:06:41Z\",\n    \"brand\": \"Pepsi\",\n    \"name\": \"Pepsi 1,5L\",\n    \"quantity\": \"1500 ml\",\n    \"categories\": \"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté\",\n    \"nutriscore_grade\": \"d\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"not-applicable\",\n    \"nova_group\": \"4\",\n    \"removed\": false,\n    \"seed_query\": \"Pepsi Soda Cola 1500 ml\",\n    \"image\": \"https://media.carrefour.fr/media/referential/media/a4d672e7484749aaaf3f77fd9a53 5ac8/03502110009357_H1N1_s05.jpeg\",\n    \"description\": \"Soda au Cola PEPSI\",\n    \"leclerc_query\": \"Pepsi Soda Cola 1.5L\",\n    \"leclerc_queries\": [\n      \"Pepsi Soda Cola 1.5L\",\n      \"Pepsi Soda 1.5L\",\n      \"Pepsi Boissons gazeuses\",\n      \"Pepsi Soda Cola\"\n    ],\n    \"seed_primary_name\": \"Soda au Cola PEPSI\",\n    \"seed_primary_quantity\": \"1,5L\",\n    \"ai_profile\": {\n      \"brand\": \"Pepsi\",\n      \"name\": \"Soda au Cola\",\n      \"quantity\": \"1,5L\"\n    },\n    \"ai_keywords\": [\n      \"Pepsi Soda au Cola 1.5L\",\n      \"Pepsi Soda 1.5L\",\n      \"Pepsi Cola 1.5L\"\n    ],\n    \"primary_keywords\": [\n      \"Pepsi Soda Cola\",\n      \"Pepsi Soda au Cola 1.5L\",\n      \"Pepsi Soda 1.5L\",\n      \"Pepsi Cola 1.5L\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-17T17:07:12.570692+01:00\",\n    \"leclerc_ai_queries\": [\n      \"Pepsi Soda Cola 1.5L\",\n      \"Pepsi Soda 1.5L\",\n      \"Pepsi Boissons gazeuses\",\n      \"Pepsi Soda Cola\"\n    ],\n    \"leclerc_secondary_keywords\": []\n  },\n  \"store\": \"monoprix\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CnoLS6XNEh1qbYaOcxhxkoiuM9AtL\", \"object\": \"chat.completion\", \"created\": 1765987634, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"pepsi soda cola 1,5l\\\",\\n    \\\"fallback_specific\\\": \\\"pepsi cola soda 1,5l\\\",\\n    \\\"fallback_broad\\\": \\\"pepsi boissons gazeuses\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1378, \"completion_tokens\": 47, \"total_tokens\": 1425, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_deacdd5f6f\"}"
+}

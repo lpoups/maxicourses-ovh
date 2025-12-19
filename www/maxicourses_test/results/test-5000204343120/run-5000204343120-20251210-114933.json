@@ -1,0 +1,98 @@
+{
+  "ean": "5000204343120",
+  "image_path": null,
+  "started_at": "2025-12-10T11:49:08.917683+01:00",
+  "finished_at": "2025-12-10T11:49:33.834897+01:00",
+  "duration_seconds": 24.917214,
+  "reference": {
+    "title": "",
+    "description": "Entrée générée automatiquement – descriptif requis.",
+    "source": "manual",
+    "brand": "Raid",
+    "quantity": "400 ml",
+    "categories": "",
+    "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/79883652-540c-4467-9304-44583163359d/300x300.jpg",
+    "nutriscore_grade": null,
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251210-114908"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "search_failed:5000204343120",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-10T11:49:09.970348+01:00",
+      "finished_at": "2025-12-10T11:49:32.510578+01:00",
+      "duration_seconds": 22.54023,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Page already on Auchan, checking if reload needed.\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] REQ_FAILED: https://c.contentsquare.net/v2/events?uu=98649f81-a36f-a578-adcf-577dc7d92dae&sn=1&hd=1765363604&v=15.158.2&pid=1613&pn=3&str=128&di=788&dc=975&fl=979&sr=19&mdh=6382&hlm=true&ct=0 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://bat.bing.com/actionp/0?ti=4065085&tm=gtm002&Ver=2&mid=9157b5b1-7d79-4db6-b4e3-218906c0d169&bo=10&sid=5a53daa0d36311f0b3404f6b71604f59&vid=8edb30e09e1111f085263b1c9ff63dc0&vids=0&msclkid=N&evt=pageHide&asc=G net::ERR_ABORTED\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] Found cookie button with text: Accepter et fermer\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] CONSOLE: data =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: initData =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://ars-privacy.my.onetrust.com/request/v1/consentreceipts net::ERR_NAME_NOT_RESOLVED\n[auchan] CONSOLE: Failed to load resource: net::ERR_NAME_NOT_RESOLVED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dl=https%3A%2F%2Fwww.auchan.fr%2Fmagasins%2Fdrive%2Fauchan-drive-supermarche-talence-gallieni%2Fs-6117&scrsrc=www.googletagmanager.com&rnd=1838593621.1765363753&dt=Auchan%20Drive%20Supermarch%C3%A9%20Talence-Gallieni.%20Horaires%2C%20adresse%2C%20livraison%20courses%20%C3%A0%20domicile&auid=419733477.1765363753&navt=n&npa=0&gtm=45He5c90v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528501~104684208~104684211~105391252~115583767~115938466~115938469~116184927~116184929~116217636~116217638~116251938~116251940&tft=1765363752642&tfd=1041&apve=1&apvf=f net::ERR_ABORTED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ✅ Toast 'C'est noté' APPEARED.\n[auchan] Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ✅ Toast DISAPPEARED. Proceeding to search.\n[auchan] REQ_FAILED: https://data.debugbear.com/ net::ERR_ABORTED\n[auchan] REQ_FAILED: https://bat.bing.com/actionp/0?ti=4020690&tm=gtm002&Ver=2&mid=74a89ea9-0b2d-471b-88b7-e3ac05ec49a5&bo=10&sid=5a53daa0d36311f0b3404f6b71604f59&vid=8edb30e09e1111f085263b1c9ff63dc0&vids=0&msclkid=N&evt=pageHide&asc=G net::ERR_ABORTED\n[auchan] REQ_FAILED: https://analytics.tiktok.com/api/v2/pixel/inter net::ERR_ABORTED\n[auchan] REQ_FAILED: https://c.contentsquare.net/v2/events?uu=19ca0282-a36f-a095-8d31-24514f427f86&sn=1&hd=1765363752&v=15.158.2&pid=1613&pn=1&str=154&di=318&dc=657&fl=657&sr=35&mdh=3476&hlm=true&ct=0 net::ERR_ABORTED\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] CONSOLE: data =  {event_type: SEARCH, item_ids: null, description: SRP, search_string:  5000204343120, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7}\n[auchan] CONSOLE: initData =  {event_type: SEARCH, item_ids: null, description: SRP, search_string:  5000204343120, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7}\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: data =  {event_type: VIEW_CONTENT, item_ids: null, description: PLP, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, item_category: }\n[auchan] CONSOLE: initData =  {event_type: VIEW_CONTENT, item_ids: null, description: PLP, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, item_category: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: Firing Pinterest event: search\n[auchan] CONSOLE: Event Data:{\"np\":\"gtm\",\"gtm_version\":\"legacy\",\"search_query\":\" 5000204343120\"}\n[auchan] CONSOLE: Firing Pinterest event: viewcategory\n[auchan] CONSOLE: Event Data:{\"line_items\":{\"product_category\":\"\"},\"np\":\"gtm\",\"gtm_version\":\"legacy\"}\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=702640039.1765363764&dt=Votre%20recherche%205000204343120%20sur%20Auchan.fr&auid=419733477.1765363753&navt=n&npa=0&gtm=45He5c90v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527907~104528501~104684208~104684211~105391253~115583767~115938466~115938469~116184927~116184929~116217636~116217638~116251938~116251940&tft=1765363764017&tfd=936&apve=1&apvf=f net::ERR_ABORTED\n[auchan] REQ_FAILED: https://connect.facebook.net//log/error?p=pixel&sl=2&v=2.9.245&e=Bot%20detection%20rules%20loaded%20from%20server%20config%20-%20pixel_id%3A%20747149552053540&ue=0&rs=stable&rqm=FGET net::ERR_BLOCKED_BY_ORB\n[auchan] REQ_FAILED: https://www.google.fr/pagead/1p-conversion/11360339372/?random=1323380315&cv=11&fst=1765363764059&bg=ffffff&guid=ON&async=1&en=conversion&gtm=45be5c90v9167950749z8810240695za20gzb810240695zd810240695xea&gcs=G111&gcd=13r3rPr2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527907~104528500~104684208~104684211~105391253~115583767~115616985~115938466~115938469~116184927~116184929~116217636~116217638~116251938~116251940&u_w=2560&u_h=1440&url=https%3A%2F%2Fwww.auchan.fr%2Frecherche%3Ftext%3D5000204343120&ref=https%3A%2F%2Fwww.auchan.fr%2Fmagasins%2Fdrive%2Fauchan-drive-supermarche-talence-gallieni%2Fs-6117&label=23peCJLJluoYEKyLhKkq&capi=1&frm=0&tiba=Votre%20recherche%205000204343120%20sur%20Auchan.fr&value=0&hn=www.googleadservices.com&npa=0&pscdl=noapi&auid=419733477.1765363753&uaa=arm&uab=64&uafvl=Google%2520Chrome%3B143.0.7499.41%7CChromium%3B143.0.7499.41%7CNot%2520A(Brand%3B24.0.0.0&uamb=0&uam=&uap=macOS&uapv=26.2.0&uaw=0&ec_mode=a&_tu=CA&gcl_ctr=2~0&em=tv.1&fmt=8&ct_cookie_present=false&crd=CPLOsQIItN6xAgihuLECCLHBsQIIsMGxAgixw7ECCIrFsQIIwsmxAgi0xrECCJPasQII-9ixAgjb3LECCNnXsQII_tWxAgiH27ECCNPFsQII68yxAgjtzrECCNXPsQII7tCxAgiX1LECCMnbsQIIytmxAgjF3LECSitub3QtZXZlbnQtc291cmNlO25hdmlnYXRpb24tc291cmNlLCB0cmlnZ2VyWgMKAQFiAwoBAw&cerd=CgEA&fsk=ChAIgNHkyQYQ8_eT9ZLwm-50EiwAncidyNeIFaWR4OAY4seewOu83eAdecDVF5Ya1PvwJsPzPYDKbXxsqRusTBoC504&is_vtc=1&cid=CAQSLADCSxrREPFjcrF5R356ngMQJChJVQd0D5bT3AL0s2KClcyS8HDy6WwoKtcD&eitems=ChAIgNHkyQYQq5Gw0o-h3vEPEh0Ak4JrrVpnE1yDK-uI9-R_MPyQfchDBBVt7sByaA&random=3974566043&ipr=y&pscrd=IhMIj7C_wOyykQMVnOMNCR1IeQCuMgwIA2IICAAQABgAIAAyDAgEYggIABAAGAAgADIMCAdiCAgAEAAYACAAMgwICGIICAAQABgAIAAyDAgJYggIABAAGAAgADIMCApiCAgAEAAYACAAMgwIAmIICAAQABgAIAAyDAgLYggIABAAGAAgADIMCBViCAgAEAAYACAAMgwIH2IICAAQABgAIAAyDAgTYggIABAAGAAgADIMCBJiCAgAEAAYACAAOhZodHRwczovL3d3dy5hdWNoYW4uZnIvQlZDaEFJZ05Ia3lRWVF0TXVmNzVQODdQcGRFaXdBX3BZV3VpYVNzR1Zhb1V0Z2FQWUZfbkpoczl1cTZLZTNyV2xmZUZLWUtlNjJkTkZkU09YelMwcnVKd3oMCAliCAgAEAAYACAA net::ERR_ABORTED\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] results not visible\n[auchan] Search typing failed, but fallback (refresh) is DISABLE per user request.",
+      "metadata": {
+        "attempt_query": "5000204343120",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251210-114908/01-auchan"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "",
+      "brand": "Raid",
+      "kind": "",
+      "qty": "400 ml",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "5000204343120",
+      "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/79883652-540c-4467-9304-44583163359d/300x300.jpg",
+      "source": "consolidated",
+      "raw_text": "Entrée générée automatiquement – descriptif requis.",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Raid Insecticide 400ml",
+      "Raid Spray 400ml",
+      "Raid Insecticide",
+      "Entrée générée automatiquement –",
+      "Entrée générée automatiquement",
+      "Raid 400 ML",
+      "Raid 0.40 L",
+      "Raid 0,40 L"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

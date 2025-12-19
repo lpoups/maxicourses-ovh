@@ -13,6 +13,8 @@ from typing import Iterable, List, Optional, Sequence, Union
 import html
 import io
 import os
+import base64
+import sys
 
 try:
     from PIL import Image  # type: ignore
@@ -140,6 +142,25 @@ def _hash_remote(url: str) -> List[int]:
         return []
 
 
+def _hash_base64(data_uri: str) -> List[int]:
+    """Hashes an image provided as a Base64 Data URI."""
+    if Image is None:
+        return []
+    try:
+        # data:image/jpeg;base64,.....
+        if "," in data_uri:
+            header, encoded = data_uri.split(",", 1)
+        else:
+            encoded = data_uri
+            
+        decoded = base64.b64decode(encoded)
+        with Image.open(io.BytesIO(decoded)) as img:
+            return _hash_variants(img)
+    except Exception as e:
+        sys.stderr.write(f"[_hash_base64] Error: {e}\n")
+        return []
+
+
 def hash_reference(ref: Optional[str]) -> Optional[int]:
     """Return the primary perceptual hash for a reference string or None."""
     variants = hash_reference_variants(ref)
@@ -153,6 +174,11 @@ def hash_reference_variants(ref: Optional[str]) -> List[int]:
         return []
     if _is_url(normalized):
         return _hash_remote(normalized)
+    
+    # Support Base64 Data URI from DB
+    if normalized.startswith("data:"):
+        return _hash_base64(normalized)
+
     local_path = _resolve_local_path(normalized)
     if local_path:
         return _hash_local(local_path)

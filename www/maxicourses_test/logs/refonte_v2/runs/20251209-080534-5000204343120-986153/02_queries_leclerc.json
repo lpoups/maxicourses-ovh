@@ -1,0 +1,36 @@
+{
+  "timestamp": "2025-12-09T08:05:34.581546+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Raid Raid 400ML Raid aérosol R",
+      "Raid Aérosol Multi Insectes",
+      "Raid Insectes 400 ml",
+      "Raid Multi Insectes 400 ml",
+      "Raid Aérosol 400 ml"
+    ],
+    "secondary_keywords": [
+      "raid",
+      "aérosol",
+      "multi",
+      "insectes",
+      "400ml",
+      "400",
+      "0.4",
+      "0.4l"
+    ],
+    "category": "generic",
+    "raw": {
+      "queries": [
+        "Raid Aérosol Multi Insectes",
+        "Raid Insectes 400 ml",
+        "Raid Multi Insectes 400 ml",
+        "Raid Aérosol 400 ml",
+        "Raid Insectes"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Raid Aérosol Multi Insectes\",\n    \"brand\": \"Raid\",\n    \"quantity\": \"400 ml\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"brand\": \"Raid\",\n    \"ean\": \"5000204343120\",\n    \"name\": \"Raid Aérosol Multi Insectes\",\n    \"quantity\": \"400 ml\",\n    \"image\": \"https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/79883652-540c-4467-9304-44583163359d/300x300.jpg\",\n    \"source\": \"manual\",\n    \"note\": \"Monoprix AI Test\",\n    \"removed\": false,\n    \"seed_query\": \"Raid Aérosol Multi Insectes 400 ml\",\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-Ckm4rF2n7GZdLOf0PDjYWxsiiJ8zg\", \"object\": \"chat.completion\", \"created\": 1765263933, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"queries\\\": [\\n    \\\"Raid Aérosol Multi Insectes\\\",\\n    \\\"Raid Insectes 400 ml\\\",\\n    \\\"Raid Multi Insectes 400 ml\\\",\\n    \\\"Raid Aérosol 400 ml\\\",\\n    \\\"Raid Insectes\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 386, \"completion_tokens\": 58, \"total_tokens\": 444, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e5bb698939\"}"
+}

@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-12-16T08:11:22.874483+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Finish Capsules Lave",
+      "finish capsules ultimate x42",
+      "finish capsules lave x42",
+      "finish lave-vaisselle"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "finish capsules ultimate x42",
+      "fallback_specific": "finish capsules lave x42",
+      "fallback_broad": "finish lave-vaisselle"
+    },
+    "raw": {
+      "golden": "finish capsules ultimate x42",
+      "fallback_specific": "finish capsules lave x42",
+      "fallback_broad": "finish lave-vaisselle"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"brand\": \"Finish\",\n    \"name\": \"Capsules Lave-vaisselle Ultimate 48h\",\n    \"quantity\": \"x42\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3665468402529\",\n    \"_id\": \"6941057cf55566d88df467d5\",\n    \"created_at\": \"2025-12-16T07:08:44.566000\",\n    \"removed\": true,\n    \"updated_at\": \"2025-12-16T07:08:44.566000\",\n    \"leclerc_query\": \"Finish Capsules Ultimate x42\",\n    \"leclerc_queries\": [\n      \"Finish Capsules Ultimate x42\",\n      \"Finish Capsules Lave x42\",\n      \"Finish Lave-vaisselle\",\n      \"Finish Capsules Lave\"\n    ],\n    \"primary_keywords\": [\n      \"Finish Capsules Lave\",\n      \"Finish Capsules Lave-vaisselle\",\n      \"Finish Tablettes Lave-vaissell\",\n      \"Finish Powerball Ultimate Lave\"\n    ],\n    \"source\": \"carrefour_super\",\n    \"note\": \"Stub incomplet – lancer une collecte seed Carrefour/Auchan pour remplir le descriptif.\",\n    \"description\": \"Entrée générée automatiquement – descriptif requis.\",\n    \"seed_query\": \"Finish Capsules Lave vaisselle Ultimate 48h Entrée générée\",\n    \"name\": \"Capsules  Lave-vaisselle Ultimate 48h FINISH\",\n    \"quantity\": \"x42\",\n    \"brand\": \"Finish\",\n    \"seed_primary_name\": \"Capsules  Lave-vaisselle Ultimate 48h FINISH\",\n    \"seed_primary_quantity\": \"x42\",\n    \"nutriscore_grade\": \"e\",\n    \"ai_profile\": {\n      \"brand\": \"Finish\",\n      \"name\": \"Capsules Lave-vaisselle Ultimate 48h\",\n      \"quantity\": \"x42\"\n    },\n    \"ai_keywords\": [\n      \"Finish Capsules Lave-vaisselle\",\n      \"Finish Tablettes Lave-vaissell\",\n      \"Finish Powerball Ultimate Lave\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-16T08:11:20.232256+01:00\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"leclerc_ai_queries\": [\n      \"Finish Capsules Ultimate x42\",\n      \"Finish Capsules Lave x42\",\n      \"Finish Lave-vaisselle\",\n      \"Finish Capsules Lave\"\n    ],\n    \"leclerc_secondary_keywords\": []\n  },\n  \"store\": \"monoprix\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CnJVJjTaLQfFY82KKdu24VlOrc9PG\", \"object\": \"chat.completion\", \"created\": 1765869081, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"finish capsules ultimate x42\\\",\\n    \\\"fallback_specific\\\": \\\"finish capsules lave x42\\\",\\n    \\\"fallback_broad\\\": \\\"finish lave-vaisselle\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 861, \"completion_tokens\": 38, \"total_tokens\": 899, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e819e3438b\"}"
+}

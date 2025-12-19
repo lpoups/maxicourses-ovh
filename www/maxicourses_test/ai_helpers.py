@@ -423,47 +423,51 @@ def _enforce_query_rules(
     descriptor: Dict[str, Any],
     queries: List[str],
 ) -> Dict[str, Any]:
-    keyword_sets = _build_primary_secondary(profile, descriptor)
-    template = keyword_sets["primary"]
-    if not template:
-        template = queries[:1]
-    sanitized: List[str] = []
-    base_phrase = " ".join(template).strip()
-    if base_phrase:
-        sanitized.append(base_phrase[:30])
-    for query in queries:
-        if not isinstance(query, str):
-            continue
-        candidate = " ".join(query.split()).strip()
-        if not candidate:
-            continue
-        words = [word for word in candidate.split() if _normalize_token(word) not in _PRIMARY_FORBIDDEN]
-        if not words:
-            continue
-        if _normalize_token(words[0]) != _normalize_token(template[0]):
-            words.insert(0, template[0])
-        brand_norm = _normalize_token(template[0]) if template else ""
-        deduped: List[str] = []
-        for word in words:
-            if brand_norm and _normalize_token(word) == brand_norm:
-                canonical = template[0]
-                if any(_normalize_token(existing) == brand_norm for existing in deduped):
-                    continue
-                deduped.append(canonical)
-            else:
-                deduped.append(word)
-        words = deduped
-        rebuilt = " ".join(words)
-        if len(rebuilt) > 30:
-            rebuilt = rebuilt[:30].rstrip()
-        if rebuilt not in sanitized:
-            sanitized.append(rebuilt)
-        if len(sanitized) >= 5:
-            break
+    """Clean and prioritize queries without over-engineering token shuffling."""
+    
+    # Extract clean brand/quantity
+    brand_raw = profile.get("brand") or descriptor.get("brand") or ""
+    brand = _normalize_brand_display(brand_raw)
+    
+    # 1. Clean the AI provided queries
+    cleaned_queries: List[str] = []
+    seen: set[str] = set()
+    
+    for q in queries:
+        # Normalize spaces
+        q_clean = " ".join(q.split()).strip()
+        
+        # Remove dumb repetition ("Studio Studio")
+        tokens = q_clean.split()
+        deduped_tokens = []
+        prev_token = ""
+        for t in tokens:
+            if t.lower() != prev_token.lower():
+                deduped_tokens.append(t)
+            prev_token = t
+        q_clean = " ".join(deduped_tokens)
+        
+        if len(q_clean) > 40: # Allow slightly longer for specific products
+             q_clean = q_clean[:40].rsplit(' ', 1)[0] # Cut at last space
+             
+        if q_clean and q_clean.lower() not in seen:
+            cleaned_queries.append(q_clean)
+            seen.add(q_clean.lower())
+
+    # 2. Generate a strict fallback "Brand + 2 words of Name"
+    # This ensures we always have a safe, generated query if AI goes weird
+    name_parts = _split_tokens(profile.get("name") or descriptor.get("name") or "")
+    safe_tokens = [t for t in name_parts if t.lower() not in _PRIMARY_FORBIDDEN][:2]
+    if brand and safe_tokens:
+        fallback = f"{brand} {' '.join(safe_tokens)}"
+        if fallback.lower() not in seen:
+            cleaned_queries.insert(0, fallback) # Put as second option (AI is first)
+            seen.add(fallback.lower())
+
     return {
-        "primary": sanitized,
-        "secondary": keyword_sets["secondary"],
-        "category": keyword_sets["category"],
+        "primary": cleaned_queries[:4], # Keep top 4
+        "secondary": cleaned_queries[4:], # Rest
+        "category": "generic", # Simplified
     }
 
 
@@ -686,11 +690,19 @@ def summarize_product_seed(
         {
             "role": "system",
             "content": (
-                "Tu es un assistant qui synthétise les informations produits à partir"
-                " de données seed Carrefour/Auchan/Chronodrive. Retourne un JSON strict"
-                " avec les clés : profile (dict) et keywords (liste). keywords doit"
-                " contenir ≤ 8 entrées, chacune ≤ 30 caractères, centrée sur marque +"
-                " produit + contenance éventuelle."
+                "Tu es un expert en e-commerce. Ta mission est de générer des mots-clés de recherche PRÉCIS pour retrouver un produit en supermarché Drive."
+                "Analyzes les données 'seeds' fournies (titre, marque, description)."
+                "\n"
+                "RÈGLES DE GÉNÉRATION :"
+                "1. Retourne JSON strict avec clés: 'profile' (obj) et 'keywords' (list[str])."
+                "2. 'profile': Extrais {brand: str, name: str, quantity: str} proprement."
+                "3. 'keywords': Génère 3 à 5 variantes de recherche MAXimum."
+                "4. FORMAT MOT-CLÉ: Toujours 'Marque + Produit + Poids/Vol'."
+                "   - Ex: 'Nutella Pâte à tartiner 400g'"
+                "   - Ex: 'Coca-Cola Soda 1.75L'"
+                "   - Ex: 'Le Chat Lessive Capsules x32'"
+                "5. INTERDIT: Ne répète PAS les mots (pas de 'Studio Studio'). Pas de mots génériques seuls ('Promotion', 'Lot')."
+                "6. NETTOYAGE: Supprime les caractères superflus, mets les marques en premier."
             ),
         },
         {"role": "user", "content": prompt},
@@ -753,6 +765,64 @@ def summarize_product_seed(
     )
 
 
+def compute_vision_similarity(
+    img1_b64: str,
+    img2_b64: str,
+) -> AIResponse:
+    """Compare two Base64-encoded images using a Vision model (OpenAI-compatible)."""
+
+    if not USE_AI_ASSIST:
+        return AIResponse(status="disabled", data={"match": False, "confidence": 0.0})
+
+    settings = _openai_settings()
+    # Use gpt-4o by default for vision as it is most capable
+    model = settings.get("model_vision", "gpt-4o")
+
+    # Construct messages with image_url payload (Base64)
+    messages = [
+        {
+            "role": "system",
+            "content": (
+                "You are an expert product matcher for a supermarket."
+                " Compare the two images provided."
+                " Determine if they represent the EXACT same product variant (brand, product name, quantity)."
+                " Ignore minor packaging updates or lighting differences."
+                " Return JSON: {match: boolean, confidence: float, reason: string}."
+            ),
+        },
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "Are these products identical?"},
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{img1_b64}" if not img1_b64.startswith("data:") else img1_b64}
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{img2_b64}" if not img2_b64.startswith("data:") else img2_b64}
+                },
+            ],
+        },
+    ]
+
+    try:
+        response = _call_openai(model=model, messages=messages, temperature=0.0)
+    except Exception as exc:
+        return AIResponse(
+            status="error",
+            data={"match": False, "confidence": 0.0, "reason": "api_error"},
+            error=str(exc),
+        )
+
+    data = _extract_json_content(response)
+    return AIResponse(
+        status="ok",
+        data=data,
+        raw_response=json.dumps(response, ensure_ascii=False),
+    )
+
+
 def suggest_search_queries(
     ai_profile: Dict[str, Any],
     *,
@@ -790,14 +860,23 @@ def suggest_search_queries(
         {
             "role": "system",
             "content": (
-                f"Tu génères des requêtes de recherche ultra-compactes pour le"
-                f" magasin {store}. Retourne un JSON strict avec la clé queries"
-                f" (liste) contenant jusqu'à {max_queries} entrées, chacune ≤"
-                f" {max_length} caractères. Chaque requête doit commencer par"
-                " la marque si disponible, enchaîner sur le produit et, seulement"
-                " si la limite le permet, ajouter la contenance (g, kg, ml, L)."
-                " Interdiction d'ajouter des termes génériques (produit, promo,"
-                " course), d'utiliser des ponctuations inutiles ou des guillemets."
+                f"You are a Search Query Specialist for the French grocery store {store}. "
+                "Your goal is to generate 3 tailored search queries to find the product described in the JSON payload.\n"
+                "Return a strict JSON object with these keys:\n"
+                "- 'golden': The ideal specific query (Brand + Product + important variant). Max 3-4 words.\n"
+                "- 'fallback_specific': A specific alternative (e.g. without Brand if generic, or different word order).\n"
+                "- 'fallback_broad': A broader query (Brand + Category or Product + Category) to ensure results.\n"
+                f"Constraints:\n"
+                f"- Max length per query: {max_length} chars.\n"
+                "- NO generic terms like 'produit', 'promo', 'achat'.\n"
+                "- NO punctuation like dots or quotes unless part of the brand.\n"
+                f"- For store '{store}', adapt to its search engine quirks (e.g. Leclerc dislikes complex brand names).\n"
+                "- If store is 'monoprix':\n"
+                "  - ALWAYS use lowercase.\n"
+                "  - ALWAYS include unit quantities like '6x33cl' or '6x1l'.\n"
+                "  - DO NOT include standalone weight/volume like '500g' or '1.5l' unless it is a unit quantity.\n"
+                "  - DO NOT use spaces in quantities (e.g. use '500g' not '500 g').\n"
+                "Output JSON ONLY."
             ),
         },
         {"role": "user", "content": prompt},
@@ -814,23 +893,33 @@ def suggest_search_queries(
         )
 
     data = _extract_json_content(response)
-    queries_raw = data.get("queries") if isinstance(data, dict) else None
-    cleaned: List[str] = []
-    if isinstance(queries_raw, list):
-        for item in queries_raw:
-            if not isinstance(item, str):
-                continue
-            value = " ".join(item.split())
-            if not value:
-                continue
-            if len(value) > max_length:
-                value = value[:max_length].rstrip()
-            if value not in cleaned:
-                cleaned.append(value)
-            if len(cleaned) >= max_queries:
-                break
+    
+    # Parse the structured response
+    golden = data.get("golden")
+    fallback_specific = data.get("fallback_specific")
+    fallback_broad = data.get("fallback_broad")
+    
+    # Also support legacy 'queries' list if the model hallucinates the old format
+    legacy_list = data.get("queries", []) if isinstance(data.get("queries"), list) else []
 
-    keyword_info = _enforce_query_rules(ai_profile or {}, descriptor or {}, cleaned)
+    # Construct the prioritized list
+    final_queries: List[str] = []
+    
+    def add_q(q):
+        if not isinstance(q, str): return
+        val = " ".join(q.split())
+        if val and len(val) <= max_length and val not in final_queries:
+            final_queries.append(val)
+
+    add_q(golden)
+    add_q(fallback_specific)
+    add_q(fallback_broad)
+    for q in legacy_list:
+        add_q(q)
+        if len(final_queries) >= max_queries:
+            break
+
+    keyword_info = _enforce_query_rules(ai_profile or {}, descriptor or {}, final_queries)
 
     return AIResponse(
         status="ok",
@@ -838,6 +927,11 @@ def suggest_search_queries(
             "queries": keyword_info.get("primary", []),
             "secondary_keywords": keyword_info.get("secondary", []),
             "category": keyword_info.get("category"),
+            "structured": {
+                "golden": golden,
+                "fallback_specific": fallback_specific,
+                "fallback_broad": fallback_broad
+            },
             "raw": data,
         },
         raw_prompt=prompt,

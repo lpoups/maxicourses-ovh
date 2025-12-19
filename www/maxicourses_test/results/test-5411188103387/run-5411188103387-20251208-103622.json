@@ -1,0 +1,100 @@
+{
+  "ean": "5411188103387",
+  "image_path": null,
+  "started_at": "2025-12-08T10:35:46.801410+01:00",
+  "finished_at": "2025-12-08T10:36:22.190198+01:00",
+  "duration_seconds": 35.388788,
+  "reference": {
+    "title": "Dessert végétal soja vanille ALPRO - 500g",
+    "description": "Dessert végétal soja vanille ALPRO - 500g",
+    "source": "carrefour_market",
+    "brand": "Alpro",
+    "quantity": "500  g",
+    "categories": "Aliments et boissons à base de végétaux,Produits fermentés,Substituts de produits laitiers,Desserts,Produits veganes,Desserts végétaliens,Produits végétaux fermentés,Desserts végétaliens fermentés,Desserts de jus de soja fermenté",
+    "image": "./assets/5411188103387.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "a",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg",
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5411188103387/debug/run-5411188103387-20251208-103546"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,25",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/s?q=5411188103387",
+        "note": "json_state_extraction",
+        "unit_price": "4,50 € / KG",
+        "quantity": "500g",
+        "title": "Dessert végétal soja  vanille ALPRO",
+        "matched_ean": "5411188103387",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Dessert végétal soja  vanille ALPRO",
+          "brand": "Dessert",
+          "kind": "",
+          "qty": "500g",
+          "qualifiers": [],
+          "ean": "5411188103387",
+          "image_url": "./assets/5411188103387.jpg",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-08T10:35:46.802314+01:00",
+      "finished_at": "2025-12-08T10:36:21.452259+01:00",
+      "duration_seconds": 34.649945,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5411188103387",
+        "QUERY": "5411188103387",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[INFO] Successfully extracted data from JSON State: {'title': 'Dessert végétal \nsoja vanille ALPRO', 'quantity': '500g', 'price': 2.25, 'unit_price': '4.50 € / \nKG'}\n[INFO] Successfully extracted data from JSON State: {'title': 'Dessert végétal \nsoja vanille ALPRO', 'quantity': '500g', 'price': 2.25, 'unit_price': '4.50 € / \nKG'}",
+      "metadata": {
+        "attempt_query": "5411188103387"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Dessert végétal soja  vanille ALPRO",
+      "brand": "Dessert",
+      "kind": "",
+      "qty": "500g",
+      "qualifiers": [],
+      "ean": "5411188103387",
+      "image_url": "./assets/5411188103387.jpg",
+      "source": "consolidated",
+      "raw_text": "Dessert végétal soja vanille ALPRO - 500g",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

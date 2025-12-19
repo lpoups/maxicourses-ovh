@@ -1,0 +1,644 @@
+{
+  "ean": "8006540882351",
+  "image_path": null,
+  "started_at": "2025-12-05T17:29:13.182224+01:00",
+  "finished_at": "2025-12-05T17:39:12.289695+01:00",
+  "duration_seconds": 599.107471,
+  "reference": {
+    "title": "Dentifrice 3D White Advanced Luxe Perfection ORAL-B",
+    "description": "Entrée générée automatiquement – descriptif requis.",
+    "source": "carrefour_super",
+    "brand": "B",
+    "quantity": "75 ML",
+    "categories": null,
+    "image": "https://media.carrefour.fr/medias/405b77acba184116933e67cc72578fab/p_540x540/08 006540882351_H1N1_s80.png",
+    "nutriscore_grade": "c",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8006540882351/debug/run-8006540882351-20251205-172913"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-05T17:29:13.182710+01:00",
+      "finished_at": "2025-12-05T17:29:36.376777+01:00",
+      "duration_seconds": 23.194067,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "8006540882351",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8006540882351"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Market Fondaudège",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-05T17:29:36.377642+01:00",
+      "finished_at": "2025-12-05T17:29:58.565453+01:00",
+      "duration_seconds": 22.187811,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "8006540882351",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8006540882351"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,89",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/dentifrice-3d-white-advanced-luxe-perfection-oral-b- 8006540882351",
+        "note": null,
+        "unit_price": "65,20 € / L",
+        "quantity": "75 ML",
+        "title": "Dentifrice 3D White Advanced Luxe Perfection ORAL-B",
+        "matched_ean": "8006540882351",
+        "image": "https://media.carrefour.fr/medias/405b77acba184116933e67cc72578fab/p_540x540/08 006540882351_H1N1_s80.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Dentifrice 3D White Advanced Luxe Perfection ORAL-B",
+          "brand": "Dentifrice",
+          "kind": "",
+          "qty": "75 ML",
+          "qualifiers": [],
+          "ean": "8006540882351",
+          "image_url": "https://media.carrefour.fr/medias/405b77acba184116933e67cc72578fab/p_540x540/08 006540882351_H1N1_s80.png",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-05T17:29:58.565850+01:00",
+      "finished_at": "2025-12-05T17:30:26.354737+01:00",
+      "duration_seconds": 27.788887,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "8006540882351",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8006540882351"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,25",
+        "unit_price": "70,00 € / L",
+        "quantity": null,
+        "title": "3D White advanced dentifrice menthe fraîche poivrée",
+        "url": "https://www.auchan.fr/oral-b-3d-white-advanced-dentifrice-menthe-fraiche-poivre e/pr-C1767558",
+        "matched_ean": "8006540882351",
+        "store": "Auchan Drive  Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S01000000040F9XPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "3D White advanced dentifrice menthe fraîche poivrée",
+          "brand": "",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8006540882351",
+          "image_url": "https://cdn.auchan.fr/media/S01000000040F9XPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-05T17:30:26.356739+01:00",
+      "finished_at": "2025-12-05T17:30:53.274123+01:00",
+      "duration_seconds": 26.917384,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "8006540882351",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button.journey-button\n[auchan] Clicking 'Choisir ce drive'...\n[auchan] Waiting 8.0s on store page after selection\n[auchan] Submitting search via on-page search field (stay on current page)\n[auchan] results visible, extracting price from search results",
+      "metadata": {
+        "attempt_query": "8006540882351"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,25",
+        "title": "Dentifrice blancheur luxe perfection ORAL-B 3D White Advanced",
+        "url": "https://www.chronodrive.com/oral-b--3d-white-advanced---dentifrice-blancheur-lu xe-perfection-P344444",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "70,00 € / L",
+        "quantity": "75 ml",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "8006540882351",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Dentifrice blancheur luxe perfection ORAL-B 3D White Advanced",
+          "brand": "Dentifrice",
+          "kind": "",
+          "qty": "75 ml",
+          "qualifiers": [],
+          "ean": "8006540882351",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-05T17:30:53.275520+01:00",
+      "finished_at": "2025-12-05T17:31:02.563426+01:00",
+      "duration_seconds": 9.287906,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "8006540882351",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='8006540882351'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/oral-b--3d-white-advanced---dentifrice-blancheur-luxe-perfection-P344444",
+      "metadata": {
+        "attempt_query": "8006540882351"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "34,99",
+        "unit_price": "5831,67 € / KG",
+        "quantity": "6 g",
+        "title": "Cafetière mini TEFAL cm340811",
+        "url": "https://www.coursesu.com/p/cafetiere-mini-tefal-cm340811/7443551.html",
+        "note": "2025-12-05T16:31:36Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "8006540882351",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Cafetière mini TEFAL cm340811",
+          "brand": "Cafetière",
+          "kind": "",
+          "qty": "6 g",
+          "qualifiers": [],
+          "ean": "8006540882351",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-05T17:31:02.566805+01:00",
+      "finished_at": "2025-12-05T17:31:36.328678+01:00",
+      "duration_seconds": 33.761873,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "8006540882351",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8006540882351"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-05T17:31:36.330347+01:00",
+      "finished_at": "2025-12-05T17:31:37.041901+01:00",
+      "duration_seconds": 0.711554,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "8006540882351",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8006540882351"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Dentifrice%20white%20advanced",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Dentifrice white advanced",
+          "timestamp": "2025-12-05T16:31:38.168196+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-05T17:31:38.009012+01:00",
+      "finished_at": "2025-12-05T17:31:39.224028+01:00",
+      "duration_seconds": 1.215016,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "Dentifrice white advanced",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Dentifrice white advanced",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8006540882351/debug/run-8006540882351-20251205-172913/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Dentifrice%20white%20advanced",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Dentifrice white advanced",
+          "timestamp": "2025-12-05T16:31:42.968726+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-05T17:31:42.781321+01:00",
+      "finished_at": "2025-12-05T17:31:44.064384+01:00",
+      "duration_seconds": 1.283063,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "Dentifrice white advanced",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Dentifrice white advanced",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8006540882351/debug/run-8006540882351-20251205-172913/09-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,03",
+        "title": "3D White Advanced - Dentifrice doux  pour l'émail",
+        "url": "https://www.intermarche.com/produit/3d-white-advanced-dentifrice-doux-pour-l'em ail/8006540882351",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "8006540882351",
+        "unit_price": "67,07 € / L",
+        "quantity": null,
+        "store": "Super  Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/3d-white-advanced-dentifrice-doux-pour-l'em ail/8006540882351",
+            "product": {
+              "title": "Oral-B3D  White Advanced - Dentifrice doux pour l'émail",
+              "brand": "Oral-B3D",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8006540882351",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": null
+      },
+      "started_at": "2025-12-05T17:31:47.158115+01:00",
+      "finished_at": "2025-12-05T17:32:14.104654+01:00",
+      "duration_seconds": 26.946539,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "Dentifrice white advanced",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Dentifrice white advanced",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8006540882351/debug/run-8006540882351-20251205-172913/10-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Dentifrice Oral-B 3D White Advanced Luxe perfection - 75ml",
+        "price": "4,35",
+        "unit_price": "3,78 € / l",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-215207-Dentifrice-Oral-B-3D-White.aspx",
+        "matched_ean": "8006540882351",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-12-05T16:34:24Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-183866-Dentifrice-blancheur-Colgate.aspx",
+            "product": {
+              "title": "Dentifrice blancheur Colgate Max white one - 75ml",
+              "brand": "Dentifrice",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8718951484672",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2767255&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5c40h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5c40h2\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-183907-Dentifrice-blancheur-Colgate.aspx",
+            "product": {
+              "title": "Dentifrice blancheur Colgate Max white optic - 75ml",
+              "brand": "Dentifrice",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8718951484627",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2738395&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5c40h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5c40h2\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-215207-Dentifrice-Oral-B-3D-White.aspx",
+            "product": {
+              "title": "Dentifrice Oral-B 3D White Advanced Luxe perfection - 75ml",
+              "brand": "Dentifrice",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8006540882351",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2737543&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5c40h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5c40h2\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-12-05T17:33:32.977222+01:00",
+      "finished_at": "2025-12-05T17:34:24.622719+01:00",
+      "duration_seconds": 51.645497,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "B Dentifrice White 75 ML",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:1000ms result:2000ms pdp:2000ms type:[50,100] query:'B Dentifrice White 75 ML' direct_url:False\n[LECLERC_DEBUG] after home human pause -> 1.39s\n[LECLERC_DEBUG] after focus -> 1.95s\n[LECLERC_DEBUG] results visible -> 12.37s\n[LECLERC_DEBUG] after result pause -> 12.37s",
+      "metadata": {
+        "attempt_query": "B Dentifrice White 75 ML",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8006540882351/debug/run-8006540882351-20251205-172913/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/oral-b-dentifrice-3d-white-advanced-luxe-p erfection-75ml/MPX_6661323",
+            "product": {
+              "title": "Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml",
+              "brand": "Oral-B",
+              "kind": "",
+              "qty": "75 ML",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/bfc6 f865-4c68-46e9-947d-c8f3f9bd0ecb/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Saint-Nicolas Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Menu des onglets du haut de l’écran Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-12-05T17:34:24.626613+01:00",
+      "finished_at": "2025-12-05T17:35:32.491330+01:00",
+      "duration_seconds": 67.864717,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "8006540882351",
+        "QUERY": "Dentifrice white advanced",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] ERROR: EAN '8006540882351' not found in descriptor store. Scoring will fail.\n[MONOPRIX_DEBUG] Search terms: ['Dentifrice white advanced', 'Dentifrice white advanced 75ML', 'Dentifrice white advanced']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/3: 'Dentifrice white advanced'\n[MONOPRIX_DEBUG]  - Typing 'Dentifrice white advanced' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Dentifrice%20white%20advanced\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 1 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/oral-b-dentifrice-3d-white-advanced-luxe-perfection-75ml/MPX_6661323\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/bfc6f865-4c68-46e9-947d-c8f3f9bd0ecb/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/oral-b-dentifrice-3d-white-advanced-luxe-perfection-75ml/MPX_6661323\n[MONOPRIX_DEBUG][SCORE] - Title: 'Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml' | Brand: '' | Variant(seed/cand)=(None/None) | Vetoes=[] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml' | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml' (Score: 0) | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n[MONOPRIX_DEBUG]  - Term 2/3: 'Dentifrice white advanced 75ML'\n[MONOPRIX_DEBUG]  - Typing 'Dentifrice white advanced 75ML' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Dentifrice%20white%20advanced%2075ML\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 1 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/oral-b-dentifrice-3d-white-advanced-luxe-perfection-75ml/MPX_6661323\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/bfc6f865-4c68-46e9-947d-c8f3f9bd0ecb/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/oral-b-dentifrice-3d-white-advanced-luxe-perfection-75ml/MPX_6661323\n[MONOPRIX_DEBUG][SCORE] - Title: 'Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml' | Brand: '' | Variant(seed/cand)=(None/None) | Vetoes=[] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml' | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml' (Score: 0) | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n[MONOPRIX_DEBUG]  - Term 3/3: 'Dentifrice white advanced'\n[MONOPRIX_DEBUG]  - Typing 'Dentifrice white advanced' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Dentifrice%20white%20advanced\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 1 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/oral-b-dentifrice-3d-white-advanced-luxe-perfection-75ml/MPX_6661323\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/bfc6f865-4c68-46e9-947d-c8f3f9bd0ecb/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/oral-b-dentifrice-3d-white-advanced-luxe-perfection-75ml/MPX_6661323\n[MONOPRIX_DEBUG][SCORE] - Title: 'Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml' | Brand: '' | Variant(seed/cand)=(None/None) | Vetoes=[] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml' | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml' (Score: 0) | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, image=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=[{'url': 'https://courses.monoprix.fr/products/oral-b-dentifrice-3d-white-advanced-luxe-perfection-75ml/MPX_6661323', 'status': 'OK_PARTIAL', 'product': {'title': 'Oral-B Dentifrice 3D White Advanced Luxe Perfection 75ml', 'brand': '', 'kind': '', 'qty': '75 ML', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/bfc6f865-4c68-46e9-947d-c8f3f9bd0ecb/300x300.jpg', 'source': 'monoprix', 'raw_text': \"Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nSaint-Nicolas\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nMenu des onglets du haut de l’écran\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00\\xa0€\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nHygiène & Beauté\\nHygiène dentaire\\nDentifrices\\nOral-B Dentifrice 3D White Advanced Luxe Perfection 75ml\\n6\\xa0m+\\n6\\xa0mois de garantie de vie du produit\\n75ml 84,67\\xa0€ / litre\\n75ml\\n(84,67\\xa0€ / litre)\\n6,35\\xa0€\\nAjouter\\nPromotions\\n-68% sur le 2ème produit - Cliquez ici pour composer votre lot\\n-68% sur le 2ème produit - Cliquez ici pour composer votre lot\\nInformations produit\\n\\n\\nDescription Produit\\nLe dentifrice Oral-B 3D White Advanced Luxe est doté de la technologie blanchissante avancée d'Oral-B. Sa mousse pénètre en profondeur et élimine activement les taches en surface dans des zones difficiles à atteindre. Le fluorure nourrit et renforce l'émail. Il protège activement contre les taches en surface pendant 24 heures avec 2 brossages par jour.\\n\\n\\nOrigine\\nAllemagne\\nMarque\\nOral-B\\nService consommateur\\nProcter & Gamble Service GmbH Sulzbacher Strasse 40 65823 Schwalbach am Taunus Allemagne 0800 944 803 (service et appel gratuits)\\nIngredients\\nGlycerin, Hydrated Silica, Sodium Hexametaphosphate, Aqua, PEG-6, Aroma, Trisodium Phosphate, Sodium Lauryl Sulfate, Cocamidopropyl Betaine, Sodium Saccharin, Sodium Fluoride, Pvp, Xanthan Gum, Carrageenan, Sodium Chloride, Limonene, Sucralose, Sodium Benzoate, Sodium Hydroxide, CI 74160, Citric Acid, Sodium Citrate, Potassium Sorbate\\nProducteur\\nPROCTER GAMBLE FRANCE SAS 163/165 QUAI AULAGNIER 92665ASNIERES SUR SEINE CEDEX\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\", 'unit_price': '84,67 € / L', 'price': '6,35'}, 'score': 0.0, 'extras': {'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['image_mismatch'], 'candidate_quantity': '75 ML', 'image_match': False, 'final_score': 0, 'plausible_baseline': False}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Dentifrice white advanced",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8006540882351/debug/run-8006540882351-20251205-172913/12-monoprix"
+      }
+    }
+  ],
+  "finder": {
+    "error": "'FinderPipeline' object has no attribute 'decide'"
+  }
+}

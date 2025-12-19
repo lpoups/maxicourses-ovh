@@ -1,0 +1,98 @@
+{
+  "ean": "8711000547342",
+  "image_path": null,
+  "started_at": "2025-12-02T19:41:40.568047+01:00",
+  "finished_at": "2025-12-02T19:42:04.491951+01:00",
+  "duration_seconds": 23.923904,
+  "reference": {
+    "title": "capsule espresso ristretto",
+    "description": "Capsules de café Ristretto intensité 11 compatibles  Nespresso",
+    "source": "auchan",
+    "brand": "L'Or",
+    "quantity": "156 g",
+    "categories": "Cafés en dosettes compatible Nespresso",
+    "image": "./assets/8711000547342.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "f",
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251202-194140"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "18,73",
+        "unit_price": "120,06 € / KG",
+        "quantity": "30 CAPSULES",
+        "title": "Capsules de café Ristretto intensité 11 compatibles  Nespresso",
+        "url": "https://www.auchan.fr/l-or-espresso-capsules-de-cafe-ristretto-intensite-11-com patibles-nespresso/pr-C1777914",
+        "matched_ean": "8711000547342",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S01000000040J8WPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café Ristretto intensité 11 compatibles  Nespresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "30 CAPSULES",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://cdn.auchan.fr/media/S01000000040J8WPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T19:41:40.569587+01:00",
+      "finished_at": "2025-12-02T19:42:03.092158+01:00",
+      "duration_seconds": 22.522571,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button.journey-button\n[auchan] Clicking 'Choisir ce drive'...\n[auchan] ⚠️ Button still visible, retrying selection...\n[auchan] ⚠️ Button still visible, retrying selection...\n[auchan] ⚠️ Button still visible, retrying selection...\n[auchan] ⚠️ Unable to confirm store selection (button still visible).\n[auchan] localStorage after selection: {\"auc_bls_segments\":\"{\\\"last_modified_ts\\\":1764442507159,\\\"segments\\\":[{\\\"name\\\":\\\"muppet-carolina-pip-alabama\\\"},{\\\"name\\\":\\\"sixteen-march-earth-alanine\\\"}]}\",\"u_sclid\":\"JNVuHdvWrhqwtQGZBv-HUQ7pKp-401lYxNpAYkF_pKSSm6hcKH0XeM5vDOPp5pjV42Ukvw\",\"_uetvid_exp\":\"Thu, 24 Dec 2026 18:55:13 GMT\",\"topicsLastReferenceTime\":\"1764442513393\",\"_gcl_ls\":\"{\\\"schema\\\":\\\"gcl\\\",\\\"version\\\":1,\\\"gcl_ctr\\\":{\\\"value\\\":{\\\"value\\\":13,\\\"timeouts\\\":0,\\\"creationTimeMs\\\":1764442512817},\\\"expires\\\":1772218512817}}\",\"is_enabled\":\"true\",\"_uetsid\":\"ba2ab600cd4e11f0b844f7835d81bbf5\",\"searchRedirectsExpireDate\":\"1765298368935\",\"storeId\":\"6117\",\"storeName\":\"Auchan Drive Supermarché Talence-Gallieni\",\"u_sclid_r\":\"OFVuHdvWrhqwtQGZBv-HUQ7pKp-401lYweeUm8HaQGJBf6SkkpuoXCh9F3jObwzj6eaY1eNlJMs\",\"lastExternalReferrerTime\":\"1764442513349\",\"lark-suggest\":\"[]\",\"journeyStoreId\":\"6117\",\"_uetsid_exp\":\"Sun, 30 Nov 2025 18:55:13 GMT\",\"searchRedirects\":\"[{\\\"name\\\":\\\"Redirection Auchan Telecom\\\",\\\"description\\\":\\\"Les redirections sur Auchan Telecom\\\",\\\"keywords\\\":[\\\"auchan telecom\\\",\\\"Auchan telecom\\\",\\\"auchan télécom\\\",\\\"Auchan télécom\\\",\\\"forfait mobile\\\",\\\"forfait telephone\\\",\\\"forfait telephonique\\\",\\\"forfait mobile auchan\\\",\\\"forfait tel\\\"],\\\"redirectUrl\\\":\\\"https://www.auchantelecom.fr/\\\"},{\\\"name\\\":\\\"Redirection Billeterie\\\",\\\"description\\\":\\\"Les redirections sur billeterie\\\",\\\"keywords\\\":[\\\"Billets\\\",\\\"billets\\\",\\\"Billets Disney\\\",\\\"Billets center parc\\\",\\\"Billets concert\\\",\\\"Billets d entree Disneyland\\\",\\\"Billets de cinemz\\\",\\\"billets de spectacle\\\",\\\"Billets Disneyland\\\",\\\"Billets Disneyland Paris\\\",\\\"billets jouet\\\",\\\"billets spectacle\\\",\\\"Billets spectacle\\\",\\\"billets spectacles\\\",\\\"Disney billets\\\",\\\"billet parc asterix\\\",\\\"Billet parc asterix\\\",\\\"parc asterix\\\",\\\"Parc asterix\\\",\\\"Parc asterix bietri\\\",\\\"PARC ASTERIX JOURNEE\\\",\\\"Billetterie\\\",\\\"billetterie\\\",\\\"Billetteries\\\",\\\"BILLETTERIE\\\",\\\"billetterie disney\\\",\\\"Billetterie Disney\\\",\\\"Billetterie football\\\",\\\"billetterie lens psg\\\",\\\"Billetterie nautiland\\\",\\\"billetteries\\\",\\\"Billetterie disney\\\",\\\"Billetterie Disneyland\\\",\\\"Auchan billetterie\\\",\\\"billetterie cinema\\\",\\\"billetterie et spectacles\\\",\\\"billetterie et spectacle\\\",\\\"billetterie concert\\\",\\\"billetrie\\\",\\\"billeterie auchan\\\",\\\"billetterie auchan\\\",\\\"billetrie auchan\\\",\\\"billet asterix\\\",\\\"billet europa park\\\",\\\"billet de cinéma\\\",\\\"place de concert\\\",\\\"place disney\\\",\\\"place de cinéma\\\",\\\"place de cinema\\\",\\\"place concert\\\",\\\"place cinema\\\",\\\"spectacle\\\",\\\"spectacles\\\",\\\"places spectacle\\\",\\\"place spectacle\\\",\\\"concert\\\",\\\"concerts\\\",\\\"concert jul\\\",\\\"place concert jul\\\",\\\"jul concert\\\",\\\"place de concert jul\\\",\\\"concert\\\",\\\"billet concert jul\\\",\\\"ticket concert\\\",\\\"auchan spectacle\\\",\\\"auchan spectacles\\\",\\\"billet jul\\\"],\\\"redirectUrl\\\":\\\"https://billetterie.auchan.fr/fr\\\"},{\\\"name\\\":\\\"Redirection Voyages Auchan\\\",\\\"description\\\":\\\"Les redirections sur Voyages Auchan\\\",\\\"keywords\\\":[\\\"auchan voyage\\\",\\\"billet d'avion\\\",\\\"circuit voyage\\\"],\\\"redirectUrl\\\":\\\"https://www.voyages-auchan.com/\\\"},{\\\"name\\\":\\\"Redirection Auchan Photo\\\",\\\"description\\\":\\\"Les redirections sur Auchan Photo\\\",\\\"keywords\\\":[\\\"livre photo\\\",\\\"Livre photos\\\",\\\"Livre photo\\\",\\\"livre photos\\\",\\\"developpement livre photo\\\",\\\"livre photo bebe\\\",\\\"livre photo bebe\\\",\\\"Livre photo en tissu\\\",\\\"MON LIVRE PHOTO\\\",\\\"Agrandissements photo\\\",\\\"auchan photo\\\",\\\"AUCHAN PHOTO\\\",\\\"Auchan photos\\\",\\\"tirage photo\\\",\\\"Tirage photo\\\",\\\"tirage photos\\\",\\\"TIRAGE PHOTO\\\",\\\"Tirage photos\\\",\\\"tirages photos\\\",\\\"photo tirage\\\",\\\"photos tirages\\\",\\\"tirage phorto\\\",\\\"TIRAGE POSTAIRE\\\",\\\"tirage rapide\\\",\\\"tirages\\\",\\\"Tirages photo\\\"],\\\"redirectUrl\\\":\\\"https://photo.auchan.fr/\\\"},{\\\"name\\\":\\\"Redirection Carte cadeau Auchan\\\",\\\"description\\\":\\\"Les redirections sur Carte cadeau Auchan\\\",\\\"keywords\\\":[\\\"carte cadeau\\\",\\\"Carte cadeau\\\",\\\"carte cadeaux\\\",\\\"Carte cadeaux\\\",\\\"cartes cadeaux\\\",\\\"cartes cadeau\\\",\\\"carte cadeau auchan\\\",\\\"cartes cadeaux Auchan\\\"],\\\"redirectUrl\\\":\\\"https://carte-cadeau.auchan.fr/\\\"},{\\\"name\\\":\\\"Redirection Auchan Traiteur\\\",\\\"description\\\":\\\"Les redirections sur Auchan Traiteur\\\",\\\"keywords\\\":[\\\"commande traiteur\\\",\\\"menus traiteur\\\",\\\"service traiteur\\\",\\\"menu noel traiteur\\\",\\\"carte traiteur\\\",\\\"devis traiteur\\\",\\\"traiteur menu noel\\\",\\\"commande traiteur auchan\\\",\\\"traiteur pour noel\\\",\\\"traiteur fête\\\",\\\"traiteur fete\\\",\\\"traiteur fetes\\\",\\\"commande traiteur aperitif\\\",\\\"traiteur pour les reveillons\\\",\\\"traiteur pour noël\\\",\\\"menu traiteur noel\\\",\\\"traiteur commande\\\",\\\"repas traiteur reveillon\\\",\\\"menu traiteur saint-sylvestre\\\",\\\"traiteur pour reveillon\\\",\\\"traiteur menu jour de l an\\\",\\\"traiteur mariage\\\",\\\"traiteur pot de depart\\\",\\\"traiteur pour repas des fetes\\\",\\\"repas noel traiteur\\\",\\\"menu de noel traiteur\\\"],\\\"redirectUrl\\\":\\\"https://traiteur.auchan.fr/\\\"}]\",\"lastSearchTable\":\"[\\\"5000112611861\\\"]\",\"mics_sgt\":\"{\\\"last_modified_ts\\\":1764442507159,\\\"segments\\\":[{\\\"name\\\":\\\"muppet-carolina-pip-alabama\\\"}]}\",\"_uetvid\":\"8edb30e09e1111f085263b1c9ff63dc0\",\"lastExternalReferrer\":\"empty\",\"storeSlug\":\"auchan-drive-supermarche-talence-gallieni\"}\n[auchan] cookies after selection: ['storeId:95524', 'FRONTAL_STORE:1911']\n[auchan] PDP url: https://www.auchan.fr/l-or-espresso-capsules-de-cafe-ristretto-intensite-11-compatibles-nespresso/pr-C1777914\n[auchan] price candidates: ['18,73€', '120,06€ / kg', '18,73€', '120,06€ / kg']\n[auchan] price_node='18,73€' meta_price=None => value='18.73'\n[auchan] quantity chosen: '30 CAPSULES'",
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Capsules de café Ristretto intensité 11 compatibles  Nespresso",
+      "brand": "Capsules",
+      "kind": "",
+      "qty": "30 CAPSULES",
+      "qualifiers": [],
+      "ean": "8711000547342",
+      "image_url": "https://cdn.auchan.fr/media/S01000000040J8WPRIMARY_1200x1200/B2CD/",
+      "source": "consolidated",
+      "raw_text": "Capsules de café Ristretto intensité 11 compatibles  Nespresso",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

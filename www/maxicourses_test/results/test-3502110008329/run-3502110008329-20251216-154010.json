@@ -1,0 +1,99 @@
+{
+  "ean": "3502110008329",
+  "image_path": null,
+  "started_at": "2025-12-16T15:39:02.596684+01:00",
+  "finished_at": "2025-12-16T15:40:10.237478+01:00",
+  "duration_seconds": 67.640794,
+  "reference": {
+    "title": "Pepsi 1,5L",
+    "description": null,
+    "source": "unknown",
+    "brand": "Pepsi",
+    "quantity": "1500 ml",
+    "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté",
+    "image": null,
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251216-153902"
+  ],
+  "adapters": [
+    {
+      "adapter": "intermarche",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "title": null,
+        "url": "https://www.intermarche.com/produit/soda-saveur-cola/3502110008329",
+        "note": null,
+        "matched_ean": "3502110008329",
+        "unit_price": null,
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-12-16T15:39:09.278391+01:00",
+      "finished_at": "2025-12-16T15:40:08.308446+01:00",
+      "duration_seconds": 59.030055,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "Pepsi 1,5L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Pepsi 1,5L",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251216-153902/01-intermarche"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Pepsi 1,5L",
+      "brand": "Pepsi",
+      "kind": "",
+      "qty": "1500 ml",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3502110008329",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Pepsi 1,5L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Pepsi 1,5L",
+      "Pepsi 1500ml",
+      "Pepsi soda",
+      "Pepsi 1500 ML",
+      "Pepsi 1.50 L",
+      "Pepsi 1,50 L",
+      "Pepsi 150 CL"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

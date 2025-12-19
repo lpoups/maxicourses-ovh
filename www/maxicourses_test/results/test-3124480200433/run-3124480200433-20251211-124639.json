@@ -1,0 +1,99 @@
+{
+  "ean": "3124480200433",
+  "image_path": null,
+  "started_at": "2025-12-11T12:46:08.476277+01:00",
+  "finished_at": "2025-12-11T12:46:39.547159+01:00",
+  "duration_seconds": 31.070882,
+  "reference": {
+    "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
+    "description": "Soda à  l'Orange et sa Pulpe ORANGINA",
+    "source": "seed_catalog",
+    "brand": "Orangina",
+    "quantity": "1,5 L",
+    "categories": "Beverages and beverages preparations, Plant-based foods and beverages, Beverages, Plant-based beverages, Carbonated drinks, Fruit-based beverages, Sodas, Fruit sodas, Orange soft drinks, en:sweetened-beverages",
+    "image": "./assets/3124480200433.jpeg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3124480200433/debug/run-3124480200433-20251211-124608"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_super",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Lormont",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-11T12:46:08.479147+01:00",
+      "finished_at": "2025-12-11T12:46:31.971303+01:00",
+      "duration_seconds": 23.492156,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3124480200433",
+        "QUERY": "3124480200433",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py",
+      "metadata": {
+        "attempt_query": "3124480200433",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
+      "brand": "Orangina",
+      "kind": "",
+      "qty": "1,5 L",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3124480200433",
+      "image_url": "./assets/3124480200433.jpeg",
+      "source": "consolidated",
+      "raw_text": "Soda à  l'Orange et sa Pulpe ORANGINA",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Orangina Soda Orange Pulpe",
+      "Orangina Orange Pulpe",
+      "Orangina Soda",
+      "Soda à l'Orange et",
+      "Soda à l'Orange",
+      "Orangina orange 1.5 L",
+      "Orangina orange 1.50 L",
+      "Orangina orange 1,50 L"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

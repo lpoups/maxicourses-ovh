@@ -1,0 +1,640 @@
+{
+  "ean": "8711000547342",
+  "image_path": null,
+  "started_at": "2025-12-07T15:04:27.481259+01:00",
+  "finished_at": "2025-12-07T15:05:58.338856+01:00",
+  "duration_seconds": 90.857597,
+  "reference": {
+    "title": "capsule espresso ristretto",
+    "description": null,
+    "source": "unknown",
+    "brand": "L'Or",
+    "quantity": "156 g",
+    "categories": "Cafés en dosettes compatible Nespresso",
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "f",
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251207-150427"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "10,25",
+        "unit_price": "65,71 € / KG",
+        "quantity": null,
+        "title": "Capsules de café Ristretto intensité 11 compatibles Nespresso",
+        "url": "https://www.auchan.fr/l-or-espresso-capsules-de-cafe-ristretto-intensite-11-compatibles-nespresso/pr-C1777914",
+        "matched_ean": "8711000547342",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S01000000040J8WPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café Ristretto intensité 11 compatibles Nespresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://cdn.auchan.fr/media/S01000000040J8WPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-07T15:03:46.529694+01:00",
+      "finished_at": "2025-12-07T15:04:10.100164+01:00",
+      "duration_seconds": 23.57047,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Page already on Auchan, checking if reload needed.\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] Found cookie button with text: Accepter et fermer\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] CONSOLE: data =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: initData =  {event_type: PAGE_VIEW, description: Auchan Drive Supermarché Talence-Gallieni. Horaires, adresse, livraison courses à domicile, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, page_url: https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117, gtmOnSuccess: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://ars-privacy.my.onetrust.com/request/v1/consentreceipts net::ERR_NAME_NOT_RESOLVED\n[auchan] CONSOLE: Failed to load resource: net::ERR_NAME_NOT_RESOLVED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dl=https%3A%2F%2Fwww.auchan.fr%2Fmagasins%2Fdrive%2Fauchan-drive-supermarche-talence-gallieni%2Fs-6117&scrsrc=www.googletagmanager.com&rnd=1519770041.1765116231&dt=Auchan%20Drive%20Supermarch%C3%A9%20Talence-Gallieni.%20Horaires%2C%20adresse%2C%20livraison%20courses%20%C3%A0%20domicile&auid=261220172.1765116231&navt=n&npa=0&gtm=45He5c31v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527907~104528501~104684208~104684211~105391253~115583767~115616985~115938465~115938469~116184927~116184929~116217636~116217638~116474637&tft=1765116231286&tfd=3228&apve=1&apvf=f net::ERR_ABORTED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ✅ Toast 'C'est noté' APPEARED.\n[auchan] Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ✅ Toast DISAPPEARED. Proceeding to search.\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] CONSOLE: data =  {event_type: SEARCH, item_ids: Array(1), description: SRP, search_string:  8711000547342, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7}\n[auchan] CONSOLE: initData =  {event_type: SEARCH, item_ids: Array(1), description: SRP, search_string:  8711000547342, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7}\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: data =  {event_type: VIEW_CONTENT, item_ids: Array(1), description: PLP, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, item_category: }\n[auchan] CONSOLE: initData =  {event_type: VIEW_CONTENT, item_ids: Array(1), description: PLP, pixel_id: 21468795-e028-4d78-8fd2-568394778ac7, item_category: }\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=1252016588.1765116244&dt=Votre%20recherche%208711000547342%20sur%20Auchan.fr&auid=261220172.1765116231&navt=n&npa=0&ep.ads_data_redaction=0&gtm=45He5c31v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528500~104684208~104684211~105391253~115583767~115616986~115673441~115938465~115938468~116184927~116184929~116217636~116217638~116518833~116678528~116682875&apve=1&apvf=f&apvc=1&tft=1765116244022&tfd=1189 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=conversion&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=1252016588.1765116244&dt=Votre%20recherche%208711000547342%20sur%20Auchan.fr&auid=261220172.1765116231&navt=n&npa=0&epn.value=0&_tu=CA&gtm=45be5c31v9167950749z8810240695za20gzb810240695zd810240695xea&gcs=G111&gcd=13r3rPr2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528500~104684208~104684211~105391252~115583767~115938465~115938468~116184927~116184929~116217636~116217638~116251938~116251940~116518833~116678528~116682875&apve=1&apvf=f&apvc=0&tids=AW-11360339372&tid=AW-11360339372&tft=1765116244055&tfd=1222 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=1252016588.1765116244&dt=Votre%20recherche%208711000547342%20sur%20Auchan.fr&auid=261220172.1765116231&navt=n&npa=0&ep.u1=product_list&ep.u2=SEARCH&ep.u3=undefined&ep.u4=undefined&ep.u5=undefined&ep.u15=%2Frecherche&gtm=45fe5c31v9206597865z8810240695za20gzb810240695zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528500~104684208~104684211~105391252~115583767~115938465~115938469~116184927~116184929~116217636~116217638~116251938~116251940~116518833~116678528~116682875&apve=1&apvf=f&apvc=0&tids=DC-15217296&tid=DC-15217296&tft=1765116244069&tfd=1236 net::ERR_ABORTED\n[auchan] CONSOLE: Firing Pinterest event: search\n[auchan] CONSOLE: Event Data:{\"np\":\"gtm\",\"gtm_version\":\"legacy\",\"search_query\":\" 8711000547342\"}\n[auchan] CONSOLE: Firing Pinterest event: viewcategory\n[auchan] CONSOLE: Event Data:{\"line_items\":{\"product_category\":\"\"},\"np\":\"gtm\",\"gtm_version\":\"legacy\"}\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=view_item_list&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=1252016588.1765116244&dt=Votre%20recherche%208711000547342%20sur%20Auchan.fr&auid=261220172.1765116231&navt=n&npa=0&uid=undefined&_tu=CA&gtm=45be5c31v9115476006z8810240695za20gzb810240695zd810240695xea&gcs=G111&gcd=13r3rPr2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528501~104684208~104684211~105391252~115583767~115938465~115938468~116184927~116184929~116217636~116217638~116518833~116678528~116682875&apve=1&apvf=f&apvc=0&tids=AW-997317827&tid=AW-997317827&tft=1765116244190&tfd=1357 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=1252016588.1765116244&dt=Votre%20recherche%208711000547342%20sur%20Auchan.fr&auid=261220172.1765116231&navt=n&npa=0&uid=undefined&_tu=CA&gtm=45be5c31v9115476006z8810240695za20gzb810240695zd810240695xea&gcs=G111&gcd=13r3rPr2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528501~104684208~104684211~105391252~115583767~115938465~115938468~116184927~116184929~116217636~116217638~116518833~116678528~116682875&apve=1&apvf=f&apvc=0&tids=AW-997317827&tid=AW-997317827&tft=1765116244190&tfd=1357 net::ERR_ABORTED\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=view_search_results&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Frecherche&scrsrc=www.googletagmanager.com&rnd=1252016588.1765116244&dt=Votre%20recherche%208711000547342%20sur%20Auchan.fr&auid=261220172.1765116231&navt=n&npa=0&uid=undefined&_tu=CA&gtm=45be5c31v9115476006z8810240695za20gzb810240695zd810240695xea&gcs=G111&gcd=13r3rPr2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528501~104684208~104684211~105391252~115583767~115938465~115938468~116184927~116184929~116217636~116217638~116518833~116678528~116682875&apve=1&apvf=f&apvc=0&tids=AW-997317827&tid=AW-997317827&tft=1765116244190&tfd=1357 net::ERR_ABORTED\n[auchan] results visible, extracting price from search results\n[auchan] Attempting to reveal price (clicking 'Afficher le prix')...\n[auchan] No reveal price button found on this attempt.\n[auchan] No reveal price button found on this attempt.\n[auchan] Price revealed!\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] CONSOLE: data =  {event_type: VIEW_CONTENT, price: 10.25, item_ids: Array(1), description: PDP, currency: EUR}\n[auchan] CONSOLE: initData =  {event_type: VIEW_CONTENT, price: 10.25, item_ids: Array(1), description: PDP, currency: EUR}\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: GTM PTag v1.4; tagId: 2612428663185\n[auchan] CONSOLE: UET GTM listening for consent updates\n[auchan] REQ_FAILED: https://www.google.com/ccm/collect?frm=0&en=page_view&dr=www.auchan.fr&dl=https%3A%2F%2Fwww.auchan.fr%2Fl-or-espresso-capsules-de-cafe-ristretto-intensite-11-compatibles-nespresso%2Fpr-C1777914&scrsrc=www.googletagmanager.com&rnd=1304432251.1765116248&dt=L%27OR%20ESPRESSO%20Capsules%20de%20caf%C3%A9%20Ristretto%20intensit%C3%A9%2011%20compatibles%20Nespresso%2030%20capsules%20156g%20pas%20cher%20-%20Auchan.fr&auid=261220172.1765116231&navt=n&npa=0&gtm=45He5c31v810240695za200zd810240695xea&gcs=G111&gcd=13r3r3r2r5l1&dma_cps=syphamo&dma=1&tcfd=10001&tag_exp=103116026~103200004~104527906~104528501~104684208~104684211~105391252~115583767~115616986~115938465~115938469~116184927~116184929~116217636~116217638~116474636~116514483&tft=1765116248142&tfd=3011&apve=1&apvf=f net::ERR_ABORTED\n[auchan] CONSOLE: Firing Pinterest event: pagevisit\n[auchan] CONSOLE: Event Data:{\"pageTitle\":\"L'OR ESPRESSO Capsules de café Ristretto intensité 11 compatibles Nespresso 30 capsules 156g pas cher - Auchan.fr\",\"pageUrl\":\"https://www.auchan.fr/l-or-espresso-capsules-de-cafe-ristretto-intensite-11-compatibles-nespresso/pr-C1777914\",\"np\":\"gtm\",\"gtm_version\":\"legacy\",\"line_items\":[{\"product_id\":\"9b3a42dc-b526-4775-a086-02e1da6b0ef1\",\"product_category\":\"Epicerie sucrée > Cafés > Compatibles Nespresso > Classique\"}]}\n[auchan] Attempt 1: price_text='10,25€' value='10.25'",
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "carrefour_city",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "11,40",
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000547342",
+        "note": null,
+        "unit_price": "73,08 € / KG",
+        "quantity": null,
+        "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+        "matched_ean": "8711000547342",
+        "image": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+          "source": "carrefour_city",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-03T09:42:26.896293+01:00",
+      "finished_at": "2025-12-03T09:42:37.673683+01:00",
+      "duration_seconds": 10.77739,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,55",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000547342",
+        "note": null,
+        "unit_price": "61,22 € / KG",
+        "quantity": null,
+        "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+        "matched_ean": "8711000547342",
+        "image": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-03T09:42:37.677166+01:00",
+      "finished_at": "2025-12-03T09:42:49.176925+01:00",
+      "duration_seconds": 11.499759,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "9,35",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/cafe-capsules-ristretto-intensite-11-compatible-nesp resso-l-or-8711000547342",
+        "note": null,
+        "unit_price": "59,94 € / KG",
+        "quantity": null,
+        "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+        "matched_ean": "8711000547342",
+        "image": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Café Capsules Ristretto Intensité 11 Compatible  Nespresso L'OR",
+          "brand": "Café",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://media.carrefour.fr/medias/7229ea14e1ec480ea45e41c214195662/p_540x540/08 711000547342_C1N1_s02.png",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-03T09:42:49.182928+01:00",
+      "finished_at": "2025-12-03T09:42:58.265329+01:00",
+      "duration_seconds": 9.082401,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-03T09:43:30.949361+01:00",
+      "finished_at": "2025-12-03T09:44:03.642476+01:00",
+      "duration_seconds": 32.693115,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py\", line 950, in <module>\n    res = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py\", line 636, in run\n    p, browser, context, page = await make_context(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: BrowserType.connect_over_cdp: Timeout 30000ms exceeded.\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222\n  - <ws connecting> ws://127.0.0.1:9222/devtools/browser/11f77f63-430a-4174-9a06-f3dc492c243a\n  - <ws connected> ws://127.0.0.1:9222/devtools/browser/11f77f63-430a-4174-9a06-f3dc492c243a",
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-03T09:44:03.651336+01:00",
+      "finished_at": "2025-12-03T09:44:37.117604+01:00",
+      "duration_seconds": 33.466268,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py\", line 855, in <module>\n    result = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py\", line 846, in run\n    result = await _collect_once(initial_cdp)\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py\", line 721, in _collect_once\n    p, browser, context, page = await make_context(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/pipeline/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: BrowserType.connect_over_cdp: Timeout 30000ms exceeded.\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222\n  - <ws connecting> ws://127.0.0.1:9222/devtools/browser/11f77f63-430a-4174-9a06-f3dc492c243a\n  - <ws connected> ws://127.0.0.1:9222/devtools/browser/11f77f63-430a-4174-9a06-f3dc492c243a",
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-03T09:44:37.125864+01:00",
+      "finished_at": "2025-12-03T09:44:37.858532+01:00",
+      "duration_seconds": 0.732668,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=L%27Or%20ristretto%20156%20G",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "L'Or ristretto 156 G",
+          "timestamp": "2025-12-03T08:44:42.382605+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-03T09:44:41.414202+01:00",
+      "finished_at": "2025-12-03T09:44:56.642899+01:00",
+      "duration_seconds": 15.228697,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or ristretto 156 G",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "L'Or ristretto 156 G",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251203-094226/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=L%27Or%20ristretto%20156%20G",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "L'Or ristretto 156 G",
+          "timestamp": "2025-12-03T08:45:40.551264+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-03T09:45:40.362300+01:00",
+      "finished_at": "2025-12-03T09:45:49.671492+01:00",
+      "duration_seconds": 9.309192,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or ristretto 156 G",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "L'Or ristretto 156 G",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251203-094226/09-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-07T15:04:28.251554+01:00",
+      "finished_at": "2025-12-07T15:05:58.332654+01:00",
+      "duration_seconds": 90.0811,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or ristretto 156 G",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "",
+      "metadata": {
+        "attempt_query": "L'Or ristretto 156 G",
+        "timeout_s": 90,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251207-150427/01-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Capsules de café espresso L'Or Ristretto x30 - 156g",
+        "price": "9,09",
+        "unit_price": "58,27 € / kg",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231370-Capsules-de-cafe-espresso-LOr.aspx",
+        "matched_ean": "8711000547342",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-12-03T08:47:58Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "product": {
+          "title": "Capsules de café espresso L'Or Ristretto x30 - 156g",
+          "brand": "",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": null,
+          "source": "leclerc",
+          "raw_text": ""
+        },
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231370-Capsules-de-cafe-espresso-LOr.aspx",
+            "product": {
+              "title": "Capsules de café espresso L'Or Ristretto x30 - 156g",
+              "brand": "Capsules",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "8711000547342",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-12-03T09:47:55.702609+01:00",
+      "finished_at": "2025-12-03T09:47:58.932146+01:00",
+      "duration_seconds": 3.229537,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or Café 156 G",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] DIRECT_URL mode: https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231370-Capsules-de-cafe-espresso-LOr.aspx\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'L'Or Café 156 G' direct_url:True\n[LECLERC_DEBUG] Navigating directly to https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-231370-Capsules-de-cafe-espresso-LOr.aspx\n[LECLERC_DEBUG] Direct navigation successful -> 1.53s",
+      "metadata": {
+        "attempt_query": "L'Or Café 156 G",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251203-094226/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/l-or-espresso-ristretto-café-en-capsules-x 50-intensite-11-260g/MPX_6630701",
+            "product": {
+              "title": "L'Or Espresso ristretto café en capsules x50 intensite 11 - 260g",
+              "brand": "L'Or",
+              "kind": "",
+              "qty": "260 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/c945 012c-4e69-4199-b8d8-f709e77cf58a/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Saint-Nicolas Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Menu des onglets du haut de l’écran Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/l-or-espresso-ristretto-café-en-capsules-i ntensité-11-en-capsules-x30-156g/MPX_6710407",
+            "product": {
+              "title": "L’Or Espresso ristretto café en capsules intensité 11 en  capsules x30 - 156g",
+              "brand": "L’Or",
+              "kind": "",
+              "qty": "156 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/cfae 1e37-a256-43ed-9d19-b4b000481be9/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Saint-Nicolas Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Menu des onglets du haut de l’écran Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/l-or-espresso-café-ristretto-intensité-11- x10-capsules-52g/MPX_2948476",
+            "product": {
+              "title": "L'Or Espresso Café Ristretto intensité 11 x10 capsules 52g",
+              "brand": "L'Or",
+              "kind": "",
+              "qty": "52 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d59a b942-4c39-48aa-9a69-715357f6c93e/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Saint-Nicolas Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Menu des onglets du haut de l’écran Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/l-or-espresso-passione-rossa-imola-ristret to-café-en-capsules-x10-52g/MPX_6846122",
+            "product": {
+              "title": "L’Or Espresso Passione Rossa Imola Ristretto Café en Capsules x10 -  52g",
+              "brand": "L’Or",
+              "kind": "",
+              "qty": "52 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/fb82 dedb-8e3a-4c3a-a4f0-7fef025d20f6/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Saint-Nicolas Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Menu des onglets du haut de l’écran Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-12-03T09:47:58.934787+01:00",
+      "finished_at": "2025-12-03T09:48:52.094357+01:00",
+      "duration_seconds": 53.15957,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "L'Or ristretto 156 G",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] ERROR: EAN '8711000547342' not found in descriptor store. Scoring will fail.\n[MONOPRIX_DEBUG] Search terms: [\"L'Or ristretto 156 G\", \"L'Or ristretto espresso\", \"L'Or 156 G\"]\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/3: 'L'Or ristretto 156 G'\n[MONOPRIX_DEBUG]  - Typing 'L'Or ristretto 156 G' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=L%27Or%20ristretto%20156%20G\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'L'Or ristretto espresso'\n[MONOPRIX_DEBUG]  - Typing 'L'Or ristretto espresso' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=L%27Or%20ristretto%20espresso\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 4 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/l-or-espresso-ristretto-café-en-capsules-x50-intensite-11-260g/MPX_6630701\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/c945012c-4e69-4199-b8d8-f709e77cf58a/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/l-or-espresso-ristretto-café-en-capsules-x50-intensite-11-260g/MPX_6630701\n[MONOPRIX_DEBUG][SCORE] - Title: 'L'Or Espresso ristretto café en capsules x50 intensite 11 - 260g' | Brand: '' | Variant(seed/cand)=(None/None) | Vetoes=[] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'L'Or Espresso ristretto café en capsules x50 intensite 11 - 260g'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'L'Or Espresso ristretto café en capsules x50 intensite 11 - 260g' | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'L'Or Espresso ristretto café en capsules x50 intensite 11 - 260g' (Score: 0) | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/l-or-espresso-ristretto-café-en-capsules-intensité-11-en-capsules-x30-156g/MPX_6710407\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/cfae1e37-a256-43ed-9d19-b4b000481be9/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/l-or-espresso-ristretto-café-en-capsules-intensité-11-en-capsules-x30-156g/MPX_6710407\n[MONOPRIX_DEBUG][SCORE] - Title: 'L’Or Espresso ristretto café en capsules intensité 11 en capsules x30 - 156g' | Brand: '' | Variant(seed/cand)=(None/None) | Vetoes=[] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'L’Or Espresso ristretto café en capsules intensité 11 en capsules x30 - 156g'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'L’Or Espresso ristretto café en capsules intensité 11 en capsules x30 - 156g' | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'L'Or Espresso ristretto café en capsules x50 intensite 11 - 260g' (Score: 0) | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/l-or-espresso-café-ristretto-intensité-11-x10-capsules-52g/MPX_2948476\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d59ab942-4c39-48aa-9a69-715357f6c93e/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/l-or-espresso-café-ristretto-intensité-11-x10-capsules-52g/MPX_2948476\n[MONOPRIX_DEBUG][SCORE] - Title: 'L'Or Espresso Café Ristretto intensité 11 x10 capsules 52g' | Brand: '' | Variant(seed/cand)=(None/None) | Vetoes=[] | NegHits=[] | Score=-15 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'L'Or Espresso Café Ristretto intensité 11 x10 capsules 52g'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'L'Or Espresso Café Ristretto intensité 11 x10 capsules 52g' | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'L'Or Espresso ristretto café en capsules x50 intensite 11 - 260g' (Score: 0) | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/l-or-espresso-passione-rossa-imola-ristretto-café-en-capsules-x10-52g/MPX_6846122\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/fb82dedb-8e3a-4c3a-a4f0-7fef025d20f6/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/l-or-espresso-passione-rossa-imola-ristretto-café-en-capsules-x10-52g/MPX_6846122\n[MONOPRIX_DEBUG][SCORE] - Title: 'L’Or Espresso Passione Rossa Imola Ristretto Café en Capsules x10 - 52g' | Brand: '' | Variant(seed/cand)=(None/None) | Vetoes=[] | NegHits=[] | Score=0 | Plausible=False\n[MONOPRIX_DEBUG]  - No image match for 'L’Or Espresso Passione Rossa Imola Ristretto Café en Capsules x10 - 52g'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'L’Or Espresso Passione Rossa Imola Ristretto Café en Capsules x10 - 52g' | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - Best rejected candidate 'L'Or Espresso ristretto café en capsules x50 intensite 11 - 260g' (Score: 0) | vetoes=['image_mismatch']\n[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n[MONOPRIX_DEBUG]  - Term 3/3: 'L'Or 156 G'\n[MONOPRIX_DEBUG]  - Typing 'L'Or 156 G' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=L%27Or%20156%20G\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, image=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=[{'url': 'https://courses.monoprix.fr/products/l-or-espresso-ristretto-café-en-capsules-x50-intensite-11-260g/MPX_6630701', 'status': 'OK_PARTIAL', 'product': {'title': \"L'Or Espresso ristretto café en capsules x50 intensite 11 - 260g\", 'brand': '', 'kind': '', 'qty': '260 G', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/c945012c-4e69-4199-b8d8-f709e77cf58a/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nSaint-Nicolas\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nMenu des onglets du haut de l’écran\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEpicerie Sucrée\\nCafé, Thé et Boisson chaude\\nCafé\\nCompatible Nespresso\\nL\\'Or Espresso ristretto café en capsules x50 intensite 11 - 260g\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n260g 62,65\\xa0€ / kilo\\n260g\\n(62,65\\xa0€ / kilo)\\n16,29\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nComposé avec soin, L\\'OR RISTRETTO éblouit les sens grâce à son caractère expressif et vivifiant et ses puissantes notes épicées. Un ristretto idéal pour un voyage intense inoubliable.\\n\\n\\nOrigine\\nFrance\\nMarque\\nL\\'Or\\nService consommateur\\nService Consommateur JDE Numero Cristal 09 69 32 96 61\\nConseils d\\'utilisation\\nInsérez la capsule dans votre machine à café Nespresso®*. Appuyez sur le bouton Lungo. La machine s\\'arrêtera automatiquement quand votre café sera prêt. Soulevez et fermez le levier pour éjecter la capsule dans le contenu de dosettes usagées. *Marque appartenant à un tiers n’ayant aucun lien avec JACOBS DOUWE EGBERTS *\\nIngredients\\nIngrédients : café\\nA propos de la marque\\nCréé en France en 1992, L’OR a toujours eu pour ambition de proposer le meilleur café au monde. Depuis, L’OR séduit nos sens en nous offrant des expériences gustatives intenses pour de grands moments de dégustation. Aujourd’hui, la qualité inégalable du café L’OR continue de séduire les amateurs du monde entier…\\nType d’emballage\\nboîte\\nProducteur\\nJACOBS DOUWE EGBERTS FR SAS 79 BOULEVARD SAINT GERMAIN///75006/PARIS/FRANCE\\nConseil de conservation\\nA conserver de préférence dans un endroit sec et à température ambiante\\nConseils d\\'utilisation\\nInsérez la capsule dans votre machine à café Nespresso®*. Appuyez sur le bouton Lungo. La machine s\\'arrêtera automatiquement quand votre café sera prêt. Soulevez et fermez le levier pour éjecter la capsule dans le contenu de dosettes usagées. *Marque appartenant à un tiers n’ayant aucun lien avec JACOBS DOUWE EGBERTS *\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '62,65 € / KG', 'price': '16,29'}, 'score': 0.0, 'extras': {'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['image_mismatch'], 'candidate_quantity': '260 G', 'image_match': False, 'final_score': 0, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/l-or-espresso-ristretto-café-en-capsules-intensité-11-en-capsules-x30-156g/MPX_6710407', 'status': 'OK_PARTIAL', 'product': {'title': 'L’Or Espresso ristretto café en capsules intensité 11 en capsules x30 - 156g', 'brand': '', 'kind': '', 'qty': '156 G', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/cfae1e37-a256-43ed-9d19-b4b000481be9/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nSaint-Nicolas\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nMenu des onglets du haut de l’écran\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEpicerie Sucrée\\nCafé, Thé et Boisson chaude\\nCafé\\nCompatible Nespresso\\nL’Or Espresso ristretto café en capsules intensité 11 en capsules x30 - 156g\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n156g 67,88\\xa0€ / kilo\\n156g\\n(67,88\\xa0€ / kilo)\\n10,59\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nComposé avec soin, L\\'OR RISTRETTO éblouit les sens grâce à son caractère expressif et vivifiant et ses puissantes notes épicées. Un ristretto idéal pour un voyage intense inoubliable.\\n\\n\\nOrigine\\nFrance\\nMarque\\nL\\'Or\\nService consommateur\\nService Consommateur JDE Numero Cristal 09 69 32 96 61\\nConseils d\\'utilisation\\nInsérez la capsule dans votre machine à café Nespresso®*. Appuyez sur le bouton Lungo. La machine s\\'arrêtera automatiquement quand votre café sera prêt. Soulevez et fermez le levier pour éjecter la capsule dans le contenu de dosettes usagées. *Marque appartenant à un tiers n’ayant aucun lien avec JACOBS DOUWE EGBERTS *\\nIngredients\\nIngrédients : café\\nA propos de la marque\\nCréé en France en 1992, L’OR a toujours eu pour ambition de proposer le meilleur café au monde. Depuis, L’OR séduit nos sens en nous offrant des expériences gustatives intenses pour de grands moments de dégustation. Aujourd’hui, la qualité inégalable du café L’OR continue de séduire les amateurs du monde entier…\\nType d’emballage\\nboîte\\nProducteur\\nJACOBS DOUWE EGBERTS FR SAS 79 BOULEVARD SAINT GERMAIN///75006/PARIS/FRANCE\\nConseil de conservation\\nA conserver de préférence dans un endroit sec et à température ambiante\\nConseils d\\'utilisation\\nInsérez la capsule dans votre machine à café Nespresso®*. Appuyez sur le bouton Lungo. La machine s\\'arrêtera automatiquement quand votre café sera prêt. Soulevez et fermez le levier pour éjecter la capsule dans le contenu de dosettes usagées. *Marque appartenant à un tiers n’ayant aucun lien avec JACOBS DOUWE EGBERTS *\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '67,88 € / KG', 'price': '10,59'}, 'score': 0.0, 'extras': {'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['image_mismatch'], 'candidate_quantity': '156 G', 'image_match': False, 'final_score': 0, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/l-or-espresso-café-ristretto-intensité-11-x10-capsules-52g/MPX_2948476', 'status': 'OK_PARTIAL', 'product': {'title': \"L'Or Espresso Café Ristretto intensité 11 x10 capsules 52g\", 'brand': '', 'kind': '', 'qty': '52 G', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/d59ab942-4c39-48aa-9a69-715357f6c93e/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nSaint-Nicolas\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nMenu des onglets du haut de l’écran\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nAccueil\\nEpicerie Sucrée\\nCafé, Thé et Boisson chaude\\nCafé\\nCompatible Nespresso\\nL\\'Or Espresso Café Ristretto intensité 11 x10 capsules 52g\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n52g 72,88\\xa0€ / kilo\\n52g\\n(72,88\\xa0€ / kilo)\\n3,79\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nLe café en capsule L\\'OR RISTRETTO éblouit les sens. Composé avec soin par nos maîtres torréfacteurs, c\\'est un café ristretto fort au gout intense, avec de puissantes notes épicées. Format : pack de 10 capsules. Couleur : Noir. Niveau d’intensité : 11. Les capsules L’OR Espresso sont compatibles avec votre machine à café L\\'OR BARISTA ® ou Nespresso ®*. Parfumé, riche et aromatique, les amateurs apprécient la douceur et le goût fuité du café L\\'OR. Sans doute le meilleur café du monde. Que vous l’aimiez serré, expresso ou allongé, la capsule en aluminium permet de préserver ses arômes. Nos capsules en aluminium sont fabriquées en France. Elles sont recyclables dans les poubelles de tri sélectif pour les communes recyclant les petits emballages en aluminium ou en les déposant dans l’un des nombreux points de collecte de capsules en aluminium disponibles. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\\n\\n\\nOrigine\\nFrance\\nMarque\\nL\\'Or\\nService consommateur\\nService Consommateur JDE Numero Cristal 09 69 32 96 61\\nConseils d\\'utilisation\\nLes capsules L’OR Espresso sont compatibles avec votre machine à café L\\'OR BARISTA ® et Nespresso ®* Insérez la capsule dans votre machine à café. Appuyez sur le bouton Expresso (40ml). La machine s\\'arrêtera automatiquement quand votre café sera prêt. Soulevez et fermez le levier pour éjecter la capsule dans le contenu de dosettes usagées. Ces capsules en aluminium sont recyclables. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\\nIngredients\\nIngrédients : Café\\nA propos de la marque\\nCréé en France en 1992, L’OR a toujours eu pour ambition de proposer sans doute le meilleur café au monde. Chaque tasse de café L’OR raconte une histoire fascinante. Grâce à la passion et au savoir-faire de ses Maîtres torréfacteurs, L\\'OR a élaboré des cafés de grande qualité en révélant le profil aromatique des meilleurs grains. Suivez vos sens et laissez-vous envahir par l\\'intensité de ses arômes. Expresso ou allongé, en grain, moulu ou en capsule, en format familial ou individuel… il y a tant de manières de déguster un café L\\'OR. Les capsules en aluminium L’OR sont compatibles avec votre machine à café Nespresso®* et L\\'OR BARISTA®. Ces capsules en aluminium sont recyclables. Nespresso France a créé la filière de recyclage des capsules en aluminium. JDE France - et sa marque L’OR - a été le premier acteur du secteur à s’engager aux côtés de Nespresso France afin de la développer. En 2019, c’est le lancement de la machine à café L’OR BARISTA®, fabriquée par PHILIPS. Avec cette machine, vous pouvez vous préparer un expresso d\\'un niveau de qualité professionnel, à déguster à la maison ou au travail. La machine café L’OR BARISTA® a été créée pour fonctionner avec les capsules espresso classiques L’OR et les capsules double espresso L’OR BARISTA®, ainsi qu’avec les capsules Nespresso®* et la plupart des autres capsules compatibles. Faites votre choix parmi un expresso, un ristretto, un lungo ou un cappuccino. Innovation : cette machine permet de préparer un café double dans une tasse, ou deux cafés à la fois. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\\nType d’emballage\\nboîte\\nProducteur\\nJACOBS DOUWE EGBERTS FR SAS 79 BOULEVARD SAINT GERMAIN///75006/PARIS/FRANCE\\nConseil de conservation\\nConservez ces capsules de café de préférence dans un endroit sec et à température ambiante\\nConseils d\\'utilisation\\nLes capsules L’OR Espresso sont compatibles avec votre machine à café L\\'OR BARISTA ® et Nespresso ®* Insérez la capsule dans votre machine à café. Appuyez sur le bouton Expresso (40ml). La machine s\\'arrêtera automatiquement quand votre café sera prêt. Soulevez et fermez le levier pour éjecter la capsule dans le contenu de dosettes usagées. Ces capsules en aluminium sont recyclables. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '72,88 € / KG', 'price': '3,79'}, 'score': -15.0, 'extras': {'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['image_mismatch'], 'candidate_quantity': '52 G', 'image_match': False, 'final_score': -15, 'plausible_baseline': False}}, {'url': 'https://courses.monoprix.fr/products/l-or-espresso-passione-rossa-imola-ristretto-café-en-capsules-x10-52g/MPX_6846122', 'status': 'OK_PARTIAL', 'product': {'title': 'L’Or Espresso Passione Rossa Imola Ristretto Café en Capsules x10 - 52g', 'brand': '', 'kind': '', 'qty': '52 G', 'qualifiers': [], 'ean': None, 'image_url': 'https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/fb82dedb-8e3a-4c3a-a4f0-7fef025d20f6/300x300.jpg', 'source': 'monoprix', 'raw_text': 'Aller directement au contenu\\nAller directement au moteur de recherche\\nAller directement en bas de la page\\nChocolats de Noël\\nAppli mobile\\nSaint-Nicolas\\nMes marques Monoprix\\nNaturalia\\nPromotions\\nPrésentation du service\\nMonoprix Mode et Maison\\n(s’ouvre dans une nouvelle fenêtre)\\nCasino\\nMenu des onglets du haut de l’écran\\nPage d’accueil\\nRechercher un article\\nSe connecter\\nRéserver un créneau\\nRéserver un créneau\\nAller au paiement\\nNombre total d’articles dans votre panier 0. Montant du panier 0,00\\xa0€.\\n0,00 €\\nMin 60,00\\xa0€\\nNos Rayons\\nFavoris\\nListe de courses\\nProduits réguliers\\nIdées repas\\nNEW-NOEL202520€ offerts dès 80€ d\\'achats + 2 mois de livraison offerte*\\nEN SAVOIR +\\nL’Or Espresso Passione Rossa Imola Ristretto Café en Capsules x10 - 52g\\n3,85\\xa0€\\nAjouter\\nAccueil\\nEpicerie Sucrée\\nCafé, Thé et Boisson chaude\\nCafé\\nCompatible Nespresso\\nL’Or Espresso Passione Rossa Imola Ristretto Café en Capsules x10 - 52g\\n2\\xa0m+\\n2\\xa0mois de garantie de vie du produit\\n52g 74,04\\xa0€ / kilo\\n52g\\n(74,04\\xa0€ / kilo)\\n3,85\\xa0€\\nAjouter\\nInformations produit\\n\\n\\nDescription Produit\\nInspiré par le partenariat L’OR x Ferrari Hypercar. Un frisson pour les sens. Cet assemblage intense et puissant exalte vos sens, rappelant l’expérience d’accélérer dans une voiture de course iconique. Au fil de la dégustation, les arômes se dévoilent – des notes de fruits secs révélées pendant l’extraction du café. La texture crémeuse enveloppe vos sens, pour un souvenir impérissable, un frisson qui se prolonge.\\n\\n\\nOrigine\\nFrance\\nMarque\\nL OR\\nService consommateur\\nService Consommateur JDE Numero Cristal 09 69 32 96 61\\nConseils d\\'utilisation\\nCe café en grains à moudre est idéal pour une machine à expresso automatique type broyeur, ainsi que pour un moulin traditionnel (manuel ou électrique). Une fois moulu, vous pouvez l\\'utiliser dans tout type de cafetière. Afin de conserver les arômes du café, nous vous conseillons d\\'adapter la mouture à votre machine : Mouture très fine pour une machine à espresso. Mouture fine pour une cafetière à l\\'italienne. Mouture moyenne pour une cafetière filtre. Et mouture grossière pour une cafetière à piston.\\nIngredients\\nIngrédients : café\\nA propos de la marque\\nCréé en France en 1992, L’OR a toujours eu pour ambition de proposer sans doute le meilleur café au monde. Chaque tasse de café L’OR raconte une histoire fascinante. Grâce à la passion et au savoir-faire de ses Maîtres torréfacteurs, L\\'OR a élaboré des cafés de grande qualité en révélant le profil aromatique des meilleurs grains. Suivez vos sens et laissez-vous envahir par l\\'intensité de ses arômes. Expresso ou allongé, en grain, moulu ou en capsule, en format familial ou individuel… il y a tant de manières de déguster un café L\\'OR. Les capsules en aluminium L’OR sont compatibles avec votre machine à café Nespresso®* et L\\'OR BARISTA®. Ces capsules en aluminium sont recyclables. Nespresso France a créé la filière de recyclage des capsules en aluminium. JDE France - et sa marque L’OR - a été le premier acteur du secteur à s’engager aux côtés de Nespresso France afin de la développer. En 2019, c’est le lancement de la machine à café L’OR BARISTA®, fabriquée par PHILIPS. Avec cette machine, vous pouvez vous préparer un expresso d\\'un niveau de qualité professionnel, à déguster à la maison ou au travail. La machine café L’OR BARISTA® a été créée pour fonctionner avec les capsules espresso classiques L’OR et les capsules double espresso L’OR BARISTA®, ainsi qu’avec les capsules Nespresso®* et la plupart des autres capsules compatibles. Faites votre choix parmi un expresso, un ristretto, un lungo ou un cappuccino. Innovation : cette machine permet de préparer un café double dans une tasse, ou deux cafés à la fois. *Marque appartenant à un tiers n’ayant aucun lien avec Jacobs Douwe Egberts\\nType d’emballage\\nboîte\\nProducteur\\nJACOBS DOUWE EGBERTS FR SAS 79 BOULEVARD SAINT GERMAIN///75006/PARIS/FRANCE\\nConseil de conservation\\nConservez ces capsules de café de préférence dans un endroit sec et à température ambiante\\nConseils d\\'utilisation\\nCe café en grains à moudre est idéal pour une machine à expresso automatique type broyeur, ainsi que pour un moulin traditionnel (manuel ou électrique). Une fois moulu, vous pouvez l\\'utiliser dans tout type de cafetière. Afin de conserver les arômes du café, nous vous conseillons d\\'adapter la mouture à votre machine : Mouture très fine pour une machine à espresso. Mouture fine pour une cafetière à l\\'italienne. Mouture moyenne pour une cafetière filtre. Et mouture grossière pour une cafetière à piston.\\nNous contacter\\n(s’ouvre dans une nouvelle fenêtre)\\n(s’ouvre dans une nouvelle fenêtre)\\nPolitique relative aux cookies\\nA propos\\nNos magasins\\nTrouver mon magasin\\nProgramme de fidélité\\nNos catalogues\\nNos magasins avec Parapharmacie\\nAide & Mentions\\nDonnées personnelles et cookies\\n(s’ouvre dans une nouvelle fenêtre)\\nConditions de nos offres\\nContacts\\nRappel produits\\nCGV & Mentions légales\\n(s’ouvre dans une nouvelle fenêtre)\\nNos autres sites\\nL\\'entreprise\\nNous rejoindre\\n(s’ouvre dans une nouvelle fenêtre)\\nEspace Presse\\nEspace Franchisé\\n(s’ouvre dans une nouvelle fenêtre)\\nAffiliation monoprix.fr\\nBons plans des marques\\nMonoprix.fr Courses\\nTarifs de livraison\\nPrésentation du service\\nAstuces\\nAbonnement M+\\nFAQ\\nPlus de services\\nAppli mobile Apple\\n(s’ouvre dans une nouvelle fenêtre)\\nAppli mobile Android\\n(s’ouvre dans une nouvelle fenêtre)\\n© 2025\\nfacebook\\n(s’ouvre dans une nouvelle fenêtre)\\ntwitter\\n(s’ouvre dans une nouvelle fenêtre)\\npinterest\\n(s’ouvre dans une nouvelle fenêtre)\\nMonoprix et ses partenaires vous offrent une expérience sur mesure\\nMonoprix et ses partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs types de cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des données personnelles\\nVoir la liste de nos partenaires\\nPERSONNALISER MES COOKIES\\nJ\\'ACCEPTE\\nCONTINUER SANS ACCEPTER', 'unit_price': '74,04 € / KG', 'price': '3,85'}, 'score': 0.0, 'extras': {'seed_variant': None, 'candidate_variant': None, 'negatives_hit': [], 'variant_ok': True, 'unit_family_ok': True, 'size_ok': True, 'category_ok': True, 'vetoes': ['image_mismatch'], 'candidate_quantity': '52 G', 'image_match': False, 'final_score': 0, 'plausible_baseline': False}}])\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "L'Or ristretto 156 G",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000547342/debug/run-8711000547342-20251203-094226/12-monoprix"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "capsule espresso ristretto",
+      "brand": "L'Or",
+      "kind": "",
+      "qty": "156 g",
+      "qualifiers": [],
+      "ean": "8711000547342",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

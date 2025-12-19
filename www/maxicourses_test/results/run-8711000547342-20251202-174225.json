@@ -1,0 +1,96 @@
+{
+  "ean": "8711000547342",
+  "image_path": null,
+  "started_at": "2025-12-02T17:42:02.017309+01:00",
+  "finished_at": "2025-12-02T17:42:25.761909+01:00",
+  "duration_seconds": 23.7446,
+  "reference": {
+    "title": "Capsules de café Ristretto intensité 11 compatibles  Nespresso",
+    "description": "Capsules de café Ristretto intensité 11 compatibles  Nespresso",
+    "source": "auchan",
+    "brand": "Capsules",
+    "quantity": "30 CAPSULES",
+    "categories": null,
+    "image": "./assets/8711000547342.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "18,73",
+        "unit_price": "120,06 € / KG",
+        "quantity": "30 CAPSULES",
+        "title": "Capsules de café Ristretto intensité 11 compatibles  Nespresso",
+        "url": "https://www.auchan.fr/l-or-espresso-capsules-de-cafe-ristretto-intensite-11-com patibles-nespresso/pr-C1777914",
+        "matched_ean": "8711000547342",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S01000000040J8WPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Capsules de café Ristretto intensité 11 compatibles  Nespresso",
+          "brand": "Capsules",
+          "kind": "",
+          "qty": "30 CAPSULES",
+          "qualifiers": [],
+          "ean": "8711000547342",
+          "image_url": "https://cdn.auchan.fr/media/S01000000040J8WPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T17:42:02.017444+01:00",
+      "finished_at": "2025-12-02T17:42:19.949821+01:00",
+      "duration_seconds": 17.932377,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "8711000547342",
+        "QUERY": "8711000547342",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "1"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button.journey-button\n[auchan] Clicking 'Choisir ce drive'...\n[auchan] ⚠️ Button still visible after click.\n[auchan] results visible, extracting price from search results\n[auchan] price_node='18,73€' => value='18.73'\n[auchan] quantity chosen: '30 CAPSULES'",
+      "metadata": {
+        "attempt_query": "8711000547342"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Capsules de café Ristretto intensité 11 compatibles  Nespresso",
+      "brand": "Capsules",
+      "kind": "",
+      "qty": "30 CAPSULES",
+      "qualifiers": [],
+      "ean": "8711000547342",
+      "image_url": "https://cdn.auchan.fr/media/S01000000040J8WPRIMARY_1200x1200/B2CD/",
+      "source": "consolidated",
+      "raw_text": "Capsules de café Ristretto intensité 11 compatibles  Nespresso",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

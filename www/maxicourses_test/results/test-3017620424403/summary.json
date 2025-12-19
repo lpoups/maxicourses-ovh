@@ -1,0 +1,385 @@
+{
+  "3017620424403": {
+    "carrefour_city": {
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "Connecting to CDP: http://127.0.0.1:9222",
+        "last_line": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-10T20:53:09.963473+01:00",
+      "duration_seconds": 2.373662,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/s?q=3017620424403",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": "C’est une formalité... si vous êtes un humain !",
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "C’est une formalité... si vous êtes un humain !",
+          "brand": "C’est",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3017620424403",
+          "image_url": null,
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-12-10T20:53:09.963473+01:00",
+      "duration_seconds": 42.575756,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_super": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/s?q=3017620424403",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": "C’est une formalité... si vous êtes un humain !",
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "C’est une formalité... si vous êtes un humain !",
+          "brand": "C’est",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3017620424403",
+          "image_url": null,
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-12-10T20:53:09.963473+01:00",
+      "duration_seconds": 42.788246,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-10T20:53:09.963473+01:00",
+      "duration_seconds": 90.04733,
+      "error": "timeout_after_90s",
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-10T20:53:09.963473+01:00",
+      "duration_seconds": 68.815015,
+      "error": null,
+      "store_query": null
+    },
+    "courseu": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "note": "2025-12-10T19:41:48Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-10T20:53:09.963473+01:00",
+      "duration_seconds": 30.052148,
+      "error": null,
+      "store_query": null
+    },
+    "g20": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Non disponible",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-10T20:53:09.963473+01:00",
+      "duration_seconds": 0.63895,
+      "error": null,
+      "store_query": null
+    },
+    "casino": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Nutella%20p%C3%A2te%20%C3%A0%20tartiner%20400g",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Nutella pâte à tartiner 400g",
+          "timestamp": "2025-12-10T19:44:03.045124+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-10T20:53:09.963473+01:00",
+      "duration_seconds": 1.166345,
+      "error": null,
+      "store_query": null
+    },
+    "spar": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Nutella%20p%C3%A2te%20%C3%A0%20tartiner%20400g",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Nutella pâte à tartiner 400g",
+          "timestamp": "2025-12-10T19:44:09.568032+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-10T20:53:09.963473+01:00",
+      "duration_seconds": 0.981809,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-12-10T20:53:09.963473+01:00",
+      "duration_seconds": 63.965695,
+      "error": null,
+      "store_query": null
+    },
+    "monoprix": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,55",
+        "title": "Nutella Pâte à tartiner noisettes et cacao 400g",
+        "url": "https://courses.monoprix.fr/products/nutella-p%C3%A2te-%C3%A0-tartiner-noisette s-et-cacao-400g/MPX_2809998",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4164 bee8-b67e-4c18-a835-1565cf33cd0a/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4164 bee8-b67e-4c18-a835-1565cf33cd0a/300x300.jpg",
+        "matched_ean": null,
+        "unit_price": "11,38 € / KG",
+        "quantity": "400 G",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nMenu des onglets du haut de l’écran\nPage d’accueil\nRechercher un article\nSe connecter\nRéserver un  créneau\nRéserver un créneau\nAller au paiement\nNombre total d’articles dans  votre panier 0. Montant du panier 0,00 €.\n0,00 €\nMin 60,00 €\nNos  Rayons\nFavoris\nListe de courses\nProduits réguliers\nIdées  repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison  offerte*\nEN SAVOIR +\nAccueil\nEpicerie Sucrée\nConfiture, Pâte à tartiner et  Miel\nPâte à tartiner\nNutella Pâte à tartiner noisettes et cacao 400g\n2 m+\n2  mois de garantie de vie du produit\n400g 11,38 € / kilo\n400g\n(11,38 € /  kilo)\n4,55 €\nAjouter\nInformations produit\n\n\nDescription Produit\nVous êtes nombreux à apprécier le goût unique du Nutella sur une tranche de pain mais il  existe aussi beaucoup d'autres recettes originales à essayer ! Pourquoi ne pas  laisser place à votre créativité et tenter l'expérience avec Nutella ? Essayez  quelque chose de nouveau pour réveiller votre enthousiasme  !\n\n\nOrigine\nFrance\nMarque\nNutella\nService consommateur\nFERRERO FRANCE  COMMERCIALE - Service Consommateurs CS 90058 - 76136 MONT SAINT AIGNAN Cedex  800553553\nIngredients\nsucre, huile de palme, NOISETTES 13%, LAIT écrémé en  poudre 8,7%, cacao maigre 7,4%, émulsifiants : lécithines [ SOJA ]  vanilline\nAllergènes\nLait, Noisettes, Soja\nType  d’emballage\nbocal\nProducteur\nFERRERO FRANCE COMMERCIALE 18 RUE JACQUES  MONOD/CS 90058//76136/MONT SAINT AIGNAN CEDEX/FRANCE\nConseil de conservation\nA conserver au sec et à l'abri de la chaleur. Ne pas mettre au  réfrigérateur.\nValeurs nutritionnelles\nINFORMATIONS NUTRITIONNELLES  MOYENNES\n\tpour 100 g\tpour 15\nValeurs Energétique en Kilojoules\t~ 2252  kJ\t336 kJ\nValeurs Energétique en Kilocalories\t~ 539 kcal\t80 kcal\nValeurs  Nutritionnelles\nMatières grasses\t~ 30.9 g\t4.6 g\nDont Acides Gras Saturés\t~  10.6 g\t1.6 g\nGlucides\t~ 57.5 g\t8.6 g\nDont Sucres\t~ 56.3 g\t8.4  g\nProtéines\t~ 6.3 g\t0.9 g\nSel\t~ 0.107 g\t0.016 g\nNous contacter\n(s’ouvre  dans une nouvelle fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique  relative aux cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de  fidélité\nNos catalogues\nNos magasins avec Parapharmacie\nAide &  Mentions\nDonnées personnelles et cookies\n(s’ouvre dans une nouvelle  fenêtre)\nConditions de nos offres\nContacts\nRappel produits\nCGV & Mentions  légales\n(s’ouvre dans une nouvelle fenêtre)\nNos autres  sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une nouvelle fenêtre)\nAffiliation  monoprix.fr\nBons plans des marques\nMonoprix.fr Courses\nTarifs de  livraison\nPrésentation du service\nAstuces\nAbonnement M+\nFAQ\nPlus de  services\nAppli mobile Apple\n(s’ouvre dans une nouvelle fenêtre)\nAppli mobile  Android\n(s’ouvre dans une nouvelle fenêtre)\n© 2025\nfacebook\n(s’ouvre dans  une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une nouvelle  fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)\nMonoprix et ses  partenaires vous offrent une expérience sur mesure\nMonoprix et ses partenaires  vous offrent une expérience sur mesure. Nous utilisons plusieurs types de  cookies afin de vous offrir l’expérience la plus fluide possible. Le dépôt de  cookies nous permet notamment, ainsi qu’à nos partenaires, de vous proposer des  offres et contenus adaptés, des publicités personnalisées, de proposer certaines fonctionnalités, d’analyser la performance du site et d’effectuer des  statistiques. Vous pouvez modifier vos choix à tout moment, en bas de page,  rubrique \"Mes cookies\". Retrouvez tous les détails dans notreCharte des  données personnelles\nVoir la liste de nos partenaires\nPERSONNALISER MES  COOKIES\nJ'ACCEPTE\nCONTINUER SANS ACCEPTER",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": null,
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": false,
+          "vetoes": [
+            "category",
+            "image_mismatch"
+          ],
+          "candidate_quantity": "400 G",
+          "candidate_size_ratio": 0.0,
+          "descriptor_token_coverage": {
+            "coverage": 1.0,
+            "matched": [
+              "nutella"
+            ],
+            "missing": [],
+            "total": 1
+          },
+          "missing_tokens": [],
+          "image_match": false,
+          "final_score": 35,
+          "plausible_baseline": false,
+          "notes": [
+            "accepted_without_image_match_high_coverage"
+          ],
+          "equivalent": true
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/nutella-pâte-à-tartiner-noisettes-et-cacao -400g/MPX_2809998",
+            "product": {
+              "title": "Nutella Pâte à tartiner noisettes et cacao 400g",
+              "brand": "Nutella",
+              "kind": "",
+              "qty": "400 G",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4164 bee8-b67e-4c18-a835-1565cf33cd0a/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Menu des onglets du haut de l’écran Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "equivalent": true,
+        "difference_note": "Match sans EAN (couverture mots-clés)",
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "updated_at": "2025-12-10T20:53:09.963473+01:00",
+      "duration_seconds": 19.569558,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "ERROR",
+      "payload": {
+        "status": "ERROR",
+        "error": "Crash: Locator.type: Timeout 15000ms exceeded.\nCall log:\nwaiting for locator(\"input[id*='rechercheTexte']\").first\n",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-10T20:53:09.963473+01:00",
+      "duration_seconds": 36.847054,
+      "error": null,
+      "store_query": null
+    },
+    "_finder": {
+      "consolidated": {
+        "title": "C’est une formalité... si vous êtes un humain !",
+        "brand": "Nutella",
+        "kind": "",
+        "qty": "400g",
+        "price": null,
+        "quantity": null,
+        "qualifiers": [],
+        "ean": "3017620424403",
+        "image_url": "./assets/3017620424403.jpg",
+        "source": "consolidated",
+        "raw_text": "C’est une formalité... si vous êtes un humain !",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": [
+        "Nutella 400g",
+        "Nutella pâte à tartiner 400g",
+        "Nutella pâte à tartiner",
+        "C’est une formalité... si",
+        "C’est une formalité...",
+        "Nutella formalite 400G",
+        "Nutella formalite humain",
+        "Nutella etes 400G"
+      ],
+      "candidates": [
+        {
+          "adapter": "monoprix",
+          "url": "https://courses.monoprix.fr/products/nutella-pâte-à-tartiner-noisettes-et-cacao -400g/MPX_2809998",
+          "score": 0.4,
+          "product": {
+            "title": "Nutella Pâte à tartiner noisettes et cacao 400g",
+            "brand": "Nutella",
+            "kind": "",
+            "qty": "400 G",
+            "price": null,
+            "quantity": null,
+            "qualifiers": [],
+            "ean": null,
+            "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/4164 bee8-b67e-4c18-a835-1565cf33cd0a/300x300.jpg",
+            "source": "monoprix",
+            "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Menu des onglets du haut de l’écran Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès",
+            "seed_query": "",
+            "leclerc_queries": []
+          }
+        }
+      ],
+      "decision": null,
+      "audit": []
+    }
+  }
+}

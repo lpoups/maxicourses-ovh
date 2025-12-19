@@ -19,8 +19,8 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-29T13:57:02.656563+01:00",
-      "duration_seconds": 13.275106,
+      "updated_at": "2025-12-19T13:02:11.696882+01:00",
+      "duration_seconds": 17.392909,
       "error": null,
       "store_query": null,
       "previous": {
@@ -42,7 +42,7 @@
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-22T10:17:48.562977+01:00",
+        "updated_at": "2025-12-19T10:10:52.231727+01:00",
         "error": null,
         "store_query": null
       }
@@ -53,65 +53,58 @@
         "status": "OK",
         "price": "2,81",
         "store": "Market Fondaudège",
-        "url": "https://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033",
-        "note": null,
+        "url": "https://www.carrefour.fr/p/sirop-peche-teisseire-3092718637699",
+        "note": "json_state_extraction",
         "unit_price": "4,68 € / L",
-        "quantity": "60 CL",
-        "title": "Sirop Menthe  Verte TEISSEIRE",
+        "quantity": "60cL",
+        "title": "Sirop Menthe Verte TEISSEIRE",
         "matched_ean": "3092718637033",
-        "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
-        "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+        "image": "https://media.carrefour.fr/medias/6f0c3da14b9d42728172c806e0ce9424/p_200x200/03 092718637699_C1N1_s04.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Sirop Menthe  Verte TEISSEIRE",
+          "title": "Sirop Menthe Verte TEISSEIRE",
           "brand": "Sirop",
           "kind": "",
-          "qty": "60 CL",
+          "qty": "60cL",
+          "price": null,
+          "quantity": null,
           "qualifiers": [],
           "ean": "3092718637033",
-          "image_url": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
+          "image_url": "https://media.carrefour.fr/medias/6f0c3da14b9d42728172c806e0ce9424/p_200x200/03 092718637699_C1N1_s04.png",
           "source": "carrefour_market",
-          "raw_text": ""
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-22T10:17:48.562977+01:00",
-      "duration_seconds": 17.365624,
+      "updated_at": "2025-12-19T10:11:26.405158+01:00",
+      "duration_seconds": 20.182837,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "OK",
+        "status": "CF_BLOCK",
         "payload": {
-          "status": "OK",
-          "price": "2,81",
-          "store": "Market Fondaudège",
-          "url": "https://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033",
+          "status": "CF_BLOCK",
+          "price": null,
+          "store": null,
+          "url": "https://www.carrefour.fr/s?q=3092718637033",
           "note": null,
-          "unit_price": "4,68 € / L",
-          "quantity": "60 CL",
-          "title": "Sirop Menthe  Verte TEISSEIRE",
-          "matched_ean": "3092718637033",
-          "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
-          "nutriscore_grade": "c",
-          "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+          "unit_price": null,
+          "quantity": null,
+          "title": null,
+          "matched_ean": null,
+          "image": null,
+          "nutriscore_grade": null,
+          "nutriscore_image": null,
           "_meta": {
             "supports_ean": true
-          },
-          "product": {
-            "title": "Sirop Menthe  Verte TEISSEIRE",
-            "brand": "Sirop",
-            "kind": "",
-            "qty": "60 CL",
-            "qualifiers": [],
-            "ean": "3092718637033",
-            "image_url": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
-            "source": "carrefour_market",
-            "raw_text": ""
           }
         },
-        "updated_at": "2025-11-21T11:29:05.826062+01:00",
+        "updated_at": "2025-12-18T15:11:11.299829+01:00",
         "error": null,
         "store_query": null
       }
@@ -122,15 +115,15 @@
         "status": "OK",
         "price": "2,45",
         "store": "Lormont",
-        "url": "https://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033",
-        "note": null,
+        "url": "https://www.carrefour.fr/p/sirop-grenadine-teisseire-3092718637064",
+        "note": "json_state_extraction",
         "unit_price": "4,08 € / L",
-        "quantity": "60 CL",
+        "quantity": "60cL",
         "title": "Sirop Menthe Verte TEISSEIRE",
         "matched_ean": "3092718637033",
-        "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03092718637033_C1N1_s03.pn g",
-        "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+        "image": "https://media.carrefour.fr/medias/ca297d2b57734884a96d418f0b2f5205/p_200x200/03 092718637064_C1N1_s05.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
         "_meta": {
           "supports_ean": true
         },
@@ -138,18 +131,20 @@
           "title": "Sirop Menthe Verte TEISSEIRE",
           "brand": "Sirop",
           "kind": "",
-          "qty": "60 CL",
+          "qty": "60cL",
+          "price": null,
+          "quantity": null,
           "qualifiers": [],
           "ean": "3092718637033",
-          "image_url": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03092718637033_C1N1_s03.pn g",
+          "image_url": "https://media.carrefour.fr/medias/ca297d2b57734884a96d418f0b2f5205/p_200x200/03 092718637064_C1N1_s05.png",
           "source": "carrefour_super",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-29T13:55:58.983119+01:00",
-      "duration_seconds": 19.66556,
+      "updated_at": "2025-12-19T12:55:45.274116+01:00",
+      "duration_seconds": 30.747849,
       "error": null,
       "store_query": null,
       "previous": {
@@ -158,31 +153,35 @@
           "status": "OK",
           "price": "2,45",
           "store": "Lormont",
-          "url": "https://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033",
-          "note": null,
+          "url": "https://www.carrefour.fr/p/sirop-menthe-zero-sucres-teisseire-3092718637958",
+          "note": "json_state_extraction",
           "unit_price": "4,08 € / L",
-          "quantity": "60 CL",
-          "title": "Sirop Menthe  Verte TEISSEIRE",
+          "quantity": "60cL",
+          "title": "Sirop Menthe Verte TEISSEIRE",
           "matched_ean": "3092718637033",
-          "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
-          "nutriscore_grade": "c",
-          "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-unknown.svg",
+          "image": "https://media.carrefour.fr/medias/938a71cd4ad64ba89ff4deead5be3d71/p_200x200/03 092718637958_C1N1_s03.png",
+          "nutriscore_grade": null,
+          "nutriscore_image": null,
           "_meta": {
             "supports_ean": true
           },
           "product": {
-            "title": "Sirop Menthe  Verte TEISSEIRE",
+            "title": "Sirop Menthe Verte TEISSEIRE",
             "brand": "Sirop",
             "kind": "",
-            "qty": "60 CL",
+            "qty": "60cL",
+            "price": null,
+            "quantity": null,
             "qualifiers": [],
             "ean": "3092718637033",
-            "image_url": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_540x540/03 092718637033_C1N1_s03.png",
+            "image_url": "https://media.carrefour.fr/medias/938a71cd4ad64ba89ff4deead5be3d71/p_200x200/03 092718637958_C1N1_s03.png",
             "source": "carrefour_super",
-            "raw_text": ""
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
           }
         },
-        "updated_at": "2025-11-22T10:17:48.562977+01:00",
+        "updated_at": "2025-12-19T10:46:53.288743+01:00",
         "error": null,
         "store_query": null
       }
@@ -372,8 +371,8 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-29T13:57:39.983019+01:00",
-      "duration_seconds": 0.527994,
+      "updated_at": "2025-12-19T10:12:13.087581+01:00",
+      "duration_seconds": 0.680842,
       "error": null,
       "store_query": null,
       "previous": {
@@ -392,7 +391,7 @@
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-29T13:57:36.644769+01:00",
+        "updated_at": "2025-11-29T13:57:39.983019+01:00",
         "error": null,
         "store_query": null
       }
@@ -572,187 +571,243 @@
       "status": "NO_MATCH",
       "payload": {
         "status": "NO_MATCH",
-        "title": "Sirop Teisseire Menthe verte - 60cl",
+        "title": "Fromage raclette Les Croisés Tranchette lait pasteurisé 400g",
         "price": null,
         "unit_price": null,
-        "quantity": "60 CL",
-        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206144-Boisson-concentree-Teisseire.aspx",
+        "quantity": "60cL",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24163-Infusion-Tisea-Tilleul-Citron.aspx",
         "matched_ean": null,
         "store": "E.Leclerc Drive · Bruges",
-        "note": "2025-11-29T12:59:44Z · E.Leclerc Drive · Bruges",
+        "note": "2025-12-19T09:38:16Z · E.Leclerc Drive · Bruges",
         "_meta": {
           "supports_keywords": true
         },
         "equivalent": false,
         "candidates": [
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206143-Sirop-Teisseire-.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-796-Fromage-raclette-Les-Croises.aspx",
             "product": {
-              "title": "Sirop Teisseire Pêche - 60cl",
-              "brand": "Teisseire",
-              "kind": "Sirop menthe verte TEISSEIRE",
-              "qty": "60 CL",
+              "title": "Fromage raclette Les Croisés Tranchette lait pasteurisé 400g",
+              "brand": "Préparation",
+              "kind": "",
+              "qty": "60cL",
+              "price": null,
+              "quantity": null,
               "qualifiers": [],
-              "ean": "3092718637699",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2508597&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3700462030948",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2791704&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5ca1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5ca1\"></script><script",
               "seed_query": "",
               "leclerc_queries": []
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206163-Sirop-Teisseire-.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-1058-Jambon-serrano-IGP-Saint-Azay.aspx",
             "product": {
-              "title": "Sirop Teisseire Menthe verte - 60cl",
-              "brand": "Teisseire",
-              "kind": "Sirop menthe verte TEISSEIRE",
-              "qty": "60 CL",
+              "title": "Jambon serrano IGP Saint Azay 6 tranches - 100g",
+              "brand": "Préparation",
+              "kind": "",
+              "qty": "60cL",
+              "price": null,
+              "quantity": null,
               "qualifiers": [],
-              "ean": "3564700125717",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2772726&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700778371",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2850422&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5ca1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5ca1\"></script><script",
               "seed_query": "",
               "leclerc_queries": []
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206169-Sirop-Tesseire.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-13678-Croutons-salade-Epi-dOr.aspx",
             "product": {
-              "title": "Sirop Tesseire Citron - 60cl",
-              "brand": "Teisseire",
-              "kind": "Sirop menthe verte TEISSEIRE",
-              "qty": "60 CL",
+              "title": "Croûtons salade Epi d'Or Ail et fines herbes - 60g",
+              "brand": "Préparation",
+              "kind": "",
+              "qty": "60cL",
+              "price": null,
+              "quantity": null,
               "qualifiers": [],
-              "ean": "3092718637002",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2771747&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700434482",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2606040&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5ca1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5ca1\"></script><script",
               "seed_query": "",
               "leclerc_queries": []
             }
           },
           {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206142-Sirop-Teisseire-.aspx",
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24163-Infusion-Tisea-Tilleul-Citron.aspx",
             "product": {
-              "title": "Sirop Teisseire Fraise - 60cl",
-              "brand": "Teisseire",
-              "kind": "Sirop menthe verte TEISSEIRE",
-              "qty": "60 CL",
+              "title": "Infusion Tiséa Tilleul Citron 25 sachets 34g",
+              "brand": "Préparation",
+              "kind": "",
+              "qty": "60cL",
+              "price": null,
+              "quantity": null,
               "qualifiers": [],
-              "ean": "3092718637392",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2771750&amp;use=l&amp;cat=p&amp;typeid=i",
+              "ean": "3564700595640",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2854240&amp;use=l&amp;cat=p&amp;typeid=i",
               "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206140-Sirop-concentre-Teisseire.aspx",
-            "product": {
-              "title": "Sirop concentré Teisseire Citron vert - 60cl",
-              "brand": "Teisseire",
-              "kind": "Sirop menthe verte TEISSEIRE",
-              "qty": "60 CL",
-              "qualifiers": [],
-              "ean": "3092718637361",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2508591&amp;use=l&amp;cat=p&amp;typeid=i",
-              "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206139-Sirop-Teisseire.aspx",
-            "product": {
-              "title": "Sirop Teisseire Cassis - 60cl",
-              "brand": "Teisseire",
-              "kind": "Sirop menthe verte TEISSEIRE",
-              "qty": "60 CL",
-              "qualifiers": [],
-              "ean": "3092718637309",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2508588&amp;use=l&amp;cat=p&amp;typeid=i",
-              "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
-              "seed_query": "",
-              "leclerc_queries": []
-            }
-          },
-          {
-            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206144-Boisson-concentree-Teisseire.aspx",
-            "product": {
-              "title": "Boisson concentrée Teisseire A diluer grenadine Zéro - 60cl",
-              "brand": "Teisseire",
-              "kind": "Sirop menthe verte TEISSEIRE",
-              "qty": "60 CL",
-              "qualifiers": [],
-              "ean": "3564700125717",
-              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2508600&amp;use=l&amp;cat=p&amp;typeid=i",
-              "source": "leclerc",
-              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bj0h2\"></script><script",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5ca1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5ca1\"></script><script",
               "seed_query": "",
               "leclerc_queries": []
             }
           }
         ]
       },
-      "updated_at": "2025-11-29T14:02:25.176945+01:00",
-      "duration_seconds": 42.030059,
+      "updated_at": "2025-12-19T10:45:10.303744+01:00",
+      "duration_seconds": 100.038294,
       "error": null,
       "store_query": null,
       "previous": {
-        "status": "OK",
+        "status": "NO_MATCH",
         "payload": {
-          "status": "OK",
-          "title": "Sirop Teisseire Menthe verte - 60cl",
-          "price": "2,39",
-          "unit_price": "0,73 € / l",
-          "quantity": "60 CL",
-          "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206140-Sirop-concentre-Teisseire.aspx",
+          "status": "NO_MATCH",
+          "title": "Préparation Gâteau alsa Moelleux Nature - 435g",
+          "price": null,
+          "unit_price": null,
+          "quantity": "60cL",
+          "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24163-Infusion-Tisea-Tilleul-Citron.aspx",
           "matched_ean": null,
           "store": "E.Leclerc Drive · Bruges",
-          "note": "2025-11-22T09:17:16Z · E.Leclerc Drive · Bruges",
+          "note": "2025-12-19T09:14:38Z · E.Leclerc Drive · Bruges",
           "_meta": {
-            "supports_keywords": true,
-            "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed)."
+            "supports_keywords": true
           },
-          "equivalent": true,
-          "difference_note": "EAN introuvable dans la fiche (validation via descriptif seed).",
+          "equivalent": false,
           "candidates": [
             {
-              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206163-Sirop-Teisseire-.aspx",
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-130789-Preparation-Gateau-alsa.aspx",
               "product": {
-                "title": "Sirop Teisseire Menthe verte - 60cl",
-                "brand": "Teisseire",
-                "kind": "Sirop menthe verte TEISSEIRE",
-                "qty": "60 CL",
+                "title": "Préparation Gâteau alsa Moelleux Nature - 435g",
+                "brand": "Préparation",
+                "kind": "",
+                "qty": "60cL",
+                "price": null,
+                "quantity": null,
                 "qualifiers": [],
-                "ean": "3564700427064",
-                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2772726&amp;use=l&amp;cat=p&amp;typeid=i",
+                "ean": "3564706516540",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2996431&amp;use=l&amp;cat=p&amp;typeid=i",
                 "source": "leclerc",
-                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
               }
             },
             {
-              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-206140-Sirop-concentre-Teisseire.aspx",
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-15288-Mouchoirs-blancs-4-plis-Caresse.aspx",
               "product": {
-                "title": "Sirop concentré Teisseire Citron vert - 60cl",
-                "brand": "Teisseire",
-                "kind": "Sirop menthe verte TEISSEIRE",
-                "qty": "60 CL",
+                "title": "Mouchoirs blancs 4 plis Caresse Mini étuis x15",
+                "brand": "Préparation",
+                "kind": "",
+                "qty": "60cL",
+                "price": null,
+                "quantity": null,
                 "qualifiers": [],
-                "ean": "3092718637361",
-                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2508591&amp;use=l&amp;cat=p&amp;typeid=i",
+                "ean": "3564700330470",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2824262&amp;use=l&amp;cat=p&amp;typeid=i",
                 "source": "leclerc",
-                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1\"></script><script"
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-796-Fromage-raclette-Les-Croises.aspx",
+              "product": {
+                "title": "Fromage raclette Les Croisés Tranchette lait pasteurisé 400g",
+                "brand": "Préparation",
+                "kind": "",
+                "qty": "60cL",
+                "price": null,
+                "quantity": null,
+                "qualifiers": [],
+                "ean": "3700462030948",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2791704&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-1058-Jambon-serrano-IGP-Saint-Azay.aspx",
+              "product": {
+                "title": "Jambon serrano IGP Saint Azay 6 tranches - 100g",
+                "brand": "Préparation",
+                "kind": "",
+                "qty": "60cL",
+                "price": null,
+                "quantity": null,
+                "qualifiers": [],
+                "ean": "3564700778371",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2850422&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-239-Soupe-Veloute-Regal-Soupe.aspx",
+              "product": {
+                "title": "Soupe Velouté Régal Soupe 10 légumes - 1L",
+                "brand": "Préparation",
+                "kind": "",
+                "qty": "60cL",
+                "price": null,
+                "quantity": null,
+                "qualifiers": [],
+                "ean": "3564700660508",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2983781&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-13678-Croutons-salade-Epi-dOr.aspx",
+              "product": {
+                "title": "Croûtons salade Epi d'Or Ail et fines herbes - 60g",
+                "brand": "Préparation",
+                "kind": "",
+                "qty": "60cL",
+                "price": null,
+                "quantity": null,
+                "qualifiers": [],
+                "ean": "3564700434482",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2606040&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
+              }
+            },
+            {
+              "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-24163-Infusion-Tisea-Tilleul-Citron.aspx",
+              "product": {
+                "title": "Infusion Tiséa Tilleul Citron 25 sachets 34g",
+                "brand": "Préparation",
+                "kind": "",
+                "qty": "60cL",
+                "price": null,
+                "quantity": null,
+                "qualifiers": [],
+                "ean": "3564700595640",
+                "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2854240&amp;use=l&amp;cat=p&amp;typeid=i",
+                "source": "leclerc",
+                "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5cb0h2\"></script><script",
+                "seed_query": "",
+                "leclerc_queries": []
               }
             }
           ]
         },
-        "updated_at": "2025-11-22T10:17:48.562977+01:00",
+        "updated_at": "2025-12-19T10:21:35.108424+01:00",
         "error": null,
         "store_query": null
       }

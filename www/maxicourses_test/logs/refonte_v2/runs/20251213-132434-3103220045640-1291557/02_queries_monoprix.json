@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-12-13T13:24:35.367907+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Haribo Schtroumpfs",
+      "haribo schtroumpfs 300g",
+      "schtroumpfs haribo 300g",
+      "haribo bonbons"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "haribo schtroumpfs 300g",
+      "fallback_specific": "schtroumpfs haribo 300g",
+      "fallback_broad": "haribo bonbons"
+    },
+    "raw": {
+      "golden": "haribo schtroumpfs 300g",
+      "fallback_specific": "schtroumpfs haribo 300g",
+      "fallback_broad": "haribo bonbons"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Schtroumpfs\",\n    \"brand\": \"Haribo\",\n    \"quantity\": \"300 g\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3103220045640\",\n    \"_id\": \"693d5adff55566d88df3643b\",\n    \"brand\": \"Haribo\",\n    \"categories\": \"Snacks, Sweet snacks, Confectioneries, Candies, Gummi candies\",\n    \"created_at\": \"2025-12-13T12:23:59.981000\",\n    \"ecoscore_grade\": \"b\",\n    \"ecoscore_image\": \"https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg\",\n    \"image\": \"/assets/3103220045640.jpg\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-13T12:23:36Z\",\n    \"nova_group\": \"4\",\n    \"nutriscore_grade\": \"d\",\n    \"nutriscore_image\": \"/assets/nutriscore/nutriscore-unknown.svg\",\n    \"quantity\": \"300 g\",\n    \"removed\": false,\n    \"source\": \"auchan\",\n    \"updated_at\": \"2025-12-13T12:24:09.258000\",\n    \"queries\": {\n      \"monoprix\": [\n        \"haribo schtroumpfs 300g\",\n        \"schtroumpfs haribo 300g\",\n        \"haribo bonbons\",\n        \"Haribo Schtroumpfs\"\n      ],\n      \"intermarche\": [\n        \"Haribo Schtroumpfs 300g\",\n        \"Schtroumpfs Haribo 300g\",\n        \"Haribo Bonbons\",\n        \"Haribo Schtroumpfs\"\n      ]\n    },\n    \"keywords\": [\n      \"Haribo Schtroumpfs\",\n      \"Haribo Schtroumpfs 300g\",\n      \"Haribo Bonbons Schtroumpfs 300\",\n      \"Haribo Schtroumpfs Bonbons gél\"\n    ],\n    \"stores\": {\n      \"auchan\": {\n        \"url\": \"https://www.auchan.fr/haribo-bonbons-gelifies-schtroumpfs/pr-C1257461\",\n        \"price\": \"1,79\",\n        \"status\": \"OK\",\n        \"image_url\": \"https://cdn.auchan.fr/media/A0220190628000061720PRIMARY_1200x1200/B2CD/\",\n        \"updated_at\": \"2025-12-13T13:24:07.228174+01:00\"\n      },\n      \"image\": {\n        \"url\": \"https://cdn.auchan.fr/media/A0220190628000061720PRIMARY_1200x1200/B2CD/\"\n      }\n    },\n    \"title\": \"Bonbons gélifiés Schtroumpfs\",\n    \"leclerc_query\": \"Haribo Schtroumpfs 300g\",\n    \"leclerc_queries\": [\n      \"Haribo Schtroumpfs 300g\",\n      \"Schtroumpfs Haribo 300g\",\n      \"Haribo bonbons\",\n      \"Haribo Schtroumpfs\"\n    ],\n    \"name\": \"Schtroumpfs\",\n    \"leclerc_url\": \"https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-115115-Les-Schtroumpfs-Haribo.aspx\",\n    \"seed_query\": \"Haribo Schtroumpfs 300 g\",\n    \"leclerc_ai_queries\": [\n      \"Haribo Schtroumpfs 300g\",\n      \"Schtroumpfs Haribo 300g\",\n      \"Haribo bonbons\",\n      \"Haribo Schtroumpfs\"\n    ],\n    \"leclerc_secondary_keywords\": [],\n    \"primary_keywords\": [\n      \"Haribo Schtroumpfs 300g\",\n      \"Schtroumpfs Haribo 300g\",\n      \"Haribo bonbons\",\n      \"Haribo Schtroumpfs\"\n    ]\n  },\n  \"store\": \"monoprix\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CmIxmZ7NnFA0xc8TCY1QTIP73NLsz\", \"object\": \"chat.completion\", \"created\": 1765628674, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"haribo schtroumpfs 300g\\\",\\n    \\\"fallback_specific\\\": \\\"schtroumpfs haribo 300g\\\",\\n    \\\"fallback_broad\\\": \\\"haribo bonbons\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1198, \"completion_tokens\": 48, \"total_tokens\": 1246, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e819e3438b\"}"
+}

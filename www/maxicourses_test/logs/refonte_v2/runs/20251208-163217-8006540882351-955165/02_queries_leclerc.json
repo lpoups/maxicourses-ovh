@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-12-08T16:32:17.239434+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Oral-B Oral-B 75ML Oral-B dent",
+      "Oral-B Dentifrice 3D White",
+      "Oral-B 3D White Luxe 75ml",
+      "Oral-B Luxe Perfection 75ml",
+      "Oral-B Dentifrice Luxe 75ml"
+    ],
+    "secondary_keywords": [
+      "oral",
+      "b",
+      "dentifrice",
+      "3d",
+      "white",
+      "advanced",
+      "luxe",
+      "perfection",
+      "75ml",
+      "75",
+      "0.07",
+      "0.07l"
+    ],
+    "category": "generic",
+    "raw": {
+      "queries": [
+        "Oral-B Dentifrice 3D White",
+        "Oral-B 3D White Luxe 75ml",
+        "Oral-B Luxe Perfection 75ml",
+        "Oral-B Dentifrice Luxe 75ml",
+        "Oral-B Advanced Luxe 75ml"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Oral-B Dentifrice 3D White Advanced Luxe Perfection\",\n    \"brand\": \"Oral-B\",\n    \"quantity\": \"75 ml\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"brand\": \"Oral-B\",\n    \"ean\": \"8006540882351\",\n    \"name\": \"Oral-B Dentifrice 3D White Advanced Luxe Perfection\",\n    \"quantity\": \"75 ml\",\n    \"source\": \"manual\",\n    \"note\": \"Monoprix Investigation\",\n    \"removed\": false,\n    \"seed_query\": \"Oral-B Oral Dentifrice White Advanced Luxe Perfection 75 ml\",\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkXVetrnsC6ELQWm8CKc9gF9TnyX5\", \"object\": \"chat.completion\", \"created\": 1765207934, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"queries\\\": [\\n    \\\"Oral-B Dentifrice 3D White\\\",\\n    \\\"Oral-B 3D White Luxe 75ml\\\",\\n    \\\"Oral-B Luxe Perfection 75ml\\\",\\n    \\\"Oral-B Dentifrice Luxe 75ml\\\",\\n    \\\"Oral-B Advanced Luxe 75ml\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 339, \"completion_tokens\": 72, \"total_tokens\": 411, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e5bb698939\"}"
+}

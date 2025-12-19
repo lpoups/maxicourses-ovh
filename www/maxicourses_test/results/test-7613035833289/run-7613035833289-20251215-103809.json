@@ -1,0 +1,88 @@
+{
+  "ean": "7613035833289",
+  "image_path": null,
+  "started_at": "2025-12-15T10:36:34.730187+01:00",
+  "finished_at": "2025-12-15T10:38:09.357344+01:00",
+  "duration_seconds": 94.627157,
+  "reference": {
+    "title": "Eau minérale naturelle gazeuse PERRIER - 6x1L",
+    "description": null,
+    "source": "unknown",
+    "brand": "Perrier",
+    "quantity": "6*1 l",
+    "categories": "Beverages, Carbonated drinks, Waters, Spring waters, Mineral waters, Unsweetened beverages, Carbonated waters, en:carbonated-mineral-waters",
+    "image": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw46326480/7613035833289_H1N1_2545301_S10.png?sw=388&sh=388&sm=fit",
+    "nutriscore_grade": "a",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "1"
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "monoprix",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-15T10:36:38.280770+01:00",
+      "finished_at": "2025-12-15T10:38:08.297348+01:00",
+      "duration_seconds": 90.016578,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "perrier eau gazeuse 6x1l",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '7613035833289'.\n[MONOPRIX_DEBUG] Search terms: ['perrier eau gazeuse 6x1l', 'perrier eau minérale 6x1l', 'perrier boissons']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeeze', 'squeez', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/3: 'perrier eau gazeuse 6x1l'\n[MONOPRIX_DEBUG]  - Typing 'perrier eau gazeuse 6x1l' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=perrier%20eau%20gazeuse%206x1l\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 2 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097d24-2315-4751-b3bb-071a62201234/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-6x1l/MPX_2439318\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a7907b-d63d-4f1d-bb9d-89efb28bd076/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-6x1l/MPX_2439318\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a79...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n[MONOPRIX_DEBUG]  - Term 2/3: 'perrier eau minérale 6x1l'\n[MONOPRIX_DEBUG]  - Typing 'perrier eau minérale 6x1l' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=perrier%20eau%20min%C3%A9rale%206x1l\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 2 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097d24-2315-4751-b3bb-071a62201234/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-6x1l/MPX_2439318\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a7907b-d63d-4f1d-bb9d-89efb28bd076/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-6x1l/MPX_2439318\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a79...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n[MONOPRIX_DEBUG]  - Term 3/3: 'perrier boissons'\n[MONOPRIX_DEBUG]  - Typing 'perrier boissons' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=perrier%20boissons\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 4 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097d24-2315-4751-b3bb-071a62201234/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/maison-perrier-forever-boisson-gazeuse-aromatisée-citron-vert-1l/MPX_6719156",
+      "metadata": {
+        "attempt_query": "perrier eau gazeuse 6x1l",
+        "timeout_s": 90
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Eau minérale naturelle gazeuse PERRIER - 6x1L",
+      "brand": "Perrier",
+      "kind": "",
+      "qty": "6*1 l",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "7613035833289",
+      "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw46326480/7613035833289_H1N1_2545301_S10.png?sw=388&sh=388&sm=fit",
+      "source": "consolidated",
+      "raw_text": "Eau minérale naturelle gazeuse PERRIER - 6x1L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Perrier eau gazeuse 6x1L",
+      "eau gazeuse Perrier 6x1L",
+      "Perrier eau gazeuse",
+      "Eau minérale naturelle gazeuse",
+      "Eau minérale naturelle",
+      "Perrier naturelle 6*1 L",
+      "Perrier naturelle minerale",
+      "Perrier 6*1 L"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-12-12T12:53:08.326353+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Aérosol Drive Courses",
+      "Fulgator Aérosol Insectes",
+      "Fulgator Anti-Insectes",
+      "Fulgator Aérosol"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "Fulgator Aérosol Insectes",
+      "fallback_specific": "Fulgator Anti-Insectes",
+      "fallback_broad": "Fulgator Aérosol"
+    },
+    "raw": {
+      "golden": "Fulgator Aérosol Insectes",
+      "fallback_specific": "Fulgator Anti-Insectes",
+      "fallback_broad": "Fulgator Aérosol"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Drive, Courses en ligne et Livraison à Domicile Super U, Hyper U, U express - www.coursesu.com\",\n    \"brand\": \"Aérosol\",\n    \"quantity\": \"\",\n    \"description\": \"Entrée générée automatiquement – descriptif requis.\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3449120070307\",\n    \"_id\": \"3449120070307\",\n    \"brand\": \"Aérosol\",\n    \"created_at\": \"2025-12-12T10:51:08.295000\",\n    \"image\": \"/assets/3449120070307.jpg\",\n    \"note\": \"Stub incomplet – lancer une collecte seed Carrefour/Auchan pour remplir le descriptif.\",\n    \"removed\": false,\n    \"source\": \"auchan\",\n    \"updated_at\": \"2025-12-12T11:52:51.496000\",\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"/assets/nutriscore/nutriscore-unknown.svg\",\n    \"queries\": {\n      \"monoprix\": [\n        \"fulgator aérosol insectes\",\n        \"fulgator anti-insectes\",\n        \"fulgator aérosol\",\n        \"Aérosol Drive Courses\"\n      ],\n      \"intermarche\": [\n        \"Fulgator Aérosol Insectes\",\n        \"Fulgator Anti-Insectes\",\n        \"Fulgator Aérosol\",\n        \"Aérosol Drive Courses\"\n      ]\n    },\n    \"title\": \"Drive, Courses en ligne et Livraison à Domicile Super U, Hyper U, U express - www.coursesu.com\",\n    \"keywords\": [\n      \"Fulgator Aérosol Insectes\",\n      \"Fulgator Anti-Insectes\",\n      \"Fulgator Aérosol\",\n      \"Aérosol Drive Courses\"\n    ],\n    \"stores\": {\n      \"auchan\": {\n        \"url\": \"https://www.auchan.fr/fulgator-aerosol-anti-insectes-puces-et-larves/pr-C1225569\",\n        \"price\": \"6,95\",\n        \"status\": \"OK\",\n        \"image_url\": \"https://cdn.auchan.fr/media/A0220080213000562989PRIMARY_1200x1200/B2CD/\",\n        \"updated_at\": \"2025-12-12T12:52:02.565007+01:00\"\n      },\n      \"image\": {\n        \"url\": \"https://cdn.auchan.fr/media/A0220080213000562989PRIMARY_1200x1200/B2CD/\"\n      }\n    },\n    \"description\": \"Entrée générée automatiquement – descriptif requis.\",\n    \"name\": \"Drive, Courses en ligne et Livraison à Domicile Super U, Hyper U, U express - www.coursesu.com\",\n    \"seed_query\": \"Aérosol Drive Courses ligne Livraison Domicile Super Hyper\",\n    \"leclerc_query\": \"Fulgator Aérosol Insectes\",\n    \"leclerc_queries\": [\n      \"Fulgator Aérosol Insectes\",\n      \"Fulgator Anti-Insectes\",\n      \"Fulgator Aérosol\",\n      \"Aérosol Drive Courses\"\n    ],\n    \"leclerc_ai_queries\": [\n      \"Fulgator Aérosol Insectes\",\n      \"Fulgator Anti-Insectes\",\n      \"Fulgator Aérosol\",\n      \"Aérosol Drive Courses\"\n    ],\n    \"leclerc_secondary_keywords\": [],\n    \"primary_keywords\": [\n      \"Fulgator Aérosol Insectes\",\n      \"Fulgator Anti-Insectes\",\n      \"Fulgator Aérosol\",\n      \"Aérosol Drive Courses\"\n    ],\n    \"monoprix_ai_queries\": [\n      \"fulgator aérosol insectes\",\n      \"fulgator anti-insectes\",\n      \"fulgator aérosol\",\n      \"Aérosol Drive Courses\"\n    ],\n    \"monoprix_queries\": [\n      \"fulgator aérosol insectes\",\n      \"fulgator anti-insectes\",\n      \"fulgator aérosol\",\n      \"Aérosol Drive Courses\"\n    ],\n    \"monoprix_secondary_keywords\": []\n  },\n  \"store\": \"intermarche\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-Clvznz4eIglBAZ7DmH0bgppcY40p1\", \"object\": \"chat.completion\", \"created\": 1765540387, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Fulgator Aérosol Insectes\\\",\\n    \\\"fallback_specific\\\": \\\"Fulgator Anti-Insectes\\\",\\n    \\\"fallback_broad\\\": \\\"Fulgator Aérosol\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1224, \"completion_tokens\": 46, \"total_tokens\": 1270, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

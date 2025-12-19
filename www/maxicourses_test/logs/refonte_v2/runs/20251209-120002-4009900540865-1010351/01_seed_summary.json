@@ -1,0 +1,74 @@
+{
+  "timestamp": "2025-12-09T12:00:02.137614+01:00",
+  "status": "ok",
+  "data": {
+    "profile": {
+      "ean": "4009900540865",
+      "brand": "Wrigley's",
+      "name": "Wrigley's Chewing Gum Refreshers",
+      "quantity": "17,9 g",
+      "nutriscore_grade": "c",
+      "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+      "description": "Chewing-Gum Menthe Verte Sans Sucres FREEDENT REFRESHERS",
+      "image": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw5cbe6f44/4009900540865_H1N1_6739454_S10.png?sw=388&sh=388&sm=fit"
+    },
+    "keywords": [
+      "Wrigley's Chewing Gum 17,9g",
+      "FREEDENT Refreshers 17,9g",
+      "Chewing-Gum Menthe Verte",
+      "Sans Sucres FREEDENT",
+      "Wrigley's Menthe Verte",
+      "Chewing Gum Sans Sucre",
+      "FREEDENT 8 dragées",
+      "Wrigley's Refreshers"
+    ],
+    "primary_keywords": [
+      "Wrigley's Wrigley's 17,9G Wrig",
+      "Wrigley's Chewing Gum 17,9g",
+      "Wrigley's FREEDENT Refreshers",
+      "Wrigley's Chewing-Gum Menthe V",
+      "Wrigley's Sans Sucres FREEDENT"
+    ],
+    "secondary_keywords": [
+      "wrigley",
+      "s",
+      "chewing",
+      "gum",
+      "menthe",
+      "verte",
+      "sans",
+      "sucres",
+      "freedent",
+      "refreshers",
+      "17,9g",
+      "17,9",
+      "17.9"
+    ],
+    "category": "generic",
+    "raw": {
+      "profile": {
+        "ean": "4009900540865",
+        "brand": "Wrigley's",
+        "name": "Wrigley's Chewing Gum Refreshers",
+        "quantity": "17,9 g",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "description": "Chewing-Gum Menthe Verte Sans Sucres FREEDENT REFRESHERS",
+        "image": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw5cbe6f44/4009900540865_H1N1_6739454_S10.png?sw=388&sh=388&sm=fit"
+      },
+      "keywords": [
+        "Wrigley's Chewing Gum 17,9g",
+        "FREEDENT Refreshers 17,9g",
+        "Chewing-Gum Menthe Verte",
+        "Sans Sucres FREEDENT",
+        "Wrigley's Menthe Verte",
+        "Chewing Gum Sans Sucre",
+        "FREEDENT 8 dragées",
+        "Wrigley's Refreshers"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"seeds\": [\n    {\n      \"adapter\": \"carrefour_market\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"1,24\",\n        \"store\": \"Market Fondaudège\",\n        \"url\": \"https://www.carrefour.fr/s?q=4009900540865\",\n        \"note\": \"json_state_extraction\",\n        \"unit_price\": \"69,27 € / KG\",\n        \"quantity\": \"18g\",\n        \"title\": \"Chewing-Gum Menthe  Verte Sans Sucres FREEDENT REFRESHERS\",\n        \"matched_ean\": \"4009900540865\",\n        \"image\": null,\n        \"nutriscore_grade\": null,\n        \"nutriscore_image\": null,\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Chewing-Gum Menthe  Verte Sans Sucres FREEDENT REFRESHERS\",\n          \"brand\": \"Chewing-Gum\",\n          \"kind\": \"\",\n          \"qty\": \"18g\",\n          \"qualifiers\": [],\n          \"ean\": \"4009900540865\",\n          \"image_url\": null,\n          \"source\": \"carrefour_market\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"4009900540865\"\n      }\n    },\n    {\n      \"adapter\": \"courseu\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"1,11\",\n        \"unit_price\": \"62,01 € / KG\",\n        \"quantity\": \"17,9 g\",\n        \"title\": \"Chewing gum sans sucre menthe verte FREEDENT Refreshers, 8  dragées 17,9g\",\n        \"url\": \"https://www.coursesu.com/p/chewing-gum-sans-sucre-menthe-verte-freedent-refresh ers-8-dragees-179g/6739454.html\",\n        \"note\": \"2025-12-09T10:59:56Z · Super U  Eysines\",\n        \"store\": \"Super U Eysines\",\n        \"matched_ean\": \"4009900540865\",\n        \"nutriscore_grade\": \"c\",\n        \"nutriscore_image\": \"https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png\",\n        \"image\": \"https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digi talu-master-catalog/default/dw5cbe6f44/4009900540865_H1N1_6739454_S10.png?sw=388 &sh=388&sm=fit\",\n        \"_meta\": {\n          \"supports_keywords\": true\n        },\n        \"candidates\": [\n          {\n            \"url\": \"https://www.coursesu.com/p/chewing-gum-sans-sucre-menthe-verte-freedent-refresh ers-8-dragees-179g/6739454.html\",\n            \"product\": {\n              \"title\": \"Chewing gum sans sucre menthe verte FREEDENT Refreshers, 8  dragées 17,9g\",\n              \"brand\": \"Chewing\",\n              \"kind\": \"\",\n              \"qty\": \"17,9 g\",\n              \"qualifiers\": [],\n              \"ean\": \"4009900540865\",\n              \"image_url\": \"https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digi talu-master-catalog/default/dw5cbe6f44/4009900540865_H1N1_6739454_S10.png?sw=388 &sh=388&sm=fit\",\n              \"source\": \"courseu\",\n              \"raw_text\": \"\",\n              \"seed_query\": \"\",\n              \"leclerc_queries\": []\n            }\n          }\n        ]\n      },\n      \"metadata\": {\n        \"attempt_query\": \"4009900540865\"\n      }\n    }\n  ],\n  \"context\": {\n    \"descriptor\": {\n      \"ean\": \"4009900540865\",\n      \"brand\": \"Wrigley's\",\n      \"name\": \"Wrigley's Chewing Gum Refreshers\",\n      \"quantity\": \"17,9 g\",\n      \"source\": \"carrefour_market\",\n      \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-09T10:57:57Z\",\n      \"removed\": false,\n      \"nutriscore_grade\": \"c\",\n      \"nutriscore_image\": \"https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png\",\n      \"ecoscore_grade\": \"unknown\",\n      \"seed_query\": \"Wrigley's Chewing Gum Refreshers Menthe Verte Sans Sucres\",\n      \"description\": \"Chewing-Gum Menthe  Verte Sans Sucres FREEDENT REFRESHERS\",\n      \"leclerc_query\": \"Wrigley's Chewing 18 G\",\n      \"leclerc_queries\": [\n        \"Wrigley's Chewing 18 G\",\n        \"Wrigley's Chewing Gum 18 G\",\n        \"Wrigley's 18 G\",\n        \"Chewing Gum 18 G\"\n      ],\n      \"seed_primary_name\": \"Chewing-Gum Menthe  Verte Sans Sucres FREEDENT REFRESHERS\",\n      \"seed_primary_quantity\": \"18g\",\n      \"image\": \"https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digi talu-master-catalog/default/dw5cbe6f44/4009900540865_H1N1_6739454_S10.png?sw=388 &sh=388&sm=fit\"\n    },\n    \"ean\": \"4009900540865\"\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkpjhfoZOXFexYw6Y1oxETrXfbZaT\", \"object\": \"chat.completion\", \"created\": 1765277997, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"profile\\\": {\\n    \\\"ean\\\": \\\"4009900540865\\\",\\n    \\\"brand\\\": \\\"Wrigley's\\\",\\n    \\\"name\\\": \\\"Wrigley's Chewing Gum Refreshers\\\",\\n    \\\"quantity\\\": \\\"17,9 g\\\",\\n    \\\"nutriscore_grade\\\": \\\"c\\\",\\n    \\\"nutriscore_image\\\": \\\"https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png\\\",\\n    \\\"description\\\": \\\"Chewing-Gum Menthe Verte Sans Sucres FREEDENT REFRESHERS\\\",\\n    \\\"image\\\": \\\"https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw5cbe6f44/4009900540865_H1N1_6739454_S10.png?sw=388&sh=388&sm=fit\\\"\\n  },\\n  \\\"keywords\\\": [\\n    \\\"Wrigley's Chewing Gum 17,9g\\\",\\n    \\\"FREEDENT Refreshers 17,9g\\\",\\n    \\\"Chewing-Gum Menthe Verte\\\",\\n    \\\"Sans Sucres FREEDENT\\\",\\n    \\\"Wrigley's Menthe Verte\\\",\\n    \\\"Chewing Gum Sans Sucre\\\",\\n    \\\"FREEDENT 8 dragées\\\",\\n    \\\"Wrigley's Refreshers\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1402, \"completion_tokens\": 304, \"total_tokens\": 1706, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_a4d13246c5\"}"
+}

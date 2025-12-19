@@ -1,0 +1,705 @@
+{
+  "ean": "7613035833289",
+  "image_path": null,
+  "started_at": "2025-12-15T11:15:42.366120+01:00",
+  "finished_at": "2025-12-15T11:25:52.040025+01:00",
+  "duration_seconds": 609.673905,
+  "reference": {
+    "title": "Eau minérale gazeuse Perrier Naturelle - 6x50cl",
+    "description": "Eau Minérale Naturelle Gazeuse PERRIER",
+    "source": "carrefour_super",
+    "brand": "Perrier",
+    "quantity": "6*1 l",
+    "categories": "Beverages, Carbonated drinks, Waters, Spring waters, Mineral waters, Unsweetened beverages, Carbonated waters, en:carbonated-mineral-waters",
+    "image": "https://www.g20-minute.com/media/cache/product_box_image/f4/e5/eb52e0e28a61640be7765b288e5b.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "1"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251215-111542"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-15T11:15:42.368975+01:00",
+      "finished_at": "2025-12-15T11:16:11.002196+01:00",
+      "duration_seconds": 28.633221,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,14",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/s?q=7613035833289",
+        "note": "json_state_extraction",
+        "unit_price": "0,69 € / L",
+        "quantity": "6x1L",
+        "title": "Eau Minérale Naturelle Gazeuse PERRIER",
+        "matched_ean": "7613035833289",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Eau Minérale Naturelle Gazeuse PERRIER",
+          "brand": "Eau",
+          "kind": "",
+          "qty": "6x1L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "7613035833289",
+          "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw46326480/7613035833289_H1N1_2545301_S10.png?sw=388&sh=388&sm=fit",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-15T11:16:11.007991+01:00",
+      "finished_at": "2025-12-15T11:16:28.612928+01:00",
+      "duration_seconds": 17.604937,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 7613035833289. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Eau Minérale \nNaturelle Gazeuse PERRIER', 'quantity': '6x1L', 'price': 4.14, 'unit_price': \n'0.69 € / L'}\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 7613035833289. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Eau Minérale \nNaturelle Gazeuse PERRIER', 'quantity': '6x1L', 'price': 4.14, 'unit_price': \n'0.69 € / L'}",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,08",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/s?q=7613035833289",
+        "note": "json_state_extraction",
+        "unit_price": "0,68 € / L",
+        "quantity": "6x1L",
+        "title": "Eau Minérale Naturelle Gazeuse PERRIER",
+        "matched_ean": "7613035833289",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Eau Minérale Naturelle Gazeuse PERRIER",
+          "brand": "Eau",
+          "kind": "",
+          "qty": "6x1L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "7613035833289",
+          "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw46326480/7613035833289_H1N1_2545301_S10.png?sw=388&sh=388&sm=fit",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-15T11:16:28.624118+01:00",
+      "finished_at": "2025-12-15T11:16:45.514063+01:00",
+      "duration_seconds": 16.889945,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 7613035833289. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Eau Minérale \nNaturelle Gazeuse PERRIER', 'quantity': '6x1L', 'price': 4.08, 'unit_price': \n'0.68 € / L'}\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 7613035833289. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Eau Minérale \nNaturelle Gazeuse PERRIER', 'quantity': '6x1L', 'price': 4.08, 'unit_price': \n'0.68 € / L'}",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-15T11:16:45.519564+01:00",
+      "finished_at": "2025-12-15T11:18:15.568291+01:00",
+      "duration_seconds": 90.048727,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Attached to existing page (avoiding Captcha).\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ⚠️ Toast did not appear yet. Retrying click...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] Clicking 'Choisir ce drive' (Attempt 2/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ⚠️ Toast did not appear yet. Retrying click...\n[auchan] Clicking 'Choisir ce drive' (Attempt 3/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ⚠️ Toast did not appear yet. Retrying click...\n[auchan] Clicking 'Choisir ce drive' (Attempt 4/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ⚠️ Toast did not appear yet. Retrying click...\n[auchan] Clicking 'Choisir ce drive' (Attempt 5/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ⚠️ Toast did not appear yet. Retrying click...\n[auchan] ❌ FATAL: Toast never appeared after multiple clicks. Falling back to blind wait.",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "timeout_s": 90
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,15",
+        "title": "Eau minérale naturelle gazeuse  PERRIER",
+        "url": "https://www.chronodrive.com/perrier--eau-minerale-naturelle-gazeuse-P24883",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "0,69 € / L",
+        "quantity": "6 x 1 L",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "7613035833289",
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://eu-images.contentstack.com/v3/assets/blta867006d326c1e47/bltfca4e212b35 0ee05/nutriscore-a",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Eau minérale naturelle gazeuse  PERRIER",
+          "brand": "Eau",
+          "kind": "",
+          "qty": "6 x 1 L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "7613035833289",
+          "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw46326480/7613035833289_H1N1_2545301_S10.png?sw=388&sh=388&sm=fit",
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-15T11:18:15.569761+01:00",
+      "finished_at": "2025-12-15T11:18:27.101414+01:00",
+      "duration_seconds": 11.531653,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='7613035833289'\n[CHRONO_DEBUG] api_url=https://www.chronodrive.com/perrier--eau-minerale-naturelle-gazeuse-P24883",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": "Sorry, you have been blocked",
+        "url": "https://www.coursesu.com/recherche?q=7613035833289",
+        "note": "2025-12-15T10:18:53Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Sorry, you have been blocked",
+          "brand": "Sorry,",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "7613035833289",
+          "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw46326480/7613035833289_H1N1_2545301_S10.png?sw=388&sh=388&sm=fit",
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-15T11:18:27.110920+01:00",
+      "finished_at": "2025-12-15T11:18:54.039166+01:00",
+      "duration_seconds": 26.928246,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[COURSEU] Connecting to CDP at http://127.0.0.1:9223\n[COURSEU] Resetting cache, cookies and storage...\n[COURSEU] Cache/cookies reset complete\n[COURSEU] Current: https://www.chronodrive.com/perrier--eau-minerale- - PERRIER : Eau minérale naturel\n[COURSEU] Navigating to https://www.coursesu.com/drive-superu-eysines\n[COURSEU] Clicked cookie button: button:has-text('Accepter & Fermer')\n[COURSEU] Searched for: 7613035833289 (human typing)\n[COURSEU] JSON-LD extraction failed, trying CSS selectors...\n[COURSEU] Extracted: price=None, title=Sorry, you have been blocked..., ean=None",
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": null
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,20",
+        "title": "PERRIER eau minérale naturelle gazeuse 6 x 1L",
+        "url": "https://www.g20-minute.com/products/7613035833289/perrier-eau-minerale-naturelle-gazeuse-6-x-1l-7613035833289",
+        "note": "G20 Minute",
+        "unit_price": "0,7 €/L",
+        "quantity": "6L",
+        "matched_ean": "7613035833289",
+        "image": "https://www.g20-minute.com/media/cache/product_box_image/f4/e5/eb52e0e28a61640be7765b288e5b.jpg",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "PERRIER eau minérale naturelle gazeuse 6 x 1L",
+          "brand": "PERRIER",
+          "kind": "",
+          "qty": "6L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "7613035833289",
+          "image_url": "https://www.g20-minute.com/media/cache/product_box_image/f4/e5/eb52e0e28a61640be7765b288e5b.jpg",
+          "source": "g20",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-15T11:18:54.043391+01:00",
+      "finished_at": "2025-12-15T11:18:54.654965+01:00",
+      "duration_seconds": 0.611574,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "7613035833289",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "7613035833289",
+        "visual_score": 0.95
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Perrier%206%2A1%20l",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Perrier 6*1 l",
+          "timestamp": "2025-12-15T10:19:12.756306+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-15T11:19:12.582887+01:00",
+      "finished_at": "2025-12-15T11:19:13.863460+01:00",
+      "duration_seconds": 1.280573,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "Perrier 6*1 l",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Perrier 6*1 l",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251215-111542/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Spar (404)",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/UNKNOWN?produit_recherche=Perrier%206%2A1%20l",
+          "store_code": "UNKNOWN",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-merignac-33700/UNKNOWN",
+          "query": "Perrier 6*1 l",
+          "timestamp": "2025-12-15T10:19:16.322785+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-15T11:19:16.125150+01:00",
+      "finished_at": "2025-12-15T11:19:16.790917+01:00",
+      "duration_seconds": 0.665767,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_spar_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_spar_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "Perrier 6*1 l",
+        "STORE_URL": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-merignac-33700/TZ200",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Perrier 6*1 l",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251215-111542/09-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,93",
+        "title": "Eau minérale naturelle gazeuse",
+        "url": "https://www.intermarche.com/produit/eau-minerale-naturelle-gazeuse/761303583328 9",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "7613035833289",
+        "unit_price": "0,66 € / L",
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.chronodrive.com/perrier--eau-minerale-naturelle-gazeuse-P24883",
+            "product": {
+              "title": "Eau minérale naturelle gazeuse  PERRIER",
+              "brand": "Eau",
+              "kind": "",
+              "qty": "",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html data-n-head-ssr=\"\"  lang=\"fr-FR\" dir=\"ltr\"  data-n-head=\"%7B%22lang%22:%7B%22ssr%22:%22fr-FR%22%7D,%22dir%22:%7B%22ssr%22:% 22ltr%22%7D%7D\"><head>\n    <meta data-n-head=\"ssr\" charset=\"utf-8\"><meta  data-n-head=\"ssr\" name=\"viewport\"  content=\"width=device-width,initial-scale=1.0,shrink-to-fit=no\"><meta  data-n-head=\"ssr\" data-hid=\"description\" name=\"description\"  content=\"\"><meta data-n-head=\"ssr\" name=\"format-detection\"  content=\"telephone=no\"><meta data-n-head=\"ssr\" name=\"apple-itunes-app\"  content=\"app-id=397935048\"><meta data-n-head=\"ssr\" name=\"google-play-app\" ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/eau-minerale-naturelle-gazeuse/761303583328 9",
+            "product": {
+              "title": "PerrierEau minérale naturelle gazeuse",
+              "brand": "PerrierEau",
+              "kind": "",
+              "qty": "",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "761303583328",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://www.intermarche.com/icons/nutriscore/score=A.svg"
+      },
+      "started_at": "2025-12-15T11:19:17.925700+01:00",
+      "finished_at": "2025-12-15T11:20:03.133686+01:00",
+      "duration_seconds": 45.207986,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "Perrier Eau gazeuse 6x1L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Perrier Eau gazeuse 6x1L",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251215-111542/10-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Eau minérale gazeuse Perrier Naturelle - 6x50cl",
+        "price": "3,52",
+        "unit_price": "1,17 € / l",
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-25607-Eau-minerale-gazeuse-Perrier-.aspx",
+        "matched_ean": "7613035833289",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-12-15T10:23:26Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "candidates": []
+      },
+      "started_at": "2025-12-15T11:22:39.600184+01:00",
+      "finished_at": "2025-12-15T11:23:27.541420+01:00",
+      "duration_seconds": 47.941236,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "Perrier Eau minérale naturelle",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Perrier Eau minérale naturelle' direct_url:False\n[LECLERC_DEBUG] after home human pause -> 1.56s\n[LECLERC_DEBUG] after focus -> 2.21s\n[LECLERC_DEBUG] results visible -> 9.74s\n[LECLERC_DEBUG] after result pause -> 9.74s\n[LECLERC_SCORE] 'Eau minérale gazeuse St Diery\nNaturelle - 6x1,25L' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Eau gazeuse La Pétillante\nCitron vert sans sucre - 1L' Score: 6 (Brand: False)\n[LECLERC_SCORE] 'Eau gazeuse La Pétillante\nCitron sans sucre - 1L' Score: 6 (Brand: False)\n[LECLERC_SCORE] 'Eau minérale gazeuse Perrier\nNaturelle - 6x50cl' Score: 24 (Brand: False)\n[LECLERC_SCORE] 'Eau minérale gazeuse Perrier\nFines bulles - 6x1L' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Eau minérale gazeuse Perrier\nNaturelle - 6x1L' Score: 24 (Brand: False)\n[LECLERC_SCORE] 'Eau minérale gazeuse Perrier\nCanettes - 6x33cl' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Eau gazeuse San Pellegrino\nMinérale naturelle - 6x1L' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Eau gazeuse San Pellegrino\nMinérale naturelle - 6x50cl' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Eau gazeuse San Pellegrino\nMinérale naturelle - 6x33cl' Score: 18 (Brand: False)\n[LECLERC_SCORE] 'Eau de source de Montagne\n6x1.5L' Score: 6 (Brand: False)\n[LECLERC_SCORE] 'Eau de source de Montagne\n5L' Score: 6 (Brand: False)\n[LECLERC_DEBUG] Best Score: 6",
+      "metadata": {
+        "attempt_query": "Perrier Eau minérale naturelle",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251215-111542/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-15T11:24:11.770252+01:00",
+      "finished_at": "2025-12-15T11:25:41.785077+01:00",
+      "duration_seconds": 90.014825,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "perrier eau minérale 6x1l",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '7613035833289'.\n[MONOPRIX_DEBUG] Search terms: ['perrier eau gazeuse 6x1l', 'perrier eau minérale 6x1l', 'perrier boissons']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/3: 'perrier eau gazeuse 6x1l'\n[MONOPRIX_DEBUG]  - Typing 'perrier eau gazeuse 6x1l' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 2 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097d24-2315-4751-b3bb-071a62201234/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images (seed=403, candidate=200)\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-6x1l/MPX_2439318\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a7907b-d63d-4f1d-bb9d-89efb28bd076/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-6x1l/MPX_2439318\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a79...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images (seed=403, candidate=200)\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n[MONOPRIX_DEBUG]  - Term 2/3: 'perrier eau minérale 6x1l'\n[MONOPRIX_DEBUG]  - Typing 'perrier eau minérale 6x1l' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=perrier%20eau%20min%C3%A9rale%206x1l\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 2 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097d24-2315-4751-b3bb-071a62201234/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images (seed=403, candidate=200)\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-6x1l/MPX_2439318\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a7907b-d63d-4f1d-bb9d-89efb28bd076/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-6x1l/MPX_2439318\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/a4a79...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images (seed=403, candidate=200)\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - No product detail pages parsed successfully.\n[MONOPRIX_DEBUG]  - Term 3/3: 'perrier boissons'\n[MONOPRIX_DEBUG]  - Typing 'perrier boissons' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - Found 0 product card nodes.\n[MONOPRIX_DEBUG]  - Found 4 product URLs to check.\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG] Extracted image URL: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097d24-2315-4751-b3bb-071a62201234/300x300.jpg\n[MONOPRIX_DEBUG]  - Closed tab for https://courses.monoprix.fr/products/perrier-eau-minérale-naturelle-gazeuse-fines-bulles-6x1l/MPX_2076419\n[MONOPRIX_DEBUG][SCORE] - Title: 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | Brand: 'perrier' | Variant(seed/cand)=(None/None) | Vetoes=['descriptor_coverage'] | NegHits=[] | Score=10 | Plausible=False\n[MONOPRIX_IMG_DEBUG] Seed image: https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digit...\n[MONOPRIX_IMG_DEBUG] Candidate image: https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/56097...\n[MONOPRIX_IMG_DEBUG] Hash match result: False\n[MONOPRIX_IMG_DEBUG] Hash failed, trying AI Vision fallback...\n[MONOPRIX_IMG_DEBUG] AI Vision: failed to download images (seed=403, candidate=200)\n[MONOPRIX_DEBUG]  - No image match for 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L'.\n[MONOPRIX_DEBUG]  - Candidate rejected 'Perrier Eau Minérale Naturelle Gazeuse Fines Bulles 6x1L' | vetoes=['descriptor_coverage', 'image_mismatch']\n[MONOPRIX_DEBUG]  - Parsing product page in new tab: https://courses.monoprix.fr/products/maison-perrier-forever-boisson-gazeuse-aromatisée-citron-vert-1l/MPX_6719156",
+      "metadata": {
+        "attempt_query": "perrier eau minérale 6x1l",
+        "timeout_s": 90,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251215-111542/12-monoprix"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Eau Minérale Naturelle Gazeuse PERRIER",
+      "brand": "Eau",
+      "kind": "",
+      "qty": "6x1L",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "7613035833289",
+      "image_url": "https://www.g20-minute.com/media/cache/product_box_image/f4/e5/eb52e0e28a61640be7765b288e5b.jpg",
+      "source": "consolidated",
+      "raw_text": "Eau minérale gazeuse Perrier Naturelle - 6x50cl Eau Minérale Naturelle Gazeuse PERRIER Eau minérale naturelle gazeuse  PERRIER PERRIER eau minérale naturelle gazeuse 6 x 1L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Perrier Eau Gazeuse 6x1L",
+      "Eau Gazeuse Perrier 6x1L",
+      "Perrier Eau Minérale",
+      "Eau Minérale Naturelle Gazeuse",
+      "Eau Minérale Naturelle",
+      "Eau naturelle 6X1L",
+      "Eau naturelle minerale",
+      "Eau 6X1L"
+    ],
+    "candidates": [
+      {
+        "adapter": "intermarche",
+        "url": "https://www.chronodrive.com/perrier--eau-minerale-naturelle-gazeuse-P24883",
+        "score": 0.4,
+        "product": {
+          "title": "Eau minérale naturelle gazeuse  PERRIER",
+          "brand": "Eau",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": null,
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html data-n-head-ssr=\"\"  lang=\"fr-FR\" dir=\"ltr\"  data-n-head=\"%7B%22lang%22:%7B%22ssr%22:%22fr-FR%22%7D,%22dir%22:%7B%22ssr%22:% 22ltr%22%7D%7D\"><head>\n    <meta data-n-head=\"ssr\" charset=\"utf-8\"><meta  data-n-head=\"ssr\" name=\"viewport\"  content=\"width=device-width,initial-scale=1.0,shrink-to-fit=no\"><meta  data-n-head=\"ssr\" data-hid=\"description\" name=\"description\"  content=\"\"><meta data-n-head=\"ssr\" name=\"format-detection\"  content=\"telephone=no\"><meta data-n-head=\"ssr\" name=\"apple-itunes-app\"  content=\"app-id=397935048\"><meta data-n-head=\"ssr\" name=\"google-play-app\"",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "leclerc",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-25607-Eau-minerale-gazeuse-Perrier-.aspx",
+        "score": 0.4,
+        "product": {
+          "title": "Eau minérale gazeuse Perrier Naturelle - 6x50cl",
+          "brand": "Eau",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3179730005306",
+          "image_url": null,
+          "source": "leclerc",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/eau-minerale-naturelle-gazeuse/761303583328 9",
+        "score": 0.0,
+        "product": {
+          "title": "PerrierEau minérale naturelle gazeuse",
+          "brand": "PerrierEau",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "761303583328",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error:",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      }
+    ],
+    "decision": null,
+    "audit": []
+  }
+}

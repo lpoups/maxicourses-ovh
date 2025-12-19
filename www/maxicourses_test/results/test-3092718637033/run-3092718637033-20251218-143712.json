@@ -1,0 +1,84 @@
+{
+  "ean": "3092718637033",
+  "image_path": null,
+  "started_at": "2025-12-18T14:36:36.264695+01:00",
+  "finished_at": "2025-12-18T14:37:12.900079+01:00",
+  "duration_seconds": 36.635384,
+  "reference": {
+    "title": "Sirop Menthe Verte TEISSEIRE",
+    "description": "Sirop Menthe Verte TEISSEIRE",
+    "source": "carrefour_market",
+    "brand": "Teisseire",
+    "quantity": "60 CL",
+    "categories": null,
+    "image": "/assets/3092718637033.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3092718637033/debug/run-3092718637033-20251218-143636"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,81",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033",
+        "note": "json_state_extraction",
+        "unit_price": "4,68 € / L",
+        "quantity": "60cL",
+        "title": "Sirop Menthe Verte TEISSEIRE",
+        "matched_ean": "3092718637033",
+        "image": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_200x200/03 092718637033_C1N1_s03.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Sirop Menthe Verte TEISSEIRE",
+          "brand": "Sirop",
+          "kind": "",
+          "qty": "60cL",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3092718637033",
+          "image_url": "https://media.carrefour.fr/medias/011ef995a0f24adba2decbc518cc9ed7/p_200x200/03 092718637033_C1N1_s03.png",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-18T14:36:36.268145+01:00",
+      "finished_at": "2025-12-18T14:37:05.007232+01:00",
+      "duration_seconds": 28.739087,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3092718637033",
+        "QUERY": "3092718637033",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Context optimization: Page (PDP/Search) matches 3092718637033. Reloading \nto refresh store...\n[INFO] Successfully extracted data from JSON State: {'title': 'Sirop Menthe \nVerte TEISSEIRE', 'quantity': '60cL', 'price': 2.81, 'unit_price': '4.68 € / L',\n'image': None}\n[INFO] JSON State has no image, navigating to PDP...\n[INFO] Now on PDP: \nhttps://www.carrefour.fr/p/sirop-peche-teisseire-3092718637699\n[INFO] Got image from PDP og:image: \nhttps://media.carrefour.fr/medias/6f0c3da14b9d42728172c806e0...\n[DEBUG] Loaded local fetch_carrefour_price.py from \n/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price.py\n[INFO] Successfully extracted data from JSON State: {'title': 'Sirop Menthe \nVerte TEISSEIRE', 'quantity': '60cL', 'price': 2.81, 'unit_price': '4.68 € / L',\n'image': None}\n[INFO] JSON State has no image, navigating to PDP...\n[INFO] Now on PDP: \nhttps://www.carrefour.fr/p/sirop-menthe-verte-teisseire-3092718637033\n[INFO] Got image from PDP og:image: \nhttps://media.carrefour.fr/medias/011ef995a0f24adba2decbc518...",
+      "metadata": {
+        "attempt_query": "3092718637033"
+      }
+    }
+  ],
+  "finder": null
+}

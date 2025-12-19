@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-12-19T13:14:40.271926+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Coca-Cola Soda Cola",
+      "Coca-Cola Original 1,75L",
+      "Coca-Cola Soda 1,75L",
+      "Coca-Cola Soda"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "Coca-Cola Original 1,75L",
+      "fallback_specific": "Coca-Cola Soda 1,75L",
+      "fallback_broad": "Coca-Cola Soda"
+    },
+    "raw": {
+      "golden": "Coca-Cola Original 1,75L",
+      "fallback_specific": "Coca-Cola Soda 1,75L",
+      "fallback_broad": "Coca-Cola Soda"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"brand\": \"Coca-Cola\",\n    \"name\": \"Soda au Cola Goût Original\",\n    \"quantity\": \"1,75L\"\n  },\n  \"descriptor\": {\n    \"ean\": \"5000112611861\",\n    \"_id\": \"69453c824c75db5322a59138\",\n    \"brand\": \"Cola\",\n    \"canonical\": {\n      \"normalized_signature\": \"cola 1.75l\"\n    },\n    \"categories\": null,\n    \"created_at\": \"2025-12-19T11:52:34.593000\",\n    \"ecoscore_grade\": null,\n    \"ecoscore_image\": null,\n    \"image\": \"/assets/5000112611861.jpg\",\n    \"image_source\": \"courseu\",\n    \"keywords\": [\n      \"Cola Soda 1.75 L\",\n      \"Goût\",\n      \"Cola Soda COCA Original Bouteille 1,75 L\",\n      \"COCA\",\n      \"Soda Goût 1.75 L\",\n      \"Soda au Cola Goût Original COCA-COLA\",\n      \"Original\",\n      \"Cola 1.75 L\",\n      \"1.75 L\",\n      \"Cola Goût 1.75 L\",\n      \"Bouteille\",\n      \"Soda COCA-COLA Original - Bouteille 1,75L\",\n      \"Cola Soda Goût 1.75 L\",\n      \"5000112611861\"\n    ],\n    \"note\": \"2025-10-31T13:07:56Z · Super U Eysines\",\n    \"nova_group\": null,\n    \"nutriscore_grade\": \"e\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"quantity\": \"1,75  L\",\n    \"queries\": {\n      \"casino\": [\n        \"coca cola 1,75l\",\n        \"coca cola original 1.75\",\n        \"soda coca 1,75l\"\n      ],\n      \"intermarche\": [\n        \"coca-cola 1,75l\",\n        \"coca cola 1,75l\",\n        \"coca-cola extraits 1,75l\",\n        \"coca cola extraits 1,75l\",\n        \"coca-cola original 1,75l\"\n      ],\n      \"leclerc\": [\n        \"coca-cola extraits 1,75l\",\n        \"coca-cola extraits 175cl\",\n        \"coca-cola 1,75l\",\n        \"coca-cola 175cl\",\n        \"coca-cola original\"\n      ],\n      \"monoprix\": [\n        \"coca-cola extraits\",\n        \"coca-cola 1,75l\",\n        \"coca-cola 175cl\",\n        \"coca-cola extraits 1,75l\",\n        \"coca-cola extraits 175cl\"\n      ]\n    },\n    \"source\": \"carrefour_market\",\n    \"stores\": {\n      \"courseu\": {\n        \"url\": \"https://www.coursesu.com/p/soda-coca-cola-original---bouteille-175l/5192990.html\"\n      }\n    },\n    \"title\": \"Soda COCA-COLA Original - Bouteille 1,75L\",\n    \"updated_at\": \"2025-12-19T12:11:07.453000\",\n    \"removed\": false,\n    \"name\": \"Soda au Cola Goût Original COCA-COLA\",\n    \"description\": \"Soda au Cola Goût Original COCA-COLA\",\n    \"seed_query\": \"Cola Soda Goût Original COCA 1,75 L\",\n    \"leclerc_query\": \"Cola 1.75 L\",\n    \"leclerc_queries\": [\n      \"Cola 1.75 L\",\n      \"Cola Soda 1.75 L\",\n      \"Cola Soda Goût 1.75 L\",\n      \"Soda Goût 1.75 L\",\n      \"Cola Goût 1.75 L\",\n      \"Cola Soda Goût Original COCA 1,75 L\",\n      \"Soda au Cola Goût Original COCA-COLA\",\n      \"5000112611861\"\n    ],\n    \"seed_primary_name\": \"Soda au Cola Goût Original COCA-COLA\",\n    \"seed_primary_quantity\": \"1,75L\",\n    \"ai_profile\": {\n      \"brand\": \"Coca-Cola\",\n      \"name\": \"Soda au Cola Goût Original\",\n      \"quantity\": \"1,75L\"\n    },\n    \"ai_keywords\": [\n      \"Coca-Cola Soda au Cola 1,75L\",\n      \"Coca-Cola Goût Original 1,75L\",\n      \"Coca-Cola Soda Original 1,75L\"\n    ],\n    \"primary_keywords\": [\n      \"Coca-Cola Soda Cola\",\n      \"Coca-Cola Soda au Cola 1,75L\",\n      \"Coca-Cola Goût Original 1,75L\",\n      \"Coca-Cola Soda Original 1,75L\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-19T13:14:37.861419+01:00\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CoTfS9yRmIu2IcTD0j9ttGSBnaRMF\", \"object\": \"chat.completion\", \"created\": 1766146478, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Coca-Cola Original 1,75L\\\",\\n    \\\"fallback_specific\\\": \\\"Coca-Cola Soda 1,75L\\\",\\n    \\\"fallback_broad\\\": \\\"Coca-Cola Soda\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1448, \"completion_tokens\": 46, \"total_tokens\": 1494, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e413f45763\"}"
+}

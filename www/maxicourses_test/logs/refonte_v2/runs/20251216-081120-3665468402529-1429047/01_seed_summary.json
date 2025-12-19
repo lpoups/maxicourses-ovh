@@ -1,0 +1,39 @@
+{
+  "timestamp": "2025-12-16T08:11:20.231482+01:00",
+  "status": "ok",
+  "data": {
+    "profile": {
+      "brand": "Finish",
+      "name": "Capsules Lave-vaisselle Ultimate 48h",
+      "quantity": "x42"
+    },
+    "keywords": [
+      "Finish Capsules Lave-vaisselle",
+      "Finish Tablettes Lave-vaissell",
+      "Finish Powerball Ultimate Lave"
+    ],
+    "primary_keywords": [
+      "Finish Capsules Lave",
+      "Finish Capsules Lave-vaisselle",
+      "Finish Tablettes Lave-vaissell",
+      "Finish Powerball Ultimate Lave"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "raw": {
+      "profile": {
+        "brand": "Finish",
+        "name": "Capsules Lave-vaisselle Ultimate 48h",
+        "quantity": "x42"
+      },
+      "keywords": [
+        "Finish Capsules Lave-vaisselle Ultimate 48h x42",
+        "Finish Tablettes Lave-vaisselle Ultimate 48h x42",
+        "Finish Powerball Ultimate Lave-vaisselle x42"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"seeds\": [\n    {\n      \"adapter\": \"carrefour_market\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"12,45\",\n        \"store\": \"Market Fondaudège\",\n        \"url\": \"https://www.carrefour.fr/s?q=3665468402529\",\n        \"note\": \"json_state_extraction\",\n        \"unit_price\": \"22,97 € / KG\",\n        \"quantity\": \"x42\",\n        \"title\": \"Capsules  Lave-vaisselle Ultimate 48h FINISH\",\n        \"matched_ean\": \"3665468402529\",\n        \"image\": null,\n        \"nutriscore_grade\": null,\n        \"nutriscore_image\": null,\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Capsules  Lave-vaisselle Ultimate 48h FINISH\",\n          \"brand\": \"Capsules\",\n          \"kind\": \"\",\n          \"qty\": \"x42\",\n          \"price\": null,\n          \"quantity\": null,\n          \"qualifiers\": [],\n          \"ean\": \"3665468402529\",\n          \"image_url\": null,\n          \"source\": \"carrefour_market\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"3665468402529\",\n        \"visual_score\": null\n      }\n    },\n    {\n      \"adapter\": \"carrefour_super\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"10,99\",\n        \"store\": \"Lormont\",\n        \"url\": \"https://www.carrefour.fr/s?q=3665468402529\",\n        \"note\": \"json_state_extraction\",\n        \"unit_price\": \"20,28 € / KG\",\n        \"quantity\": \"x42\",\n        \"title\": \"Capsules  Lave-vaisselle Ultimate 48h FINISH\",\n        \"matched_ean\": \"3665468402529\",\n        \"image\": null,\n        \"nutriscore_grade\": null,\n        \"nutriscore_image\": null,\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Capsules  Lave-vaisselle Ultimate 48h FINISH\",\n          \"brand\": \"Capsules\",\n          \"kind\": \"\",\n          \"qty\": \"x42\",\n          \"price\": null,\n          \"quantity\": null,\n          \"qualifiers\": [],\n          \"ean\": \"3665468402529\",\n          \"image_url\": null,\n          \"source\": \"carrefour_super\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"3665468402529\",\n        \"visual_score\": null\n      }\n    },\n    {\n      \"adapter\": \"chronodrive\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"10,09\",\n        \"title\": \"Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate\",\n        \"url\": \"https://www.chronodrive.com/finish--powerball-utimate---tablettes-lave-vaissell e-tout-en-1-P543645\",\n        \"note\": \"Chronodrive Le Haillan\",\n        \"unit_price\": \" 0,24 € / Pièce\",\n        \"quantity\": \"42 tablettes\",\n        \"store\": \"Chronodrive Le Haillan\",\n        \"matched_ean\": \"3665468402529\",\n        \"nutriscore_grade\": \"e\",\n        \"nutriscore_image\": null,\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Tablettes lave-vaisselle tout en 1  FINISH Powerball Utimate\",\n          \"brand\": \"Tablettes\",\n          \"kind\": \"\",\n          \"qty\": \"42 tablettes\",\n          \"price\": null,\n          \"quantity\": null,\n          \"qualifiers\": [],\n          \"ean\": \"3665468402529\",\n          \"image_url\": null,\n          \"source\": \"chronodrive\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"3665468402529\",\n        \"visual_score\": null\n      }\n    }\n  ],\n  \"context\": {\n    \"descriptor\": {\n      \"ean\": \"3665468402529\",\n      \"_id\": \"6941057cf55566d88df467d5\",\n      \"created_at\": \"2025-12-16T07:08:44.566000\",\n      \"removed\": true,\n      \"updated_at\": \"2025-12-16T07:08:44.566000\",\n      \"leclerc_query\": \"Finish Capsules X42\",\n      \"leclerc_queries\": [\n        \"Finish Capsules X42\",\n        \"Finish Capsules Lave X42\",\n        \"Capsules Lave X42\"\n      ],\n      \"primary_keywords\": [\n        \"3665468402529\"\n      ],\n      \"source\": \"carrefour_super\",\n      \"note\": \"Stub incomplet – lancer une collecte seed Carrefour/Auchan pour remplir le descriptif.\",\n      \"description\": \"Entrée générée automatiquement – descriptif requis.\",\n      \"seed_query\": \"Finish Capsules Lave vaisselle Ultimate 48h Entrée générée\",\n      \"name\": \"Capsules  Lave-vaisselle Ultimate 48h FINISH\",\n      \"quantity\": \"x42\",\n      \"brand\": \"Finish\",\n      \"seed_primary_name\": \"Capsules  Lave-vaisselle Ultimate 48h FINISH\",\n      \"seed_primary_quantity\": \"x42\",\n      \"nutriscore_grade\": \"e\"\n    },\n    \"ean\": \"3665468402529\"\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CnJVGiUie4ObngnojyCVLFaOTrToQ\", \"object\": \"chat.completion\", \"created\": 1765869078, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"profile\\\": {\\n    \\\"brand\\\": \\\"Finish\\\",\\n    \\\"name\\\": \\\"Capsules Lave-vaisselle Ultimate 48h\\\",\\n    \\\"quantity\\\": \\\"x42\\\"\\n  },\\n  \\\"keywords\\\": [\\n    \\\"Finish Capsules Lave-vaisselle Ultimate 48h x42\\\",\\n    \\\"Finish Tablettes Lave-vaisselle Ultimate 48h x42\\\",\\n    \\\"Finish Powerball Ultimate Lave-vaisselle x42\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1536, \"completion_tokens\": 91, \"total_tokens\": 1627, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e413f45763\"}"
+}

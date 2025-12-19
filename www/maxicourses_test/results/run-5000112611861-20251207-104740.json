@@ -1,0 +1,95 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-12-07T10:47:39.644910+01:00",
+  "finished_at": "2025-12-07T10:47:40.776232+01:00",
+  "duration_seconds": 1.131322,
+  "reference": {
+    "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "description": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "source": "courseu",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": null,
+    "image": "./assets/5000112611861.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611861-20251207-104739"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-07T10:47:39.645713+01:00",
+      "finished_at": "2025-12-07T10:47:39.837766+01:00",
+      "duration_seconds": 0.192053,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "SHELL": "/bin/bash",
+        "PWD": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test",
+        "LOGNAME": "ubuntu",
+        "XDG_SESSION_TYPE": "tty",
+        "MOTD_SHOWN": "pam",
+        "HOME": "/home/ubuntu",
+        "LANG": "C.UTF-8",
+        "SSH_CONNECTION": "2a01:e0a:194:110:59f6:d6cb:aa06:495c 51610 2001:41d0:305:2100::cb12 22",
+        "XDG_SESSION_CLASS": "user",
+        "USER": "ubuntu",
+        "SHLVL": "0",
+        "XDG_SESSION_ID": "1781",
+        "XDG_RUNTIME_DIR": "/run/user/1000",
+        "SSH_CLIENT": "2a01:e0a:194:110:59f6:d6cb:aa06:495c 51610 22",
+        "USE_CDP": "1",
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+        "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+        "OLDPWD": "/home/ubuntu",
+        "_": "../.venv/bin/python3",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py\", line 14, in <module>\n    from rich import print\nModuleNotFoundError: No module named 'rich'\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py\", line 14, in <module>\n    from rich import print\nModuleNotFoundError: No module named 'rich'\n",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "brand": "Cola",
+      "kind": "",
+      "qty": "1,75 L",
+      "qualifiers": [],
+      "ean": "5000112611861",
+      "image_url": "./assets/5000112611861.jpg",
+      "source": "consolidated",
+      "raw_text": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

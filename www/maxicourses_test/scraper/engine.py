@@ -48,7 +48,7 @@ async def make_context(headless: bool = True,
         browser = await p.chromium.launch(**launch_kwargs)
         context = await browser.new_context(
             storage_state=storage_state_path,
-            user_agent=user_agent or "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            user_agent=user_agent or "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
             locale="fr-FR",
             timezone_id="Europe/Paris",
         )

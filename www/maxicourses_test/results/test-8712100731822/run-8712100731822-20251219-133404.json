@@ -1,0 +1,94 @@
+{
+  "ean": "8712100731822",
+  "image_path": null,
+  "started_at": "2025-12-19T13:33:58.420551+01:00",
+  "finished_at": "2025-12-19T13:34:04.613869+01:00",
+  "duration_seconds": 6.193318,
+  "reference": {
+    "title": "Amora Spécialité à la moutarde de Dijon aux épices et aromates Savora Bocal 385g",
+    "description": null,
+    "source": "chronodrive",
+    "brand": "Savora",
+    "quantity": "385  g",
+    "categories": "Condiments, Sauces, Moutardes, en:groceries, Spécialité à la Moutarde",
+    "image": "/assets/8712100731822.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-e.svg",
+    "ecoscore_grade": "b",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
+    "nova_group": "3"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251219-133358"
+  ],
+  "adapters": [
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Savora%20aromates%20385%20G",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Savora aromates 385 G",
+          "timestamp": "2025-12-19T12:33:59.242927+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-19T13:33:59.044625+01:00",
+      "finished_at": "2025-12-19T13:33:59.961551+01:00",
+      "duration_seconds": 0.916926,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "8712100731822",
+        "QUERY": "Savora aromates 385 G",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Savora aromates 385 G",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8712100731822/debug/run-8712100731822-20251219-133358/01-spar"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Moutarde aux aromates SAVORA 385 g",
+      "brand": "Savora",
+      "kind": "",
+      "qty": "385 g",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "8712100731822",
+      "image_url": "/assets/8712100731822.jpg",
+      "source": "consolidated",
+      "raw_text": "Moutarde aux aromates SAVORA 385 g",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Savora Moutarde Aromates 385g",
+      "Moutarde Aromates Savora 385g",
+      "Savora Moutarde",
+      "Moutarde aux aromates SAVORA",
+      "Moutarde aux aromates",
+      "Savora aromates 385 G",
+      "Savora aromates moutarde",
+      "Savora 385 G"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

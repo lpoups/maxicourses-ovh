@@ -1,0 +1,151 @@
+{
+  "ean": "3502110008329",
+  "image_path": null,
+  "started_at": "2025-12-16T09:55:34.785735+01:00",
+  "finished_at": "2025-12-16T09:55:43.306116+01:00",
+  "duration_seconds": 8.520381,
+  "reference": {
+    "title": "Pepsi Soda au Cola Classique 1,5L",
+    "description": null,
+    "source": "unknown",
+    "brand": "Pepsi",
+    "quantity": "1500 ml",
+    "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté",
+    "image": null,
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251216-095534"
+  ],
+  "adapters": [
+    {
+      "adapter": "spar",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,17",
+        "unit_price": "1,45 €/LITRE",
+        "quantity": "1,5L",
+        "title": "Pepsi Soda au Cola Classique 1,5L",
+        "url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462",
+        "note": "Spar",
+        "store": "Spar",
+        "matched_ean": "3502110008329",
+        "product": {
+          "title": "Pepsi Soda au Cola Classique 1,5L",
+          "brand": "PEPSI",
+          "qty": "1,5L",
+          "ean": "3502110008329",
+          "image_url": null,
+          "source": "spar"
+        },
+        "_meta": {
+          "store_code": "UNKNOWN",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-merignac-33700/UNKNOWN",
+          "query": "Pepsi 1500 ml",
+          "timestamp": "2025-12-16T08:55:39.570272+00:00",
+          "direct_url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462",
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462",
+            "product": {
+              "title": "Pepsi Soda au Cola Classique 1,5L",
+              "brand": "PEPSI",
+              "kind": "",
+              "qty": "1,5L",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3502110008329",
+              "image_url": null,
+              "source": "spar",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-12-16T09:55:39.363438+01:00",
+      "finished_at": "2025-12-16T09:55:40.267109+01:00",
+      "duration_seconds": 0.903671,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_spar_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_spar_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "Pepsi 1500 ml",
+        "STORE_URL": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-merignac-33700/TZ200",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Pepsi 1500 ml",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251216-095534/01-spar"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Pepsi Soda au Cola Classique 1,5L",
+      "brand": "Pepsi",
+      "kind": "",
+      "qty": "1500 ml",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3502110008329",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Pepsi Soda au Cola Classique 1,5L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Pepsi Soda Cola Classique",
+      "Pepsi Cola 1,5L",
+      "Pepsi Soda",
+      "Pepsi Soda au Cola",
+      "Pepsi Soda au",
+      "Pepsi classique 1500 ML",
+      "Pepsi classique 1.50 L",
+      "Pepsi classique 1,50 L"
+    ],
+    "candidates": [
+      {
+        "adapter": "spar",
+        "url": "https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462",
+        "score": 0.4,
+        "product": {
+          "title": "Pepsi Soda au Cola Classique 1,5L",
+          "brand": "PEPSI",
+          "kind": "",
+          "qty": "1,5L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3502110008329",
+          "image_url": null,
+          "source": "spar",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      }
+    ],
+    "decision": null,
+    "audit": []
+  }
+}

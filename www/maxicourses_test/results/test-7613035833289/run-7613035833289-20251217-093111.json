@@ -1,0 +1,197 @@
+{
+  "ean": "7613035833289",
+  "image_path": null,
+  "started_at": "2025-12-17T09:30:27.266766+01:00",
+  "finished_at": "2025-12-17T09:31:11.719452+01:00",
+  "duration_seconds": 44.452686,
+  "reference": {
+    "title": "Eau minérale naturelle gazeuse",
+    "description": null,
+    "source": "unknown",
+    "brand": "Perrier",
+    "quantity": "6*1 l",
+    "categories": "Beverages, Carbonated drinks, Waters, Spring waters, Mineral waters, Unsweetened beverages, Carbonated waters, en:carbonated-mineral-waters",
+    "image": null,
+    "nutriscore_grade": "a",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "1"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251217-093027"
+  ],
+  "adapters": [
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "3,93",
+        "title": "Eau minérale naturelle gazeuse",
+        "url": "https://www.intermarche.com/produit/eau-minerale-naturelle-gazeuse/7613035833289",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "7613035833289",
+        "unit_price": "0,66 € / L",
+        "quantity": "6*1 l",
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/eau-minerale-gazeuse-fines-bulles/7613035833319",
+            "product": {
+              "title": "PerrierEau minérale gazeuse fines bulles",
+              "brand": "Perrier",
+              "kind": "Eau minérale naturelle gazeuse",
+              "qty": "6*1 l",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "7613035833319",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/eau-minerale-naturelle-gazeuse/7613035833289",
+            "product": {
+              "title": "PerrierEau minérale naturelle gazeuse",
+              "brand": "Perrier",
+              "kind": "Eau minérale naturelle gazeuse",
+              "qty": "6*1 l",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "7613035833289",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://www.intermarche.com/icons/nutriscore/score=A.svg"
+      },
+      "started_at": "2025-12-17T09:30:34.487205+01:00",
+      "finished_at": "2025-12-17T09:31:09.519685+01:00",
+      "duration_seconds": 35.03248,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "Perrier Eau gazeuse 6x1L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Raw DESCRIPTOR_JSON received (len=1828)\n[DEBUG] Intermarche Descriptor keys: ['_id', 'ean', 'brand', 'canonical', 'categories', 'created_at', 'ecoscore_grade', 'note', 'nova_group', 'nutriscore_grade', 'nutriscore_image', 'quantity', 'removed', 'source', 'updated_at', 'queries', 'name', 'seed_query', 'leclerc_query', 'leclerc_queries', 'leclerc_ai_queries', 'leclerc_secondary_keywords', 'primary_keywords', 'monoprix_ai_queries', 'monoprix_queries', 'monoprix_secondary_keywords', 'intermarche_ai_queries', 'intermarche_queries', 'intermarche_secondary_keywords']\n[DEBUG] Intermarche query keys: {'monoprix': ['perrier eau gazeuse 6x1l', 'perrier eau minérale 6x1l', 'perrier boissons gazeuses', 'Perrier Eau minérale'], 'intermarche': ['Perrier Eau gazeuse 6x1L', 'Perrier Eau minérale 6x1L', 'Perrier Boissons gazeuses', 'Perrier Eau minérale']}\n[DEBUG] Leclerc fallback queries: ['Perrier Eau 6*1 L', 'Perrier Eau minérale 6*1 L', 'Perrier Eau minérale']",
+      "metadata": {
+        "attempt_query": "Perrier Eau gazeuse 6x1L",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251217-093027/01-intermarche"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Eau minérale naturelle gazeuse",
+      "brand": "Perrier",
+      "kind": "",
+      "qty": "6*1 l",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "7613035833289",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Eau minérale naturelle gazeuse",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Perrier eau gazeuse 6x1l",
+      "eau gazeuse Perrier 6x1l",
+      "Perrier eau gazeuse",
+      "Eau minérale naturelle gazeuse",
+      "Eau minérale naturelle",
+      "Perrier naturelle 6*1 L",
+      "Perrier naturelle minerale",
+      "Perrier 6*1 L"
+    ],
+    "candidates": [
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/eau-minerale-naturelle-gazeuse/7613035833289",
+        "score": 1.0,
+        "product": {
+          "title": "PerrierEau minérale naturelle gazeuse",
+          "brand": "Perrier",
+          "kind": "Eau minérale naturelle gazeuse",
+          "qty": "6*1 l",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "7613035833289",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/eau-minerale-gazeuse-fines-bulles/7613035833319",
+        "score": 0.6,
+        "product": {
+          "title": "PerrierEau minérale gazeuse fines bulles",
+          "brand": "Perrier",
+          "kind": "Eau minérale naturelle gazeuse",
+          "qty": "6*1 l",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "7613035833319",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      }
+    ],
+    "decision": {
+      "adapter": "intermarche",
+      "url": "https://www.intermarche.com/produit/eau-minerale-naturelle-gazeuse/7613035833289",
+      "score": 1.0,
+      "product": {
+        "title": "PerrierEau minérale naturelle gazeuse",
+        "brand": "Perrier",
+        "kind": "Eau minérale naturelle gazeuse",
+        "qty": "6*1 l",
+        "price": null,
+        "quantity": null,
+        "qualifiers": [],
+        "ean": "7613035833289",
+        "image_url": null,
+        "source": "intermarche",
+        "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+        "seed_query": "",
+        "leclerc_queries": []
+      }
+    },
+    "audit": []
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "timestamp": "2025-12-08T15:16:04.470314+01:00",
+  "status": "ok",
+  "data": {
+    "profile": {
+      "brand": "Coca-Cola",
+      "product_name": "Soda COCA-COLA Original",
+      "quantity": "6x33cl",
+      "price": "4,18",
+      "unit_price": "2,04 € / KG",
+      "nutriscore_grade": "C",
+      "store": "Super U Eysines",
+      "categories": [
+        "Boissons et préparations de boissons",
+        "Boissons",
+        "Boissons gazeuses",
+        "Sodas",
+        "Sodas au cola",
+        "Boissons avec sucre ajouté"
+      ]
+    },
+    "keywords": [
+      "Coca-Cola Soda 6x33cl",
+      "Coca-Cola Original Pack",
+      "Soda Coca-Cola 6x33cl",
+      "Coca-Cola Canettes 6x33cl",
+      "Coca-Cola Boisson Gazeuse",
+      "Coca-Cola Sodas au Cola",
+      "Coca-Cola Boissons Sucrées",
+      "Coca-Cola Nutriscore C"
+    ],
+    "primary_keywords": [
+      "Coca-Cola Coca-Cola 6X Coca-Co",
+      "Coca-Cola Soda 6x33cl",
+      "Coca-Cola Original",
+      "Coca-Cola Canettes 6x33cl",
+      "Coca-Cola Boisson Gazeuse"
+    ],
+    "secondary_keywords": [
+      "coca",
+      "cola",
+      "original",
+      "6x33cl",
+      "canettes",
+      "6x",
+      "6"
+    ],
+    "category": "generic",
+    "raw": {
+      "profile": {
+        "brand": "Coca-Cola",
+        "product_name": "Soda COCA-COLA Original",
+        "quantity": "6x33cl",
+        "price": "4,18",
+        "unit_price": "2,04 € / KG",
+        "nutriscore_grade": "C",
+        "store": "Super U Eysines",
+        "categories": [
+          "Boissons et préparations de boissons",
+          "Boissons",
+          "Boissons gazeuses",
+          "Sodas",
+          "Sodas au cola",
+          "Boissons avec sucre ajouté"
+        ]
+      },
+      "keywords": [
+        "Coca-Cola Soda 6x33cl",
+        "Coca-Cola Original Pack",
+        "Soda Coca-Cola 6x33cl",
+        "Coca-Cola Canettes 6x33cl",
+        "Coca-Cola Boisson Gazeuse",
+        "Coca-Cola Sodas au Cola",
+        "Coca-Cola Boissons Sucrées",
+        "Coca-Cola Nutriscore C"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"seeds\": [\n    {\n      \"adapter\": \"courseu\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"4,18\",\n        \"unit_price\": \"2,04 € / KG\",\n        \"quantity\": \"2,052 kg\",\n        \"title\": \"Soda COCA-COLA Original - Pack Canettes 6x33cl\",\n        \"url\": \"https://www.coursesu.com/p/soda-coca-cola-original---pack-canettes-6x33cl/24290 52.html\",\n        \"note\": \"2025-12-08T14:16:00Z · Super U Eysines\",\n        \"store\": \"Super U  Eysines\",\n        \"matched_ean\": \"5449000283900\",\n        \"nutriscore_grade\": \"c\",\n        \"nutriscore_image\": \"https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png\",\n        \"_meta\": {\n          \"supports_keywords\": true\n        },\n        \"candidates\": []\n      },\n      \"metadata\": {\n        \"attempt_query\": \"5449000283900\"\n      }\n    }\n  ],\n  \"context\": {\n    \"descriptor\": {\n      \"ean\": \"5449000283900\",\n      \"brand\": \"Cola\",\n      \"leclerc_queries\": [\n        \"Cola Soda 6 CL\",\n        \"Cola Soda COCA 6 CL\",\n        \"Cola 6 CL\",\n        \"Soda COCA 6 CL\"\n      ],\n      \"leclerc_query\": \"Cola Soda 6 CL\",\n      \"name\": \"Soda COCA-COLA Original - 6x33cl\",\n      \"primary_keywords\": [\n        \"Coca Cola 6x33cl\"\n      ],\n      \"quantity\": \"6x33 cl\",\n      \"seed_primary_name\": \"Soda COCA-COLA Original\",\n      \"seed_primary_quantity\": \"6x33 cl\",\n      \"seed_query\": \"Cola Soda COCA Original 6x33cl Pack Canettes 6x33\",\n      \"source\": \"courseu\",\n      \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-08T14:15:27Z\",\n      \"removed\": false,\n      \"categories\": \"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Sodas, Sodas au cola, Boissons avec sucre ajouté\",\n      \"nutriscore_grade\": \"c\",\n      \"nutriscore_image\": \"https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png\",\n      \"ecoscore_grade\": \"not-applicable\",\n      \"description\": \"Soda COCA-COLA Original - Pack Canettes 6x33cl\"\n    },\n    \"ean\": \"5449000283900\"\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkWJsTKvpRY8UNmkAEEI6cdmF0dyL\", \"object\": \"chat.completion\", \"created\": 1765203360, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"profile\\\": {\\n    \\\"brand\\\": \\\"Coca-Cola\\\",\\n    \\\"product_name\\\": \\\"Soda COCA-COLA Original\\\",\\n    \\\"quantity\\\": \\\"6x33cl\\\",\\n    \\\"price\\\": \\\"4,18\\\",\\n    \\\"unit_price\\\": \\\"2,04 € / KG\\\",\\n    \\\"nutriscore_grade\\\": \\\"C\\\",\\n    \\\"store\\\": \\\"Super U Eysines\\\",\\n    \\\"categories\\\": [\\n      \\\"Boissons et préparations de boissons\\\",\\n      \\\"Boissons\\\",\\n      \\\"Boissons gazeuses\\\",\\n      \\\"Sodas\\\",\\n      \\\"Sodas au cola\\\",\\n      \\\"Boissons avec sucre ajouté\\\"\\n    ]\\n  },\\n  \\\"keywords\\\": [\\n    \\\"Coca-Cola Soda 6x33cl\\\",\\n    \\\"Coca-Cola Original Pack\\\",\\n    \\\"Soda Coca-Cola 6x33cl\\\",\\n    \\\"Coca-Cola Canettes 6x33cl\\\",\\n    \\\"Coca-Cola Boisson Gazeuse\\\",\\n    \\\"Coca-Cola Sodas au Cola\\\",\\n    \\\"Coca-Cola Boissons Sucrées\\\",\\n    \\\"Coca-Cola Nutriscore C\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 739, \"completion_tokens\": 228, \"total_tokens\": 967, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

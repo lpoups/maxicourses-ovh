@@ -1,0 +1,85 @@
+{
+  "ean": "3124480200433",
+  "image_path": null,
+  "started_at": "2025-12-07T12:36:05.845628+01:00",
+  "finished_at": "2025-12-07T12:37:18.650614+01:00",
+  "duration_seconds": 72.804986,
+  "reference": {
+    "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
+    "description": "Soda à  l'Orange et sa Pulpe ORANGINA",
+    "source": "carrefour_super",
+    "brand": "Orangina",
+    "quantity": "1,5 L",
+    "categories": "Beverages and beverages preparations, Plant-based foods and beverages, Beverages, Plant-based beverages, Carbonated drinks, Fruit-based beverages, Sodas, Fruit sodas, Orange soft drinks, en:sweetened-beverages",
+    "image": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03124480200433_C1N1_s04.jpeg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-e.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3124480200433/debug/run-3124480200433-20251207-123605"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": "https://www.auchan.fr/orangina-boisson-gazeuse-a-l-orange/pr-C1820950",
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "price_missing",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-07T12:36:05.846474+01:00",
+      "finished_at": "2025-12-07T12:37:17.953624+01:00",
+      "duration_seconds": 72.10715,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3124480200433",
+        "QUERY": "3124480200433",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: current window outer height 1314\n[auchan] CONSOLE: new window outer height 1312\n[auchan] CONSOLE: current window outer height 1314\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Found visible button: button.journey-button\n[auchan] Clicking 'Choisir ce drive'...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ⚠️ Button still visible after click.\n[auchan] CONSOLE: current window outer height 1314\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] Attempt 1: price_text=None value=None\n[auchan] --- DEBUG: Smart Price Scan ---\n[auchan] Body Text Snippet: \"Aller directement au contenu\\nAller directement à la recherche\\nAller directement à la navigation\\nAller directement à la rubrique besoin d'aide\\nChoisir vos courses\\nMe connecter\\nRayons\\nPromos\\nLancer la recherche\\nAnnuler\\nMes produits\\n  \\nAccueil\\nEaux, jus, soda, thés glacés\\nColas, boissons gazeuses, énergisantes\\nSodas aux fruits, thés gazeux\\nSoda orange\\nAgrandir l'illustration à 200 %\\nRéduire l'illustration à 100 %\\nPartager le produit\\n4.4\\n(7)\\nORANGINA\\nBoisson gazeuse à l'orange\\n1,5l\\nVous voulez conna\"\n[auchan] Cookies: ['connect.sid=s%3A1rABDH...', 'GCLB=\"e3b1a3058...', 'lark-consent=0...', 'lark-consentId=357dbe95-a...', 'lark-session=a691d5bb-b...']\n[auchan] LocalStorage: {\"storeName\":\"Auchan Drive Supermarché Talence-Gallieni\",\"journeyStoreId\":\"6117\",\"storeSlug\":\"auchan-drive-supermarche-talence-gallieni\",\"storeId\":\"6117\"}\n[auchan] ------------------------------\n[auchan] ⚠️ No valid price found (Attempt 1/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?\n[auchan] Attempt 2: price_text=None value=None\n[auchan] --- DEBUG: Smart Price Scan ---\n[auchan] Body Text Snippet: \"Aller directement au contenu\\nAller directement à la recherche\\nAller directement à la navigation\\nAller directement à la rubrique besoin d'aide\\nChoisir vos courses\\nMe connecter\\nRayons\\nPromos\\nLancer la recherche\\nAnnuler\\nMes produits\\n  \\nAccueil\\nEaux, jus, soda, thés glacés\\nColas, boissons gazeuses, énergisantes\\nSodas aux fruits, thés gazeux\\nSoda orange\\nAgrandir l'illustration à 200 %\\nRéduire l'illustration à 100 %\\nPartager le produit\\n4.4\\n(7)\\nORANGINA\\nBoisson gazeuse à l'orange\\n1,5l\\nVous voulez conna\"\n[auchan] Cookies: ['connect.sid=s%3A1rABDH...', 'GCLB=\"e3b1a3058...', 'lark-consent=0...', 'lark-consentId=357dbe95-a...', 'lark-session=a691d5bb-b...']\n[auchan] LocalStorage: {\"storeName\":\"Auchan Drive Supermarché Talence-Gallieni\",\"journeyStoreId\":\"6117\",\"storeSlug\":\"auchan-drive-supermarche-talence-gallieni\",\"storeId\":\"6117\"}\n[auchan] ------------------------------\n[auchan] ⚠️ No valid price found (Attempt 2/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?\n[auchan] Attempt 3: price_text=None value=None\n[auchan] --- DEBUG: Smart Price Scan ---\n[auchan] Body Text Snippet: \"Aller directement au contenu\\nAller directement à la recherche\\nAller directement à la navigation\\nAller directement à la rubrique besoin d'aide\\nChoisir vos courses\\nMe connecter\\nRayons\\nPromos\\nLancer la recherche\\nAnnuler\\nMes produits\\n  \\nAccueil\\nEaux, jus, soda, thés glacés\\nColas, boissons gazeuses, énergisantes\\nSodas aux fruits, thés gazeux\\nSoda orange\\nAgrandir l'illustration à 200 %\\nRéduire l'illustration à 100 %\\nPartager le produit\\n4.4\\n(7)\\nORANGINA\\nBoisson gazeuse à l'orange\\n1,5l\\nVous voulez conna\"\n[auchan] Cookies: ['connect.sid=s%3A1rABDH...', 'GCLB=\"e3b1a3058...', 'lark-consent=0...', 'lark-consentId=357dbe95-a...', 'lark-session=a691d5bb-b...']\n[auchan] LocalStorage: {\"storeName\":\"Auchan Drive Supermarché Talence-Gallieni\",\"journeyStoreId\":\"6117\",\"storeSlug\":\"auchan-drive-supermarche-talence-gallieni\",\"storeId\":\"6117\"}\n[auchan] ------------------------------\n[auchan] ⚠️ No valid price found (Attempt 3/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?\n[auchan] CONSOLE: current window outer height 1314\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] results visible, extracting price from search results\n[auchan] CONSOLE: current window outer height 1314\n[auchan] CONSOLE: new window outer height 85\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] Attempt 1: price_text=None value=None\n[auchan] --- DEBUG: Smart Price Scan ---\n[auchan] Body Text Snippet: \"Aller directement au contenu\\nAller directement à la recherche\\nAller directement à la navigation\\nAller directement à la rubrique besoin d'aide\\nChoisir vos courses\\nMe connecter\\nRayons\\nPromos\\nLancer la recherche\\nAnnuler\\nMes produits\\n  \\nAccueil\\nEaux, jus, soda, thés glacés\\nColas, boissons gazeuses, énergisantes\\nSodas aux fruits, thés gazeux\\nSoda orange\\nAgrandir l'illustration à 200 %\\nRéduire l'illustration à 100 %\\nPartager le produit\\n4.4\\n(7)\\nORANGINA\\nBoisson gazeuse à l'orange\\n1,5l\\nVous voulez conna\"\n[auchan] Cookies: ['connect.sid=s%3A1rABDH...', 'GCLB=\"e3b1a3058...', 'lark-consent=0...', 'lark-consentId=357dbe95-a...', 'lark-session=a691d5bb-b...']\n[auchan] LocalStorage: {\"storeName\":\"Auchan Drive Supermarché Talence-Gallieni\",\"journeyStoreId\":\"6117\",\"storeSlug\":\"auchan-drive-supermarche-talence-gallieni\",\"storeId\":\"6117\"}\n[auchan] ------------------------------\n[auchan] ⚠️ No valid price found (Attempt 1/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?\n[auchan] Attempt 2: price_text=None value=None\n[auchan] --- DEBUG: Smart Price Scan ---\n[auchan] Body Text Snippet: \"Aller directement au contenu\\nAller directement à la recherche\\nAller directement à la navigation\\nAller directement à la rubrique besoin d'aide\\nChoisir vos courses\\nMe connecter\\nRayons\\nPromos\\nLancer la recherche\\nAnnuler\\nMes produits\\n  \\nAccueil\\nEaux, jus, soda, thés glacés\\nColas, boissons gazeuses, énergisantes\\nSodas aux fruits, thés gazeux\\nSoda orange\\nAgrandir l'illustration à 200 %\\nRéduire l'illustration à 100 %\\nPartager le produit\\n4.4\\n(7)\\nORANGINA\\nBoisson gazeuse à l'orange\\n1,5l\\nVous voulez conna\"\n[auchan] Cookies: ['connect.sid=s%3A1rABDH...', 'GCLB=\"e3b1a3058...', 'lark-consent=0...', 'lark-consentId=357dbe95-a...', 'lark-session=a691d5bb-b...']\n[auchan] LocalStorage: {\"storeName\":\"Auchan Drive Supermarché Talence-Gallieni\",\"journeyStoreId\":\"6117\",\"storeSlug\":\"auchan-drive-supermarche-talence-gallieni\",\"storeId\":\"6117\"}\n[auchan] ------------------------------\n[auchan] ⚠️ No valid price found (Attempt 2/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?\n[auchan] Attempt 3: price_text=None value=None\n[auchan] --- DEBUG: Smart Price Scan ---\n[auchan] Body Text Snippet: \"Aller directement au contenu\\nAller directement à la recherche\\nAller directement à la navigation\\nAller directement à la rubrique besoin d'aide\\nChoisir vos courses\\nMe connecter\\nRayons\\nPromos\\nLancer la recherche\\nAnnuler\\nMes produits\\n  \\nAccueil\\nEaux, jus, soda, thés glacés\\nColas, boissons gazeuses, énergisantes\\nSodas aux fruits, thés gazeux\\nSoda orange\\nAgrandir l'illustration à 200 %\\nRéduire l'illustration à 100 %\\nPartager le produit\\n4.4\\n(7)\\nORANGINA\\nBoisson gazeuse à l'orange\\n1,5l\\nVous voulez conna\"\n[auchan] Cookies: ['connect.sid=s%3A1rABDH...', 'GCLB=\"e3b1a3058...', 'lark-consent=0...', 'lark-consentId=357dbe95-a...', 'lark-session=a691d5bb-b...']\n[auchan] LocalStorage: {\"storeName\":\"Auchan Drive Supermarché Talence-Gallieni\",\"journeyStoreId\":\"6117\",\"storeSlug\":\"auchan-drive-supermarche-talence-gallieni\",\"storeId\":\"6117\"}\n[auchan] ------------------------------\n[auchan] ⚠️ No valid price found (Attempt 3/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?",
+      "metadata": {
+        "attempt_query": "3124480200433"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda à  l'Orange et sa Pulpe ORANGINA",
+      "brand": "Orangina",
+      "kind": "",
+      "qty": "1,5 L",
+      "qualifiers": [],
+      "ean": "3124480200433",
+      "image_url": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03124480200433_C1N1_s04.jpeg",
+      "source": "consolidated",
+      "raw_text": "Soda à  l'Orange et sa Pulpe ORANGINA",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

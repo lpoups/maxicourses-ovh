@@ -1,0 +1,100 @@
+{
+  "ean": "3502110008329",
+  "image_path": null,
+  "started_at": "2025-12-11T18:08:09.669254+01:00",
+  "finished_at": "2025-12-11T18:08:17.878088+01:00",
+  "duration_seconds": 8.208834,
+  "reference": {
+    "title": "Pepsi 1,5L",
+    "description": null,
+    "source": "unknown",
+    "brand": "Pepsi",
+    "quantity": "1500 ml",
+    "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté",
+    "image": null,
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251211-180809"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": "Attention Required! | Cloudflare",
+        "url": "https://www.coursesu.com/p/soda-regular-pepsi-15l/987379.html",
+        "note": "2025-12-11T17:08:15Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Attention Required! | Cloudflare",
+          "brand": "Attention",
+          "kind": "",
+          "qty": "",
+          "qualifiers": [],
+          "ean": "3502110008329",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-11T18:08:09.669956+01:00",
+      "finished_at": "2025-12-11T18:08:15.399270+01:00",
+      "duration_seconds": 5.729314,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "3502110008329",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3502110008329"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Pepsi 1,5L",
+      "brand": "Pepsi",
+      "kind": "",
+      "qty": "1500 ml",
+      "qualifiers": [],
+      "ean": "3502110008329",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

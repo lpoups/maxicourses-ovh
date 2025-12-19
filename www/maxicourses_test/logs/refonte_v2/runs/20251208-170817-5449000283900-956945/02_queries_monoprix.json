@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-12-08T17:08:22.036310+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Coca-Cola Coca-Cola 6X Coca-Co",
+      "Coca-Cola Soda 6x33cl",
+      "Coca-Cola 6x33cl",
+      "Coca-Cola Original",
+      "Coca-Cola Soda"
+    ],
+    "secondary_keywords": [
+      "coca",
+      "cola",
+      "original",
+      "6x33cl",
+      "canettes",
+      "6x",
+      "6"
+    ],
+    "category": "generic",
+    "raw": {
+      "queries": [
+        "Coca-Cola Soda 6x33cl",
+        "Coca-Cola 6x33cl",
+        "Coca-Cola Original",
+        "Coca-Cola Soda",
+        "Coca-Cola 6x"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"ean\": \"5449000283900\",\n    \"brand\": \"Coca-Cola\",\n    \"name\": \"Soda COCA-COLA Original - 6x33cl\",\n    \"quantity\": \"6x33 cl\",\n    \"price\": \"4,18\",\n    \"unit_price\": \"2,04 € / KG\",\n    \"store\": \"Super U Eysines\",\n    \"nutriscore_grade\": \"c\",\n    \"categories\": [\n      \"Boissons et préparations de boissons\",\n      \"Boissons\",\n      \"Boissons gazeuses\",\n      \"Sodas\",\n      \"Sodas au cola\",\n      \"Boissons avec sucre ajouté\"\n    ],\n    \"image\": \"https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw07ab2a45/5449000283900_H1L1_2429052_S10.png?sw=388&sh=388&sm=fit\",\n    \"url\": \"https://www.coursesu.com/p/soda-coca-cola-original---pack-canettes-6x33cl/2429052.html\"\n  },\n  \"descriptor\": {\n    \"ean\": \"5449000283900\",\n    \"brand\": \"Cola\",\n    \"leclerc_queries\": [\n      \"Coca-Cola Coca-Cola 6X Coca-Co\",\n      \"Coca-Cola Soda 6x33cl\",\n      \"Coca-Cola 6x33cl\",\n      \"Coca-Cola Soda\",\n      \"Coca-Cola 6x\"\n    ],\n    \"leclerc_query\": \"Coca-Cola Coca-Cola 6X Coca-Co\",\n    \"name\": \"Soda COCA-COLA Original - 6x33cl\",\n    \"primary_keywords\": [\n      \"Coca-Cola Coca-Cola 6X Coca-Co\",\n      \"Coca-Cola Original 6x33cl\",\n      \"Coca-Cola Soda\",\n      \"Coca-Cola Canettes 6x33cl\",\n      \"Coca-Cola Soda 6x33cl\"\n    ],\n    \"quantity\": \"6x33 cl\",\n    \"seed_primary_name\": \"Soda COCA-COLA Original\",\n    \"seed_primary_quantity\": \"6x33 cl\",\n    \"seed_query\": \"Cola Soda COCA Original 6x33cl Pack Canettes 6x33\",\n    \"source\": \"courseu\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-08T16:07:31Z\",\n    \"removed\": false,\n    \"categories\": \"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Sodas, Sodas au cola, Boissons avec sucre ajouté\",\n    \"nutriscore_grade\": \"c\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"not-applicable\",\n    \"image\": \"https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digi talu-master-catalog/default/dw07ab2a45/5449000283900_H1L1_2429052_S10.png?sw=388 &sh=388&sm=fit\",\n    \"description\": \"Soda COCA-COLA Original - Pack Canettes 6x33cl\",\n    \"ai_profile\": {\n      \"ean\": \"5449000283900\",\n      \"brand\": \"Coca-Cola\",\n      \"name\": \"Soda COCA-COLA Original - 6x33cl\",\n      \"quantity\": \"6x33 cl\",\n      \"price\": \"4,18\",\n      \"unit_price\": \"2,04 € / KG\",\n      \"store\": \"Super U Eysines\",\n      \"nutriscore_grade\": \"c\",\n      \"categories\": [\n        \"Boissons et préparations de boissons\",\n        \"Boissons\",\n        \"Boissons gazeuses\",\n        \"Sodas\",\n        \"Sodas au cola\",\n        \"Boissons avec sucre ajouté\"\n      ],\n      \"image\": \"https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw07ab2a45/5449000283900_H1L1_2429052_S10.png?sw=388&sh=388&sm=fit\",\n      \"url\": \"https://www.coursesu.com/p/soda-coca-cola-original---pack-canettes-6x33cl/2429052.html\"\n    },\n    \"ai_keywords\": [\n      \"Coca-Cola Original 6x33cl\",\n      \"Soda Coca-Cola Pack\",\n      \"Coca-Cola Canettes 6x33cl\",\n      \"Soda Coca-Cola 6x33cl\",\n      \"Coca-Cola 6x33cl\",\n      \"Soda Original 6x33cl\",\n      \"Coca-Cola Soda Pack\",\n      \"Coca-Cola Original Soda\"\n    ],\n    \"secondary_keywords\": [\n      \"coca\",\n      \"cola\",\n      \"original\",\n      \"6x33cl\",\n      \"canettes\",\n      \"6x\",\n      \"6\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-08T17:08:17.779072+01:00\",\n    \"leclerc_ai_queries\": [\n      \"Coca-Cola Coca-Cola 6X Coca-Co\",\n      \"Coca-Cola Soda 6x33cl\",\n      \"Coca-Cola 6x33cl\",\n      \"Coca-Cola Soda\",\n      \"Coca-Cola 6x\"\n    ],\n    \"leclerc_secondary_keywords\": [\n      \"coca\",\n      \"cola\",\n      \"original\",\n      \"6x33cl\",\n      \"canettes\",\n      \"6x\",\n      \"6\"\n    ]\n  },\n  \"store\": \"monoprix\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkY4aVtsKdZmHaSzbnRbR2RibxGKS\", \"object\": \"chat.completion\", \"created\": 1765210100, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"queries\\\": [\\n    \\\"Coca-Cola Soda 6x33cl\\\",\\n    \\\"Coca-Cola 6x33cl\\\",\\n    \\\"Coca-Cola Original\\\",\\n    \\\"Coca-Cola Soda\\\",\\n    \\\"Coca-Cola 6x\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1421, \"completion_tokens\": 55, \"total_tokens\": 1476, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_a4d13246c5\"}"
+}

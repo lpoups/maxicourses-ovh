@@ -1,0 +1,93 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-12-07T10:40:41.835915+01:00",
+  "finished_at": "2025-12-07T10:40:43.246744+01:00",
+  "duration_seconds": 1.410829,
+  "reference": {
+    "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "description": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "source": "courseu",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": "Beverages,Carbonated drinks,Sodas,Colas",
+    "image": "./assets/5000112611861.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251207-104041"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-07T10:40:41.836918+01:00",
+      "finished_at": "2025-12-07T10:40:42.038346+01:00",
+      "duration_seconds": 0.201428,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "LANG": "C.UTF-8",
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin",
+        "HOME": "/home/ubuntu",
+        "LOGNAME": "ubuntu",
+        "USER": "ubuntu",
+        "SHELL": "/bin/bash",
+        "INVOCATION_ID": "92ee74ee48d34c948c18795a7e627ed2",
+        "JOURNAL_STREAM": "8:7231803",
+        "SYSTEMD_EXEC_PID": "836308",
+        "PYTHONUNBUFFERED": "1",
+        "PORT": "5001",
+        "WERKZEUG_SERVER_FD": "3",
+        "USE_CDP": "1",
+        "LECLERC_MAX_DURATION_S": "45",
+        "LECLERC_FAST_MODE": "1",
+        "LECLERC_NO_DELAY": "1",
+        "INITIAL_DESCRIPTOR_JSON": "{\"brand\": \"Cola\", \"canonical\": {\"brand\": \"Coca-Cola\", \"ean\": \"5000112611861\", \"features\": [], \"flavor_color\": \"cola\", \"form\": null, \"images\": [\"./assets/5000112611861.jpg\", \"https://media.carrefour.fr/medias/ae537bba4fd64333b73d2226158bb23c/p_540x540/05 000112611861_H1N1_s01.png\", \"https://cdn.auchan.fr/media/A0220180604000507216PRIMARY_1200x1200/B2CD/\"], \"line\": null, \"name_core\": \"Boisson gazeuse aux extraits\", \"normalized_signature\": \"5000112611861 coca cola boisson gazeuse aux extraits original 1.75l\", \"pack_count\": null, \"size_unit\": \"l\", \"size_value\": 1.75, \"variant\": \"original\"}, \"courseu_slug\": \"/p/soda-coca-cola-original---bouteille-175l/5192990.html\", \"courseu_url\": \"https://www.coursesu.com/p/soda-coca-cola-original---bouteille-175l/5192990.htm l\", \"description\": \"Soda COCA-COLA Original - Bouteille 1,75L\", \"ean\": \"5000112611861\", \"image\": \"./assets/5000112611861.jpg\", \"leclerc_queries\": [\"Cola Soda 1.75 L\", \"Cola Soda Goût 1.75 L\", \"Cola 1.75 L\", \"Soda Goût 1.75 L\"], \"leclerc_query\": \"Cola Soda 1.75 L\", \"name\": \"Soda COCA-COLA Original - Bouteille 1,75L\", \"negatives\": {\"intermarche\": [\"sans sucre\", \"vanille\", \"light\", \"zero\", \"cherry\", \"2.25l\", \"1.25l\", \"zéro\", \"caffeine\", \"caféine\", \"promo\", \"lot\", \"x2\", \"x3\", \"mega\"], \"leclerc\": [\"sans sucre\", \"vanille\", \"light\", \"zero\", \"cherry\", \"2.25l\", \"1.25l\", \"citron\", \"framboise\", \"pomme\", \"orange\", \"zéro\", \"caffeine\", \"caféine\", \"lot\", \"duo\", \"family\", \"ecopack\"], \"monoprix\": [\"sans sucre\", \"vanille\", \"light\", \"zero\", \"cherry\", \"2.25l\", \"1.25l\", \"citron\", \"framboise\", \"pomme\", \"orange\", \"zéro\", \"caffeine\", \"caféine\", \"promo\", \"lot\", \"eco\", \"maxi\", \"format\"]}, \"note\": \"2025-10-31T13:07:56Z · Super U Eysines\", \"nutriscore_grade\": \"unknown\", \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\", \"primary_keywords\": [\"Cola 1.75 L\"], \"quantity\": \"1,75  L\", \"queries\": {\"intermarche\": [\"coca-cola 1,75l\", \"coca cola 1,75l\", \"coca-cola extraits 1,75l\", \"coca cola extraits 1,75l\", \"coca-cola original 1,75l\"], \"leclerc\": [\"coca-cola extraits 1,75l\", \"coca-cola extraits 175cl\", \"coca-cola 1,75l\", \"coca-cola 175cl\", \"coca-cola original\"], \"monoprix\": [\"coca-cola extraits\", \"coca-cola 1,75l\", \"coca-cola 175cl\", \"coca-cola extraits 1,75l\", \"coca-cola extraits 175cl\"], \"casino\": [\"coca cola 1,75l\", \"coca cola original 1.75\", \"soda coca 1,75l\"]}, \"removed\": false, \"secondary_keywords\": [\"Goût\", \"Original\", \"COCA\", \"Bouteille\", \"1.75 L\"], \"seed_primary_name\": \"Soda au Cola Goût Original COCA-COLA\", \"seed_primary_quantity\": \"1,75 L\", \"seed_query\": \"Cola Soda COCA Original Bouteille 1,75 L\", \"source\": \"openfoodfacts\", \"categories\": \"Beverages,Carbonated drinks,Sodas,Colas\", \"ecoscore_grade\": \"not-applicable\", \"nova_group\": \"4\", \"ecoscore_image\": null, \"leclerc_url\": \"https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx\", \"carrefour_super_url\": \"https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861\", \"carrefour_market_url\": \"https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861\", \"carrefour_city_url\": \"https://www.carrefour.fr/p/soda-au-cola-gout-original-coca-cola-5000112611861\", \"auchan_url\": \"https://www.auchan.fr/coca-cola-boisson-gazeuse-aux-extraits-vegetaux-gout-orig inal/pr-C1211988\", \"chronodrive_url\": \"https://www.chronodrive.com/coca-cola--original---boisson-gazeuse-aux-extraits- vegetaux-P384066\", \"casino_url\": \"https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216\", \"spar_url\": \"https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-spar-33160/TL832/357216\", \"monoprix_url\": \"https://courses.monoprix.fr/products/coca-cola-original-1-75l/MPX_3341719\", \"intermarche_url\": \"https://www.intermarche.com/produit/soda-au-cola-gout-original/5000112611861\"}",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "EAN": "5000112611861",
+        "QUERY": "5000112611861",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py\", line 14, in <module>\n    from rich import print\nModuleNotFoundError: No module named 'rich'\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py\", line 14, in <module>\n    from rich import print\nModuleNotFoundError: No module named 'rich'\n",
+      "metadata": {
+        "attempt_query": "5000112611861"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "brand": "Cola",
+      "kind": "",
+      "qty": "1,75 L",
+      "qualifiers": [],
+      "ean": "5000112611861",
+      "image_url": "./assets/5000112611861.jpg",
+      "source": "consolidated",
+      "raw_text": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

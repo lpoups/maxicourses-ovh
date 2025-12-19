@@ -1,0 +1,87 @@
+{
+  "ean": "3502110008329",
+  "image_path": null,
+  "started_at": "2025-12-16T16:39:47.919525+01:00",
+  "finished_at": "2025-12-16T16:41:21.001567+01:00",
+  "duration_seconds": 93.082042,
+  "reference": {
+    "title": "Pepsi 1,5L",
+    "description": null,
+    "source": "unknown",
+    "brand": "Pepsi",
+    "quantity": "1500 ml",
+    "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté",
+    "image": null,
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [],
+  "adapters": [
+    {
+      "adapter": "intermarche",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-16T16:39:48.554932+01:00",
+      "finished_at": "2025-12-16T16:41:18.642330+01:00",
+      "duration_seconds": 90.087398,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "Pepsi 1,5L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "1"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "",
+      "metadata": {
+        "attempt_query": "Pepsi 1,5L",
+        "timeout_s": 90
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Pepsi 1,5L",
+      "brand": "Pepsi",
+      "kind": "",
+      "qty": "1500 ml",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3502110008329",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Pepsi 1,5L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Pepsi 1,5L",
+      "Pepsi 1500ml",
+      "Pepsi soda",
+      "Pepsi 1500 ML",
+      "Pepsi 1.50 L",
+      "Pepsi 1,50 L",
+      "Pepsi 150 CL"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

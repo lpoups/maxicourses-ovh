@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-12-08T13:44:04.259966+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Alpro Alpro 500G Alpro dessert",
+      "Alpro fraise 500g",
+      "Alpro soja fraise",
+      "Alpro dessert 500g",
+      "Alpro végétal fraise"
+    ],
+    "secondary_keywords": [
+      "alpro",
+      "dessert",
+      "végétal",
+      "soja",
+      "fraise",
+      "500g",
+      "500"
+    ],
+    "category": "generic",
+    "raw": {
+      "queries": [
+        "Alpro fraise 500g",
+        "Alpro soja fraise",
+        "Alpro dessert 500g",
+        "Alpro végétal fraise",
+        "Alpro soja 500g"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Dessert végétal soja fraise ALPRO - 500g\",\n    \"brand\": \"Alpro\",\n    \"quantity\": \"500  g\",\n    \"description\": \"Dessert végétal soja fraise ALPRO - 500g\"\n  },\n  \"descriptor\": {\n    \"ean\": \"5411188114536\",\n    \"brand\": \"Alpro\",\n    \"description\": \"Dessert végétal soja fraise ALPRO - 500g\",\n    \"image\": \"./assets/5411188114536.jpg\",\n    \"leclerc_queries\": [\n      \"Alpro Alpro 500G Alpro dessert\",\n      \"Alpro Dessert fraise 500g\",\n      \"Alpro soja fraise 500g\",\n      \"Alpro fraise 500g\",\n      \"Alpro Dessert 500g\"\n    ],\n    \"leclerc_query\": \"Alpro Alpro 500G Alpro dessert\",\n    \"name\": \"Dessert végétal soja fraise ALPRO - 500g\",\n    \"note\": \"2025-11-02T15:09:02Z · Super U Eysines\",\n    \"nutriscore_grade\": \"e\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-e.svg\",\n    \"primary_keywords\": [\n      \"Alpro fraise 500 G\"\n    ],\n    \"quantity\": \"500  g\",\n    \"queries\": {\n      \"intermarche\": [\n        \"Alpro dessert fraise 500 g\",\n        \"Dessert végétal soja fraise\"\n      ],\n      \"monoprix\": [\n        \"Alpro fraise\",\n        \"Alpro dessert\"\n      ],\n      \"casino\": [\n        \"alpro fraise 500g\",\n        \"dessert vegetal fraise\",\n        \"alpro dessert 500g\"\n      ]\n    },\n    \"removed\": false,\n    \"secondary_keywords\": [\n      \"végétal\",\n      \"soja\",\n      \"fraise\",\n      \"ALPRO\",\n      \"500 G\"\n    ],\n    \"seed_primary_name\": \"Dessert végétal soja fraise ALPRO\",\n    \"seed_primary_quantity\": \"500 G\",\n    \"seed_query\": \"Alpro Dessert végétal soja fraise 500 g\",\n    \"source\": \"courseu\",\n    \"categories\": \"Aliments et boissons à base de végétaux,Produits fermentés,Substituts de produits laitiers,Desserts,Produits veganes,Desserts végétaliens,Produits végétaux fermentés,Desserts végétaliens fermentés,Desserts de jus de soja fermenté,Yaourts de soja aux fruits,Yaourts de soja à la fraise\",\n    \"ecoscore_grade\": \"a\",\n    \"ecoscore_image\": \"https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg\",\n    \"nova_group\": \"4\",\n    \"leclerc_ai_queries\": [\n      \"Alpro Alpro 500G Alpro dessert\",\n      \"Alpro Dessert fraise 500g\",\n      \"Alpro soja fraise 500g\",\n      \"Alpro fraise 500g\",\n      \"Alpro Dessert 500g\"\n    ],\n    \"leclerc_secondary_keywords\": [\n      \"alpro\",\n      \"dessert\",\n      \"végétal\",\n      \"soja\",\n      \"fraise\",\n      \"500g\",\n      \"500\"\n    ]\n  },\n  \"store\": \"monoprix\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkUssDGhrFKH2GYrzkgs9NX1GhJqg\", \"object\": \"chat.completion\", \"created\": 1765197842, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\\"queries\\\":[\\\"Alpro fraise 500g\\\",\\\"Alpro soja fraise\\\",\\\"Alpro dessert 500g\\\",\\\"Alpro végétal fraise\\\",\\\"Alpro soja 500g\\\"]}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 884, \"completion_tokens\": 39, \"total_tokens\": 923, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

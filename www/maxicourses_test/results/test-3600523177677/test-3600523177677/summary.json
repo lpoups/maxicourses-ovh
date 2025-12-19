@@ -1,0 +1,395 @@
+{
+  "3600523177677": {
+    "carrefour_city": {
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-11T12:20:33.449754+01:00",
+      "duration_seconds": 90.032526,
+      "error": "timeout_after_90s",
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Market Fondaudège",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-11T12:20:33.449754+01:00",
+      "duration_seconds": 39.514861,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_super": {
+      "status": "ERROR",
+      "payload": {
+        "raw_stdout": "Connecting to CDP: http://127.0.0.1:9223\nCDP Connection Failed: BrowserType.connect_over_cdp: read ECONNRESET\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9223",
+        "last_line": "",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-11T12:20:33.449754+01:00",
+      "duration_seconds": 7.418092,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "store_query": null
+    },
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "6,41",
+        "unit_price": "42,73 € / L",
+        "quantity": null,
+        "title": "Studio Line spray coiffant fixation ultra-forte force 8",
+        "url": "https://www.auchan.fr/l-oreal-studio-line-spray-coiffant-fixation-ultra-forte-force-8/pr-C1247407",
+        "matched_ean": "3600523177677",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/A0220150909000614863PRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Studio Line spray coiffant fixation ultra-forte force 8",
+          "brand": "Studio",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3600523177677",
+          "image_url": "https://cdn.auchan.fr/media/A0220150909000614863PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-12-11T12:26:56.216922+01:00",
+      "duration_seconds": 19.522306,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-11T14:17:56.827166+01:00",
+      "duration_seconds": 90.038468,
+      "error": "timeout_after_90s",
+      "store_query": null
+    },
+    "courseu": {
+      "status": "MATCHED",
+      "payload": {
+        "status": "MATCHED",
+        "price": "5,27",
+        "unit_price": "35,13 € / L",
+        "quantity": "150 ml",
+        "title": "Résultats de recherche pour : “3600523177677”",
+        "url": "https://www.coursesu.com/recherche?q=3600523177677",
+        "note": "2025-12-11T16:40:21Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "1765443997012",
+        "nutriscore_grade": "c",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Résultats de recherche pour : “3600523177677”",
+          "brand": "Résultats",
+          "kind": "",
+          "qty": "150 ml",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "1765443997012",
+          "image_url": "/assets/3600523177677.jpg",
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-12-11T17:40:28.947293+01:00",
+      "duration_seconds": 6.908259,
+      "error": null,
+      "store_query": null
+    },
+    "g20": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-11T12:20:33.449754+01:00",
+      "duration_seconds": 0.929229,
+      "error": null,
+      "store_query": null
+    },
+    "casino": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Studio%20Studio%20Line%20Studio%20Line",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Studio Studio Line Studio Line",
+          "timestamp": "2025-12-11T11:16:52.919404+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-11T12:20:33.449754+01:00",
+      "duration_seconds": 1.560048,
+      "error": null,
+      "store_query": null
+    },
+    "spar": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Studio%20Studio%20Line%20Studio%20Line",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Studio Studio Line Studio Line",
+          "timestamp": "2025-12-11T11:17:04.983555+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-11T12:20:33.449754+01:00",
+      "duration_seconds": 1.130596,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,69",
+        "title": "Studio Line - Spray Cheveux Coiffant Fixation Ultra Forte GoCreate Vapo",
+        "url": "https://www.intermarche.com/produit/studio-line-spray-cheveux-coiffant-fixation -ultra-forte-gocreate-vapo/3600523177677",
+        "note": "Intermarché · Super  Talence",
+        "matched_ean": "3600523177677",
+        "unit_price": "37,93 € / L",
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/studio-line-spray-cheveux-fixation-ultra-fo rte-fix&shine/3600520913094",
+            "product": {
+              "title": "L'Oréal ParisStudio Line - Spray Cheveux Fixation Ultra Forte  Fix&Shine",
+              "brand": "L'Oréal",
+              "kind": "",
+              "qty": "",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3600520913094",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/studio-line-spray-cheveux-coiffant-fixation -ultra-forte-gocreate-vapo/3600523177677",
+            "product": {
+              "title": "L'Oréal ParisStudio Line - Spray  Cheveux Coiffant Fixation Ultra Forte GoCreate Vapo",
+              "brand": "L'Oréal",
+              "kind": "",
+              "qty": "",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3600523177677",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-12-11T14:17:45.038733+01:00",
+      "duration_seconds": 38.635367,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_120s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-11T12:20:33.449754+01:00",
+      "duration_seconds": 120.06744,
+      "error": "timeout_after_120s",
+      "store_query": null
+    },
+    "monoprix": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,55",
+        "title": "L'Oréal Paris Studio Line Spray  Coiffant Invisi Fix Fixation forte 150ml",
+        "url": "https://courses.monoprix.fr/products/l-or%C3%A9al-paris-studio-line-spray-coiff ant-invisi-fix-fixation-forte-150ml/MPX_79610",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/1a4f b02c-2ca6-42a1-8456-94bb74cee794/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/1a4f b02c-2ca6-42a1-8456-94bb74cee794/300x300.jpg",
+        "matched_ean": "3600523177677",
+        "unit_price": "37,00 € / L",
+        "quantity": "150 ML",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nMenu des onglets du haut de l’écran\nPage d’accueil\nRechercher un article\nSe connecter\nRéserver un  créneau\nRéserver un créneau\nAller au paiement\nNombre total d’articles dans  votre panier 0. Montant du panier 0,00 €.\n0,00 €\nMin 60,00 €\nNos  Rayons\nFavoris\nListe de courses\nProduits réguliers\nIdées  repas\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison  offerte*\nEN SAVOIR +\nAccueil\nHygiène & Beauté\nSoins des cheveux\nGels,  Laques et Sprays\nBrumes et Sprays\nL'Oréal Paris Studio Line Spray Coiffant  Invisi Fix Fixation forte 150ml\n150ml 37,00 € / litre\n150ml\n(37,00 € /  litre)\n5,55 €\nAjouter\nInformations produit\n\n\nDescription  Produit\nDiffusion micro-aérée pour une répartition homogène Fixe la coiffure  pour un résultat souple & naturel. Très Fixant, Tenue 24h Fixation forte  24H\n\n\nOrigine\nFrance\nMarque\nL'Oréal Paris\nService consommateur\nCentre  Conseils Consommateurs Service consommateurs - 30 Rue d'Alsace - 92300 LEVALLOIS PERRET 0 810 18 28 38  relationconsommateur@lorealparis.oaccare.fr\nIngredients\n1247634 - INGREDIENTS: ALCOHOL DENAT. - BUTANE - ACRYLATES/t-BUTYLACRYLAMIDE COPOLYMER - AQUA / WATER - NIACINAMIDE - PPG-3 METHYL ETHER - AMINOMETHYL PROPANOL - DIMETHICONE - LIMONENE - PANTHENOL - BENZYL SALICYLATE - BENZYL ALCOHOL - LINALOOL - BIS-PEG/PPG-14/14  DIMETHICONE - HEXYL CINNAMAL - PARFUM / FRAGRANCE (F.I.L. Z70027004/1). Les  listes d’ingrédients entrant dans la composition des produits de notre marque  sont régulièrement mises à jour. Avant d’utiliser un produit de notre marque,  vous êtes invités à lire la liste d’ingrédients figurant sur son emballage afin  de vous assurer que les ingrédients sont adaptés à votre utilisation  personnelle\nProducteur\nL'OREAL FRANCE SNC 30 RUE D'ALSACE 92300LEVALLOIS  PERRET\nAutres informations\nSGH02 - Inflammable\nConseils d'utilisation\n1.  Créez votre coiffure en vaporisant de la racine à la pointe sur cheveux secs ou  pré-séchés. 2. Pour une tenue renforcée appliquez le spray en halo, à environ 20 cm.\nNous contacter\n(s’ouvre dans une nouvelle fenêtre)\n(s’ouvre dans une  nouvelle fenêtre)\nPolitique relative aux cookies\nA propos\nNos  magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos  magasins avec Parapharmacie\nAide & Mentions\nDonnées personnelles et  cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)\nMonoprix et  ses partenaires vous offrent une expérience sur mesure\nMonoprix et ses  partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs  types de cookies afin de vous offrir l’expérience la plus fluide possible. Le  dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous  proposer des offres et contenus adaptés, des publicités personnalisées, de  proposer certaines fonctionnalités, d’analyser la performance du site et  d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en  bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans  notreCharte des données personnelles\nVoir la liste de nos  partenaires\nPERSONNALISER MES COOKIES\nJ'ACCEPTE\nCONTINUER SANS ACCEPTER",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": null,
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [],
+          "candidate_quantity": "150 ML",
+          "descriptor_token_coverage": {
+            "coverage": 1.0,
+            "matched": [
+              "studio"
+            ],
+            "missing": [],
+            "total": 1
+          },
+          "missing_tokens": [],
+          "image_match": true,
+          "final_score": 40,
+          "plausible_baseline": true
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/l-oréal-paris-studio-line-spray-coiffant-i nvisi-fix-fixation-forte-150ml/MPX_79610",
+            "product": {
+              "title": "L'Oréal Paris Studio Line Spray Coiffant Invisi Fix Fixation forte  150ml",
+              "brand": "Studio",
+              "kind": "",
+              "qty": "150 ML",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3600523177677",
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/1a4f b02c-2ca6-42a1-8456-94bb74cee794/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Menu des onglets du haut de l’écran Page d’accueil Rechercher un article Se connecter Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Nos Rayons Favoris Liste de courses Produits réguliers Idées repas NEW-NOEL202520€ offerts dès",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://courses.monoprix.fr/products/studio-line-spray-coiffant-invisi-fix-fixa tion-normale-150ml/MPX_79611",
+            "product": {
+              "title": "",
+              "brand": "Studio",
+              "kind": "",
+              "qty": "",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": null,
+              "image_url": null,
+              "source": "monoprix",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "updated_at": "2025-12-11T12:20:33.449754+01:00",
+      "duration_seconds": 22.600995,
+      "error": null,
+      "store_query": null
+    },
+    "_finder": {
+      "consolidated": {
+        "title": "L'Oréal Paris Studio Line Spray  Coiffant Invisi Fix Fixation forte 150ml",
+        "brand": "Studio",
+        "kind": "",
+        "qty": "",
+        "price": null,
+        "quantity": null,
+        "qualifiers": [],
+        "ean": "3600523177677",
+        "image_url": "/assets/3600523177677.jpg",
+        "source": "consolidated",
+        "raw_text": "L'Oréal Paris Studio Line Spray  Coiffant Invisi Fix Fixation forte 150ml Entrée générée automatiquement – descriptif requis.",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": [
+        "Studio Line Invisi Fix Spray",
+        "Invisi Fix Spray Studio Line",
+        "Studio Line Hair Spray",
+        "L'Oréal Paris Studio Line",
+        "L'Oréal Paris Studio",
+        "Studio coiffant fixation"
+      ],
+      "candidates": [],
+      "decision": null,
+      "audit": []
+    }
+  }
+}

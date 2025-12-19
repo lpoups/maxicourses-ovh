@@ -1,0 +1,311 @@
+{
+  "ean": "3502110008329",
+  "image_path": null,
+  "started_at": "2025-12-17T09:39:19.874327+01:00",
+  "finished_at": "2025-12-17T09:40:43.956988+01:00",
+  "duration_seconds": 84.082661,
+  "reference": {
+    "title": "Soda au cola",
+    "description": null,
+    "source": "unknown",
+    "brand": "Pepsi",
+    "quantity": "1500 ml",
+    "categories": "Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté",
+    "image": null,
+    "nutriscore_grade": "d",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251217-093919"
+  ],
+  "adapters": [
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,19",
+        "title": "Soda au cola",
+        "url": "https://www.intermarche.com/produit/soda-au-cola/3502110008329",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "3502110008329",
+        "unit_price": "0,79 € / L",
+        "quantity": "1500 ml",
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola-sans-sucres/3502110009357",
+            "product": {
+              "title": "PepsiSoda au cola sans sucres",
+              "brand": "Pepsi",
+              "kind": "Pepsi 1,5L",
+              "qty": "1500 ml",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3502110009357",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/eau-finement-petillante-source-marguita/3250391008575",
+            "product": {
+              "title": "Sainte Marguerite, une marque IntermarchéEau Finement Pétillante source Marguita",
+              "brand": "Pepsi",
+              "kind": "Pepsi 1,5L",
+              "qty": "1500 ml",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3250391008575",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola-sans-sucres/3168930175957",
+            "product": {
+              "title": "PepsiSoda au cola sans sucres",
+              "brand": "Pepsi",
+              "kind": "Pepsi 1,5L",
+              "qty": "1500 ml",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3168930175957",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/eau-de-source/3250390146322",
+            "product": {
+              "title": "Ondine, une marque IntermarchéEau de source",
+              "brand": "Pepsi",
+              "kind": "Pepsi 1,5L",
+              "qty": "1500 ml",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3250390146322",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/soda-au-cola/3502110008329",
+            "product": {
+              "title": "PepsiSoda au cola",
+              "brand": "Pepsi",
+              "kind": "Pepsi 1,5L",
+              "qty": "1500 ml",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "3502110008329",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": null
+      },
+      "started_at": "2025-12-17T09:39:25.895425+01:00",
+      "finished_at": "2025-12-17T09:40:43.016497+01:00",
+      "duration_seconds": 77.121072,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3502110008329",
+        "QUERY": "Pepsi 1,5L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Raw DESCRIPTOR_JSON received (len=1518)\n[DEBUG] Intermarche Descriptor keys: ['_id', 'ean', 'brand', 'categories', 'created_at', 'ecoscore_grade', 'note', 'nova_group', 'nutriscore_grade', 'nutriscore_image', 'quantity', 'removed', 'source', 'updated_at', 'queries', 'name', 'seed_query', 'leclerc_query', 'leclerc_queries', 'leclerc_ai_queries', 'leclerc_secondary_keywords', 'primary_keywords', 'monoprix_ai_queries', 'monoprix_queries', 'monoprix_secondary_keywords', 'intermarche_ai_queries', 'intermarche_queries', 'intermarche_secondary_keywords']\n[DEBUG] Intermarche query keys: {'monoprix': ['pepsi 1,5l', 'pepsi 1500ml', 'pepsi boissons', 'Pepsi Pepsi 1'], 'intermarche': ['Pepsi 1,5L', 'Pepsi 1500ml', 'Pepsi Boissons', 'Pepsi Pepsi 1']}\n[DEBUG] Leclerc fallback queries: ['Pepsi 1,5L', 'Pepsi 1500ml', 'Pepsi Boissons', 'Pepsi Pepsi 1']",
+      "metadata": {
+        "attempt_query": "Pepsi 1,5L",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3502110008329/debug/run-3502110008329-20251217-093919/01-intermarche"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda au cola",
+      "brand": "Pepsi",
+      "kind": "",
+      "qty": "1500 ml",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3502110008329",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Soda au cola",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Pepsi Soda Cola 1500ml",
+      "Pepsi Cola 1500ml",
+      "Pepsi Soda",
+      "Soda au cola",
+      "Pepsi cola 1500 ML",
+      "Pepsi cola 1.50 L",
+      "Pepsi cola 1,50 L",
+      "Pepsi cola 150 CL"
+    ],
+    "candidates": [
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/soda-au-cola/3502110008329",
+        "score": 1.0,
+        "product": {
+          "title": "PepsiSoda au cola",
+          "brand": "Pepsi",
+          "kind": "Pepsi 1,5L",
+          "qty": "1500 ml",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3502110008329",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/soda-au-cola-sans-sucres/3502110009357",
+        "score": 0.6,
+        "product": {
+          "title": "PepsiSoda au cola sans sucres",
+          "brand": "Pepsi",
+          "kind": "Pepsi 1,5L",
+          "qty": "1500 ml",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3502110009357",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/eau-finement-petillante-source-marguita/3250391008575",
+        "score": 0.6,
+        "product": {
+          "title": "Sainte Marguerite, une marque IntermarchéEau Finement Pétillante source Marguita",
+          "brand": "Pepsi",
+          "kind": "Pepsi 1,5L",
+          "qty": "1500 ml",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3250391008575",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/soda-au-cola-sans-sucres/3168930175957",
+        "score": 0.6,
+        "product": {
+          "title": "PepsiSoda au cola sans sucres",
+          "brand": "Pepsi",
+          "kind": "Pepsi 1,5L",
+          "qty": "1500 ml",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3168930175957",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      {
+        "adapter": "intermarche",
+        "url": "https://www.intermarche.com/produit/eau-de-source/3250390146322",
+        "score": 0.6,
+        "product": {
+          "title": "Ondine, une marque IntermarchéEau de source",
+          "brand": "Pepsi",
+          "kind": "Pepsi 1,5L",
+          "qty": "1500 ml",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3250390146322",
+          "image_url": null,
+          "source": "intermarche",
+          "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      }
+    ],
+    "decision": {
+      "adapter": "intermarche",
+      "url": "https://www.intermarche.com/produit/soda-au-cola/3502110008329",
+      "score": 1.0,
+      "product": {
+        "title": "PepsiSoda au cola",
+        "brand": "Pepsi",
+        "kind": "Pepsi 1,5L",
+        "qty": "1500 ml",
+        "price": null,
+        "quantity": null,
+        "qualifiers": [],
+        "ean": "3502110008329",
+        "image_url": null,
+        "source": "intermarche",
+        "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark: #121212;--toastify-color-info: #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent: rgba(255, 255, 255, .7);--toastify-icon-color-info: var(--toastify-color-info);--toastify-icon-color-success: var(--toastify-color-success);--toastify-icon-color-warning: var(--toastify-color-warning);--toastify-icon-color-error:",
+        "seed_query": "",
+        "leclerc_queries": []
+      }
+    },
+    "audit": []
+  }
+}

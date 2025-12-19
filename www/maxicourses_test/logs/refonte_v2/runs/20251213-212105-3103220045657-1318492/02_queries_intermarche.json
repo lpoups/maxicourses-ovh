@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-12-13T21:21:10.912295+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Haribo Bonbons Tirlibibi",
+      "Bonbons Tirlibibi Haribo",
+      "Haribo Bonbons"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "Haribo Bonbons Tirlibibi",
+      "fallback_specific": "Bonbons Tirlibibi Haribo",
+      "fallback_broad": "Haribo Bonbons"
+    },
+    "raw": {
+      "golden": "Haribo Bonbons Tirlibibi",
+      "fallback_specific": "Bonbons Tirlibibi Haribo",
+      "fallback_broad": "Haribo Bonbons"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"brand\": \"Haribo\",\n    \"name\": \"Bonbons Tirlibibi\",\n    \"quantity\": \"750g\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3103220045657\",\n    \"source\": \"carrefour_super\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-13T20:19:17Z\",\n    \"brand\": \"Haribo\",\n    \"name\": \"750G TIRLIBIBI BOX HARIBO\",\n    \"quantity\": \"750 g\",\n    \"categories\": \"snacks, snacks-sucrés, cacao-et-dérivés, confiseries, confiseries-chocolatées, bonbons-de-chocolat, bonbons, bonbons-gélifiés, en:bonbons-gélifiés, fr:confiseries, en:snacks-sucrés\",\n    \"nutriscore_grade\": \"e\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"c\",\n    \"ecoscore_image\": \"https://static.openfoodfacts.org/images/attributes/ecoscore-c.svg\",\n    \"nova_group\": \"4\",\n    \"removed\": false,\n    \"seed_query\": \"Haribo TIRLIBIBI BOX Bonbons 750 g\",\n    \"description\": \"Bonbons Tirlibibi  HARIBO\",\n    \"leclerc_query\": \"Haribo Bonbons Tirlibibi\",\n    \"leclerc_queries\": [\n      \"Haribo Bonbons Tirlibibi\",\n      \"Bonbons Tirlibibi 750g\",\n      \"Haribo Bonbons\"\n    ],\n    \"seed_primary_name\": \"Bonbons Tirlibibi  HARIBO\",\n    \"seed_primary_quantity\": \"750g\",\n    \"image\": \"https://cdn.auchan.fr/media/S01000000040Q5EPRIMARY_1200x1200/B2CD/\",\n    \"ai_profile\": {\n      \"brand\": \"Haribo\",\n      \"name\": \"Bonbons Tirlibibi\",\n      \"quantity\": \"750g\"\n    },\n    \"ai_keywords\": [\n      \"Haribo Bonbons Tirlibibi 750g\",\n      \"Haribo Tirlibibi Bonbons 750g\",\n      \"Haribo Bonbons 750g\"\n    ],\n    \"primary_keywords\": [\n      \"Haribo Bonbons Tirlibibi\",\n      \"Haribo Bonbons Tirlibibi 750g\",\n      \"Haribo Tirlibibi Bonbons 750g\",\n      \"Haribo Bonbons 750g\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-13T21:21:05.498420+01:00\",\n    \"leclerc_ai_queries\": [\n      \"Haribo Bonbons Tirlibibi\",\n      \"Bonbons Tirlibibi 750g\",\n      \"Haribo Bonbons\"\n    ],\n    \"leclerc_secondary_keywords\": [],\n    \"monoprix_ai_queries\": [\n      \"haribo bonbons tirlibibi 750g\",\n      \"bonbons tirlibibi haribo 750g\",\n      \"haribo bonbons 750g\",\n      \"Haribo Bonbons Tirlibibi\"\n    ],\n    \"monoprix_queries\": [\n      \"haribo bonbons tirlibibi 750g\",\n      \"bonbons tirlibibi haribo 750g\",\n      \"haribo bonbons 750g\",\n      \"Haribo Bonbons Tirlibibi\"\n    ],\n    \"queries\": {\n      \"monoprix\": [\n        \"haribo bonbons tirlibibi 750g\",\n        \"bonbons tirlibibi haribo 750g\",\n        \"haribo bonbons 750g\",\n        \"Haribo Bonbons Tirlibibi\"\n      ]\n    },\n    \"monoprix_secondary_keywords\": []\n  },\n  \"store\": \"intermarche\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CmQP0cAATf5k8iZTPhEnOD0IUhCv0\", \"object\": \"chat.completion\", \"created\": 1765657270, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Haribo Bonbons Tirlibibi\\\",\\n    \\\"fallback_specific\\\": \\\"Bonbons Tirlibibi Haribo\\\",\\n    \\\"fallback_broad\\\": \\\"Haribo Bonbons\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1127, \"completion_tokens\": 42, \"total_tokens\": 1169, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_37d212baff\"}"
+}

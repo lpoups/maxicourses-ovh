@@ -1,0 +1,97 @@
+{
+  "ean": "8711000705094",
+  "image_path": null,
+  "started_at": "2025-12-13T16:07:38.042534+01:00",
+  "finished_at": "2025-12-13T16:07:50.105128+01:00",
+  "duration_seconds": 12.062594,
+  "reference": {
+    "title": "Drive, Courses en ligne et Livraison à Domicile Super U, Hyper U, U express - www.coursesu.com",
+    "description": null,
+    "source": "unknown",
+    "brand": "L'Or",
+    "quantity": null,
+    "categories": "Boissons et préparations de boissons,Boissons,Boissons chaudes,Cafés,Dosettes,Cafés en dosettes,Cafés en dosettes compatible Nespresso",
+    "image": "./assets/8711000705094.png",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "f",
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-8711000705094/debug/run-8711000705094-20251213-160738"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "NO_MATCH",
+      "payload": {
+        "status": "NO_MATCH",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "note": "Strict EAN check failed on search page",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-13T16:07:38.045894+01:00",
+      "finished_at": "2025-12-13T16:07:44.460789+01:00",
+      "duration_seconds": 6.414895,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "8711000705094",
+        "QUERY": "8711000705094",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[COURSEU_DEBUG] Starting context with PROXY=None\n[ENGINE_DEBUG] Connecting to CDP at http://127.0.0.1:9223...\n[ENGINE_DEBUG] Reusing existing context (Total: 1)\n[COURSEU_DEBUG] Navigating to https://www.coursesu.com/recherche?q=8711000705094\n[COURSEU_DEBUG] Landed on search page (https://www.coursesu.com/recherche?q=8711000705094), executing strict selection for 8711000705094...\n[COURSEU_DEBUG] Strict EAN search for 8711000705094 in results...\n[COURSEU_DEBUG] Strict EAN verification failed: EAN not found in any search result HTML.\n[COURSEU_DEBUG] open_best_result failed to select a product from search page.\n[COURSEU_DEBUG] Keeping page OPEN for inspection (Visual Mode)",
+      "metadata": {
+        "attempt_query": "8711000705094",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Drive, Courses en ligne et Livraison à Domicile Super U, Hyper U, U express - www.coursesu.com",
+      "brand": "L'Or",
+      "kind": "",
+      "qty": "",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "8711000705094",
+      "image_url": "./assets/8711000705094.png",
+      "source": "consolidated",
+      "raw_text": "Drive, Courses en ligne et Livraison à Domicile Super U, Hyper U, U express - www.coursesu.com",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "L'Or coffee",
+      "coffee L'Or",
+      "L'Or beverage",
+      "Drive, Courses en ligne",
+      "Drive, Courses en",
+      "L'Or livraison coursesu"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

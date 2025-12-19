@@ -1,0 +1,528 @@
+{
+  "ean": "3103220045657",
+  "image_path": null,
+  "started_at": "2025-12-03T08:29:24.280519+01:00",
+  "finished_at": "2025-12-03T08:42:36.229405+01:00",
+  "duration_seconds": 791.948886,
+  "reference": {
+    "title": "Tirlibibi",
+    "description": "Bonbons  Tirlibibi HARIBO",
+    "source": "carrefour_super",
+    "brand": "Haribo",
+    "quantity": "750 G",
+    "categories": "snacks, snacks-sucrés, cacao-et-dérivés, confiseries, confiseries-chocolatées, bonbons-de-chocolat, bonbons, bonbons-gélifiés, en:bonbons-gélifiés, fr:confiseries, en:snacks-sucrés",
+    "image": "https://media.carrefour.fr/medias/4fdc4b02be1b4448ab912d063f1abb93/p_540x540/03 103220045657_C1N1_s02.jpeg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "c",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-c.svg",
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251203-082924"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-03T08:29:24.283738+01:00",
+      "finished_at": "2025-12-03T08:30:02.245984+01:00",
+      "duration_seconds": 37.962246,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3103220045657"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,78",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/p/bonbons-tirlibibi-haribo-3103220045657",
+        "note": null,
+        "unit_price": "7,71 € / KG",
+        "quantity": "750 G",
+        "title": "Bonbons  Tirlibibi HARIBO",
+        "matched_ean": "3103220045657",
+        "image": "https://media.carrefour.fr/medias/4fdc4b02be1b4448ab912d063f1abb93/p_540x540/03 103220045657_C1N1_s02.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Bonbons  Tirlibibi HARIBO",
+          "brand": "Bonbons",
+          "kind": "",
+          "qty": "750 G",
+          "qualifiers": [],
+          "ean": "3103220045657",
+          "image_url": "https://media.carrefour.fr/medias/4fdc4b02be1b4448ab912d063f1abb93/p_540x540/03 103220045657_C1N1_s02.jpeg",
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-03T08:30:02.247994+01:00",
+      "finished_at": "2025-12-03T08:30:11.361755+01:00",
+      "duration_seconds": 9.113761,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3103220045657"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,35",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/bonbons-tirlibibi-haribo-3103220045657",
+        "note": null,
+        "unit_price": "7,13 € / KG",
+        "quantity": "750 G",
+        "title": "Bonbons  Tirlibibi HARIBO",
+        "matched_ean": "3103220045657",
+        "image": "https://media.carrefour.fr/medias/4fdc4b02be1b4448ab912d063f1abb93/p_540x540/03 103220045657_C1N1_s02.jpeg",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Bonbons  Tirlibibi HARIBO",
+          "brand": "Bonbons",
+          "kind": "",
+          "qty": "750 G",
+          "qualifiers": [],
+          "ean": "3103220045657",
+          "image_url": "https://media.carrefour.fr/medias/4fdc4b02be1b4448ab912d063f1abb93/p_540x540/03 103220045657_C1N1_s02.jpeg",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-03T08:30:11.364628+01:00",
+      "finished_at": "2025-12-03T08:30:21.274185+01:00",
+      "duration_seconds": 9.909557,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3103220045657"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-03T08:30:21.278272+01:00",
+      "finished_at": "2025-12-03T08:31:51.292081+01:00",
+      "duration_seconds": 90.013809,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button.journey-button\n[auchan] Clicking 'Choisir ce drive'...\n[auchan] ⚠️ Button still visible, retrying selection...\n[auchan] ⚠️ Button still visible, retrying selection...\n[auchan] ⚠️ Button still visible, retrying selection...\n[auchan] ⚠️ Unable to confirm store selection (button still visible).\n[auchan] localStorage after selection: {\"auc_bls_segments\":\"{\\\"last_modified_ts\\\":1764442507159,\\\"segments\\\":[{\\\"name\\\":\\\"muppet-carolina-pip-alabama\\\"},{\\\"name\\\":\\\"sixteen-march-earth-alanine\\\"}]}\",\"u_sclid\":\"JNVuHdvWrhqwtQGZBv-HUQ7pKp-401lYxNpAYkF_pKSSm6hcKH0XeM5vDOPp5pjV42Ukvw\",\"_uetvid_exp\":\"Thu, 24 Dec 2026 18:55:13 GMT\",\"topicsLastReferenceTime\":\"1764442513393\",\"_gcl_ls\":\"{\\\"schema\\\":\\\"gcl\\\",\\\"version\\\":1,\\\"gcl_ctr\\\":{\\\"value\\\":{\\\"value\\\":13,\\\"timeouts\\\":0,\\\"creationTimeMs\\\":1764442512817},\\\"expires\\\":1772218512817}}\",\"is_enabled\":\"true\",\"_uetsid\":\"ba2ab600cd4e11f0b844f7835d81bbf5\",\"searchRedirectsExpireDate\":\"1765298368935\",\"storeId\":\"6117\",\"storeName\":\"Auchan Drive Supermarché Talence-Gallieni\",\"u_sclid_r\":\"OFVuHdvWrhqwtQGZBv-HUQ7pKp-401lYweeUm8HaQGJBf6SkkpuoXCh9F3jObwzj6eaY1eNlJMs\",\"lastExternalReferrerTime\":\"1764442513349\",\"lark-suggest\":\"[]\",\"journeyStoreId\":\"6117\",\"_uetsid_exp\":\"Sun, 30 Nov 2025 18:55:13 GMT\",\"searchRedirects\":\"[{\\\"name\\\":\\\"Redirection Auchan Telecom\\\",\\\"description\\\":\\\"Les redirections sur Auchan Telecom\\\",\\\"keywords\\\":[\\\"auchan telecom\\\",\\\"Auchan telecom\\\",\\\"auchan télécom\\\",\\\"Auchan télécom\\\",\\\"forfait mobile\\\",\\\"forfait telephone\\\",\\\"forfait telephonique\\\",\\\"forfait mobile auchan\\\",\\\"forfait tel\\\"],\\\"redirectUrl\\\":\\\"https://www.auchantelecom.fr/\\\"},{\\\"name\\\":\\\"Redirection Billeterie\\\",\\\"description\\\":\\\"Les redirections sur billeterie\\\",\\\"keywords\\\":[\\\"Billets\\\",\\\"billets\\\",\\\"Billets Disney\\\",\\\"Billets center parc\\\",\\\"Billets concert\\\",\\\"Billets d entree Disneyland\\\",\\\"Billets de cinemz\\\",\\\"billets de spectacle\\\",\\\"Billets Disneyland\\\",\\\"Billets Disneyland Paris\\\",\\\"billets jouet\\\",\\\"billets spectacle\\\",\\\"Billets spectacle\\\",\\\"billets spectacles\\\",\\\"Disney billets\\\",\\\"billet parc asterix\\\",\\\"Billet parc asterix\\\",\\\"parc asterix\\\",\\\"Parc asterix\\\",\\\"Parc asterix bietri\\\",\\\"PARC ASTERIX JOURNEE\\\",\\\"Billetterie\\\",\\\"billetterie\\\",\\\"Billetteries\\\",\\\"BILLETTERIE\\\",\\\"billetterie disney\\\",\\\"Billetterie Disney\\\",\\\"Billetterie football\\\",\\\"billetterie lens psg\\\",\\\"Billetterie nautiland\\\",\\\"billetteries\\\",\\\"Billetterie disney\\\",\\\"Billetterie Disneyland\\\",\\\"Auchan billetterie\\\",\\\"billetterie cinema\\\",\\\"billetterie et spectacles\\\",\\\"billetterie et spectacle\\\",\\\"billetterie concert\\\",\\\"billetrie\\\",\\\"billeterie auchan\\\",\\\"billetterie auchan\\\",\\\"billetrie auchan\\\",\\\"billet asterix\\\",\\\"billet europa park\\\",\\\"billet de cinéma\\\",\\\"place de concert\\\",\\\"place disney\\\",\\\"place de cinéma\\\",\\\"place de cinema\\\",\\\"place concert\\\",\\\"place cinema\\\",\\\"spectacle\\\",\\\"spectacles\\\",\\\"places spectacle\\\",\\\"place spectacle\\\",\\\"concert\\\",\\\"concerts\\\",\\\"concert jul\\\",\\\"place concert jul\\\",\\\"jul concert\\\",\\\"place de concert jul\\\",\\\"concert\\\",\\\"billet concert jul\\\",\\\"ticket concert\\\",\\\"auchan spectacle\\\",\\\"auchan spectacles\\\",\\\"billet jul\\\"],\\\"redirectUrl\\\":\\\"https://billetterie.auchan.fr/fr\\\"},{\\\"name\\\":\\\"Redirection Voyages Auchan\\\",\\\"description\\\":\\\"Les redirections sur Voyages Auchan\\\",\\\"keywords\\\":[\\\"auchan voyage\\\",\\\"billet d'avion\\\",\\\"circuit voyage\\\"],\\\"redirectUrl\\\":\\\"https://www.voyages-auchan.com/\\\"},{\\\"name\\\":\\\"Redirection Auchan Photo\\\",\\\"description\\\":\\\"Les redirections sur Auchan Photo\\\",\\\"keywords\\\":[\\\"livre photo\\\",\\\"Livre photos\\\",\\\"Livre photo\\\",\\\"livre photos\\\",\\\"developpement livre photo\\\",\\\"livre photo bebe\\\",\\\"livre photo bebe\\\",\\\"Livre photo en tissu\\\",\\\"MON LIVRE PHOTO\\\",\\\"Agrandissements photo\\\",\\\"auchan photo\\\",\\\"AUCHAN PHOTO\\\",\\\"Auchan photos\\\",\\\"tirage photo\\\",\\\"Tirage photo\\\",\\\"tirage photos\\\",\\\"TIRAGE PHOTO\\\",\\\"Tirage photos\\\",\\\"tirages photos\\\",\\\"photo tirage\\\",\\\"photos tirages\\\",\\\"tirage phorto\\\",\\\"TIRAGE POSTAIRE\\\",\\\"tirage rapide\\\",\\\"tirages\\\",\\\"Tirages photo\\\"],\\\"redirectUrl\\\":\\\"https://photo.auchan.fr/\\\"},{\\\"name\\\":\\\"Redirection Carte cadeau Auchan\\\",\\\"description\\\":\\\"Les redirections sur Carte cadeau Auchan\\\",\\\"keywords\\\":[\\\"carte cadeau\\\",\\\"Carte cadeau\\\",\\\"carte cadeaux\\\",\\\"Carte cadeaux\\\",\\\"cartes cadeaux\\\",\\\"cartes cadeau\\\",\\\"carte cadeau auchan\\\",\\\"cartes cadeaux Auchan\\\"],\\\"redirectUrl\\\":\\\"https://carte-cadeau.auchan.fr/\\\"},{\\\"name\\\":\\\"Redirection Auchan Traiteur\\\",\\\"description\\\":\\\"Les redirections sur Auchan Traiteur\\\",\\\"keywords\\\":[\\\"commande traiteur\\\",\\\"menus traiteur\\\",\\\"service traiteur\\\",\\\"menu noel traiteur\\\",\\\"carte traiteur\\\",\\\"devis traiteur\\\",\\\"traiteur menu noel\\\",\\\"commande traiteur auchan\\\",\\\"traiteur pour noel\\\",\\\"traiteur fête\\\",\\\"traiteur fete\\\",\\\"traiteur fetes\\\",\\\"commande traiteur aperitif\\\",\\\"traiteur pour les reveillons\\\",\\\"traiteur pour noël\\\",\\\"menu traiteur noel\\\",\\\"traiteur commande\\\",\\\"repas traiteur reveillon\\\",\\\"menu traiteur saint-sylvestre\\\",\\\"traiteur pour reveillon\\\",\\\"traiteur menu jour de l an\\\",\\\"traiteur mariage\\\",\\\"traiteur pot de depart\\\",\\\"traiteur pour repas des fetes\\\",\\\"repas noel traiteur\\\",\\\"menu de noel traiteur\\\"],\\\"redirectUrl\\\":\\\"https://traiteur.auchan.fr/\\\"}]\",\"lastSearchTable\":\"[\\\"5000112611861\\\"]\",\"mics_sgt\":\"{\\\"last_modified_ts\\\":1764442507159,\\\"segments\\\":[{\\\"name\\\":\\\"muppet-carolina-pip-alabama\\\"}]}\",\"_uetvid\":\"8edb30e09e1111f085263b1c9ff63dc0\",\"lastExternalReferrer\":\"empty\",\"storeSlug\":\"auchan-drive-supermarche-talence-gallieni\"}\n[auchan] cookies after selection: ['storeId:95524', 'FRONTAL_STORE:1911']\n[auchan] results visible, extracting price from search results\n[auchan] PDP url: https://www.auchan.fr/haribo-bonbons-gelifies-trilibibi/pr-C1792349\n[auchan] price candidates: []\n[auchan] price_node=None meta_price=None => value=None\n[auchan] ⚠️ No valid price found (Attempt 1/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?\n[auchan] PDP url: https://www.auchan.fr/haribo-bonbons-gelifies-trilibibi/pr-C1792349\n[auchan] price candidates: []\n[auchan] price_node=None meta_price=None => value=None\n[auchan] ⚠️ No valid price found (Attempt 2/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?",
+      "metadata": {
+        "attempt_query": "3103220045657",
+        "timeout_s": 90
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "5,19",
+        "title": "Assortiment de bonbons gélifiés  aromatisés HARIBO Tirlibibi",
+        "url": "https://www.chronodrive.com/haribo--tirlibibi---assortiment-de-bonbons-gelifies -aromatises-P208155",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "6,92 € /  KG",
+        "quantity": "750 g",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "3103220045657",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Assortiment de bonbons gélifiés  aromatisés HARIBO Tirlibibi",
+          "brand": "Assortiment",
+          "kind": "",
+          "qty": "750 g",
+          "qualifiers": [],
+          "ean": "3103220045657",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-03T08:31:51.297574+01:00",
+      "finished_at": "2025-12-03T08:32:17.049486+01:00",
+      "duration_seconds": 25.751912,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3103220045657"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_90s",
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-03T08:32:17.052241+01:00",
+      "finished_at": "2025-12-03T08:33:47.165558+01:00",
+      "duration_seconds": 90.113317,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": -1,
+      "error": "timeout_after_90s",
+      "stderr": "",
+      "metadata": {
+        "attempt_query": "3103220045657",
+        "timeout_s": 90
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Non disponible",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-03T08:33:47.171902+01:00",
+      "finished_at": "2025-12-03T08:33:47.975566+01:00",
+      "duration_seconds": 0.803664,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "3103220045657",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "3103220045657"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Haribo%20Tirlibibi%20750g",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Haribo Tirlibibi 750g",
+          "timestamp": "2025-12-03T07:33:53.962640+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-03T08:33:53.373588+01:00",
+      "finished_at": "2025-12-03T08:33:55.401663+01:00",
+      "duration_seconds": 2.028075,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "Haribo Tirlibibi 750g",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Haribo Tirlibibi 750g",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251203-082924/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Haribo%20Tirlibibi%20750g",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Haribo Tirlibibi 750g",
+          "timestamp": "2025-12-03T07:34:03.078988+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-03T08:34:02.623086+01:00",
+      "finished_at": "2025-12-03T08:34:04.151783+01:00",
+      "duration_seconds": 1.528697,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "Haribo Tirlibibi 750g",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Haribo Tirlibibi 750g",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251203-082924/09-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "4,91",
+        "title": "Bonbons assortiment Tirlibibi",
+        "url": "https://www.intermarche.com/produit/bonbons-assortiment-tirlibibi/3103220045657 ",
+        "note": "Intermarché · Super Talence",
+        "matched_ean": "3103220045657",
+        "unit_price": "6,55 € / KG",
+        "quantity": "750g",
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/bonbons-assortiment-tirlibibi/3103220045657",
+            "product": {
+              "title": "Bonbons assortiment Tirlibibi",
+              "brand": "Bonbons",
+              "kind": "",
+              "qty": "750g",
+              "qualifiers": [],
+              "ean": "3103220045657",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": "e",
+        "nutriscore_image": null
+      },
+      "started_at": "2025-12-03T08:34:10.954644+01:00",
+      "finished_at": "2025-12-03T08:35:01.693231+01:00",
+      "duration_seconds": 50.738587,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "Haribo Tirlibibi 750g",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Haribo Tirlibibi 750g",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251203-082924/10-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-03T08:35:01.701511+01:00",
+      "finished_at": "2025-12-03T08:35:35.406578+01:00",
+      "duration_seconds": 33.705067,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "Haribo Bonbons 750 G",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "[LECLERC_DEBUG] DIRECT_URL mode: https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-115113-Tirlibibi-Haribo.aspx\n[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Haribo Bonbons 750 G' direct_url:True\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py\", line 64, in <module>\n    payload = asyncio.run(run())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py\", line 43, in run\n    result = await run_manual_leclerc(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/manual_leclerc_cdp.py\", line 530, in run_manual_leclerc\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: BrowserType.connect_over_cdp: Timeout 30000ms exceeded.\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222\n  - <ws connecting> ws://127.0.0.1:9222/devtools/browser/11f77f63-430a-4174-9a06-f3dc492c243a\n  - <ws connected> ws://127.0.0.1:9222/devtools/browser/11f77f63-430a-4174-9a06-f3dc492c243a",
+      "metadata": {
+        "attempt_query": "Haribo Bonbons 750 G",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251203-082924/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "ERROR",
+      "payload": {
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-03T08:39:54.570541+01:00",
+      "finished_at": "2025-12-03T08:40:48.751904+01:00",
+      "duration_seconds": 54.181363,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "3103220045657",
+        "QUERY": "Haribo tirlibibi 750 G",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 1,
+      "error": "EMPTY_STDOUT",
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] Successfully loaded descriptor for EAN '3103220045657'.\n[MONOPRIX_DEBUG] Search terms: ['Tirlibibi', 'Haribo Tirlibibi 750g', 'Haribo tirlibibi 750 G']\n[MONOPRIX_DEBUG] Using storage state: None\nTraceback (most recent call last):\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py\", line 2725, in <module>\n    asyncio.run(_main())\n  File \"/usr/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py\", line 2719, in _main\n    result = await run()\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py\", line 2668, in run\n    p, browser, context, page = await make_context(\n  File \"/home/ubuntu/maxicourses-ovh/www/maxicourses_test/scraper/engine.py\", line 42, in make_context\n    browser = await p.chromium.connect_over_cdp(cdp_url)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/async_api/_generated.py\", line 14492, in connect_over_cdp\n    await self._impl_obj.connect_over_cdp(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_browser_type.py\", line 174, in connect_over_cdp\n    response = await self._channel.send_return_as_dict(\"connectOverCDP\", params)\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 64, in send_return_as_dict\n    return await self._connection.wrap_api_call(\n  File \"/home/ubuntu/maxicourses-ovh/www/.venv/lib/python3.10/site-packages/playwright/_impl/_connection.py\", line 514, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: BrowserType.connect_over_cdp: Timeout 30000ms exceeded.\nCall log:\n<ws preparing> retrieving websocket url from http://127.0.0.1:9222\n  - <ws connecting> ws://127.0.0.1:9222/devtools/browser/11f77f63-430a-4174-9a06-f3dc492c243a\n  - <ws connected> ws://127.0.0.1:9222/devtools/browser/11f77f63-430a-4174-9a06-f3dc492c243a",
+      "metadata": {
+        "attempt_query": "Haribo tirlibibi 750 G",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3103220045657/debug/run-3103220045657-20251203-082924/12-monoprix"
+      }
+    }
+  ],
+  "finder": {
+    "error": "'FinderPipeline' object has no attribute 'decide'"
+  }
+}

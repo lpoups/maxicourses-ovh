@@ -1,0 +1,112 @@
+{
+  "ean": "5411188118961",
+  "image_path": null,
+  "started_at": "2025-12-10T16:17:56.789239+01:00",
+  "finished_at": "2025-12-10T16:18:33.294963+01:00",
+  "duration_seconds": 36.505724,
+  "reference": {
+    "title": "Alpro Joghurtalternative auf Sojabasis, Natur mit Mandeln, 500 g, 31",
+    "description": "Dessert végétal nature au soja & amande",
+    "source": "auchan",
+    "brand": "Alpro",
+    "quantity": "500  g",
+    "categories": "Pflanzliche Lebensmittel und Getränke, Fermentierte Lebensmittel, en:Dairy substitutes, Desserts, en:Vegan products, Milchfreie Nachtische, Fermentierte Lebensmittel ohne Milch, Pflanzenbasierte Joghurts, Sojajoghurt, Einfacher Soja-Joghurt",
+    "image": "./assets/5411188118961.jpg",
+    "nutriscore_grade": "a",
+    "nutriscore_score": null,
+    "nutriscore_image": "./assets/nutriscore/nutriscore-a.svg",
+    "ecoscore_grade": "a",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg",
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5411188118961/debug/run-5411188118961-20251210-161756"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,30",
+        "unit_price": "4,60 € / KG",
+        "quantity": "500 G",
+        "title": "Dessert végétal nature au soja & amande",
+        "url": "https://www.auchan.fr/alpro-dessert-vegetal-nature-au-soja-amande/pr-C1170063",
+        "matched_ean": "5411188118961",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/P0200000000059YPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Dessert végétal nature au soja & amande",
+          "brand": "Dessert",
+          "kind": "",
+          "qty": "500 G",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "5411188118961",
+          "image_url": "https://cdn.auchan.fr/media/P0200000000059YPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-10T16:17:56.792436+01:00",
+      "finished_at": "2025-12-10T16:18:17.456751+01:00",
+      "duration_seconds": 20.664315,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5411188118961",
+        "QUERY": "5411188118961",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] Connecting to CDP (No Stealth): http://127.0.0.1:9223\n[auchan] Cookies cleared to force fresh session.\n[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] Found cookie button with text: Continuer sans accepter\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] REQ_FAILED: https://ars-privacy.my.onetrust.com/request/v1/consentreceipts net::ERR_NAME_NOT_RESOLVED\n[auchan] CONSOLE: Failed to load resource: net::ERR_NAME_NOT_RESOLVED\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button:has-text('Choisir ce Drive')\n[auchan] Found 'Choisir ce drive' button. Text: 'Choisir ce Drive'\n[auchan] Clicking 'Choisir ce drive' (Attempt 1/5)...\n[auchan] Waiting for 'C'est noté' popup...\n[auchan] ✅ Toast 'C'est noté' APPEARED.\n[auchan] Waiting for 'C'est noté' popup to DISAPPEAR (User Requirement)...\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyloadImages2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_layers2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_lazyload2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_events2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] CONSOLE: The resource https://www.auchan.fr/asset-server/sav_2025.04.16-0/webjars/a_utils2/dist/index.min.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.\n[auchan] ✅ Toast DISAPPEARED. Proceeding to search.\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] results visible, extracting price from search results\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] CONSOLE: [iAdvize deprecation warning]\n\"idzCustomData\" is deprecated.\nPlease use \"iAdvize.set(\"customData\", { ... })\" instead\n\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] REQ_FAILED: https://api.iadvize.com/collector/ha/live/events net::ERR_ABORTED\n[auchan] Attempting to reveal price (clicking 'Afficher le prix')...\n[auchan] Price revealed!\n[auchan] REQ_FAILED: https://cdn.auchan.fr/media/P020000000005A1PRIMARY_230x230/B2CD/ net::ERR_ABORTED\n[auchan] REQ_FAILED: https://cdn.auchan.fr/media/P0200000000059WPRIMARY_230x230/B2CD/ net::ERR_ABORTED\n[auchan] REQ_FAILED: https://cdn.auchan.fr/media/A0220101221000049980PRIMARY_230x230/B2CD/ net::ERR_ABORTED\n[auchan] REQ_FAILED: https://cdn.auchan.fr/media/A0220081016000300944PRIMARY_230x230/B2CD/ net::ERR_ABORTED\n[auchan] REQ_FAILED: https://cdn.auchan.fr/media/A0220120221000035133PRIMARY_230x230/B2CD/ net::ERR_ABORTED\n[auchan] REQ_FAILED: https://cdn.auchan.fr/media/P0200000000059YPRIMARY_48x48/B2CD/ net::ERR_ABORTED\n[auchan] Attempt 1: price_text='2,30€' value='2.30'\n[auchan] REQ_FAILED: https://cdn.auchan.fr/media/P0200000000059YPRIMARY_1500x1500/B2CD/ net::ERR_ABORTED",
+      "metadata": {
+        "attempt_query": "5411188118961",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Dessert végétal nature au soja & amande",
+      "brand": "Dessert",
+      "kind": "",
+      "qty": "500 G",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "5411188118961",
+      "image_url": "https://cdn.auchan.fr/media/P0200000000059YPRIMARY_1200x1200/B2CD/",
+      "source": "consolidated",
+      "raw_text": "Dessert végétal nature au soja & amande Alpro Joghurtalternative auf Sojabasis, Natur mit Mandeln, 500 g, 31",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Alpro Soja Amande Dessert",
+      "Dessert Soja Amande Alpro",
+      "Alpro Dessert Végétal",
+      "Dessert végétal nature au",
+      "Dessert végétal nature",
+      "Dessert vegetal 500 G",
+      "Dessert vegetal amande",
+      "Dessert 500 G"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

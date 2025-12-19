@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-12-17T09:39:24.836651+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Pepsi Pepsi 1",
+      "Pepsi 1,5L",
+      "Pepsi 1500ml",
+      "Pepsi Boissons"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "Pepsi 1,5L",
+      "fallback_specific": "Pepsi 1500ml",
+      "fallback_broad": "Pepsi Boissons"
+    },
+    "raw": {
+      "golden": "Pepsi 1,5L",
+      "fallback_specific": "Pepsi 1500ml",
+      "fallback_broad": "Pepsi Boissons"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Pepsi 1,5L\",\n    \"brand\": \"Pepsi\",\n    \"quantity\": \"1500 ml\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3502110008329\",\n    \"source\": \"unknown\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-17T08:39:19Z\",\n    \"brand\": \"Pepsi\",\n    \"name\": \"Pepsi 1,5L\",\n    \"quantity\": \"1500 ml\",\n    \"categories\": \"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté\",\n    \"nutriscore_grade\": \"d\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"not-applicable\",\n    \"nova_group\": \"4\",\n    \"removed\": false,\n    \"seed_query\": \"Pepsi 1500 ml\",\n    \"leclerc_query\": \"Pepsi 1,5L\",\n    \"leclerc_queries\": [\n      \"Pepsi 1,5L\",\n      \"Pepsi 1500ml\",\n      \"Pepsi Boissons\",\n      \"Pepsi Pepsi 1\"\n    ],\n    \"leclerc_ai_queries\": [\n      \"Pepsi 1,5L\",\n      \"Pepsi 1500ml\",\n      \"Pepsi Boissons\",\n      \"Pepsi Pepsi 1\"\n    ],\n    \"leclerc_secondary_keywords\": [],\n    \"primary_keywords\": [\n      \"Pepsi 1,5L\",\n      \"Pepsi 1500ml\",\n      \"Pepsi Boissons\",\n      \"Pepsi Pepsi 1\"\n    ],\n    \"monoprix_ai_queries\": [\n      \"pepsi 1,5l\",\n      \"pepsi 1500ml\",\n      \"pepsi boissons\",\n      \"Pepsi Pepsi 1\"\n    ],\n    \"monoprix_queries\": [\n      \"pepsi 1,5l\",\n      \"pepsi 1500ml\",\n      \"pepsi boissons\",\n      \"Pepsi Pepsi 1\"\n    ],\n    \"queries\": {\n      \"monoprix\": [\n        \"pepsi 1,5l\",\n        \"pepsi 1500ml\",\n        \"pepsi boissons\",\n        \"Pepsi Pepsi 1\"\n      ]\n    },\n    \"monoprix_secondary_keywords\": []\n  },\n  \"store\": \"intermarche\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CnhM3ww3PWQMNCsRxJv19eHHokBFd\", \"object\": \"chat.completion\", \"created\": 1765960763, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Pepsi 1,5L\\\",\\n    \\\"fallback_specific\\\": \\\"Pepsi 1500ml\\\",\\n    \\\"fallback_broad\\\": \\\"Pepsi Boissons\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 858, \"completion_tokens\": 41, \"total_tokens\": 899, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e413f45763\"}"
+}

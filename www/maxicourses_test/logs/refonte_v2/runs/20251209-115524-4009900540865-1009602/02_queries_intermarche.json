@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-12-09T11:55:29.822040+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Wrigley's Wrigley's 17,9G Wrig",
+      "Wrigley's Refreshers 17,9g",
+      "Wrigley's Chewing Gum 17,9g",
+      "Wrigley's Chewing-Gum"
+    ],
+    "secondary_keywords": [
+      "wrigley",
+      "s",
+      "chewing",
+      "gum",
+      "menthe",
+      "verte",
+      "sans",
+      "sucres",
+      "freedent",
+      "refreshers",
+      "17,9g",
+      "17,9",
+      "17.9"
+    ],
+    "category": "generic",
+    "structured": {
+      "golden": "Wrigley's Refreshers 17,9g",
+      "fallback_specific": "Wrigley's Chewing Gum 17,9g",
+      "fallback_broad": "Wrigley's Chewing-Gum"
+    },
+    "raw": {
+      "golden": "Wrigley's Refreshers 17,9g",
+      "fallback_specific": "Wrigley's Chewing Gum 17,9g",
+      "fallback_broad": "Wrigley's Chewing-Gum"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"ean\": \"4009900540865\",\n    \"brand\": \"Wrigley's\",\n    \"name\": \"Wrigley's Chewing Gum Refreshers\",\n    \"quantity\": \"17,9 g\",\n    \"nutriscore_grade\": \"c\",\n    \"nutriscore_image\": \"https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png\",\n    \"image\": \"https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/\"\n  },\n  \"descriptor\": {\n    \"ean\": \"4009900540865\",\n    \"brand\": \"Wrigley's\",\n    \"name\": \"Wrigley's Chewing Gum Refreshers\",\n    \"quantity\": \"17,9 g\",\n    \"source\": \"carrefour_market\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-09T10:52:19Z\",\n    \"removed\": false,\n    \"nutriscore_grade\": \"c\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"unknown\",\n    \"seed_query\": \"Wrigley's Chewing Gum Refreshers Menthe Verte Sans Sucres\",\n    \"description\": \"Chewing-Gum Menthe  Verte Sans Sucres FREEDENT REFRESHERS\",\n    \"leclerc_query\": \"Wrigley's Chewing Gum 17,9g\",\n    \"leclerc_queries\": [\n      \"Wrigley's Chewing Gum 17,9g\",\n      \"Wrigley's Refreshers 17,9g\",\n      \"Wrigley's Chewing Gum\",\n      \"Wrigley's Wrigley's 17,9G Wrig\"\n    ],\n    \"seed_primary_name\": \"Chewing-Gum Menthe  Verte Sans Sucres FREEDENT REFRESHERS\",\n    \"seed_primary_quantity\": \"18g\",\n    \"image\": \"https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/\",\n    \"ai_profile\": {\n      \"ean\": \"4009900540865\",\n      \"brand\": \"Wrigley's\",\n      \"name\": \"Wrigley's Chewing Gum Refreshers\",\n      \"quantity\": \"17,9 g\",\n      \"nutriscore_grade\": \"c\",\n      \"nutriscore_image\": \"https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png\",\n      \"image\": \"https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/\"\n    },\n    \"ai_keywords\": [\n      \"Wrigley's Chewing Gum 17,9g\",\n      \"FREEDENT Refreshers 17,9g\",\n      \"Chewing-Gum Menthe Verte\",\n      \"Sans Sucres Chewing-Gum\",\n      \"Refreshers Menthe Verte\",\n      \"Wrigley's 17,9g\",\n      \"FREEDENT 17,9g\",\n      \"Chewing-Gum 17,9g\"\n    ],\n    \"primary_keywords\": [\n      \"Wrigley's Wrigley's 17,9G Wrig\",\n      \"Wrigley's Chewing Gum 17,9g\",\n      \"Wrigley's FREEDENT Refreshers\",\n      \"Wrigley's Chewing-Gum Menthe V\",\n      \"Wrigley's Sans Sucres Chewing-\"\n    ],\n    \"secondary_keywords\": [\n      \"wrigley\",\n      \"s\",\n      \"chewing\",\n      \"gum\",\n      \"menthe\",\n      \"verte\",\n      \"sans\",\n      \"sucres\",\n      \"freedent\",\n      \"refreshers\",\n      \"17,9g\",\n      \"17,9\",\n      \"17.9\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-09T11:55:24.946669+01:00\",\n    \"leclerc_ai_queries\": [\n      \"Wrigley's Chewing Gum 17,9g\",\n      \"Wrigley's Refreshers 17,9g\",\n      \"Wrigley's Chewing Gum\",\n      \"Wrigley's Wrigley's 17,9G Wrig\"\n    ],\n    \"leclerc_secondary_keywords\": [\n      \"wrigley\",\n      \"s\",\n      \"chewing\",\n      \"gum\",\n      \"menthe\",\n      \"verte\",\n      \"sans\",\n      \"sucres\",\n      \"freedent\",\n      \"refreshers\",\n      \"17,9g\",\n      \"17,9\",\n      \"17.9\"\n    ],\n    \"monoprix_ai_queries\": [\n      \"Wrigley's Refreshers 17,9g\",\n      \"Wrigley's Chewing Gum 17,9g\",\n      \"Wrigley's Chewing-Gum\",\n      \"Wrigley's Wrigley's 17,9G Wrig\"\n    ],\n    \"monoprix_queries\": [\n      \"Wrigley's Refreshers 17,9g\",\n      \"Wrigley's Chewing Gum 17,9g\",\n      \"Wrigley's Chewing-Gum\",\n      \"Wrigley's Wrigley's 17,9G Wrig\"\n    ],\n    \"queries\": {\n      \"monoprix\": [\n        \"Wrigley's Refreshers 17,9g\",\n        \"Wrigley's Chewing Gum 17,9g\",\n        \"Wrigley's Chewing-Gum\",\n        \"Wrigley's Wrigley's 17,9G Wrig\"\n      ]\n    },\n    \"monoprix_secondary_keywords\": [\n      \"wrigley\",\n      \"s\",\n      \"chewing\",\n      \"gum\",\n      \"menthe\",\n      \"verte\",\n      \"sans\",\n      \"sucres\",\n      \"freedent\",\n      \"refreshers\",\n      \"17,9g\",\n      \"17,9\",\n      \"17.9\"\n    ]\n  },\n  \"store\": \"intermarche\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkpfMxu5n8XyFR7rk12k0mdZnMtLA\", \"object\": \"chat.completion\", \"created\": 1765277728, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Wrigley's Refreshers 17,9g\\\",\\n    \\\"fallback_specific\\\": \\\"Wrigley's Chewing Gum 17,9g\\\",\\n    \\\"fallback_broad\\\": \\\"Wrigley's Chewing-Gum\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1540, \"completion_tokens\": 52, \"total_tokens\": 1592, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

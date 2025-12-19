@@ -1,0 +1,100 @@
+{
+  "ean": "7613035833289",
+  "image_path": null,
+  "started_at": "2025-12-17T07:36:13.463684+01:00",
+  "finished_at": "2025-12-17T07:41:16.164987+01:00",
+  "duration_seconds": 302.701303,
+  "reference": {
+    "title": "Eau minérale naturelle gazeuse",
+    "description": null,
+    "source": "unknown",
+    "brand": "Perrier",
+    "quantity": "6*1 l",
+    "categories": "Beverages, Carbonated drinks, Waters, Spring waters, Mineral waters, Unsweetened beverages, Carbonated waters, en:carbonated-mineral-waters",
+    "image": null,
+    "nutriscore_grade": "a",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "1"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251217-073613"
+  ],
+  "adapters": [
+    {
+      "adapter": "intermarche",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-12-17T07:36:17.590773+01:00",
+      "finished_at": "2025-12-17T07:36:57.108294+01:00",
+      "duration_seconds": 39.517521,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "7613035833289",
+        "QUERY": "Perrier Eau gazeuse 6x1L",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[DEBUG] Raw DESCRIPTOR_JSON received (len=2285)\n[DEBUG] Intermarche Descriptor keys: ['_id', 'ean', 'brand', 'canonical', 'categories', 'created_at', 'ecoscore_grade', 'note', 'nova_group', 'nutriscore_grade', 'nutriscore_image', 'quantity', 'removed', 'source', 'updated_at', 'queries', 'keywords', 'title', 'name', 'seed_query', 'leclerc_query', 'leclerc_queries', 'leclerc_ai_queries', 'leclerc_secondary_keywords', 'primary_keywords', 'monoprix_ai_queries', 'monoprix_queries', 'monoprix_secondary_keywords', 'intermarche_ai_queries', 'intermarche_queries', 'intermarche_secondary_keywords']\n[DEBUG] Intermarche query keys: {'monoprix': ['perrier eau gazeuse 6x1l', 'perrier eau minérale 6x1l', 'perrier boissons gazeuses', 'Perrier Eau minérale'], 'intermarche': ['Perrier Eau gazeuse 6x1L', 'Perrier Eau minérale 6x1L', 'Perrier Boissons gazeuses', 'Perrier Eau minérale']}\n[DEBUG] Leclerc fallback queries: ['Perrier Eau gazeuse 6x1L', 'Perrier Eau minérale 6x1L', 'Perrier Boissons gazeuses', 'Perrier Eau minérale']",
+      "metadata": {
+        "attempt_query": "Perrier Eau gazeuse 6x1L",
+        "visual_score": null,
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-7613035833289/debug/run-7613035833289-20251217-073613/01-intermarche"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Eau minérale naturelle gazeuse",
+      "brand": "Perrier",
+      "kind": "",
+      "qty": "6*1 l",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "7613035833289",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Eau minérale naturelle gazeuse",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Perrier eau gazeuse 6x1L",
+      "Perrier eau minérale gazeuse",
+      "Perrier eau minérale",
+      "Eau minérale naturelle gazeuse",
+      "Eau minérale naturelle",
+      "Perrier naturelle 6*1 L",
+      "Perrier naturelle minerale",
+      "Perrier 6*1 L"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

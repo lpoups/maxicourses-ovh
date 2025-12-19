@@ -1,0 +1,72 @@
+{
+  "timestamp": "2025-12-10T11:45:26.715522+01:00",
+  "status": "ok",
+  "data": {
+    "profile": {
+      "ean": "4009900540865",
+      "brand": "Wrigley's",
+      "product_name": "Refreshers Chewing-gums sans sucres menthe verte",
+      "price": "1,35",
+      "unit_price": "75,00 € / KG",
+      "store": "Auchan Drive Supermarché Talence-Gallieni",
+      "image_url": "https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/",
+      "nutriscore_grade": "unknown",
+      "ecoscore_grade": "unknown"
+    },
+    "keywords": [
+      "Wrigley's Refreshers Chewing-g",
+      "Refreshers sans sucres menthe",
+      "Chewing-gums menthe verte",
+      "Wrigley's sans sucres",
+      "Refreshers menthe verte",
+      "Chewing-gums Wrigley's",
+      "Refreshers Chewing-gums",
+      "Wrigley's menthe verte"
+    ],
+    "primary_keywords": [
+      "Wrigley's Wrigley's refreshers",
+      "Wrigley's Refreshers Chewing-g",
+      "Wrigley's Refreshers sans sucr",
+      "Wrigley's Chewing-gums menthe",
+      "Wrigley's sans sucres"
+    ],
+    "secondary_keywords": [
+      "wrigley",
+      "s",
+      "refreshers",
+      "chewing",
+      "gums",
+      "sans",
+      "sucres",
+      "menthe",
+      "verte"
+    ],
+    "category": "generic",
+    "raw": {
+      "profile": {
+        "ean": "4009900540865",
+        "brand": "Wrigley's",
+        "product_name": "Refreshers Chewing-gums sans sucres menthe verte",
+        "price": "1,35",
+        "unit_price": "75,00 € / KG",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "image_url": "https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/",
+        "nutriscore_grade": "unknown",
+        "ecoscore_grade": "unknown"
+      },
+      "keywords": [
+        "Wrigley's Refreshers Chewing-gums",
+        "Refreshers sans sucres menthe",
+        "Chewing-gums menthe verte",
+        "Wrigley's sans sucres",
+        "Refreshers menthe verte",
+        "Chewing-gums Wrigley's",
+        "Refreshers Chewing-gums",
+        "Wrigley's menthe verte"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"seeds\": [\n    {\n      \"adapter\": \"auchan\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"1,35\",\n        \"unit_price\": \"75,00 € / KG\",\n        \"quantity\": null,\n        \"title\": \"Refreshers Chewing-gums sans sucres menthe verte\",\n        \"url\": \"https://www.auchan.fr/freedent-refreshers-chewing-gums-sans-sucres-menthe-verte/pr-C1535147\",\n        \"matched_ean\": \"4009900540865\",\n        \"store\": \"Auchan Drive Supermarché Talence-Gallieni\",\n        \"note\": \"Auchan Talence\",\n        \"image\": \"https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/\",\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Refreshers Chewing-gums sans sucres menthe verte\",\n          \"brand\": \"Refreshers\",\n          \"kind\": \"\",\n          \"qty\": \"\",\n          \"price\": null,\n          \"quantity\": null,\n          \"qualifiers\": [],\n          \"ean\": \"4009900540865\",\n          \"image_url\": \"https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/\",\n          \"source\": \"auchan\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"4009900540865\",\n        \"visual_score\": null\n      }\n    }\n  ],\n  \"context\": {\n    \"descriptor\": {\n      \"ean\": \"4009900540865\",\n      \"source\": \"auchan\",\n      \"leclerc_query\": \"Wrigley's Refreshers Chewing gums sans sucres menthe verte\",\n      \"leclerc_queries\": [\n        \"Wrigley's Refreshers Chewing gums sans sucres menthe verte\",\n        \"Refreshers Chewing-gums sans sucres menthe verte\"\n      ],\n      \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-10T10:45:02Z\",\n      \"brand\": \"Wrigley's\",\n      \"name\": \"Refreshers\",\n      \"nutriscore_grade\": \"unknown\",\n      \"nutriscore_image\": \"https://static.openfoodfacts.org/images/attributes/nutriscore-unknown.svg\",\n      \"ecoscore_grade\": \"unknown\",\n      \"removed\": false,\n      \"seed_query\": \"Wrigley's Refreshers Chewing gums sans sucres menthe verte\",\n      \"image\": \"https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/\",\n      \"description\": \"Refreshers Chewing-gums sans sucres menthe verte\"\n    },\n    \"ean\": \"4009900540865\"\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-ClBzAMDlGFJRf01Z85BKlQUY6CKvr\", \"object\": \"chat.completion\", \"created\": 1765363524, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"profile\\\": {\\n    \\\"ean\\\": \\\"4009900540865\\\",\\n    \\\"brand\\\": \\\"Wrigley's\\\",\\n    \\\"product_name\\\": \\\"Refreshers Chewing-gums sans sucres menthe verte\\\",\\n    \\\"price\\\": \\\"1,35\\\",\\n    \\\"unit_price\\\": \\\"75,00 € / KG\\\",\\n    \\\"store\\\": \\\"Auchan Drive Supermarché Talence-Gallieni\\\",\\n    \\\"image_url\\\": \\\"https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/\\\",\\n    \\\"nutriscore_grade\\\": \\\"unknown\\\",\\n    \\\"ecoscore_grade\\\": \\\"unknown\\\"\\n  },\\n  \\\"keywords\\\": [\\n    \\\"Wrigley's Refreshers Chewing-gums\\\",\\n    \\\"Refreshers sans sucres menthe\\\",\\n    \\\"Chewing-gums menthe verte\\\",\\n    \\\"Wrigley's sans sucres\\\",\\n    \\\"Refreshers menthe verte\\\",\\n    \\\"Chewing-gums Wrigley's\\\",\\n    \\\"Refreshers Chewing-gums\\\",\\n    \\\"Wrigley's menthe verte\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 723, \"completion_tokens\": 222, \"total_tokens\": 945, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

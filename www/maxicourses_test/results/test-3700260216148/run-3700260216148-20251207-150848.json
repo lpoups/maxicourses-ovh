@@ -1,0 +1,86 @@
+{
+  "ean": "3700260216148",
+  "image_path": null,
+  "started_at": "2025-12-07T15:07:37.540539+01:00",
+  "finished_at": "2025-12-07T15:08:48.203293+01:00",
+  "duration_seconds": 70.662754,
+  "reference": {
+    "title": null,
+    "description": "Entrée générée automatiquement – descriptif requis.",
+    "source": "unknown",
+    "brand": null,
+    "quantity": null,
+    "categories": null,
+    "image": null,
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3700260216148/debug/run-3700260216148-20251207-150737"
+  ],
+  "adapters": [
+    {
+      "adapter": "chronodrive",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-07T15:07:37.540950+01:00",
+      "finished_at": "2025-12-07T15:08:47.545594+01:00",
+      "duration_seconds": 70.004644,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "3700260216148",
+        "QUERY": "3700260216148",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[CHRONO_DEBUG] term='3700260216148'\n[CHRONO_DEBUG] typed=False\n[CHRONO_DEBUG] fallback search URL https://www.chronodrive.com/magasin/le-haillan-422/recherche?text=3700260216148\n[CHRONO_DEBUG] URL after search: https://www.chronodrive.com/magasin/le-haillan-422/recherche?text=3700260216148\n[CHRONO_DEBUG] no product cards; snapshot snippet:\n<!DOCTYPE html><html data-n-head-ssr=\"\" lang=\"fr-FR\" dir=\"ltr\" data-n-head=\"%7B%22lang%22:%7B%22ssr%22:%22fr-FR%22%7D,%22dir%22:%7B%22ssr%22:%22ltr%22%7D%7D\"><head>\n    <meta data-n-head=\"ssr\" charset=\"utf-8\"><meta data-n-head=\"ssr\" name=\"viewport\" content=\"width=device-width,initial-scale=1.0,shrink-to-fit=no\"><meta data-n-head=\"ssr\" data-hid=\"description\" name=\"description\" content=\"\"><meta data-n-head=\"ssr\" name=\"format-detection\" content=\"telephone=no\"><meta data-n-head=\"ssr\" name=\"apple-itunes-app\" content=\"app-id=397935048\"><meta data-n-head=\"ssr\" name=\"google-play-app\" content=\"app-id=com.ikomobi.chronodrive\"><meta data-n-head=\"ssr\" name=\"msapplication-TileColor\" content=\"#ffffff\"><meta data-n-head=\"ssr\" name=\"msapplication-config\" content=\"/favicons/browserconfig.xml\"><meta data-n-",
+      "metadata": {
+        "attempt_query": "3700260216148"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "",
+      "brand": "",
+      "kind": "",
+      "qty": "",
+      "qualifiers": [],
+      "ean": "3700260216148",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "Entrée générée automatiquement – descriptif requis.",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

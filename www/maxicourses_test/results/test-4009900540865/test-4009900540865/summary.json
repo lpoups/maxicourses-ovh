@@ -1,0 +1,516 @@
+{
+  "4009900540865": {
+    "carrefour_city": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": "https://www.carrefour.fr/s?q=4009900540865",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-09T12:00:27.893531+01:00",
+      "duration_seconds": 20.724044,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_market": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,24",
+        "store": "Market Fondaudège",
+        "url": "https://www.carrefour.fr/s?q=4009900540865",
+        "note": "json_state_extraction",
+        "unit_price": "69,27 € / KG",
+        "quantity": "18g",
+        "title": "Chewing-Gum Menthe  Verte Sans Sucres FREEDENT REFRESHERS",
+        "matched_ean": "4009900540865",
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Chewing-Gum Menthe  Verte Sans Sucres FREEDENT REFRESHERS",
+          "brand": "Chewing-Gum",
+          "kind": "",
+          "qty": "18g",
+          "qualifiers": [],
+          "ean": "4009900540865",
+          "image_url": null,
+          "source": "carrefour_market",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-12-09T12:00:27.893531+01:00",
+      "duration_seconds": 16.468496,
+      "error": null,
+      "store_query": null
+    },
+    "carrefour_super": {
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/s?q=4009900540865",
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-09T12:00:27.893531+01:00",
+      "duration_seconds": 19.101588,
+      "error": null,
+      "store_query": null
+    },
+    "auchan": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "1,35",
+        "unit_price": "75,00 € / KG",
+        "quantity": null,
+        "title": "Refreshers Chewing-gums sans sucres menthe verte",
+        "url": "https://www.auchan.fr/freedent-refreshers-chewing-gums-sans-sucres-menthe-verte/pr-C1535147",
+        "matched_ean": "4009900540865",
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/",
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Refreshers Chewing-gums sans sucres menthe verte",
+          "brand": "Refreshers",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "4009900540865",
+          "image_url": "https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "updated_at": "2025-12-10T16:21:50.654359+01:00",
+      "duration_seconds": 18.923983,
+      "error": null,
+      "store_query": null
+    },
+    "chronodrive": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-09T12:00:27.893531+01:00",
+      "duration_seconds": 69.841293,
+      "error": null,
+      "store_query": null
+    },
+    "courseu": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": null,
+        "note": "2025-12-10T10:59:33Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-10T12:00:08.308368+01:00",
+      "duration_seconds": 32.465361,
+      "error": null,
+      "store_query": null
+    },
+    "g20": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "updated_at": "2025-12-09T12:00:27.893531+01:00",
+      "duration_seconds": 0.570584,
+      "error": null,
+      "store_query": null
+    },
+    "casino": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Wrigley%27s%20Wrigley%27s%2017%2C9G%20Wrig",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Wrigley's Wrigley's 17,9G Wrig",
+          "timestamp": "2025-12-09T10:55:30.806986+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-09T12:00:27.893531+01:00",
+      "duration_seconds": 1.381109,
+      "error": null,
+      "store_query": null
+    },
+    "spar": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Wrigley%27s%20Wrigley%27s%2017%2C9G%20Wrig",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Wrigley's Wrigley's 17,9G Wrig",
+          "timestamp": "2025-12-09T10:55:41.492934+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-09T12:00:27.893531+01:00",
+      "duration_seconds": 0.961948,
+      "error": null,
+      "store_query": null
+    },
+    "intermarche": {
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "Intermarché · Super Talence — produit absent",
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [
+          {
+            "url": "https://www.intermarche.com/produit/rillettes-du-mans-la-veritable/302472002242 2",
+            "product": {
+              "title": "Bordeau ChesnelRillettes du Mans La  Véritable",
+              "brand": "Wrigley's",
+              "kind": "Wrigley's Chewing Gum Refreshers",
+              "qty": "Pack",
+              "qualifiers": [],
+              "ean": "302472002242",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/rillettes-de-poulet-roti/3250391135158",
+            "product": {
+              "title": "Monique Ranou, une  marque IntermarchéRillettes de poulet rôti",
+              "brand": "Wrigley's",
+              "kind": "Wrigley's Chewing Gum Refreshers",
+              "qty": "Pack",
+              "qualifiers": [],
+              "ean": "3250391135158",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/rillettes-du-mans-la-veritable/302472002032 9",
+            "product": {
+              "title": "Bordeau ChesnelRillettes du Mans La  Véritable",
+              "brand": "Wrigley's",
+              "kind": "Wrigley's Chewing Gum Refreshers",
+              "qty": "Pack",
+              "qualifiers": [],
+              "ean": "302472002032",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow:  visible;\"><head><style type=\"text/css\">:root{--toastify-color-light:  #fff;--toastify-color-dark: #121212;--toastify-color-info:  #3498db;--toastify-color-success: #07bc0c;--toastify-color-warning:  #f1c40f;--toastify-color-error: hsl(6, 78%, 57%);--toastify-color-transparent:  rgba(255, 255, 255, .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/rillettes-du-mans/3250390015123",
+            "product": {
+              "title": "Monique Ranou, une marque  IntermarchéRillettes du Mans",
+              "brand": "Wrigley's",
+              "kind": "Wrigley's Chewing  Gum Refreshers",
+              "qty": "Pack",
+              "qualifiers": [],
+              "ean": "3250390015123",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/rillettes-du-mans/3250390015307",
+            "product": {
+              "title": "Monique Ranou, une marque  IntermarchéRillettes du Mans",
+              "brand": "Wrigley's",
+              "kind": "Wrigley's Chewing  Gum Refreshers",
+              "qty": "Pack",
+              "qualifiers": [],
+              "ean": "3250390015307",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\"  style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/rillettes-de-canard/3250391226382",
+            "product": {
+              "title": "Monique Ranou, une  marque IntermarchéRillettes de canard",
+              "brand": "Wrigley's",
+              "kind": "Wrigley's Chewing Gum Refreshers",
+              "qty": "Pack",
+              "qualifiers": [],
+              "ean": "3250391226382",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/rillettes-du-mans-sans-graisse-ajoutee/3024 720022439",
+            "product": {
+              "title": "Bordeau  ChesnelRillettes du Mans sans graisse ajoutée",
+              "brand": "Wrigley's",
+              "kind": "Wrigley's Chewing Gum Refreshers",
+              "qty": "Pack",
+              "qualifiers": [],
+              "ean": "720022439",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html  lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://www.intermarche.com/produit/rillettes-de-canard/3024720026307",
+            "product": {
+              "title": "Bordeau ChesnelRillettes de canard",
+              "brand": "Wrigley's",
+              "kind": "Wrigley's Chewing Gum Refreshers",
+              "qty": "Pack",
+              "qualifiers": [],
+              "ean": "3024720026307",
+              "image_url": null,
+              "source": "intermarche",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" style=\"overflow: visible;\"><head><style  type=\"text/css\">:root{--toastify-color-light: #fff;--toastify-color-dark:  #121212;--toastify-color-info: #3498db;--toastify-color-success:  #07bc0c;--toastify-color-warning: #f1c40f;--toastify-color-error: hsl(6, 78%,  57%);--toastify-color-transparent: rgba(255, 255, 255,  .7);--toastify-icon-color-info:  var(--toastify-color-info);--toastify-icon-color-success:  var(--toastify-color-success);--toastify-icon-color-warning:  var(--toastify-color-warning);--toastify-icon-color-error: ",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "_meta": {
+          "supports_keywords": true,
+          "abort_search": true,
+          "abort_reason": "too_many_ean_mismatches",
+          "ean_mismatch_hits": 8
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "updated_at": "2025-12-09T12:00:27.893531+01:00",
+      "duration_seconds": 79.287316,
+      "error": null,
+      "store_query": null
+    },
+    "leclerc": {
+      "status": "TIMEOUT",
+      "payload": {
+        "status": "TIMEOUT",
+        "error": "timeout_after_120s",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "updated_at": "2025-12-09T12:00:27.893531+01:00",
+      "duration_seconds": 120.08648,
+      "error": "timeout_after_120s",
+      "store_query": null
+    },
+    "monoprix": {
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,35",
+        "title": "Wrigley's Hubba Bubba Chewing Gum  Mega Long 56g",
+        "url": "https://courses.monoprix.fr/products/wrigley-s-hubba-bubba-chewing-gum-mega-lon g-56g/MPX_6641846",
+        "note": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/32a8 0c92-f551-4643-9714-5053e9de4cb5/300x300.jpg",
+        "image": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/32a8 0c92-f551-4643-9714-5053e9de4cb5/300x300.jpg",
+        "matched_ean": null,
+        "unit_price": "41,96 € / KG",
+        "quantity": "56 G",
+        "store": null,
+        "raw_text": "Aller directement au contenu\nAller directement au moteur de recherche\nAller  directement en bas de la page\nChocolats de Noël\nAppli mobile\nMes marques  Monoprix\nNaturalia\nPromotions\nPrésentation du service\nMonoprix Mode et  Maison\n(s’ouvre dans une nouvelle fenêtre)\nCasino\nMenu des onglets du haut de l’écran\nPage d’accueil\nRechercher un article\nRéserver un créneau\nRéserver un créneau\nAller au paiement\nNombre total d’articles dans votre panier 0. Montant du panier 0,00 €.\n0,00 €\nMin 60,00 €\nBouton du menu  principal\nNEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison  offerte*\nEN SAVOIR +\nAccueil\nEpicerie Sucrée\nChocolat et Confiserie\nChewing gum\nWrigley's Hubba Bubba Chewing Gum Mega Long 56g\n2 m+\n2 mois de garantie  de vie du produit\n56g 41,96 € / kilo\n56g\n(41,96 € / kilo)\n2,35  €\nAjouter\nInformations produit\n\n\nDescription Produit\nChewing Gum Au Gout  Fruits\n\n\nOrigine\nRoyaume-Uni\nMarque\nWrigley's\nService consommateur\nMARS  WRIGLEY CS 10036 67501 Haguenau Cedex France N°Cristal : 0 969 320 680 (appel  non surtaxé)\nConseils d'utilisation\nChewing Gum Au Gout  Fruits\nIngredients\nIngredients: Sucre, Gomme Base, Sirop De Glucose, Humectant (Glycerol), Amidon, Aromes, Emulsifiant (Lecithine De SOJA), Exhausteurs De Gout (Aspartame, Acesulfame-k), Antioxydant (Bha).\nAllergènes\nSOJA.\nType  d’emballage\ncarton\nProducteur\nMARS WRIGLEY CONFECTIONERY FR 3 Rue de la  Sandlach///67501/HAGUENAU CEDEX/FRANCE\nConseil de conservation\nConsommer  Rapidement Apres Ouverture. Conserver Dans Un Endroit Frais Et Sec.\nAutres  informations\nCONTIENT UNE SOURCE DE PHENYLALANINE.\nConseils  d'utilisation\nChewing Gum Au Gout Fruits\nValeurs nutritionnelles\nINFORMATIONS NUTRITIONNELLES MOYENNES\n\tpour 100 g\nValeurs Energétique en Kilojoules\t~  1280 kJ\nValeurs Energétique en Kilocalories\t~ 301 kcal\nValeurs  Nutritionnelles\nDont Sucres\t~ 2.7 g\nNous contacter\n(s’ouvre dans une  nouvelle fenêtre)\n(s’ouvre dans une nouvelle fenêtre)\nPolitique relative aux  cookies\nA propos\nNos magasins\nTrouver mon magasin\nProgramme de fidélité\nNos catalogues\nNos magasins avec Parapharmacie\nAide & Mentions\nDonnées  personnelles et cookies\n(s’ouvre dans une nouvelle fenêtre)\nConditions de nos  offres\nContacts\nRappel produits\nCGV & Mentions légales\n(s’ouvre dans une  nouvelle fenêtre)\nNos autres sites\nL'entreprise\nNous rejoindre\n(s’ouvre dans une nouvelle fenêtre)\nEspace Presse\nEspace Franchisé\n(s’ouvre dans une  nouvelle fenêtre)\nAffiliation monoprix.fr\nBons plans des marques\nMonoprix.fr  Courses\nTarifs de livraison\nPrésentation du service\nAstuces\nAbonnement  M+\nFAQ\nPlus de services\nAppli mobile Apple\n(s’ouvre dans une nouvelle  fenêtre)\nAppli mobile Android\n(s’ouvre dans une nouvelle fenêtre)\n©  2025\nfacebook\n(s’ouvre dans une nouvelle fenêtre)\ntwitter\n(s’ouvre dans une  nouvelle fenêtre)\npinterest\n(s’ouvre dans une nouvelle fenêtre)\nMonoprix et  ses partenaires vous offrent une expérience sur mesure\nMonoprix et ses  partenaires vous offrent une expérience sur mesure. Nous utilisons plusieurs  types de cookies afin de vous offrir l’expérience la plus fluide possible. Le  dépôt de cookies nous permet notamment, ainsi qu’à nos partenaires, de vous  proposer des offres et contenus adaptés, des publicités personnalisées, de  proposer certaines fonctionnalités, d’analyser la performance du site et  d’effectuer des statistiques. Vous pouvez modifier vos choix à tout moment, en  bas de page, rubrique \"Mes cookies\". Retrouvez tous les détails dans  notreCharte des données personnelles\nVoir la liste de nos  partenaires\nPERSONNALISER MES COOKIES\nJ'ACCEPTE\nCONTINUER SANS ACCEPTER",
+        "extras": {
+          "seed_variant": null,
+          "candidate_variant": "chocolat",
+          "negatives_hit": [],
+          "variant_ok": true,
+          "unit_family_ok": true,
+          "size_ok": true,
+          "category_ok": true,
+          "vetoes": [
+            "image_mismatch",
+            "core_token"
+          ],
+          "candidate_quantity": "56 G",
+          "descriptor_token_coverage": {
+            "coverage": 0.75,
+            "matched": [
+              "chewing",
+              "gum",
+              "wrigley"
+            ],
+            "missing": [
+              "refreshers"
+            ],
+            "total": 4
+          },
+          "missing_tokens": [
+            "refreshers"
+          ],
+          "image_match": false,
+          "final_score": 10,
+          "plausible_baseline": true,
+          "missing_core_tokens": [
+            "refreshers"
+          ],
+          "notes": [
+            "accepted_without_image_match_high_coverage"
+          ],
+          "equivalent": true
+        },
+        "candidates": [
+          {
+            "url": "https://courses.monoprix.fr/products/wrigley-s-hubba-bubba-chewing-gum-mega-lon g-56g/MPX_6641846",
+            "product": {
+              "title": "Wrigley's  Hubba Bubba Chewing Gum Mega Long 56g",
+              "brand": "Wrigley's",
+              "kind": "Wrigley's Chewing Gum Refreshers",
+              "qty": "56 G",
+              "qualifiers": [],
+              "ean": null,
+              "image_url": "https://courses.monoprix.fr/images-v3/0c44253f-c4a3-4340-9d37-d41e42b9d14a/32a8 0c92-f551-4643-9714-5053e9de4cb5/300x300.jpg",
+              "source": "monoprix",
+              "raw_text": "Aller directement au contenu Aller directement au moteur de recherche Aller directement en bas de la page Chocolats de Noël Appli mobile Mes marques Monoprix Naturalia Promotions Présentation du service Monoprix Mode et Maison (s’ouvre dans une nouvelle fenêtre) Casino Menu des onglets du haut de l’écran Page d’accueil Rechercher un article Réserver un créneau Réserver un créneau Aller au paiement Nombre total d’articles dans votre panier 0. Montant du panier 0,00 €. 0,00 € Min 60,00 € Bouton du menu principal NEW-NOEL202520€ offerts dès 80€ d'achats + 2 mois de livraison offerte* EN SAVOIR +",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ],
+        "equivalent": true,
+        "difference_note": "Match sans EAN (couverture mots-clés)",
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "updated_at": "2025-12-09T12:00:27.893531+01:00",
+      "duration_seconds": 21.072514,
+      "error": null,
+      "store_query": null
+    },
+    "_finder": {
+      "consolidated": {
+        "title": "Refreshers Chewing-gums sans sucres menthe verte",
+        "brand": "Refreshers",
+        "kind": "",
+        "qty": "",
+        "price": null,
+        "quantity": null,
+        "qualifiers": [],
+        "ean": "4009900540865",
+        "image_url": "https://cdn.auchan.fr/media/P02000000001G1QPRIMARY_1200x1200/B2CD/",
+        "source": "consolidated",
+        "raw_text": "Refreshers Chewing-gums sans sucres menthe verte",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": [
+        "Refreshers Chewing-gums menthe",
+        "Chewing-gums Refreshers menthe",
+        "Refreshers Chewing-gums",
+        "Refreshers Chewing-gums sans sucres",
+        "Refreshers Chewing-gums sans",
+        "Refreshers chewing menthe"
+      ],
+      "candidates": [],
+      "decision": null,
+      "audit": []
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-12-09T10:18:18.005996+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Wrigley's Wrigley's refreshers",
+      "Wrigley's Refreshers",
+      "Wrigley's Candy"
+    ],
+    "secondary_keywords": [
+      "wrigley",
+      "s",
+      "refreshers"
+    ],
+    "category": "generic",
+    "structured": {
+      "golden": "Wrigley's Refreshers",
+      "fallback_specific": "Refreshers Wrigley's",
+      "fallback_broad": "Wrigley's Candy"
+    },
+    "raw": {
+      "golden": "Wrigley's Refreshers",
+      "fallback_specific": "Refreshers Wrigley's",
+      "fallback_broad": "Wrigley's Candy"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Refreshers\",\n    \"brand\": \"Wrigley's\",\n    \"quantity\": \"\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"ean\": \"4009900540865\",\n    \"source\": \"unknown\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-09T09:18:11Z\",\n    \"removed\": false,\n    \"leclerc_query\": \"Wrigley's Refreshers\",\n    \"leclerc_queries\": [\n      \"Wrigley's Refreshers\",\n      \"Refreshers Wrigley's\",\n      \"Wrigley's Candy\",\n      \"Wrigley's Wrigley's refreshers\"\n    ],\n    \"brand\": \"Wrigley's\",\n    \"name\": \"Refreshers\",\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"unknown\",\n    \"seed_query\": \"Wrigley's Refreshers\",\n    \"leclerc_ai_queries\": [\n      \"Wrigley's Refreshers\",\n      \"Refreshers Wrigley's\",\n      \"Wrigley's Candy\",\n      \"Wrigley's Wrigley's refreshers\"\n    ],\n    \"leclerc_secondary_keywords\": [\n      \"wrigley\",\n      \"s\",\n      \"refreshers\"\n    ],\n    \"primary_keywords\": [\n      \"Wrigley's Refreshers\",\n      \"Refreshers Wrigley's\",\n      \"Wrigley's Candy\",\n      \"Wrigley's Wrigley's refreshers\"\n    ],\n    \"monoprix_ai_queries\": [\n      \"Wrigley's Refreshers\",\n      \"Refreshers Wrigley's\",\n      \"Wrigley's Candy\",\n      \"Wrigley's Wrigley's refreshers\"\n    ],\n    \"monoprix_queries\": [\n      \"Wrigley's Refreshers\",\n      \"Refreshers Wrigley's\",\n      \"Wrigley's Candy\",\n      \"Wrigley's Wrigley's refreshers\"\n    ],\n    \"queries\": {\n      \"monoprix\": [\n        \"Wrigley's Refreshers\",\n        \"Refreshers Wrigley's\",\n        \"Wrigley's Candy\",\n        \"Wrigley's Wrigley's refreshers\"\n      ]\n    },\n    \"monoprix_secondary_keywords\": [\n      \"wrigley\",\n      \"s\",\n      \"refreshers\"\n    ]\n  },\n  \"store\": \"intermarche\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-Cko9JmG2kLCtKmEmCc0ypoI6lhief\", \"object\": \"chat.completion\", \"created\": 1765271897, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Wrigley's Refreshers\\\",\\n    \\\"fallback_specific\\\": \\\"Refreshers Wrigley's\\\",\\n    \\\"fallback_broad\\\": \\\"Wrigley's Candy\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 721, \"completion_tokens\": 38, \"total_tokens\": 759, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

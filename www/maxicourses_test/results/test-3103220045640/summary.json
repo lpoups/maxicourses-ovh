@@ -1,39 +1,39 @@
 {
   "3103220045640": {
     "carrefour_city": {
-      "status": "TIMEOUT",
+      "status": "NO_PRICE",
       "payload": {
-        "status": "TIMEOUT",
-        "error": "timeout_after_90s",
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
         "_meta": {
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-29T13:46:12.222883+01:00",
-      "duration_seconds": 90.406196,
-      "error": "timeout_after_90s",
+      "updated_at": "2025-12-13T13:24:38.224689+01:00",
+      "duration_seconds": 18.433839,
+      "error": null,
       "store_query": null,
       "previous": {
-        "status": "NO_PRICE",
+        "status": "TIMEOUT",
         "payload": {
-          "status": "NO_PRICE",
-          "price": null,
-          "store": "City Bordeaux Balguerie",
-          "url": null,
-          "note": null,
-          "unit_price": null,
-          "quantity": null,
-          "title": null,
-          "matched_ean": null,
-          "image": null,
-          "nutriscore_grade": null,
-          "nutriscore_image": null,
+          "status": "TIMEOUT",
+          "error": "timeout_after_90s",
           "_meta": {
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-27T16:49:39.342090+01:00",
-        "error": null,
+        "updated_at": "2025-11-29T13:46:12.222883+01:00",
+        "error": "timeout_after_90s",
         "store_query": null
       }
     },
@@ -116,7 +116,7 @@
         "status": "NO_PRICE",
         "price": null,
         "store": "Lormont",
-        "url": null,
+        "url": "https://www.carrefour.fr/s?q=3103220045640",
         "note": null,
         "unit_price": null,
         "quantity": null,
@@ -129,8 +129,8 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-29T13:47:26.732965+01:00",
-      "duration_seconds": 14.057193,
+      "updated_at": "2025-12-13T13:25:15.889503+01:00",
+      "duration_seconds": 23.756394,
       "error": null,
       "store_query": null,
       "previous": {
@@ -152,30 +152,45 @@
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-28T10:19:47.270175+01:00",
+        "updated_at": "2025-11-29T13:47:26.732965+01:00",
         "error": null,
         "store_query": null
       }
     },
     "auchan": {
-      "status": "NO_RESULTS",
+      "status": "OK",
       "payload": {
-        "status": "NO_RESULTS",
-        "price": null,
-        "unit_price": null,
+        "status": "OK",
+        "price": "1,79",
+        "unit_price": "5,97 € / KG",
         "quantity": null,
-        "title": null,
-        "url": null,
-        "matched_ean": null,
+        "title": "Bonbons gélifiés Schtroumpfs",
+        "url": "https://www.auchan.fr/haribo-bonbons-gelifies-schtroumpfs/pr-C1257461",
+        "matched_ean": "3103220045640",
         "store": "Auchan Drive Supermarché Talence-Gallieni",
-        "note": "search_failed:3103220045640",
-        "image": null,
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/A0220190628000061720PRIMARY_1200x1200/B2CD/",
         "_meta": {
           "supports_ean": true
+        },
+        "product": {
+          "title": "Bonbons gélifiés Schtroumpfs",
+          "brand": "Bonbons",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3103220045640",
+          "image_url": "https://cdn.auchan.fr/media/A0220190628000061720PRIMARY_1200x1200/B2CD/",
+          "source": "auchan",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-29T13:43:11.744521+01:00",
-      "duration_seconds": 40.232115,
+      "updated_at": "2025-12-13T13:24:08.554667+01:00",
+      "duration_seconds": 23.228812,
       "error": null,
       "store_query": null,
       "previous": {
@@ -195,7 +210,7 @@
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-27T16:49:39.342090+01:00",
+        "updated_at": "2025-11-29T13:43:11.744521+01:00",
         "error": null,
         "store_query": null
       }
@@ -1071,19 +1086,30 @@
     },
     "_finder": {
       "consolidated": {
-        "title": "Schtroumpfs",
+        "title": "Bonbons gélifiés Schtroumpfs",
         "brand": "Haribo",
         "kind": "",
         "qty": "300 g",
+        "price": null,
+        "quantity": null,
         "qualifiers": [],
         "ean": "3103220045640",
-        "image_url": null,
+        "image_url": "./assets/3103220045640.jpg",
         "source": "consolidated",
-        "raw_text": "",
+        "raw_text": "Bonbons gélifiés Schtroumpfs",
         "seed_query": "",
         "leclerc_queries": []
       },
-      "keywords": null,
+      "keywords": [
+        "Haribo Schtroumpfs 300g",
+        "Schtroumpfs Haribo 300g",
+        "Haribo bonbons gélifiés",
+        "Bonbons gélifiés Schtroumpfs",
+        "Haribo schtroumpfs 300 G",
+        "Haribo schtroumpfs gelifies",
+        "Haribo 300 G",
+        "Haribo bonbons 300 G"
+      ],
       "candidates": [],
       "decision": null,
       "audit": []

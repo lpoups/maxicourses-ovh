@@ -1,0 +1,34 @@
+{
+  "timestamp": "2025-12-08T14:20:36.043103+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Cola Cola 6X Cola coca Cola co",
+      "Cola Original 6x33cl",
+      "Cola 6x33cl",
+      "Cola 6x33",
+      "Cola Coca Original 6x33cl"
+    ],
+    "secondary_keywords": [
+      "cola",
+      "coca",
+      "original",
+      "6x33cl",
+      "6x",
+      "6"
+    ],
+    "category": "generic",
+    "raw": {
+      "queries": [
+        "Cola Original 6x33cl",
+        "Cola 6x33cl",
+        "Cola 6x33",
+        "Coca Original 6x33cl",
+        "Coca 6x33cl"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Soda COCA-COLA Original - 6x33cl\",\n    \"brand\": \"Cola\",\n    \"quantity\": \"6x33 cl\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"brand\": \"Cola\",\n    \"ean\": \"5449000283900\",\n    \"leclerc_queries\": [\n      \"Coca Cola 6x33\",\n      \"Cola 6x33 cl\",\n      \"Coca Cola 6x33cl\",\n      \"Coca Cola Original 6x33\",\n      \"Coca Cola Canette 6x33cl\",\n      \"5449000283900\"\n    ],\n    \"leclerc_query\": \"Coca Cola 6x33\",\n    \"name\": \"Soda COCA-COLA Original - 6x33cl\",\n    \"primary_keywords\": [\n      \"Coca Cola 6x33cl\"\n    ],\n    \"quantity\": \"6x33 cl\",\n    \"seed_primary_name\": \"Soda COCA-COLA Original\",\n    \"seed_primary_quantity\": \"6x33 cl\",\n    \"seed_query\": \"Cola Soda COCA Original 6x33cl 6x33\",\n    \"source\": \"manual\",\n    \"note\": \"\",\n    \"removed\": false,\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\"\n  },\n  \"store\": \"leclerc\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CkVSEtilXt2smqrH57n7stv1xyizB\", \"object\": \"chat.completion\", \"created\": 1765200034, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"queries\\\": [\\n    \\\"Cola Original 6x33cl\\\",\\n    \\\"Cola 6x33cl\\\",\\n    \\\"Cola 6x33\\\",\\n    \\\"Coca Original 6x33cl\\\",\\n    \\\"Coca 6x33cl\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 467, \"completion_tokens\": 60, \"total_tokens\": 527, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e5bb698939\"}"
+}

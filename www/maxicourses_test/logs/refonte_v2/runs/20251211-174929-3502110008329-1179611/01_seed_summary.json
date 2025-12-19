@@ -1,0 +1,95 @@
+{
+  "timestamp": "2025-12-11T17:49:29.401106+01:00",
+  "status": "ok",
+  "data": {
+    "profile": {
+      "ean": "3502110008329",
+      "brand": "Pepsi",
+      "name": "Pepsi 1,5L",
+      "quantity": "1500 ml",
+      "categories": [
+        "Boissons et préparations de boissons",
+        "Boissons",
+        "Boissons gazeuses",
+        "Boissons édulcorées",
+        "Sodas",
+        "Boissons light",
+        "Boissons sans alcool",
+        "Sodas au cola",
+        "Sodas light",
+        "Boissons avec sucre ajouté"
+      ],
+      "nutriscore_grade": "e",
+      "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
+      "nova_group": "4",
+      "image": "https://media.carrefour.fr/media/referential/media/d9ddb464b6544aaab5c85a96cfb8 b59d/03502110008329_H1N1_s07.jpeg",
+      "description": "Soda au Cola PEPSI"
+    },
+    "keywords": [
+      "Pepsi Soda 1,5L",
+      "Pepsi Cola 1,5L",
+      "Pepsi Boisson Gazeuse",
+      "Pepsi Sodas Light",
+      "Pepsi Boissons Édulcorées",
+      "Pepsi Boissons Sans Alcool",
+      "Pepsi Boissons Gazeuses",
+      "Pepsi Sodas au Cola"
+    ],
+    "primary_keywords": [
+      "Pepsi Pepsi 1500ML Pepsi cola ",
+      "Pepsi Soda 1,5L",
+      "Pepsi Cola 1,5L",
+      "Pepsi Boisson Gazeuse",
+      "Pepsi Sodas Light"
+    ],
+    "secondary_keywords": [
+      "pepsi",
+      "cola",
+      "1",
+      "5l",
+      "1500ml",
+      "1500",
+      "1.5",
+      "1.5l"
+    ],
+    "category": "generic",
+    "raw": {
+      "profile": {
+        "ean": "3502110008329",
+        "brand": "Pepsi",
+        "name": "Pepsi 1,5L",
+        "quantity": "1500 ml",
+        "categories": [
+          "Boissons et préparations de boissons",
+          "Boissons",
+          "Boissons gazeuses",
+          "Boissons édulcorées",
+          "Sodas",
+          "Boissons light",
+          "Boissons sans alcool",
+          "Sodas au cola",
+          "Sodas light",
+          "Boissons avec sucre ajouté"
+        ],
+        "nutriscore_grade": "e",
+        "nutriscore_image": "https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg",
+        "nova_group": "4",
+        "image": "https://media.carrefour.fr/media/referential/media/d9ddb464b6544aaab5c85a96cfb8 b59d/03502110008329_H1N1_s07.jpeg",
+        "description": "Soda au Cola PEPSI"
+      },
+      "keywords": [
+        "Pepsi Soda 1,5L",
+        "Pepsi Cola 1,5L",
+        "Pepsi Boisson Gazeuse",
+        "Pepsi Sodas Light",
+        "Pepsi Boissons Édulcorées",
+        "Pepsi Boissons Sans Alcool",
+        "Pepsi Boissons Gazeuses",
+        "Pepsi Sodas au Cola"
+      ]
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"seeds\": [\n    {\n      \"adapter\": \"carrefour_market\",\n      \"status\": \"OK\",\n      \"payload\": {\n        \"status\": \"OK\",\n        \"price\": \"2,03\",\n        \"store\": \"Market Fondaudège\",\n        \"url\": \"https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329\",\n        \"note\": null,\n        \"unit_price\": \"0,97 € / L\",\n        \"quantity\": \"2.09L\",\n        \"title\": \"Soda au Cola PEPSI\",\n        \"matched_ean\": \"3502110008329\",\n        \"image\": \"https://media.carrefour.fr/media/referential/media/d9ddb464b6544aaab5c85a96cfb8 b59d/03502110008329_H1N1_s07.jpeg\",\n        \"nutriscore_grade\": \"e\",\n        \"nutriscore_image\": \"https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg\",\n        \"_meta\": {\n          \"supports_ean\": true\n        },\n        \"product\": {\n          \"title\": \"Soda au Cola PEPSI\",\n          \"brand\": \"Soda\",\n          \"kind\": \"\",\n          \"qty\": \"2.09L\",\n          \"qualifiers\": [],\n          \"ean\": \"3502110008329\",\n          \"image_url\": \"https://media.carrefour.fr/media/referential/media/d9ddb464b6544aaab5c85a96cfb8 b59d/03502110008329_H1N1_s07.jpeg\",\n          \"source\": \"carrefour_market\",\n          \"raw_text\": \"\",\n          \"seed_query\": \"\",\n          \"leclerc_queries\": []\n        }\n      },\n      \"metadata\": {\n        \"attempt_query\": \"3502110008329\"\n      }\n    }\n  ],\n  \"context\": {\n    \"descriptor\": {\n      \"ean\": \"3502110008329\",\n      \"source\": \"carrefour_market\",\n      \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-11T16:49:18Z\",\n      \"removed\": false,\n      \"leclerc_query\": \"Pepsi Soda 2.09 L\",\n      \"leclerc_queries\": [\n        \"Pepsi Soda 2.09 L\",\n        \"Pepsi Soda Cola 2.09 L\",\n        \"Pepsi 2.09 L\",\n        \"Soda Cola 2.09 L\"\n      ],\n      \"brand\": \"Pepsi\",\n      \"name\": \"Pepsi 1,5L\",\n      \"quantity\": \"1500 ml\",\n      \"categories\": \"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté\",\n      \"nutriscore_grade\": \"e\",\n      \"nutriscore_image\": \"https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg\",\n      \"ecoscore_grade\": \"not-applicable\",\n      \"nova_group\": \"4\",\n      \"carrefour_market_url\": \"https://www.carrefour.fr/p/soda-au-cola-pepsi-3502110008329\",\n      \"chronodrive_url\": \"https://www.chronodrive.com/pepsi--boisson-gazeuse-aux-extraits-vegetaux-P16714\",\n      \"courseu_url\": \"https://www.coursesu.com/p/soda-regular-pepsi-15l/987379.html\",\n      \"g20_url\": \"https://www.g20-minute.com/products/3502110008329/pepsi-1-5-l-3502110008329\",\n      \"casino_url\": \"https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-casino-shop-33130/TZ193/274462\",\n      \"spar_url\": \"https://www.mescoursesdeproximite.com/produit/pepsi-soda-au-cola-classique-1-5l-la-bouteille-d-1-5l-spar-33160/TL832/274462\",\n      \"leclerc_url\": \"https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-62246-Soda-au-cola-Pepsi.aspx\",\n      \"intermarche_url\": \"https://www.intermarche.com/produit/soda-saveur-cola/3502110008329\",\n      \"seed_query\": \"Pepsi Soda Cola 1500 ml\",\n      \"image\": \"https://media.carrefour.fr/media/referential/media/d9ddb464b6544aaab5c85a96cfb8 b59d/03502110008329_H1N1_s07.jpeg\",\n      \"description\": \"Soda au Cola PEPSI\",\n      \"seed_primary_name\": \"Soda au Cola PEPSI\",\n      \"seed_primary_quantity\": \"2.09L\"\n    },\n    \"ean\": \"3502110008329\"\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-Cle8zAgklACV4irzhTPEIjPNXhI5o\", \"object\": \"chat.completion\", \"created\": 1765471765, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n  \\\"profile\\\": {\\n    \\\"ean\\\": \\\"3502110008329\\\",\\n    \\\"brand\\\": \\\"Pepsi\\\",\\n    \\\"name\\\": \\\"Pepsi 1,5L\\\",\\n    \\\"quantity\\\": \\\"1500 ml\\\",\\n    \\\"categories\\\": [\\n      \\\"Boissons et préparations de boissons\\\",\\n      \\\"Boissons\\\",\\n      \\\"Boissons gazeuses\\\",\\n      \\\"Boissons édulcorées\\\",\\n      \\\"Sodas\\\",\\n      \\\"Boissons light\\\",\\n      \\\"Boissons sans alcool\\\",\\n      \\\"Sodas au cola\\\",\\n      \\\"Sodas light\\\",\\n      \\\"Boissons avec sucre ajouté\\\"\\n    ],\\n    \\\"nutriscore_grade\\\": \\\"e\\\",\\n    \\\"nutriscore_image\\\": \\\"https://www.carrefour.fr/images/badges/flag-nutriscore-e.svg\\\",\\n    \\\"nova_group\\\": \\\"4\\\",\\n    \\\"image\\\": \\\"https://media.carrefour.fr/media/referential/media/d9ddb464b6544aaab5c85a96cfb8 b59d/03502110008329_H1N1_s07.jpeg\\\",\\n    \\\"description\\\": \\\"Soda au Cola PEPSI\\\"\\n  },\\n  \\\"keywords\\\": [\\n    \\\"Pepsi Soda 1,5L\\\",\\n    \\\"Pepsi Cola 1,5L\\\",\\n    \\\"Pepsi Boisson Gazeuse\\\",\\n    \\\"Pepsi Sodas Light\\\",\\n    \\\"Pepsi Boissons Édulcorées\\\",\\n    \\\"Pepsi Boissons Sans Alcool\\\",\\n    \\\"Pepsi Boissons Gazeuses\\\",\\n    \\\"Pepsi Sodas au Cola\\\"\\n  ]\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1205, \"completion_tokens\": 322, \"total_tokens\": 1527, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_a4d13246c5\"}"
+}

@@ -41,9 +41,13 @@ class LeclercAdapter(_LeclercBase):
 
     # Ces deux providers sont branchés automatiquement par Finder.ensure_hooks()
     #   - html_provider(url) -> str|None
-    #   - image_compare(seed_url, cand_url) -> bool (non utilisé ici)
+    #   - image_compare(seed_url, cand_url) -> bool
     def html(self):
         return getattr(self, "_html_provider", None)
+
+    def image_compare(self):
+        # Fournie par Finder.ensure_hooks() ; comparaison pHash Playwright (comme Monoprix).
+        return getattr(self, "_image_provider", None)
 
     def _search_listing(self, keywords: List[str]) -> List[Tuple[str, str, str]]:
         """

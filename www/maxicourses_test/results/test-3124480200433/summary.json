@@ -150,8 +150,8 @@
           "supports_ean": true
         }
       },
-      "updated_at": "2025-11-29T11:08:00.117234+01:00",
-      "duration_seconds": 13.907745,
+      "updated_at": "2025-12-12T12:14:09.825632+01:00",
+      "duration_seconds": 27.021042,
       "error": null,
       "store_query": null,
       "previous": {
@@ -173,7 +173,7 @@
             "supports_ean": true
           }
         },
-        "updated_at": "2025-11-28T16:27:13.566873+01:00",
+        "updated_at": "2025-11-29T11:08:00.117234+01:00",
         "error": null,
         "store_query": null
       }
@@ -184,63 +184,67 @@
         "status": "OK",
         "price": "2,15",
         "unit_price": "1,43 € / L",
-        "quantity": "1,5 L",
-        "title": "Boisson  gazeuse à l'orange",
+        "quantity": "1.5 L",
+        "title": "Boisson gazeuse à l'orange",
         "url": "https://www.auchan.fr/orangina-boisson-gazeuse-a-l-orange/pr-C1820950",
         "matched_ean": "3124480200433",
         "store": "Auchan Drive Supermarché Talence-Gallieni",
-        "note": "Auchan  Talence",
-        "image": null,
+        "note": "Auchan Talence",
+        "image": "https://cdn.auchan.fr/media/S010000000419TMPRIMARY_1200x1200/B2CD/",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Boisson  gazeuse à l'orange",
+          "title": "Boisson gazeuse à l'orange",
           "brand": "Boisson",
           "kind": "",
-          "qty": "1,5 L",
+          "qty": "1.5 L",
+          "price": null,
+          "quantity": null,
           "qualifiers": [],
           "ean": "3124480200433",
-          "image_url": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03124480200433_C1N1_s04.jpeg",
+          "image_url": "https://cdn.auchan.fr/media/S010000000419TMPRIMARY_1200x1200/B2CD/",
           "source": "auchan",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-28T16:24:02.677622+01:00",
-      "duration_seconds": 14.179021,
+      "updated_at": "2025-12-13T12:52:48.321821+01:00",
+      "duration_seconds": 19.360619,
       "error": null,
       "store_query": null,
       "previous": {
         "status": "OK",
         "payload": {
           "status": "OK",
-          "price": "2,28",
-          "unit_price": "1,52 € / L",
-          "quantity": "1,5  L",
-          "title": "Boisson gazeuse à l'orange",
+          "price": "2,15",
+          "unit_price": "1,43 € / L",
+          "quantity": "1,5 L",
+          "title": "Boisson  gazeuse à l'orange",
           "url": "https://www.auchan.fr/orangina-boisson-gazeuse-a-l-orange/pr-C1820950",
           "matched_ean": "3124480200433",
-          "store": "Auchan Drive Supermarché  Talence-Gallieni",
-          "note": "Auchan Talence",
-          "image": "https://cdn.auchan.fr/media/S010000000419TMPRIMARY_1200x1200/B2CD/",
+          "store": "Auchan Drive Supermarché Talence-Gallieni",
+          "note": "Auchan  Talence",
+          "image": null,
           "_meta": {
             "supports_ean": true
           },
           "product": {
-            "title": "Boisson gazeuse à l'orange",
+            "title": "Boisson  gazeuse à l'orange",
             "brand": "Boisson",
             "kind": "",
             "qty": "1,5 L",
             "qualifiers": [],
             "ean": "3124480200433",
-            "image_url": "https://cdn.auchan.fr/media/S010000000419TMPRIMARY_1200x1200/B2CD/",
+            "image_url": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03124480200433_C1N1_s04.jpeg",
             "source": "auchan",
-            "raw_text": ""
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
           }
         },
-        "updated_at": "2025-11-21T15:53:22.497281+01:00",
+        "updated_at": "2025-11-28T16:24:02.677622+01:00",
         "error": null,
         "store_query": null
       }
@@ -315,38 +319,39 @@
       }
     },
     "courseu": {
-      "status": "OK",
+      "status": "MATCHED",
       "payload": {
-        "status": "OK",
-        "price": "2,03",
-        "unit_price": "1,35 € / L",
+        "status": "MATCHED",
+        "price": "2,00",
+        "unit_price": "1,33 € / L",
         "quantity": "1,5 L",
-        "title": "Soda à  l'orange ORANGINA - la bouteille de 1,5L",
+        "title": "Soda à l'orange ORANGINA - la bouteille de 1,5L",
         "url": "https://www.coursesu.com/p/soda-a-lorange-orangina---la-bouteille-de-15l/1992614.html",
-        "note": "2025-11-28T15:20:22Z · Super U Eysines",
+        "note": "2025-12-12T11:13:00Z · Super U Eysines",
         "store": "Super U Eysines",
         "matched_ean": "3124480200433",
         "nutriscore_grade": "c",
-        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-naviga tion/nutrition_et_regimes_alimentaires.png",
+        "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+        "image": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dwc6bd39bd/3124480200433_H1N1_1992614_S10.png?sw=388&sh=388&sm=fit",
         "_meta": {
           "supports_ean": true
         },
         "product": {
-          "title": "Soda à  l'orange ORANGINA - la bouteille de 1,5L",
+          "title": "Soda à l'orange ORANGINA - la bouteille de 1,5L",
           "brand": "Soda",
           "kind": "",
           "qty": "1,5 L",
           "qualifiers": [],
           "ean": "3124480200433",
-          "image_url": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03124480200433_C1N1_s04.jpeg",
+          "image_url": "https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dwc6bd39bd/3124480200433_H1N1_1992614_S10.png?sw=388&sh=388&sm=fit",
           "source": "courseu",
           "raw_text": "",
           "seed_query": "",
           "leclerc_queries": []
         }
       },
-      "updated_at": "2025-11-28T16:24:02.677622+01:00",
-      "duration_seconds": 29.608524,
+      "updated_at": "2025-12-12T12:13:07.295861+01:00",
+      "duration_seconds": 6.434419,
       "error": null,
       "store_query": null,
       "previous": {
@@ -355,30 +360,32 @@
           "status": "OK",
           "price": "2,03",
           "unit_price": "1,35 € / L",
-          "quantity": "1,5  L",
-          "title": "Soda à l'orange ORANGINA - la bouteille de 1,5L",
-          "url": "https://www.coursesu.com/p/soda-a-lorange-orangina---la-bouteille-de-15l/199261 4.html",
-          "note": "2025-11-21T14:49:43Z · Super U Eysines",
-          "store": "Super U  Eysines",
+          "quantity": "1,5 L",
+          "title": "Soda à  l'orange ORANGINA - la bouteille de 1,5L",
+          "url": "https://www.coursesu.com/p/soda-a-lorange-orangina---la-bouteille-de-15l/1992614.html",
+          "note": "2025-11-28T15:20:22Z · Super U Eysines",
+          "store": "Super U Eysines",
           "matched_ean": "3124480200433",
           "nutriscore_grade": "c",
-          "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/ dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png",
+          "nutriscore_image": "https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-naviga tion/nutrition_et_regimes_alimentaires.png",
           "_meta": {
             "supports_ean": true
           },
           "product": {
-            "title": "Soda à l'orange ORANGINA - la bouteille de 1,5L",
+            "title": "Soda à  l'orange ORANGINA - la bouteille de 1,5L",
             "brand": "Soda",
             "kind": "",
             "qty": "1,5 L",
             "qualifiers": [],
             "ean": "3124480200433",
-            "image_url": null,
+            "image_url": "https://media.carrefour.fr/medias/ac4e9a8cea3f4ae28c64deecfc0cf116/p_540x540/03124480200433_C1N1_s04.jpeg",
             "source": "courseu",
-            "raw_text": ""
+            "raw_text": "",
+            "seed_query": "",
+            "leclerc_queries": []
           }
         },
-        "updated_at": "2025-11-21T15:53:22.497281+01:00",
+        "updated_at": "2025-11-28T16:24:02.677622+01:00",
         "error": null,
         "store_query": null
       }
@@ -840,7 +847,34 @@
       }
     },
     "_finder": {
-      "error": "'FinderPipeline' object has no attribute 'decide'"
+      "consolidated": {
+        "title": "Boisson gazeuse à l'orange",
+        "brand": "Boisson",
+        "kind": "",
+        "qty": "1.5 L",
+        "price": null,
+        "quantity": null,
+        "qualifiers": [],
+        "ean": "3124480200433",
+        "image_url": "https://cdn.auchan.fr/media/S010000000419TMPRIMARY_1200x1200/B2CD/",
+        "source": "consolidated",
+        "raw_text": "Boisson gazeuse à l'orange",
+        "seed_query": "",
+        "leclerc_queries": []
+      },
+      "keywords": [
+        "Boisson orange gazeuse",
+        "Boisson gazeuse orange",
+        "Boisson soda orange",
+        "Boisson gazeuse à l'orange",
+        "Boisson gazeuse à",
+        "Boisson gazeuse 1.5 L",
+        "Boisson gazeuse 1.50 L",
+        "Boisson gazeuse 1,50 L"
+      ],
+      "candidates": [],
+      "decision": null,
+      "audit": []
     },
     "casino": {
       "status": "OK",

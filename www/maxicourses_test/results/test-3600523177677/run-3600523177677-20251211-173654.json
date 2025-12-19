@@ -1,0 +1,112 @@
+{
+  "ean": "3600523177677",
+  "image_path": null,
+  "started_at": "2025-12-11T17:36:42.247358+01:00",
+  "finished_at": "2025-12-11T17:36:54.009079+01:00",
+  "duration_seconds": 11.761721,
+  "reference": {
+    "title": "L'Oréal Paris Studio Line Spray  Coiffant Invisi Fix Fixation forte 150ml",
+    "description": "Entrée générée automatiquement – descriptif requis.",
+    "source": "auchan",
+    "brand": "Studio",
+    "quantity": null,
+    "categories": null,
+    "image": "/assets/3600523177677.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3600523177677/debug/run-3600523177677-20251211-173642"
+  ],
+  "adapters": [
+    {
+      "adapter": "courseu",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": "Attention Required! | Cloudflare",
+        "url": "https://www.coursesu.com/recherche?q=3600523177677",
+        "note": "2025-12-11T16:36:47Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Attention Required! | Cloudflare",
+          "brand": "Attention",
+          "kind": "",
+          "qty": "",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "3600523177677",
+          "image_url": "/assets/3600523177677.jpg",
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-11T17:36:42.250338+01:00",
+      "finished_at": "2025-12-11T17:36:47.614457+01:00",
+      "duration_seconds": 5.364119,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "3600523177677",
+        "QUERY": "3600523177677",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[ENGINE_DEBUG] Connecting to CDP at http://127.0.0.1:9223...\n[ENGINE_DEBUG] Reusing existing context (Total: 1)",
+      "metadata": {
+        "attempt_query": "3600523177677",
+        "visual_score": null
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "L'Oréal Paris Studio Line Spray  Coiffant Invisi Fix Fixation forte 150ml",
+      "brand": "Studio",
+      "kind": "",
+      "qty": "",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "3600523177677",
+      "image_url": "/assets/3600523177677.jpg",
+      "source": "consolidated",
+      "raw_text": "L'Oréal Paris Studio Line Spray  Coiffant Invisi Fix Fixation forte 150ml Entrée générée automatiquement – descriptif requis.",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Studio Line Invisi Fix Spray",
+      "L'Oréal Invisi Fix Spray",
+      "L'Oréal Hair Spray",
+      "L'Oréal Paris Studio Line",
+      "L'Oréal Paris Studio",
+      "Studio coiffant fixation"
+    ],
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

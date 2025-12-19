@@ -1,0 +1,597 @@
+{
+  "ean": "5000204343120",
+  "image_path": null,
+  "started_at": "2025-12-02T11:29:05.229470+01:00",
+  "finished_at": "2025-12-02T11:43:27.748946+01:00",
+  "duration_seconds": 862.519476,
+  "reference": {
+    "title": "Insecticide Spray Multi-Insectes Action Max RAID",
+    "description": "Entrée générée automatiquement – descriptif requis.",
+    "source": "carrefour_super",
+    "brand": "Raid",
+    "quantity": "400 ML",
+    "categories": null,
+    "image": "https://media.carrefour.fr/media/referential/media/bbe716077b8940c088f75d4ccb89 3587/05000204343120_A1N1_s01.png",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251202-112905"
+  ],
+  "adapters": [
+    {
+      "adapter": "carrefour_city",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "City Bordeaux Balguerie",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-02T11:29:05.229926+01:00",
+      "finished_at": "2025-12-02T11:29:32.420885+01:00",
+      "duration_seconds": 27.190959,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_city.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "CARREFOUR_STATE_VARIANT": "carrefour_city",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "carrefour_market",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "store": "Market Fondaudège",
+        "url": null,
+        "note": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "matched_ean": null,
+        "image": null,
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-02T11:29:32.421472+01:00",
+      "finished_at": "2025-12-02T11:29:57.965731+01:00",
+      "duration_seconds": 25.544259,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_market.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "CARREFOUR_STATE_VARIANT": "carrefour_market",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "carrefour_super",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "6,55",
+        "store": "Lormont",
+        "url": "https://www.carrefour.fr/p/insecticide-spray-multi-insectes-action-max-raid-500 0204343120",
+        "note": null,
+        "unit_price": "16,38 € / L",
+        "quantity": "400 ML",
+        "title": "Insecticide Spray Multi-Insectes Action Max RAID",
+        "matched_ean": "5000204343120",
+        "image": "https://media.carrefour.fr/media/referential/media/bbe716077b8940c088f75d4ccb89 3587/05000204343120_A1N1_s01.png",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Insecticide Spray Multi-Insectes Action Max RAID",
+          "brand": "Insecticide",
+          "kind": "",
+          "qty": "400 ML",
+          "qualifiers": [],
+          "ean": "5000204343120",
+          "image_url": "https://media.carrefour.fr/media/referential/media/bbe716077b8940c088f75d4ccb89 3587/05000204343120_A1N1_s01.png",
+          "source": "carrefour_super",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T11:29:57.966253+01:00",
+      "finished_at": "2025-12-02T11:30:33.797090+01:00",
+      "duration_seconds": 35.830837,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_carrefour_price_super.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "CARREFOUR_STATE_VARIANT": "carrefour_super",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "auchan",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": "https://www.auchan.fr/raid-max-aerosol-anti-insectes-action-rapide/pr-C1779317",
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "price_missing",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-02T11:30:33.801856+01:00",
+      "finished_at": "2025-12-02T11:31:06.870352+01:00",
+      "duration_seconds": 33.068496,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button.journey-button\n[auchan] Clicking 'Choisir ce drive'...\n[auchan] ⚠️ Button still visible after click.\n[auchan] results visible, extracting price from search results\n[auchan] ⚠️ No valid price found (Attempt 1/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?\n[auchan] ⚠️ No valid price found (Attempt 2/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?\n[auchan] ⚠️ No valid price found (Attempt 3/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?",
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "chronodrive",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "6,49",
+        "title": "Aérosol anti multi insectes RAID  Max",
+        "url": "https://www.chronodrive.com/raid--max---aerosol-anti-multi-insectes-P541564",
+        "note": "Chronodrive Le Haillan",
+        "unit_price": "16,23 € / L",
+        "quantity": "400  ml",
+        "store": "Chronodrive Le Haillan",
+        "matched_ean": "5000204343120",
+        "nutriscore_grade": "e",
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Aérosol anti multi insectes RAID  Max",
+          "brand": "Aérosol",
+          "kind": "",
+          "qty": "400 ml",
+          "qualifiers": [],
+          "ean": "5000204343120",
+          "image_url": null,
+          "source": "chronodrive",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T11:31:06.871784+01:00",
+      "finished_at": "2025-12-02T11:31:15.895551+01:00",
+      "duration_seconds": 9.023767,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_chronodrive_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "STORE_URL": "https://www.chronodrive.com/magasin/le-haillan-422",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "courseu",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "6,52",
+        "unit_price": "16,30 € / L",
+        "quantity": "400  ML",
+        "title": "Aéro multi insectes RAID MAX TP18 400ML",
+        "url": "https://www.coursesu.com/p/aero-multi-insectes-raid-max-tp18-400ml/5657195.html ",
+        "note": "2025-12-02T10:31:45Z · Super U Eysines",
+        "store": "Super U Eysines",
+        "matched_ean": "5000204343120",
+        "nutriscore_grade": null,
+        "nutriscore_image": null,
+        "_meta": {
+          "supports_ean": true
+        },
+        "product": {
+          "title": "Aéro multi insectes RAID MAX TP18 400ML",
+          "brand": "Aéro",
+          "kind": "",
+          "qty": "400 ML",
+          "qualifiers": [],
+          "ean": "5000204343120",
+          "image_url": null,
+          "source": "courseu",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      },
+      "started_at": "2025-12-02T11:31:15.897207+01:00",
+      "finished_at": "2025-12-02T11:31:45.455605+01:00",
+      "duration_seconds": 29.558398,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_courseu_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "STORE_URL": "https://www.coursesu.com/drive-superu-eysines",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "g20",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": "G20 Minute",
+        "unit_price": null,
+        "quantity": null,
+        "matched_ean": null,
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-02T11:31:45.457766+01:00",
+      "finished_at": "2025-12-02T11:31:46.062659+01:00",
+      "duration_seconds": 0.604893,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_g20_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "5000204343120",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "5000204343120"
+      }
+    },
+    {
+      "adapter": "casino",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TZ193?produit_recherche=Raid%20insecticide%20400%20ML",
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Raid insecticide 400 ML",
+          "timestamp": "2025-12-02T10:31:46.976759+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-02T11:31:46.763366+01:00",
+      "finished_at": "2025-12-02T11:31:48.006536+01:00",
+      "duration_seconds": 1.24317,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "Raid insecticide 400 ML",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Raid insecticide 400 ML",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251202-112905/08-casino"
+      }
+    },
+    {
+      "adapter": "spar",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "note": "Casino Shop",
+        "_meta": {
+          "search_url": "https://www.mescoursesdeproximite.com/recherche/TL832?produit_recherche=Raid%20insecticide%20400%20ML",
+          "store_code": "TL832",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/spar-33160/TL832",
+          "query": "Raid insecticide 400 ML",
+          "timestamp": "2025-12-02T10:31:53.877516+00:00",
+          "supports_keywords": true
+        },
+        "candidates": []
+      },
+      "started_at": "2025-12-02T11:31:53.697273+01:00",
+      "finished_at": "2025-12-02T11:31:54.687544+01:00",
+      "duration_seconds": 0.990271,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "Raid insecticide 400 ML",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Raid insecticide 400 ML",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251202-112905/09-spar"
+      }
+    },
+    {
+      "adapter": "intermarche",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "title": null,
+        "url": "https://www.intermarche.com/produit/insecticide-multi-insectes-action-rapide-ma x/5000204343120",
+        "note": null,
+        "matched_ean": "5000204343120",
+        "unit_price": null,
+        "quantity": null,
+        "store": "Super Talence",
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        },
+        "nutriscore_grade": null,
+        "nutriscore_image": null
+      },
+      "started_at": "2025-12-02T11:31:59.835962+01:00",
+      "finished_at": "2025-12-02T11:33:07.007446+01:00",
+      "duration_seconds": 67.171484,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_intermarche_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "Raid insecticide 400 ML",
+        "HOME_URL": "https://www.intermarche.com/accueil",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Raid insecticide 400 ML",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251202-112905/10-intermarche"
+      }
+    },
+    {
+      "adapter": "leclerc",
+      "status": "NO_MATCH",
+      "payload": {
+        "status": "NO_MATCH",
+        "title": "Insecticide Insectivor guêpes Mouches moustiques - 400ml",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-1802-Insecticide-Insectivor-cafards.aspx",
+        "matched_ean": null,
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-12-02T10:33:30Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-1806-Insecticide-Insectivor-guepes.aspx",
+            "product": {
+              "title": "Insecticide Insectivor guêpes Mouches moustiques - 400ml",
+              "brand": "Insecticide",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700216293",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2835008&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1h1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1h1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          },
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-1802-Insecticide-Insectivor-cafards.aspx",
+            "product": {
+              "title": "Insecticide Insectivor cafards Fourmis araignées 400ml",
+              "brand": "Insecticide",
+              "kind": "",
+              "qty": "",
+              "qualifiers": [],
+              "ean": "3564700216309",
+              "image_url": "https://fd12-photos.leclercdrive.fr/image.ashx?id=2843039&amp;use=l&amp;cat=p&amp;typeid=i",
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5bi1h1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5bi1h1\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-12-02T11:33:07.008978+01:00",
+      "finished_at": "2025-12-02T11:33:30.742811+01:00",
+      "duration_seconds": 23.733833,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "Raid Insecticide 400 ML",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=True | delays => human:10ms result:10ms pdp:20ms type:[0,18] query:'Raid Insecticide 400 ML' direct_url:False\n[LECLERC_DEBUG] after home human pause -> 5.57s\n[LECLERC_DEBUG] after focus -> 6.52s\n[LECLERC_DEBUG] results visible -> 9.79s\n[LECLERC_DEBUG] after result pause -> 9.79s",
+      "metadata": {
+        "attempt_query": "Raid Insecticide 400 ML",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251202-112905/11-leclerc"
+      }
+    },
+    {
+      "adapter": "monoprix",
+      "status": "NO_RESULTS",
+      "payload": {
+        "status": "NO_RESULTS",
+        "price": null,
+        "title": null,
+        "url": null,
+        "note": null,
+        "image": null,
+        "matched_ean": null,
+        "unit_price": null,
+        "quantity": null,
+        "store": null,
+        "raw_text": null,
+        "extras": null,
+        "candidates": [],
+        "_meta": {
+          "supports_keywords": true
+        }
+      },
+      "started_at": "2025-12-02T11:40:36.004163+01:00",
+      "finished_at": "2025-12-02T11:41:19.471494+01:00",
+      "duration_seconds": 43.467331,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_monoprix_price.py"
+      ],
+      "env": {
+        "EAN": "5000204343120",
+        "QUERY": "Raid insecticide 400 ML",
+        "HOME_URL": "https://courses.monoprix.fr/",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "--- DÉBUT DE L'EXÉCUTION DE FETCH_MONOPRIX_PRICE ---\n[MONOPRIX_DEBUG] Starting run() function\n[MONOPRIX_DEBUG] ERROR: EAN '5000204343120' not found in descriptor store. Scoring will fail.\n[MONOPRIX_DEBUG] Search terms: ['Raid insecticide 400 ML', 'Raid insecticide 0,40 L', 'Raid insecticide 0,40 L']\n[MONOPRIX_DEBUG] Using storage state: None\n[MONOPRIX_DEBUG] make_context() successful\n[MONOPRIX_DEBUG] Calling ensure_store()\n[MONOPRIX_DEBUG] ensure_store() finished\n[MONOPRIX_DEBUG] Calling find_best_product()\n[MONOPRIX_DEBUG] In new find_best_product (human simulation).\n[MONOPRIX_DEBUG] Seed variant: None | dynamic negatives: ['squeez', 'squeeze', 'sans sucre', 'sans sucres', '0 sucre', 'zero sucre']\n[MONOPRIX_DEBUG]  - Term 1/3: 'Raid insecticide 400 ML'\n[MONOPRIX_DEBUG]  - Typing 'Raid insecticide 400 ML' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Raid%20insecticide%20400%20ML\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 2/3: 'Raid insecticide 0,40 L'\n[MONOPRIX_DEBUG]  - Typing 'Raid insecticide 0,40 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Raid%20insecticide%200%2C40%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG]  - Term 3/3: 'Raid insecticide 0,40 L'\n[MONOPRIX_DEBUG]  - Typing 'Raid insecticide 0,40 L' into search input.\n[MONOPRIX_DEBUG]  - Pressed Enter. Waiting for results page to load...\n[MONOPRIX_DEBUG]  - No product links after typing. Trying fallback URL: https://courses.monoprix.fr/search?q=Raid%20insecticide%200%2C40%20L\n[MONOPRIX_DEBUG]  - Still no product links found.\n[MONOPRIX_DEBUG] find_best_product() returned: Result(status='NO_RESULTS', price=None, title=None, url=None, note=None, image=None, matched_ean=None, unit_price=None, quantity=None, store=None, raw_text=None, extras=None, candidates=None)\n[MONOPRIX_DEBUG] Closing browser",
+      "metadata": {
+        "attempt_query": "Raid insecticide 400 ML",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000204343120/debug/run-5000204343120-20251202-112905/12-monoprix"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Insecticide Spray Multi-Insectes Action Max RAID",
+      "brand": "Insecticide",
+      "kind": "",
+      "qty": "400 ML",
+      "qualifiers": [],
+      "ean": "5000204343120",
+      "image_url": "https://media.carrefour.fr/media/referential/media/bbe716077b8940c088f75d4ccb89 3587/05000204343120_A1N1_s01.png",
+      "source": "consolidated",
+      "raw_text": "Entrée générée automatiquement – descriptif requis.",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-12-17T09:39:23.056777+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Pepsi Pepsi 1",
+      "pepsi 1,5l",
+      "pepsi 1500ml",
+      "pepsi boissons"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "pepsi 1,5l",
+      "fallback_specific": "pepsi 1500ml",
+      "fallback_broad": "pepsi boissons"
+    },
+    "raw": {
+      "golden": "pepsi 1,5l",
+      "fallback_specific": "pepsi 1500ml",
+      "fallback_broad": "pepsi boissons"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Pepsi 1,5L\",\n    \"brand\": \"Pepsi\",\n    \"quantity\": \"1500 ml\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3502110008329\",\n    \"source\": \"unknown\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-17T08:39:19Z\",\n    \"brand\": \"Pepsi\",\n    \"name\": \"Pepsi 1,5L\",\n    \"quantity\": \"1500 ml\",\n    \"categories\": \"Boissons et préparations de boissons, Boissons, Boissons gazeuses, Boissons édulcorées, Sodas, Boissons light, Boissons sans alcool, Sodas au cola, Sodas light, Boissons avec sucre ajouté\",\n    \"nutriscore_grade\": \"d\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"not-applicable\",\n    \"nova_group\": \"4\",\n    \"removed\": false,\n    \"seed_query\": \"Pepsi 1500 ml\",\n    \"leclerc_query\": \"Pepsi 1,5L\",\n    \"leclerc_queries\": [\n      \"Pepsi 1,5L\",\n      \"Pepsi 1500ml\",\n      \"Pepsi Boissons\",\n      \"Pepsi Pepsi 1\"\n    ],\n    \"leclerc_ai_queries\": [\n      \"Pepsi 1,5L\",\n      \"Pepsi 1500ml\",\n      \"Pepsi Boissons\",\n      \"Pepsi Pepsi 1\"\n    ],\n    \"leclerc_secondary_keywords\": [],\n    \"primary_keywords\": [\n      \"Pepsi 1,5L\",\n      \"Pepsi 1500ml\",\n      \"Pepsi Boissons\",\n      \"Pepsi Pepsi 1\"\n    ]\n  },\n  \"store\": \"monoprix\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CnhM2ZaTMN3xer8oA4gGbGpgcvdKB\", \"object\": \"chat.completion\", \"created\": 1765960762, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"pepsi 1,5l\\\",\\n    \\\"fallback_specific\\\": \\\"pepsi 1500ml\\\",\\n    \\\"fallback_broad\\\": \\\"pepsi boissons\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 712, \"completion_tokens\": 40, \"total_tokens\": 752, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e413f45763\"}"
+}

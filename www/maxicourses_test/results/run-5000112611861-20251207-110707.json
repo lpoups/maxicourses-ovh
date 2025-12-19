@@ -1,0 +1,88 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-12-07T11:06:10.973831+01:00",
+  "finished_at": "2025-12-07T11:07:07.188188+01:00",
+  "duration_seconds": 56.214357,
+  "reference": {
+    "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "description": "Soda COCA-COLA Original - Bouteille 1,75L",
+    "source": "carrefour_city",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": null,
+    "image": "./assets/5000112611861.jpg",
+    "nutriscore_grade": "unknown",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": null,
+    "ecoscore_image": null,
+    "nova_group": null
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611861-20251207-110610"
+  ],
+  "adapters": [
+    {
+      "adapter": "leclerc",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "title": "Soda Coca-Cola Original Bouteille - 1,75L",
+        "price": "2,39",
+        "unit_price": "1.37 € / L",
+        "quantity": "1,75  L",
+        "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
+        "matched_ean": "5000112611861",
+        "store": "E.Leclerc Drive · Bruges",
+        "note": "2025-12-07T10:06:52Z · E.Leclerc Drive · Bruges",
+        "_meta": {
+          "supports_keywords": true
+        },
+        "equivalent": false,
+        "candidates": [
+          {
+            "url": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-214087-Soda-Coca-Cola-Original.aspx",
+            "product": {
+              "title": "Soda Coca-Cola Original Bouteille - 1,75L",
+              "brand": "Cola",
+              "kind": "Soda au Cola Goût Original COCA-COLA",
+              "qty": "1,75 L",
+              "qualifiers": [],
+              "ean": "5000112611861",
+              "image_url": null,
+              "source": "leclerc",
+              "raw_text": "<!DOCTYPE html><html lang=\"fr\" class=\"notouch\"><!--<![endif]--><head>\n    <!-- Datadome script -->\n    <script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-5LY7M0RFYE&amp;cx=c&amp;gtm=4e5c31\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=AW-1067681515&amp;cx=c&amp;gtm=4e5c31\"></script><script",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-12-07T11:06:39.806020+01:00",
+      "finished_at": "2025-12-07T11:06:52.119578+01:00",
+      "duration_seconds": 12.313558,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/../.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_leclerc_drive_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "Cola Soda 1.75 L",
+        "STORE_URL": "https://fd12-courses.leclercdrive.fr/magasin-173301-173301-bruges.aspx",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[LECLERC_DEBUG] FAST_MODE=False | delays => human:1500ms result:4000ms pdp:2000ms type:[100,300] query:'Cola Soda 1.75 L' direct_url:False\n[LECLERC_DEBUG] after home human pause -> 2.28s\n[LECLERC_DEBUG] Starting Robust Search for 'Cola Soda 1.75 L'\n[LECLERC_DEBUG] Scanning 12 cards...\n[LECLERC_DEBUG] Smart Scan Top 5:\n  - [72] Soda Coca-Cola Original\nBouteille - 1,75L ()\n  - [34] Soda Coca-Cola Lemon\nBouteille - 1,25L ()\n  - [8] Soda Jean's Cola allégé\nBouteille - 1,5L ()\n  - [-53] Soda Jean's Cola\n2L ()\n  - [-66] Soda Coca-Cola Vanille\nBouteille - 1,25L ()\n  - [-66] Soda Coca-Cola Cherry\nBouteille - 1,25L ()\n  - [-92] Soda Jean's Cola Zéro\nBouteille - 1,5L ()\n  - [-92] Soda Jean's Cola Cherry\nBouteille - 1,5L ()\n  - [-154] Soda Coca-Cola Sans Sucres\nBouteille - 1,75L ()\n  - [-166] Soda Coca-Cola Zéro Cherry\nBouteille - 1,25L ()",
+      "metadata": {
+        "attempt_query": "Cola Soda 1.75 L",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/debug/run-5000112611861-20251207-110610/01-leclerc"
+      }
+    }
+  ],
+  "finder": {
+    "error": "'FinderPipeline' object has no attribute 'decide'"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "ean": "3116740029809",
+  "image_path": null,
+  "started_at": "2025-12-03T10:54:19.315151+01:00",
+  "finished_at": "2025-12-03T10:54:51.811485+01:00",
+  "duration_seconds": 32.496334,
+  "reference": {
+    "title": "Lutti best fizz tubo 550g",
+    "description": null,
+    "source": "unknown",
+    "brand": "Lutti",
+    "quantity": "0.55 kg",
+    "categories": "snacks, snacks-sucrés, cacao-et-dérivés, confiseries, confiseries-chocolatées, bonbons-de-chocolat, bonbons, bonbons-gélifiés, bonbons-acidulés-gélifiés, en:bonbons-acidulés-gélifiés, en:bonbons-gélifiés, fr:confiseries, en:snacks-sucrés",
+    "image": null,
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "../assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "b",
+    "ecoscore_image": "https://static.openfoodfacts.org/images/attributes/ecoscore-b.svg",
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-3116740029809/debug/run-3116740029809-20251203-105419"
+  ],
+  "adapters": [
+    {
+      "adapter": "auchan",
+      "status": "NO_PRICE",
+      "payload": {
+        "status": "NO_PRICE",
+        "price": null,
+        "unit_price": null,
+        "quantity": null,
+        "title": null,
+        "url": "https://www.auchan.fr/lutti-bestfizz-bonbons-piquants/pr-C1244939",
+        "matched_ean": null,
+        "store": "Auchan Drive Supermarché Talence-Gallieni",
+        "note": "price_missing",
+        "image": null,
+        "_meta": {
+          "supports_ean": true
+        }
+      },
+      "started_at": "2025-12-03T10:54:19.317005+01:00",
+      "finished_at": "2025-12-03T10:54:50.980776+01:00",
+      "duration_seconds": 31.663771,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_auchan_price.py"
+      ],
+      "env": {
+        "EAN": "3116740029809",
+        "QUERY": "3116740029809",
+        "HOME_URL": "https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": "[auchan] goto store page https://www.auchan.fr/magasins/drive/auchan-drive-supermarche-talence-gallieni/s-6117\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] Found visible button: button.journey-button\n[auchan] Clicking 'Choisir ce drive'...\n[auchan] ⚠️ Button still visible, retrying selection...\n[auchan] ⚠️ Button still visible, retrying selection...\n[auchan] ⚠️ Button still visible, retrying selection...\n[auchan] ⚠️ Unable to confirm store selection (button still visible).\n[auchan] localStorage after selection: {\"auc_bls_segments\":\"{\\\"last_modified_ts\\\":1764442507159,\\\"segments\\\":[{\\\"name\\\":\\\"muppet-carolina-pip-alabama\\\"},{\\\"name\\\":\\\"sixteen-march-earth-alanine\\\"}]}\",\"u_sclid\":\"JNVuHdvWrhqwtQGZBv-HUQ7pKp-401lYxNpAYkF_pKSSm6hcKH0XeM5vDOPp5pjV42Ukvw\",\"_uetvid_exp\":\"Thu, 24 Dec 2026 18:55:13 GMT\",\"topicsLastReferenceTime\":\"1764442513393\",\"_gcl_ls\":\"{\\\"schema\\\":\\\"gcl\\\",\\\"version\\\":1,\\\"gcl_ctr\\\":{\\\"value\\\":{\\\"value\\\":13,\\\"timeouts\\\":0,\\\"creationTimeMs\\\":1764442512817},\\\"expires\\\":1772218512817}}\",\"is_enabled\":\"true\",\"_uetsid\":\"ba2ab600cd4e11f0b844f7835d81bbf5\",\"searchRedirectsExpireDate\":\"1765298368935\",\"storeId\":\"6117\",\"storeName\":\"Auchan Drive Supermarché Talence-Gallieni\",\"u_sclid_r\":\"OFVuHdvWrhqwtQGZBv-HUQ7pKp-401lYweeUm8HaQGJBf6SkkpuoXCh9F3jObwzj6eaY1eNlJMs\",\"lastExternalReferrerTime\":\"1764442513349\",\"lark-suggest\":\"[]\",\"journeyStoreId\":\"6117\",\"_uetsid_exp\":\"Sun, 30 Nov 2025 18:55:13 GMT\",\"searchRedirects\":\"[{\\\"name\\\":\\\"Redirection Auchan Telecom\\\",\\\"description\\\":\\\"Les redirections sur Auchan Telecom\\\",\\\"keywords\\\":[\\\"auchan telecom\\\",\\\"Auchan telecom\\\",\\\"auchan télécom\\\",\\\"Auchan télécom\\\",\\\"forfait mobile\\\",\\\"forfait telephone\\\",\\\"forfait telephonique\\\",\\\"forfait mobile auchan\\\",\\\"forfait tel\\\"],\\\"redirectUrl\\\":\\\"https://www.auchantelecom.fr/\\\"},{\\\"name\\\":\\\"Redirection Billeterie\\\",\\\"description\\\":\\\"Les redirections sur billeterie\\\",\\\"keywords\\\":[\\\"Billets\\\",\\\"billets\\\",\\\"Billets Disney\\\",\\\"Billets center parc\\\",\\\"Billets concert\\\",\\\"Billets d entree Disneyland\\\",\\\"Billets de cinemz\\\",\\\"billets de spectacle\\\",\\\"Billets Disneyland\\\",\\\"Billets Disneyland Paris\\\",\\\"billets jouet\\\",\\\"billets spectacle\\\",\\\"Billets spectacle\\\",\\\"billets spectacles\\\",\\\"Disney billets\\\",\\\"billet parc asterix\\\",\\\"Billet parc asterix\\\",\\\"parc asterix\\\",\\\"Parc asterix\\\",\\\"Parc asterix bietri\\\",\\\"PARC ASTERIX JOURNEE\\\",\\\"Billetterie\\\",\\\"billetterie\\\",\\\"Billetteries\\\",\\\"BILLETTERIE\\\",\\\"billetterie disney\\\",\\\"Billetterie Disney\\\",\\\"Billetterie football\\\",\\\"billetterie lens psg\\\",\\\"Billetterie nautiland\\\",\\\"billetteries\\\",\\\"Billetterie disney\\\",\\\"Billetterie Disneyland\\\",\\\"Auchan billetterie\\\",\\\"billetterie cinema\\\",\\\"billetterie et spectacles\\\",\\\"billetterie et spectacle\\\",\\\"billetterie concert\\\",\\\"billetrie\\\",\\\"billeterie auchan\\\",\\\"billetterie auchan\\\",\\\"billetrie auchan\\\",\\\"billet asterix\\\",\\\"billet europa park\\\",\\\"billet de cinéma\\\",\\\"place de concert\\\",\\\"place disney\\\",\\\"place de cinéma\\\",\\\"place de cinema\\\",\\\"place concert\\\",\\\"place cinema\\\",\\\"spectacle\\\",\\\"spectacles\\\",\\\"places spectacle\\\",\\\"place spectacle\\\",\\\"concert\\\",\\\"concerts\\\",\\\"concert jul\\\",\\\"place concert jul\\\",\\\"jul concert\\\",\\\"place de concert jul\\\",\\\"concert\\\",\\\"billet concert jul\\\",\\\"ticket concert\\\",\\\"auchan spectacle\\\",\\\"auchan spectacles\\\",\\\"billet jul\\\"],\\\"redirectUrl\\\":\\\"https://billetterie.auchan.fr/fr\\\"},{\\\"name\\\":\\\"Redirection Voyages Auchan\\\",\\\"description\\\":\\\"Les redirections sur Voyages Auchan\\\",\\\"keywords\\\":[\\\"auchan voyage\\\",\\\"billet d'avion\\\",\\\"circuit voyage\\\"],\\\"redirectUrl\\\":\\\"https://www.voyages-auchan.com/\\\"},{\\\"name\\\":\\\"Redirection Auchan Photo\\\",\\\"description\\\":\\\"Les redirections sur Auchan Photo\\\",\\\"keywords\\\":[\\\"livre photo\\\",\\\"Livre photos\\\",\\\"Livre photo\\\",\\\"livre photos\\\",\\\"developpement livre photo\\\",\\\"livre photo bebe\\\",\\\"livre photo bebe\\\",\\\"Livre photo en tissu\\\",\\\"MON LIVRE PHOTO\\\",\\\"Agrandissements photo\\\",\\\"auchan photo\\\",\\\"AUCHAN PHOTO\\\",\\\"Auchan photos\\\",\\\"tirage photo\\\",\\\"Tirage photo\\\",\\\"tirage photos\\\",\\\"TIRAGE PHOTO\\\",\\\"Tirage photos\\\",\\\"tirages photos\\\",\\\"photo tirage\\\",\\\"photos tirages\\\",\\\"tirage phorto\\\",\\\"TIRAGE POSTAIRE\\\",\\\"tirage rapide\\\",\\\"tirages\\\",\\\"Tirages photo\\\"],\\\"redirectUrl\\\":\\\"https://photo.auchan.fr/\\\"},{\\\"name\\\":\\\"Redirection Carte cadeau Auchan\\\",\\\"description\\\":\\\"Les redirections sur Carte cadeau Auchan\\\",\\\"keywords\\\":[\\\"carte cadeau\\\",\\\"Carte cadeau\\\",\\\"carte cadeaux\\\",\\\"Carte cadeaux\\\",\\\"cartes cadeaux\\\",\\\"cartes cadeau\\\",\\\"carte cadeau auchan\\\",\\\"cartes cadeaux Auchan\\\"],\\\"redirectUrl\\\":\\\"https://carte-cadeau.auchan.fr/\\\"},{\\\"name\\\":\\\"Redirection Auchan Traiteur\\\",\\\"description\\\":\\\"Les redirections sur Auchan Traiteur\\\",\\\"keywords\\\":[\\\"commande traiteur\\\",\\\"menus traiteur\\\",\\\"service traiteur\\\",\\\"menu noel traiteur\\\",\\\"carte traiteur\\\",\\\"devis traiteur\\\",\\\"traiteur menu noel\\\",\\\"commande traiteur auchan\\\",\\\"traiteur pour noel\\\",\\\"traiteur fête\\\",\\\"traiteur fete\\\",\\\"traiteur fetes\\\",\\\"commande traiteur aperitif\\\",\\\"traiteur pour les reveillons\\\",\\\"traiteur pour noël\\\",\\\"menu traiteur noel\\\",\\\"traiteur commande\\\",\\\"repas traiteur reveillon\\\",\\\"menu traiteur saint-sylvestre\\\",\\\"traiteur pour reveillon\\\",\\\"traiteur menu jour de l an\\\",\\\"traiteur mariage\\\",\\\"traiteur pot de depart\\\",\\\"traiteur pour repas des fetes\\\",\\\"repas noel traiteur\\\",\\\"menu de noel traiteur\\\"],\\\"redirectUrl\\\":\\\"https://traiteur.auchan.fr/\\\"}]\",\"lastSearchTable\":\"[\\\"5000112611861\\\"]\",\"mics_sgt\":\"{\\\"last_modified_ts\\\":1764442507159,\\\"segments\\\":[{\\\"name\\\":\\\"muppet-carolina-pip-alabama\\\"}]}\",\"_uetvid\":\"8edb30e09e1111f085263b1c9ff63dc0\",\"lastExternalReferrer\":\"empty\",\"storeSlug\":\"auchan-drive-supermarche-talence-gallieni\"}\n[auchan] cookies after selection: ['storeId:95524', 'FRONTAL_STORE:1911']\n[auchan] results visible, extracting price from search results\n[auchan] PDP url: https://www.auchan.fr/lutti-bestfizz-bonbons-piquants/pr-C1244939\n[auchan] price candidates: []\n[auchan] price_node=None meta_price=None => value=None\n[auchan] ⚠️ No valid price found (Attempt 1/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?\n[auchan] PDP url: https://www.auchan.fr/lutti-bestfizz-bonbons-piquants/pr-C1244939\n[auchan] price candidates: []\n[auchan] price_node=None meta_price=None => value=None\n[auchan] ⚠️ No valid price found (Attempt 2/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?\n[auchan] PDP url: https://www.auchan.fr/lutti-bestfizz-bonbons-piquants/pr-C1244939\n[auchan] price candidates: []\n[auchan] price_node=None meta_price=None => value=None\n[auchan] ⚠️ No valid price found (Attempt 3/3). Retrying store selection...\n[auchan] Checking for 'Choisir ce drive' button...\n[auchan] No 'Choisir ce drive' button found. Maybe already selected?",
+      "metadata": {
+        "attempt_query": "3116740029809"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Lutti best fizz tubo 550g",
+      "brand": "Lutti",
+      "kind": "",
+      "qty": "0.55 kg",
+      "qualifiers": [],
+      "ean": "3116740029809",
+      "image_url": null,
+      "source": "consolidated",
+      "raw_text": "",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": null,
+    "candidates": [],
+    "decision": null,
+    "audit": []
+  }
+}

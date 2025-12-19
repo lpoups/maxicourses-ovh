@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-12-13T15:16:27.512348+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "L'Or Capsules Ristretto",
+      "l'or capsules ristretto 11",
+      "capsules ristretto l'or",
+      "l'or café capsules"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "l'or capsules ristretto 11",
+      "fallback_specific": "capsules ristretto l'or",
+      "fallback_broad": "l'or café capsules"
+    },
+    "raw": {
+      "golden": "l'or capsules ristretto 11",
+      "fallback_specific": "capsules ristretto l'or",
+      "fallback_broad": "l'or café capsules"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Capsules Ristretto 11\",\n    \"brand\": \"L'Or\",\n    \"quantity\": \"\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"ean\": \"8711000705094\",\n    \"source\": \"unknown\",\n    \"leclerc_query\": \"L'Or Capsules Ristretto 11\",\n    \"leclerc_queries\": [\n      \"L'Or Capsules Ristretto 11\",\n      \"Capsules Ristretto L'Or\",\n      \"L'Or Café Capsules\",\n      \"L'Or Capsules Ristretto\"\n    ],\n    \"primary_keywords\": [\n      \"Cafe Capsules Ristretto Intensite\",\n      \"Cafe Capsules Ristretto Intensite L'Or\",\n      \"Ristretto 50 capsules\"\n    ],\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-13T14:16:16Z\",\n    \"brand\": \"L'Or\",\n    \"name\": \"Capsules Ristretto 11\",\n    \"categories\": \"Boissons et préparations de boissons,Boissons,Boissons chaudes,Cafés,Dosettes,Cafés en dosettes,Cafés en dosettes compatible Nespresso\",\n    \"nutriscore_grade\": \"unknown\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"f\",\n    \"removed\": false,\n    \"leclerc_url\": \"https://fd12-courses.leclercdrive.fr/magasin-173301-173301-Bruges/fiche-produits-208417-Cafe-ristretto-LOr-Espresso.aspx\",\n    \"seed_query\": \"L'Or Capsules Ristretto\",\n    \"leclerc_ai_queries\": [\n      \"L'Or Capsules Ristretto 11\",\n      \"Capsules Ristretto L'Or\",\n      \"L'Or Café Capsules\",\n      \"L'Or Capsules Ristretto\"\n    ],\n    \"leclerc_secondary_keywords\": []\n  },\n  \"store\": \"monoprix\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-CmKi20cXk8DG7XolgYvoKsjVKAlCe\", \"object\": \"chat.completion\", \"created\": 1765635386, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"l'or capsules ristretto 11\\\",\\n    \\\"fallback_specific\\\": \\\"capsules ristretto l'or\\\",\\n    \\\"fallback_broad\\\": \\\"l'or café capsules\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 729, \"completion_tokens\": 41, \"total_tokens\": 770, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e819e3438b\"}"
+}

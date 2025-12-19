@@ -15,7 +15,9 @@ from rich import print
 import sys as _sys, os as _os
 _sys.path.append(_os.path.dirname(__file__))
 from scraper.engine import make_context, state_path_for
-import json # Moved here as per user's implied request, and also needed for the new function
+import json
+
+print(f"[DEBUG] Loaded local fetch_carrefour_price.py from {_os.path.abspath(__file__)}", file=_sys.stderr)
 
 try:
     from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout
@@ -522,6 +524,26 @@ def try_parse_json_state(html_content: str, target_ean: str):
         title = resolve(product_obj.get('title'))
         qty_label = resolve(product_obj.get('format')) # e.g. "6x33cL"
         
+        # Extract image URL
+        image_url = None
+        for img_key in ('image', 'images', 'thumbnailUrl', 'thumbnail', 'mainImage'):
+            raw_img = product_obj.get(img_key)
+            if raw_img:
+                resolved_img = resolve(raw_img)
+                if isinstance(resolved_img, str) and resolved_img.startswith('http'):
+                    image_url = resolved_img
+                    break
+                elif isinstance(resolved_img, list) and len(resolved_img) > 0:
+                    first_img = resolve(resolved_img[0])
+                    if isinstance(first_img, str) and first_img.startswith('http'):
+                        image_url = first_img
+                        break
+                    elif isinstance(first_img, dict):
+                        img_candidate = first_img.get('url') or first_img.get('contentUrl')
+                        if img_candidate:
+                            image_url = resolve(img_candidate)
+                            break
+        
         # Price is usually nested in offers -> ean -> ... -> attributes -> price
         price_val = None
         unit_price_label = None
@@ -572,7 +594,8 @@ def try_parse_json_state(html_content: str, target_ean: str):
             "title": title,
             "quantity": qty_label,
             "price": price_val,
-            "unit_price": unit_price_label
+            "unit_price": unit_price_label,
+            "image": image_url
         }
 
     except Exception as e:
@@ -1071,9 +1094,11 @@ async def run() -> Result:
                 pass
         return False
 
-    search_terms = [EAN]
-    if QUERY and QUERY != EAN:
-        search_terms.append(QUERY)
+    # MANDATE: Strict EAN Search. Do not fallback to keywords if EAN is known.
+    if EAN:
+        search_terms = [EAN]
+    else:
+        search_terms = ([QUERY] if QUERY else [])
 
     pdp_url = None
     title_text = None
@@ -1104,8 +1129,26 @@ async def run() -> Result:
         elif SKIP_SEARCH:
             return Result(status="NO_PRICE", url=DIRECT_URL, store=store_name)
 
+    skip_search_ui = False
+    current_url = page.url or ""
+    # Relaxed condition: If EAN is in URL (Search or PDP), we optimize.
+    if EAN in current_url:
+        log_msg = f"[INFO] Context optimization: Page (PDP/Search) matches {EAN}. Reloading to refresh store..."
+        print(log_msg, file=sys.stderr)
+        try:
+             await page.reload(wait_until="domcontentloaded")
+             await human_pause(page, 1500, 500)
+             skip_search_ui = True
+        except Exception:
+             pass
+
     for term in search_terms:
-        performed = await perform_search(page, term)
+        performed = False
+        if skip_search_ui and term == EAN:
+             performed = True
+        else:
+             performed = await perform_search(page, term)
+
         store_name = await ensure_expected_store(page, STORE_QUERY, attempts=3)
         if not performed:
             # fallback: direct navigation to search results
@@ -1116,7 +1159,7 @@ async def run() -> Result:
                 continue
             title_check = await page.title()
             if "Just a moment" in title_check or "Un instant" in title_check or (resp and resp.status == 403):
-                print(f"[WARN] Cloudflare challenge detected (Title: {title_check}). Attempting to solve...")
+                print(f"[WARN] Cloudflare challenge detected (Title: {title_check}). Attempting to solve...", file=sys.stderr)
                 await snapshot(page, "cf-challenge-start")
                 
                 # Attempt to solve challenge by waiting and moving mouse
@@ -1129,11 +1172,11 @@ async def run() -> Result:
                         # Check if passed
                         new_title = await page.title()
                         if "Just a moment" not in new_title and "Un instant" not in new_title:
-                            print(f"[INFO] Challenge passed! New title: {new_title}")
+                            print(f"[INFO] Challenge passed! New title: {new_title}", file=sys.stderr)
                             await snapshot(page, "cf-challenge-passed")
                             break
                     else:
-                        print("[ERROR] Challenge failed after 15s")
+                        print("[ERROR] Challenge failed after 15s", file=sys.stderr)
                         await snapshot(page, "cf-challenge-failed")
                         await dump_html(page, "cf-challenge-failed")
                         if not USING_CDP:
@@ -1141,7 +1184,7 @@ async def run() -> Result:
                         await p.stop()
                         return Result(status="CF_BLOCK", url=search_url)
                 except Exception as e:
-                    print(f"[ERROR] Error solving challenge: {e}")
+                    print(f"[ERROR] Error solving challenge: {e}", file=sys.stderr)
                     return Result(status="CF_BLOCK", url=search_url)
         await human_pause(page, 1200, 800)
         safe_term = re.sub(r"[^A-Za-z0-9]", "_", term)[:20]
@@ -1153,7 +1196,7 @@ async def run() -> Result:
              page_content = await page.content()
              json_data = try_parse_json_state(page_content, EAN)
              if json_data and json_data.get('price'):
-                 print(f"[INFO] Successfully extracted data from JSON State: {json_data}")
+                 print(f"[INFO] Successfully extracted data from JSON State: {json_data}", file=sys.stderr)
                  
                  price_text = str(json_data.get('price')).replace('.', ',')
                  
@@ -1171,6 +1214,63 @@ async def run() -> Result:
                      
                  matched_ean = EAN
                  pdp_url = page.url # We are on search page, but effectively we found the product
+                 
+                 # Utiliser l'image du JSON State en priorité
+                 json_img = json_data.get('image')
+                 if json_img and isinstance(json_img, str) and json_img.startswith('http'):
+                     image_url = json_img
+                 else:
+                     # FALLBACK: Naviguer vers la PDP pour récupérer l'image
+                     print(f"[INFO] JSON State has no image, navigating to PDP...", file=sys.stderr)
+                     try:
+                         # Trouver et cliquer sur le premier produit
+                         product_link = page.locator("a[href^='/p/']").first
+                         if await product_link.count() > 0:
+                             await product_link.click()
+                             await page.wait_for_load_state("domcontentloaded")
+                             await human_pause(page, 1000, 500)
+                             pdp_url = page.url
+                             print(f"[INFO] Now on PDP: {pdp_url}", file=sys.stderr)
+                             
+                             # Extraire l'image de la PDP
+                             # 1. Essayer og:image
+                             try:
+                                 og_image = await page.locator("meta[property='og:image']").first.get_attribute('content')
+                                 if og_image and 'generic' not in og_image.lower() and og_image.startswith('http'):
+                                     image_url = clean_spaces(og_image)
+                                     print(f"[INFO] Got image from PDP og:image: {image_url[:60]}...", file=sys.stderr)
+                             except Exception:
+                                 pass
+                             
+                             # 2. Essayer ld+json si og:image a échoué
+                             if not image_url:
+                                 try:
+                                     html = await page.content()
+                                     ld_scripts = page.locator("script[type='application/ld+json']")
+                                     for i in range(await ld_scripts.count()):
+                                         raw_ld = await ld_scripts.nth(i).text_content()
+                                         if not raw_ld:
+                                             continue
+                                         try:
+                                             import json
+                                             data_ld = json.loads(raw_ld)
+                                             items_ld = data_ld if isinstance(data_ld, list) else [data_ld]
+                                             for item_ld in items_ld:
+                                                 if isinstance(item_ld, dict) and item_ld.get('@type') == 'Product':
+                                                     img_data = item_ld.get('image')
+                                                     img_candidate = extract_image_url(img_data)
+                                                     if img_candidate:
+                                                         image_url = img_candidate
+                                                         print(f"[INFO] Got image from PDP ld+json: {image_url[:60]}...", file=sys.stderr)
+                                                         break
+                                         except Exception:
+                                             continue
+                                         if image_url:
+                                             break
+                                 except Exception:
+                                     pass
+                     except Exception as e:
+                         print(f"[WARN] Failed to navigate to PDP for image: {e}", file=sys.stderr)
                  
                  # IMPORTANT: If we found data, we can return immediately or break loop
                  # Returning Result immediately is cleaner
@@ -1194,8 +1294,32 @@ async def run() -> Result:
                     nutriscore_image=nutriscore_image,
                 )
         except Exception as e:
-             print(f"[WARN] Error in JSON State extraction: {e}")
+             print(f"[WARN] Error in JSON State extraction: {e}", file=sys.stderr)
 
+        # Optimization Fallback: If we skipped search, we might be on PDP. 
+        # If JSON failed, try DOM extraction immediately.
+        if skip_search_ui:
+             print("[INFO] Optimization active: Attempting direct DOM extraction.", file=sys.stderr)
+             dom_success = await capture_current_product(allow_back=False)
+             if dom_success:
+                 # Helper to return formatted result from captured variables
+                 # Refactor: We should ideally unify return logic, but for now reuse the variables set by capture_current_product
+                 if price_text:
+                     return Result(
+                        status="OK",
+                        price=price_text,
+                        store=store_name,
+                        url=pdp_url,
+                        unit_price=unit_text,
+                        quantity=quantity_text,
+                        title=title_text,
+                        matched_ean=matched_ean,
+                        note="optimized_dom_extraction",
+                        image=image_url,
+                        nutriscore_grade=nutriscore_grade,
+                        nutriscore_image=nutriscore_image,
+                    )
+        
         cards = page.locator("a[href^='/p/']")
         count = await cards.count()
         if count == 0:

@@ -7,12 +7,13 @@ import json
 import os
 import re
 import sys
+import random
 import typing
 from dataclasses import dataclass
 from pathlib import Path
 from urllib.parse import quote, unquote
 
-from rich import print
+# rich removed - not needed on OVH
 import sys as _sys
 import os as _os
 
@@ -20,7 +21,7 @@ _sys.path.append(_os.path.dirname(__file__))
 from scraper.engine import make_context, state_path_for
 
 from collection_mandate import get_method
-from seed_catalog import all_seeds  # noqa: E402
+from descriptor_store import all_descriptors as all_seeds  # noqa: E402  # MongoDB
 from telemetry import (
     StageLiteral,
     log_candidate_scored,
@@ -68,6 +69,18 @@ INTERMARCHE_MAX_RESULTS = 10
 INTERMARCHE_EAN_MISMATCH_ABORT = 8
 
 MANUAL_DESCRIPTOR = all_seeds()
+
+# Merge descriptor passed from run_pipeline.py via DESCRIPTOR_JSON env var
+_descriptor_json_raw = os.environ.get("DESCRIPTOR_JSON")
+if _descriptor_json_raw:
+    print(f"[DEBUG] Raw DESCRIPTOR_JSON received (len={len(_descriptor_json_raw)})", file=sys.stderr)
+if _descriptor_json_raw and EAN:
+    try:
+        _passed_descriptor = json.loads(_descriptor_json_raw)
+        if isinstance(_passed_descriptor, dict):
+            MANUAL_DESCRIPTOR[EAN] = {**MANUAL_DESCRIPTOR.get(EAN, {}), **_passed_descriptor}
+    except json.JSONDecodeError:
+        pass
 
 def _parse_finder_keywords() -> list[str]:
     raw = os.environ.get("FINDER_KEYWORDS")
@@ -593,6 +606,11 @@ def build_query_plan() -> list[tuple[StageLiteral, str]]:
     if not EAN:
         return []
     descriptor = MANUAL_DESCRIPTOR.get(EAN)
+    print(f"[DEBUG] Intermarche Descriptor keys: {list(descriptor.keys()) if isinstance(descriptor, dict) else 'None'}", file=sys.stderr)
+    if isinstance(descriptor, dict):
+        print(f"[DEBUG] Intermarche query keys: {descriptor.get('queries')}", file=sys.stderr)
+        print(f"[DEBUG] Leclerc fallback queries: {descriptor.get('leclerc_queries')}", file=sys.stderr)
+
     queries: list[str] = []
     seen: set[str] = set()
 
@@ -617,6 +635,16 @@ def build_query_plan() -> list[tuple[StageLiteral, str]]:
             if isinstance(store_queries, (list, tuple)):
                 for candidate in store_queries:
                     add(candidate)
+        
+        # Fallback: Use leclerc_query/leclerc_queries if no intermarche queries found
+        if not queries:
+            leclerc_queries = descriptor.get("leclerc_queries")
+            if isinstance(leclerc_queries, list):
+                for candidate in leclerc_queries:
+                    add(candidate)
+            leclerc_query = descriptor.get("leclerc_query")
+            if leclerc_query:
+                add(leclerc_query)
 
     if not queries:
         descriptor_seed = _descriptor_seed(EAN)
@@ -689,6 +717,24 @@ async def click_first(page, selectors: typing.Sequence[str]) -> bool:
     return False
 
 
+async def human_type(page, selector: str, text: str, min_delay: int = 50, max_delay: int = 200) -> None:
+    """Type text into a selector with random delays between characters to mimic human behavior."""
+    try:
+        element = page.locator(selector).first
+        # Human-like clear: Triple click to select all -> Backspace
+        await element.click(click_count=3)
+        await page.wait_for_timeout(random.randint(100, 300))
+        await element.press("Backspace")
+        await page.wait_for_timeout(random.randint(200, 500))
+        
+        for char in text:
+            await element.press_sequentially(char, delay=random.randint(min_delay, max_delay))
+            # Occasional longer pause
+            if char == " " and random.random() < 0.3:
+                 await page.wait_for_timeout(random.randint(300, 600))
+    except Exception:
+        pass
+
 async def perform_site_search(page, term: str) -> bool:
     """Try to perform a search via the site search box instead of direct navigation."""
     search_selectors = [
@@ -701,10 +747,11 @@ async def perform_site_search(page, term: str) -> bool:
         try:
             field = page.locator(sel).first
             if await field.is_visible(timeout=2000):
-                await field.fill(term)
+                await human_type(page, sel, term)
+                await page.wait_for_timeout(random.randint(200, 500))
                 await field.press("Enter")
                 await page.wait_for_load_state("domcontentloaded")
-                await page.wait_for_timeout(1200)
+                await page.wait_for_timeout(random.randint(1500, 3000))
                 return True
         except Exception:
             continue
@@ -787,18 +834,15 @@ async def ensure_home(page) -> bool:
 
 
 async def perform_search(page, term: str) -> bool:
-    """Submit a search query via the header search box."""
-    try:
-        encoded = quote(term, safe="")
-        search_url = f"https://www.intermarche.com/recherche/{encoded}"
-        await page.goto(search_url, wait_until="networkidle")
-        try:
-            await page.wait_for_selector("a[href*='/produit/']", timeout=10000)
-        except Exception:
-            await page.wait_for_timeout(1200)
+    """Submit a search query favoring human-like typing, fallback to URL manipulation."""
+    # 1. Try human typing in the search bar
+    if await perform_site_search(page, term):
         return True
-    except Exception:
-        return False
+        
+    # STRICT MODE: No URL fallback to avoid Anti-Bot detection
+    if DEBUG_INTERMARCHE:
+        sys.stderr.write(f"[intermarche] Search bar not found or failed for '{term}'. Aborting to avoid ban.\n")
+    return False
 
 
 async def collect_product_links(page) -> list[dict]:
@@ -980,8 +1024,13 @@ async def run() -> Result:
                 meta["abort_reason"] = abort_reason
             meta["ean_mismatch_hits"] = ean_mismatch_hits
         res._meta = meta
+        res._meta = meta
         if finder_candidates:
             res.candidates = finder_candidates
+            # [Brain] Fail Fast: If we had candidates but none matched, permit retry
+            if res.status == "NO_RESULTS":
+                res.status = "NO_MATCH"
+                res.note = f"Found {len(finder_candidates)} candidates, none matched EAN {EAN}"
         return res
 
     def register_ean_mismatch() -> bool:
@@ -1030,18 +1079,25 @@ async def run() -> Result:
                 )
                 continue
 
-            await page.goto(home_url, wait_until="domcontentloaded")
-            await page.wait_for_timeout(1200)
+            # Anti-Ban Protection: Don't reload Home if already there
+            if not page.url or "intermarche.com" not in page.url or ("recherche" not in page.url and "produit" not in page.url):
+                 await page.goto(home_url, wait_until="domcontentloaded")
+            
+            await page.wait_for_timeout(random.randint(500, 1000))
             await accept_cookies(page)
             await ensure_store_selected(page)
-            await accept_cookies(page)
+
             performed = await perform_search(page, term)
             if not performed:
                 if DEBUG_INTERMARCHE:
                     sys.stderr.write(
-                        f"[intermarche] search field not available for term '{term}'\n"
+                        f"[intermarche] Search bar failed for '{term}'. ABORTING pipeline to save IP.\n"
                     )
-                continue
+                # CRITICAL: If we can't search for term 1, we can't search for term 2.
+                # Stop immediately to avoid "refresh loop" ban.
+                break 
+                # continue <--- WAS CAUSING LOOP REFRESH
+
             await debug_dump(page, f"search-{term}")
             await debug_shot(page, f"search-{term}")
             await page.wait_for_timeout(1200)

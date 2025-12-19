@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-12-11T18:19:13.999242+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Danone Skyr 140g",
+      "Skyr Danone 140g",
+      "Danone Skyr"
+    ],
+    "secondary_keywords": [],
+    "category": "generic",
+    "structured": {
+      "golden": "Danone Skyr 140g",
+      "fallback_specific": "Skyr Danone 140g",
+      "fallback_broad": "Danone Skyr"
+    },
+    "raw": {
+      "golden": "Danone Skyr 140g",
+      "fallback_specific": "Skyr Danone 140g",
+      "fallback_broad": "Danone Skyr"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"name\": \"Skyr\",\n    \"brand\": \"Danone\",\n    \"quantity\": \"140 g\",\n    \"description\": \"\"\n  },\n  \"descriptor\": {\n    \"ean\": \"3033490004743\",\n    \"_id\": \"3033490004743\",\n    \"created_at\": \"2025-12-11T17:10:13.692000\",\n    \"source\": \"unknown\",\n    \"updated_at\": \"2025-12-11T17:10:14.406000\",\n    \"nutriscore_grade\": \"a\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-11T17:17:43Z\",\n    \"removed\": false,\n    \"brand\": \"Danone\",\n    \"name\": \"Skyr\",\n    \"quantity\": \"140 g\",\n    \"categories\": \"Produits laitiers, Produits fermentés, Produits laitiers fermentés, Fromages, Desserts, Desserts lactés, Desserts lactés fermentés, Fromages blancs - petit suisses et skyr, Yaourts, Desserts lactés fermentés nature, Skyrs, Skyrs nature\",\n    \"ecoscore_grade\": \"a\",\n    \"ecoscore_image\": \"https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg\",\n    \"nova_group\": \"3\",\n    \"seed_query\": \"Danone Skyr 140 g\",\n    \"leclerc_query\": \"Danone Skyr 140g\",\n    \"leclerc_queries\": [\n      \"Danone Skyr 140g\",\n      \"Skyr Danone 140g\",\n      \"Danone Skyr\"\n    ],\n    \"leclerc_ai_queries\": [\n      \"Danone Skyr 140g\",\n      \"Skyr Danone 140g\",\n      \"Danone Skyr\"\n    ],\n    \"leclerc_secondary_keywords\": [],\n    \"primary_keywords\": [\n      \"Danone Skyr 140g\",\n      \"Skyr Danone 140g\",\n      \"Danone Skyr\"\n    ],\n    \"monoprix_ai_queries\": [\n      \"danone skyr 140g\",\n      \"skyr danone 140g\",\n      \"danone skyr\"\n    ],\n    \"monoprix_queries\": [\n      \"danone skyr 140g\",\n      \"skyr danone 140g\",\n      \"danone skyr\"\n    ],\n    \"queries\": {\n      \"monoprix\": [\n        \"danone skyr 140g\",\n        \"skyr danone 140g\",\n        \"danone skyr\"\n      ]\n    },\n    \"monoprix_secondary_keywords\": []\n  },\n  \"store\": \"intermarche\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-ClebpfyVM26bWIaUAM36Vi1qOCMTV\", \"object\": \"chat.completion\", \"created\": 1765473553, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Danone Skyr 140g\\\",\\n    \\\"fallback_specific\\\": \\\"Skyr Danone 140g\\\",\\n    \\\"fallback_broad\\\": \\\"Danone Skyr\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 899, \"completion_tokens\": 42, \"total_tokens\": 941, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_83554c687e\"}"
+}

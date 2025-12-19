@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-12-09T12:00:05.317223+01:00",
+  "status": "ok",
+  "data": {
+    "queries": [
+      "Wrigley's Wrigley's 17,9G Wrig",
+      "Wrigley's FREEDENT Refreshers",
+      "Wrigley's FREEDENT Menthe Vert",
+      "Wrigley's Chewing Gum"
+    ],
+    "secondary_keywords": [
+      "wrigley",
+      "s",
+      "chewing",
+      "gum",
+      "menthe",
+      "verte",
+      "sans",
+      "sucres",
+      "freedent",
+      "refreshers",
+      "17,9g",
+      "17,9",
+      "17.9"
+    ],
+    "category": "generic",
+    "structured": {
+      "golden": "Wrigley's FREEDENT Refreshers",
+      "fallback_specific": "FREEDENT Menthe Verte",
+      "fallback_broad": "Wrigley's Chewing Gum"
+    },
+    "raw": {
+      "golden": "Wrigley's FREEDENT Refreshers",
+      "fallback_specific": "FREEDENT Menthe Verte",
+      "fallback_broad": "Wrigley's Chewing Gum"
+    }
+  },
+  "error": null,
+  "raw_prompt": "{\n  \"profile\": {\n    \"ean\": \"4009900540865\",\n    \"brand\": \"Wrigley's\",\n    \"name\": \"Wrigley's Chewing Gum Refreshers\",\n    \"quantity\": \"17,9 g\",\n    \"nutriscore_grade\": \"c\",\n    \"nutriscore_image\": \"https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png\",\n    \"description\": \"Chewing-Gum Menthe Verte Sans Sucres FREEDENT REFRESHERS\",\n    \"image\": \"https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw5cbe6f44/4009900540865_H1N1_6739454_S10.png?sw=388&sh=388&sm=fit\"\n  },\n  \"descriptor\": {\n    \"ean\": \"4009900540865\",\n    \"brand\": \"Wrigley's\",\n    \"name\": \"Wrigley's Chewing Gum Refreshers\",\n    \"quantity\": \"17,9 g\",\n    \"source\": \"carrefour_market\",\n    \"note\": \"Descriptor importé depuis OpenFoodFacts le 2025-12-09T10:57:57Z\",\n    \"removed\": false,\n    \"nutriscore_grade\": \"c\",\n    \"nutriscore_image\": \"../assets/nutriscore/nutriscore-unknown.svg\",\n    \"ecoscore_grade\": \"unknown\",\n    \"seed_query\": \"Wrigley's Chewing Gum Refreshers Menthe Verte Sans Sucres\",\n    \"description\": \"Chewing-Gum Menthe  Verte Sans Sucres FREEDENT REFRESHERS\",\n    \"leclerc_query\": \"Wrigley's FREEDENT Refreshers\",\n    \"leclerc_queries\": [\n      \"Wrigley's FREEDENT Refreshers\",\n      \"FREEDENT Menthe Verte\",\n      \"Wrigley's Chewing Gum\",\n      \"Wrigley's Wrigley's 17,9G Wrig\",\n      \"Wrigley's FREEDENT Menthe Vert\"\n    ],\n    \"seed_primary_name\": \"Chewing-Gum Menthe  Verte Sans Sucres FREEDENT REFRESHERS\",\n    \"seed_primary_quantity\": \"18g\",\n    \"image\": \"https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digi talu-master-catalog/default/dw5cbe6f44/4009900540865_H1N1_6739454_S10.png?sw=388 &sh=388&sm=fit\",\n    \"ai_profile\": {\n      \"ean\": \"4009900540865\",\n      \"brand\": \"Wrigley's\",\n      \"name\": \"Wrigley's Chewing Gum Refreshers\",\n      \"quantity\": \"17,9 g\",\n      \"nutriscore_grade\": \"c\",\n      \"nutriscore_image\": \"https://www.coursesu.com/on/demandware.static/-/Sites-DigitalU-Library/default/dw250d3832/pictos-navigation/nutrition_et_regimes_alimentaires.png\",\n      \"description\": \"Chewing-Gum Menthe Verte Sans Sucres FREEDENT REFRESHERS\",\n      \"image\": \"https://www.coursesu.com/dw/image/v2/BBQX_PRD/on/demandware.static/-/Sites-digitalu-master-catalog/default/dw5cbe6f44/4009900540865_H1N1_6739454_S10.png?sw=388&sh=388&sm=fit\"\n    },\n    \"ai_keywords\": [\n      \"Wrigley's Chewing Gum 17,9g\",\n      \"FREEDENT Refreshers 17,9g\",\n      \"Chewing-Gum Menthe Verte\",\n      \"Sans Sucres FREEDENT\",\n      \"Wrigley's Menthe Verte\",\n      \"Chewing Gum Sans Sucre\",\n      \"FREEDENT 8 dragées\",\n      \"Wrigley's Refreshers\"\n    ],\n    \"primary_keywords\": [\n      \"Wrigley's Wrigley's 17,9G Wrig\",\n      \"Wrigley's Chewing Gum 17,9g\",\n      \"Wrigley's FREEDENT Refreshers\",\n      \"Wrigley's Chewing-Gum Menthe V\",\n      \"Wrigley's Sans Sucres FREEDENT\"\n    ],\n    \"secondary_keywords\": [\n      \"wrigley\",\n      \"s\",\n      \"chewing\",\n      \"gum\",\n      \"menthe\",\n      \"verte\",\n      \"sans\",\n      \"sucres\",\n      \"freedent\",\n      \"refreshers\",\n      \"17,9g\",\n      \"17,9\",\n      \"17.9\"\n    ],\n    \"ai_category\": \"generic\",\n    \"ai_profile_generated_at_eur\": \"2025-12-09T12:00:02.138345+01:00\",\n    \"leclerc_ai_queries\": [\n      \"Wrigley's FREEDENT Refreshers\",\n      \"FREEDENT Menthe Verte\",\n      \"Wrigley's Chewing Gum\",\n      \"Wrigley's Wrigley's 17,9G Wrig\",\n      \"Wrigley's FREEDENT Menthe Vert\"\n    ],\n    \"leclerc_secondary_keywords\": [\n      \"wrigley\",\n      \"s\",\n      \"chewing\",\n      \"gum\",\n      \"menthe\",\n      \"verte\",\n      \"sans\",\n      \"sucres\",\n      \"freedent\",\n      \"refreshers\",\n      \"17,9g\",\n      \"17,9\",\n      \"17.9\"\n    ]\n  },\n  \"store\": \"monoprix\",\n  \"constraints\": {\n    \"max_queries\": 5,\n    \"max_length\": 30\n  }\n}",
+  "raw_response": "{\"id\": \"chatcmpl-Ckpjn0443SI4qCe6KBm8a4LH4nO4J\", \"object\": \"chat.completion\", \"created\": 1765278003, \"model\": \"gpt-4o-2024-08-06\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\n    \\\"golden\\\": \\\"Wrigley's FREEDENT Refreshers\\\",\\n    \\\"fallback_specific\\\": \\\"FREEDENT Menthe Verte\\\",\\n    \\\"fallback_broad\\\": \\\"Wrigley's Chewing Gum\\\"\\n}\", \"refusal\": null, \"annotations\": []}, \"logprobs\": null, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 1448, \"completion_tokens\": 45, \"total_tokens\": 1493, \"prompt_tokens_details\": {\"cached_tokens\": 0, \"audio_tokens\": 0}, \"completion_tokens_details\": {\"reasoning_tokens\": 0, \"audio_tokens\": 0, \"accepted_prediction_tokens\": 0, \"rejected_prediction_tokens\": 0}}, \"service_tier\": \"default\", \"system_fingerprint\": \"fp_e819e3438b\"}"
+}

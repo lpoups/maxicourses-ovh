@@ -1,0 +1,149 @@
+{
+  "ean": "5000112611861",
+  "image_path": null,
+  "started_at": "2025-12-19T13:41:03.733567+01:00",
+  "finished_at": "2025-12-19T13:41:06.451257+01:00",
+  "duration_seconds": 2.71769,
+  "reference": {
+    "title": "PET 1.75L COCA",
+    "description": null,
+    "source": "carrefour_market",
+    "brand": "Cola",
+    "quantity": "1,75  L",
+    "categories": "Beverages,Carbonated drinks,Sodas,Colas",
+    "image": "/assets/5000112611861.jpg",
+    "nutriscore_grade": "e",
+    "nutriscore_score": null,
+    "nutriscore_image": "/assets/nutriscore/nutriscore-unknown.svg",
+    "ecoscore_grade": "not-applicable",
+    "ecoscore_image": null,
+    "nova_group": "4"
+  },
+  "notes": [
+    "Human debug captures dans /home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251219-134103"
+  ],
+  "adapters": [
+    {
+      "adapter": "casino",
+      "status": "OK",
+      "payload": {
+        "status": "OK",
+        "price": "2,89",
+        "unit_price": "1,65 €/LITRE",
+        "quantity": "1,75L",
+        "title": "Coca-Cola Original 1,75L",
+        "url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216",
+        "note": "Casino Shop · Bègles Pruniers",
+        "store": "Casino Shop · Bègles Pruniers",
+        "matched_ean": "5000112611861",
+        "product": {
+          "title": "Coca-Cola Original 1,75L",
+          "brand": "Coca-Cola",
+          "qty": "1,75L",
+          "ean": "5000112611861",
+          "image_url": null,
+          "source": "casino"
+        },
+        "_meta": {
+          "store_code": "TZ193",
+          "store_url": "https://www.mescoursesdeproximite.com/courses-en-ligne/casino-shop-33130/TZ193",
+          "query": "Cola 1.75 L",
+          "timestamp": "2025-12-19T12:41:04.560186+00:00",
+          "direct_url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216",
+          "supports_keywords": true
+        },
+        "candidates": [
+          {
+            "url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216",
+            "product": {
+              "title": "Coca-Cola Original 1,75L",
+              "brand": "Coca-Cola",
+              "kind": "",
+              "qty": "1,75L",
+              "price": null,
+              "quantity": null,
+              "qualifiers": [],
+              "ean": "5000112611861",
+              "image_url": null,
+              "source": "casino",
+              "raw_text": "",
+              "seed_query": "",
+              "leclerc_queries": []
+            }
+          }
+        ]
+      },
+      "started_at": "2025-12-19T13:41:04.373485+01:00",
+      "finished_at": "2025-12-19T13:41:05.251650+01:00",
+      "duration_seconds": 0.878165,
+      "script_path": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py",
+      "command": [
+        "/home/ubuntu/maxicourses-ovh/www/.venv/bin/python3",
+        "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/fetch_casino_price.py"
+      ],
+      "env": {
+        "EAN": "5000112611861",
+        "QUERY": "Cola 1.75 L",
+        "HEADLESS": "0"
+      },
+      "exit_code": 0,
+      "error": null,
+      "stderr": null,
+      "metadata": {
+        "attempt_query": "Cola 1.75 L",
+        "debug_dir": "/home/ubuntu/maxicourses-ovh/www/maxicourses_test/results/test-5000112611861/debug/run-5000112611861-20251219-134103/01-casino"
+      }
+    }
+  ],
+  "finder": {
+    "consolidated": {
+      "title": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "brand": "Cola",
+      "kind": "",
+      "qty": "1,75 L",
+      "price": null,
+      "quantity": null,
+      "qualifiers": [],
+      "ean": "5000112611861",
+      "image_url": "/assets/5000112611861.jpg",
+      "source": "consolidated",
+      "raw_text": "Soda COCA-COLA Original - Bouteille 1,75L",
+      "seed_query": "",
+      "leclerc_queries": []
+    },
+    "keywords": [
+      "Coca-Cola Original 1,75L",
+      "Coca-Cola 1,75L",
+      "Coca-Cola Soda",
+      "Soda COCA-COLA Original -",
+      "Soda COCA-COLA Original",
+      "Cola bouteille 1.75 L",
+      "Cola bouteille 1,75 L",
+      "Cola bouteille 175 CL"
+    ],
+    "candidates": [
+      {
+        "adapter": "casino",
+        "url": "https://www.mescoursesdeproximite.com/produit/coca-cola-original-1-75l-la-bouteille-d-1-75l-casino-shop-33130/TZ193/357216",
+        "score": 0.0,
+        "product": {
+          "title": "Coca-Cola Original 1,75L",
+          "brand": "Coca-Cola",
+          "kind": "",
+          "qty": "1,75L",
+          "price": null,
+          "quantity": null,
+          "qualifiers": [],
+          "ean": "5000112611861",
+          "image_url": null,
+          "source": "casino",
+          "raw_text": "",
+          "seed_query": "",
+          "leclerc_queries": []
+        }
+      }
+    ],
+    "decision": null,
+    "audit": []
+  }
+}
